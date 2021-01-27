@@ -15,6 +15,7 @@ import insilico.logp_alogp.ismLogPALogP;
 import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IAtomContainer;
 
+
 import static insilico.skin_permeation_potts.weights.Mass.GetMass;
 
 

@@ -13,7 +13,7 @@ import insilico.guppy_knn.descriptors.weights.Electronegativity;
 import insilico.guppy_knn.descriptors.weights.Mass;
 import insilico.guppy_knn.descriptors.weights.Polarizability;
 import insilico.guppy_knn.descriptors.weights.VanDerWaals;
-import insilico.logp_alogp.desciptors.weights.ACF;
+//import insilico.logp_alogp.descriptors.weights.ACF;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.openscience.cdk.graph.PathTools;

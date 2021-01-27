@@ -1,0 +1,22 @@
+<xml>
+   
+    <Version>
+        <Name>LogP model (ALogP)</Name>
+        <Key>LOGP_ALOGP</Key>
+        <Summary>LogP model based on ALogP descriptor.</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_logp_alogp.dat</TS>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

@@ -18,7 +18,6 @@
         <module>VegaModels-CoralChromosomal</module>
         <module>VegaModels-AlgaeCombaseClass</module>
         <module>VegaModels-HenrysLawOpera</module>
-        <module>VegaModels-LogPALogP</module>
         <module>VegaModels-LogPMLogP</module>
         <module>VegaModels-AlgaeCombaseEC50</module>
         <module>VegaModels-AlgaeEC50</module>
@@ -88,6 +87,7 @@
         <module>VegaModels-ZebrafishCoral</module>
         <module>VegaModels-SkinCosmetics</module>
         <module>VegaModels-VerhaarToxtree</module>
+        <module>VegaModels-LogPALogP</module>
     </modules>
 
     <name>VegaModels</name>
@@ -136,12 +136,6 @@
             <scope>provided</scope>
         </dependency>
 
-
-<!--        <dependency>-->
-<!--            <groupId>InSilico</groupId>-->
-<!--            <artifactId>Core</artifactId>-->
-<!--            <version>0.6.2</version>-->
-<!--        </dependency>        -->
 
         <dependency>
             <groupId>InSilico</groupId>

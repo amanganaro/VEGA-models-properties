@@ -1,6 +1,9 @@
 package utils;
 
+import insilico.core.exception.GenericFailureException;
 import insilico.core.model.InsilicoModel;
+import insilico.core.model.InsilicoModelOutput;
+import insilico.core.molecule.conversion.SmilesMolecule;
 //import ModelsList;
 
 import java.io.File;
@@ -8,6 +11,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ModelsDeployment {
 
@@ -82,6 +86,38 @@ public class ModelsDeployment {
 //                System.out.println(name);
 //            System.out.println();
 //        }
+    }
+
+    public static void FastTestModel(InsilicoModel model){
+
+        List<String> smilesList = new ArrayList<>();
+        smilesList.add("O=[N+]([O-])c1cc(cc(c1N(CCC)CCC)[N+](=O)[O-])S(=O)(=O)C");
+        smilesList.add("O=S(=O)(N)c1cc2c(cc1C(F)(F)F)NC(NS2(=O)(=O))Cc3ccccc3");
+        smilesList.add("O=[N+]([O-])c1cc(c(O)c(c1)C(C)(C)C)[N+](=O)[O-]");
+        smilesList.add("O=S(=O)(C(C)(C)C)C(C)(C)C");
+        smilesList.add("O=C(OC2CC1N(C)C(CC1)C2(C(=O)OC))c3ccccc3");
+
+        try {
+
+            System.out.println("== " + model.getInfo().getName() + " ==");
+            System.out.println();
+            for(String smiles : smilesList) {
+                System.out.println("== [" + smiles + "] ==");
+                InsilicoModelOutput out = model.Execute(SmilesMolecule.Convert(smiles));
+                System.out.println("---> Model results");
+                for(int i = 0; i < model.GetResultsName().length; i++)
+                    System.out.println(model.GetResultsName()[i] + " | " + out.getResults()[i]);
+                System.out.println("---> Descriptors");
+                for(int i = 0; i < model.getDescriptorsSize(); i++){
+                    System.out.println(model.getDescriptorsNames()[i] + " === " + model.GetDescriptor(i));
+
+                }
+                System.out.println("==============");
+            }
+        } catch (GenericFailureException exception) {
+            System.out.println(exception.getMessage());
+        }
+
     }
 
     private static int[] ProcessModel(InsilicoModel model, String DestDir) {
