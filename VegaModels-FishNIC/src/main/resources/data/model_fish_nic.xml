@@ -1,0 +1,24 @@
+<xml>
+   
+    <Version>
+        <Name>Fish Acute (LC50) Toxicity model (NIC)</Name>
+        <Key>FISH_NIC</Key>
+        <Summary>QSAR quantitative model for fish acute toxicity (by NIC)</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_fish_nic.dat</TS>
+        <HasAlerts>False</HasAlerts>
+        <Units>log(1/(mmol/L))</Units>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

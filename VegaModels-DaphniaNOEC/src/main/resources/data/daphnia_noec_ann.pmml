@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<PMML version="4.3" xmlns="http://www.dmg.org/PMML-4_3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.dmg.org/PMML-4_3 http://www.dmg.org/pmml/v4-3/pmml-4-3.xsd">
+ <Header copyright="Copyright (c) 2018 Alberto" description="Neural Network PMML Model">
+  <Extension name="user" value="Alberto" extender="Rattle/PMML"/>
+  <Application name="Rattle/PMML" version="1.4"/>
+  <Timestamp>2018-04-23 17:02:24</Timestamp>
+ </Header>
+ <DataDictionary numberOfFields="11">
+  <DataField name="log.mmol.l." optype="continuous" dataType="double"/>
+  <DataField name="OPerc" optype="continuous" dataType="double"/>
+  <DataField name="MLogP" optype="continuous" dataType="double"/>
+  <DataField name="nArNH2" optype="continuous" dataType="double"/>
+  <DataField name="nS" optype="continuous" dataType="double"/>
+  <DataField name="MATS5s" optype="continuous" dataType="double"/>
+  <DataField name="MATS6m" optype="continuous" dataType="double"/>
+  <DataField name="EEig7dm" optype="continuous" dataType="double"/>
+  <DataField name="CATS2D_7_DL" optype="continuous" dataType="double"/>
+  <DataField name="C.026" optype="continuous" dataType="double"/>
+  <DataField name="JGI3" optype="continuous" dataType="double"/>
+ </DataDictionary>
+ <NeuralNetwork modelName="NeuralNet_model" functionName="regression" numberOfLayers="2" activationFunction="logistic">
+  <MiningSchema>
+   <MiningField name="log.mmol.l." usageType="predicted"/>
+   <MiningField name="OPerc" usageType="active"/>
+   <MiningField name="MLogP" usageType="active"/>
+   <MiningField name="nArNH2" usageType="active"/>
+   <MiningField name="nS" usageType="active"/>
+   <MiningField name="MATS5s" usageType="active"/>
+   <MiningField name="MATS6m" usageType="active"/>
+   <MiningField name="EEig7dm" usageType="active"/>
+   <MiningField name="CATS2D_7_DL" usageType="active"/>
+   <MiningField name="C.026" usageType="active"/>
+   <MiningField name="JGI3" usageType="active"/>
+  </MiningSchema>
+  <Output>
+   <OutputField name="Predicted_log.mmol.l." feature="predictedValue"/>
+  </Output>
+  <NeuralInputs numberOfInputs="10">
+   <NeuralInput id="1">
+    <DerivedField name="derivedNI_OPerc" optype="continuous" dataType="double">
+     <FieldRef field="OPerc"/>
+    </DerivedField>
+   </NeuralInput>
+   <NeuralInput id="2">
+    <DerivedField name="derivedNI_MLogP" optype="continuous" dataType="double">
+     <FieldRef field="MLogP"/>
+    </DerivedField>
+   </NeuralInput>
+   <NeuralInput id="3">
+    <DerivedField name="derivedNI_nArNH2" optype="continuous" dataType="double">
+     <FieldRef field="nArNH2"/>
+    </DerivedField>
+   </NeuralInput>
+   <NeuralInput id="4">
+    <DerivedField name="derivedNI_nS" optype="continuous" dataType="double">
+     <FieldRef field="nS"/>
+    </DerivedField>
+   </NeuralInput>
+   <NeuralInput id="5">
+    <DerivedField name="derivedNI_MATS5s" optype="continuous" dataType="double">
+     <FieldRef field="MATS5s"/>
+    </DerivedField>
+   </NeuralInput>
+   <NeuralInput id="6">
+    <DerivedField name="derivedNI_MATS6m" optype="continuous" dataType="double">
+     <FieldRef field="MATS6m"/>
+    </DerivedField>
+   </NeuralInput>
+   <NeuralInput id="7">
+    <DerivedField name="derivedNI_EEig7dm" optype="continuous" dataType="double">
+     <FieldRef field="EEig7dm"/>
+    </DerivedField>
+   </NeuralInput>
+   <NeuralInput id="8">
+    <DerivedField name="derivedNI_CATS2D_7_DL" optype="continuous" dataType="double">
+     <FieldRef field="CATS2D_7_DL"/>
+    </DerivedField>
+   </NeuralInput>
+   <NeuralInput id="9">
+    <DerivedField name="derivedNI_C.026" optype="continuous" dataType="double">
+     <FieldRef field="C.026"/>
+    </DerivedField>
+   </NeuralInput>
+   <NeuralInput id="10">
+    <DerivedField name="derivedNI_JGI3" optype="continuous" dataType="double">
+     <FieldRef field="JGI3"/>
+    </DerivedField>
+   </NeuralInput>
+  </NeuralInputs>
+  <NeuralLayer numberOfNeurons="3">
+   <Neuron id="11" bias="-1.52624060176412">
+    <Con from="1" weight="0.0474979962259623"/>
+    <Con from="2" weight="0.470265840521157"/>
+    <Con from="3" weight="-0.305571650712298"/>
+    <Con from="4" weight="0.295610408148885"/>
+    <Con from="5" weight="0.129313001786294"/>
+    <Con from="6" weight="0.0631769107736198"/>
+    <Con from="7" weight="0.358810328540456"/>
+    <Con from="8" weight="-0.0919369446358873"/>
+    <Con from="9" weight="0.0328011203359909"/>
+    <Con from="10" weight="0.0236627405888716"/>
+   </Neuron>
+   <Neuron id="12" bias="-2.52146032431076">
+    <Con from="1" weight="-2.3474267126961"/>
+    <Con from="2" weight="9.20640380477004"/>
+    <Con from="3" weight="-1.28803666392294"/>
+    <Con from="4" weight="-2.78914279320337"/>
+    <Con from="5" weight="-3.23732946026479"/>
+    <Con from="6" weight="-1.00001038870409"/>
+    <Con from="7" weight="-1.34702270176346"/>
+    <Con from="8" weight="-2.40555820114935"/>
+    <Con from="9" weight="6.45946400066632"/>
+    <Con from="10" weight="-1.99951854536237"/>
+   </Neuron>
+   <Neuron id="13" bias="-13.7023002535951">
+    <Con from="1" weight="-0.382473135734524"/>
+    <Con from="2" weight="-5.05938065236955"/>
+    <Con from="3" weight="14.7675559390466"/>
+    <Con from="4" weight="-10.7836367834849"/>
+    <Con from="5" weight="3.02867131214348"/>
+    <Con from="6" weight="3.30276806632527"/>
+    <Con from="7" weight="0.997140179621657"/>
+    <Con from="8" weight="1.81602730817944"/>
+    <Con from="9" weight="0.156583583921682"/>
+    <Con from="10" weight="0.101696573266887"/>
+   </Neuron>
+  </NeuralLayer>
+  <NeuralLayer numberOfNeurons="1" activationFunction="identity">
+   <Neuron id="14" bias="-0.736411724016956">
+    <Con from="11" weight="-6.26680867215653"/>
+    <Con from="12" weight="-0.678421613174634"/>
+    <Con from="13" weight="-2.02262753365868"/>
+   </Neuron>
+  </NeuralLayer>
+  <NeuralOutputs numberOfOutputs="1">
+   <NeuralOutput outputNeuron="14">
+    <DerivedField name="derivedNO_log.mmol.l." optype="continuous" dataType="double">
+     <FieldRef field="log.mmol.l."/>
+    </DerivedField>
+   </NeuralOutput>
+  </NeuralOutputs>
+ </NeuralNetwork>
+</PMML>

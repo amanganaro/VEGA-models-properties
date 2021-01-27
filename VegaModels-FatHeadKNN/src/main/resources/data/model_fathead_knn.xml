@@ -1,0 +1,24 @@
+<xml>
+   
+    <Version>
+        <Name>Fathead Minnow LC50 model (KNN-IRFMN)</Name>
+        <Key>FATHEAD_KNN</Key>
+        <Summary>KNN model for acute toxicity on fathead minnow</Summary>
+        <Version>1.1.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_fathead_knn.dat</TS>
+        <HasAlerts>False</HasAlerts>
+        <Units>log 1/LC50(mmol/L)</Units>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

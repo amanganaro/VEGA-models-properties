@@ -1,0 +1,37 @@
+<xml>
+   
+    <Version>
+        <Name>Chromosomal aberration model (CORAL)</Name>
+        <Key>CHROM_CORAL</Key>
+        <Summary>Classification model for chromosomal aberration,</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_chrom_coral.dat</TS>
+        <HasAlerts>False</HasAlerts>
+        <ClassValues>
+            <Class>
+                <Value>0</Value>
+                <Label>Not predicted</Label>
+            </Class>
+            <Class>
+                <Value>-1</Value>
+                <Label>Inactive</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Active</Label>
+            </Class>
+        </ClassValues>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

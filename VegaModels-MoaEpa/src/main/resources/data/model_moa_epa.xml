@@ -1,0 +1,57 @@
+<xml>
+   
+    <Version>
+        <Name>MOA toxicity classification (EPA T.E.S.T.)</Name>
+        <Key>MOA_EPA</Key>
+        <Summary>Classification model for MOA toxicity</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_moa_epa.dat</TS>
+        <HasAlerts>False</HasAlerts>
+        <ClassValues>
+            <Class>
+                <Value>0</Value>
+                <Label>AChE Inhibition</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Anticoagulation</Label>
+            </Class>
+            <Class>
+                <Value>2</Value>
+                <Label>nACHr Antagonism</Label>
+            </Class>
+            <Class>
+                <Value>3</Value>
+                <Label>Narcosis</Label>
+            </Class>
+            <Class>
+                <Value>4</Value>
+                <Label>Neurotoxicity</Label>
+            </Class>
+            <Class>
+                <Value>5</Value>
+                <Label>Reactivity</Label>
+            </Class>
+            <Class>
+                <Value>6</Value>
+                <Label>Uncoupler</Label>
+            </Class>
+            <Class>
+                <Value>-1</Value>
+                <Label>N/A</Label>
+            </Class>
+        </ClassValues>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

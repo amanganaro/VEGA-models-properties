@@ -1,0 +1,24 @@
+<xml>
+   
+    <Version>
+        <Name>BCF model (Arnot-Gobas)</Name>
+        <Key>BCF_ARNOTGOBAS</Key>
+        <Summary>QSAR regression model for fish BCF (based on Arnot-Gobas model)</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_bcf_arnotgobas.dat</TS>
+        <Units>log(L/kg)</Units>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+
+
+</xml>

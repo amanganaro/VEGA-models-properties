@@ -1,0 +1,45 @@
+<xml>
+   
+    <Version>
+        <Name>Thyroid Receptor Beta effect (NRMEA)</Name>
+        <Key>TRBETA_NRMEA</Key>
+        <Summary>Classification model for Thyroid Receptor Beta effect ((NRMEA)).</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_thyroid_trbeta.dat</TS>
+        <HasAlerts>False</HasAlerts>
+        <ClassValues>
+            <Class>
+                <Value>-1</Value>
+                <Label>Not predicted</Label>
+            </Class>
+            <Class>
+                <Value>0</Value>
+                <Label>Inactive</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Agonist</Label>
+            </Class>
+            <Class>
+                <Value>2</Value>
+                <Label>Antagonist</Label>
+            </Class>
+            <Class>
+                <Value>3</Value>
+                <Label>A-Anta</Label>
+            </Class>
+        </ClassValues>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

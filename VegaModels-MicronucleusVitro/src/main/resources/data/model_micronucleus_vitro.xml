@@ -1,0 +1,37 @@
+<xml>
+   
+    <Version>
+        <Name>In vitro Micronucleus activity (IRFMN-VERMEER)</Name>
+        <Key>MNVITRO_VERMEER</Key>
+        <Summary>Classification model for In vitro Micronucleus activity (IRFMN/VERMEER).</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_micronucleus_vitro.dat</TS>
+        <HasAlerts>True</HasAlerts>
+        <ClassValues>
+            <Class>
+                <Value>-1</Value>
+                <Label>Not predicted</Label>
+            </Class>
+            <Class>
+                <Value>0</Value>
+                <Label>Inactive</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Active</Label>
+            </Class>
+        </ClassValues>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

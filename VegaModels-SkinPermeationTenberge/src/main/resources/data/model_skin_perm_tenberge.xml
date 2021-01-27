@@ -1,0 +1,24 @@
+<xml>
+   
+    <Version>
+        <Name>Skin Permeation (LogKp) model (Ten Berge)</Name>
+        <Key>SKINPERM_TENBERGE</Key>
+        <Summary>Quantitative model for skin permeation (LogKp), Ten Berge 3 formula.</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_skin_perm_tenberge.dat</TS>
+        <HasAlerts>False</HasAlerts>
+        <Units>log(cm/h)</Units>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

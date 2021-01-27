@@ -1,0 +1,38 @@
+<xml>
+   
+    <Version>
+        <Name>Sludge Classification Toxicity model (ProtoQSAR-Combase)</Name>
+        <Key>SLUDGE_COMBASECLASS</Key>
+        <Summary>Classification model for toxicity in sludge, specific for biocides</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_sludge_combaseClass.dat</TS>
+        <LocalQMRF>/data/QMRF_sludge_life.pdf</LocalQMRF>
+        <HasAlerts>False</HasAlerts>
+        <ClassValues>
+            <Class>
+                <Value>0</Value>
+                <Label>NON-Toxic</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Toxic</Label>
+            </Class>
+            <Class>
+                <Value>-1</Value>
+                <Label>Not predicted</Label>
+            </Class>
+        </ClassValues>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

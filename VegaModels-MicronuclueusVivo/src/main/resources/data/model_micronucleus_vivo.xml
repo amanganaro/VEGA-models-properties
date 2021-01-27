@@ -1,0 +1,37 @@
+<xml>
+   
+    <Version>
+        <Name>In vivo Micronucleus activity (IRFMN)</Name>
+        <Key>MNVIVO_IRFMN</Key>
+        <Summary>Classification model for In Vivo Micronucleus activity (IRFMN).</Summary>
+        <Version>1.0.1</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_micronucleus_vivo.dat</TS>
+        <HasAlerts>True</HasAlerts>
+        <ClassValues>
+            <Class>
+                <Value>-1</Value>
+                <Label>Not predicted</Label>
+            </Class>
+            <Class>
+                <Value>0</Value>
+                <Label>NON-genotoxic</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Genotoxic</Label>
+            </Class>
+        </ClassValues>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

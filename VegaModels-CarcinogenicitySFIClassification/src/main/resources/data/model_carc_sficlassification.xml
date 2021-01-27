@@ -1,0 +1,35 @@
+<xml>
+   
+    <Version>
+        <Name>Carcinogenicity inhalation classification model (IRFMN)</Name>
+        <Key>CARC_SFI_CLASS</Key>
+        <Summary>Classification model for carcinogenicity (inhalation route).</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_carc_sficlassification.dat</TS>
+        <HasAlerts>False</HasAlerts>
+        <ClassValues>
+            <Class>
+                <Value>0</Value>
+                <Label>NON-Carcinogen</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Carcinogen</Label>
+            </Class>
+        </ClassValues>
+        
+    </Vega>
+
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

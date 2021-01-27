@@ -1,0 +1,25 @@
+<xml>
+   
+    <Version>
+        <Name>Sub-Chronic Toxicity in rat (LOEL) model (IRFMN-UniBa)</Name>
+        <Key>LOEL_IRFMN</Key>
+        <Description>Sub-Chronic Toxicity in rat (LOEL) model</Description>
+        <DescriptionLong>KSub-Chronic Toxicity in rat (LOEL) model developed by Istituto di Ricerche Farmacologiche Mario Negri and Università di Bari.</DescriptionLong>
+        <Version>0.1.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_loel_irfmn.dat</TS>
+        <HasAlerts>False</HasAlerts>
+        <Units>log(mg/Kg body weight/day)</Units>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

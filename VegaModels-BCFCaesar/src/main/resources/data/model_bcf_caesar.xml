@@ -1,0 +1,24 @@
+<xml>
+   
+    <Version>
+        <Name>BCF model (CAESAR)</Name>
+        <Key>BCF_CAESAR</Key>
+        <Summary>QSAR regression model for fish BCF (from CAESAR project)</Summary>
+        <Version>2.1.14</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_bcf_caesar.dat</TS>
+        <HasAlerts>True</HasAlerts>
+        <Units>log(L/kg)</Units>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

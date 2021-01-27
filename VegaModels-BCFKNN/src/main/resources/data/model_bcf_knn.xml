@@ -1,0 +1,23 @@
+<xml>
+   
+    <Version>
+        <Name>BCF model (KNN-Read-Across)</Name>
+        <Key>BCF_KNN</Key>
+        <Summary>KNN (Read-Across) model for fish BCF</Summary>
+        <Version>1.1.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_bcf_knn.dat</TS>
+        <Units>log(L/kg)</Units>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

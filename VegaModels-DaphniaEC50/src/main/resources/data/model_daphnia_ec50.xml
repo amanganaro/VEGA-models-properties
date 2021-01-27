@@ -1,0 +1,25 @@
+<xml>
+   
+    <Version>
+        <Name>Daphnia Magna Acute (EC50) Toxicity model (IRFMN)</Name>
+        <Key>DAPHNIA_EC50</Key>
+        <Summary>Quantitative model for acute toxicity (EC50) in daphnia magna</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_daphnia_ec50.dat</TS>
+        <HasAlerts>False</HasAlerts>
+        <Units>log(mmol/l)</Units>
+        
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

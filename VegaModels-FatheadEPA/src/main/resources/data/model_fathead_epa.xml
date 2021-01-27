@@ -1,0 +1,24 @@
+<xml>
+   
+    <Version>
+        <Name>Fathead Minnow LC50 96h (EPA)</Name>
+        <Key>FATHEAD_EPA</Key>
+        <Summary>QSAR model for Fathead Minnow LC50 96h (from EPA T.E.S.T software)</Summary>
+        <Version>1.0.7</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_fathead_epa.dat</TS>
+        <HasAlerts>False</HasAlerts>
+        <Units>-log(mol/l)</Units>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+
+</xml>

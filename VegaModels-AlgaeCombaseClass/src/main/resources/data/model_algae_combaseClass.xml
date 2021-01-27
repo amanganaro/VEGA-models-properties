@@ -1,0 +1,39 @@
+<xml>
+   
+    <Version>
+        <Name>Algae Classification Toxicity model (ProtoQSAR-Combase)</Name>
+        <Key>ALGAE_COMBASECLASS</Key>
+        <Description>Classification model for toxicity in algae, specific for biocides</Description>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_algae_combaseClass.dat</TS>
+        <QMRF>/data/QMRF_Life_algae.pdf</QMRF>
+        <HasAlerts>False</HasAlerts>
+        <ClassValues>
+            <Class>
+                <Value>0</Value>
+                <Label>NON-Toxic</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Toxic</Label>
+            </Class>
+            <Class>
+                <Value>-1</Value>
+                <Label>Not predicted</Label>
+            </Class>
+        </ClassValues>
+    </Vega>
+
+    <Guide>
+    </Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

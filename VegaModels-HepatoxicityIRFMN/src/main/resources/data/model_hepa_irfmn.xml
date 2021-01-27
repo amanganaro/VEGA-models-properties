@@ -1,0 +1,37 @@
+<xml>
+   
+    <Version>
+        <Name>Hepatotoxicity model (IRFMN)</Name>
+        <Key>HEPA_IRFMN</Key>
+        <Summary>QSAR classification model for Hepatotoxicity (IRFMN)</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_hepa_irfmn.dat</TS>
+        <HasAlerts>True</HasAlerts>
+        <ClassValues>
+            <Class>
+                <Value>0</Value>
+                <Label>NON-Toxic</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Toxic</Label>
+            </Class>
+            <Class>
+                <Value>-1</Value>
+                <Label>Unknown</Label>
+            </Class>
+        </ClassValues>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

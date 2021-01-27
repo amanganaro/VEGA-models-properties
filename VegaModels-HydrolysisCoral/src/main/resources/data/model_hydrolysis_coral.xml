@@ -1,0 +1,25 @@
+<xml>
+   
+    <Version>
+        <Name>Hydrolysis (IRFMN-CORAL)</Name>
+        <Key>HYDROLYSIS_CORAL</Key>
+        <Summary>Quantitative model for hydrolysis.</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_hydrolysis_coral.dat</TS>
+        <HasAlerts>False</HasAlerts>
+        <Units>log(days)</Units>
+        
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

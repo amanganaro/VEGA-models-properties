@@ -1,0 +1,38 @@
+<xml>
+   
+    <Version>
+        <Name>Skin Sensitization model (IRFMN-JRC)</Name>
+        <Key>SKIN_IRFMN</Key>
+        <Summary>QSAR classification model for Skin sensitization</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_skin_irfmn.dat</TS>
+        <HasAlerts>False</HasAlerts>
+        <ClassValues>
+            <Class>
+                <Value>0</Value>
+                <Label>NON-Sensitizer</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Sensitizer</Label>
+            </Class>
+            <Class>
+                <Value>-1</Value>
+                <Label>Not Classifiable</Label>
+            </Class>
+        </ClassValues>
+    </Vega>
+
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

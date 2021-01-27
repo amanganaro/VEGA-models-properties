@@ -1,0 +1,24 @@
+<xml>
+   
+    <Version>
+        <Name>Persistence (soil) quantitative model (IRFMN)</Name>
+        <Key>PERS_SOIL_QUANT</Key>
+        <Summary>Persistence (soil) quantitative model</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_soil_quantitative_irfmn.dat</TS>
+        <HasAlerts>False</HasAlerts>
+        <Units>log(days)</Units>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

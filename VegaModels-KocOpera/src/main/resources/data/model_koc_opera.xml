@@ -1,0 +1,23 @@
+<xml>
+   
+    <Version>
+        <Name>KOC model (OPERA)</Name>
+        <Key>KOC_OPERA</Key>
+        <Summary>KNN model for KOC (soil adsorption coefficient of organic compounds)</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_koc_opera.dat</TS>
+        <Units>log(L/Kg)</Units>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

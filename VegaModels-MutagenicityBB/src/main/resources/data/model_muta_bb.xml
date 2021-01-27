@@ -1,0 +1,37 @@
+<xml>
+   
+    <Version>
+        <Name>Mutagenicity (Ames test) model (ISS)</Name>
+        <Key>MUTA_ISS</Key>
+        <Summary>Classification model for Mutagenicity (Ames test) based on Benigni-Bossa (Istituto Superiore di Sanità) rule set</Summary>
+        <Version>1.0.2</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_muta_bb.dat</TS>
+        <HasAlerts>True</HasAlerts>
+        <ClassValues>
+            <Class>
+                <Value>0</Value>
+                <Label>NON-Mutagenic</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Mutagenic</Label>
+            </Class>
+            <Class>
+                <Value>-1</Value>
+                <Label>Not classifiable</Label>
+            </Class>
+        </ClassValues>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

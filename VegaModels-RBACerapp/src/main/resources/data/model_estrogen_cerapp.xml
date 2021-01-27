@@ -1,0 +1,45 @@
+<xml>
+   
+    <Version>
+        <Name>Estrogen Receptor-mediated effect (IRFMN-CERAPP)</Name>
+        <Key>ESTROGEN_CERAPP</Key>
+        <Summary>.</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_estrogen_cerapp.dat</TS>
+        <HasAlerts>True</HasAlerts>
+        <ClassValues>
+            <Class>
+                <Value>-1</Value>
+                <Label>Not predicted</Label>
+            </Class>
+            <Class>
+                <Value>0</Value>
+                <Label>NON-active</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Possible NON-active</Label>
+            </Class>
+            <Class>
+                <Value>2</Value>
+                <Label>Active</Label>
+            </Class>
+            <Class>
+                <Value>3</Value>
+                <Label>Possible active</Label>
+            </Class>
+        </ClassValues>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

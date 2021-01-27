@@ -1,0 +1,47 @@
+<xml>
+   
+    <Version>
+        <Name>Ready Biodegradability model (IRFMN)</Name>
+        <Key>READYBIO_IRFMN</Key>
+        <Summary>QSAR classification model for Ready Biodegradability</Summary>
+        <Version>1.0.9</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_readybio_irfmn.dat</TS>
+        <QMRF>http://qsardb.jrc.it/qmrf/search_catalogs.jsp?id=480</QMRF>
+        <HasAlerts>True</HasAlerts>
+        <ClassValues>
+            <Class>
+                <Value>0</Value>
+                <Label>Readily Biodegradable</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>NON Readily Biodegradable</Label>
+            </Class>
+            <Class>
+                <Value>2</Value>
+                <Label>Possible NON Readily Biodegradable</Label>
+            </Class>
+            <Class>
+                <Value>3</Value>
+                <Label>Possible Readily Biodegradable</Label>
+            </Class>
+            <Class>
+                <Value>-1</Value>
+                <Label>Not classifiable</Label>
+            </Class>
+        </ClassValues>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+
+
+</xml>

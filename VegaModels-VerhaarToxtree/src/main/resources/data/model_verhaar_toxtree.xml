@@ -1,0 +1,23 @@
+<xml>
+   
+    <Version>
+        <Name>Verhaar classification (TOXTREE)</Name>
+        <Key>VERHAAR_TOXTREE</Key>
+        <Summary>Verhaar classification from ToxTree 3.1.</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_verhaar_toxtree.dat</TS>
+        <HasAlerts>false</HasAlerts>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

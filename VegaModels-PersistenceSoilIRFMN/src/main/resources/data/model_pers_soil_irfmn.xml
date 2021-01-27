@@ -1,0 +1,45 @@
+<xml>
+   
+    <Version>
+        <Name>Persistence (soil) model (IRFMN)</Name>
+        <Key>PERS_SOIL</Key>
+        <Summary>Persistence (soil) model</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_pers_soil_irfmn.dat</TS>
+        <HasAlerts>True</HasAlerts>
+        <ClassValues>
+            <Class>
+                <Value>1</Value>
+                <Label>nP</Label>
+            </Class>
+            <Class>
+                <Value>2</Value>
+                <Label>nP/P</Label>
+            </Class>
+            <Class>
+                <Value>3</Value>
+                <Label>P/vP</Label>
+            </Class>
+            <Class>
+                <Value>4</Value>
+                <Label>vP</Label>
+            </Class>
+            <Class>
+                <Value>-999</Value>
+                <Label>Non Predicted</Label>
+            </Class>
+        </ClassValues>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

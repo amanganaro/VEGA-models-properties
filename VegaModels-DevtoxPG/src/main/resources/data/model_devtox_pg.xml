@@ -1,0 +1,73 @@
+<xml>
+   
+    <Version>
+        <Name>Developmental/Reproductive Toxicity library (PG)</Name>
+        <Key>DEVTOX_PG</Key>
+        <Summary>Virtual compound library for Developmental/Reproductive (developed by Procter And Gamble)</Summary>
+        <Version>1.1.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_devtox_pg.dat</TS>
+        <HasAlerts>False</HasAlerts>
+        <ClassValues>
+            <Class>
+                <Value>0</Value>
+                <Label>NON-Toxicant</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Toxicant</Label>
+            </Class>
+            <Class>
+                <Value>-1</Value>
+                <Label>Not Classifiable</Label>
+            </Class>
+            <Class>
+                <Value>2</Value>
+                <Label>Reproductive and developmental toxicant</Label>
+            </Class>
+            <Class>
+                <Value>3</Value>
+                <Label>Reproductive toxicant, developmental NON-toxicant</Label>
+            </Class>
+            <Class>
+                <Value>4</Value>
+                <Label>Reproductive toxicant (no data on developmental toxicity)</Label>
+            </Class>
+            <Class>
+                <Value>5</Value>
+                <Label>Developmental toxicant, reproductive NON-toxicant</Label>
+            </Class>
+            <Class>
+                <Value>6</Value>
+                <Label>Reproductive and developmental NON-toxicant</Label>
+            </Class>
+            <Class>
+                <Value>7</Value>
+                <Label>Reproductive NON-toxicant (no data on developmental toxicity)</Label>
+            </Class>
+            <Class>
+                <Value>8</Value>
+                <Label>Developmental toxicant (no data on reproductive toxicity)</Label>
+            </Class>
+            <Class>
+                <Value>9</Value>
+                <Label>Developmental NON-toxicant (no data on reproductive toxicity)</Label>
+            </Class>
+            <Class>
+                <Value>10</Value>
+                <Label>No data on reproductive and developmental toxicity</Label>
+            </Class>
+        </ClassValues>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

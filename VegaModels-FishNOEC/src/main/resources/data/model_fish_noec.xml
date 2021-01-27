@@ -1,0 +1,24 @@
+<xml>
+   
+    <Version>
+        <Name>Fish Chronic (NOEC) Toxicity model (IRFMN)</Name>
+        <Key>FISH_NOEC</Key>
+        <Summary>Quantitative model for chronic toxicity (NOEC) in fish.</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_fish_noec.dat</TS>
+        <HasAlerts>False</HasAlerts>
+        <Units>a-dimensional</Units>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

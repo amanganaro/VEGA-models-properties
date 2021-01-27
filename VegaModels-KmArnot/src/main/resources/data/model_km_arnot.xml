@@ -1,0 +1,23 @@
+<xml>
+   
+    <Version>
+        <Name>kM-Half-Life model (Arnot-EpiSuite)</Name>
+        <Key>KM_ARNOT</Key>
+        <Summary>kM/Half-Life (days) model based on Arnot work (and implemented in EPI Suite software in the BCFBAF module).</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_km_arnot.dat</TS>
+        <Units>log days</Units>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

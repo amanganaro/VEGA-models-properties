@@ -1,0 +1,24 @@
+<xml>
+   
+    <Version>
+        <Name>Carcinogenicity oral Slope Factor model (IRFMN)</Name>
+        <Key>CARC_SFO_REGR</Key>
+        <Summary>Quantitative model for the carcinogenicity (oral route) Slope Factor.</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_carc_sforegression.dat</TS>
+        <HasAlerts>False</HasAlerts>
+        <Units>log(1/(mg/kg-day))</Units>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

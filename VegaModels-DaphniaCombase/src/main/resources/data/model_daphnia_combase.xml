@@ -1,0 +1,25 @@
+<xml>
+   
+    <Version>
+        <Name>Daphnia Magna Acute (EC50) Toxicity model (IRFMN-Combase)</Name>
+        <Key>DAPHNIA_COMBASE</Key>
+        <Summary>Quantitative model for acute toxicity (EC50) in daphnia magna, specific for biocides</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_daphnia_combase.dat</TS>
+        <QMRF>/insilico/model/daphnia/combase/data/QMRF_Daphnia_combase.pdf</QMRF>
+        <HasAlerts>False</HasAlerts>
+        <Units>log(mmol/l)</Units>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

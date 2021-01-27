@@ -1,0 +1,38 @@
+<xml>
+   
+    <Version>
+        <Name>Mutagenicity (Ames test) model (SarPy-IRFMN)</Name>
+        <Key>MUTA_SARPY</Key>
+        <Summary>QSAR classification model for Mutagenicity (SarPy/IRFMN)</Summary>
+        <Version>1.0.7</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_muta_sarpy.dat</TS>
+        <HasAlerts>True</HasAlerts>
+        <ClassValues>
+            <Class>
+                <Value>0</Value>
+                <Label>NON-Mutagenic</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Mutagenic</Label>
+            </Class>
+            <Class>
+                <Value>-1</Value>
+                <Label>Possible NON-Mutagenic</Label>
+            </Class>
+        </ClassValues>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+
+
+</xml>

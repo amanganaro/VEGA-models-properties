@@ -1,0 +1,41 @@
+<xml>
+   
+    <Version>
+        <Name>Bee acute toxicity model (KNN-IRFMN)</Name>
+        <Key>BEE_KNN</Key>
+        <Summary>KNN model for bee contact and oral acute toxicity</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_bee_knn.dat</TS>
+        <HasAlerts>False</HasAlerts>
+        <ClassValues>
+            <Class>
+                <Value>0</Value>
+                <Label>Strong toxicity (lower than 1 µg/bee)</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Moderate toxicity (between 1 and 100 µg/bee)</Label>
+            </Class>
+            <Class>
+                <Value>2</Value>
+                <Label>Low toxicity (over 100 µg/bee)</Label>
+            </Class>
+            <Class>
+                <Value>-999</Value>
+                <Label>Non Predicted</Label>
+            </Class>
+        </ClassValues>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

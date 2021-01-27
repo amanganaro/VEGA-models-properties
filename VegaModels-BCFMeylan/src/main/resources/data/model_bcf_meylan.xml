@@ -1,0 +1,23 @@
+<xml>
+   
+    <Version>
+        <Name>BCF model (Meylan)</Name>
+        <Key>BCF_MEYLAN</Key>
+        <Summary>QSAR regression model for fish BCF (based on Meylan model)</Summary>
+        <Version>1.0.3</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_bcf_meylan.dat</TS>
+        <Units>log(L/kg)</Units>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

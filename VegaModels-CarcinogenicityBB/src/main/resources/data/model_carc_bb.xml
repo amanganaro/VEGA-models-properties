@@ -1,0 +1,38 @@
+<xml>
+   
+    <Version>
+        <Name>Carcinogenicity model (ISS)</Name>
+        <Key>CARC_ISS</Key>
+        <Summary>Classification model for Carcinogenicity based on Benigni-Bossa (Istituto Superiore di Sanità) rule set</Summary>
+        <Version>1.0.2</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_carc_bb.dat</TS>
+        <HasAlerts>True</HasAlerts>
+        <ClassValues>
+            <Class>
+                <Value>0</Value>
+                <Label>NON-Carcinogen</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Carcinogen</Label>
+            </Class>
+            <Class>
+                <Value>-1</Value>
+                <Label>Not predicted</Label>
+            </Class>
+        </ClassValues>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+
+
+</xml>

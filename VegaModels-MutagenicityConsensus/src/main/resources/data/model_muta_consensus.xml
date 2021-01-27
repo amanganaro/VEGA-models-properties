@@ -1,0 +1,32 @@
+<xml>
+   
+    <Version>
+        <Name>Mutagenicity (Ames test) CONSENSUS model</Name>
+        <Key>MUTA_CONSENSUS</Key>
+        <Summary>Mutagenicity (Ames test) Consensus model based on the predictions of VEGA mutagenicity models.</Summary>
+    </Version>
+    
+    <Vega>
+        <TS> </TS>
+        <HasAlerts>False</HasAlerts>
+        <ClassValues>
+            <Class>
+                <Value>0</Value>
+                <Label>NON-Mutagenic</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Mutagenic</Label>
+            </Class>
+        </ClassValues>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

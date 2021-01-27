@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>InSilico</groupId>
+    <artifactId>VegaModels</artifactId>
+    <packaging>pom</packaging>
+    <version>0.1</version>
+    <modules>
+        <module>VegaModels-DaphniaDemetra</module>
+        <module>VegaModels-FatHeadKNN</module>
+        <module>VegaModels-CarcinogenicityAntares</module>
+        <module>VegaModels-WaterSolubility</module>
+        <module>VegaModels-CarcinogenicityCaesar</module>
+        <module>VegaModels-LogPMeylan</module>
+        <module>VegaModels-CoralChromosomal</module>
+        <module>VegaModels-AlgaeCombaseClass</module>
+        <module>VegaModels-HenrysLawOpera</module>
+        <module>VegaModels-LogPALogP</module>
+        <module>VegaModels-LogPMLogP</module>
+        <module>VegaModels-AlgaeCombaseEC50</module>
+        <module>VegaModels-AlgaeEC50</module>
+        <module>VegaModels-AlgaeNoec</module>
+        <module>VegaModels-AromataseIRFMN</module>
+        <module>VegaModels-BCFArnotGobas</module>
+        <module>VegaModels-KmArnot</module>
+        <module>VegaModels-BCFCaesar</module>
+        <module>VegaModels-BCFKNN</module>
+        <module>VegaModels-BCFMeylan</module>
+        <module>VegaModels-BeeKNN</module>
+        <module>VegaModels-CarcinogenicityBB</module>
+        <module>VegaModels-MutagenicityBB</module>
+        <module>VegaModels-CarcinogenicityISSCANGX</module>
+        <module>VegaModels-CarcinogenicitySFIClassification</module>
+        <module>VegaModels-CarcinogenicitySFIRegression</module>
+        <module>VegaModels-CarcinogenicitySFOClassification</module>
+        <module>VegaModels-CarcinogenicitySFORegression</module>
+        <module>VegaModels-DaphniaCombase</module>
+        <module>VegaModels-DaphniaEC50</module>
+        <module>VegaModels-DaphniaEPA</module>
+        <module>VegaModels-DaphniaNOEC</module>
+        <module>VegaModels-DevtoxCaesar</module>
+        <module>VegaModels-DevtoxPG</module>
+        <module>VegaModels-FatheadEPA</module>
+        <module>VegaModels-FishCombase</module>
+        <module>VegaModels-FishIRFMN</module>
+        <module>VegaModels-FishKNN</module>
+        <module>VegaModels-FishLC50</module>
+        <module>VegaModels-FishNIC</module>
+        <module>VegaModels-FishNOEC</module>
+        <module>VegaModels-GuppyKnn</module>
+        <module>VegaModels-HepatoxicityIRFMN</module>
+        <module>VegaModels-HydrolysisCoral</module>
+        <module>VegaModels-KoaOpera</module>
+        <module>VegaModels-KocOpera</module>
+        <module>VegaModels-LoelIRFMN</module>
+        <module>VegaModels-MicronucleusVitro</module>
+        <module>VegaModels-MicronuclueusVivo</module>
+        <module>VegaModels-MoaEpa</module>
+        <module>VegaModels-MutagenicityCaesar</module>
+        <module>VegaModels-MutagenicityConsensus</module>
+        <module>VegaModels-MutagenicityKNN</module>
+        <module>VegaModels-MutagenicitySarpy</module>
+        <module>VegaModels-NoaelCoral</module>
+        <module>VegaModels-PersistenceAirCoral</module>
+        <module>VegaModels-PersistenceSedimentIRFMN</module>
+        <module>VegaModels-PersistenceSedimentQuantitativeIRFMN</module>
+        <module>VegaModels-PersistenceSoilIRFMN</module>
+        <module>VegaModels-PersistenceWaterIRFMN</module>
+        <module>VegaModels-PersistenceSoilQuantitativeIRFMN</module>
+        <module>VegaModels-PersistenceWaterQuantatitativeIRFMN</module>
+        <module>VegaModels-RBACerapp</module>
+        <module>VegaModels-RBACompareIRFMN</module>
+        <module>VegaModels-RBAIrfmn</module>
+        <module>VegaModels-ReadyBioIRFMN</module>
+        <module>VegaModels-SkinCaesar</module>
+        <module>VegaModels-SkinIRFMN</module>
+        <module>VegaModels-SkinPermeationPotts</module>
+        <module>VegaModels-SkinPermeationTenberge</module>
+        <module>VegaModels-SludgeCombaseClass</module>
+        <module>VegaModels-SludgeCombaseEC50</module>
+        <module>VegaModels-ThyroidTRAlphaNRMEA</module>
+        <module>VegaModels-ThyroidTRBetaNRMEA</module>
+        <module>VegaModels-TissueBloodIneris</module>
+        <module>VegaModels-TotalHLQsarins</module>
+        <module>VegaModels-ZebrafishCoral</module>
+        <module>VegaModels-SkinCosmetics</module>
+        <module>VegaModels-VerhaarToxtree</module>
+    </modules>
+
+    <name>VegaModels</name>
+    <description>
+        Vega Models parent project for InSilico project (VEGA etc) - Updated to CDK 2.3, OpenJDK 11
+    </description>
+
+    <properties>
+        <java.version>11</java.version>
+        <skipTests>true</skipTests>
+    </properties>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <url>http://tech.kode-datacenter.net:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <url>http://tech.kode-datacenter.net:8081/repository/maven-releases/</url>
+        </repository>
+
+    </distributionManagement>
+
+    <repositories>
+        <repository>
+            <id>maven-group</id>
+            <url>http://tech.kode-datacenter.net:8081/repository/maven-group/</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+
+        <!--        LOGGING-->
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.30</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.12</version>
+            <scope>provided</scope>
+        </dependency>
+
+
+<!--        <dependency>-->
+<!--            <groupId>InSilico</groupId>-->
+<!--            <artifactId>Core</artifactId>-->
+<!--            <version>0.6.2</version>-->
+<!--        </dependency>        -->
+
+        <dependency>
+            <groupId>InSilico</groupId>
+            <artifactId>Core</artifactId>
+            <version>1.3.0</version>
+        </dependency>
+
+
+
+    </dependencies>
+
+    <build>
+
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>2.8.2</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <source>11</source>
+                    <target>11</target>
+                    <release>11</release>
+
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>1.18.12</version>
+                        </path>
+                    </annotationProcessorPaths>
+
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.4</version>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>unpack</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>unpack</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>${project.groupId}</groupId>
+                                    <artifactId>${project.artifactId}</artifactId>
+                                    <version>${project.version}</version>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+
+            <plugin>
+                <groupId>org.asciidoctor</groupId>
+                <artifactId>asciidoctor-maven-plugin</artifactId>
+                <version>1.5.8</version>
+                <executions>
+                    <execution>
+                        <id>generate-docs</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>process-asciidoc</goal>
+                        </goals>
+                        <configuration>
+                            <backend>html</backend>
+                            <doctype>book</doctype>
+                        </configuration>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.springframework.restdocs</groupId>
+                        <artifactId>spring-restdocs-asciidoctor</artifactId>
+                        <version>LATEST</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
+
+
+        </plugins>
+    </build>
+
+
+</project>

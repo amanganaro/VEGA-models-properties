@@ -1,0 +1,37 @@
+<xml>
+   
+    <Version>
+        <Name>Carcinogenicity model (IRFMN-ISSCAN-CGX)</Name>
+        <Key>CARC_ISSCAN-CGX</Key>
+        <Summary>QSAR classification model for Carcinogenicity (IRFMN/ISSCAN-CGX) based on the ISSCAN-CGX dataset</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_carc_isscancgx.dat</TS>
+        <HasAlerts>True</HasAlerts>
+        <ClassValues>
+            <Class>
+                <Value>0</Value>
+                <Label>NON-Carcinogen</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Carcinogen</Label>
+            </Class>
+            <Class>
+                <Value>-1</Value>
+                <Label>Possible NON-Carcinogen</Label>
+            </Class>
+        </ClassValues>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

@@ -1,0 +1,37 @@
+<xml>
+   
+    <Version>
+        <Name>Developmental Toxicity model (CAESAR)</Name>
+        <Key>DEVTOX_CAESAR</Key>
+        <Summary>QSAR classification model for Developmental Toxicity (from CAESAR project)</Summary>
+        <Version>2.1.7</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_devtox_caesar.dat</TS>
+        <HasAlerts>False</HasAlerts>
+        <ClassValues>
+            <Class>
+                <Value>0</Value>
+                <Label>NON-Toxicant</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Toxicant</Label>
+            </Class>
+            <Class>
+                <Value>-1</Value>
+                <Label>Not Classifiable</Label>
+            </Class>
+        </ClassValues>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

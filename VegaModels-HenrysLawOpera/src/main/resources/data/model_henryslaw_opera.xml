@@ -1,0 +1,23 @@
+<xml>
+   
+    <Version>
+        <Name>Henry's Law model (OPERA)</Name>
+        <Key>HENRY_OPERA</Key>
+        <Summary>KNN model for Henry's Law</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_henryslaw_opera.dat</TS>
+        <Units>Log atm-m3/mole</Units>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

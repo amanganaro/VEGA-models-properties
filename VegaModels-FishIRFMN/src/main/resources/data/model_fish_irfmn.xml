@@ -1,0 +1,42 @@
+<xml>
+   
+    <Version>
+        <Name>Fish Acute (LC50) Toxicity classification (SarPy-IRFMN)</Name>
+        <Key>FISH_IRFMN</Key>
+        <Summary>QSAR classification model for fish acute (LC50) toxicity</Summary>
+        <Version>1.0.2</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_fish_irfmn.dat</TS>
+        <HasAlerts>True</HasAlerts>
+        <ClassValues>
+            <Class>
+                <Value>1</Value>
+                <Label>Toxic-1 (less than 1 mg/l)</Label>
+            </Class>
+            <Class>
+                <Value>2</Value>
+                <Label>Toxic-2 (between 1 and 10 mg/l)</Label>
+            </Class>
+            <Class>
+                <Value>3</Value>
+                <Label>Toxic-3 (between 10 and 100 mg/l)</Label>
+            </Class>
+            <Class>
+                <Value>4</Value>
+                <Label>NON-Toxic (more than 100 mg/l)</Label>
+            </Class>
+        </ClassValues>
+        
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

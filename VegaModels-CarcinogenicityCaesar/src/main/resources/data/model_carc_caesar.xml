@@ -1,0 +1,37 @@
+<xml>
+   
+    <Version>
+        <Name>Carcinogenicity model (CAESAR)</Name>
+        <Key>CARC_CAESAR</Key>
+        <Summary>QSAR classification model for Carcinogenicity (from CAESAR project)</Summary>
+        <Version>2.1.9</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_carc_caesar.dat</TS>
+        <HasAlerts>False</HasAlerts>
+        <ClassValues>
+            <Class>
+                <Value>0</Value>
+                <Label>NON-Carcinogen</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Carcinogen</Label>
+            </Class>
+            <Class>
+                <Value>-1</Value>
+                <Label>Not predicted</Label>
+            </Class>
+        </ClassValues>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

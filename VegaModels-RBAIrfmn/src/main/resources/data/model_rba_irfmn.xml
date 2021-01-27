@@ -1,0 +1,33 @@
+<xml>
+   
+    <Version>
+        <Name>Estrogen Receptor Relative Binding Affinity model (IRFMN)</Name>
+        <Key>RBA_IRFMN</Key>
+        <Summary>Classification model for Estrogen Receptor Relative Binding Affinity (IRFMN)</Summary>
+        <Version>1.0.1</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_rba_irfmn.dat</TS>
+        <HasAlerts>False</HasAlerts>
+        <ClassValues>
+            <Class>
+                <Value>0</Value>
+                <Label>Inactive</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Active</Label>
+            </Class>
+        </ClassValues>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>
