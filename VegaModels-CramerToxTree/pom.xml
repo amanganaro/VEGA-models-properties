@@ -9,12 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>VegaModels-VerhaarToxtree</artifactId>
+    <artifactId>VegaModels-CramerToxTree</artifactId>
     <version>0.2.2</version>
 
-    <name>Verhaar classification (TOXTREE)</name>
+    <name>Cramer classification (TOXTREE)</name>
     <description>
-        Verhaar classification from ToxTree 3.1.
+        Cramer classification from ToxTree 3.1.
     </description>
 
 
@@ -26,10 +26,18 @@
             <version>0.1</version>
         </dependency>
 
+
+
         <dependency>
             <groupId>InSilico</groupId>
             <artifactId>ToxTreeWrapper</artifactId>
             <version>1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>InSilico.ToxTree</groupId>
+            <artifactId>toxtree-cramer3</artifactId>
+            <version>3.1.0</version>
         </dependency>
 
 
@@ -111,6 +119,5 @@
             <!--            </plugin>-->
         </plugins>
     </build>
-
 
 </project>

@@ -1,5 +1,6 @@
 import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
+import insilico.core.molecule.acf.ACFItem;
 import insilico.core.molecule.conversion.SmilesMolecule;
 import insilico.daphnia_combase.ismDaphniaCombase;
 import lombok.extern.slf4j.Slf4j;
@@ -46,6 +47,10 @@ public class mainScript {
             }
             System.out.println("==============");
 
+        }
+
+        for(ACFItem acf : model.GetTrainingSet().getACF().getList()){
+            System.out.println(acf.getACF() + " : " + acf.getFrequency());
         }
 
 

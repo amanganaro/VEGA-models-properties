@@ -1,13 +1,9 @@
 package insilico.carcinogenicity_sfiregression.descriptors;
 
 import Jama.Matrix;
-import insilico.carcinogenicity_sfiregression.descriptors.weights.ACF;
-import insilico.carcinogenicity_sfiregression.descriptors.weights.FunctionalGroups;
-import insilico.carcinogenicity_sfiregression.descriptors.weights.Mass;
-import insilico.carcinogenicity_sfiregression.descriptors.weights.Polarizability;
+import insilico.carcinogenicity_sfiregression.descriptors.weights.*;
 import insilico.core.descriptor.Descriptor;
 import insilico.core.descriptor.DescriptorBlock;
-import insilico.core.descriptor.blocks.old.weight.VertexDegree;
 import insilico.core.exception.DescriptorNotFoundException;
 import insilico.core.exception.GenericFailureException;
 import insilico.core.exception.InvalidMoleculeException;

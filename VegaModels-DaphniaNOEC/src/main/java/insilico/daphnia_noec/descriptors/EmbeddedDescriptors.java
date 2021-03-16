@@ -3,7 +3,6 @@ package insilico.daphnia_noec.descriptors;
 import Jama.EigenvalueDecomposition;
 import Jama.Matrix;
 import insilico.core.descriptor.DescriptorBlock;
-import insilico.core.descriptor.blocks.old.weight.VertexDegree;
 import insilico.core.exception.GenericFailureException;
 import insilico.core.exception.InvalidMoleculeException;
 import insilico.core.molecule.InsilicoMolecule;

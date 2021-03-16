@@ -27,7 +27,6 @@ public class ismDaphniaDemetra extends InsilicoModel {
 
     private final DaphniaPredictor Daphnia;
 
-    Logger log = LoggerFactory.getLogger(ismDaphniaDemetra.class);
 
     // Constructor - Init Model
     public ismDaphniaDemetra() throws InitFailureException {
@@ -89,9 +88,6 @@ public class ismDaphniaDemetra extends InsilicoModel {
             MLogPdrgw DaphniaMLogP = new MLogPdrgw();
             DaphniaMLogP.Calculate(CurMolecule);
 
-////             Descriptor blocks
-//            DescriptorBlock constitutionalBlock = new Constitutional();
-//            constitutionalBlock.Calculate(CurMolecule);
 
             // Embedded descriptors
             EmbeddedDescriptors embeddedDescriptors = new EmbeddedDescriptors();
@@ -271,4 +267,6 @@ public class ismDaphniaDemetra extends InsilicoModel {
             CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_GREEN);
 
     }
+
+
 }

@@ -1,0 +1,23 @@
+<xml>
+   
+    <Version>
+        <Name>Cramer classification (TOXTREE)</Name>
+        <Key>CRAMER_TOXTREE</Key>
+        <Summary>Cramer classification from ToxTree 3.1.</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_cramer_toxtree.dat</TS>
+        <HasAlerts>false</HasAlerts>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

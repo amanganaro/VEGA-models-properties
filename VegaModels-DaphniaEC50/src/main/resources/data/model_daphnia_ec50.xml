@@ -11,7 +11,6 @@
         <TS>/data/ts_daphnia_ec50.dat</TS>
         <HasAlerts>False</HasAlerts>
         <Units>log(mmol/l)</Units>
-        
     </Vega>
 
     <Guide></Guide>

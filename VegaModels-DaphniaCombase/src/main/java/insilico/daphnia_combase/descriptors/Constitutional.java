@@ -3,9 +3,9 @@ package insilico.daphnia_combase.descriptors;
 import insilico.core.descriptor.Descriptor;
 import insilico.core.descriptor.DescriptorBlock;
 
-import insilico.core.descriptor.blocks.old.weight.Electronegativity;
 import insilico.core.exception.InvalidMoleculeException;
 import insilico.core.molecule.InsilicoMolecule;
+import insilico.daphnia_combase.descriptors.weights.Electronegativity;
 import insilico.daphnia_combase.descriptors.weights.Mass;
 import insilico.daphnia_combase.descriptors.weights.Polarizability;
 import insilico.daphnia_combase.descriptors.weights.VanDerWaals;

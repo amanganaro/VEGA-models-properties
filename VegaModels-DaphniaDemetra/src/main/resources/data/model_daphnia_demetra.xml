@@ -7,7 +7,7 @@
     </Version>
 
     <Vega>
-        <TS>/data/ts_daphnia_demetra.dat</TS>
+        <TS>/insilico/model/daphnia/demetra/data/ts_daphnia_demetra.dat</TS>
         <HasAlerts>False</HasAlerts>
         <Units>-log(mol/l)</Units>
     </Vega>

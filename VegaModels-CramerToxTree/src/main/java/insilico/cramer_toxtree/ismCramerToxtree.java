@@ -1,15 +1,10 @@
-package insilico.verhaar_toxtree;
+package insilico.cramer_toxtree;
 
 import insilico.core.descriptor.DescriptorsEngine;
 import insilico.core.exception.InitFailureException;
 import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
 import insilico.core.tools.utils.ModelUtilities;
-import lombok.extern.slf4j.Slf4j;
-//import org.openscience.cdk.DefaultChemObjectBuilder;
-//import org.openscience.cdk.exception.InvalidSmilesException;
-//import org.openscience.cdk.interfaces.IAtomContainer;
-//import org.openscience.cdk.smiles.SmilesParser;
 import shadedTTv31.org.openscience.cdk.DefaultChemObjectBuilder;
 import shadedTTv31.org.openscience.cdk.exception.InvalidSmilesException;
 import shadedTTv31.org.openscience.cdk.interfaces.IAtomContainer;
@@ -20,31 +15,31 @@ import toxTree.exceptions.DecisionMethodException;
 import toxTree.exceptions.DecisionResultException;
 import toxTree.exceptions.MolAnalyseException;
 import toxTree.query.MolAnalyser;
-import verhaar.VerhaarScheme;
-
+import toxTree.tree.cramer.CramerRules;
+//import toxTree.tree.cramer.CramerRules;
 
 /**
  *
  * @author Alberto Manganaro (a.manganaro@kode-solutions.net)
  */
-@Slf4j
-public class ismVerhaarToxtree extends InsilicoModel {
+public class ismCramerToxtree extends InsilicoModel {
     
     private static final long serialVersionUID = 1L;
     
-    private static final String ModelData = "/data/model_verhaar_toxtree.xml";
+    private static final String ModelData = "/data/model_cramer_toxtree.xml";
         
-    private final IDecisionMethod ttVerhaar;
+    private final IDecisionMethod ttCramer;
     private final SmilesParser SP;
     
     
-    public ismVerhaarToxtree() 
+    public ismCramerToxtree() 
             throws InitFailureException {
         super(ModelData);
         
         // Init TT module and its smiles parser
         try {
-            ttVerhaar = new VerhaarScheme();
+            ttCramer = new CramerRules();
+//            ttCramer = new RevisedCramerDecisionTree();
             SP = new SmilesParser(DefaultChemObjectBuilder.getInstance());
         } catch (DecisionMethodException e) {
             throw new InitFailureException("Unable to init toxtree module - " + e.getMessage());
@@ -57,7 +52,7 @@ public class ismVerhaarToxtree extends InsilicoModel {
         // Defines results
         this.ResultsSize = 1;
         this.ResultsName = new String[ResultsSize];
-        this.ResultsName[0] = "Predicted Verhaar class";
+        this.ResultsName[0] = "Predicted Cramer class";
         
         // Define AD items
         this.ADItemsName = new String[0];
@@ -89,7 +84,7 @@ public class ismVerhaarToxtree extends InsilicoModel {
         try {
             
             // Create result object
-            IDecisionResult ttResult = ttVerhaar.createDecisionResult();
+            IDecisionResult ttResult = ttCramer.createDecisionResult();
 
             // Parse the input molecule
             IAtomContainer ac = SP.parseSmiles(this.CurMolecule.GetSMILES());

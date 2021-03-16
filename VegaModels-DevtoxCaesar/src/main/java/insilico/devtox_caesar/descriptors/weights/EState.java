@@ -1,4 +1,4 @@
-package insilico.carcinogenicity_sfoclassification.descriptors.weights;
+package insilico.devtox_caesar.descriptors.weights;
 
 import insilico.core.descriptor.Descriptor;
 import insilico.core.exception.GenericFailureException;

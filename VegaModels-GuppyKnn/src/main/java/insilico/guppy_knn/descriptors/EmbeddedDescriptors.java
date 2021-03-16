@@ -1,14 +1,7 @@
 package insilico.guppy_knn.descriptors;
 
-import Jama.EigenvalueDecomposition;
-import Jama.Matrix;
-import insilico.core.descriptor.Descriptor;
-import insilico.core.descriptor.DescriptorBlock;
-import insilico.core.descriptor.blocks.old.weight.GhoseCrippenWeights;
-import insilico.core.exception.GenericFailureException;
 import insilico.core.exception.InvalidMoleculeException;
 import insilico.core.molecule.InsilicoMolecule;
-import insilico.core.molecule.matrix.BurdenMatrix;
 import insilico.guppy_knn.descriptors.weights.Electronegativity;
 import insilico.guppy_knn.descriptors.weights.Mass;
 import insilico.guppy_knn.descriptors.weights.Polarizability;

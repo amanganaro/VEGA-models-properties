@@ -1,15 +1,13 @@
 package insilico.carcinogenicity_sfiregression.descriptors.weights;
 
 import insilico.core.descriptor.Descriptor;
-import insilico.core.descriptor.blocks.old.weight.ValenceVertexDegree;
 import insilico.core.exception.GenericFailureException;
 import insilico.core.molecule.matrix.TopoDistanceMatrix;
+import lombok.extern.slf4j.Slf4j;
 import org.openscience.cdk.CDKConstants;
 import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IAtomContainer;
 import org.openscience.cdk.interfaces.IBond;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,9 +17,9 @@ import java.util.Map;
  *
  * @author Alberto Manganaro (a.manganaro@kode-solutions.net)
  */
+@Slf4j
 public class EState {
 
-    Logger logger = LoggerFactory.getLogger(insilico.core.descriptor.blocks.old.weight.EState.class);
 
     private Map<String, Integer> periods;
 
@@ -44,7 +42,7 @@ public class EState {
         try {
             TopDistMat = TopoDistanceMatrix.getMatrix(mol);
         } catch (Exception e) {
-            logger.warn(e.getMessage());
+            log.warn(e.getMessage());
             throw new GenericFailureException("Unable to calculate matrices");
         }
 

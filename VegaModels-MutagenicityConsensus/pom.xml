@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>MutagenicityConsensus</artifactId>
+    <artifactId>VegaModels-MutagenicityConsensus</artifactId>
     <version>0.2.2</version>
 
     <name>Mutagenicity (Ames test) CONSENSUS model - 1.0.3</name>
