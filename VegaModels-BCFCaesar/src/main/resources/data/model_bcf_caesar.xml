@@ -13,12 +13,151 @@
         <Units>log(L/kg)</Units>
     </Vega>
 
-    <Guide></Guide>
+    <Guide>
+        <Description>The model provides a quantitative prediction of bioconcentration factor (BCF) in fish, given in log(L/kg). It is implemented inside the VEGA online platform, accessible at:http://www.vega-qsar.eu/
+            The model extends the original CAESAR model, freely available at: http://www.caesarproject.eu/software/ </Description>
+        <Model>Two models, Model A and Model B, have been used to build hybrid model, Model C. In the proposed approach, the outputs of the individual models (Model A and B) were used as inputs of the hybrid model. Model A was developed by Radial Basis Function Neural Networks (RBFNN) using an heuristic method to select the optimal descriptors; Model B was developed by RBFNN using genetic algorithm for the descriptors selection. RBFNN was used with a Matlab function for building the models. An in-house software made as a PC-Windows Excel macro was used to combine Models A and B within the Model C. Model A used an heuristic method to select the optimal descriptors and Model B used genetic algorithm for the descriptors selection. Full reference and details of the used formulas can be found in:
+            Zhao, C., Boriani, E., Chana, A., Roncaglioni,A., Benfenati, E. A new hybrid system of QSAR models for predicting bioconcentration factors (BCF). Chemosphere (2008), 73, 1701-1707.
+            Lombardo A, Roncaglioni A, Boriani E, Milan C, Benfenati E. Assessment and validation of the CAESAR predictive model for bioconcentration factor (BCF) in fish. Chemistry Central Journal (2010), 4 (Suppl 1).</Model>
+        <Descriptors>The descriptors used are the following:
+            - Moriguchi octanol-water partition coefficient (MlogP).
+            - Moran autocorrelation of lag 5, weighted by atomic van der Waals volumes (MATS5V): molecular
+            descriptor calculated from the molecular graph by summing the products of atom weights of the
+            terminal atoms of all paths of the considered path length (the lag).
+            - Number of chlorine atoms (Cl-089), Cl attached to carbon (sp2).
+            - Second highest eigenvalue of Burden matrix, weighted by atomic polarizabilities (BEHp2).
+            - Geary autocorrelation of lag 5, weighted by atomic van der Waals volumes (GATS5V): molecular
+            descriptor calculated from the molecular graph by summing the products of atom weights of the
+            terminal atoms of all paths of the considered path length (the lag).
+            - Solvation connectivity index chi-0 (XOSolv): molecular descriptor designed for modeling solvation
+            entropy and describing dispersion interactions in solution.
+            - Sum of all -Cl groups E-state values in molecule (SsCl).
+            - Absolute eigenvalues sum from electronegativity weighted distance matrix (Aeige).
+            The descriptors were calculated, in the original CAESAR version, by means of dragonX software and are now entirely calculated by an in-house software module in which they are implemented as described in: R. Todeschini and V. Consonni, Molecular Descriptors for Chemoinformatics, WileyVCH, 2009.</Descriptors>
+        <Applicability_Domain>
+            <AD>
+                <Name>Similar_Molecules</Name>
+                <SimilarMols>3</SimilarMols>
+                <RangeTop>1 >= index > 0.9</RangeTop>
+                <DescriptionRangeTop>strongly similar compounds with known experimental value in the training set have been found</DescriptionRangeTop>
+                <RangeMid>0.9 >= index > 0.75</RangeMid>
+                <DescriptionRangeMid>only moderately similar compounds with known experimental value in the training set have been found</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.75</RangeBottom>
+                <DescriptionRangeBottom>no similar compounds with known experimental value in the training set have been found</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Accuracy</Name>
+                <RangeTop>index &lt; 0.5</RangeTop>
+                <DescriptionRangeTop>accuracy of prediction for similar molecules found in the training set is good</DescriptionRangeTop>
+                <RangeMid>0.5 &lt;= index &lt;= 1.0</RangeMid>
+                <DescriptionRangeMid>accuracy of prediction for similar molecules found in the training set is not optimal</DescriptionRangeMid>
+                <RangeBottom>index > 1.0</RangeBottom>
+                <DescriptionRangeBottom>accuracy of prediction for similar molecules found in the training set is not adequate</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Concordance</Name>
+                <RangeTop>index &lt; 0.5</RangeTop>
+                <DescriptionRangeTop>similar molecules found in the training set have experimental values that agree with the target compound predicted value</DescriptionRangeTop>
+                <RangeMid>0.5 &lt;= index &lt;= 1.0</RangeMid>
+                <DescriptionRangeMid>similar molecules found in the training set have experimental values that slightly disagree with the target compound predicted value</DescriptionRangeMid>
+                <RangeBottom>index > 1.0</RangeBottom>
+                <DescriptionRangeBottom>similar molecules found in the training set have experimental values that completely disagree with the target compound predicted value</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Maximum_Error</Name>
+                <RangeTop>index &lt; 0.5</RangeTop>
+                <DescriptionRangeTop>the maximum error in prediction of similar molecules found in the training set has a low value, considering the experimental variability</DescriptionRangeTop>
+                <RangeMid>0.5 &lt;= index &lt; 1.0</RangeMid>
+                <DescriptionRangeMid>the maximum error in prediction of similar molecules found in the training set has a moderate value, considering the experimental variability</DescriptionRangeMid>
+                <RangeBottom>index >= 1.0</RangeBottom>
+                <DescriptionRangeBottom>the maximum error in prediction of similar molecules found in the training set has a high value, considering the experimental variability</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>ACF_SimCheck</Name>
+                <RangeTop>index = 1</RangeTop>
+                <DescriptionRangeTop>all atom centered fragment of the compound have been found in the compounds of the training set</DescriptionRangeTop>
+                <RangeMid>1 > index >= 0.7</RangeMid>
+                <DescriptionRangeMid>some atom centered fragment of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeMid>
+                <RangeBottom>index &lt; 0.7</RangeBottom>
+                <DescriptionRangeBottom>a prominent number of atom centered fragments of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Model_Descriptors_Range_Check</Name>
+                <RangeTop>index = True</RangeTop>
+                <DescriptionRangeTop>descriptors for this compound have values inside the descriptor range of the compounds of the training set</DescriptionRangeTop>
+                <RangeBottom>index = False</RangeBottom>
+                <DescriptionRangeBottom>descriptors for this compound have values outside the descriptor range of the compounds of the training set</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>AD_Index</Name>
+                <RangeTop>1 >= index > 0.85</RangeTop>
+                <DescriptionRangeTop>predicted substance is into the Applicability Domain of the model</DescriptionRangeTop>
+                <RangeMid>0.85 => index > 0.75</RangeMid>
+                <DescriptionRangeMid>predicted substance could be out of the Applicability Domain of the model</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.75</RangeBottom>
+                <DescriptionRangeBottom>predicted substance is out of the the Applicability Domain of the model</DescriptionRangeBottom>
+            </AD>
+        </Applicability_Domain>
+        <SA_outliers>The model implements the detection of a set of Structural Alerts that have been found only in
+            compounds that are outlier (labeled as SO). When such SO are found, a warning in the final assessment
+            is given, and the results should be carefully checked. The SO for outlier compounds are the following:
+            - SO 01: 6 Cl atoms in the molecule
+            - SO 02: 2 t-butyl linked to aromatic
+            - SO 03: Si atom in the molecule
+            - SO 04: Sn atom in the molecule
+            - SO 05: O linked to aromatic and 3 Br/Cl linked to aromatic
+            - SO 06: Azo group liked to aromatic
+            - SO 07: 3 Nitro-groups linked to aromatic
+            - SO 08: Peroxide
+            - SO 09: Phosphinothioyl-oxy-imino
+            - SO 010: 10 F atoms in the molecule
+            - SO 011: Phosphorodithioate</SA_outliers>
+        <Other_SA>Other relevant Structural Alerts have been studied and proposed for reasoning, each one is related to a
+            class of chemicals that have a particular BCF behavior (they are labeled as SR). The relevant SR are the
+            following, given with the full explanation of the behavior they are bound to:
+            - SR 01: O=Cc1ccccc1 moiety; this SA has been found only in non-bioaccumulative compounds (24
+            chemicals), even when the logP value was higher than 3.
+            - SR 02: Carbonyl residue; this SA has been found to be present in a very large (112) number of nonbioaccumulative compounds, even when the logP value was higher than 3.
+            - SR 03: O-P=O residue; this SA has been found only in non-bioaccumulative compounds (45
+            chemicals), even when the logP value was higher than 3.
+            - SR 04: Thiobenzene residue; this SA has been found only in non-bioaccumulative compounds (39
+            chemicals), even when the logP value was higher than 3.
+            5- SR 05: Tertiary amine; this SA has been found to be present in a large number of non-bioaccumulative
+            compounds (28), even when the logP value was higher than 3.
+            - SR 06: Triazole ring; this SA has been found to be present in a number of non- bioaccumulative
+            compounds (16), even when the logP value was higher than 3.
+            - SR 07: Clc1ccccc1c1ccc(Cl)cc1 moiety; this SA has been found only in bioaccumulative compounds
+            (15 chemicals). The high lipophylicity of this moiety increases the bioaccumulative behavior.
+            - SR 08: C1cc(Oc2ccccc2)ccc1Cl; this SA has been found only in bioaccumulative compounds (9
+            chemicals). The high lipophylicity of this moiety increases the bioaccumulative behavior.
+            - SR 09: Clc1cc(c2ccccc2)c(Cl)cc1; this SA has been found only in bioaccumulative compounds (15
+            chemicals). The high lipophylicity of this moiety increases the bioaccumulative behavior.
+            Furthermore, another set of Structural Alerts for polar groups (labeled as PG) is used for reasoning purpose: usually, the presence of one or more polar groups is related to high hydrophilicity. These SAs have been divided into 3 groups, starting from more relavant (under the aspect of polarity); they are searched in a progressive way, so that if some SAs of the first group are found, no more groups are searched, otherwise the reasearch proceed with the second group, and so on. The group are the following:
+            First group:
+            - PG 01: COOH group.
+            - PG 02: SO3H group.
+            - PG 03: PO3 group.
+            - PG 04: PO2S group.
+            - PG 05: POS2 group.
+            Second group:
+            - PG 06: OH group.
+            - PG 07: NH2 group.
+            - PG 08: CS2 group.
+            Third group:
+            - PG 09: >C=O group</Other_SA>
+    </Guide>
 
     <Reference></Reference>
 
     <Endpoint></Endpoint>
 
-    <Stats></Stats>
+    <Stats>
+        <n_Train>378</n_Train>
+        <R2_Train>0.82</R2_Train>
+        <RMSE_Train>0.58</RMSE_Train>
+        <n_Test>95</n_Test>
+        <R2_Test>0.78</R2_Test>
+        <RMSE_Test>0.62</RMSE_Test>
+    </Stats>
     
 </xml>

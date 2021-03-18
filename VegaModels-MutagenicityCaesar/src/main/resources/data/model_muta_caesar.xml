@@ -31,12 +31,127 @@
         </ClassValues>
     </Vega>
 
-    <Guide></Guide>
+    <Guide>
+        <Description>The model provides a qualitative prediction of mutagenicity on Salmonella typhimurium (Ames test). It is implemented inside the VEGA online platform, accessible at: http://www.vega-qsar.eu/ The model extends the original CAESAR model, freely available at: http://www.caesarproject.eu/software/ </Description>
+        <Model>An integrated model was arranged cascading two models: Model A, a trained Support Vector Machine (SVM) classifier, and an additional Model B for false negatives (FNs) removal based on Structural Alerts (SAs) matching. Model B works with two sets of SAs: the first one is related to mutagenicity activity, if no matching is found the second set is checked, and if some matches are found, the prediction is "suspect mutagen". Full reference and details of the used formulas can be found in:
+            Ferrari T., Gini G. An open source multistep model to predict mutagenicity from statistical analysis and relevant structural alerts. Chemistry Central Journal (2010), 4 (Suppl 1):S2
+            Structural Alerts have been taken from the Benigni/Bossa rulebase for mutagenicity and carcinogenicity (implemented as a module of Toxtree software). Full reference and details of the used SAs can be found in:
+            Benigni R., Bossa C., Jeliazkova N.G., Netzeva T.I., Worth A.P. The Benigni/Bossa rulebase for mutagenicity and carcinogenicity - a module of toxtree. Technical Report EUR 23241 EN, European Commission - Joint Research Centre 2008.</Model>
+        <Descriptors>The descriptors used by the SVM are the following:
+            - SsCH3_acnt: Count of all ( – CH3 ) groups in molecule
+            - SdCH2_acnt: Count of all ( = CH2 ) groups in molecule
+            - SssCH2_acnt: Count of all ( – CH2 – ) groups in molecule
+            - SdsCH_acnt: Count of all ( = CH – ) groups in molecule
+            - SaaCH_acnt: Count of all ( CH ) groups in molecule
+            - SsssCH_acnt: Count of all ( > CH – ) groups in molecule
+            - SdssC_acnt: Count of all ( = C &lt; ) groups in molecule
+            - SaasC_acnt: Count of all ( CH ) groups in molecule
+            - SaaaC_acnt: Count of all ( CH ) groups in molecule
+            - SssssC_acnt: Count of all ( > C &lt; ) groups in molecule
+            - SsNH2_acnt: Count of all ( – NH2 ) groups in molecule
+            - StN_acnt: Count of all ( #N ) groups in molecule
+            - SdsN_acnt: Count of all ( = N – )groups in molecule
+            - SaaN_acnt: Count of all ( N )groups in molecule
+            2- SsssN_acnt: Count of all ( > N – )groups in molecule
+            - SdaaN_acnt: Count of all ( N ) groups in molecule
+            - SsOH_acnt: Count of all ( – OH ) groups in molecule
+            - SdO_acnt: Count of all ( = O ) groups in molecule
+            - SssO_acnt: Count of all ( – O – ) groups in molecule
+            - SaaO_acnt: Count of all ( O ) groups in molecule
+            - SHCHnX_Acnt: Count of all CH or CH2 groups with a -F or -Cl also bonded to the carbon
+            - Gmin: Smallest atom E-State value in molecule
+            - idwbar: Bonchev-Trinajsti mean information content
+            - ALogP: Ghose-Crippen octanol water coefficient
+            - nrings: Number of rings (cyclomatic number) in a molecular graph
+            The descriptors were calculated, in the original model, by means of MDL and dragonX software and are now entirely calculated by an in-house software module in which they are implemented as described in: R. Todeschini and V. Consonni, Molecular Descriptors for Chemoinformatics, WileyVCH, 2009.</Descriptors>
+        <Applicability_Domain>
+            <AD>
+                <Name>Similar_Molecules</Name>
+                <SimilarMols>3</SimilarMols>
+                <RangeTop>1 >= index > 0.85</RangeTop>
+                <DescriptionRangeTop>strongly similar compounds with known experimental value in the training set have been found</DescriptionRangeTop>
+                <RangeMid>0.85 >= index > 0.7</RangeMid>
+                <DescriptionRangeMid>only moderately similar compounds with known experimental value in the training set have been found</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.7</RangeBottom>
+                <DescriptionRangeBottom>no similar compounds with known experimental value in the training set have been found</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Accuracy</Name>
+                <RangeTop>1 >= index > 0.9</RangeTop>
+                <DescriptionRangeTop>accuracy of prediction for similar molecules found in the training set is good</DescriptionRangeTop>
+                <RangeMid>0.9 >= index > 0.5</RangeMid>
+                <DescriptionRangeMid>accuracy of prediction for similar molecules found in the training set is not optimal</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.5</RangeBottom>
+                <DescriptionRangeBottom>accuracy of prediction for similar molecules found in the training set is not adequate</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Concordance</Name>
+                <RangeTop>1 >= index > 0.9</RangeTop>
+                <DescriptionRangeTop>similar molecules found in the training set have experimental values that agree with the predicted value</DescriptionRangeTop>
+                <RangeMid>0.9 >= index > 0.5 </RangeMid>
+                <DescriptionRangeMid>some similar molecules found in the training set have experimental values that disagree with the predicted value</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.5</RangeBottom>
+                <DescriptionRangeBottom>similar molecules found in the training set have experimental values that disagree with the predicted value</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>ACF_SimCheck</Name>
+                <RangeTop>index = 1</RangeTop>
+                <DescriptionRangeTop>all atom centered fragment of the compound have been found in the compounds of the training set</DescriptionRangeTop>
+                <RangeMid>1 > index >= 0.7</RangeMid>
+                <DescriptionRangeMid>some atom centered fragment of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeMid>
+                <RangeBottom>index &lt; 0.7</RangeBottom>
+                <DescriptionRangeBottom>a prominent number of atom centered fragments of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Model_Descriptors_Range_Check</Name>
+                <RangeTop>index = True</RangeTop>
+                <DescriptionRangeTop>descriptors for this compound have values inside the descriptor range of the compounds of the training set</DescriptionRangeTop>
+                <RangeBottom>index = False</RangeBottom>
+                <DescriptionRangeBottom>descriptors for this compound have values outside the descriptor range of the compounds of the training set</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>AD_Index</Name>
+                <RangeTop>1 >= index >= 0.9</RangeTop>
+                <DescriptionRangeTop>predicted substance is into the Applicability Domain of the model</DescriptionRangeTop>
+                <RangeMid>0.9 > index >= 0.7</RangeMid>
+                <DescriptionRangeMid>predicted substance could be out of the Applicability Domain of the model</DescriptionRangeMid>
+                <RangeBottom>index &lt; 0.7</RangeBottom>
+                <DescriptionRangeBottom>predicted substance is out of the the Applicability Domain of the model</DescriptionRangeBottom>
+            </AD>
+        </Applicability_Domain>
+        <SA_MutagenCompounds>The model goes through a first step in which a set of 12 SAs related to mutagenicty is checked. If one (or more) fragments are found, compound is predicted as "mutagen". The SAs are the following (SA numbers refer to the original Benigni/Bossa study):
+            - SA 1: Acyl halides
+            - SA 6: Propiolactones or propiosultones
+            - SA 12: Quinones
+            - SA 13: Hydrazine
+            - SA 14: Aliphatic azo and azoxy
+            - SA 16: alkyl carbamate and thiocarbamate
+            - SA 18: Polycyclic Aromatic Hydrocarbons
+            - SA 21: alkyl and aryl N-nitroso groups
+            - SA 22: Azide and triazene groups
+            - SA 25: Aromatic nitroso group
+            - SA 28bis: Aromatic mono- and dialkylamine
+            - SA 29: Aromatic diazo </SA_MutagenCompounds>
+        <SA_SuspectMutagenCompounds>After the first step, if no mutagen fragment has been found, the model checks a second set of 4 SAs related to suspect mutagenicty. In fact, these SAs have a moderate rate of false positive in the training set of the model. If one (or more) fragments are found, compound is predicted as "suspect mutagen". The SAs are the following (SA numbers refer to the original Benigni/Bossa study):
+            - SA 7: Epoxides and aziridines
+            - SA 8: Aliphatic halogens
+            - SA 19: Heterocyclic Polycyclic Aromatic Hydrocarbons
+            - SA 27: Nitro-aromatic </SA_SuspectMutagenCompounds>
+    </Guide>
 
     <Reference></Reference>
 
     <Endpoint></Endpoint>
 
-    <Stats></Stats>
+    <Stats>
+        <n_Train>3253</n_Train>
+        <Accuracy_Train>0.92</Accuracy_Train>
+        <Specificity_Train>0.86</Specificity_Train>
+        <Sensitivity_Train>0.97</Sensitivity_Train>
+        <n_Test>798</n_Test>
+        <Accuracy_Test>0.83</Accuracy_Test>
+        <Specificity_Test>0.74</Specificity_Test>
+        <Sensitivity_Test>0.90</Sensitivity_Test>
+    </Stats>
     
 </xml>

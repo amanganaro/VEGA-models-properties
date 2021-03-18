@@ -26,12 +26,113 @@
         </ClassValues>
     </Vega>
 
-    <Guide></Guide>
+    <Guide>
+        <Description>The model provides a qualitative prediction of carcinogenic potency according to specific requirements of Chemical regulation. It is implemented inside the VEGA online platform, accessible at:http://www.vega-qsar.eu/.
+        TThe model extends the original CAESAR model, freely available at: http://www.caesarproject.eu/software/ </Description>
+        <Model>The model has been built as a Counter Propagation Artificial Neural Network (CP ANN). The neural network output consists of two values labeled as Positive and Non-Positive, both in the range [0,1] and with sum equal to 1; they represent how much the neuron in which the predicted compound falls belongs to the class of carcinogenic or non-carcinogenic compounds. The higher between these two values leads to the prediction. Full reference and details of the used formulas can be found in:
+        Fjodorova N., Vračko M., Novič M., Roncaglioni A. and Benfenati E. New public QSAR model for carcinogenicity. Chemistry Central Journal (2010), 4 (Suppl 1):S3 </Model>
+        <Descriptors>The descriptors used are the following:
+            - BEHm1: highest eigenvalue n. 1 of Burden matrix / weighted by atomic masses
+            - Eig1p: Leading eigenvalue from polarizability weighted distance matrix
+            - IC2: information content index (neighborhood symmetry of 2-order)
+            - IDE: mean information content on the distance equality
+            - MLOGP: Moriguchi octanol-water partition coeff. (logP)
+            - Mp: mean atomic polarizability (scaled on Carbon atom)
+            - MW: molecular weight
+            - nHAcc: number of acceptor atoms for H-bonds (N O F)
+            - nNR2Ph: number of tertiary amines (aromatic)
+            - nP: number of Phosphorous atoms
+            - O-057: phenol / enol / carboxyl OH
+            - O-060: Al-O-Ar / Ar-O-Ar / R..O..R / R-O-C=X
+            - S-107: R2S / RS-SR; Class: atom-centred fragments
+            - SRW05: self-returning walk count of order 05
+            - T(F..Cl): sum of topologica</Descriptors>
+        <Applicability_Domain>
+            <AD>
+                <Name>Similar_Molecules</Name>
+                <SimilarMols>3</SimilarMols>
+                <RangeTop>1 >= index > 0.8</RangeTop>
+                <DescriptionRangeTop>strongly similar compounds with known experimental value in the training set have been found</DescriptionRangeTop>
+                <RangeMid>0.8 >= index > 0.6</RangeMid>
+                <DescriptionRangeMid>only moderately similar compounds with known experimental value in the training set have been found</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.6</RangeBottom>
+                <DescriptionRangeBottom>no similar compounds with known experimental value in the training set have been found</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Accuracy</Name>
+                <RangeTop>1 >= index > 0.9</RangeTop>
+                <DescriptionRangeTop>accuracy of prediction for similar molecules found in the training set is good</DescriptionRangeTop>
+                <RangeMid>0.9 >= index > 0.5</RangeMid>
+                <DescriptionRangeMid>accuracy of prediction for similar molecules found in the training set is not optimal</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.5</RangeBottom>
+                <DescriptionRangeBottom>accuracy of prediction for similar molecules found in the training set is not adequate</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Concordance</Name>
+                <RangeTop>1 >= index > 0.9</RangeTop>
+                <DescriptionRangeTop>similar molecules found in the training set have experimental values that agree with the predicted value</DescriptionRangeTop>
+                <RangeMid>0.9 >= index > 0.5 </RangeMid>
+                <DescriptionRangeMid>some similar molecules found in the training set have experimental values that disagree with the predicted value</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.5</RangeBottom>
+                <DescriptionRangeBottom>similar molecules found in the training set have experimental values that disagree with the predicted value</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>ACF_SimCheck</Name>
+                <RangeTop>index = 1</RangeTop>
+                <DescriptionRangeTop>all atom centered fragment of the compound have been found in the compounds of the training set</DescriptionRangeTop>
+                <RangeMid>1 > index >= 0.7</RangeMid>
+                <DescriptionRangeMid>some atom centered fragment of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeMid>
+                <RangeBottom>index &lt; 0.7</RangeBottom>
+                <DescriptionRangeBottom>a prominent number of atom centered fragments of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Reliability</Name>
+                <RangeTop>index = 1</RangeTop>
+                <DescriptionRangeTop>model class assignment is well defined</DescriptionRangeTop>
+                <RangeBottom>index = 0</RangeBottom>
+                <DescriptionRangeBottom>model class assignment is uncertain</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>NMN_concordance</Name>
+                <RangeTop>index = 1</RangeTop>
+                <DescriptionRangeTop>predicted value agrees with experimental values of training set compounds laying in the same neuron</DescriptionRangeTop>
+                <RangeMid>index = 0.75</RangeMid>
+                <DescriptionRangeMid>predicted value disagrees with experimental values of training set compounds laying in the same neuron</DescriptionRangeMid>
+                <RangeBottom>index = 0.5</RangeBottom>
+                <DescriptionRangeBottom>predicted substance falls into a neuron that is populated by no compounds of the training set</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Model_Descriptors_Range_Check</Name>
+                <RangeTop>index = True</RangeTop>
+                <DescriptionRangeTop>descriptors for this compound have values inside the descriptor range of the compounds of the training set</DescriptionRangeTop>
+                <RangeBottom>index = False</RangeBottom>
+                <DescriptionRangeBottom>descriptors for this compound have values outside the descriptor range of the compounds of the training set</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>AD_Index</Name>
+                <RangeTop>1 >= index >= 0.8</RangeTop>
+                <DescriptionRangeTop>predicted substance is into the Applicability Domain of the model</DescriptionRangeTop>
+                <RangeMid>0.8 = index >= 0.6</RangeMid>
+                <DescriptionRangeMid>predicted substance could be out of the Applicability Domain of the model</DescriptionRangeMid>
+                <RangeBottom>index &lt; 0.6</RangeBottom>
+                <DescriptionRangeBottom>predicted substance is out of the the Applicability Domain of the model</DescriptionRangeBottom>
+            </AD>
+        </Applicability_Domain>
+    </Guide>
 
     <Reference></Reference>
 
     <Endpoint></Endpoint>
 
-    <Stats></Stats>
+    <Stats>
+        <n_Train>645</n_Train>
+        <Accuracy_Train>0.87</Accuracy_Train>
+        <Specificity_Train>0.86</Specificity_Train>
+        <Sensitivity_Train>0.89</Sensitivity_Train>
+        <n_Test>161</n_Test>
+        <Accuracy_Test>0.67</Accuracy_Test>
+        <Specificity_Test>0.61</Specificity_Test>
+        <Sensitivity_Test>0.72</Sensitivity_Test>
+    </Stats>
     
 </xml>

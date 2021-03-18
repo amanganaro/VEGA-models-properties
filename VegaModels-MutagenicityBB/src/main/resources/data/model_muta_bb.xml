@@ -26,12 +26,116 @@
         </ClassValues>
     </Vega>
 
-    <Guide></Guide>
+    <Guide>
+        <Description>The model provides a qualitative prediction of mutagenicity on Salmonella typhimurium (Ames test). It is implemented inside the VEGA online platform, accessible at: http://www.vega-qsar.eu/</Description>
+        <Model>The model has been built as a set of rules, taken from the work of Benigni and Bossa (ISS) as implemented in the software ToxTree version 2.6 (http://toxtree.sourceforge.net): Benigni, R., Bossa, C. “Mechanisms of chemical carcinogenicity and mutagenicity: a review with implications for predictive toxicology”, Chem. Revs. 111 (2011), 2507-2536; Benigni, R., Bossa C., Tcheremenskaia O. “In vitro cell transformation assays for an integrated, alternative assessment of carcinogenicity: a databased analysis”, Mutagenesis (2013), 28(1):107-16.
+            The model implement all the rules related to mutagenicity and does not implement the full decision tree used by ToxTree. If at least one mutagenicity rule is matching with the given compound, a “mutagen” prediction is given; otherwise, a “non-mutagen” prediction is given. The training set for the model has been extracted from ToxTree, and consists of 670 compounds.</Model>
+        <Applicability_Domain>
+            <AD>
+                <Name>Similar_Molecules</Name>
+                <SimilarMols>3</SimilarMols>
+                <RangeTop>1 >= index > 0.8</RangeTop>
+                <DescriptionRangeTop>strongly similar compounds with known experimental value in the training set have been found</DescriptionRangeTop>
+                <RangeMid>0.8 >= index > 0.6</RangeMid>
+                <DescriptionRangeMid>only moderately similar compounds with known experimental value in the training set have been found</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.6</RangeBottom>
+                <DescriptionRangeBottom>no similar compounds with known experimental value in the training set have been found</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Accuracy</Name>
+                <RangeTop>1 >= index > 0.9</RangeTop>
+                <DescriptionRangeTop>accuracy of prediction for similar molecules found in the training set is good</DescriptionRangeTop>
+                <RangeMid>0.9 >= index > 0.5</RangeMid>
+                <DescriptionRangeMid>accuracy of prediction for similar molecules found in the training set is not optimal</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.5</RangeBottom>
+                <DescriptionRangeBottom>accuracy of prediction for similar molecules found in the training set is not adequate</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Concordance</Name>
+                <RangeTop>1 >= index > 0.9</RangeTop>
+                <DescriptionRangeTop>similar molecules found in the training set have experimental values that agree with the predicted value</DescriptionRangeTop>
+                <RangeMid>0.9 >= index > 0.5 </RangeMid>
+                <DescriptionRangeMid>some similar molecules found in the training set have experimental values that disagree with the predicted value</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.5</RangeBottom>
+                <DescriptionRangeBottom>similar molecules found in the training set have experimental values that disagree with the predicted value</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>ACF_SimCheck</Name>
+                <RangeTop>index = 1</RangeTop>
+                <DescriptionRangeTop>all atom centered fragment of the compound have been found in the compounds of the training set</DescriptionRangeTop>
+                <RangeMid>1 > index >= 0.7</RangeMid>
+                <DescriptionRangeMid>some atom centered fragment of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeMid>
+                <RangeBottom>index &lt; 0.7</RangeBottom>
+                <DescriptionRangeBottom>a prominent number of atom centered fragments of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>AD_Index</Name>
+                <RangeTop>1 >= index >= 0.9</RangeTop>
+                <DescriptionRangeTop>predicted substance is into the Applicability Domain of the model</DescriptionRangeTop>
+                <RangeMid>0.9 > index >= 0.65</RangeMid>
+                <DescriptionRangeMid>predicted substance could be out of the Applicability Domain of the model</DescriptionRangeMid>
+                <RangeBottom>index &lt; 0.65</RangeBottom>
+                <DescriptionRangeBottom>predicted substance is out of the the Applicability Domain of the model</DescriptionRangeBottom>
+            </AD>
+        </Applicability_Domain>
+        <SA_MutagenCompounds>Following, the list of the rules for mutagenicity extracted from ToxTree:
+            SA1 Acyl halides
+            SA2 Alkyl (C&lt;5) or benzyl ester of sulphonic or phosphonic acid
+            SA3 N-methylol derivatives
+            SA4 Monohaloalkene
+            SA5 S or N mustard
+            SA6 Propiolactones and propiosultones
+            SA7 Epoxides and aziridines
+            SA8 Aliphatic halogens
+            SA9 Alkyl nitrite
+            SA10 alfa, beta unsaturated carbonyls
+            SA11 Simple aldehyde
+            SA12 Quinones
+            SA13 Hydrazine
+            SA14 Aliphatic azo and azoxy
+            SA15 Isocyanate and isothiocyanate groups
+            SA16 Alkyl carbamate and thiocarbamate
+            SA18 Polycyclic Aromatic Hydrocarbons
+            SA19 Heterocyclic Polycyclic Aromatic Hydrocarbons
+            SA21 Alkyl and aryl N-nitroso groups
+            SA22 Azide and triazene groups
+            SA23 Aliphatic N-nitro
+            SA24 alfa,beta unsaturated alkoxy
+            SA25 Aromatic nitroso group
+            SA26 Aromatic ring N-oxide
+            SA27 Nitro aromatic
+            SA28 Primary aromatic amine, hydroxyl amine and its derived esters (with restrictions)
+            SA28bis Aromatic mono- and dialkylamine
+            4SA28ter Aromatic N-acyl amine
+            SA29 Aromatic diazo
+            SA30 Coumarins and Furocoumarins
+            SA37 Pyrrolizidine Alkaloids
+            SA38 Alkenylbenzenes
+            SA39 Steroidal estrogens
+            SA57 DNA Intercalating Agents with a basic side chain
+            SA58 Haloalkene cysteine S-conjugates
+            SA59 Xanthones, Thioxanthones, Acridones
+            SA60 Flavonoids
+            SA61 Alkyl hydroperoxides
+            SA62 N-acyloxy-N -alkoxybenzamides
+            SA63 N-aryl-N-acetoxyacetamides
+            SA64 Hydroxamic acid derivatives
+            SA65 Halofuranones
+            SA66 Anthrones
+            SA67 Triphenylimidazole and related
+            SA68 9,10 - dihydrophenanthrenes
+            SA69 Fluorinated quinolines</SA_MutagenCompounds>
+    </Guide>
 
     <Reference></Reference>
 
     <Endpoint></Endpoint>
 
-    <Stats></Stats>
+    <Stats>
+        <n_Train>670</n_Train>
+        <Accuracy_Train>0.79</Accuracy_Train>
+        <Specificity_Train>0.68</Specificity_Train>
+        <Sensitivity_Train>0.89</Sensitivity_Train>
+    </Stats>
     
 </xml>
