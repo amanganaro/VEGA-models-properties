@@ -1,12 +1,12 @@
 <xml>
-   
+
     <Version>
         <Name>Mutagenicity (Ames test) model (ISS)</Name>
         <Key>MUTA_ISS</Key>
         <Summary>Classification model for Mutagenicity (Ames test) based on Benigni-Bossa (Istituto Superiore di Sanità) rule set</Summary>
         <Version>1.0.2</Version>
     </Version>
-    
+
     <Vega>
         <TS>/data/ts_muta_bb.dat</TS>
         <HasAlerts>True</HasAlerts>
@@ -28,7 +28,7 @@
 
     <Guide>
         <Description>The model provides a qualitative prediction of mutagenicity on Salmonella typhimurium (Ames test). It is implemented inside the VEGA online platform, accessible at: http://www.vega-qsar.eu/</Description>
-        <Model>The model has been built as a set of rules, taken from the work of Benigni and Bossa (ISS) as implemented in the software ToxTree version 2.6 (http://toxtree.sourceforge.net): Benigni, R., Bossa, C. “Mechanisms of chemical carcinogenicity and mutagenicity: a review with implications for predictive toxicology”, Chem. Revs. 111 (2011), 2507-2536; Benigni, R., Bossa C., Tcheremenskaia O. “In vitro cell transformation assays for an integrated, alternative assessment of carcinogenicity: a databased analysis”, Mutagenesis (2013), 28(1):107-16.
+        <Model>The model has been built as a set of rules, taken from the work of Benigni and Bossa (ISS) as implemented in the software ToxTree version 2.6 (http://toxtree.sourceforge.net): Benigni, R., Bossa, C. “Mechanisms of chemical carcinogenicity and mutagenicity: a review with implications for predictive toxicology”, Chem. Revs. 111 (2011), 2507-2536; Benigni, R., Bossa C., Tcheremenskaia O. “In vitro cell transformation assays for an integrated, alternative assessment of carcinogenicity: a databased analysis”, Mutagenesis (2013), 28(1):107-16.
             The model implement all the rules related to mutagenicity and does not implement the full decision tree used by ToxTree. If at least one mutagenicity rule is matching with the given compound, a “mutagen” prediction is given; otherwise, a “non-mutagen” prediction is given. The training set for the model has been extracted from ToxTree, and consists of 670 compounds.</Model>
         <Applicability_Domain>
             <AD>
@@ -78,7 +78,7 @@
                 <DescriptionRangeBottom>predicted substance is out of the the Applicability Domain of the model</DescriptionRangeBottom>
             </AD>
         </Applicability_Domain>
-        <SA_MutagenCompounds>Following, the list of the rules for mutagenicity extracted from ToxTree:
+        <Structural_Alerts>Following, the list of the rules for mutagenicity extracted from ToxTree:
             SA1 Acyl halides
             SA2 Alkyl (C&lt;5) or benzyl ester of sulphonic or phosphonic acid
             SA3 N-methylol derivatives
@@ -124,7 +124,8 @@
             SA66 Anthrones
             SA67 Triphenylimidazole and related
             SA68 9,10 - dihydrophenanthrenes
-            SA69 Fluorinated quinolines</SA_MutagenCompounds>
+            SA69 Fluorinated quinolines
+        </Structural_Alerts>
     </Guide>
 
     <Reference></Reference>
@@ -132,10 +133,11 @@
     <Endpoint></Endpoint>
 
     <Stats>
-        <n_Train>670</n_Train>
-        <Accuracy_Train>0.79</Accuracy_Train>
-        <Specificity_Train>0.68</Specificity_Train>
-        <Sensitivity_Train>0.89</Sensitivity_Train>
+        <n>670.0</n>
+        <Specificity>0.696</Specificity>
+        <Sensitivity>0.888</Sensitivity>
+        <Accuracy>0.791</Accuracy>
+        <Not_Predicted>0.0</Not_Predicted>
     </Stats>
-    
+
 </xml>

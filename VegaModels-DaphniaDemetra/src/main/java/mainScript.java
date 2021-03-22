@@ -25,7 +25,7 @@ public class mainScript {
         InsilicoModel model = new ismDaphniaDemetra();
         ModelsDeployment.BuildDataset(model, "out_ts");
         File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
-        File destinationFile = new File("VegaModels-DaphniaDemetraV2\\src\\main\\resources\\data\\ts_daphnia_demetra.dat");
+        File destinationFile = new File("VegaModels-DaphniaDemetra\\src\\main\\resources\\data\\ts_daphnia_demetra.dat");
         try {
             Files.move(sourceFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
         } catch (Exception ex) {
@@ -53,9 +53,9 @@ public class mainScript {
 
         }
 
-        for(ACFItem acf : model.GetTrainingSet().getACF().getList()){
-            System.out.println(acf.getACF() + " : " + acf.getFrequency());
-        }
+//        for(ACFItem acf : model.GetTrainingSet().getACF().getList()){
+//            System.out.println(acf.getACF() + " : " + acf.getFrequency());
+//        }
 
 
     }

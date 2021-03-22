@@ -1,12 +1,12 @@
 <xml>
-   
+
     <Version>
         <Name>Skin Sensitization model (CAESAR)</Name>
         <Key>SKIN_CAESAR</Key>
         <Summary>QSAR classification model for Skin sensitization (from CAESAR project)</Summary>
         <Version>2.1.6</Version>
     </Version>
-    
+
     <Vega>
         <TS>/data/ts_skin_caesar.dat</TS>
         <HasAlerts>False</HasAlerts>
@@ -28,7 +28,7 @@
 
     <Guide>
         <Description>The model provides a qualitative prediction of skin sensitisation on mouse (local lymph node assay model). It is implemented inside the VEGA online platform, accessible at:http://www.vega-qsar.eu/
-            The model extends the original CAESAR model, freely available at: http://www.caesarproject.eu/software/</Description>
+            The model extends the original CAESAR model, freely available at: http://www.caesar-project.eu/software/</Description>
         <Model>The model consists in an Adaptive Fuzzy Partition (AFP) based on 8 descriptors. The AFP produces as output two values O(positive) and O(negative) that represent the belonging degree respectively to the sensitizer and non-sensitizer classes. The input compound is assigned to the class having this degree value higher than 0.5, unless the difference between the values of the two degrees is lower than the threshold 0.001; in this case, the belonging to one class or the other is not sure, thus no prediction is made. Full reference and details of the used formulas can be found in:
             Chaudhry, Q., Piclin, N., Cotterill, J., Pintore, M., Price, N. R., Chrétien, J. R. and Roncaglioni, A. (2010). Global QSAR models of skin sensitisers for regulatory purposes., Chem Cent J 4 Suppl 1, S5.</Model>
         <Descriptors>The descriptors used by the AFP model are the following:
@@ -40,7 +40,7 @@
             - GGI8: Topological charge index of order 8
             - nCconj: Number of non aromatic conjugated C(sp2)
             - O-058: Atom-centred fragment =O
-            The descriptors were calculated, in the original model, by means of MDL and dragonX software and are now entirely calculated by an in-house software module in which they are implemented as described in: R. Todeschini and V. Consonni, Molecular Descriptors for Chemoinformatics, WileyVCH, 2009.</Descriptors>
+            The descriptors were calculated, in the original model, by means of MDL and dragonX software and are now entirely calculated by an in-house software module in which they are implemented as described in: R. Todeschini and V. Consonni, Molecular Descriptors for Chemoinformatics, Wiley-VCH, 2009.</Descriptors>
         <Applicability_Domain>
             <AD>
                 <Name>Similar_Molecules</Name>
@@ -103,14 +103,16 @@
     <Endpoint></Endpoint>
 
     <Stats>
-        <n_Train>167</n_Train>
-        <Accuracy_Train>0.91</Accuracy_Train>
-        <Specificity_Train>0.74</Specificity_Train>
-        <Sensitivity_Train>0.95</Sensitivity_Train>
-        <n_Test>42</n_Test>
-        <Accuracy_Test>0.93</Accuracy_Test>
+        <n_Train>167.0</n_Train>
+        <Specificity_Train>0.794</Specificity_Train>
+        <Sensitivity_Train>0.955</Sensitivity_Train>
+        <Accuracy_Train>0.922</Accuracy_Train>
+        <n_Test>42.0</n_Test>
         <Specificity_Test>0.75</Specificity_Test>
-        <Sensitivity_Test>0.97</Sensitivity_Test>
+        <Sensitivity_Test>0.971</Sensitivity_Test>
+        <Accuracy_Test>0.929</Accuracy_Test>
+        <Not_Predicted_Test>0.0</Not_Predicted_Test>
+        <Not_Predicted_Train>0.0</Not_Predicted_Train>
     </Stats>
-    
+
 </xml>

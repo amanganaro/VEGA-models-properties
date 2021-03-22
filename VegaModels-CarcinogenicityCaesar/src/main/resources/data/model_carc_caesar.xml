@@ -28,7 +28,7 @@
 
     <Guide>
         <Description>The model provides a qualitative prediction of carcinogenic potency according to specific requirements of Chemical regulation. It is implemented inside the VEGA online platform, accessible at:http://www.vega-qsar.eu/.
-        TThe model extends the original CAESAR model, freely available at: http://www.caesarproject.eu/software/ </Description>
+        TThe model extends the original CAESAR model, freely available at: http://www.caesar-project.eu/software/ </Description>
         <Model>The model has been built as a Counter Propagation Artificial Neural Network (CP ANN). The neural network output consists of two values labeled as Positive and Non-Positive, both in the range [0,1] and with sum equal to 1; they represent how much the neuron in which the predicted compound falls belongs to the class of carcinogenic or non-carcinogenic compounds. The higher between these two values leads to the prediction. Full reference and details of the used formulas can be found in:
         Fjodorova N., Vračko M., Novič M., Roncaglioni A. and Benfenati E. New public QSAR model for carcinogenicity. Chemistry Central Journal (2010), 4 (Suppl 1):S3 </Model>
         <Descriptors>The descriptors used are the following:
@@ -125,14 +125,16 @@
     <Endpoint></Endpoint>
 
     <Stats>
-        <n_Train>645</n_Train>
-        <Accuracy_Train>0.87</Accuracy_Train>
-        <Specificity_Train>0.86</Specificity_Train>
-        <Sensitivity_Train>0.89</Sensitivity_Train>
-        <n_Test>161</n_Test>
-        <Accuracy_Test>0.67</Accuracy_Test>
-        <Specificity_Test>0.61</Specificity_Test>
-        <Sensitivity_Test>0.72</Sensitivity_Test>
+        <n_Train>645.0</n_Train>
+        <Specificity_Train>0.859</Specificity_Train>
+        <Sensitivity_Train>0.895</Sensitivity_Train>
+        <Accuracy_Train>0.878</Accuracy_Train>
+        <n_Test>161.0</n_Test>
+        <Specificity_Test>0.597</Specificity_Test>
+        <Sensitivity_Test>0.719</Sensitivity_Test>
+        <Accuracy_Test>0.665</Accuracy_Test>
+        <Not_Predicted_Test>0.0</Not_Predicted_Test>
+        <Not_Predicted_Train>0.0</Not_Predicted_Train>
     </Stats>
     
 </xml>

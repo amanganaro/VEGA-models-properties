@@ -18,6 +18,7 @@
         Acute toxicity for Water Flea (Daphnia Magna) for pesticides: LC50 48-hours exposure
     </description>
 
+
     <dependencies>
         <dependency>
             <groupId>InSilico</groupId>

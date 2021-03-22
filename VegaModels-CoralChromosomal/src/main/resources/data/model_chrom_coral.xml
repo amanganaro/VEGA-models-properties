@@ -6,7 +6,7 @@
         <Summary>Classification model for chromosomal aberration,</Summary>
         <Version>1.0.0</Version>
     </Version>
-    
+
     <Vega>
         <TS>/data/ts_chrom_coral.dat</TS>
         <HasAlerts>False</HasAlerts>

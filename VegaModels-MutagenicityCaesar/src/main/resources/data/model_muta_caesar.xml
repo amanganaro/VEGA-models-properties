@@ -32,7 +32,7 @@
     </Vega>
 
     <Guide>
-        <Description>The model provides a qualitative prediction of mutagenicity on Salmonella typhimurium (Ames test). It is implemented inside the VEGA online platform, accessible at: http://www.vega-qsar.eu/ The model extends the original CAESAR model, freely available at: http://www.caesarproject.eu/software/ </Description>
+        <Description>The model provides a qualitative prediction of mutagenicity on Salmonella typhimurium (Ames test). It is implemented inside the VEGA online platform, accessible at: http://www.vega-qsar.eu/ The model extends the original CAESAR model, freely available at: http://www.caesar-project.eu/software/ </Description>
         <Model>An integrated model was arranged cascading two models: Model A, a trained Support Vector Machine (SVM) classifier, and an additional Model B for false negatives (FNs) removal based on Structural Alerts (SAs) matching. Model B works with two sets of SAs: the first one is related to mutagenicity activity, if no matching is found the second set is checked, and if some matches are found, the prediction is "suspect mutagen". Full reference and details of the used formulas can be found in:
             Ferrari T., Gini G. An open source multistep model to predict mutagenicity from statistical analysis and relevant structural alerts. Chemistry Central Journal (2010), 4 (Suppl 1):S2
             Structural Alerts have been taken from the Benigni/Bossa rulebase for mutagenicity and carcinogenicity (implemented as a module of Toxtree software). Full reference and details of the used SAs can be found in:
@@ -63,7 +63,7 @@
             - idwbar: Bonchev-Trinajsti mean information content
             - ALogP: Ghose-Crippen octanol water coefficient
             - nrings: Number of rings (cyclomatic number) in a molecular graph
-            The descriptors were calculated, in the original model, by means of MDL and dragonX software and are now entirely calculated by an in-house software module in which they are implemented as described in: R. Todeschini and V. Consonni, Molecular Descriptors for Chemoinformatics, WileyVCH, 2009.</Descriptors>
+            The descriptors were calculated, in the original model, by means of MDL and dragonX software and are now entirely calculated by an in-house software module in which they are implemented as described in: R. Todeschini and V. Consonni, Molecular Descriptors for Chemoinformatics, Wiley-VCH, 2009.</Descriptors>
         <Applicability_Domain>
             <AD>
                 <Name>Similar_Molecules</Name>
@@ -119,7 +119,7 @@
                 <DescriptionRangeBottom>predicted substance is out of the the Applicability Domain of the model</DescriptionRangeBottom>
             </AD>
         </Applicability_Domain>
-        <SA_MutagenCompounds>The model goes through a first step in which a set of 12 SAs related to mutagenicty is checked. If one (or more) fragments are found, compound is predicted as "mutagen". The SAs are the following (SA numbers refer to the original Benigni/Bossa study):
+        <Structural_Alerts>The model goes through a first step in which a set of 12 SAs related to mutagenicty is checked. If one (or more) fragments are found, compound is predicted as "mutagen". The SAs are the following (SA numbers refer to the original Benigni/Bossa study):
             - SA 1: Acyl halides
             - SA 6: Propiolactones or propiosultones
             - SA 12: Quinones
@@ -131,12 +131,14 @@
             - SA 22: Azide and triazene groups
             - SA 25: Aromatic nitroso group
             - SA 28bis: Aromatic mono- and dialkylamine
-            - SA 29: Aromatic diazo </SA_MutagenCompounds>
-        <SA_SuspectMutagenCompounds>After the first step, if no mutagen fragment has been found, the model checks a second set of 4 SAs related to suspect mutagenicty. In fact, these SAs have a moderate rate of false positive in the training set of the model. If one (or more) fragments are found, compound is predicted as "suspect mutagen". The SAs are the following (SA numbers refer to the original Benigni/Bossa study):
+            - SA 29: Aromatic diazo
+
+            After the first step, if no mutagen fragment has been found, the model checks a second set of 4 SAs related to suspect mutagenicty. In fact, these SAs have a moderate rate of false positive in the training set of the model. If one (or more) fragments are found, compound is predicted as "suspect mutagen". The SAs are the following (SA numbers refer to the original Benigni/Bossa study):
             - SA 7: Epoxides and aziridines
             - SA 8: Aliphatic halogens
             - SA 19: Heterocyclic Polycyclic Aromatic Hydrocarbons
-            - SA 27: Nitro-aromatic </SA_SuspectMutagenCompounds>
+            - SA 27: Nitro-aromatic
+        </Structural_Alerts>
     </Guide>
 
     <Reference></Reference>
@@ -144,14 +146,16 @@
     <Endpoint></Endpoint>
 
     <Stats>
-        <n_Train>3253</n_Train>
-        <Accuracy_Train>0.92</Accuracy_Train>
-        <Specificity_Train>0.86</Specificity_Train>
-        <Sensitivity_Train>0.97</Sensitivity_Train>
-        <n_Test>798</n_Test>
-        <Accuracy_Test>0.83</Accuracy_Test>
-        <Specificity_Test>0.74</Specificity_Test>
-        <Sensitivity_Test>0.90</Sensitivity_Test>
+        <n_Train>3367.0</n_Train>
+        <Specificity_Train>0.864</Specificity_Train>
+        <Sensitivity_Train>0.957</Sensitivity_Train>
+        <Accuracy_Train>0.916</Accuracy_Train>
+        <n_Test>837.0</n_Test>
+        <Specificity_Test>0.75</Specificity_Test>
+        <Sensitivity_Test>0.867</Sensitivity_Test>
+        <Accuracy_Test>0.815</Accuracy_Test>
+        <Not_Predicted_Test>0.0</Not_Predicted_Test>
+        <Not_Predicted_Train>0.0</Not_Predicted_Train>
     </Stats>
     
 </xml>

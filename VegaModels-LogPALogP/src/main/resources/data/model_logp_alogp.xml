@@ -69,9 +69,11 @@
     <Endpoint></Endpoint>
 
     <Stats>
-        <n_Test>9961</n_Test>
-        <R2_Test>0.84</R2_Test>
-        <RMSE_Test>0.72</RMSE_Test>
+        <n>9961.0</n>
+        <R2>0.843</R2>
+        <RMSE>0.718</RMSE>
+        <Not_Predicted>0.0</Not_Predicted>
     </Stats>
-    
+
+
 </xml>

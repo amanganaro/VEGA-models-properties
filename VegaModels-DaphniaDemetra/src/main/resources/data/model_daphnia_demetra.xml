@@ -7,7 +7,7 @@
     </Version>
 
     <Vega>
-        <TS>/insilico/model/daphnia/demetra/data/ts_daphnia_demetra.dat</TS>
+        <TS>/data/ts_daphnia_demetra.dat</TS>
         <HasAlerts>False</HasAlerts>
         <Units>-log(mol/l)</Units>
     </Vega>
@@ -119,12 +119,14 @@
     </Endpoint>
 
     <Stats>
-        <n_Train>220</n_Train>
-        <R2_Train>0.75</R2_Train>
-        <RMSE_Train>1.37</RMSE_Train>
-        <n_Test>43</n_Test>
-        <R2_Test>0.68</R2_Test>
-        <RMSE_Test>1.49</RMSE_Test>
+        <n_Train>43.0</n_Train>
+        <R2_Train>0.651</R2_Train>
+        <RMSE_Train>1.367</RMSE_Train>
+        <n_Test>220.0</n_Test>
+        <R2_Test>0.571</R2_Test>
+        <RMSE_Test>1.485</RMSE_Test>
+        <Not_Predicted_Train>0.0</Not_Predicted_Train>
+        <Not_Predicted_Test>0.0</Not_Predicted_Test>
     </Stats>
 
 </xml>

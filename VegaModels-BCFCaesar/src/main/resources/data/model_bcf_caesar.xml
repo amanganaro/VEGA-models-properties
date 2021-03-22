@@ -1,12 +1,12 @@
 <xml>
-   
+
     <Version>
         <Name>BCF model (CAESAR)</Name>
         <Key>BCF_CAESAR</Key>
         <Summary>QSAR regression model for fish BCF (from CAESAR project)</Summary>
         <Version>2.1.14</Version>
     </Version>
-    
+
     <Vega>
         <TS>/data/ts_bcf_caesar.dat</TS>
         <HasAlerts>True</HasAlerts>
@@ -15,7 +15,7 @@
 
     <Guide>
         <Description>The model provides a quantitative prediction of bioconcentration factor (BCF) in fish, given in log(L/kg). It is implemented inside the VEGA online platform, accessible at:http://www.vega-qsar.eu/
-            The model extends the original CAESAR model, freely available at: http://www.caesarproject.eu/software/ </Description>
+            The model extends the original CAESAR model, freely available at: http://www.caesarproject.eu/software/</Description>
         <Model>Two models, Model A and Model B, have been used to build hybrid model, Model C. In the proposed approach, the outputs of the individual models (Model A and B) were used as inputs of the hybrid model. Model A was developed by Radial Basis Function Neural Networks (RBFNN) using an heuristic method to select the optimal descriptors; Model B was developed by RBFNN using genetic algorithm for the descriptors selection. RBFNN was used with a Matlab function for building the models. An in-house software made as a PC-Windows Excel macro was used to combine Models A and B within the Model C. Model A used an heuristic method to select the optimal descriptors and Model B used genetic algorithm for the descriptors selection. Full reference and details of the used formulas can be found in:
             Zhao, C., Boriani, E., Chana, A., Roncaglioni,A., Benfenati, E. A new hybrid system of QSAR models for predicting bioconcentration factors (BCF). Chemosphere (2008), 73, 1701-1707.
             Lombardo A, Roncaglioni A, Boriani E, Milan C, Benfenati E. Assessment and validation of the CAESAR predictive model for bioconcentration factor (BCF) in fish. Chemistry Central Journal (2010), 4 (Suppl 1).</Model>
@@ -33,7 +33,7 @@
             entropy and describing dispersion interactions in solution.
             - Sum of all -Cl groups E-state values in molecule (SsCl).
             - Absolute eigenvalues sum from electronegativity weighted distance matrix (Aeige).
-            The descriptors were calculated, in the original CAESAR version, by means of dragonX software and are now entirely calculated by an in-house software module in which they are implemented as described in: R. Todeschini and V. Consonni, Molecular Descriptors for Chemoinformatics, WileyVCH, 2009.</Descriptors>
+            The descriptors were calculated, in the original CAESAR version, by means of dragonX software and are now entirely calculated by an in-house software module in which they are implemented as described in: R. Todeschini and V. Consonni, Molecular Descriptors for Chemoinformatics, WileyVCH, 2009.</Descriptors>
         <Applicability_Domain>
             <AD>
                 <Name>Similar_Molecules</Name>
@@ -98,7 +98,7 @@
                 <DescriptionRangeBottom>predicted substance is out of the the Applicability Domain of the model</DescriptionRangeBottom>
             </AD>
         </Applicability_Domain>
-        <SA_outliers>The model implements the detection of a set of Structural Alerts that have been found only in
+        <SA>The model implements the detection of a set of Structural Alerts that have been found only in
             compounds that are outlier (labeled as SO). When such SO are found, a warning in the final assessment
             is given, and the results should be carefully checked. The SO for outlier compounds are the following:
             - SO 01: 6 Cl atoms in the molecule
@@ -111,13 +111,14 @@
             - SO 08: Peroxide
             - SO 09: Phosphinothioyl-oxy-imino
             - SO 010: 10 F atoms in the molecule
-            - SO 011: Phosphorodithioate</SA_outliers>
-        <Other_SA>Other relevant Structural Alerts have been studied and proposed for reasoning, each one is related to a
+            - SO 011: Phosphorodithioate
+
+            Other relevant Structural Alerts have been studied and proposed for reasoning, each one is related to a
             class of chemicals that have a particular BCF behavior (they are labeled as SR). The relevant SR are the
             following, given with the full explanation of the behavior they are bound to:
             - SR 01: O=Cc1ccccc1 moiety; this SA has been found only in non-bioaccumulative compounds (24
             chemicals), even when the logP value was higher than 3.
-            - SR 02: Carbonyl residue; this SA has been found to be present in a very large (112) number of nonbioaccumulative compounds, even when the logP value was higher than 3.
+            - SR 02: Carbonyl residue; this SA has been found to be present in a very large (112) number of non bioaccumulative compounds, even when the logP value was higher than 3.
             - SR 03: O-P=O residue; this SA has been found only in non-bioaccumulative compounds (45
             chemicals), even when the logP value was higher than 3.
             - SR 04: Thiobenzene residue; this SA has been found only in non-bioaccumulative compounds (39
@@ -132,7 +133,7 @@
             chemicals). The high lipophylicity of this moiety increases the bioaccumulative behavior.
             - SR 09: Clc1cc(c2ccccc2)c(Cl)cc1; this SA has been found only in bioaccumulative compounds (15
             chemicals). The high lipophylicity of this moiety increases the bioaccumulative behavior.
-            Furthermore, another set of Structural Alerts for polar groups (labeled as PG) is used for reasoning purpose: usually, the presence of one or more polar groups is related to high hydrophilicity. These SAs have been divided into 3 groups, starting from more relavant (under the aspect of polarity); they are searched in a progressive way, so that if some SAs of the first group are found, no more groups are searched, otherwise the reasearch proceed with the second group, and so on. The group are the following:
+            Furthermore, another set of Structural Alerts for polar groups (labeled as PG) is used for reasoning purpose: usually, the presence of one or more polar groups is related to high hydrophilicity. These SAs have been divided into 3 groups, starting from more relavant (under the aspect of polarity); they are searched in a progressive way, so that if some SAs of the first group are found, no more groups are searched, otherwise the research proceed with the second group, and so on. The group are the following:
             First group:
             - PG 01: COOH group.
             - PG 02: SO3H group.
@@ -144,7 +145,8 @@
             - PG 07: NH2 group.
             - PG 08: CS2 group.
             Third group:
-            - PG 09: >C=O group</Other_SA>
+            - PG 09: >C=O group
+        </SA>
     </Guide>
 
     <Reference></Reference>
@@ -152,12 +154,14 @@
     <Endpoint></Endpoint>
 
     <Stats>
-        <n_Train>378</n_Train>
-        <R2_Train>0.82</R2_Train>
-        <RMSE_Train>0.58</RMSE_Train>
-        <n_Test>95</n_Test>
-        <R2_Test>0.78</R2_Test>
-        <RMSE_Test>0.62</RMSE_Test>
+        <n_Train>95.0</n_Train>
+        <R2_Train>0.81</R2_Train>
+        <RMSE_Train>0.581</RMSE_Train>
+        <n_Test>378.0</n_Test>
+        <R2_Test>0.777</R2_Test>
+        <RMSE_Test>0.617</RMSE_Test>
+        <Not_Predicted_Train>0.0</Not_Predicted_Train>
+        <Not_Predicted_Test>0.0</Not_Predicted_Test>
     </Stats>
-    
+
 </xml>

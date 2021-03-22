@@ -110,11 +110,14 @@
 
     <Endpoint></Endpoint>
 
-    <Stats><n_Train>564</n_Train>
-        <R2_Train>0.89</R2_Train>
-        <RMSE_Train>0.42</RMSE_Train>
-        <n_TestEvaluation>382</n_TestEvaluation>
-        <R2_TestEvaluation>0.54</R2_TestEvaluation>
-        <RMSE_TestEvaluation>0.90</RMSE_TestEvaluation></Stats>
-    
+    <Stats>
+        <n_Train>382.0</n_Train>
+        <R2_Train>0.453</R2_Train>
+        <RMSE_Train>0.936</RMSE_Train>
+        <n_Test>564.0</n_Test>
+        <R2_Test>0.316</R2_Test>
+        <RMSE_Test>1.091</RMSE_Test>
+        <Not_Predicted_Train>0.0</Not_Predicted_Train>
+        <Not_Predicted_Test>0.0</Not_Predicted_Test>
+    </Stats>
 </xml>

@@ -18,6 +18,11 @@
 
     <Endpoint></Endpoint>
 
-    <Stats></Stats>
+    <Stats>
+        <n>206.0</n>
+        <R2>0.869</R2>
+        <RMSE>0.472</RMSE>
+        <Not_Predicted>1.0</Not_Predicted>
+    </Stats>
     
 </xml>

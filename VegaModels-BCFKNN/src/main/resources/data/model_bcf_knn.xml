@@ -71,10 +71,10 @@
     <Endpoint></Endpoint>
 
     <Stats>
-        <n>836</n>
-        <R2>0.67</R2>
-        <RMSE>0.76</RMSE>
-        <NonPredictedCompounds>24</NonPredictedCompounds>
+        <n>836.0</n>
+        <R2>0.665</R2>
+        <RMSE>0.759</RMSE>
+        <Not_Predicted>24.0</Not_Predicted>
     </Stats>
     
 </xml>
