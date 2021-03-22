@@ -76,7 +76,7 @@
                 <RangeTop>index = 1</RangeTop>
                 <DescriptionRangeTop>all alerts are related to experimental values in agreement with the prediction, thus confirming the k-NN output.</DescriptionRangeTop>
                 <RangeMidTop>index = 0.9</RangeMidTop>
-                <DescriptionRangeTop>no alerts have been found, thus it is not possible to confirm the k-NN output.</DescriptionRangeTop>
+                <DescriptionRangeMidTop>no alerts have been found, thus it is not possible to confirm the k-NN output.</DescriptionRangeMidTop>
                 <RangeMidBottom>index = 0.85</RangeMidBottom>
                 <DescriptionMidBottom>no k-NN prediction is available and the final prediction is based only on the found alerts.</DescriptionMidBottom>
                 <RangeBottom>index = 0.7</RangeBottom>
