@@ -26,12 +26,99 @@
         </ClassValues>
     </Vega>
 
-    <Guide></Guide>
+    <Guide>
+        <Description>The model provides a qualitative prediction of developmental toxicity, based on a binary classification of FDA criteria (FDA categories A and B are considered as non toxicant, categories C, D and X are considered toxicant) . It is implemented inside the VEGA online platform, accessible at:http://www.vega-qsar.eu/
+            The model extends the original CAESAR model, freely available at: http://www.caesar-project.eu/software/ </Description>
+        <Model>The model is a QSAR classification model based on a Random Forest method, implemented using WEKA open-source libraries. Full reference and details of the used formulas can be found in:
+            Cassano, A., Manganaro, A., Martin, T., Young, D., Piclin, N., Pintore, M., Bigoni, D. and Benfenati, E. (2010). CAESAR models for developmental toxicity., Chem Cent J 4 Suppl 1, S4</Model>
+        <Descriptors>The descriptors used by the Random Forest model are the following:
+            - SdssC: sum of all ( ≡ C – ) E-State values in molecule
+            - SHssNH: sum of all [ – NH – ] E-State values in molecule
+            - icycem: mean information on the vertex cycle matrix equality
+            - BEHm1: highest eigenvalue n.1 of Burden matrix / weighted by atomic masses
+            - BELv1: lowest eigenvalue n. 1 of Burden matrix / weighted by atomic van der Waals volumes
+            - BELv8: lowest eigenvalue n.8 of Burden matrix / weighted by atomic van der Waals volumes
+            - BELp3: lowest eigenvalue n.3 of Burden matrix / weighted by atomic polarizabilities
+            - MATS4v: Moran autocorrelation - lag4 / weighted by atomic van der Waals volumes
+            - MATS1p: Moran autocorrelation - lag1 / weighted by atomic polarizabilities
+            - MATS4p: Moran autocorrelation - lag4 / weighted by atomic polarizabilities
+            - GATS2m: Geary autocorrelation - lag 2/ weighted by atomic polarizabilities
+            - GATS3v: Geary autocorrelation - lag 3 / weighted by atomic van der Waals volumes
+            - GATS1p: Geary autocorrelation - lag1 / weighted by atomic polarizabilities
+            The descriptors are calculated by an in-house JAVA software, developed by Todd Martin (EPA), based on the CDK open-source libraries , as developed for the original CAESAR model.</Descriptors>
+        <Applicability_Domain>
+            <AD>
+                <Name>Similar_Molecules</Name>
+                <SimilarMols>3</SimilarMols>
+                <RangeTop>1 >= index > 0.8</RangeTop>
+                <DescriptionRangeTop>strongly similar compounds with known experimental value in the training set have been found</DescriptionRangeTop>
+                <RangeMid>0.8 >= index > 0.7</RangeMid>
+                <DescriptionRangeMid>only moderately similar compounds with known experimental value in the training set have been found</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.7</RangeBottom>
+                <DescriptionRangeBottom>no similar compounds with known experimental value in the training set have been found</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Accuracy</Name>
+                <RangeTop>1 >= index > 0.8</RangeTop>
+                <DescriptionRangeTop>accuracy of prediction for similar molecules found in the training set is good</DescriptionRangeTop>
+                <RangeMid>0.8 >= index > 0.6</RangeMid>
+                <DescriptionRangeMid>accuracy of prediction for similar molecules found in the training set is not optimal</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.6</RangeBottom>
+                <DescriptionRangeBottom>accuracy of prediction for similar molecules found in the training set is not adequate</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Concordance</Name>
+                <RangeTop>1 >= index > 0.8</RangeTop>
+                <DescriptionRangeTop>similar molecules found in the training set have experimental values that agree with the predicted value</DescriptionRangeTop>
+                <RangeMid>0.8 >= index > 0.6 </RangeMid>
+                <DescriptionRangeMid>some similar molecules found in the training set have experimental values that disagree with the predicted value</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.6</RangeBottom>
+                <DescriptionRangeBottom>similar molecules found in the training set have experimental values that disagree with the predicted value</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>ACF_SimCheck</Name>
+                <RangeTop>index = 1</RangeTop>
+                <DescriptionRangeTop>all atom centered fragment of the compound have been found in the compounds of the training set</DescriptionRangeTop>
+                <RangeMid>1 > index >= 0.7</RangeMid>
+                <DescriptionRangeMid>some atom centered fragment of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeMid>
+                <RangeBottom>index &lt; 0.7</RangeBottom>
+                <DescriptionRangeBottom>a prominent number of atom centered fragments of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Model_Descriptors_Range_Check</Name>
+                <RangeTop>index = True</RangeTop>
+                <DescriptionRangeTop>descriptors for this compound have values inside the descriptor range of the compounds of the training set</DescriptionRangeTop>
+                <RangeBottom>index = False</RangeBottom>
+                <DescriptionRangeBottom>descriptors for this compound have values outside the descriptor range of the compounds of the training set</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>AD_Index</Name>
+                <RangeTop>1 >= index >= 0.8</RangeTop>
+                <DescriptionRangeTop>predicted substance is into the Applicability Domain of the model</DescriptionRangeTop>
+                <RangeMid>0.8 > index >= 0.7</RangeMid>
+                <DescriptionRangeMid>predicted substance could be out of the Applicability Domain of the model</DescriptionRangeMid>
+                <RangeBottom>index &lt; 0.7</RangeBottom>
+                <DescriptionRangeBottom>predicted substance is out of the the Applicability Domain of the model</DescriptionRangeBottom>
+            </AD>
+        </Applicability_Domain>
+
+    </Guide>
 
     <Reference></Reference>
 
     <Endpoint></Endpoint>
 
-    <Stats></Stats>
-    
+    <Stats>
+        <n_Train>234.0</n_Train>
+        <Specificity_Train>1.0</Specificity_Train>
+        <Sensitivity_Train>1.0</Sensitivity_Train>
+        <Accuracy_Train>1.0</Accuracy_Train>
+        <n_Test>58.0</n_Test>
+        <Specificity_Test>0.588</Specificity_Test>
+        <Sensitivity_Test>0.951</Sensitivity_Test>
+        <Accuracy_Test>0.845</Accuracy_Test>
+        <Not_Predicted_Test>0.0</Not_Predicted_Test>
+        <Not_Predicted_Train>0.0</Not_Predicted_Train>
+    </Stats>
+
 </xml>

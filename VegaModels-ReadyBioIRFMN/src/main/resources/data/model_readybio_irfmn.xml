@@ -35,13 +35,162 @@
         </ClassValues>
     </Vega>
 
-    <Guide></Guide>
+    <Guide>
+        <Description>The model is based on the OECD TG 301C - modified MITI -I test data and provides a qualitative evaluation (binary classification) of ready biodegradability properties. It has been developed using Sarpy software, by Istituto di Ricerche Farmacologiche Mario Negri and Politecnico di Milano. </Description>
+        <Model>The model has been built as a set of rules, extracted from the training set with Sarpy software. The final set of fragments obtained come from a work that involved both a statistical part and an expert-based part. Seven different rules-sets of fragments related to ready biodegradability activity were obtained: rules-set 1 (non-readily biodegradable fragments with high specificity), rules-set 2 (non-readily biodegradable fragments with balanced performance), rules-set 3 ( readily biodegradable fragments with high specificity), rules-set 4 ( readily biodegradable fragments with balanced performance), rules-set 5 ( readily biodegradable fragments extracted from unknown), rules-set 6 (non-readily biodegradable expert-based fragments), rules-set 7(ready biodegradable expert-based fragments).
+            The overall model is conservative, and in case of the presence of conflicting fragments the prediction is for non readily biodegradability. The logical scheme of the model comes directly from a chemical reasoning: a substance is always considered non biodegradable if at least one fragment related to non biodegradability is found, even if easily biodegradable fragments are found; this means that a part of the compound is anyway persistent.
+            The above mentioned rules have been grouped in four main sets: rules for non biodegradable compounds with high specificity and with balanced performances, rules for biodegradable compounds with high specificity and with balanced performances. On the basis of these sets, a compound is predicted as: “NON readily biodegradable” if at least one rule for non biodegradable compounds with high specificity has been found; “possible NON readily biodegradable” if at least one rule for non biodegradable compounds with balanced performances has been found; “readily biodegradable” if at least one rule for biodegradable compounds with high specificity has been found; “possible readily biodegradable” if at least one rule for biodegradable compounds with balanced performances has been found. If no rule has been found at all, the model is not able to provide a prediction.</Model>
+        <Applicability_Domain>
+            <AD>
+                <Name>Similar_Molecules</Name>
+                <SimilarMols>3</SimilarMols>
+                <RangeTop>1 >= index > 0.85</RangeTop>
+                <DescriptionRangeTop>strongly similar compounds with known experimental value in the training set have been found</DescriptionRangeTop>
+                <RangeMid>0.85 >= index > 0.7</RangeMid>
+                <DescriptionRangeMid>only moderately similar compounds with known experimental value in the training set have been found</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.7</RangeBottom>
+                <DescriptionRangeBottom>no similar compounds with known experimental value in the training set have been found</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Accuracy</Name>
+                <RangeTop>1 >= index > 0.8</RangeTop>
+                <DescriptionRangeTop>accuracy of prediction for similar molecules found in the training set is good</DescriptionRangeTop>
+                <RangeMid>0.8 >= index > 0.5</RangeMid>
+                <DescriptionRangeMid>accuracy of prediction for similar molecules found in the training set is not optimal</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.5</RangeBottom>
+                <DescriptionRangeBottom>accuracy of prediction for similar molecules found in the training set is not adequate</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Concordance</Name>
+                <RangeTop>1 >= index > 0.8</RangeTop>
+                <DescriptionRangeTop>similar molecules found in the training set have experimental values that agree with the predicted value</DescriptionRangeTop>
+                <RangeMid>0.8 >= index > 0.5 </RangeMid>
+                <DescriptionRangeMid>some similar molecules found in the training set have experimental values that disagree with the predicted value</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.5</RangeBottom>
+                <DescriptionRangeBottom>similar molecules found in the training set have experimental values that disagree with the predicted value</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>ACF_SimCheck</Name>
+                <RangeTop>index = 1</RangeTop>
+                <DescriptionRangeTop>all atom centered fragment of the compound have been found in the compounds of the training set</DescriptionRangeTop>
+                <RangeMid>1 > index >= 0.7</RangeMid>
+                <DescriptionRangeMid>some atom centered fragment of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeMid>
+                <RangeBottom>index &lt; 0.7</RangeBottom>
+                <DescriptionRangeBottom>a prominent number of atom centered fragments of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>AD_Index</Name>
+                <RangeTop>1 >= index >= 0.8</RangeTop>
+                <DescriptionRangeTop>predicted substance is into the Applicability Domain of the model</DescriptionRangeTop>
+                <RangeMid>0.8 > index >= 0.65</RangeMid>
+                <DescriptionRangeMid>predicted substance could be out of the Applicability Domain of the model</DescriptionRangeMid>
+                <RangeBottom>index &lt; 0.65</RangeBottom>
+                <DescriptionRangeBottom>predicted substance is out of the the Applicability Domain of the model</DescriptionRangeBottom>
+            </AD>
+        </Applicability_Domain>
+        <Structural_Alerts>
+            The model first check the set of structural alerts related to non ready biodegradability. If some are found from the first set, the compound is predicted as non ready biodegradable, while if only fragments from the second rule-set are found it is predicted as suspicious non ready biodegradable. This means that not only the model provides a prediction, but also a degree of reliability, coming from the statistical quality of the fragments found. The SAs are the following: Fragments with high specificity:
+            - NBs1 (1,2-dichlorobenzene), defined by the SMARTS: c1ccc(c(c1)Cl)Cl
+            - NBs2 (1-ethyl-3-methylbenzene), defined by the SMARTS: c1cc(cc(c1)CC)C
+            - NBs3 (1,2-dichloroethane), defined by the SMARTS: C(C(Cl))Cl
+            - NBs4 (2-chloroaniline), defined by the SMARTS: Nc1ccc(cc1Cl)
+            - NBs5 (diphenylmethanone), defined by the SMARTS: c1ccccc1C(=O)c2ccccc2
+            - NBs6 (dimethoxyphosphinic acid), defined by the SMARTS: O=P(OC)(OC)O
+            - NBs7 (cyclohex-4-ene-1,2-dicarbaldehyde), defined by the SMARTS: O=CC1CC=CCC1C(=O)
+            - NBs8 (benzene-1,3-diamine), defined by the SMARTS: Nc1ccc(c(N)c1)
+            - NBs9 (1-bromopropane), defined by the SMARTS: CCCBr
+            - NBs10 (3-chlorophenol), defined by the SMARTS: Oc1ccc(c(c1)Cl)
+            - NBs11 (fluorine), defined by the SMARTS: F
+            - NBs12 ((1-phenylethyl)benzene), defined by the SMARTS: c1ccc(cc1)C(c2ccccc2)C
+            - NBs13 (methoxy(sulfanylidene)phosphinous acid), defined by the SMARTS: P(=S)(OC)O
+            - NBs14 (N-phenylaniline), defined by the SMARTS: c1ccc(cc1)Nc2ccc(cc2)
+            - NBs15 (naphthalen-1-amine), defined by the SMARTS: c1ccc2c(c1)cccc2N
+            - NBs16 (1-methylnaphthalene), defined by the SMARTS: Cc1cccc2ccccc12
+            - NBs17 (benzyldimethylamine), defined by the SMARTS: C(c1cccc(c1))N(C)C
+            - NBs18 (2-methylnonane), defined by the SMARTS: CCCCCCCC(C)C
+            - NBs19 (1,3-benzothiazole), defined by the SMARTS: c1nc2ccccc2s1
+            - NBs20 (tin), defined by the SMARTS: [Sn]
+            - NBs21 (methanimine), defined by the SMARTS: C=N
+            - NBs22 (1,4-diethylbenzene), defined by the SMARTS: c1cc(ccc1C(C))C(C)
+            - NBs23 (propoxybenzene), defined by the SMARTS: CCCOc1ccccc1
+            - NBs24 (2-ethyl-1-methoxyhexane), defined by the SMARTS: O(C)CC(CC)CCCC
+            - NBs25 (2-chlorobenzaldehyde), defined by the SMARTS: O=Cc1c(cccc1Cl)
+            - NBs26 (1-ethyl-2-methylbenzene), defined by the SMARTS: c1ccc(c(c1)CC)C
+            - NBs27 (3-chloroaniline), defined by the SMARTS: Nc1ccc(c(c1)Cl)
+            - NBs28 ((2-methoxyethyl)(propyl)amine), defined by the SMARTS: CCCNCCOC
+            - NBs29 (2,4-dimethylpent-1-ene), defined by the SMARTS: C=C(C)CC(C)(C)
+            - NBs30 (bromobenzene), defined by the SMARTS: c1ccc(cc1)Br
+            - NBs31 (methylcarbamic acid), defined by the SMARTS: O=C(O)NC
+            - NBs32 (1,1,1-trichloroethane), defined by the SMARTS: CC(Cl)(Cl)Cl
+            - NBs33 (chloroethene), defined by the SMARTS: C(=CCl)
+            - NBs34 (dithioperoxol), defined by the SMARTS: SS
+            Fragments with balanced performance:
+            - NBb1 (benzylbenzene), defined by the SMARTS: C(c1ccccc1)c2ccccc2
+            - NBb2 (1-chloro-2-methylbenzene), defined by the SMARTS: Cc1ccccc1Cl
+            - NBb3 (naphthalene), defined by the SMARTS: c1ccc2c(c1)cccc2
+            - NBb4 (bromine), defined by the SMARTS: Br
+            - NBb5 (3-methylaniline), defined by the SMARTS: Nc1cccc(c1)C
+            - NBb6 (hydroxylamine), defined by the SMARTS: ON
+            - NBb7 (chlorobenzene), defined by the SMARTS: c1ccc(c(c1)Cl)
+            - NBb8 (benzenesulfonic acid), defined by the SMARTS: c1ccc(cc1)S(=O)(=O)O
+            - NBb9 (pentan-2-amine), defined by the SMARTS: C(N)(C)CC(C)
+            - NBb10 (diazene), defined by the SMARTS: N=N
+            - NBb11 (halogenated ring structure), defined by the SMARTS: [R][Cl,F,Br,I]
+            If no fragments related to non biodegradability are found, but some related to biodegradability are found, an analogous prediction is provided: ready biodegradable (if fragments from the first set) or suspicious ready biodegradable (if only fragments from the second set are found). If no matching fragments have been found at all, the compound is considered non predictable (not assignable). TheSAs are the following:
+            Fragments with high specificity:
+            Bs1 (2-hydroxyethyl acetate), defined by the SMARTS: O=C(OCCO)C
+            Bs2 (propanedial), defined by the SMARTS: O=CCC(=O)
+            Bs3 (N-(2-hydroxyethyl)formamide), defined by the SMARTS: O=C(N(CCO))
+            Bs4 (1-propoxynonane), defined by the SMARTS: O(CCCCCCCCC)CCC
+            Bs5 (2,6-dimethylhepta-1,5-diene), defined by the SMARTS: C=C(C)CCC=C(C)C
+            Bs6 (2-methoxybutane), defined by the SMARTS: CCC(OC)C
+            Bs7 ((dodecyloxy)phosphonous acid), defined by the SMARTS: P(O)(O)OCCCCCCCCCCCC
+            Bs8 (benzyl formate), defined by the SMARTS: O=C(OCc1ccccc1)
+            Bs9 (6-oxohexanoic acid), defined by the SMARTS: O=C(O)CCCCC(=O)
+            Bs10 (docosane), defined by the SMARTS: CCCCCCCCCCCCCCCCCCCCCC
+            Fragments with balanced performance:
+            Bb1 (tridecan-1-ol), defined by the SMARTS: OCCCCCCCCCCCCC
+            Bb2 (butan-2-one), defined by the SMARTS: O=C(C)CC
+            Bb3 (3-methoxyprop-1-ene), defined by the SMARTS: C(OC)C=C
+            Bb4 (2-methylhept-2-ene), defined by the SMARTS: C(C)CCC=C(C)C
+            Bb5 (methyl propanoate), defined by the SMARTS: O=C(OC)CC
+            Bb6 (butyl formate), defined by the SMARTS: C(=O)OCCCC
+            Bb7 (1-ethoxybutane), defined by the SMARTS: CCOCCCC
+            Bb8 (octan-1-ol), defined by the SMARTS: OCCCCCCCC
+            Bb9 (tridecane), defined by the SMARTS: CCCCCCCCCCCCC
+            Bb10 (propanoic acid), defined by the SMARTS: CCC(=O)O
+            Bb11 (benzoic acid), defined by the SMARTS: O=C(O)c1ccc(cc1)
+            Bb12 (butan-1-ol), defined by the SMARTS: OCCCC
+            Bb13 (acetamide), defined by the SMARTS: O=C(N)C
+            Bb14 (acetaldehyde), defined by the SMARTS: O=CC
+            Bb15 (ethane-1,2-diol), defined by the SMARTS: OCCO
+            Bb16 (propan-1-amine), defined by the SMARTS: NCCC
+            Bb17 (sulfanone), defined by the SMARTS: S(=O)
+            Bb18 (heptanes), defined by the SMARTS: CCCCCCC
+            Bb19 (anisole), defined by the SMARTS: O(c1ccccc1)C
+            Bb20 (butane), defined by the SMARTS: CCCC
+            Bb21 ((chloromethyl)benzene), defined by the SMARTS: c1(ccccc1)C(Cl)
+            Bb22 (carbonyl bound to aromatic structure), defined by the SMARTS: [a][C;D2]=O
+            Bb23 (formonitrile), defined by the SMARTS: C#N
+        </Structural_Alerts>
+    </Guide>
 
     <Reference></Reference>
 
     <Endpoint></Endpoint>
 
-    <Stats></Stats>
+    <Stats>
+        <n_Train>582.0</n_Train>
+        <Specificity_Train>0.914</Specificity_Train>
+        <Sensitivity_Train>0.792</Sensitivity_Train>
+        <Accuracy_Train>0.856</Accuracy_Train>
+        <n_Test>146.0</n_Test>
+        <Specificity_Test>0.805</Specificity_Test>
+        <Sensitivity_Test>0.696</Sensitivity_Test>
+        <Accuracy_Test>0.753</Accuracy_Test>
+        <Not_Predicted_Test>0.0</Not_Predicted_Test>
+        <Not_Predicted_Train>0.0</Not_Predicted_Train>
+    </Stats>
 
 
 </xml>

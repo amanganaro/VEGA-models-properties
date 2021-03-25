@@ -28,12 +28,96 @@
     </Vega>
 
     <Guide>
+        <Description>The model provides a classification model for toxicity in algae (Pseudokirchneriella subcapitata), specific for biocides. It has been developed inside the EU LIFE COMBASE project (LIFE15 ENV/ES/416). It is implemented inside the VEGA online platform, accessible at:http://www.vega-qsar.eu/.</Description>
+        <Model>A biocide-like chemical space was developed comparing 6512 chemical structures from the Physprop database and 257 chemical structures of biocides from COMBASE database. Five molecular descriptors were selected as filters. These filters were applied to the Japanese Ministry of Environment dataset for acute aquatic toxicity in algae (650 compounds), and finally we obtained a data set of 361 biocide-like structures.
+            The qualitative model has been developed using the automated neural networks (ANN) analysis and based on the 361 filtered compounds. The compounds were randomly distributed in training set (254), test set (53) and external validation set (54). The descriptors used in this model are the following:
+            ATS5m: Broto-Moreau autocorrelation of a topological structure - lag 5 / weighted by atomic masses
+            B01[C-Cl]: Presence/absence of C - Cl at topological distance 01
+            B01[C-O]: Presence/absence of C - O at topological distance 01
+            B02[Cl-Cl]: Presence/absence of Cl - Cl at topological distance 02
+            B02[N-O]: Presence/absence of N - O at topological distance 02
+            B03[N-O]: Presence/absence of N - O at topological distance 03
+            B09[C-C]: Presence/absence of C - C at topological distance 09
+            B09[O-O]: Presence/absence of O - O at topological distance 09
+            B10[C-O]: Presence/absence of C - O at topological distance 10
+            F01[C-O]: Frequency of C - O at topological distance 01
+            F02[C-O]: Frequency of C - O at topological distance 02
+            F04[O-O]: Frequency of O - O at topological distance 04
+            F10[C-N]: Frequency of C - N at topological distance 10
+            X3A: Average connectivity index chi-3
+            The descriptors were calculated, in the original model, by means of Dragon software and are now entirely calculated by an in-house software module in which they are implemented as described in: R. Todeschini and V. Consonni, Molecular Descriptors for Chemoinformatics, Wiley-VCH, 2009.</Model>
+        <Applicability_Domain>
+            <AD>
+                <Name>Similar_Molecules</Name>
+                <SimilarMols>3</SimilarMols>
+                <RangeTop>1 >= index > 0.8</RangeTop>
+                <DescriptionRangeTop>strongly similar compounds with known experimental value in the training set have been found</DescriptionRangeTop>
+                <RangeMid>0.8 >= index > 0.6</RangeMid>
+                <DescriptionRangeMid>only moderately similar compounds with known experimental value in the training set have been found</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.6</RangeBottom>
+                <DescriptionRangeBottom>no similar compounds with known experimental value in the training set have been found</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Accuracy</Name>
+                <RangeTop>1 >= index > 0.8</RangeTop>
+                <DescriptionRangeTop>accuracy of prediction for similar molecules found in the training set is good</DescriptionRangeTop>
+                <RangeMid>0.8 >= index > 0.6</RangeMid>
+                <DescriptionRangeMid>accuracy of prediction for similar molecules found in the training set is not optimal</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.6</RangeBottom>
+                <DescriptionRangeBottom>accuracy of prediction for similar molecules found in the training set is not adequate</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Concordance</Name>
+                <RangeTop>1 >= index > 0.8</RangeTop>
+                <DescriptionRangeTop>similar molecules found in the training set have experimental values that agree with the predicted value</DescriptionRangeTop>
+                <RangeMid>0.8 >= index > 0.6 </RangeMid>
+                <DescriptionRangeMid>some similar molecules found in the training set have experimental values that disagree with the predicted value</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.6</RangeBottom>
+                <DescriptionRangeBottom>similar molecules found in the training set have experimental values that disagree with the predicted value</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>ACF_SimCheck</Name>
+                <RangeTop>index = 1</RangeTop>
+                <DescriptionRangeTop>all atom centered fragment of the compound have been found in the compounds of the training set</DescriptionRangeTop>
+                <RangeMid>1 > index >= 0.7</RangeMid>
+                <DescriptionRangeMid>some atom centered fragment of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeMid>
+                <RangeBottom>index &lt; 0.7</RangeBottom>
+                <DescriptionRangeBottom>a prominent number of atom centered fragments of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Model_Descriptors_Range_Check</Name>
+                <RangeTop>index = True</RangeTop>
+                <DescriptionRangeTop>descriptors for this compound have values inside the descriptor range of the compounds of the training set</DescriptionRangeTop>
+                <RangeBottom>index = False</RangeBottom>
+                <DescriptionRangeBottom>descriptors for this compound have values outside the descriptor range of the compounds of the training set</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>AD_Index</Name>
+                <RangeTop>1 >= index >= 0.8</RangeTop>
+                <DescriptionRangeTop>predicted substance is into the Applicability Domain of the model</DescriptionRangeTop>
+                <RangeMid>0.8 > index >= 0.6</RangeMid>
+                <DescriptionRangeMid>predicted substance could be out of the Applicability Domain of the model</DescriptionRangeMid>
+                <RangeBottom>index &lt; 0.6</RangeBottom>
+                <DescriptionRangeBottom>predicted substance is out of the the Applicability Domain of the model</DescriptionRangeBottom>
+            </AD>
+        </Applicability_Domain>
     </Guide>
 
     <Reference></Reference>
 
     <Endpoint></Endpoint>
 
-    <Stats></Stats>
+    <Stats>
+        <n_Train>253.0</n_Train>
+        <Specificity_Train>0.759</Specificity_Train>
+        <Sensitivity_Train>0.844</Sensitivity_Train>
+        <Accuracy_Train>0.806</Accuracy_Train>
+        <n_Test>108.0</n_Test>
+        <Specificity_Test>0.786</Specificity_Test>
+        <Sensitivity_Test>0.818</Sensitivity_Test>
+        <Accuracy_Test>0.806</Accuracy_Test>
+        <Not_Predicted_Test>0.0</Not_Predicted_Test>
+        <Not_Predicted_Train>0.0</Not_Predicted_Train>
+    </Stats>
     
 </xml>

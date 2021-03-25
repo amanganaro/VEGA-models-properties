@@ -34,12 +34,107 @@
         </ClassValues>
     </Vega>
 
-    <Guide></Guide>
+    <Guide>
+        <Description>The model is based on the half-lives test data and provides a qualitative evaluation (four classes) of persistence property in the soil compartment. It has been developed using an ensemble of k-NN modelling and a set of alerts extracted with Sarpy software, by Istituto di Ricerche Farmacologiche Mario Negri. </Description>
+        <Model>The model is based on the half-lives test data and provides a qualitative evaluation (four classes) of persistence property in the soil compartment. It has been developed using an ensemble of k-NN modelling and a set of alerts extracted with Sarpy software, by Istituto di Ricerche Farmacologiche Mario Negri.
+            A. Manganaro, F. Pizzo, A. Lombardo, A. Pogliaghi, E. Benfenati, “Predicting persistence in the sediment compartment with a new automatic software based on the k-Nearest Neighbor (k-NN) algorithm”, Chemosphere (2015), accepted paper.
+            This model has been built with the istKNN application (developed by Kode srl, http://chm.kode-solutions.net) and it is based on the similarity index developed inside the VEGA platform; the index takes into account several structural aspects of the compounds, such as their fingerprint, the number of atoms, of cycles, of heteroatoms, of halogen atoms, and of particular fragments (such as nitro groups). The index value ranges from 1 (maximum similarity) to 0. On the basis of this structural similarity index, the four compounds from the dataset resulting most similar to the chemical to be predicted are taken into account; compounds with a similarity value lower than 0.75 are discarded, and if only one compound remains available for prediction, it is kept only if it has a similarity value higher than 0.8. If no compounds fall under these conditions, no prediction is provided. The prediction is calculated as the most representative class in the compound selected with the above mentioned procedure, considering their similarity index values as a weight so that the most similar compounds have an higher influence in the prediction.
+            The overall architecture provides firstly the prediction as calculated by the k-NN model. If some structural alerts are found, they do not change the prediction but modify the applicability domain value: if the alerts confirm the k-NN prediction, the applicability domain index (ADI) value increases, if the alert are in disagreement with the prediction the ADI value decreases. The alerts are anyway used to provide a prediction if the k-NN model is not able to predict the compound.
+            The predicted value is provided as one of the following four classes based on the standard labelling of non persistent (nP), persistent (P) and very persistent (vP) compounds: nP, nP/P, P/vP, vP. The nP class defines compound with HL certainly below the threshold of 120 days. The vP class defines compound with HL certainly higher the threshold of 180 days. The remaining two classes indicate a not entirely certain situation: nP/P class represent compounds with HL values falling near the P threshold of 120 days; the P/vP class represent compounds with HL values falling near the vP threshold of 180 days.
+        </Model>
+        <Applicability_Domain>
+            <AD>
+                <Name>Similar_Molecules</Name>
+                <SimilarMols>3</SimilarMols>
+                <RangeTop>1 >= index > 0.8</RangeTop>
+                <DescriptionRangeTop>strongly similar compounds with known experimental value in the training set have been found</DescriptionRangeTop>
+                <RangeMid>0.8 >= index > 0.6</RangeMid>
+                <DescriptionRangeMid>only moderately similar compounds with known experimental value in the training set have been found</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.6</RangeBottom>
+                <DescriptionRangeBottom>no similar compounds with known experimental value in the training set have been found</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Accuracy</Name>
+                <RangeTop>1 >= index > 0.9</RangeTop>
+                <DescriptionRangeTop>accuracy of prediction for similar molecules found in the training set is good</DescriptionRangeTop>
+                <RangeMid>0.9 >= index > 0.5</RangeMid>
+                <DescriptionRangeMid>accuracy of prediction for similar molecules found in the training set is not optimal</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.5</RangeBottom>
+                <DescriptionRangeBottom>accuracy of prediction for similar molecules found in the training set is not adequate</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Concordance</Name>
+                <RangeTop>1 >= index > 0.9</RangeTop>
+                <DescriptionRangeTop>similar molecules found in the training set have experimental values that agree with the predicted value</DescriptionRangeTop>
+                <RangeMid>0.9 >= index > 0.5 </RangeMid>
+                <DescriptionRangeMid>some similar molecules found in the training set have experimental values that disagree with the predicted value</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.5</RangeBottom>
+                <DescriptionRangeBottom>similar molecules found in the training set have experimental values that disagree with the predicted value</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>SA_Concordance</Name>
+                <RangeTop>index = 1</RangeTop>
+                <DescriptionRangeTop>all alerts are related to experimental values in agreement with the prediction, thus confirming the k-NN output.</DescriptionRangeTop>
+                <RangeMidTop>index = 0.9</RangeMidTop>
+                <DescriptionRangeMidTop>no alerts have been found, thus it is not possible to confirm the k-NN output.</DescriptionRangeMidTop>
+                <RangeMidBottom>index = 0.85</RangeMidBottom>
+                <DescriptionMidBottom>no k-NN prediction is available and the final prediction is based only on the found alerts.</DescriptionMidBottom>
+                <RangeBottom>index = 0.7</RangeBottom>
+                <DescriptionRangeBottom>one or more alerts are related to experimental values not in agreement with the prediction, thus conflicting with the k-NN output.</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>ACF_SimCheck</Name>
+                <RangeTop>index = 1</RangeTop>
+                <DescriptionRangeTop>all atom centered fragment of the compound have been found in the compounds of the training set</DescriptionRangeTop>
+                <RangeMid>1 > index >= 0.7</RangeMid>
+                <DescriptionRangeMid>some atom centered fragment of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeMid>
+                <RangeBottom>index &lt; 0.7</RangeBottom>
+                <DescriptionRangeBottom>a prominent number of atom centered fragments of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>AD_Index</Name>
+                <RangeTop>1 >= index >= 0.85</RangeTop>
+                <DescriptionRangeTop>predicted substance is into the Applicability Domain of the model</DescriptionRangeTop>
+                <RangeMid>0.85 > index >= 0.65</RangeMid>
+                <DescriptionRangeMid>predicted substance could be out of the Applicability Domain of the model</DescriptionRangeMid>
+                <RangeBottom>index &lt; 0.65</RangeBottom>
+                <DescriptionRangeBottom>predicted substance is out of the the Applicability Domain of the model</DescriptionRangeBottom>
+            </AD>
+        </Applicability_Domain>
+        <Structural_Alerts>
+            The following SAs have been extracted from the original dataset and are related to compounds which
+            are nP in the sediment compartment:
+            - nP alert no. 1, defined by the SMARTS: O=CC
+            - nP alert no. 2, defined by the SMARTS: O=Cc1ccccc1
+            - nP alert no. 3, defined by the SMARTS: C(N)C
+            - nP alert no. 4, defined by the SMARTS: OC(C)
+            - nP alert no. 5, esters (aliphatic), defined by the SMARTS: O=[$([C;D2]),$([C;D3]C)][O;D2][C,c]
+            - nP alert no. 6, aldehydes (aliphatic), defined by the SMARTS: [$([C;D2](=O)C)]
+            - nP alert no. 7, ketones (aliphatic), defined by the SMARTS: [C;D3](=O)([C])[C]
+            - nP alert no. 8, primary amines, defined by the SMARTS: [N;D1][$([C,c]);!$(C=[O,S])]
+            - nP alert no. 9, hydroxyl groups (multiple), defined by the SMARTS: [O;D1;!-]A
+            The following SAs have been extracted from the original dataset and are related to compounds which
+            are vP in the sediment compartment:
+            - vP alert no. 1, defined by the SMARTS: c1(c2ccccc2)ccccc1
+            - vP alert no. 2, defined by the SMARTS: c1cc(c(cc1)Cl)Cl
+            - vP alert no. 3, defined by the SMARTS: ClCC
+            - vP alert no. 4, defined by the SMARTS: c12c(cccc1)Oc3c(cccc3)O2
+            - vP alert no. 5, ethers (aromatic, multiple), defined by the SMARTS: [#6;!$(C=O);!$(C#N)]O[a]
+            - vP alert no. 6, halogen on ring C (sp3) (multiple), defined by the SMARTS:
+            [Cl,Br,F,I][$(C(@[*])@[*]);!$(C=*)]
+        </Structural_Alerts>
+    </Guide>
 
     <Reference></Reference>
 
     <Endpoint></Endpoint>
 
-    <Stats></Stats>
+    <Stats>
+        <n>297.0</n>
+        <Specificity>0.964</Specificity>
+        <Sensitivity>0.88</Sensitivity>
+        <Accuracy>0.943</Accuracy>
+        <Not_Predicted>0.0</Not_Predicted>
+    </Stats>
     
 </xml>

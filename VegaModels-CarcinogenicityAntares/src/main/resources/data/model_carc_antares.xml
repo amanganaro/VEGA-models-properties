@@ -27,11 +27,199 @@
     </Vega>
 
     <Guide>
+        <Description>The model provides a qualitative prediction of carcinogenicity (presence of carcinogenic effects in male or female rats). It is implemented inside the VEGA online platform, accessible at:
+            http://www.vega-qsar.eu/</Description>
+        <Model>The model has been built as a set of rules, extracted with Sarpy software from a dataset obtained from the carcinogenicity database of EU-funded project ANTARES. This database is a collection of chemical rat carcinogenesis data (presence of carcinogenic effects in male or female rats) obtained from the CAESAR project database and the “FDA 2009 SAR Carcinogenicity - SAR Structures” database. The CAESAR toxicity values originated from the distributed structure-searchable toxicity DSSTox database, which was built from the Lois Gold’s carcinogenic potency database (CPDB).
+            The Sarpy software has been used with a cross-validated procedure, ending with the extraction of a set of 127 rules (structural alerts) related to carcinogenic activity. These rules are expressed SMARTS representing molecular fragments.
+            If at least one rule is matching with the given compound, a “Carcinogen” prediction is given. Otherwise, a “Possible NON-Carcinogen” prediction is given.</Model>
+        <Applicability_Domain>
+            <AD>
+                <Name>Similar_Molecules</Name>
+                <SimilarMols>3</SimilarMols>
+                <RangeTop>1 >= index > 0.8</RangeTop>
+                <DescriptionRangeTop>strongly similar compounds with known experimental value in the training set have been found</DescriptionRangeTop>
+                <RangeMid>0.8 >= index > 0.6</RangeMid>
+                <DescriptionRangeMid>only moderately similar compounds with known experimental value in the training set have been found</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.6</RangeBottom>
+                <DescriptionRangeBottom>no similar compounds with known experimental value in the training set have been found</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Accuracy</Name>
+                <RangeTop>1 >= index > 0.8</RangeTop>
+                <DescriptionRangeTop>accuracy of prediction for similar molecules found in the training set is good</DescriptionRangeTop>
+                <RangeMid>0.8 >= index > 0.6</RangeMid>
+                <DescriptionRangeMid>accuracy of prediction for similar molecules found in the training set is not optimal</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.6</RangeBottom>
+                <DescriptionRangeBottom>accuracy of prediction for similar molecules found in the training set is not adequate</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Concordance</Name>
+                <RangeTop>1 >= index > 0.8</RangeTop>
+                <DescriptionRangeTop>similar molecules found in the training set have experimental values that agree with the predicted value</DescriptionRangeTop>
+                <RangeMid>0.8 >= index > 0.6 </RangeMid>
+                <DescriptionRangeMid>some similar molecules found in the training set have experimental values that disagree with the predicted value</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.6</RangeBottom>
+                <DescriptionRangeBottom>similar molecules found in the training set have experimental values that disagree with the predicted value</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>ACF_SimCheck</Name>
+                <RangeTop>index = 1</RangeTop>
+                <DescriptionRangeTop>all atom centered fragment of the compound have been found in the compounds of the training set</DescriptionRangeTop>
+                <RangeMid>1 > index >= 0.7</RangeMid>
+                <DescriptionRangeMid>some atom centered fragment of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeMid>
+                <RangeBottom>index &lt; 0.7</RangeBottom>
+                <DescriptionRangeBottom>a prominent number of atom centered fragments of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>AD_Index</Name>
+                <RangeTop>1 >= index >= 0.8</RangeTop>
+                <DescriptionRangeTop>predicted substance is into the Applicability Domain of the model</DescriptionRangeTop>
+                <RangeMid>0.8 > index >= 0.6</RangeMid>
+                <DescriptionRangeMid>predicted substance could be out of the Applicability Domain of the model</DescriptionRangeMid>
+                <RangeBottom>index &lt; 0.6</RangeBottom>
+                <DescriptionRangeBottom>predicted substance is out of the the Applicability Domain of the model</DescriptionRangeBottom>
+            </AD>
+        </Applicability_Domain>
+        <Structural_Alerts>
+            Following, the list of the 127 rules for carcinogenicity, expressed as SMARTS strings:
+            SA 1: CN[N+]=O
+            SA 2: NNC=O
+            SA 3: CN(C=O)N=O
+            SA 4: CCCCCCN(C)N=O
+            SA 5: CCCN(CCC)N=O
+            SA 6: CNCCNN=O
+            SA 7: CNCCN(C)N=O
+            SA 8: CCNN=O
+            SA 9: CCCCCN(C)N=O
+            SA 10: CCCCN(C)N=O
+            SA 11: CC(O)CNN=O
+            SA 12: CN(N=O)C(=O)NCCO
+            SA 13: NC(=O)N(CCO)N=O
+            SA 14: CN(N=O)C(N)=O
+            SA 15: CCCNN=O
+            SA 16: O(c1ccccc1)c2ccccc2
+            SA 17: COc1cccc(O)c1
+            SA 18: CCc1ccc(OC)cc1O
+            SA 19: CCCNCNN=O
+            SA 20: CCOC(=O)C(C)(C)O
+            SA 21: CC(C)(O)C(O)=O
+            SA 22: Cc1ccccc1-c2ccc(N)cc2
+            SA 23: Nc1ccc(cc1)-c2ccc(N)cc2
+            SA 24: Nc1ccc(cc1)-c2ccccc2
+            SA 25: Nc1ccc(C=C)cc1
+            SA 26: Nc1cccc(c1)-c2ccccc2
+            SA 27: Cc1ccc(N)c(C)c1
+            SA 28: Cc1ccccc1N
+            SA 29: Nc1ccc(Cc2ccc(N)cc2)cc1
+            SA 30: CN(C)c1ccc(Cc2ccccc2)cc1
+            SA 31: Cc1ccc(N)cc1
+            SA 32: Cc1ccc(NO)cc1
+            SA 33: Cc1cccc(N)c1
+            SA 34: CNc1ccc(C=C)cc1
+            SA 35: Nc1ccc2ccccc2c1
+            SA 36: CNc1ccc(N)cc1
+            SA 37: Nc1ccccc1O
+            SA 38: COc1ccccc1N
+            SA 39: Oc1cccc2ccccc12
+            SA 40: Nc1ccc(O)c(N)c1
+            SA 41: CC(C)C(C)(O)CO
+            SA 42: Nc1cccc(c1)S(O)(=O)=O
+            SA 43: Cc1cccc2ccccc12
+            SA 44: NNCO
+            SA 45: CN(N)CO
+            SA 46: CC(O)CNN
+            SA 47: NNCCO
+            SA 48: NNc1ccccc1
+            SA 49: NNCC=C
+            SA 50: CCNN
+            SA 51: CCCNN
+            SA 52: CC(=O)NN
+            SA 53: CCCN(N)CCC
+            SA 54: CCCN(C)N
+            SA 55: NN
+            SA 56: ClCCCl
+            SA 57: CCl
+            SA 58: CCBr
+            SA 59: CBr
+            SA 60: c1ccc2cc3c(ccc4ccccc34)cc2c1
+            SA 61: c1ccc-2c(c1)-c3cccc4cccc-2c34
+            SA 62: CN=O
+            SA 63: N=O
+            SA 64: NO
+            SA 65: Oc1cccc(c1)-c2cccc(O)c2
+            SA 66: OS(O)(=O)=O
+            SA 67: COS(O)=O
+            SA 68: COS(=O)=O
+            SA 69: ClC1CCCC(Cl)C1Cl
+            SA 70: CC(Cl)CCCCCl
+            SA 71: c1ccc(cc1)N=Nc2ccccc2
+            SA 72: CCNCCCl
+            SA 73: ClCCNCCCl
+            SA 74: Cc1ccncn1
+            SA 75: c1cncnc1
+            SA 76: CC(=C)C(O)=O
+            SA 77: CC=C(C)CO
+            SA 78: CC(C)=NO
+            SA 79: CC(C)=N
+            SA 80: Cn1cncn1
+            SA 81: c1ncnn1
+            SA 82: COc1ccc(CC=C)cc1
+            SA 83: Nc1ncc2ncn(CCCCO)c2n1
+            SA 84: OCC1OC(CC1O)n2cnc3cncnc23
+            SA 85: CC1CCC=C(C)C1
+            SA 86: C1C=CCC=C1
+            SA 87: O=C(OCc1ccccc1)c2ccccc2
+            SA 88: CCOCc1ccccc1C
+            SA 89: C(=Cc1ccccc1)c2ccccc2
+            SA 90: [O-][N+](=O)c1ccco1
+            SA 91: CCNCC(C)=O
+            SA 92: N=[N+]
+            SA 93: Cc1ccc(cc1)S(O)(=O)=O
+            SA 94: O=C1c2ccccc2C(=O)c3ccccc13
+            SA 95: Cc1cccnc1
+            SA 96: CCCCC(O)CCCCC(O)CCC
+            SA 97: Clc1cccc(Cl)c1Cl
+            SA 98: COP=O
+            SA 99: CC(CN)c1ccccc1
+            SA 100: OCC#C
+            SA 101: NNCc1ccccc1
+            SA 102: C1CCc2ccccc2C1
+            SA 103: c1ccsc1
+            SA 104: Nc1ccccn1
+            SA 105: C1CO1
+            SA 106: CC(O)CCCC=O
+            SA 107: C[S]=O
+            SA 108: c1cscn1
+            SA 109: CC1COCO1
+            SA 110: Nc1ccc([S]c2ccccc2)cc1
+            SA 111: Cc1ccc(cc1)C(N)=O
+            SA 112: CN(C)P(N(C)C)N(C)C
+            SA 113: [N+]c1cncn1
+            SA 114: O=C1CCO1
+            SA 115: OCCNCC=C
+            SA 116: CCNCCCC(C)C
+            SA 117: c1ccoc1
+            SA 118: CCOC(N)=O
+            SA 119: C=CCCCCC=O
+            SA 120: C1CN1
+            SA 121: c1cc2ccccc2s1
+            SA 122: Cc1ncc[nH]1
+            SA 123: [O-][N+](=O)c1ccc(o1)-c2cscn2
+            SA 124: C#C
+            SA 125: CCF
+            SA 126: CN=[N+]
+            SA 127: CCCN=CN</Structural_Alerts>
     </Guide>
 
     <Reference></Reference>
 
     <Endpoint></Endpoint>
 
-    <Stats></Stats>
+    <Stats>
+        <n>1543.0</n>
+        <Specificity>0.484</Specificity>
+        <Sensitivity>0.817</Sensitivity>
+        <Accuracy>0.653</Accuracy>
+        <Not_Predicted>0.0</Not_Predicted>
+    </Stats>
 </xml>

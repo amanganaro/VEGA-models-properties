@@ -26,13 +26,285 @@
         </ClassValues>
     </Vega>
 
-    <Guide></Guide>
+    <Guide>
+        <Description>The model provides a qualitative prediction of mutagenicity on Salmonella typhimurium (Ames test). It is implemented inside the VEGA online platform, accessible at: http://www.vega-qsar.eu/</Description>
+        <Model>The model has been built as a set of rules, extracted with Sarpy software from the original training set from the Mutagenicity Caesar model. The model is based on T. Ferrari, D. Cattaneo, G. Gini, N. Golbamaki Bakhtyari, A. Manganaro, E. Benfenati, “Automatic knowledge extraction from chemical structures: the case of mutagenicity prediction”, SAR and QSAR in Environmental Research (2013), vol. 24 issue 5, 365-83.
+            The original work has been extended, resulting in two sets of rules for mutagenicity (112 rules) and non-mutagenicity (93 rules). If at least one mutagenicity rule is matching with the given compound, a “mutagen” prediction is given; if only one or more non-mutagenicity rule is matching, a “nonmutagen” prediction is given; if no rules match with the given compound, a “possible non-mutagen” prediction is given.</Model>
+        <Applicability_Domain>
+            <AD>
+                <Name>Similar_Molecules</Name>
+                <SimilarMols>3</SimilarMols>
+                <RangeTop>1 >= index > 0.8</RangeTop>
+                <DescriptionRangeTop>strongly similar compounds with known experimental value in the training set have been found</DescriptionRangeTop>
+                <RangeMid>0.8 >= index > 0.6</RangeMid>
+                <DescriptionRangeMid>only moderately similar compounds with known experimental value in the training set have been found</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.6</RangeBottom>
+                <DescriptionRangeBottom>no similar compounds with known experimental value in the training set have been found</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Accuracy</Name>
+                <RangeTop>1 >= index > 0.9</RangeTop>
+                <DescriptionRangeTop>accuracy of prediction for similar molecules found in the training set is good</DescriptionRangeTop>
+                <RangeMid>0.9 >= index > 0.5</RangeMid>
+                <DescriptionRangeMid>accuracy of prediction for similar molecules found in the training set is not optimal</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.5</RangeBottom>
+                <DescriptionRangeBottom>accuracy of prediction for similar molecules found in the training set is not adequate</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Concordance</Name>
+                <RangeTop>1 >= index > 0.9</RangeTop>
+                <DescriptionRangeTop>similar molecules found in the training set have experimental values that agree with the predicted value</DescriptionRangeTop>
+                <RangeMid>0.9 >= index > 0.5 </RangeMid>
+                <DescriptionRangeMid>some similar molecules found in the training set have experimental values that disagree with the predicted value</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.5</RangeBottom>
+                <DescriptionRangeBottom>similar molecules found in the training set have experimental values that disagree with the predicted value</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>ACF_SimCheck</Name>
+                <RangeTop>index = 1</RangeTop>
+                <DescriptionRangeTop>all atom centered fragment of the compound have been found in the compounds of the training set</DescriptionRangeTop>
+                <RangeMid>1 > index >= 0.7</RangeMid>
+                <DescriptionRangeMid>some atom centered fragment of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeMid>
+                <RangeBottom>index &lt; 0.7</RangeBottom>
+                <DescriptionRangeBottom>a prominent number of atom centered fragments of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>AD_Index</Name>
+                <RangeTop>1 >= index >= 0.9</RangeTop>
+                <DescriptionRangeTop>predicted substance is into the Applicability Domain of the model</DescriptionRangeTop>
+                <RangeMid>0.9 > index >= 0.65</RangeMid>
+                <DescriptionRangeMid>predicted substance could be out of the Applicability Domain of the model</DescriptionRangeMid>
+                <RangeBottom>index &lt; 0.65</RangeBottom>
+                <DescriptionRangeBottom>predicted substance is out of the the Applicability Domain of the model</DescriptionRangeBottom>
+            </AD>
+        </Applicability_Domain>
+        <Structural_Alerts>
+            Following, the list of the 112 rules for mutagenicity, expressed as SMARTS strings:
+            SM 1: O=[N+]([O-])c1ccc2ccccc2c1
+            SM 2: O=NN(C)C
+            SM 3: n1ccc(N)c2ccc(cc12)
+            SM 4: c1oc(cc1)[N+](=O)[O-]
+            SM 5: O=[N+]([O-])c1ccc(c2ccccc2)c(c1)
+            SM 6: Nc4ccc(N)cc4N
+            SM 7: C1C=Cc2ccccc2C1
+            SM 8: N1CC1
+            SM 9: c1cc([N+](=O)[O-])sc1
+            SM 10: n1ccnc2c1ccc(N)c2
+            SM 11: c1ccc2c(c1)cc3ccc(cc3c2)C
+            SM 12: Nc1c(ncn1)
+            SM 13: n1cc(nc2ccc3c(ncn3C)c12)
+            SM 14: O(c1ccccc1)CC2OC2
+            SM 15: O=C1c2ccccc2C(=O)c3c(O)ccc(O)c13
+            SM 16: N(O)c1ccc(C=C)cc1
+            SM 17: c1ccc2ccc3ccc(cc3c2c1)N
+            SM 18: O(Cc1cccc2ccccc12)C
+            SM 19: O=C(c1ccc(cc1)NO)
+            SM 20: O=C(c1ccccc1)Cl
+            SM 21: C1=Cc2cccc3cccc1c23
+            SM 22: O1CC1CCc2ccc(cc2)
+            SM 23: C(O)C=CCl
+            SM 24: OCC(CBr)
+            SM 25: [N-]=[N+]
+            SM 26: n1c2ccc(cc2c(cc1))C
+            SM 27: O=CC1(OC1)C
+            SM 28: n1cccc2c1ccc3c2ncn3
+            SM 29: c2nc3C(=O)C=CC(=O)c3cc2
+            SM 30: O=Nc1ccc(OC)cc1
+            SM 31: SC(=CCl)Cl
+            SM 32: O=C1c2cccc(N)c2C(=O)c3ccccc13
+            SM 33: Nc1ccc2c(c1)c3ccccc3n2
+            SM 34: Oc1ccc2ccc3ccc(cc3c2c1)
+            SM 35: C(c1ccccc1)COC=C
+            SM 36: c1cc2cccc3c4cc(ccc4c(c1)c23)
+            SM 37: N(O)c1ccc(Oc2ccccc2)cc1
+            SM 38: c1ccc2c(c1)c3ccccc3n2
+            SM 39: O(Cc1cccc2ccccc12)
+            SM 40: c1ccc2c3ccccc3CCc2c1
+            SM 41: n1cc2ccccc2s1
+            SM 42: P(=O)(N)N(C)CC
+            SM 43: C(N)Cl
+            SM 44: c1ccc(C=Cc2ccc(N)cc2)cc1
+            SM 45: c1cc(ccc1NCCCl)
+            SM 46: N(c1ccc(N=Nc2ccccc2)cc1)C
+            SM 47: O=C(NCc1ccccc1)C
+            SM 48: c1cc2ccc3cccc4ccc(c1)c2c34
+            SM 49: Nc1cccc(c1)c2ccccc2
+            SM 50: O=[N+]([O-])c1cccc2cccc(c12)
+            SM 51: O=C(Nc1ccc(cc1)c2ccccc2)
+            SM 52: O=Cc1cccc(c1)[N+]
+            SM 53: O=[N+]([O-])c1cc(N)c(c(N)c1)
+            SM 54: c1ccc(Oc2ccc(N)cc2)cc1
+            SM 55: COC=CC=CC
+            SM 56: N(=N)NC
+            SM 57: ONc1ccc(cc1)S
+            SM 58: O1CC1Cc2ccc(cc2)
+            SM 59: O=C(c1ccccc1O)c2ccccc2
+            SM 60: Nc1ccc(cc1)c2ccccc2
+            SM 61: c1ccc2c(c1)ccc3c2cc4ccccc4c3
+            SM 62: c1ccc2c(c1)cc3ccc(cc3c2C)
+            SM 63: c1ccc2c(ccc3c4ccccc4ccc23)c1
+            SM 64: c1c2ccccc2nc3ccccc13
+            SM 65: O=CC=C(C(=O)c1ccccc1)
+            SM 66: n1cc(cc2c1ncn2)
+            SM 67: Nc1nccn1C
+            SM 68: C1C(C=C(C))C1(C)C
+            SM 69: Nc1ccc(cc1)[N+](=O)[O-]
+            SM 70: Nc1ccc(cc1N)
+            SM 71: N=CC=C
+            SM 72: O=[N+]([O-])c1ccc(cc1)CO
+            SM 73: CCNCCCl
+            SM 74: O=S(=O)(OCC)
+            SM 75: c1ccc2c3ccccc3Cc2c1
+            SM 76: c1c2ccccc2n(c1)C
+            SM 77: C(CBr)Br
+            SM 78: Nc1ccccc1F
+            SM 79: c1ccc(N)c(c1N)C
+            SM 80: c1ccc2c(c1)ccc3cc(ccc23)
+            SM 81: c1ccc2c(c1)cc3ccccc3c2
+            SM 82: c1ccc2ccccc2c1C
+            SM 83: Nc1ccc(cc1)Cc2ccccc2
+            SM 84: Oc1ccc2Cc3ccccc3Oc2c1
+            SM 85: C(Cl)(Cl)Cl
+            SM 86: O(c1ccccc1N)C
+            SM 87: NN(c1ccccc1)
+            SM 88: n1c(N)n(c2ccccc12)
+            SM 89: O=C(N(O))C
+            SM 90: n1ccnc2c1cccc2
+            SM 91: c1cc(c(N)cc1N)C
+            SM 92: OCC1OC1
+            SM 93: C(C)Br
+            SM 94: C(OCC)N
+            SM 95: Nc1cccc(N)c1
+            SM 96: c1c(nn(c1))
+            SM 97: C1OC1
+            SM 98: C(O)N
+            SM 99: c1ccc2cccnc2c1
+            SM 100: N=NC
+            SM 101: O=CC(=C)Cl
+            SM 102: n1cnc2c(ncn2)c1N
+            SM 103: NNCC
+            SM 104: Cc2ccc(N)cc2
+            SM 105: Nc1ccc(N)cc1
+            SM 106: CCCl
+            SM 107: C=NN1N=Nc2c([nH]c3ccccc23)C1=O
+            SM 108: NC([N+])
+            SM 109: n1c2ccc(cc2[s+]c3cc(N)c(cc13))N
+            SM 110: O=Nn1cc(c2ccccc12)CC
+            SM 111: O=CC(=CC)C=CC
+            SM 112: O=C1OCC1
+            Following, the list of the 93 rules for non mutagenicity, expressed as SMARTS strings:
+            SM 113: C(O)CCCCCCCC=CCC
+            SM 114: CCOc1ccc(Cl)cc1
+            SM 115: C(NC(C(=O))C)C(NC)
+            SM 116: c1(c(ccc(c1)CCCCCC))O
+            SM 117: c1c(c(C(C)(C)C)cc(c1)C)
+            SM 118: c1(c(C(=O)O)cccc1)C(=O)
+            SM 119: S(=O)(=O)(N)c1ccc(N)cc1
+            SM 120: n1c(nc(nc1))
+            SM 121: C(=O)(C(CCC(=O)O))O
+            SM 122: CCOCCOCCOCCO
+            SM 123: CC(=O)OCC(CC)CCCC
+            SM 124: P(O)OCCCCC
+            SM 125: N(c1ccccc1)CCCNC
+            SM 126: c1(C(=O)OC)c(N)cccc1
+            SM 127: C(C)(Oc1ccccc1)(C)C
+            SM 128: N(CCO)(CCCC)C
+            SM 129: C(=C)CCCl
+            SM 130: C(=O)(C(=C)C)OCCCCC
+            SM 131: Oc1ccc2C=C(COc2c1)c3ccccc3
+            SM 132: c1(nc2c(o1)cccc2)c3ccccc3
+            SM 133: c1(c(c(cc(c1)))O)c2c(c(cc(c2)))O
+            SM 134: n1c(cc(c2c1cccc2))CO
+            SM 135: c1c(c(ccc1C(O)CNC)O)
+            SM 136: O(C(=O))C(=O)
+            SM 137: C(=O)(CCC(=O)O)
+            SM 138: S(=O)(=O)(c1ccccc1)N
+            SM 139: c1c(c(cc(c1Cl)Cl)Cl)
+            SM 140: C(C=C)(CCC=C)
+            SM 141: c1(CCCCCC)ccccc1
+            SM 142: N(C)(CCCC)CCCC
+            SM 143: C(=O)(O)CCCCCCCC
+            SM 144: C(=O)(N(c1ccccc1))N
+            SM 145: C1(C(CCC(C1)C)C)O
+            SM 146: c1(C(=O)OCC)ccccc1
+            SM 147: c1c(C(F)(F)F)cccc1
+            SM 148: C(=O)CS
+            SM 149: O(c1ccccc1)CC(CNC(C))O
+            SM 150: C(F)(F)C
+            SM 151: c1cc(c(c(c1)Br)O)
+            SM 152: c1(Br)ccc(cc1)C
+            SM 153: SCCCC
+            SM 154: C(=O)CC(=O)C
+            SM 155: N(CCO)(CCO)C
+            SM 156: C(=O)N(C)CCC
+            SM 157: CCCCCCCCCCCC
+            SM 158: c1(c(ccc(c1)C=CC)O)
+            SM 159: c1cc(c(cc1)Cl)Cl
+            SM 160: C=CC=C(CCC)C
+            SM 161: c1ccc(NC(C)C)cc1
+            SM 162: C1CC(CC(C1))(C)C
+            SM 163: CCCCCCC
+            SM 164: C(C(OC)(C)C)
+            SM 165: N#CCC
+            SM 166: C(=C(CC)O)
+            SM 167: CN1CN=CC=C1
+            SM 168: S(=O)(=O)c1ccc(N)cc1
+            SM 169: CC(CC)CCC
+            SM 170: C(=O)(c1ccccc1)OC
+            SM 171: c1(F)ccc(cc1)C
+            SM 172: C(=Cc1ccccc1)C(=O)c2ccccc2
+            SM 173: [nH]1cc(c2c1cccc2)CC
+            SM 174: P(=S)(OCC)OC
+            SM 175: [N+](C)(C)C
+            SM 176: OCCN(C)C
+            SM 177: C(=O)CCCCC
+            SM 178: C(=O)(CC(C))OCC
+            SM 179: CC#N
+            SM 180: C(=C(CC)C)C=O
+            SM 181: O=C1NC=NC=C1
+            SM 182: CCCC(C)C
+            SM 183: c1(cc(ccc1)Cl)Cl
+            SM 184: c12c(cc(cc2)O)ccc(S)c1
+            SM 185: PC
+            SM 186: OCC(CO)(C)C
+            SM 187: OC(=O)C(=C)C
+            SM 188: C(=O)(C)OCCCC
+            SM 189: c1(C(=O)O)c(ccc(c1))O
+            SM 190: c1(c(Cl)cccc1)C
+            SM 191: Cc1cc(c(cc1)OC)OC
+            SM 192: C#N
+            SM 193: Cc1ccc(Cl)cc1
+            SM 194: Nc1ccc2C=CCOc2c1
+            SM 195: C(=O)(O)Cc1ccccc1
+            SM 196: c1(cc(ccc1CCC)O)O
+            SM 197: N(c1ccccc1)c2ccccc2
+            SM 198: C=NO
+            SM 199: C(=S)(N)
+            SM 200: c1(CC)cc(OC)ccc1
+            SM 201: c1(nc2c(s1)cccc2)
+            SM 202: OCCOCCO
+            SM 203: N(C)(CCN)c1ccccc1
+            SM 204: [N+]([O-])CC
+            SM 205: S(=O)(=O)(c1cc(c(cc1))N)O
+        </Structural_Alerts>
+    </Guide>
 
     <Reference></Reference>
 
     <Endpoint></Endpoint>
 
-    <Stats></Stats>
+    <Stats>
+        <n_Train>3367.0</n_Train>
+        <Specificity_Train>0.774</Specificity_Train>
+        <Sensitivity_Train>0.856</Sensitivity_Train>
+        <Accuracy_Train>0.819</Accuracy_Train>
+        <n_Test>837.0</n_Test>
+        <Specificity_Test>0.761</Specificity_Test>
+        <Sensitivity_Test>0.854</Sensitivity_Test>
+        <Accuracy_Test>0.812</Accuracy_Test>
+        <Not_Predicted_Test>0.0</Not_Predicted_Test>
+        <Not_Predicted_Train>0.0</Not_Predicted_Train>
+    </Stats>
 
 
 </xml>

@@ -62,12 +62,103 @@
         </ClassValues>
     </Vega>
 
-    <Guide></Guide>
+    <Guide>
+        <Description>The model provides a qualitative prediction of developmental and reproductive toxicity, based on a virtual binary of possible toxicant compounds. It is implemented inside the VEGA online platform, accessible at:http://www.vega-qsar.eu/</Description>
+        <Model>The model implements a virtual library of toxicant compounds as described in the study from Procter &amp;Gamble: Shengde Wu, Joan Fisher, Jorge M. Naciff, Michael C, Laufersweiler, Cathy Lester, George Daston, and Karen Blackburn “A Framework for Identifying Chemicals with Structural Features Associated with Potential to Act as Developmental or Reproductive Toxicants” Chem. Res. Toxicol., 2013, 26 (12), pp 1840–1861.
+            In the work from Procter &amp; Gamble, 25 categories of possible toxicant have been identified, and for each category an extended list of virtual compounds have been generated. The model implements these categories, and tries to find an exact match between the given compound and any of the virtual compounds in the library. If a match is found, a prediction of “Toxicant” is given, otherwise a “NON-Toxicant” prediction is provided.
+            The original dataset used in the cited work, consisting of 641 compounds, has been implemented as the training set.</Model>
+        <Applicability_Domain>
+            <AD>
+                <Name>Similar_Molecules</Name>
+                <SimilarMols>3</SimilarMols>
+                <RangeTop>1 >= index > 0.85</RangeTop>
+                <DescriptionRangeTop>strongly similar compounds with known experimental value in the training set have been found</DescriptionRangeTop>
+                <RangeMid>0.85 >= index > 0.75</RangeMid>
+                <DescriptionRangeMid>only moderately similar compounds with known experimental value in the training set have been found</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.75</RangeBottom>
+                <DescriptionRangeBottom>no similar compounds with known experimental value in the training set have been found</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Accuracy</Name>
+                <RangeTop>1 >= index > 0.85</RangeTop>
+                <DescriptionRangeTop>accuracy of prediction for similar molecules found in the training set is good</DescriptionRangeTop>
+                <RangeMid>0.85 >= index > 0.5</RangeMid>
+                <DescriptionRangeMid>accuracy of prediction for similar molecules found in the training set is not optimal</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.5</RangeBottom>
+                <DescriptionRangeBottom>accuracy of prediction for similar molecules found in the training set is not adequate</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Concordance</Name>
+                <RangeTop>1 >= index > 0.85</RangeTop>
+                <DescriptionRangeTop>similar molecules found in the training set have experimental values that agree with the predicted value</DescriptionRangeTop>
+                <RangeMid>0.85 >= index > 0.5 </RangeMid>
+                <DescriptionRangeMid>some similar molecules found in the training set have experimental values that disagree with the predicted value</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.5</RangeBottom>
+                <DescriptionRangeBottom>similar molecules found in the training set have experimental values that disagree with the predicted value</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>ACF_SimCheck</Name>
+                <RangeTop>index = 1</RangeTop>
+                <DescriptionRangeTop>all atom centered fragment of the compound have been found in the compounds of the training set</DescriptionRangeTop>
+                <RangeMid>1 > index >= 0.7</RangeMid>
+                <DescriptionRangeMid>some atom centered fragment of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeMid>
+                <RangeBottom>index &lt; 0.7</RangeBottom>
+                <DescriptionRangeBottom>a prominent number of atom centered fragments of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>AD_Index</Name>
+                <RangeTop>1 >= index >= 0.9</RangeTop>
+                <DescriptionRangeTop>predicted substance is into the Applicability Domain of the model</DescriptionRangeTop>
+                <RangeMid>0.9 > index >= 0.65</RangeMid>
+                <DescriptionRangeMid>predicted substance could be out of the Applicability Domain of the model</DescriptionRangeMid>
+                <RangeBottom>index &lt; 0.65</RangeBottom>
+                <DescriptionRangeBottom>predicted substance is out of the the Applicability Domain of the model</DescriptionRangeBottom>
+            </AD>
+        </Applicability_Domain>
+        <Categories_ToxicantCompounds>
+            Following, the list of the 25 categories of toxicant compounds implemented:
+            Category 1: Inorganics and derivatives: metals, metallic derivatives, organophosphorus and
+            organosiloxane compounds
+            Category 2: Estrogen receptor (ER) and androgen receptor (AR) binding compounds
+            Category 3: Retinoic acid receptor (RAR), aryl hydrocarbon receptor (AhR) binders and prostaglandin
+            receptor agonists
+            Category 4: Nicotinic acetyl choline receptor (nAChR) binders and acetyl cholineesterase (AChE)
+            inhibitors
+            Category 5: Ion channel opener/inhibitor, beta-adrenergic inhibitors, ACE/ARA inhibitors and Shh
+            signaling interference/Cholesterol synthesis inhibition
+            Category 6: Opioid receptor binders and tubulin receptor interactors
+            Category 7: Nucleotide and nucleobase derivatives
+            Category 8: Aromatic compounds with alkyl, multi-halogen and nitro groups
+            Category 9: Aromatic compounds contain alkyl chain with alcohol, aldehyde, acid functional groups;
+            poly-Cl aryloxy derived acids and esters
+            Category 10: Aromatic compounds with sulfonamide and urea moieties, phenytoins
+            Category 11: Aromatic compounds (non-fused ring system) with aliphatic amine moieties
+            Category 12: Aromatic diamine, their diazo moieties, and aromatic triazene derivatives
+            Category 13: Imidazole, nitro imidazoles derivatives, nitro-furfurylideneamino and triazole derivatives
+            Category 14: Aromatic ring fused cyclic-, heterocyclic derivatives
+            Category 15: Miscellaneous aromatic chemicals and antibiotics
+            Category 16: Non-aromatic cyclic hydrocarbon ring, heterocyclic ring contain only oxgen atom and
+            multi Cl single/fused cyclic hydrocarbons
+            Category 17: Heterocyclic, cyclic compounds contain nitrogen, oxygen/sulfur atoms
+            Category 18: Miscellaneous cyclic chemicals
+            Category 19: Alkyl carbamodi-thioic acids, alkyl sulfonates and perfluorinated compounds (PFCs)
+            Category 20: Miscellaneous non-cyclic chemicals
+            Category 21: Vinyl amides, aldehydes, esters and alkyl amides (&lt;C4), N-substituted amides, ureas,
+            carbonates, guanidine and carbamates
+            Category 22: Alpha-substituted carboxylic acids, esters and di-acid derived esters
+            Category 23: Small- (C1-C4) halo-, multihalo-alkanes, alkyl ether/alkenes and halogenated
+            acetonitriles as well as N, or S related mustards
+            Category 24: Di/multi-OH, NH2, substituted amine, SH (=S), OR, OAc substituted (at each terminal
+            carbon) C1 to C5 hydrocarbon chain or repeating C2 units as well as metal chelators
+            Category 25: C1 to C4 non-branched/&lt;C9 beta-alkyl (&lt;C5) substituted alcohols and &lt;C4 alkyl, vinyl
+            nitriles
+        </Categories_ToxicantCompounds>
+    </Guide>
 
     <Reference></Reference>
 
     <Endpoint></Endpoint>
 
     <Stats></Stats>
-    
+
 </xml>

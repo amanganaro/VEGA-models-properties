@@ -40,6 +40,7 @@
         <module>VegaModels-DaphniaEPA</module>
         <module>VegaModels-DaphniaNOEC</module>
         <module>VegaModels-DevtoxCaesar</module>
+        <module>VegaModels-DaphniaDemetra</module>
         <module>VegaModels-DevtoxPG</module>
         <module>VegaModels-FatheadEPA</module>
         <module>VegaModels-FishCombase</module>

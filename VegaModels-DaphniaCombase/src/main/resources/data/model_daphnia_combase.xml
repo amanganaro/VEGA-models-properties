@@ -14,12 +14,101 @@
         <Units>log(mmol/l)</Units>
     </Vega>
 
-    <Guide></Guide>
+    <Guide>
+        <Description>The model provides a quantitative prediction of acute toxicity in Daphnia Magna (EC50), given in log(mmol/L) and converted in mg/L. It has been developed inside the EU LIFE COMBASE project (LIFE15 ENV/ES/416). It is implemented inside the VEGA online platform, accessible at:http://www.vega-qsar.eu/. </Description>
+        <Model>133 biocides with experimental data on EC50 48h Daphnia magna (expressed as Log mmol/L). The dataset has been acquired from several public sources:
+            - the OECD QSAR toolbox v. 4.2 (www.qsartoolbox.org),
+            - the Pesticide Properties Database (PPDB) database (https://sitem.herts.ac.uk/aeru/ppdb/),
+            - the Office of Pesticide Programs (OPP) Pesticides Ecotoxicity Database
+            (http://www.ipmcenters.org/ecotox/)),
+            - the European Food Safety Authority (EFSA) (http://www.efsa.europa.eu/) database and
+            The quality of the experimental data has been evaluated taking into account all the criteria required by the official guideline OECD 202.
+            CORAL (http://www.insilico.eu/coral) was used to develop a regression QSAR model from SMILESbased optimal descriptors. A CORAL mathematical model describes the relationship between an
+            endpoint (dependent variable) and relevant SMILES attributes (independent variable), as explained in:
+            Toropov, A.A., Toropova, A.P., Roncaglioni, A., Benfenati, E. "Prediction of biochemical endpoints by the CORAL software: Prejudices, Paradoxes, and Results" (2018) Methods in Molecular Biology, 1800, pp. 573-583.
+            The final model formula obtained with CORAL is:
+            Endpoint = 0.5569253 (± 0.0797226) + 0.1098193 (± 0.0022561) * DCW(1,35)
+            where DCW is represented by the following formula, see section 1.4 for the list of CORAL fragments used in the model and their correlation weights:
+        </Model>
+        <Applicability_Domain>
+            <AD>
+                <Name>Similar_Molecules</Name>
+                <SimilarMols>3</SimilarMols>
+                <RangeTop>1 >= index > 0.85</RangeTop>
+                <DescriptionRangeTop>strongly similar compounds with known experimental value in the training set have been found</DescriptionRangeTop>
+                <RangeMid>0.85 >= index > 0.7</RangeMid>
+                <DescriptionRangeMid>only moderately similar compounds with known experimental value in the training set have been found</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.7</RangeBottom>
+                <DescriptionRangeBottom>no similar compounds with known experimental value in the training set have been found</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Accuracy</Name>
+                <RangeTop>index &lt; 0.8</RangeTop>
+                <DescriptionRangeTop>accuracy of prediction for similar molecules found in the training set is good</DescriptionRangeTop>
+                <RangeMid>0.8 &lt;= index &lt;= 1.2</RangeMid>
+                <DescriptionRangeMid>accuracy of prediction for similar molecules found in the training set is not optimal</DescriptionRangeMid>
+                <RangeBottom>index > 1.2</RangeBottom>
+                <DescriptionRangeBottom>accuracy of prediction for similar molecules found in the training set is not adequate</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Concordance</Name>
+                <RangeTop>index &lt; 0.8</RangeTop>
+                <DescriptionRangeTop>similar molecules found in the training set have experimental values that agree with the target compound predicted value</DescriptionRangeTop>
+                <RangeMid>0.8 &lt;= index &lt;= 1.2</RangeMid>
+                <DescriptionRangeMid>similar molecules found in the training set have experimental values that slightly disagree with the target compound predicted value</DescriptionRangeMid>
+                <RangeBottom>index > 1.2</RangeBottom>
+                <DescriptionRangeBottom>similar molecules found in the training set have experimental values that completely disagree with the target compound predicted value</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Maximum_Error</Name>
+                <RangeTop>index &lt; 0.8</RangeTop>
+                <DescriptionRangeTop>the maximum error in prediction of similar molecules found in the training set has a low value, considering the experimental variability</DescriptionRangeTop>
+                <RangeMid>0.8 &lt;= index &lt;= 1.2</RangeMid>
+                <DescriptionRangeMid>the maximum error in prediction of similar molecules found in the training set has a moderate value, considering the experimental variability</DescriptionRangeMid>
+                <RangeBottom>index > 1.2</RangeBottom>
+                <DescriptionRangeBottom>the maximum error in prediction of similar molecules found in the training set has a high value, considering the experimental variability</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>ACF_SimCheck</Name>
+                <RangeTop>index = 1</RangeTop>
+                <DescriptionRangeTop>all atom centered fragment of the compound have been found in the compounds of the training set</DescriptionRangeTop>
+                <RangeMid>1 > index >= 0.7</RangeMid>
+                <DescriptionRangeMid>some atom centered fragment of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeMid>
+                <RangeBottom>index &lt; 0.7</RangeBottom>
+                <DescriptionRangeBottom>a prominent number of atom centered fragments of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Model_Descriptors_Range_Check</Name>
+                <RangeTop>index = True</RangeTop>
+                <DescriptionRangeTop>descriptors for this compound have values inside the descriptor range of the compounds of the training set</DescriptionRangeTop>
+                <RangeBottom>index = False</RangeBottom>
+                <DescriptionRangeBottom>descriptors for this compound have values outside the descriptor range of the compounds of the training set</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>AD_Index</Name>
+                <RangeTop>1 >= index > 0.85</RangeTop>
+                <DescriptionRangeTop>predicted substance is into the Applicability Domain of the model</DescriptionRangeTop>
+                <RangeMid>0.85 => index >= 0.7</RangeMid>
+                <DescriptionRangeMid>predicted substance could be out of the Applicability Domain of the model</DescriptionRangeMid>
+                <RangeBottom>index &lt; 0.7</RangeBottom>
+                <DescriptionRangeBottom>predicted substance is out of the the Applicability Domain of the model</DescriptionRangeBottom>
+            </AD>
+        </Applicability_Domain>
+    </Guide>
 
     <Reference></Reference>
 
     <Endpoint></Endpoint>
 
-    <Stats></Stats>
+    <Stats>
+        <n_Train>34.0</n_Train>
+        <R2_Train>0.724</R2_Train>
+        <RMSE_Train>1.237</RMSE_Train>
+        <n_Test>99.0</n_Test>
+        <R2_Test>0.597</R2_Test>
+        <RMSE_Test>1.082</RMSE_Test>
+        <Not_Predicted_Train>0.0</Not_Predicted_Train>
+        <Not_Predicted_Test>0.0</Not_Predicted_Test>
+    </Stats>
     
 </xml>

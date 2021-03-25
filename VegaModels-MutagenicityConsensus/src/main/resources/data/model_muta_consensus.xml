@@ -21,7 +21,14 @@
         </ClassValues>
     </Vega>
 
-    <Guide></Guide>
+    <Guide>
+        <Description>The model provides a qualitative prediction of mutagenicity on Salmonella typhimurium (Ames test), applying a consensus approach based on the four QSAR models currently available in VEGA. It is implemented inside the VEGA online platform, accessible at: http://www.vega-qsar.eu/</Description>
+        <Model>The model performs a consensus assessment based on the predictions of the available VEGA mutagenicity models (CAESAR, SarPy, ISS and KNN). The consensus algorithm uses the Applicability Domain assessment of each single model's prediction as its weight, so that the final assessment will be more influenced by the single models that produced more reliable predictions.
+            The Applicability Domain assessment of each model is converted to a numerical value in the range [0..1] with the following scheme:
+            For each prediction class (i.e. mutagenic or non-mutagenic), a score is calculated as the sum of the weights for each model that produced that prediction. For the purpose of this consensus approach, the “suspect mutagenic / non-mutagenic” predictions are considered simply as “mutagenic / non-mutagenic” predictions. The calculated score is normalized over the number of used models, so that it has a theoretical [0..1] range. Then, the prediction class with the highest score is used as the final consensus prediction. If at least one model has found an experimental value, only experimental values are considered for the score. In this case, the reported number of models used refers only to the number of models having an experimental value.
+            With this approach, the score of the final prediction can be used as a measure of the reliability of the produced consensus assessment. Indeed, the score would achieve its maximum value (1) only if one or more models found experimental values and these values are in agreement. In all other cases, the score will result in lower values.</Model>
+        <Applicability_Domain></Applicability_Domain>
+    </Guide>
 
     <Reference></Reference>
 

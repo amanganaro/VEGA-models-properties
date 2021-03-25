@@ -13,12 +13,109 @@
         <Units>-log(mol/l)</Units>
     </Vega>
 
-    <Guide></Guide>
+    <Guide>
+        <Description>The model provides a quantitative prediction for Daphnia Magna LC50 (48 hour), given in -log(mol/l) and its conversion in mg/L. It is implemented inside the VEGA online platform, accessible at:http://www.vega-qsar.eu/
+            The model is a re-implementation of the original model developed by Todd Martin inside T.E.S.T. software for US EPA. The T.E.S.T. software is freely available at:
+            http://www.epa.gov/nrmrl/std/cppb/qsar/.</Description>
+        <Model>The model is a linear regression made on 17 molecular descriptors. The regression coefficients have been calculated on the T.E.S.T. original dataset, that contains 337 compounds extracted from the ECOTOX aquatic toxicity database (http://cfpub.epa.gov/ecotox/), splitted in 269 compounds for the training set and 68 for the test set. More details on the model can be found in the T.E.S.T. documentation: http://www.epa.gov/nrmrl/std/cppb/qsar/testuserguide.pdf</Model>
+        <Descriptors>The descriptors used are the following:
+            - xc4: Simple 4th order cluster chi index
+            - StN: Sum of ( tN ) E-States (StN)
+            - SsSH: Sum of ( -SH ) E-States (SsSH)
+            - SsOH_acnt: Count of ( -OH ) (SsOH_acnt)
+            - Hmax: Maximum hydrogen E-State value in molecule
+            - MDEN33: Molecular distance edge between all tertiary nitrogens
+            - BEHm1: Highest eigenvalue n. 1 of Burden matrix / weighted by atomic masses
+            - BEHp1: Highest eigenvalue n. 1 of Burden matrix / weighted by atomic polarizabilities
+            - Mv: Mean atomic van der Waals volume (scaled on Carbon atom)
+            - MATS1m: Moran autocorrelation - lag 1 / weighted by atomic masses
+            - MATS1e: Moran autocorrelation - lag 1 / weighted by atomic Sanderson electronegativities
+            - GATS3m: Geary autocorrelation - lag 3 / weighted by atomic masses
+            - AMR: Ghose-Crippen molar refractivity
+            - C(=S)- [2 nitrogen attach]: -C(=S)- [2 nitrogen attach] fragment count
+            - AN: AN fragment count
+            - N&lt; [attached to P]: -N&lt; [attached to P] fragment count
+            - S(=O)(=O)- [aromatic attach]: -S(=O)(=O)- [aromatic attach] fragment count
+            The descriptors are entirely calculated by an in-house software module in which they are implemented as described in: R. Todeschini and V. Consonni, Molecular Descriptors for Chemoinformatics, Wiley-VCH, 2009. The original code for descriptors calculation has been kindly provided by Todd Martin.</Descriptors>
+        <Applicability_Domain>
+            <AD>
+                <Name>Similar_Molecules</Name>
+                <SimilarMols>3</SimilarMols>
+                <RangeTop>1 >= index > 0.85</RangeTop>
+                <DescriptionRangeTop>strongly similar compounds with known experimental value in the training set have been found</DescriptionRangeTop>
+                <RangeMid>0.85 >= index > 0.7</RangeMid>
+                <DescriptionRangeMid>only moderately similar compounds with known experimental value in the training set have been found</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.7</RangeBottom>
+                <DescriptionRangeBottom>no similar compounds with known experimental value in the training set have been found</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Accuracy</Name>
+                <RangeTop>index &lt; 0.6</RangeTop>
+                <DescriptionRangeTop>accuracy of prediction for similar molecules found in the training set is good</DescriptionRangeTop>
+                <RangeMid>0.6 &lt;= index &lt;= 1.2</RangeMid>
+                <DescriptionRangeMid>accuracy of prediction for similar molecules found in the training set is not optimal</DescriptionRangeMid>
+                <RangeBottom>index > 1.2</RangeBottom>
+                <DescriptionRangeBottom>accuracy of prediction for similar molecules found in the training set is not adequate</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Concordance</Name>
+                <RangeTop>index &lt; 0.6</RangeTop>
+                <DescriptionRangeTop>similar molecules found in the training set have experimental values that agree with the target compound predicted value</DescriptionRangeTop>
+                <RangeMid>0.6 &lt;= index &lt;= 1.2</RangeMid>
+                <DescriptionRangeMid>similar molecules found in the training set have experimental values that slightly disagree with the target compound predicted value</DescriptionRangeMid>
+                <RangeBottom>index > 1.2</RangeBottom>
+                <DescriptionRangeBottom>similar molecules found in the training set have experimental values that completely disagree with the target compound predicted value</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Maximum_Error</Name>
+                <RangeTop>index &lt; 0.6</RangeTop>
+                <DescriptionRangeTop>the maximum error in prediction of similar molecules found in the training set has a low value, considering the experimental variability</DescriptionRangeTop>
+                <RangeMid>0.6 &lt;= index &lt; 1.2</RangeMid>
+                <DescriptionRangeMid>the maximum error in prediction of similar molecules found in the training set has a moderate value, considering the experimental variability</DescriptionRangeMid>
+                <RangeBottom>index >= 1.2</RangeBottom>
+                <DescriptionRangeBottom>the maximum error in prediction of similar molecules found in the training set has a high value, considering the experimental variability</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>ACF_SimCheck</Name>
+                <RangeTop>index = 1</RangeTop>
+                <DescriptionRangeTop>all atom centered fragment of the compound have been found in the compounds of the training set</DescriptionRangeTop>
+                <RangeMid>1 > index >= 0.7</RangeMid>
+                <DescriptionRangeMid>some atom centered fragment of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeMid>
+                <RangeBottom>index &lt; 0.7</RangeBottom>
+                <DescriptionRangeBottom>a prominent number of atom centered fragments of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Model_Descriptors_Range_Check</Name>
+                <RangeTop>index = True</RangeTop>
+                <DescriptionRangeTop>descriptors for this compound have values inside the descriptor range of the compounds of the training set</DescriptionRangeTop>
+                <RangeBottom>index = False</RangeBottom>
+                <DescriptionRangeBottom>descriptors for this compound have values outside the descriptor range of the compounds of the training set</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>AD_Index</Name>
+                <RangeTop>1 >= index > 0.85</RangeTop>
+                <DescriptionRangeTop>predicted substance is into the Applicability Domain of the model</DescriptionRangeTop>
+                <RangeMid>0.85 => index > 0.7</RangeMid>
+                <DescriptionRangeMid>predicted substance could be out of the Applicability Domain of the model</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.7</RangeBottom>
+                <DescriptionRangeBottom>predicted substance is out of the the Applicability Domain of the model</DescriptionRangeBottom>
+            </AD>
+        </Applicability_Domain>
+    </Guide>
 
     <Reference></Reference>
 
     <Endpoint></Endpoint>
 
-    <Stats></Stats>
+    <Stats>
+        <n_Train>68.0</n_Train>
+        <R2_Train>0.429</R2_Train>
+        <RMSE_Train>1.349</RMSE_Train>
+        <n_Test>269.0</n_Test>
+        <R2_Test>0.053</R2_Test>
+        <RMSE_Test>1.571</RMSE_Test>
+        <Not_Predicted_Train>0.0</Not_Predicted_Train>
+        <Not_Predicted_Test>0.0</Not_Predicted_Test>
+    </Stats>
     
 </xml>
