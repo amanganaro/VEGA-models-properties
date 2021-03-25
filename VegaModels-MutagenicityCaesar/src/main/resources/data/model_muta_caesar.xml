@@ -52,7 +52,7 @@
             - StN_acnt: Count of all ( #N ) groups in molecule
             - SdsN_acnt: Count of all ( = N – )groups in molecule
             - SaaN_acnt: Count of all ( N )groups in molecule
-            2- SsssN_acnt: Count of all ( > N – )groups in molecule
+            - SsssN_acnt: Count of all ( > N – )groups in molecule
             - SdaaN_acnt: Count of all ( N ) groups in molecule
             - SsOH_acnt: Count of all ( – OH ) groups in molecule
             - SdO_acnt: Count of all ( = O ) groups in molecule
@@ -119,7 +119,8 @@
                 <DescriptionRangeBottom>predicted substance is out of the the Applicability Domain of the model</DescriptionRangeBottom>
             </AD>
         </Applicability_Domain>
-        <Structural_Alerts>The model goes through a first step in which a set of 12 SAs related to mutagenicty is checked. If one (or more) fragments are found, compound is predicted as "mutagen". The SAs are the following (SA numbers refer to the original Benigni/Bossa study):
+        <Structural_Alerts>
+            The model goes through a first step in which a set of 12 SAs related to mutagenicty is checked. If one (or more) fragments are found, compound is predicted as "mutagen". The SAs are the following (SA numbers refer to the original Benigni/Bossa study):
             - SA 1: Acyl halides
             - SA 6: Propiolactones or propiosultones
             - SA 12: Quinones
