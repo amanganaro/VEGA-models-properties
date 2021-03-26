@@ -60,9 +60,9 @@
                 <Name>Maximum_Error</Name>
                 <RangeTop>index &lt; 0.8</RangeTop>
                 <DescriptionRangeTop>the maximum error in prediction of similar molecules found in the training set has a low value, considering the experimental variability</DescriptionRangeTop>
-                <RangeMid>0.8 &lt;= index &lt;= 1.2</RangeMid>
+                <RangeMid>0.8 &lt;= index &lt; 1.2</RangeMid>
                 <DescriptionRangeMid>the maximum error in prediction of similar molecules found in the training set has a moderate value, considering the experimental variability</DescriptionRangeMid>
-                <RangeBottom>index > 1.2</RangeBottom>
+                <RangeBottom>index >= 1.2</RangeBottom>
                 <DescriptionRangeBottom>the maximum error in prediction of similar molecules found in the training set has a high value, considering the experimental variability</DescriptionRangeBottom>
             </AD>
             <AD>
@@ -83,11 +83,11 @@
             </AD>
             <AD>
                 <Name>AD_Index</Name>
-                <RangeTop>1 >= index > 0.85</RangeTop>
+                <RangeTop>1 >= index >= 0.85</RangeTop>
                 <DescriptionRangeTop>predicted substance is into the Applicability Domain of the model</DescriptionRangeTop>
-                <RangeMid>0.85 => index > 0.7</RangeMid>
+                <RangeMid>0.85 > index >= 0.7</RangeMid>
                 <DescriptionRangeMid>predicted substance could be out of the Applicability Domain of the model</DescriptionRangeMid>
-                <RangeBottom>index &lt;= 0.7</RangeBottom>
+                <RangeBottom>index &lt; 0.7</RangeBottom>
                 <DescriptionRangeBottom>predicted substance is out of the the Applicability Domain of the model</DescriptionRangeBottom>
             </AD>
         </Applicability_Domain>
@@ -98,10 +98,10 @@
     <Endpoint></Endpoint>
 
     <Stats>
-        <n_Train>22.0</n_Train>
+        <n_Train>66.0</n_Train>
         <R2_Train>0.745</R2_Train>
         <RMSE_Train>1.017</RMSE_Train>
-        <n_Test>66.0</n_Test>
+        <n_Test>22.0</n_Test>
         <R2_Test>0.733</R2_Test>
         <RMSE_Test>0.723</RMSE_Test>
         <Not_Predicted_Train>0.0</Not_Predicted_Train>

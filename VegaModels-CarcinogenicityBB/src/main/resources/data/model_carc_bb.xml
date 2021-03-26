@@ -139,7 +139,13 @@
 
     <Endpoint></Endpoint>
 
-    <Stats></Stats>
+    <Stats>
+        <n>797.0</n>
+        <Specificity>0.582</Specificity>
+        <Sensitivity>0.809</Sensitivity>
+        <Accuracy>0.754</Accuracy>
+        <Not_Predicted>0.0</Not_Predicted>
+    </Stats>
 
 
 </xml>

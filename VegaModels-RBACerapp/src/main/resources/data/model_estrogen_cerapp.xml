@@ -122,6 +122,7 @@
             by the SMARTS: CC(C)(c1ccc(O)cc1)
             - ER possible activity alert no. 7: Fragment related to possible activity for ER-mediated effect, defined
             by the SMARTS: C(=O)c1ccc(O)cc1
+
             The following SAs have been extracted from the original dataset and are related to ER-mediated NON-activity:
             - ER non-activity alert no. 1: Fragment related to non-activity for ER-mediated effect, defined by the
             SMARTS: C(=O)(O)CCCCC
@@ -191,6 +192,7 @@
             SMARTS: NC(C)(C)C
             - ER non-activity alert no. 34: Fragment related to non-activity for ER-mediated effect, defined by the
             SMARTS: [Si](C)C
+
             The following SAs have been extracted from the original dataset and are related to a possible ERmediated NON-activity:
             - ER possible non-activity alert no. 1: Fragment related to possible non-activity for ER-mediated effect,
             defined by the SMARTS: CCOCC

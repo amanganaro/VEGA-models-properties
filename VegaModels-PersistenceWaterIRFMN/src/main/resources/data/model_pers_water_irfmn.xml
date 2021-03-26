@@ -130,6 +130,7 @@
             - nP alert no. 22, hydroxyl groups, defined by the SMARTS: [O;D1;!-]A
             - nP alert no. 23, single aromatic hydroxyl, defined by the SMARTS: [O;D1;!-]a
             - nP alert no. 24, primary alcohol, defined by the SMARTS: [O;D1;!-][C;D2;H2][C,c]
+
             The following SAs have been extracted from the original dataset and are related to compounds which are vP in the water compartment:
             - vP alert no. 1, defined by the SMARTS: c1ccc(c(c1)c2ccccc2Cl)
             - vP alert no. 2, defined by the SMARTS: C1(=C(C2(C3C(CC(C3))C1(C2(Cl)Cl)Cl)Cl)Cl)Cl

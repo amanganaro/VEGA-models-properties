@@ -72,9 +72,9 @@
                 <Name>Maximum_Error</Name>
                 <RangeTop>index &lt; 0.6</RangeTop>
                 <DescriptionRangeTop>the maximum error in prediction of similar molecules found in the training set has a low value, considering the experimental variability</DescriptionRangeTop>
-                <RangeMid>0.6 &lt;= index &lt;= 1.2</RangeMid>
+                <RangeMid>0.6 &lt;= index &lt; 1.2</RangeMid>
                 <DescriptionRangeMid>the maximum error in prediction of similar molecules found in the training set has a moderate value, considering the experimental variability</DescriptionRangeMid>
-                <RangeBottom>index > 1.2</RangeBottom>
+                <RangeBottom>index >= 1.2</RangeBottom>
                 <DescriptionRangeBottom>the maximum error in prediction of similar molecules found in the training set has a high value, considering the experimental variability</DescriptionRangeBottom>
             </AD>
             <AD>
@@ -111,10 +111,10 @@
     <Endpoint></Endpoint>
 
     <Stats>
-        <n_Train>382.0</n_Train>
+        <n_Train>564.0</n_Train>
         <R2_Train>0.453</R2_Train>
         <RMSE_Train>0.936</RMSE_Train>
-        <n_Test>564.0</n_Test>
+        <n_Test>382.0</n_Test>
         <R2_Test>0.316</R2_Test>
         <RMSE_Test>1.091</RMSE_Test>
         <Not_Predicted_Train>0.0</Not_Predicted_Train>

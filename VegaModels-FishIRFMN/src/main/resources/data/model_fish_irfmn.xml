@@ -76,11 +76,11 @@
             </AD>
             <AD>
                 <Name>AD_Index</Name>
-                <RangeTop>1 >= index > 0.8</RangeTop>
+                <RangeTop>1 >= index >= 0.8</RangeTop>
                 <DescriptionRangeTop>predicted substance is into the Applicability Domain of the model</DescriptionRangeTop>
-                <RangeMid>0.8 => index > 0.65</RangeMid>
+                <RangeMid>0.8 > index >= 0.65</RangeMid>
                 <DescriptionRangeMid>predicted substance could be out of the Applicability Domain of the model</DescriptionRangeMid>
-                <RangeBottom>index &lt;= 0.65</RangeBottom>
+                <RangeBottom>index &lt; 0.65</RangeBottom>
                 <DescriptionRangeBottom>predicted substance is out of the the Applicability Domain of the model</DescriptionRangeBottom>
             </AD>
         </Applicability_Domain>
@@ -100,6 +100,7 @@
             N#CCC#N
             [c]([Cl,Br,F])[c]([Cl,Br,F])[c]([Cl,Br,F])
             CCC(=O)OC[a]
+
             Following, the list of the alerts, as SMARTS strings, related to class 2 toxicity:
             Oc1ccc(cc1)Cl
             C(C)CCCCCCCCC
@@ -124,6 +125,7 @@
             *[C;D2][C;D2][C;D2][C;D2][C;D2][C;D2]*
             [s;R]
             [$([c]([Cl,Br,F])[c]([Cl,Br,F])),$([c]([Cl,Br,F])[c][c]([Cl,Br,F]))]
+
             Following, the list of the alerts, as SMARTS strings, related to class 1 toxicity:
             C(OC)c1ccc(cc1)
             NCCCCCC

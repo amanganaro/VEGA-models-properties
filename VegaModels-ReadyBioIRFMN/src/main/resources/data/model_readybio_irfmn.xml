@@ -124,6 +124,7 @@
             - NBs32 (1,1,1-trichloroethane), defined by the SMARTS: CC(Cl)(Cl)Cl
             - NBs33 (chloroethene), defined by the SMARTS: C(=CCl)
             - NBs34 (dithioperoxol), defined by the SMARTS: SS
+
             Fragments with balanced performance:
             - NBb1 (benzylbenzene), defined by the SMARTS: C(c1ccccc1)c2ccccc2
             - NBb2 (1-chloro-2-methylbenzene), defined by the SMARTS: Cc1ccccc1Cl
@@ -136,6 +137,7 @@
             - NBb9 (pentan-2-amine), defined by the SMARTS: C(N)(C)CC(C)
             - NBb10 (diazene), defined by the SMARTS: N=N
             - NBb11 (halogenated ring structure), defined by the SMARTS: [R][Cl,F,Br,I]
+
             If no fragments related to non biodegradability are found, but some related to biodegradability are found, an analogous prediction is provided: ready biodegradable (if fragments from the first set) or suspicious ready biodegradable (if only fragments from the second set are found). If no matching fragments have been found at all, the compound is considered non predictable (not assignable). TheSAs are the following:
             Fragments with high specificity:
             Bs1 (2-hydroxyethyl acetate), defined by the SMARTS: O=C(OCCO)C
@@ -148,6 +150,7 @@
             Bs8 (benzyl formate), defined by the SMARTS: O=C(OCc1ccccc1)
             Bs9 (6-oxohexanoic acid), defined by the SMARTS: O=C(O)CCCCC(=O)
             Bs10 (docosane), defined by the SMARTS: CCCCCCCCCCCCCCCCCCCCCC
+
             Fragments with balanced performance:
             Bb1 (tridecan-1-ol), defined by the SMARTS: OCCCCCCCCCCCCC
             Bb2 (butan-2-one), defined by the SMARTS: O=C(C)CC

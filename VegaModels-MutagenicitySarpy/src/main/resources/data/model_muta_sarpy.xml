@@ -192,6 +192,7 @@
             SM 110: O=Nn1cc(c2ccccc12)CC
             SM 111: O=CC(=CC)C=CC
             SM 112: O=C1OCC1
+
             Following, the list of the 93 rules for non mutagenicity, expressed as SMARTS strings:
             SM 113: C(O)CCCCCCCC=CCC
             SM 114: CCOc1ccc(Cl)cc1

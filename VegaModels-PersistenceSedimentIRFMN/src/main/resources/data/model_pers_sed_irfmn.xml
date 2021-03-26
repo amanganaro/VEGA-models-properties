@@ -102,35 +102,26 @@
             </AD>
         </Applicability_Domain>
         <Structural_Alerts>The following SAs have been extracted from the original dataset and are related to compounds which
-            are nP in the soil compartment:
-            - nP alert no. 1, defined by the SMARTS: O=C(OCCC)
-            - nP alert no. 2, defined by the SMARTS: O=C(CC)C
-            - nP alert no. 3, defined by the SMARTS: C(O)c1ccccc1C
-            - nP alert no. 4, defined by the SMARTS: Cc1c(ccc(c1))OCC
-            - nP alert no. 5, defined by the SMARTS: COC(=O)CO
-            - nP alert no. 6, defined by the SMARTS: C(O)C=C
-            - nP alert no. 7, defined by the SMARTS: C(=NOC(=O)NC)C
-            - nP alert no. 8, defined by the SMARTS: N(C)CCCl
-            - nP alert no. 9, defined by the SMARTS: CSCc1ccccc1
-            - nP alert no. 10, defined by the SMARTS: O(C)CCCl
-            - nP alert no. 11, defined by the SMARTS: [P]
-            - nP alert no. 12, defined by the SMARTS: C(CN(C)C)S
-            - nP alert no. 13, defined by the SMARTS: C(=S)N(C)
-            - nP alert no. 14, multiple primary alcohols, defined by the SMARTS: C[CH2]O
-            - nP alert no. 15, multiple esters (aromatic), defined by the SMARTS: AC(=O)O*
-            - nP alert no. 16, single oximes (aliphatic), defined by the SMARTS: AC(A)=NO*
-            - nP alert no. 17, esters (aliphatic), defined by the SMARTS: AC(=O)O[*;!H]
-            - nP alert no. 18, single aldehydes (aliphatic), defined by the SMARTS: A[CH1](=O)
-            - nP alert no. 19, single carboxylic acids (aliphatic), defined by the SMARTS: AC(=O)O
-            - nP alert no. 20, single (thio-) carbamates (aliphatic), defined by the SMARTS:
-            A[O,S]C(=[O,S])N(A)A
-            - nP alert no. 21, single ketones (aromatic), defined by the SMARTS: aC(=O)*
-            - nP alert no. 22, single phosphates/thiophosphates, defined by the SMARTS:
-            *[O,S]=P([O,S]*)([O,S])[O,S]*
+            are nP in the sediment compartment:
+            - nP alert no. 1, defined by the SMARTS: O=CC
+            - nP alert no. 2, defined by the SMARTS: O=Cc1ccccc1
+            - nP alert no. 3, defined by the SMARTS: C(N)C
+            - nP alert no. 4, defined by the SMARTS: OC(C)
+            - nP alert no. 5, esters (aliphatic), defined by the SMARTS: O=[$([C;D2]),$([C;D3]C)][O;D2][C,c]
+            - nP alert no. 6, aldehydes (aliphatic), defined by the SMARTS: [$([C;D2](=O)C)]
+            - nP alert no. 7, ketones (aliphatic), defined by the SMARTS: [C;D3](=O)([C])[C]
+            - nP alert no. 8, primary amines, defined by the SMARTS: [N;D1][$([C,c]);!$(C=[O,S])]
+            - nP alert no. 9, hydroxyl groups (multiple), defined by the SMARTS: [O;D1;!-]A
+
             The following SAs have been extracted from the original dataset and are related to compounds which
-            are vP in the soil compartment:
-            5- vP alert no. 1, defined by the SMARTS: c1ccc(c(c1)c2ccccc2Cl)
-            - vP alert no. 2, defined by the SMARTS: c1c(Cl)cc2Oc3cc(Cl)cc(Cl)c3Oc2c1
+            are vP in the sediment compartment:
+            - vP alert no. 1, defined by the SMARTS: c1(c2ccccc2)ccccc1
+            - vP alert no. 2, defined by the SMARTS: c1cc(c(cc1)Cl)Cl
+            - vP alert no. 3, defined by the SMARTS: ClCC
+            - vP alert no. 4, defined by the SMARTS: c12c(cccc1)Oc3c(cccc3)O2
+            - vP alert no. 5, ethers (aromatic, multiple), defined by the SMARTS: [#6;!$(C=O);!$(C#N)]O[a]
+            - vP alert no. 6, halogen on ring C (sp3) (multiple), defined by the SMARTS:
+            [Cl,Br,F,I][$(C(@[*])@[*]);!$(C=*)]
         </Structural_Alerts>
     </Guide>
 
@@ -139,10 +130,10 @@
     <Endpoint></Endpoint>
 
     <Stats>
-        <n>568.0</n>
-        <Specificity>0.753</Specificity>
-        <Sensitivity>0.809</Sensitivity>
-        <Accuracy>0.783</Accuracy>
+        <n>297.0</n>
+        <Specificity>0.964</Specificity>
+        <Sensitivity>0.88</Sensitivity>
+        <Accuracy>0.943</Accuracy>
         <Not_Predicted>0.0</Not_Predicted>
     </Stats>
 

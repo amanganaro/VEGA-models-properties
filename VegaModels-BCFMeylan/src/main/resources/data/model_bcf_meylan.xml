@@ -89,14 +89,15 @@
     <Endpoint></Endpoint>
 
     <Stats>
-        <n_Train>146.0</n_Train>
+        <n_Train>516.0</n_Train>
         <R2_Train>0.798</R2_Train>
         <RMSE_Train>0.547</RMSE_Train>
-        <n_Test>516.0</n_Test>
+        <n_Test>146.0</n_Test>
         <R2_Test>0.791</R2_Test>
         <RMSE_Test>0.649</RMSE_Test>
         <Not_Predicted_Train>0.0</Not_Predicted_Train>
         <Not_Predicted_Test>0.0</Not_Predicted_Test>
     </Stats>
-    
+
+
 </xml>

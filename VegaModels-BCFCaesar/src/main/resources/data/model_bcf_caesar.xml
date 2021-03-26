@@ -154,10 +154,10 @@
     <Endpoint></Endpoint>
 
     <Stats>
-        <n_Train>95.0</n_Train>
+        <n_Train>378.0</n_Train>
         <R2_Train>0.81</R2_Train>
         <RMSE_Train>0.581</RMSE_Train>
-        <n_Test>378.0</n_Test>
+        <n_Test>95.0</n_Test>
         <R2_Test>0.777</R2_Test>
         <RMSE_Test>0.617</RMSE_Test>
         <Not_Predicted_Train>0.0</Not_Predicted_Train>
