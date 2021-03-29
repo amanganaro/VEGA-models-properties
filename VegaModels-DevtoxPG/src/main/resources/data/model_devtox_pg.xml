@@ -66,7 +66,45 @@
         <Description>The model provides a qualitative prediction of developmental and reproductive toxicity, based on a virtual binary of possible toxicant compounds. It is implemented inside the VEGA online platform, accessible at:http://www.vega-qsar.eu/</Description>
         <Model>The model implements a virtual library of toxicant compounds as described in the study from Procter &amp;Gamble: Shengde Wu, Joan Fisher, Jorge M. Naciff, Michael C, Laufersweiler, Cathy Lester, George Daston, and Karen Blackburn “A Framework for Identifying Chemicals with Structural Features Associated with Potential to Act as Developmental or Reproductive Toxicants” Chem. Res. Toxicol., 2013, 26 (12), pp 1840–1861.
             In the work from Procter &amp; Gamble, 25 categories of possible toxicant have been identified, and for each category an extended list of virtual compounds have been generated. The model implements these categories, and tries to find an exact match between the given compound and any of the virtual compounds in the library. If a match is found, a prediction of “Toxicant” is given, otherwise a “NON-Toxicant” prediction is provided.
-            The original dataset used in the cited work, consisting of 641 compounds, has been implemented as the training set.</Model>
+            The original dataset used in the cited work, consisting of 641 compounds, has been implemented as the training set.
+
+            Following, the list of the 25 categories of toxicant compounds implemented:
+            Category 1: Inorganics and derivatives: metals, metallic derivatives, organophosphorus and
+            organosiloxane compounds
+            Category 2: Estrogen receptor (ER) and androgen receptor (AR) binding compounds
+            Category 3: Retinoic acid receptor (RAR), aryl hydrocarbon receptor (AhR) binders and prostaglandin
+            receptor agonists
+            Category 4: Nicotinic acetyl choline receptor (nAChR) binders and acetyl cholineesterase (AChE)
+            inhibitors
+            Category 5: Ion channel opener/inhibitor, beta-adrenergic inhibitors, ACE/ARA inhibitors and Shh
+            signaling interference/Cholesterol synthesis inhibition
+            Category 6: Opioid receptor binders and tubulin receptor interactors
+            Category 7: Nucleotide and nucleobase derivatives
+            Category 8: Aromatic compounds with alkyl, multi-halogen and nitro groups
+            Category 9: Aromatic compounds contain alkyl chain with alcohol, aldehyde, acid functional groups;
+            poly-Cl aryloxy derived acids and esters
+            Category 10: Aromatic compounds with sulfonamide and urea moieties, phenytoins
+            Category 11: Aromatic compounds (non-fused ring system) with aliphatic amine moieties
+            Category 12: Aromatic diamine, their diazo moieties, and aromatic triazene derivatives
+            Category 13: Imidazole, nitro imidazoles derivatives, nitro-furfurylideneamino and triazole derivatives
+            Category 14: Aromatic ring fused cyclic-, heterocyclic derivatives
+            Category 15: Miscellaneous aromatic chemicals and antibiotics
+            Category 16: Non-aromatic cyclic hydrocarbon ring, heterocyclic ring contain only oxgen atom and
+            multi Cl single/fused cyclic hydrocarbons
+            Category 17: Heterocyclic, cyclic compounds contain nitrogen, oxygen/sulfur atoms
+            Category 18: Miscellaneous cyclic chemicals
+            Category 19: Alkyl carbamodi-thioic acids, alkyl sulfonates and perfluorinated compounds (PFCs)
+            Category 20: Miscellaneous non-cyclic chemicals
+            Category 21: Vinyl amides, aldehydes, esters and alkyl amides (&lt;C4), N-substituted amides, ureas,
+            carbonates, guanidine and carbamates
+            Category 22: Alpha-substituted carboxylic acids, esters and di-acid derived esters
+            Category 23: Small- (C1-C4) halo-, multihalo-alkanes, alkyl ether/alkenes and halogenated
+            acetonitriles as well as N, or S related mustards
+            Category 24: Di/multi-OH, NH2, substituted amine, SH (=S), OR, OAc substituted (at each terminal
+            carbon) C1 to C5 hydrocarbon chain or repeating C2 units as well as metal chelators
+            Category 25: C1 to C4 non-branched/&lt;C9 beta-alkyl (&lt;C5) substituted alcohols and &lt;C4 alkyl, vinyl
+            nitriles
+        </Model>
         <Applicability_Domain>
             <AD>
                 <Name>Similar_Molecules</Name>
@@ -115,44 +153,6 @@
                 <DescriptionRangeBottom>predicted substance is out of the the Applicability Domain of the model</DescriptionRangeBottom>
             </AD>
         </Applicability_Domain>
-        <Categories_ToxicantCompounds>
-            Following, the list of the 25 categories of toxicant compounds implemented:
-            Category 1: Inorganics and derivatives: metals, metallic derivatives, organophosphorus and
-            organosiloxane compounds
-            Category 2: Estrogen receptor (ER) and androgen receptor (AR) binding compounds
-            Category 3: Retinoic acid receptor (RAR), aryl hydrocarbon receptor (AhR) binders and prostaglandin
-            receptor agonists
-            Category 4: Nicotinic acetyl choline receptor (nAChR) binders and acetyl cholineesterase (AChE)
-            inhibitors
-            Category 5: Ion channel opener/inhibitor, beta-adrenergic inhibitors, ACE/ARA inhibitors and Shh
-            signaling interference/Cholesterol synthesis inhibition
-            Category 6: Opioid receptor binders and tubulin receptor interactors
-            Category 7: Nucleotide and nucleobase derivatives
-            Category 8: Aromatic compounds with alkyl, multi-halogen and nitro groups
-            Category 9: Aromatic compounds contain alkyl chain with alcohol, aldehyde, acid functional groups;
-            poly-Cl aryloxy derived acids and esters
-            Category 10: Aromatic compounds with sulfonamide and urea moieties, phenytoins
-            Category 11: Aromatic compounds (non-fused ring system) with aliphatic amine moieties
-            Category 12: Aromatic diamine, their diazo moieties, and aromatic triazene derivatives
-            Category 13: Imidazole, nitro imidazoles derivatives, nitro-furfurylideneamino and triazole derivatives
-            Category 14: Aromatic ring fused cyclic-, heterocyclic derivatives
-            Category 15: Miscellaneous aromatic chemicals and antibiotics
-            Category 16: Non-aromatic cyclic hydrocarbon ring, heterocyclic ring contain only oxgen atom and
-            multi Cl single/fused cyclic hydrocarbons
-            Category 17: Heterocyclic, cyclic compounds contain nitrogen, oxygen/sulfur atoms
-            Category 18: Miscellaneous cyclic chemicals
-            Category 19: Alkyl carbamodi-thioic acids, alkyl sulfonates and perfluorinated compounds (PFCs)
-            Category 20: Miscellaneous non-cyclic chemicals
-            Category 21: Vinyl amides, aldehydes, esters and alkyl amides (&lt;C4), N-substituted amides, ureas,
-            carbonates, guanidine and carbamates
-            Category 22: Alpha-substituted carboxylic acids, esters and di-acid derived esters
-            Category 23: Small- (C1-C4) halo-, multihalo-alkanes, alkyl ether/alkenes and halogenated
-            acetonitriles as well as N, or S related mustards
-            Category 24: Di/multi-OH, NH2, substituted amine, SH (=S), OR, OAc substituted (at each terminal
-            carbon) C1 to C5 hydrocarbon chain or repeating C2 units as well as metal chelators
-            Category 25: C1 to C4 non-branched/&lt;C9 beta-alkyl (&lt;C5) substituted alcohols and &lt;C4 alkyl, vinyl
-            nitriles
-        </Categories_ToxicantCompounds>
     </Guide>
 
     <Reference></Reference>
