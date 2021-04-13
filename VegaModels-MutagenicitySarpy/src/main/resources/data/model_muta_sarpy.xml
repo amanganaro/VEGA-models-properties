@@ -1,12 +1,12 @@
 <xml>
-   
+
     <Version>
         <Name>Mutagenicity (Ames test) model (SarPy-IRFMN)</Name>
         <Key>MUTA_SARPY</Key>
         <Summary>QSAR classification model for Mutagenicity (SarPy/IRFMN)</Summary>
         <Version>1.0.7</Version>
     </Version>
-    
+
     <Vega>
         <TS>/data/ts_muta_sarpy.dat</TS>
         <HasAlerts>True</HasAlerts>
@@ -29,7 +29,7 @@
     <Guide>
         <Description>The model provides a qualitative prediction of mutagenicity on Salmonella typhimurium (Ames test). It is implemented inside the VEGA online platform, accessible at: http://www.vega-qsar.eu/</Description>
         <Model>The model has been built as a set of rules, extracted with Sarpy software from the original training set from the Mutagenicity Caesar model. The model is based on T. Ferrari, D. Cattaneo, G. Gini, N. Golbamaki Bakhtyari, A. Manganaro, E. Benfenati, “Automatic knowledge extraction from chemical structures: the case of mutagenicity prediction”, SAR and QSAR in Environmental Research (2013), vol. 24 issue 5, 365-83.
-            The original work has been extended, resulting in two sets of rules for mutagenicity (112 rules) and non-mutagenicity (93 rules). If at least one mutagenicity rule is matching with the given compound, a “mutagen” prediction is given; if only one or more non-mutagenicity rule is matching, a “nonmutagen” prediction is given; if no rules match with the given compound, a “possible non-mutagen” prediction is given.</Model>
+            The original work has been extended, resulting in two sets of rules for mutagenicity (112 rules) and non-mutagenicity (93 rules). If at least one mutagenicity rule is matching with the given compound, a “mutagen” prediction is given; if only one or more non-mutagenicity rule is matching, a “non-mutagen” prediction is given; if no rules match with the given compound, a “possible non-mutagen” prediction is given.</Model>
         <Applicability_Domain>
             <AD>
                 <Name>Similar_Molecules</Name>

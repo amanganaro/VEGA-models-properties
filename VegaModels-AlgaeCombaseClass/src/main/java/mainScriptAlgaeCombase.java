@@ -1,4 +1,5 @@
 import insilico.algae_combaseclass.ismAlgaeCombaseClass;
+import insilico.core.localization.StringSelectorCore;
 import insilico.core.model.InsilicoModel;
 import lombok.extern.slf4j.Slf4j;
 import utils.ModelsDeployment;
@@ -12,6 +13,7 @@ public class mainScriptAlgaeCombase {
 
     public static void main(String[] args) throws Exception {
 
+        StringSelectorCore.SetLanguage("it");
         InsilicoModel model = new ismAlgaeCombaseClass();
         ModelsDeployment.BuildDataset(model, "out_ts");
         File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/"  + model.getInfo().getTrainingSetURL().split("/data/")[1]);

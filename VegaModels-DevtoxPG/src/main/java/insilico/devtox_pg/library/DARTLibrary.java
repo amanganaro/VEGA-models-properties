@@ -4,7 +4,6 @@ import insilico.core.exception.InitFailureException;
 import insilico.core.exception.InvalidMoleculeException;
 import insilico.core.molecule.InsilicoMolecule;
 import insilico.core.molecule.conversion.SmilesMolecule;
-import insilico.core.molecule.tools.CustomQueryMatcher;
 import insilico.core.similarity.Similarity;
 import java.io.IOException;
 import java.io.ObjectInputStream;

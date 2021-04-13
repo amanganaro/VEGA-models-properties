@@ -3,7 +3,7 @@
     <Version>
         <Name>Water solubility model (IRFMN)</Name>
         <Key>WS_IRFMN</Key>
-        <Description>Quantitative model for water solubility.</Description>
+        <Summary>Quantitative model for water solubility.</Summary>
         <Version>1.0.0</Version>
     </Version>
     

@@ -3,7 +3,7 @@
     <Version>
         <Name>Algae Classification Toxicity model (ProtoQSAR-Combase)</Name>
         <Key>ALGAE_COMBASECLASS</Key>
-        <Description>Classification model for toxicity in algae, specific for biocides</Description>
+        <Summary>Classification model for toxicity in algae, specific for biocides</Summary>
         <Version>1.0.0</Version>
     </Version>
     

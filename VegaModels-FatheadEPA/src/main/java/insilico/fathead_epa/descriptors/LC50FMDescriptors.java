@@ -3,13 +3,8 @@ package insilico.fathead_epa.descriptors;
 import insilico.core.exception.GenericFailureException;
 import insilico.core.exception.InitFailureException;
 import insilico.core.molecule.InsilicoMolecule;
-import insilico.core.molecule.tools.CustomQueryMatcher;
-import java.util.List;
-import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.isomorphism.Pattern;
-import org.openscience.cdk.isomorphism.matchers.QueryAtomContainer;
 import org.openscience.cdk.smarts.SmartsPattern;
-import org.openscience.cdk.smiles.smarts.parser.SMARTSParser;
 
 /**
  *
@@ -54,8 +49,7 @@ public class LC50FMDescriptors {
         
         try {
 
-            CustomQueryMatcher Matcher = new CustomQueryMatcher(mol);
-            
+
             n_aNO2 = 0;
             if (q[0].matches(mol.GetStructure())) {
                 n_aNO2 = q[0].matchAll(mol.GetStructure()).countUnique();

@@ -1,12 +1,12 @@
 <xml>
-   
+
     <Version>
         <Name>Mutagenicity (Ames test) model (KNN-Read-Across)</Name>
         <Key>MUTA_KNN</Key>
         <Summary>KNN (Read-Across) model for Mutagenicity (Ames test)</Summary>
         <Version>1.0.0</Version>
     </Version>
-    
+
     <Vega>
         <TS>/data/ts_muta_knn.dat</TS>
         <HasAlerts>False</HasAlerts>
@@ -28,7 +28,7 @@
 
     <Guide>
         <Description>The model performs a read-across and provides a qualitative prediction of mutagenicity on Salmonella typhimurium (Ames test). It is implemented inside the VEGA online platform, accessible at: http://www.vega-qsar.eu/</Description>
-        <Model>The model performs a read-across on a dataset of 5770 chemicals. This dataset has been made by Istituto di Ricerche Farmacologiche Mario Negri, merging experimental data from a benchmark dataset compiled by Hansen and colleagues (Hansen K, Mika S, Schroeter T, Sutter A, ter Laak A, StegerHartmann T, Heinrich N, Muller KR. “Benchmark data set for in silico prediction of Ames mutagenicity”, J Chem Inf Model, 2009, 49, 2077–2081) and from a collection of data made available by the Japan Health Ministry within their Ames (Q)SAR project.
+        <Model>The model performs a read-across on a dataset of 5770 chemicals. This dataset has been made by Istituto di Ricerche Farmacologiche Mario Negri, merging experimental data from a benchmark dataset compiled by Hansen and colleagues (Hansen K, Mika S, Schroeter T, Sutter A, ter Laak A, Steger-Hartmann T, Heinrich N, Muller KR. “Benchmark data set for in silico prediction of Ames mutagenicity”, J Chem Inf Model, 2009, 49, 2077–2081) and from a collection of data made available by the Japan Health Ministry within their Ames (Q)SAR project.
             The read-across model has been built with the istKNN application (developed by Kode srl, http://chm.kode-solutions.net) and it is based on the similarity index developed inside the VEGA platform; the index takes into account several structural aspects of the compounds, such as their fingerprint, the number of atoms, of cycles, of heteroatoms, of halogen atoms, and of particular fragments (such as nitro groups). The index value ranges from 1 (maximum similarity) to 0.
             On the basis of this structural similarity index, the four compounds from the dataset resulting most similar to the chemical to be predicted are taken into account; compounds with a similarity value lower than 0.7 are discarded. If no compounds fall under these conditions, no prediction is provided. The estimated toxicity class is calculated as the most represented class among the chosen similar compounds, where the similarity value of each compound is also taken into account as a weight.</Model>
         <Applicability_Domain>

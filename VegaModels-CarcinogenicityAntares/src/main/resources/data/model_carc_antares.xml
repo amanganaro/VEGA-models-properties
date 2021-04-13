@@ -3,7 +3,7 @@
     <Version>
         <Name>Carcinogenicity model (IRFMN-Antares)</Name>
         <Key>CARC_ANTARES</Key>
-        <Description>QSAR classification model for Carcinogenicity (IRFMN/Antares) based on the Antares dataset</Description>
+        <Summary>QSAR classification model for Carcinogenicity (IRFMN/Antares) based on the Antares dataset</Summary>
         <Version>1.0.0</Version>
     </Version>
     

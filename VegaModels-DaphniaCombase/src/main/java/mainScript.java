@@ -49,11 +49,6 @@ public class mainScript {
 
         }
 
-        for(ACFItem acf : model.GetTrainingSet().getACF().getList()){
-            System.out.println(acf.getACF() + " : " + acf.getFrequency());
-        }
-
-
     }
 
 }

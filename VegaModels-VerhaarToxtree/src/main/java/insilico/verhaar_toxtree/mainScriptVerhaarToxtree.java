@@ -25,7 +25,6 @@ public class mainScriptVerhaarToxtree {
         } catch (Exception ex) {
             log.warn(ex.getMessage());
         }
-//        ModelsDeployment.FastTestForModel(model);
 
         List<String> smilesList = new ArrayList<>();
         smilesList.add("O=[N+]([O-])c1cc(cc(c1N(CCC)CCC)[N+](=O)[O-])S(=O)(=O)C");
@@ -48,9 +47,6 @@ public class mainScriptVerhaarToxtree {
 
         }
 
-        for(ACFItem acf : model.GetTrainingSet().getACF().getList()){
-            System.out.println(acf.getACF() + " : " + acf.getFrequency());
-        }
 
     }
 

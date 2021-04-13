@@ -82,8 +82,7 @@ public class ismAlgaeCombaseClass extends InsilicoModel {
             double[] algaeDesc = AlgaeDescEngine.GetDescriptorsForAlgaeClassificationModel();
 
             Descriptors = new double[DescriptorsSize];
-            for (int i=0; i<DescriptorsSize; i++)
-                Descriptors[i] = algaeDesc[i];
+            if (DescriptorsSize >= 0) System.arraycopy(algaeDesc, 0, Descriptors, 0, DescriptorsSize);
 
         } catch (Throwable e) {
             return DESCRIPTORS_ERROR;

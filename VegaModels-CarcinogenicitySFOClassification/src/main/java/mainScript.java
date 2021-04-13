@@ -33,11 +33,11 @@ public class mainScript {
         smilesList.add("O=[N+]([O-])c1cc(c(O)c(c1)C(C)(C)C)[N+](=O)[O-]");
         smilesList.add("O=S(=O)(C(C)(C)C)C(C)(C)C");
 
-//        for(String smiles : smilesList) {
-//            InsilicoModelOutput out = model.Execute(SmilesMolecule.Convert(smiles));
-//            for(int i = 0; i < model.GetResultsName().length; i++)
-//                System.out.println(model.GetResultsName()[i] + " | " + out.getResults()[i]);
-//        }
+        for(String smiles : smilesList) {
+            InsilicoModelOutput out = model.Execute(SmilesMolecule.Convert(smiles));
+            for(int i = 0; i < model.GetResultsName().length; i++)
+                System.out.println(model.GetResultsName()[i] + " | " + out.getResults()[i]);
+        }
         for(String smiles : smilesList) {
             InsilicoModelOutput out = model.Execute(SmilesMolecule.Convert(smiles));
             for(int i = 0; i < model.getDescriptorsSize(); i++){

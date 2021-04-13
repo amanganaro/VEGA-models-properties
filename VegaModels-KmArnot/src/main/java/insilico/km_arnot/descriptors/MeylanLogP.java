@@ -7,12 +7,13 @@ import insilico.core.alerts.builders.SAMeylanLogPCorrectionFragments;
 import insilico.core.alerts.builders.SAMeylanLogPFragments;
 import insilico.core.descriptor.Descriptor;
 import insilico.core.descriptor.DescriptorBlock;
-import insilico.core.descriptor.blocks.old.AtomCenteredFragments;
-import insilico.core.descriptor.blocks.old.weight.GhoseCrippenWeights;
 import insilico.core.exception.GenericFailureException;
 import insilico.core.exception.InitFailureException;
 import insilico.core.exception.InvalidMoleculeException;
 import insilico.core.molecule.InsilicoMolecule;
+//import insilico.bcf_arnot
+import insilico.km_arnot.descriptors.weights.ACF;
+import insilico.km_arnot.descriptors.weights.GhoseCrippenWeights;
 import org.openscience.cdk.interfaces.IAtomContainer;
 
 /**
@@ -111,7 +112,7 @@ public class MeylanLogP extends DescriptorBlock {
         if (ACF != null)
             CurACF = ACF;
         else {
-            CurACF = new AtomCenteredFragments();
+            CurACF = new ACF();
             CurACF.Calculate(mol);
         }
 

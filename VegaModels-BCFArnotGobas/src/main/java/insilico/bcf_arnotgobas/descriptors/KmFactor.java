@@ -2,7 +2,6 @@ package insilico.bcf_arnotgobas.descriptors;
 
 import insilico.core.descriptor.Descriptor;
 import insilico.core.descriptor.DescriptorBlock;
-import insilico.core.descriptor.blocks.old.FunctionalGroups;
 import insilico.core.exception.InvalidMoleculeException;
 import insilico.core.molecule.InsilicoMolecule;
 import org.openscience.cdk.CDKConstants;

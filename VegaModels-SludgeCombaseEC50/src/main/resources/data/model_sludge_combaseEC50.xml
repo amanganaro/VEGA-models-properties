@@ -1,12 +1,12 @@
 <xml>
-   
+
     <Version>
         <Name>Sludge (EC50) Toxicity model (ProtoQSAR-Combase)</Name>
         <Key>SLUDGE_COMBASEEC50</Key>
         <Summary>Quantitative model for toxicity (EC50) in sludge, specific for biocides</Summary>
         <Version>1.0.0</Version>
     </Version>
-    
+
     <Vega>
         <TS>/data/ts_sludge_combaseEC50.dat</TS>
         <LocalQMRF>/data/QMRF_sludge_life.pdf</LocalQMRF>
@@ -17,7 +17,7 @@
     <Guide>
         <Description>The model provides a quantitative prediction for toxic compounds for Activated Sludge EC50 (3 hours), given in log (mg/L) and converted in mg/L. It has been developed inside the EU LIFE COMBASE project (LIFE15 ENV/ES/416). It is implemented inside the VEGA online platform, accessible at:http:// www.vega-qsar.eu/. </Description>
         <Model>A biocide-like chemical space was developed comparing 6512 chemical structures from the Physprop database and 257 chemical structures of biocides from COMBASE database. Five molecular descriptors were selected as filters. These filters were applied to the experimental data found within the different databases from the QSAR Toolbox V 4.2 (https://qsartoolbox.org/).
-            Firstly, 94 biocide-like compounds were found by application of the biocide-chemical space, and were used to develop the qualitative model settling the cut-off to discriminate between a toxic and a nontoxic compound in 100 mg/L. The quantitative model was developed using the compounds considered toxic in the dataset. A Multiple Linear Regression model using a Forward Stepwise approach for variable selection was performed using 35 chemical compounds. The descriptors used in the model are the following:
+            Firstly, 94 biocide-like compounds were found by application of the biocide-chemical space, and were used to develop the qualitative model settling the cut-off to discriminate between a toxic and a non-toxic compound in 100 mg/L. The quantitative model was developed using the compounds considered toxic in the dataset. A Multiple Linear Regression model using a Forward Stepwise approach for variable selection was performed using 35 chemical compounds. The descriptors used in the model are the following:
             MinHBint: Minimum E-State descriptors of strength for potential Hydrogen Bonds of path length 2 ATSC7v: Centered Broto-Moreau autocorrelation - lag 7 / weighted by van der Waals volumes VE3_DzZ: Logarithmic coefficient sum of the last eigenvector from Barysz matrix / weighted by
             atomic number
             AATSC4e: Average centered Broto-Moreau autocorrelation - lag 4 / weighted by Sanderson

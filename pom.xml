@@ -88,8 +88,9 @@
         <module>VegaModels-SkinCosmetics</module>
         <module>VegaModels-VerhaarToxtree</module>
         <module>VegaModels-LogPALogP</module>
-        <module>VegaModels-DaphniaDemetra</module>
         <module>VegaModels-CramerToxTree</module>
+        <module>VegaModels-PGPNic</module>
+        <module>VegaModels-MoaIRFMN</module>
     </modules>
 
     <name>VegaModels</name>
@@ -142,9 +143,8 @@
         <dependency>
             <groupId>InSilico</groupId>
             <artifactId>Core</artifactId>
-            <version>1.3.5</version>
+            <version>1.3.6</version>
         </dependency>
-
 
 
     </dependencies>

@@ -1,0 +1,33 @@
+<xml>
+   
+    <Version>
+        <Name>MoA Classification (IRFMN)</Name>
+        <Key>MOA_IRFMN</Key>
+        <Summary>MoA classification (IRFMN)</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_moa_irfmn.dat</TS>
+        <HasAlerts>true</HasAlerts>
+        <ClassValues>
+            <Class>
+                <Value>0</Value>
+                <Label>No MoA</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>MoA identified</Label>
+            </Class>
+        </ClassValues>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

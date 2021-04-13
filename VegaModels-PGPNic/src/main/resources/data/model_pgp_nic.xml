@@ -1,0 +1,209 @@
+<xml>
+   
+    <Version>
+        <Name>P-Glycoprotein activity model (NIC)</Name>
+        <Key>PGP_NIC</Key>
+        <Summary>Classification model for P-Glycoprotein inhibition / substrate activity</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_pgp_nic.dat</TS>
+        <HasAlerts>False</HasAlerts>
+        <ClassValues>
+            <Class>
+                <Value>0</Value>
+                <Label>Inhibitor</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Substrate</Label>
+            </Class>
+            <Class>
+                <Value>2</Value>
+                <Label>Non Active</Label>
+            </Class>
+            <Class>
+                <Value>-1</Value>
+                <Label>Not predicted</Label>
+            </Class>
+        </ClassValues>
+    </Vega>
+
+    <Guide>
+        <Description>The model provides a qualitative prediction of P-Glycoprotein inhibition/substrate activity. It is
+            implemented inside the VEGA online platform, accessible at:http://www.vega-qsar.eu/.
+            The model has been implemented by the National Institute of Chemistry (Slovenia)</Description>
+        <Model>The model has been built as a Counter Propagation Artificial Neural Network (CP ANN). The neural
+            network output consists of three values labeled as “Inhibitor”, “Substrate” and “Non active”, all in the
+            range [0,1] and with sum equal to 1; they represent the probability that the neuron in which the
+            predicted compound falls belongs to the class of inhibitor, substrate or non active compounds. The
+            higher between these values leads to the prediction, if the value itself is higher than 0.5, otherwise the
+            target compound is not predicted. Full reference and details of the used formulas can be found in:
+            Mora Lagares, L.; Minovski, N.; Novič, M. Multiclass Classifier for P-Glycoprotein Substrates,
+            Inhibitors, and Non-Active Compounds. Molecules 2019, 24, 2006.
+            Mora Lagares, L.; Minovski, N.; Caballero Alfonso, A.Y.; Benfenati, E.; Wellens, S.; Culot, M.;
+            Gosselet, F.; Novič, M. Homology Modeling of the Human P-glycoprotein (ABCB1) and Insights into
+            Ligand Binding through Molecular Docking Studies. Int. J. Mol. Sci. 2020, 21, 4058.
+            The descriptors used by the CPANN are the following:
+            - H%: percentage of H atoms
+            - nR07: number of 7-membered rings
+            - D/Dtr11: distance/detour ring index of order 11
+            - MWC01: molecular walk count of order 1
+            - X2A: average connectivity index of order 2
+            - SIC3: Structural Information Content index (neighborhood symmetry of 3-order)
+            - VE1sign_B(s): coefficient sum of the last eigenvector from Burden matrix weighted by I-State
+            - ATSC7m: Centred Broto-Moreau autocorrelation of lag 7 weighted by mass
+            - MATS6v: Moran autocorrelation of lag 6 weighted by van der Waals volume
+            - GATS4s: Geary autocorrelation of lag 4 weighted by I-state
+            - P_VSA_LogP_3: P_VSA-like on LogP, bin 3
+            - P_VSA_ppp_D: P_VSA-like on potential pharmacophore points, D - hydrogen-bond donor
+            - nRCOOR: number of esters (aliphatic)
+            - nArCONHR: number of secondary amides (aromatic)
+            - nArCO: number of ketones (aromatic)
+            - H-048: H attached to C2(sp3)/C1(sp2)/C0(sp)
+            - SdsCH: Sum of dsCH E-states
+            - CATS2D_01_DN: CATS2D Donor-Negative at lag 01
+            2
+            - CATS2D_05_PP: CATS2D Positive-Positive at lag 05
+            - CATS2D_02_PL: CATS2D Positive-Lipophilic at lag 02
+            - B07[O-F]: Presence/absence of O - F at topological distance 7
+            - F01[C-C]: Frequency of C - C at topological distance 1
+            - F02[C-O]: Frequency of C - O at topological distance 2
+            - F04[C-P]: Frequency of C - P at topological distance 4
+            - F04[C-Br]: Frequency of C - Br at topological distance 4
+            - F07[O-F]: Frequency of O - F at topological distance 7
+            The descriptors were calculated, in the original model, by means of Dragon software and are now
+            entirely calculated by an in-house software module in which they are implemented as described in: R.
+            Todeschini and V. Consonni, Molecular Descriptors for Chemoinformatics, Wiley-VCH, 2009.
+            The model provides, as an additional information, the value of the Euclidean distance of the molecular
+            descriptors of the input molecule from the weights of the neuron in which the molecule is classified.
+            The weights represent the center of the neuron (in the space of molecular descriptors), so the calculated
+            distance can be used as a further evaluation regarding the applicability domain, besides the standard
+            AD provided for all VEGA models (see section 1.3). The largest distance value found in the original
+            data is 5.45 and this value can be used as a threshold: higher values suggest that the molecule could be
+            out of the applicability domain of the model.</Model>
+        <Applicability_Domain>
+            <AD>
+                <Name>Similar_Molecules</Name>
+                <SimilarMols></SimilarMols>
+                <RangeTop>1 >= index > 0.8</RangeTop>
+                <DescriptionRangeTop>strongly similar compounds with known experimental value in the training set have been found</DescriptionRangeTop>
+                <RangeMid>0.8 >= index > 0.6</RangeMid>
+                <DescriptionRangeMid>only moderately similar compounds with known experimental value in the training set have been found</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.6</RangeBottom>
+                <DescriptionRangeBottom>no similar compounds with known experimental value in the training set have been found</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Accuracy</Name>
+                <RangeTop>1 >= index > 0.9</RangeTop>
+                <DescriptionRangeTop>accuracy of prediction for similar molecules found in the training set is good</DescriptionRangeTop>
+                <RangeMid>0.9 >= index > 0.5</RangeMid>
+                <DescriptionRangeMid>accuracy of prediction for similar molecules found in the training set is not optimal</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.5</RangeBottom>
+                <DescriptionRangeBottom>accuracy of prediction for similar molecules found in the training set is not adequate</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Concordance</Name>
+                <RangeTop>1 >= index > 0.9</RangeTop>
+                <DescriptionRangeTop>similar molecules found in the training set have experimental values that agree with the predicted value</DescriptionRangeTop>
+                <RangeMid>0.9 >= index > 0.5 </RangeMid>
+                <DescriptionRangeMid>some similar molecules found in the training set have experimental values that disagree with the predicted value</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.5</RangeBottom>
+                <DescriptionRangeBottom>similar molecules found in the training set have experimental values that disagree with the predicted value</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>ACF_SimCheck</Name>
+                <RangeTop>index = 1</RangeTop>
+                <DescriptionRangeTop>all atom centered fragment of the compound have been found in the compounds of the training set</DescriptionRangeTop>
+                <RangeMid>1 > index >= 0.7</RangeMid>
+                <DescriptionRangeMid>some atom centered fragment of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeMid>
+                <RangeBottom>index &lt; 0.7</RangeBottom>
+                <DescriptionRangeBottom>a prominent number of atom centered fragments of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>AD_Index</Name>
+                <RangeTop>1 >= index >= 0.80</RangeTop>
+                <DescriptionRangeTop>predicted substance is into the Applicability Domain of the model</DescriptionRangeTop>
+                <RangeMid>0.80 > index >= 0.6</RangeMid>
+                <DescriptionRangeMid>predicted substance could be out of the Applicability Domain of the model</DescriptionRangeMid>
+                <RangeBottom>index &lt; 0.6</RangeBottom>
+                <DescriptionRangeBottom>predicted substance is out of the the Applicability Domain of the model</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Model_Descriptors_Range_Check</Name>
+                <Name>Model_Descriptors_Range_Check</Name>
+                <RangeTop>index = True</RangeTop>
+                <DescriptionRangeTop>descriptors for this compound have values inside the descriptor range of the compounds of the training set</DescriptionRangeTop>
+                <RangeBottom>index = False</RangeBottom>
+                <DescriptionRangeBottom>descriptors for this compound have values outside the descriptor range of the compounds of the training set</DescriptionRangeBottom>
+            </AD>
+        </Applicability_Domain>
+        <Structural_Alerts>
+            The following SAs have been extracted from the original dataset and are related to compounds which
+            are nP in the water compartment:
+            - nP alert no. 1, defined by the SMARTS: O=CC
+            - nP alert no. 2, defined by the SMARTS: Nc1ccc(cc1)
+            - nP alert no. 3, defined by the SMARTS: c1ccc(OC)cc1
+            - nP alert no. 4, defined by the SMARTS: Cc1ccccc1C
+            - nP alert no. 5, defined by the SMARTS: c1(C)c2c(cccc2)ccc1
+            - nP alert no. 6, defined by the SMARTS: c1(O)c(C)cccc1
+            - nP alert no. 7, defined by the SMARTS: P(OC)OC
+            - nP alert no. 8, defined by the SMARTS: C(O)C
+            - nP alert no. 9, defined by the SMARTS: c1ccccc1O
+            - nP alert no. 10, defined by the SMARTS: O=C
+            - nP alert no. 11, defined by the SMARTS: C(=C)C
+            - nP alert no. 12, defined by the SMARTS: NC
+            - nP alert no. 13, single carboxyl acids (aliphatic), defined by the SMARTS: C(=O)([O;D1;!-])[A]
+            - nP alert no. 14, single esters (aliphatic), defined by the SMARTS:
+            O=[$([C;D2]),$([C;D3]C)][O;D2][C,c]
+            - nP alert no. 15, multiple esters (aromatic), defined by the SMARTS: O=C([a])[O;D2][C,c]
+            - nP alert no. 16, single (thio)-carbamates (aromatic), defined by the SMARTS:
+            [$(C(=[O,S])([O,S][a])N),$(C(=[O,S])([O,S])N[a])]
+            - nP alert no. 17, single aldehydes (aliphatic), defined by the SMARTS: [$([C;D2](=O)C)]
+            - nP alert no. 18, single ketones (aliphatic), defined by the SMARTS: [C;D3](=O)([C])[C]
+            - nP alert no. 19, single primary amines (aliphatic), defined by the SMARTS:
+            [N;D1][$([C;A]);!$(C=[O,S])]
+            - nP alert no. 20, primary amines (aromatic), defined by the SMARTS: [N;D1][a]
+            - nP alert no. 21, single N-nitroso groups (aliphatic), defined by the SMARTS: O=NN([C,c])[C,c]
+            - nP alert no. 22, hydroxyl groups, defined by the SMARTS: [O;D1;!-]A
+            - nP alert no. 23, single aromatic hydroxyl, defined by the SMARTS: [O;D1;!-]a
+            - nP alert no. 24, primary alcohol, defined by the SMARTS: [O;D1;!-][C;D2;H2][C,c]
+
+            The following SAs have been extracted from the original dataset and are related to compounds which are vP in the water compartment:
+            - vP alert no. 1, defined by the SMARTS: c1ccc(c(c1)c2ccccc2Cl)
+            - vP alert no. 2, defined by the SMARTS: C1(=C(C2(C3C(CC(C3))C1(C2(Cl)Cl)Cl)Cl)Cl)Cl
+            - vP alert no. 3, defined by the SMARTS: c1cc(c(c(c1Cl)Cl)Cl)
+            - vP alert no. 4, defined by the SMARTS: c1(c2ccccc2)ccccc1
+        </Structural_Alerts>
+    </Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats>
+
+<!--        Inhibitor vs All-->
+        <n_Train>1785.0</n_Train>
+        <Specificity_Train>0.947</Specificity_Train>
+        <Sensitivity_Train>0.951</Sensitivity_Train>
+        <Accuracy_Train>0.949</Accuracy_Train>
+        <n_Test>726.0</n_Test>
+        <Specificity_Test>0.863</Specificity_Test>
+        <Sensitivity_Test>0.822</Sensitivity_Test>
+        <Accuracy_Test>0.844</Accuracy_Test>
+        <Not_Predicted_Test>0.0</Not_Predicted_Test>
+        <Not_Predicted_Train>0.0</Not_Predicted_Train>
+
+        <Stats_Notes>
+            <!--        Substrate vs All-->
+            Considering only the “Substrate” class vs the remaining (“Inhibitor” and “Non active”):
+            ● Training set: n = 1785; Accuracy = 0.97; Specificity = 0.98; Sensitivity = 0.91
+            ● Test set: n = 726; Accuracy = 0.89; Specificity = 0.93; Sensitivity = 0.69
+        </Stats_Notes>
+
+
+    </Stats>
+    
+</xml>

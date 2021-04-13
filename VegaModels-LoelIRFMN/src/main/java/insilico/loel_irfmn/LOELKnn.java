@@ -9,7 +9,6 @@ import insilico.core.molecule.conversion.SmilesMolecule;
 import insilico.core.similarity.SimilarMolecule;
 import insilico.core.similarity.Similarity;
 import insilico.core.similarity.SimilarityDescriptorsBuilder;
-import insilico.core.tools.utils.logger.InsilicoLogger;
 import lombok.extern.slf4j.Slf4j;
 import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IAtomContainer;
@@ -241,7 +240,7 @@ public class LOELKnn {
                     curSim = 0.38;
                 
             } catch (Throwable e) {
-                InsilicoLogger.getLogger().warn("Similarity calculation: unable to calculate for training set molecule "
+                log.warn("Similarity calculation: unable to calculate for training set molecule "
                         + idx + ": " + ModelTrainSet.getSMILES(idx));
                 curSim = 0;
             }

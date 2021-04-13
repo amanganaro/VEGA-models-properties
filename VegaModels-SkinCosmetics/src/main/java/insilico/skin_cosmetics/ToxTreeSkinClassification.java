@@ -4,7 +4,6 @@ import insilico.core.exception.GenericFailureException;
 import insilico.core.exception.InitFailureException;
 import insilico.core.exception.InvalidMoleculeException;
 import insilico.core.molecule.InsilicoMolecule;
-import insilico.core.molecule.tools.CustomQueryMatcher;
 import org.openscience.cdk.DefaultChemObjectBuilder;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.isomorphism.Pattern;
@@ -173,14 +172,7 @@ public class ToxTreeSkinClassification {
     
     
     public SkinClass Calculate(InsilicoMolecule mol) throws GenericFailureException {
-        
-        CustomQueryMatcher Matcher;
-        try {
-            Matcher = new CustomQueryMatcher(mol);
-        } catch (CDKException e) {
-            throw new GenericFailureException("Unable to init SMARTS matcher");
-        }
-        
+
         if (Matches(mol, SNAr.getQueries()))
             return SNAr;
         if (Matches(mol, SchiffBase.getQueries()))

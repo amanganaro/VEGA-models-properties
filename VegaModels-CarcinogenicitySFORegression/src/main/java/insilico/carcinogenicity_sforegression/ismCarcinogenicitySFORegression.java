@@ -11,7 +11,6 @@ import insilico.core.descriptor.blocks.*;
 import insilico.core.exception.InitFailureException;
 import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
-import insilico.core.molecule.tools.CustomQueryMatcher;
 import insilico.core.pmml.ModelANNFromPMML;
 import insilico.core.tools.utils.ModelUtilities;
 import org.openscience.cdk.DefaultChemObjectBuilder;
