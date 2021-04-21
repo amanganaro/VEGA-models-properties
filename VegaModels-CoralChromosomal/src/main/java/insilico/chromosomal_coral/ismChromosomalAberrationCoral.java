@@ -1,7 +1,7 @@
 package insilico.chromosomal_coral;
 
-import coral.CoralModel;
-import coral.models.CHRAB.CoralCHRAB;
+import insilico.coral.CoralModel;
+import insilico.coral.models.CHRAB.CoralCHRAB;
 import insilico.core.ad.ADCheckACF;
 import insilico.core.ad.ADCheckIndicesQualitative;
 import insilico.core.ad.item.*;

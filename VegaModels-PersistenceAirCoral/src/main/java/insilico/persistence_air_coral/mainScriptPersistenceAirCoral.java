@@ -1,4 +1,4 @@
-package persistence.air_coral;
+package insilico.persistence_air_coral;
 
 import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;

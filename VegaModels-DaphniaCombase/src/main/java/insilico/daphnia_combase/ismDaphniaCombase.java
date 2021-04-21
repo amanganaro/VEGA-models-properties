@@ -1,7 +1,7 @@
 package insilico.daphnia_combase;
 
-import coral.CoralModel;
-import coral.models.biocides.daphniamagna.OptimizedCoralDaphnia;
+import insilico.coral.CoralModel;
+import insilico.coral.models.biocides.daphniamagna.OptimizedCoralDaphnia;
 import insilico.core.ad.ADCheckACF;
 import insilico.core.ad.ADCheckDescriptorRange;
 import insilico.core.ad.ADCheckIndicesQuantitative;

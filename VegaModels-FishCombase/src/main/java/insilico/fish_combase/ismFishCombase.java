@@ -1,7 +1,7 @@
 package insilico.fish_combase;
 
-import coral.CoralModel;
-import coral.models.biocides.fish.OptimizedCoralFish;
+import insilico.coral.CoralModel;
+import insilico.coral.models.biocides.fish.OptimizedCoralFish;
 import insilico.core.ad.ADCheckACF;
 import insilico.core.ad.ADCheckDescriptorRange;
 import insilico.core.ad.ADCheckIndicesQuantitative;

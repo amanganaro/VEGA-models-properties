@@ -1,7 +1,7 @@
 package insilico.noel_coral;
 
-import coral.CoralModel;
-import coral.models.noael.GAOnoael;
+import insilico.coral.CoralModel;
+import insilico.coral.models.noael.GAOnoael;
 import insilico.core.ad.ADCheckACF;
 import insilico.core.ad.ADCheckDescriptorRange;
 import insilico.core.ad.ADCheckIndicesQuantitative;

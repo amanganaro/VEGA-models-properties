@@ -1,7 +1,7 @@
 package insilico.zebrafish_coral;
 
-import coral.CoralModel;
-import coral.models.zebrafish.CoralZebraFish;
+import insilico.coral.CoralModel;
+import insilico.coral.models.zebrafish.CoralZebraFish;
 import insilico.core.ad.ADCheckACF;
 import insilico.core.ad.ADCheckDescriptorRange;
 import insilico.core.ad.ADCheckIndicesQuantitative;

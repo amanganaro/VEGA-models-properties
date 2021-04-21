@@ -1,7 +1,7 @@
 package insilico.hydrolysis_coral;
 
-import coral.CoralModel;
-import coral.models.hydrolysis.CoralHydrolysis;
+import insilico.coral.CoralModel;
+import insilico.coral.models.hydrolysis.CoralHydrolysis;
 import insilico.core.ad.ADCheckACF;
 import insilico.core.ad.ADCheckDescriptorRange;
 import insilico.core.ad.ADCheckIndicesQuantitative;
