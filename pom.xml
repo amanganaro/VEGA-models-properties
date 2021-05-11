@@ -54,7 +54,7 @@
         <module>VegaModels-HydrolysisCoral</module>
         <module>VegaModels-KoaOpera</module>
         <module>VegaModels-KocOpera</module>
-        <module>VegaModels-LoelIRFMN</module>
+        <module>VegaModels-LoaelIRFMN</module>
         <module>VegaModels-MicronucleusVitro</module>
         <module>VegaModels-MicronuclueusVivo</module>
         <module>VegaModels-MoaEpa</module>
@@ -91,6 +91,8 @@
         <module>VegaModels-CramerToxTree</module>
         <module>VegaModels-PGPNic</module>
         <module>VegaModels-MoaIRFMN</module>
+        <module>VegaModels-CoralNoaelFRAHN</module>
+        <module>VegaModels-CoralLoaelFRAHN</module>
     </modules>
 
     <name>VegaModels</name>
@@ -99,7 +101,7 @@
     </description>
 
     <properties>
-        <java.version>11</java.version>
+        <java.version>15</java.version>
         <skipTests>true</skipTests>
     </properties>
 
@@ -143,7 +145,7 @@
         <dependency>
             <groupId>InSilico</groupId>
             <artifactId>Core</artifactId>
-            <version>1.3.6</version>
+            <version>1.3.7</version>
         </dependency>
 
 

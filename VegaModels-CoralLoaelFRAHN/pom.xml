@@ -9,12 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>VegaModels-LoelIRFMN</artifactId>
-    <version>0.2.2</version>
+    <artifactId>VegaModels-CoralLoaelFRAHN</artifactId>
+    <version>0.2.1</version>
 
-    <name>Sub-Chronic Toxicity in rat (LOEL) model (IRFMN-UniBa) - 0.1.0</name>
+    <name>Sub-Chronic Toxicity in rat (LOAEL) model (Coral/Fraunhofer) 1.0.0</name>
     <description>
-        Sub-Chronic Toxicity in rat (LOEL) model
+        Sub-Chronic Toxicity in rat (LOAEL) model developed by Coral/Fraunhofer
     </description>
 
     <dependencies>
@@ -23,6 +23,15 @@
             <artifactId>VegaModels</artifactId>
             <version>0.1</version>
         </dependency>
+
+        <dependency>
+            <groupId>InSilico</groupId>
+            <artifactId>Coral</artifactId>
+            <version>2.0</version>
+        </dependency>
+
+
+
     </dependencies>
 
     <build>
@@ -32,7 +41,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <source>11</source>
+                    <source>15</source>
                     <target>11</target>
                 </configuration>
             </plugin>
@@ -57,6 +66,5 @@
             <!--            </plugin>-->
         </plugins>
     </build>
-
 
 </project>

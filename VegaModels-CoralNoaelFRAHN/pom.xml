@@ -9,12 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>VegaModels-NoelCoralIRFMN</artifactId>
-    <version>0.2.2</version>
+    <artifactId>VegaModels-CoralNoaelFRAHN</artifactId>
+    <version>0.2.1</version>
 
-    <name>NOAEL (IRFMN-CORAL) - 1.0.0</name>
+    <name>NOAEL (Coral/Fraunhofer) 1.0.0</name>
     <description>
-        Quantitative model for NOAEL developed by CORAL software at IRFMN
+        Quantitative model for NOAEL developed by Coral/Fraunhofer
     </description>
 
     <dependencies>
@@ -27,8 +27,11 @@
         <dependency>
             <groupId>InSilico</groupId>
             <artifactId>Coral</artifactId>
-            <version>1.0</version>
+            <version>2.0</version>
         </dependency>
+
+
+
     </dependencies>
 
     <build>
@@ -38,7 +41,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <source>11</source>
+                    <source>15</source>
                     <target>11</target>
                 </configuration>
             </plugin>

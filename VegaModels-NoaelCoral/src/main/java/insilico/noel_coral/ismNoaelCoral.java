@@ -72,9 +72,8 @@ public class ismNoaelCoral extends InsilicoModel {
     
     @Override
     public ArrayList<DescriptorBlock> GetRequiredDescriptorBlocks() {
-        
-        ArrayList<DescriptorBlock> blocks = new ArrayList<>();
-        return blocks;
+
+        return new ArrayList<>();
     }
     
     

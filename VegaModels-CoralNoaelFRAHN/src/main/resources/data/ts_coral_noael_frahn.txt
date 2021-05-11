@@ -1,0 +1,1 @@
+ID	CAS	SMILES VEGA	Status	Exp. endpoint
