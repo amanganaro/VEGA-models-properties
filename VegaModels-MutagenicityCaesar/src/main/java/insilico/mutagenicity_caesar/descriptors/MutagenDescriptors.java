@@ -49,7 +49,7 @@ public class MutagenDescriptors {
         
         try {
             
-            IAtomContainer Mol = mol.GetStructure();
+            IAtomContainer Mol = mol.GetStructure().clone();
 
             //
             // Calculates descriptors

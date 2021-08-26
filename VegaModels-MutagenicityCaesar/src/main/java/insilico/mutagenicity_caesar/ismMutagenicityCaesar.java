@@ -153,7 +153,7 @@ public class ismMutagenicityCaesar extends InsilicoModel {
             double[] MutaDescriptors = MutagenDescriptors.Calculate(CurMolecule);
 
             EmbeddedDescriptors embeddedDescriptors = new EmbeddedDescriptors(CurMolecule);
-            
+
             // Fragment counter descriptors (0-20)
             for (int i=0; i<21; i++)
                 Descriptors[i] = MutaDescriptors[i];
