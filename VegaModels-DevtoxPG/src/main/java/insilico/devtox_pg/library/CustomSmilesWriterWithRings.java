@@ -43,7 +43,6 @@ import org.openscience.cdk.graph.invariant.MorganNumbersTools;
 import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IAtomContainer;
 import org.openscience.cdk.interfaces.IBond;
-import org.openscience.cdk.interfaces.IChemObjectBuilder;
 import org.openscience.cdk.interfaces.IIsotope;
 import org.openscience.cdk.interfaces.IPseudoAtom;
 import org.openscience.cdk.interfaces.IRingSet;
@@ -51,7 +50,6 @@ import org.openscience.cdk.ringsearch.AllRingsFinder;
 import org.openscience.cdk1.interfaces.IMolecule;
 import org.openscience.cdk1.interfaces.IMoleculeSet;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;

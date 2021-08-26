@@ -36,6 +36,17 @@
 
     <Endpoint></Endpoint>
 
-    <Stats></Stats>
+    <Stats>
+        <n_Train>2602.0</n_Train>
+        <Specificity_Train>1.0</Specificity_Train>
+        <Sensitivity_Train>0.583</Sensitivity_Train>
+        <Accuracy_Train>0.942</Accuracy_Train>
+        <n_Test>652.0</n_Test>
+        <Specificity_Test>0.998</Specificity_Test>
+        <Sensitivity_Test>0.516</Sensitivity_Test>
+        <Accuracy_Test>0.931</Accuracy_Test>
+        <Not_Predicted_Test>0.0</Not_Predicted_Test>
+        <Not_Predicted_Train>0.0</Not_Predicted_Train>
+    </Stats>
     
 </xml>

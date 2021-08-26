@@ -19,14 +19,17 @@
 
 
     <dependencies>
+        <dependency>
+            <groupId>uk.ac.ebi.beam</groupId>
+            <artifactId>beam-core</artifactId>
+            <version>LATEST</version>
+        </dependency>
 
         <dependency>
             <groupId>InSilico</groupId>
             <artifactId>VegaModels</artifactId>
             <version>0.1</version>
         </dependency>
-
-
 
         <dependency>
             <groupId>InSilico</groupId>
@@ -36,10 +39,9 @@
 
         <dependency>
             <groupId>InSilico.ToxTree</groupId>
-            <artifactId>toxtree-cramer3</artifactId>
+            <artifactId>toxtree-cramer</artifactId>
             <version>3.1.0</version>
         </dependency>
-
 
     </dependencies>
 

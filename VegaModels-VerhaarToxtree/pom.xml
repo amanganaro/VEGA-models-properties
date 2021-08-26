@@ -17,9 +17,7 @@
         Verhaar classification from ToxTree 3.1.
     </description>
 
-
     <dependencies>
-
         <dependency>
             <groupId>InSilico</groupId>
             <artifactId>VegaModels</artifactId>
@@ -27,11 +25,16 @@
         </dependency>
 
         <dependency>
+            <groupId>uk.ac.ebi.beam</groupId>
+            <artifactId>beam-core</artifactId>
+            <version>LATEST</version>
+        </dependency>
+
+        <dependency>
             <groupId>InSilico</groupId>
             <artifactId>ToxTreeWrapper</artifactId>
             <version>1.0</version>
         </dependency>
-
 
     </dependencies>
 
