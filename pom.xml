@@ -59,7 +59,7 @@
         <module>VegaModels-MicronuclueusVivo</module>
         <module>VegaModels-MoaEpa</module>
         <module>VegaModels-MutagenicityCaesar</module>
-        <module>VegaModels-MutagenicityConsensus</module>
+<!--        <module>VegaModels-MutagenicityConsensus</module>-->
         <module>VegaModels-MutagenicityKNN</module>
         <module>VegaModels-MutagenicitySarpy</module>
         <module>VegaModels-NoaelCoral</module>
@@ -93,6 +93,8 @@
         <module>VegaModels-MoaIRFMN</module>
         <module>VegaModels-CoralNoaelFRAHN</module>
         <module>VegaModels-CoralLoaelFRAHN</module>
+        <module>VegaModels-SQfu</module>
+        <module>VegaModels-LogK</module>
     </modules>
 
     <name>VegaModels</name>
@@ -131,13 +133,18 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>1.7.30</version>
+            <version>1.7.32</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.32</version>
         </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.12</version>
+            <version>1.18.20</version>
             <scope>provided</scope>
         </dependency>
 
@@ -193,7 +200,7 @@
                         <path>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
-                            <version>1.18.12</version>
+                            <version>1.18.20</version>
                         </path>
                     </annotationProcessorPaths>
 

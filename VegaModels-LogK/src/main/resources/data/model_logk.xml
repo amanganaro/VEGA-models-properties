@@ -1,0 +1,25 @@
+<xml>
+   
+    <Version>
+        <Name>LogK model test</Name>
+        <Key>LogK</Key>
+        <Summary>Some random summary</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_logk.dat</TS>
+        <HasAlerts>False</HasAlerts>
+        <Units>a-dimensional</Units>
+        
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

@@ -18,11 +18,19 @@
     </description>
 
     <dependencies>
+<!--        <dependency>-->
+<!--            <groupId>org.projectlombok</groupId>-->
+<!--            <artifactId>lombok</artifactId>-->
+<!--            <version>1.18.12</version>-->
+<!--            <scope>provided</scope>-->
+<!--        </dependency>-->
+
         <dependency>
             <groupId>InSilico</groupId>
             <artifactId>VegaModels</artifactId>
             <version>0.1</version>
         </dependency>
+
     </dependencies>
 
     <build>

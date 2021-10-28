@@ -1,19 +1,144 @@
 package utils;
 
+import insilico.core.descriptor.DescriptorBlock;
 import insilico.core.exception.GenericFailureException;
 import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
 import insilico.core.molecule.conversion.SmilesMolecule;
+import lombok.extern.slf4j.Slf4j;
 //import ModelsList;
 
-import java.io.File;
+import java.io.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 public class ModelsDeployment {
+
+    public void PrintDescriptorBlock(InsilicoModel model, DescriptorBlock block){
+        List<String> smilesList = new ArrayList<>();
+        URL url = (getClass().getResource("/data/SQfu.csv"));
+        StringBuilder stringBuilder = new StringBuilder("#" + "\t" + "Smiles (ionized)");
+        String line;
+        boolean printHeader = true;
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())))){
+            while ((line = br.readLine()) != null) {
+                if(printHeader){
+                    printHeader = false;
+                    String[] lineArray = line.split("\t");
+                    for(int i = 7; i < lineArray.length; i++) {
+                        stringBuilder.append("\t").append(lineArray[i]);
+                    }
+                } else {
+                    smilesList.add(line.split("\t")[2]);
+                }
+            }
+
+        } catch (Exception ex){
+            log.warn(ex.getMessage());
+        }
+
+
+        for(String smiles: smilesList){
+            block.Calculate(SmilesMolecule.Convert(smiles));
+        }
+
+
+    }
+
+    public ModelsDeployment PrintDescriptor(InsilicoModel model) throws FileNotFoundException {
+        List<String> smilesList = new ArrayList<>();
+        URL url = (getClass().getResource("/data/SQfu.csv"));
+        StringBuilder stringBuilder = new StringBuilder("#" + "\t" + "Smiles (ionized)");
+        String line;
+        boolean printHeader = true;
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())))){
+            while ((line = br.readLine()) != null) {
+                if(printHeader){
+                    printHeader = false;
+                    String[] lineArray = line.split("\t");
+                    for(int i = 7; i < lineArray.length; i++) {
+                        stringBuilder.append("\t").append(lineArray[i]);
+                    }
+                } else {
+                    smilesList.add(line.split("\t")[2]);
+                }
+            }
+
+        } catch (Exception ex){
+            log.warn(ex.getMessage());
+        }
+
+        PrintWriter printWriter = new PrintWriter("results.csv");
+        printWriter.print(stringBuilder + "\n");
+        printWriter.flush();
+
+
+        try {
+            int index = 1;
+            for(String smiles : smilesList) {
+                log.info("Calculating #" + index);
+
+//                InsilicoModelOutput modelOutput = model.Execute(SmilesMolecule.Convert(smiles));
+
+                stringBuilder = new StringBuilder(index + "\t" + smiles);
+                for(int i = 0; i < model.getDescriptorsSize(); i++){
+                    stringBuilder.append("\t").append(model.GetDescriptor(i));
+                }
+                printWriter.println(stringBuilder);
+                printWriter.flush();
+                index++;
+            }
+        } catch (GenericFailureException ex){
+            log.warn(ex.getMessage());
+        }
+
+        printWriter.flush();
+        printWriter.close();
+
+
+
+
+        return this;
+    }
+
+
+    public ModelsDeployment TestModelWithTrainingSet(InsilicoModel model) throws MalformedURLException, FileNotFoundException, GenericFailureException {
+        List<String> smilesList = new ArrayList<>();
+        List<String> knimePredictionList = new ArrayList<>();
+        URL url = (getClass().getResource("/data/SQfu.csv"));
+        String line;
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())))){
+            br.readLine();
+            while ((line = br.readLine()) != null){
+                smilesList.add(line.split("\t")[1]);
+                knimePredictionList.add(line.split("\t")[4]);
+            }
+
+        } catch (Exception ex){ }
+        PrintWriter printWriter = new PrintWriter("results.csv");
+        StringBuilder stringBuilder = new StringBuilder("Smiles" + "\t" + "Knime Prediction " + "\t" + "Prediction" + "\n");
+//        printWriter.println(stringBuilder);
+        int index = 0;
+        for(String smiles: smilesList){
+            log.info((index+1) + ": " + smiles + " ...");
+            InsilicoModelOutput out = model.Execute(SmilesMolecule.Convert(smiles));
+            stringBuilder.append(smiles).append("\t").append(knimePredictionList.get(index)).append("\t").append(out.getMainResultValue()).append("\n");
+            index++;
+        }
+        printWriter.print(stringBuilder);
+        printWriter.close();
+        printWriter.flush();
+
+        return this;
+    }
+
+
 
     /**
      * Process all available models to generate TS molecule images.

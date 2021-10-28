@@ -19,10 +19,14 @@
     <dependencies>
         <dependency>
             <groupId>InSilico</groupId>
+            <artifactId>VegaModels-All</artifactId>
+            <version>0.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>InSilico</groupId>
             <artifactId>VegaModels</artifactId>
             <version>0.1</version>
         </dependency>
-
         <dependency>
             <groupId>InSilico</groupId>
             <artifactId>VegaModels-MutagenicityBB</artifactId>
@@ -46,6 +50,7 @@
             <artifactId>VegaModels-MutagenicitySarpy</artifactId>
             <version>0.2.2</version>
         </dependency>
+
     </dependencies>
 
     <build>

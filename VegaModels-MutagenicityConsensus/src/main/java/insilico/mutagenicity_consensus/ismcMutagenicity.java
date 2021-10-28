@@ -36,7 +36,6 @@ public class ismcMutagenicity extends InsilicoModelConsensus {
         this.ResultsName[4] = "Model ISS assessment";
         this.ResultsName[5] = "Model SarPy assessment";
         this.ResultsName[6] = "Model KNN assessment";
-        
     }
 
     
