@@ -1,14 +1,9 @@
 import insilico.core.exception.GenericFailureException;
 import insilico.core.exception.InitFailureException;
 import insilico.core.model.InsilicoModel;
-import insilico.core.model.InsilicoModelOutput;
-import insilico.core.molecule.conversion.SmilesMolecule;
-import insilico.descriptor.blocks.P_VSA;
-import insilico.sqfu.descriptors.EmbeddedDescriptors;
 import insilico.sqfu.utils.ModelsDeployment;
 import insilico.sqfu.ismSQfu;
 import lombok.extern.slf4j.Slf4j;
-//import utils.ModelsDeployment;
 
 import java.io.File;
 import java.io.FileNotFoundException;

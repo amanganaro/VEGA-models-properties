@@ -1,0 +1,153 @@
+package insilico.pxr_up;
+
+import insilico.core.descriptor.DescriptorsEngine;
+import insilico.core.exception.InitFailureException;
+import insilico.core.model.InsilicoModel;
+import insilico.core.pmml.ModelANNFromPMML;
+import insilico.pxr_up.descriptors.EmbeddedDescriptors;
+import lombok.extern.slf4j.Slf4j;
+import org.dmg.pmml.FieldName;
+import org.jpmml.evaluator.mining.MiningModelEvaluator;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+@Slf4j
+public class ismPxrUp extends InsilicoModel {
+
+    private static final String ModelData = "/data/model_pxrup.xml";
+    private ModelANNFromPMML Model;
+    private double ExperimentalValue = 0;
+
+    private static final double[] normalizationCenter = {0.0299764454, 0.4776059957, 1.55192077087794, 2.4641905782, 8.06624411134904, 39.0678244111, 76.767329764454, -0.259103854389722, 4.0144571734, 7.10323768736617, 3.11351713062099, 1.81327194860814, 1.26654282655246, 12002.0278372591, 1.64783940042827};
+    private static final double[] normalizationScale = {0.0302561321, 0.0294393304, 1.21377318129206, 1.3600946779, 8.17291955784308, 44.3464601839895, 46.5170499975922, 1.09192150904467, 0.769358465079047, 0.998769289424617, 0.472744171501964, 0.22172102080432, 0.0402121888990575, 63429.7241237166, 1.48126928129873};
+
+    public ismPxrUp() throws InitFailureException {
+        super(ModelData);
+
+        try {
+            URL src = getClass().getResource("/data/PXR_up_RF_model.pmml");
+            Model = new ModelANNFromPMML(src.openStream(), "Predicted Exp");
+        } catch (IOException ex) {
+            throw new InitFailureException("Unable to read PMML source from .jar file");
+        }
+
+        this.DescriptorsSize = 15;
+        this.DescriptorsNames = new String[DescriptorsSize];
+
+        this.DescriptorsNames[0] = "ChiA_Dz.Z.";
+        this.DescriptorsNames[1] = "Eta_alpha_A";
+        this.DescriptorsNames[2] = "GGI3";
+        this.DescriptorsNames[3] = "MAXDN";
+        this.DescriptorsNames[4] = "MLOGP2";
+        this.DescriptorsNames[5] = "P_VSA_ppp_D";
+        this.DescriptorsNames[6] = "P_VSA_ppp_L";
+        this.DescriptorsNames[7] = "SdssC";
+        this.DescriptorsNames[8] = "SpMax_B.m.";
+        this.DescriptorsNames[9] = "SpMax_B.s.";
+        this.DescriptorsNames[10] = "SpMax4_Bh.m.";
+        this.DescriptorsNames[11] = "SpMin2_Bh.m.";
+        this.DescriptorsNames[12] = "SpPosA_B.v.";
+        this.DescriptorsNames[13] = "Wap";
+        this.DescriptorsNames[14] = "X5v";
+
+        // Defines results
+        this.ResultsSize = 4;
+        this.ResultsName = new String[ResultsSize];
+        this.ResultsName[0] = "Prediction";
+        this.ResultsName[1] = "0 Probability";
+        this.ResultsName[2] = "1 Probability";
+        this.ResultsName[3] = "Experimental value";
+    }
+
+    @Override
+    protected short CalculateDescriptors(DescriptorsEngine descriptorsEngine) {
+        try {
+
+            EmbeddedDescriptors embeddedDescriptors = new EmbeddedDescriptors(CurMolecule, false);
+
+            Descriptors = new double[DescriptorsSize];
+
+            Descriptors[0] = embeddedDescriptors.ChiA_Dz_Z;
+            Descriptors[1] = embeddedDescriptors.Eta_alpha_A;
+            Descriptors[2] = embeddedDescriptors.GGI3;
+            Descriptors[3] = embeddedDescriptors.MAXDN;
+            Descriptors[4] = embeddedDescriptors.MLOGP2;
+            Descriptors[5] = embeddedDescriptors.P_VSA_ppp_D;
+            Descriptors[6] = embeddedDescriptors.P_VSA_ppp_L;
+            Descriptors[7] = embeddedDescriptors.SdssC;
+            Descriptors[8] = embeddedDescriptors.SpMax_B_m;
+            Descriptors[9] = embeddedDescriptors.SpMax_B_s;
+            Descriptors[10] = embeddedDescriptors.SpMax4_Bh_m;
+            Descriptors[11] = embeddedDescriptors.SpMin2_Bh_m;
+            Descriptors[12] = embeddedDescriptors.SpPosA_B_v;
+            Descriptors[13] = embeddedDescriptors.Wap;
+            Descriptors[14] = embeddedDescriptors.X5v;
+
+        } catch (Throwable e) {
+            return DESCRIPTORS_ERROR;
+        }
+
+        return DESCRIPTORS_CALCULATED;
+    }
+
+    @Override
+    protected short CalculateModel() {
+
+        double[] ScaledDescriptors = new double[this.DescriptorsSize];
+        for (int i=0; i<DescriptorsSize; i++)
+            ScaledDescriptors[i] = (Descriptors[i] - normalizationCenter[i]) / normalizationScale[i];
+
+        Map<String, Object> argumentsObject = new LinkedHashMap<>();
+        try {
+            for (int i=0; i<DescriptorsSize; i++)
+                argumentsObject.put(this.DescriptorsNames[i], ScaledDescriptors[i]);
+        } catch (Exception ex){
+            log.warn(ex.getMessage());
+        }
+
+
+        // Run pmml model
+        int Prediction;
+        double Probability0;
+        double Probability1;
+        try {
+//            Prediction = Model.Evaluate(argumentsObject);
+            Map<FieldName, ?> outputs = Model.EvaluateFullOutput(argumentsObject);
+            Prediction = Integer.parseInt((String) outputs.get(FieldName.create("Predicted_Exp")));
+            Probability0 = (Double) outputs.get(FieldName.create("Probability_0"));
+            Probability1 = (Double) outputs.get(FieldName.create("Probability_1"));
+
+        } catch (Exception ex) {
+            return MODEL_ERROR;
+        }
+
+        CurOutput.setMainResultValue(Prediction);
+
+        String[] Res = new String[ResultsSize];
+        Res[0] = String.valueOf(Prediction);
+        Res[1] = String.valueOf(Probability0);
+        Res[2] = String.valueOf(Probability1);
+        Res[3] = String.valueOf(ExperimentalValue);
+//        double ConvertedValue = Math.pow( (Prediction * 0.03 + 1), (1.0 / 0.03) ) * MW;
+//        if (ConvertedValue>1)
+//            Res[1] = Format_2D.format(ConvertedValue); // mg/L
+//        else
+//            Res[1] = Format_4D.format(ConvertedValue); // mg/L
+//        Res[2] = Format_2D.format(MW); // MW
+//        Res[3] = "-";
+        CurOutput.setResults(Res);
+
+        return MODEL_CALCULATED;
+    }
+
+    @Override
+    protected short CalculateAD() {
+        return 0;
+    }
+
+    @Override
+    protected void CalculateAssessment() { }
+}

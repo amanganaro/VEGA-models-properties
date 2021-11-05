@@ -95,6 +95,8 @@
         <module>VegaModels-CoralLoaelFRAHN</module>
         <module>VegaModels-SQfu</module>
         <module>VegaModels-LogK</module>
+        <module>VegaModels-PXR_up</module>
+        <module>VegaModels-PPARg_up</module>
     </modules>
 
     <name>VegaModels</name>

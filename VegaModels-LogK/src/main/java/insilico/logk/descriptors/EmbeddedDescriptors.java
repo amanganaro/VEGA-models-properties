@@ -6,17 +6,12 @@ import insilico.core.descriptor.blocks.Constitutional;
 import insilico.core.descriptor.blocks.FunctionalGroups;
 import insilico.core.exception.DescriptorNotFoundException;
 import insilico.core.exception.GenericFailureException;
-import insilico.core.exception.InitFailureException;
 import insilico.core.exception.InvalidMoleculeException;
-import insilico.core.model.InsilicoModel;
 import insilico.core.molecule.InsilicoMolecule;
 import insilico.core.molecule.conversion.SmilesMolecule;
 import insilico.descriptor.blocks.*;
 import insilico.descriptor.blocks.logP.ALogP;
 import insilico.descriptor.blocks.logP.MLogP;
-import insilico.descriptor.blocks.logP.MeylanLogP;
-import insilico.meylanlogp.ismLogPMeylan;
-import javassist.runtime.Desc;
 import lombok.extern.slf4j.Slf4j;
 import org.openscience.cdk.interfaces.IAtom;
 

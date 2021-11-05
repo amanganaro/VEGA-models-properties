@@ -1,13 +1,10 @@
 package insilico.sqfu.descriptors;
 
-
 import Jama.EigenvalueDecomposition;
 import Jama.Matrix;
 import insilico.core.descriptor.Descriptor;
 import insilico.core.descriptor.DescriptorBlock;
 import insilico.core.descriptor.blocks.AtomCenteredFragments;
-import insilico.core.descriptor.blocks.Constitutional;
-import insilico.core.descriptor.blocks.FunctionalGroups;
 import insilico.core.descriptor.blocks.weights.basic.WeightsIonizationPotential;
 import insilico.core.descriptor.blocks.weights.basic.WeightsMass;
 import insilico.core.descriptor.blocks.weights.basic.WeightsPolarizability;
@@ -15,7 +12,6 @@ import insilico.core.descriptor.blocks.weights.iBasicWeight;
 import insilico.core.descriptor.blocks.weights.other.WeightsQuantumNumber;
 import insilico.core.descriptor.blocks.weights.other.WeightsValenceVertexDegree;
 import insilico.core.descriptor.blocks.weights.other.WeightsVertexDegree;
-import insilico.core.exception.DescriptorNotFoundException;
 import insilico.core.exception.GenericFailureException;
 import insilico.core.exception.InvalidMoleculeException;
 import insilico.core.localization.StringSelectorCore;
@@ -27,9 +23,6 @@ import insilico.core.molecule.matrix.TopoDistanceMatrix;
 import insilico.core.molecule.tools.InsilicoMoleculeNormalization;
 import insilico.core.molecule.tools.Manipulator;
 import insilico.core.tools.utils.MoleculeUtilities;
-import insilico.descriptor.blocks.*;
-import insilico.descriptor.blocks.logP.ALogP;
-import insilico.descriptor.blocks.logP.MLogP;
 import insilico.descriptor.blocks.logP.weights.GCAtomCentredFragments;
 import insilico.descriptor.blocks.logP.weights.GCWeights;
 import insilico.descriptor.blocks.utils.MoleculePaths;
@@ -54,7 +47,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.regex.Pattern;
 
 @Slf4j
 public class EmbeddedDescriptors {
@@ -68,8 +60,6 @@ public class EmbeddedDescriptors {
     private RingSet MolRings;
     private IAtomContainer CurMolLogP;
     private final static boolean FRAGS_TO_STDOUT = false;
-
-
 
     private int descriptorsSize;
 

@@ -53,7 +53,7 @@ public class ModelsDeployment {
 
     public ModelsDeployment PrintDescriptor(InsilicoModel model) throws FileNotFoundException {
         List<String> smilesList = new ArrayList<>();
-        URL url = (getClass().getResource("/data/SQfu.csv"));
+        URL url = (getClass().getResource("/data/PXR_up.csv"));
         StringBuilder stringBuilder = new StringBuilder("#" + "\t" + "Smiles (ionized)");
         String line;
         boolean printHeader = true;
@@ -62,7 +62,7 @@ public class ModelsDeployment {
                 if(printHeader){
                     printHeader = false;
                     String[] lineArray = line.split("\t");
-                    for(int i = 7; i < lineArray.length; i++) {
+                    for(int i = 9; i < lineArray.length; i++) {
                         stringBuilder.append("\t").append(lineArray[i]);
                     }
                 } else {
