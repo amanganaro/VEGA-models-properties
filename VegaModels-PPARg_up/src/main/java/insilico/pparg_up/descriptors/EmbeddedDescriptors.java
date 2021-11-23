@@ -6,7 +6,9 @@ import insilico.core.descriptor.Descriptor;
 import insilico.core.descriptor.DescriptorBlock;
 import insilico.core.descriptor.blocks.weights.basic.*;
 import insilico.core.descriptor.blocks.weights.iBasicWeight;
+import insilico.core.descriptor.blocks.weights.other.WeightsHydrophobicityGC;
 import insilico.core.descriptor.blocks.weights.other.WeightsIState;
+import insilico.core.descriptor.blocks.weights.other.WeightsVertexDegree;
 import insilico.core.exception.DescriptorNotFoundException;
 import insilico.core.exception.GenericFailureException;
 import insilico.core.exception.InvalidMoleculeException;
@@ -18,6 +20,7 @@ import insilico.core.molecule.matrix.TopoDistanceMatrix;
 import insilico.core.molecule.tools.InsilicoMoleculeNormalization;
 import insilico.core.molecule.tools.Manipulator;
 import insilico.core.tools.utils.MoleculeUtilities;
+import insilico.descriptor.blocks.Cats2D;
 import insilico.descriptor.blocks.P_VSA;
 import insilico.descriptor.localization.StringSelectorDescriptors;
 import lombok.extern.slf4j.Slf4j;
@@ -30,7 +33,6 @@ import org.openscience.cdk.interfaces.IBond;
 import org.openscience.cdk.interfaces.IRing;
 import org.openscience.cdk.isomorphism.Mappings;
 import org.openscience.cdk.smarts.SmartsPattern;
-import insilico.core.descriptor.blocks.weights.iWeight;
 
 import java.io.BufferedReader;
 import java.io.DataInputStream;
@@ -93,6 +95,7 @@ public class EmbeddedDescriptors {
     private void CalculateDescriptors(InsilicoMolecule mol) {
         CalculateSPMad(mol);
         CalculatePVSA(mol);
+        CalculatePVSALogP(mol);
         CalculateOPerc(mol);
         CalculateACF(mol);
         CalculateFunctionalGroups(mol);
@@ -100,6 +103,572 @@ public class EmbeddedDescriptors {
         CalculateMi(mol);
         CalculateAutoCorrelation(mol);
         CalculateGats8S(mol);
+        CalculateF06(mol);
+        CalculateB07(mol);
+        CalculateDDtr(mol);
+        CalculateATSC(mol);
+        CalculateCPerc(mol);
+        CalculateCATS(mol);
+        CalculateRGes(mol);
+    }
+
+    private void CalculateRGes(InsilicoMolecule mol) {
+        IAtomContainer curMol;
+        try {
+            curMol = mol.GetStructure();
+        } catch (InvalidMoleculeException e) {
+            log.warn(StringSelectorDescriptors.getString("invalid_structure") + mol.GetSMILES());
+            return;
+        }
+
+        // Gets matrices
+        int[][] TopoDistMat;
+        try {
+            TopoDistMat = mol.GetMatrixTopologicalDistance();
+        } catch (GenericFailureException e) {
+            log.warn(e.getMessage());
+            return;
+        }
+
+        int nSK = curMol.getAtomCount();
+        int[] VertexDeg = WeightsVertexDegree.getWeights(curMol, false);
+        double[] IStates = (new WeightsIState()).getWeights(curMol, false);
+
+        // rGes
+        double[] ETIS = new double[nSK];
+        for (int i=0; i<nSK; i++) {
+            ETIS[i] = IStates[i];
+            if (ETIS[i] != Descriptor.MISSING_VALUE) {
+                for (int j=0; j<nSK; j++) {
+                    if (i==j) continue;
+                    ETIS[i] += (IStates[i] - IStates[j]) / Math.pow(TopoDistMat[i][j] + 1, 2);
+                }
+            }
+        }
+
+        double[] s0k_Equal = new double[nSK];
+        int[] ETISequal = new int[nSK];
+        for (int i=0; i<nSK; i++)
+            s0k_Equal[i] = ETIS[i];
+        int s0k_Cequiv = 0;
+
+        for (int i=0; i<nSK; i++) {
+            if (s0k_Equal[i] != Descriptor.MISSING_VALUE) {
+                int k = 1;
+                for (int j=0; j<nSK; j++) {
+                    if (i==j) continue;
+                    if (Math.abs(s0k_Equal[i] - s0k_Equal[j]) < 0.001) {
+                        k++;
+                        s0k_Equal[j] = Descriptor.MISSING_VALUE;
+                    }
+                }
+                ETISequal[s0k_Cequiv] = k;
+                s0k_Equal[i] = Descriptor.MISSING_VALUE;
+                s0k_Cequiv++;
+            }
+        }
+        double Ges = (double) s0k_Cequiv;
+        rGes = Ges / nSK;
+    }
+
+    private void CalculatePVSALogP(InsilicoMolecule mol) {
+//
+//        try {
+//            P_VSA_LogP_4 = getP_VSA_LogP_4(mol);
+//
+//        } catch (Exception ex){
+//            P_VSA_LogP_4 = MISSING_VALUE;
+//        }
+
+        IAtomContainer curMolNoH;
+        double[][] ConnAugMatrixNoH = null;
+        try {
+            curMolNoH = mol.GetStructure();
+            ConnAugMatrixNoH = mol.GetMatrixConnectionAugmented();
+        } catch (Exception e) {
+            log.warn(StringSelectorDescriptors.getString("invalid_structure") + mol.GetSMILES());
+            return;
+        }
+
+        int nSKnoH = curMolNoH.getAtomCount();
+
+        Cats2D cats = new Cats2D();
+        ArrayList<String>[] AtomTypesOnMolWithoutH = cats.setCatsAtomType(curMolNoH, ConnAugMatrixNoH);
+
+
+        // P_VSA are calculated on H filled molecules
+        IAtomContainer m;
+        try {
+            IAtomContainer orig_m = mol.GetStructure();
+            m = Manipulator.AddHydrogens(orig_m);
+        } catch (InvalidMoleculeException | GenericFailureException e) {
+            log.warn(StringSelectorDescriptors.getString("invalid_structure") + mol.GetSMILES());
+            return;
+        }
+
+        int nSK = m.getAtomCount();
+        int nBO = m.getBondCount();
+
+        GhoseCrippenACF GC = new GhoseCrippenACF(m, true);
+        int[] ACF = GC.GetACF();
+
+        double[] VSA = new double[nSK];
+        double[] PartialVSA = new double[nSK];
+        double[] IdealBondLen = new double[nBO];
+        double[] VdWRadius = new double[nSK];
+
+        for (int i=0; i<nSK; i++) {
+            IAtom at = m.getAtom(i);
+
+            VSA[i] = 0;
+            PartialVSA[i] = 0;
+
+            // R - van der waals radius
+            VdWRadius[i] = GetVdWRadius(m, at);
+            if (VdWRadius[i] == Descriptor.MISSING_VALUE) {
+                log.warn("Missing VSA");
+                VSA[i] = Descriptor.MISSING_VALUE;
+                PartialVSA[i] = Descriptor.MISSING_VALUE;
+            }
+        }
+
+        for (int i=0; i<nBO; i++) {
+            IBond bo = m.getBond(i);
+
+            // refR - reference bond length
+            double refR = this.GetRefBondLength(bo.getAtom(0), bo.getAtom(1));
+            if (refR == Descriptor.MISSING_VALUE) {
+                log.warn("Missing radius");
+            }
+
+            // c - correction
+            double c = 0;
+            if (refR != 0) {
+                double bnd = MoleculeUtilities.Bond2Double(bo);
+                if (bnd == 1.5) c = 0.1;
+                if (bnd == 2) c = 0.2;
+                if (bnd == 3) c = 0.3;
+            }
+
+            IdealBondLen[i] = refR - c;
+        }
+
+        for (int b=0; b<nBO; b++) {
+            IBond bo = m.getBond(b);
+
+            int at1 = m.indexOf(bo.getAtom(0));
+            int at2 = m.indexOf(bo.getAtom(1));
+            if ( (IdealBondLen[b] == 0) || (VdWRadius[at1] == Descriptor.MISSING_VALUE) || (VdWRadius[at2] == Descriptor.MISSING_VALUE) ) {
+                PartialVSA[at1] = Descriptor.MISSING_VALUE;
+                PartialVSA[at2] = Descriptor.MISSING_VALUE;
+                VSA[at1] = Descriptor.MISSING_VALUE;
+                VSA[at2] = Descriptor.MISSING_VALUE;
+                continue;
+            }
+
+            double curDistance;
+            double diffRadius = Math.abs(VdWRadius[at1]-VdWRadius[at2]);
+            if (diffRadius > IdealBondLen[b])
+                curDistance = diffRadius;
+            else
+                curDistance = IdealBondLen[b];
+
+            if (curDistance > (VdWRadius[at1]+VdWRadius[at2]))
+                curDistance = VdWRadius[at1]+VdWRadius[at2];
+
+            PartialVSA[at1] = PartialVSA[at1] + ( Math.pow(VdWRadius[at2],2) - Math.pow((VdWRadius[at1] - curDistance), 2) ) / curDistance;
+            PartialVSA[at2] = PartialVSA[at2] + ( Math.pow(VdWRadius[at1],2) - Math.pow((VdWRadius[at2] - curDistance), 2) ) / curDistance;
+        }
+
+        for (int i=0; i<nSK; i++) {
+            if (VSA[i] != Descriptor.MISSING_VALUE)
+                VSA[i] = 4 * Math.PI * Math.pow(VdWRadius[i], 2) - (Math.PI * VdWRadius[i] * PartialVSA[i]);
+            if (VSA[i] < 0)
+                VSA[i] = 0;
+        }
+
+        double[] w = (new WeightsHydrophobicityGC()).getWeightsForFragmentId(ACF);
+
+        int bins = 8;
+
+        for (int b=1; b<=bins; b++) {
+
+            double PVSA = 0;
+            for (int i = 0; i < nSK; i++) {
+                if (w[i] == Descriptor.MISSING_VALUE) continue;
+                if (b == CalculateBin("LogP", w[i]))
+                    PVSA += VSA[i];
+            }
+
+            if(b == 4)
+                P_VSA_LogP_4 = PVSA;
+
+        }
+
+    }
+
+    private void CalculateCATS(InsilicoMolecule mol) {
+
+        IAtomContainer curMol;
+        try {
+            curMol = mol.GetStructure();
+        } catch (InvalidMoleculeException e) {
+            log.warn(StringSelectorDescriptors.getString("invalid_structure") + mol.GetSMILES());
+            return;
+        }
+
+        int nSK = curMol.getAtomCount();
+
+        // Gets matrices
+        int[][] TopoMat = null;
+        try {
+            TopoMat = mol.GetMatrixTopologicalDistance();
+        } catch (GenericFailureException e) {
+            log.warn(e.getMessage());
+        }
+
+        double[][] ConnAugMatrix = null;
+        try {
+            ConnAugMatrix = mol.GetMatrixConnectionAugmented();
+        } catch (GenericFailureException e) {
+            log.warn(e.getMessage());
+        }
+
+        // Gets CATS types
+        ArrayList<String>[] CatsTypes = setCatsAtomType(curMol, ConnAugMatrix);
+        for (String[][] atomCouple : AtomCouplesAL) {
+
+            int descT = 0;
+            int[] desc = new int[10];
+            Arrays.fill(desc, 0);
+
+            for (int i = 0; i < nSK; i++) {
+                if (isIn(CatsTypes[i], atomCouple[0][0])) {
+                    for (int j = i; j < nSK; j++) {
+//                        if (i==j) continue;
+                        if (isIn(CatsTypes[j], atomCouple[1][0])) {
+
+                            if (TopoMat[i][j] < 10)
+                                desc[TopoMat[i][j]]++;
+
+                        }
+                    }
+                }
+            }
+
+            for (int i = 0; i < desc.length; i++) {
+                    if( i == 7)
+                        CATS2D_07_AL = desc[i];
+            }
+
+        }
+
+        for (String[][] atomCouple : AtomCouplesLL) {
+
+            int descT = 0;
+            int[] desc = new int[10];
+            Arrays.fill(desc, 0);
+
+            for (int i = 0; i < nSK; i++) {
+                if (isIn(CatsTypes[i], atomCouple[0][0])) {
+                    for (int j = i; j < nSK; j++) {
+//                        if (i==j) continue;
+                        if (isIn(CatsTypes[j], atomCouple[1][0])) {
+
+                            if (TopoMat[i][j] < 10)
+                                desc[TopoMat[i][j]]++;
+
+                        }
+                    }
+                }
+            }
+
+            for (int i = 0; i < desc.length; i++) {
+                if( i == 3)
+                    CATS2D_03_LL = desc[i];
+            }
+
+        }
+
+    }
+
+    private void CalculateCPerc(InsilicoMolecule mol) {
+
+        IAtomContainer curMol = null;
+        try {
+            curMol = mol.GetStructure();
+        } catch (InvalidMoleculeException e) {
+            log.warn(String.format(StringSelectorCore.getString("descriptors_invalid_structure"), mol.GetSMILES()));
+        }
+
+        int nSK = curMol.getAtomCount();
+        int nBO = curMol.getBondCount();
+        int[] H = new int[nSK];
+
+        int nTotH=0;
+        int nC=0, nN=0, nO=0, nP=0, nS=0;
+        int nI=0, nF=0, nCl=0, nBr=0, nB=0;
+        int nHet=0;
+
+
+        //// Counts on atoms
+
+        for (int i=0; i<nSK; i++) {
+
+            IAtom CurAt = curMol.getAtom(i);
+
+            // Hydrogens
+            H[i] = 0;
+            try {
+                H[i] = CurAt.getImplicitHydrogenCount();
+            } catch (Exception e) { }
+            nTotH += H[i];
+
+
+            if (CurAt.getSymbol().equalsIgnoreCase("C"))
+                nC++;
+            else
+                nHet++;
+
+        }
+        C = (nC/(double)(nSK + nTotH))*100;
+    }
+
+    private void CalculateATSC(InsilicoMolecule mol) {
+
+        try {
+
+            IAtomContainer m;
+            try {
+                IAtomContainer orig_m = mol.GetStructure();
+                m = Manipulator.AddHydrogens(orig_m);
+            } catch (InvalidMoleculeException | GenericFailureException e) {
+                log.warn(StringSelectorDescriptors.getString("invalid_structure") + mol.GetSMILES());
+                return;
+            }
+
+            // Gets matrices
+            int[][] TopoMatrix;
+            try {
+                TopoMatrix = TopoDistanceMatrix.getMatrix(m);
+            } catch (Exception e) {
+                log.warn(e.getMessage());
+                return;
+            }
+
+            int nSK = m.getAtomCount();
+            iBasicWeight curWeight = new WeightsMass();
+            double[] w = curWeight.getScaledWeights(m);
+
+            double wA = 0;
+            for (int i=0; i<nSK; i++)
+                wA += w[i];
+            wA = wA / ((double) nSK);
+
+            int lag = 7;
+            double AC=0, ACS=0;
+
+            for (int i=0; i<nSK; i++) {
+                
+                for (int j=0; j<nSK; j++)
+                    if (TopoMatrix[i][j] == lag) {
+                        AC += w[i] * w[j];
+                        ACS += Math.abs((w[i]-wA) * (w[j]-wA));
+                    }
+            }
+
+
+            // AC transformed in log form
+            AC /= 2.0;
+            AC = Math.log(1 + AC);
+
+            ACS /= 2.0;
+
+            ATSC7m = ACS;
+
+
+        } catch (Exception ex){
+            log.warn(ex.getMessage());
+        }
+    }
+
+    private void CalculateB07(InsilicoMolecule mol) {
+        String[][] ATOM_COUPLES = {{"C", "O"}};
+        IAtomContainer m;
+        try {
+            m = mol.GetStructure();
+        } catch (InvalidMoleculeException e) {
+            return;
+        }
+        int nSK = m.getAtomCount();
+
+        // Gets matrices
+        int[][] TopoMat = null;
+        try {
+            TopoMat = mol.GetMatrixTopologicalDistance();
+        } catch (GenericFailureException e) {
+            log.warn("Invalid structure, unable to calculate: " + mol.GetSMILES());
+        }
+
+        for (int d = 0; d< ATOM_COUPLES.length; d++) {
+
+            int descT = 0;
+            int[] descB = new int[10];
+            int[] descF = new int[10];
+            Arrays.fill(descB, 0);
+            Arrays.fill(descF, 0);
+
+            for (int i = 0; i < nSK; i++) {
+                if (m.getAtom(i).getSymbol().equalsIgnoreCase(ATOM_COUPLES[d][0])) {
+                    for (int j = 0; j < nSK; j++) {
+                        if (i == j) continue;
+                        if (m.getAtom(j).getSymbol().equalsIgnoreCase(ATOM_COUPLES[d][1])) {
+
+                            // T (sum of topo distances)
+                            if (TopoMat[i][j] > 2) // DA VEDERE PERCHE MAGGIORE DI 2
+                                descT += TopoMat[i][j];
+
+                            // B (presence of pair) and F (number of couples)
+                            if (TopoMat[i][j] <= 10) {
+                                descB[TopoMat[i][j] - 1] = 1;
+                                descF[TopoMat[i][j] - 1]++;
+                            }
+
+                        }
+                    }
+                }
+            }
+
+            // Fix: if atoms are the same, resulting value is calculated twice
+            if (ATOM_COUPLES[d][0].compareTo(ATOM_COUPLES[d][1]) == 0) {
+                descT /= 2;
+                for (int i = 0; i < descF.length; i++)
+                    descF[i] /= 2;
+            }
+
+            for (int i = 0; i < descB.length; i++) {
+                if(i==6)
+                    B07_C_O = descB[i];
+            }
+        }
+
+    }
+
+    private void CalculateDDtr(InsilicoMolecule mol) {
+//        D.Dtr06
+        int MaxRingSize = 12;
+        int MinRingSize = 3;
+
+        IAtomContainer m = null;
+        try {
+            m = mol.GetStructure();
+        } catch (InvalidMoleculeException e) {
+            log.warn(e.getMessage());
+        }
+        int nSK = m.getAtomCount();
+
+        // Gets matrices
+        double[][] DDrMatrix = null;
+        try {
+            DDrMatrix = mol.GetMatrixDistanceDetour();
+        } catch (GenericFailureException e) {
+            log.warn(e.getMessage());
+        }
+
+        double[] DDr = new double[MaxRingSize+1];
+
+        try {
+            RingSet MolRings = mol.GetAllRings();
+
+            for (int i=0; i<DDr.length; i++)
+                DDr[i] = 0;
+
+            for (int i=0; i< MolRings.getAtomContainerCount(); i++) {
+                IRing r = (IRing) MolRings.getAtomContainer(i);
+                int rSize = r.getAtomCount();
+
+                if ((rSize >= MinRingSize) && (rSize <= MaxRingSize)) {
+                    for (IAtom at : r.atoms()) {
+                        int atNum = m.getAtomNumber(at);
+                        double rowSum = 0;
+                        for (int k=0; k<DDrMatrix[atNum].length; k++)
+                            rowSum += DDrMatrix[atNum][k];
+                        DDr[rSize]  += rowSum;
+                    }
+                }
+            }
+
+            D_Dtr06 = DDr[6];
+
+        } catch (Exception ex){
+            log.warn(ex.getMessage());
+        }
+        
+    }
+
+    private void CalculateF06(InsilicoMolecule mol) {
+        // F06CO
+
+
+        String[][] ATOM_COUPLES = {{"C", "O"}};
+
+        IAtomContainer m;
+        try {
+            m = mol.GetStructure();
+        } catch (InvalidMoleculeException e) {
+            return;
+        }
+        int nSK = m.getAtomCount();
+
+        // Gets matrices
+        int[][] TopoMat = null;
+        try {
+            TopoMat = mol.GetMatrixTopologicalDistance();
+        } catch (GenericFailureException e) {
+            log.warn("Invalid structure, unable to calculate: " + mol.GetSMILES());
+            return;
+        }
+
+        for (String[] atom_couple : ATOM_COUPLES) {
+
+            int descT = 0;
+            int[] descB = new int[10];
+            int[] descF = new int[10];
+            Arrays.fill(descB, 0);
+            Arrays.fill(descF, 0);
+
+            for (int i = 0; i < nSK; i++) {
+                if (m.getAtom(i).getSymbol().equalsIgnoreCase(atom_couple[0])) {
+                    for (int j = 0; j < nSK; j++) {
+                        if (i == j) continue;
+                        if (m.getAtom(j).getSymbol().equalsIgnoreCase(atom_couple[1])) {
+
+                            // T (sum of topo distances)
+                            if (TopoMat[i][j] > 2) // DA VEDERE PERCHE MAGGIORE DI 2
+                                descT += TopoMat[i][j];
+
+                            // B (presence of pair) and F (number of couples)
+                            if (TopoMat[i][j] <= 10) {
+                                descB[TopoMat[i][j] - 1] = 1;
+                                descF[TopoMat[i][j] - 1]++;
+                            }
+
+                        }
+                    }
+                }
+            }
+
+            // Fix: if atoms are the same, resulting value is calculated twice
+            if (atom_couple[0].compareTo(atom_couple[1]) == 0) {
+                for (int i = 0; i < descF.length; i++)
+                    descF[i] /= 2;
+            }
+
+            for (int i = 0; i < descB.length; i++) {
+                if (i == 5)
+                    F06_C_O = descF[i];
+            }
+        }
 
     }
 
@@ -164,7 +733,6 @@ public class EmbeddedDescriptors {
 
 
         GATS8s = GearyAC;
-        System.out.println();
     }
 
     private void CalculateAutoCorrelation(InsilicoMolecule mol) {
@@ -719,14 +1287,6 @@ public class EmbeddedDescriptors {
     }
 
     private void CalculatePVSA(InsilicoMolecule mol) {
-        DescriptorBlock block = new P_VSA();
-        try {
-            block.Calculate(mol);
-            P_VSA_LogP_4 = block.GetByName("P_VSA_LogP_4").getValue();
-        } catch (DescriptorNotFoundException ex){
-            log.warn(ex.getMessage());
-        }
-
         //p vsa v 3
         IAtomContainer m = null;
         try {
@@ -880,6 +1440,60 @@ public class EmbeddedDescriptors {
 
     }
 
+    public double getRGesDescriptor(InsilicoMolecule mol) throws MalformedURLException {
+        URL url = new URL("file:///" + System.getProperty("user.dir") + "/VegaModels-PPARg_up/src/main/resources/data/dataset.csv");
+        double val = MISSING_VALUE;
+
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())))) {
+
+            br.readLine();
+            String line;
+            while ((line = br.readLine()) != null){
+                String[] lineArray = line.split("\t");
+
+                if(mol.GetSMILES().equals(SmilesMolecule.Convert(lineArray[2].trim()).GetSMILES())) {
+
+                    val = Double.parseDouble(lineArray[16]);
+                }
+
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            log.warn(e.getMessage());
+            val = MISSING_VALUE;
+        }
+        return val;
+
+    }
+
+    public double getP_VSA_LogP_4(InsilicoMolecule mol) throws MalformedURLException {
+        URL url = new URL("file:///" + System.getProperty("user.dir") + "/VegaModels-PPARg_up/src/main/resources/data/dataset.csv");
+        double val = MISSING_VALUE;
+
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())))) {
+
+            br.readLine();
+            String line;
+            while ((line = br.readLine()) != null){
+                String[] lineArray = line.split("\t");
+
+                if(mol.GetSMILES().equals(SmilesMolecule.Convert(lineArray[2].trim()).GetSMILES())) {
+
+                    val = Double.parseDouble(lineArray[18]);
+                }
+
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            log.warn(e.getMessage());
+            val = MISSING_VALUE;
+        }
+        return val;
+
+    }
+
     public void SearchDescriptors(InsilicoMolecule mol) throws MalformedURLException {
         URL url = new URL("file:///" + System.getProperty("user.dir") + "/VegaModels-PPARg_up/src/main/resources/data/dataset.csv");
 
@@ -924,8 +1538,8 @@ public class EmbeddedDescriptors {
             e.printStackTrace();
             log.warn(e.getMessage());
         }
-
     }
+
 
     private int CalculateBin(String curWeight, double value) {
 
@@ -935,6 +1549,18 @@ public class EmbeddedDescriptors {
             if (value < 1.0) return 2;
             if (value < 1.3) return 3;
             return 4;
+        }
+
+        if (curWeight.equalsIgnoreCase("LogP")) {
+            // LOGP
+            if (value < -1.5) return 1;
+            if (value < -0.5) return 2;
+            if (value < -0.25) return 3;
+            if (value < 0) return 4;
+            if (value < 0.25) return 5;
+            if (value < 0.52) return 6;
+            if (value < 0.75) return 7;
+            return 8;
         }
 
 
@@ -1847,7 +2473,184 @@ public class EmbeddedDescriptors {
     }
 
 
+    /**
+     * Sets CATS 2D atom types for each atom, as a list of string containing
+     * all matching types for each atom.
+     **/
+    public ArrayList<String>[] setCatsAtomType(IAtomContainer m, double[][]ConnAugMatrix) {
 
+        int nSK = m.getAtomCount();
+        ArrayList[] AtomTypes = new ArrayList[nSK];
+
+        for (int i=0; i<nSK; i++) {
+
+            AtomTypes[i] = new ArrayList<>();
+            IAtom CurAt =  m.getAtom(i);
+
+            boolean tN=false, tP=false, tA=false, tD=false, tL=false;
+
+            // Definition of CATS types
+            //
+            // A: O, N without H
+            // N: [+], NH2
+            // P: [-], COOH, POOH, SOOH
+
+            // Hydrogens
+            int H = 0;
+            try {
+                H = CurAt.getImplicitHydrogenCount();
+            } catch (Exception e) {
+                log.warn(StringSelectorDescriptors.getString("unable_count_h"));
+            }
+
+            // counters
+            int nSglBnd = 0, nOtherBnd = 0, VD = 0;
+            int nC = 0, nDblO = 0, nOtherNonOBond=0, nSglOH = 0;
+            for (int j=0; j<nSK; j++) {
+                if (j==i) continue;
+                if (ConnAugMatrix[i][j]>0) {
+
+                    VD++;
+
+                    if (ConnAugMatrix[j][j] == 6)
+                        nC++;
+
+                    if (ConnAugMatrix[i][j] == 1) {
+                        nSglBnd++;
+
+                        if (ConnAugMatrix[j][j] == 8) {
+                            int Obonds = 0;
+                            for (int k=0; k<nSK; k++) {
+                                if (k == j) continue;
+                                if (ConnAugMatrix[k][j]>0) Obonds++;
+                            }
+                            if (Obonds == 1) nSglOH++;
+                        }
+
+                    } else {
+                        nOtherBnd++;
+                        if ( (ConnAugMatrix[i][j] == 2) && (ConnAugMatrix[j][j] == 8) )
+                            nDblO++;
+                        else
+                            nOtherNonOBond++;
+                    }
+                }
+
+            }
+
+
+            // [+]
+            if (CurAt.getFormalCharge() > 0) {
+
+                boolean NpOm = false;
+                if (ConnAugMatrix[i][i] == 7) {
+                    for (int j=0; j<nSK; j++) {
+                        if (j==i) continue;
+                        if (ConnAugMatrix[i][j]==1) {
+                            if (ConnAugMatrix[j][j] == 8) {
+                                IAtom Oxy = m.getAtom(j);
+                                if (Oxy.getFormalCharge()!=0)
+                                    NpOm = true;
+                            }
+                        }
+                    }
+                }
+
+                if (!NpOm)
+                    tP = true;
+            }
+
+            // [-]
+            if (CurAt.getFormalCharge() < 0)
+                tN = true;
+
+            // O
+            if (CurAt.getSymbol().equalsIgnoreCase("O")) {
+                tA = true;
+
+                if ( (CurAt.getFormalCharge() == 0) && (H == 1))
+                    tD = true;
+
+            }
+
+            // N (NH2 and N without H)
+            if (CurAt.getSymbol().equalsIgnoreCase("N")) {
+
+                if ( (CurAt.getFormalCharge() == 0) &&
+                        (H == 2) &&
+                        (nSglBnd == 1) &&
+                        (nOtherBnd == 0) )
+                    tP = true;
+
+                if (H == 0)
+                    tA = true;
+
+                if  ( (H == 1) || (H ==2) )
+                    tD = true;
+
+            }
+
+            // COOH, POOH, SOOH
+            if ( ( (CurAt.getSymbol().equalsIgnoreCase("C")) ||
+                    (CurAt.getSymbol().equalsIgnoreCase("S")) ||
+                    (CurAt.getSymbol().equalsIgnoreCase("P")) ) &&
+                    (CurAt.getFormalCharge() == 0) )  {
+
+                if ( (nSglBnd == 2) && (nSglOH == 1) && (nDblO == 1) && (nOtherNonOBond == 0) )
+                    tN = true;
+            }
+
+            if (CurAt.getSymbol().equalsIgnoreCase("Cl"))
+                tL = true;
+
+            if (CurAt.getSymbol().equalsIgnoreCase("Br"))
+                tL = true;
+
+            if (CurAt.getSymbol().equalsIgnoreCase("I"))
+                tL = true;
+
+            if (CurAt.getSymbol().equalsIgnoreCase("C")) {
+                if ( VD == nC)
+                    tL = true;
+            }
+
+            if (CurAt.getSymbol().equalsIgnoreCase("S")) {
+                if ( (nC == 2) && ( (VD+H) == 2 ))
+                    tL = true;
+            }
+
+
+            // Sets final types
+            if (tA) AtomTypes[i].add(TYPE_A[0]);
+            if (tN) AtomTypes[i].add(TYPE_N[0]);
+            if (tP) AtomTypes[i].add(TYPE_P[0]);
+            if (tD) AtomTypes[i].add(TYPE_D[0]);
+            if (tL) AtomTypes[i].add(TYPE_L[0]);
+
+        }
+
+        return AtomTypes;
+    }
+
+    private boolean isIn(ArrayList<String> list, String s) {
+        for (String ss : list)
+            if (ss.equalsIgnoreCase(s))
+                return true;
+        return false;
+    }
+
+    public final static String[] TYPE_D = { "D", StringSelectorDescriptors.getString("cats_2d_donor")} ;
+    public final static String[] TYPE_A = { "A", StringSelectorDescriptors.getString("cats_2s_acceptor")};
+    public final static String[] TYPE_P = { "P", StringSelectorDescriptors.getString("cats_2d_positive")};
+    public final static String[] TYPE_N = { "N", StringSelectorDescriptors.getString("cats_2d_negative")};
+    public final static String[] TYPE_L = { "L", StringSelectorDescriptors.getString("cats_2d_lipophilic")};
+
+    private final static String[][][] AtomCouplesAL = {
+            {TYPE_A, TYPE_L},
+    };
+    private final static String[][][] AtomCouplesLL = {
+            {TYPE_L, TYPE_L},
+    };
     ////// Utilities for this class
 
     private String GetName(IAtomContainer mol, int atom) {

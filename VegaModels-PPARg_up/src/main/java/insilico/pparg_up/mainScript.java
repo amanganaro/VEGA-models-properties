@@ -6,9 +6,12 @@ import insilico.core.exception.GenericFailureException;
 import insilico.core.exception.InitFailureException;
 import insilico.core.model.InsilicoModel;
 import insilico.core.molecule.conversion.SmilesMolecule;
+import insilico.descriptor.blocks.Matrices2D;
+import insilico.descriptor.blocks.P_VSA;
 import insilico.descriptor.blocks.logP.MLogP;
 import insilico.pparg_up.descriptors.EmbeddedDescriptors;
 import insilico.pparg_up.utils.ModelsDeployment;
+import javassist.runtime.Desc;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;
@@ -20,18 +23,22 @@ import java.nio.file.Files;
 public class mainScript {
 
     public static void main(String[] args) throws InitFailureException, GenericFailureException, MalformedURLException, FileNotFoundException, DescriptorNotFoundException {
-//        double normCenter = 8.06624411134904;
-//        double normScale = 8.17291955784308;
+
+//        double mean = 8.1114599824;
+//        double std = 8.4602293961;
 //
 //        EmbeddedDescriptors embeddedDescriptors = new EmbeddedDescriptors(SmilesMolecule.Convert("O=C(Nc1ccc(O)cc1)C"), true);
 //        System.out.println("EMBEDDED: " + embeddedDescriptors.MLOGP2);
 //        DescriptorBlock block = new MLogP();
 //        block.Calculate((SmilesMolecule.Convert("O=C(Nc1ccc(O)cc1)C")));
-//        double mLogp2 = Math.pow(block.GetByName("MLogP").getValue(), 2);
-//        double scaled = (mLogp2 - normScale)/normCenter;
+//        double P_VSA_LogP_4 = Math.pow(block.GetByName("MLogP").getValue(), 2);
+//        double scaled_P_VSA_LogP_4 = (P_VSA_LogP_4 - mean)/std;
 //        System.out.println("SCALED CALCULATED: " + scaled);
 
         InsilicoModel model = new ismPPARGup();
+//        model.Execute(SmilesMolecule.Convert("O=C(NC1CCCCC1)NS(=O)(=O)c2ccc(cc2)C(=O)C"));
+
+
 //        ModelsDeployment.BuildDataset(model, "out_ts");
 //        File sourceFile = new File("out_ts/ts_pxrup.dat");
 //        File destinationFile = new File("VegaModels-PXR_up\\src\\main\\resources\\data\\ts_pxrup.dat");
@@ -44,8 +51,11 @@ public class mainScript {
 
 
 //        new ModelsDeployment().PrintDescriptorBlock(model, new P_VSA());
-//        ModelsDeployment modelsDeployment = new ModelsDeployment().PrintDescriptor(model, "pxrup_descriptors");
-        ModelsDeployment modelsDeployment = new ModelsDeployment().TestModelWithTrainingSet(model, "ppargup_results");
+//        ModelsDeployment modelsDeployment = new ModelsDeployment().PrintDescriptor(model, "ppargup:descriptors");
+        ModelsDeployment modelsDeployment = new ModelsDeployment().TestModelWithTrainingSet(model, "ppargup_results_vegaPvsaLogP");
+//        modelsDeployment = new ModelsDeployment().PrintScaledDescriptor("ppargup:scaled_descriptors");
+
+
 
 //        InsilicoModelOutput out = model.Execute(SmilesMolecule.Convert("O=C(N(C)C)C"));
 //        System.out.println();

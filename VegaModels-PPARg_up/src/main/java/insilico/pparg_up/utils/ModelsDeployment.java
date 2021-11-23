@@ -2,10 +2,12 @@ package insilico.pparg_up.utils;
 
 import insilico.core.descriptor.DescriptorBlock;
 import insilico.core.exception.GenericFailureException;
+import insilico.core.exception.InitFailureException;
 import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
 import insilico.core.molecule.conversion.SmilesMolecule;
 import insilico.pparg_up.descriptors.EmbeddedDescriptors;
+import insilico.pparg_up.ismPPARGup;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.*;
@@ -59,7 +61,7 @@ public class ModelsDeployment {
 
     public ModelsDeployment PrintDescriptor(InsilicoModel model, String filename) throws FileNotFoundException {
         List<String> smilesList = new ArrayList<>();
-        URL url = (getClass().getResource("/data/PXR_up.csv"));
+        URL url = (getClass().getResource("/data/dataset.csv"));
         StringBuilder stringBuilder = new StringBuilder("#" + "\t" + "Smiles (ionized)");
         String line;
         boolean printHeader = true;
@@ -96,6 +98,68 @@ public class ModelsDeployment {
                 EmbeddedDescriptors embeddedDescriptors = new EmbeddedDescriptors(SmilesMolecule.Convert(smiles), false);
                 for(double descriptor : embeddedDescriptors.getDescriptors())
                     stringBuilder.append("\t").append(descriptor);
+                printWriter.println(stringBuilder);
+                printWriter.flush();
+                index++;
+            }
+        } catch (MalformedURLException ex){
+            log.warn(ex.getMessage());
+        }
+
+        printWriter.flush();
+        printWriter.close();
+
+
+
+
+        return this;
+    }
+
+    public ModelsDeployment PrintScaledDescriptor(String filename) throws FileNotFoundException, InitFailureException {
+        double[] mean = {1.4840817942,0.8172471416,96.8266358839,58.059473175,8.1854881266,0.3790677221,0.9164467898,2.3069481091,8.1114599824,2.3518416887,1.1293474055,0.9481220057,1.122240985,0.8046789798,3.9665787159,99.8519718558,2.8144239226,7.0861917326,38.7186455585,1.2339489886,0.6077396658,18.0304582234};
+        double[] stdDeviation = {0.1479268751,0.1830522696,49.7865056017,45.8133260898,6.0690865958,0.7677602622,1.4355467272,2.1316435317,8.4602293961,1.6070677845,0.0175159328,0.9605777424,0.2845494833,0.2010461281,5.8068022574,120.9305976135,3.951493238,8.1418732278,7.0433319726,1.4357635161,0.488469054,24.6975804467};
+
+//        model = new ismPPARGup();
+//        ismPPARGup model = new ismPPARGup();
+        List<String> smilesList = new ArrayList<>();
+        URL url = (getClass().getResource("/data/dataset.csv"));
+        StringBuilder stringBuilder = new StringBuilder("#" + "\t" + "Smiles (ionized)");
+        String line;
+        boolean printHeader = true;
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())))){
+            while ((line = br.readLine()) != null) {
+                if(printHeader){
+                    printHeader = false;
+                    String[] lineArray = line.split("\t");
+                    for(int i = 15; i < lineArray.length; i++) {
+                        stringBuilder.append("\t").append(lineArray[i]);
+                    }
+                } else {
+                    smilesList.add(line.split("\t")[2]);
+                }
+            }
+
+        } catch (Exception ex){
+            log.warn(ex.getMessage());
+        }
+
+        PrintWriter printWriter = new PrintWriter(filename + ".csv");
+        printWriter.print(stringBuilder + "\n");
+        printWriter.flush();
+
+
+        try {
+            int index = 1;
+            for(String smiles : smilesList) {
+                System.out.println("Calculating model scaled descriptors for molecule #" + index + ": " + smiles);
+
+
+                stringBuilder = new StringBuilder(index + "\t" + smiles);
+                EmbeddedDescriptors embeddedDescriptors = new EmbeddedDescriptors(SmilesMolecule.Convert(smiles), false);
+                for(int i = 0; i < embeddedDescriptors.getDescriptors().length; i++) {
+                    double scaledDescriptor = (embeddedDescriptors.getDescriptors()[i] - mean[i])/stdDeviation[i];
+                    stringBuilder.append("\t").append(scaledDescriptor);
+                }
                 printWriter.println(stringBuilder);
                 printWriter.flush();
                 index++;

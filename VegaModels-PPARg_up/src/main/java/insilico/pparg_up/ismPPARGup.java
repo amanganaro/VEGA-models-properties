@@ -20,6 +20,9 @@ public class ismPPARGup extends InsilicoModel {
     private ModelANNFromPMML Model;
     private double ExperimentalValue = 0;
 
+    private static final double[] mean = {1.4872400881,0.8144922907,97.0816365639,59.0704446061,8.2034140969,0.3744493392,0.904185022,2.2676211454,8.1162301762,2.3448491189,1.1294581498,0.9471655026,1.1183964758,0.8032577093,3.9669603524,101.9245792952,2.8039647577,7.1685022026,38.7528634361,1.204845815,0.6057268722,18.3764845815};
+    private static final double[] stdDeviation = {0.1558724554,0.1853956791,51.024656699,44.5739002958,6.1125838911,0.7488964499,1.4003717009,2.1057929397,8.6603366519,1.6189180219,0.0179934268,0.9851942441,0.2856590462,0.2013561017,5.6166598158,126.4102967879,3.8458594305,8.3449090676,6.9572107347,1.4203974312,0.48896333,25.4342756442};
+
     public ismPPARGup() throws InitFailureException {
         super(ModelData);
 
@@ -95,6 +98,7 @@ public class ismPPARGup extends InsilicoModel {
             Descriptors[19] = embeddedDescriptors.C_026;
             Descriptors[20] = embeddedDescriptors.B07_C_O;
             Descriptors[21] = embeddedDescriptors.ATSC7m;
+            System.out.println();
 
         } catch (Throwable e) {
             return DESCRIPTORS_ERROR;
@@ -103,12 +107,21 @@ public class ismPPARGup extends InsilicoModel {
         return DESCRIPTORS_CALCULATED;
     }
 
+
+
     @Override
     protected short CalculateModel() {
         Map<String, Object> argumentsObject = new LinkedHashMap<>();
+        double[] ScaledDescriptors = new double[this.DescriptorsSize];
+
+        for (int i=0; i<DescriptorsSize; i++) {
+//            if(i == 3)
+//                ScaledDescriptors[i] = Descriptors[i];
+            ScaledDescriptors[i] = (Descriptors[i] - mean[i]) / stdDeviation[i];
+        }
         try {
             for (int i=0; i<DescriptorsSize; i++)
-                argumentsObject.put(this.DescriptorsNames[i], Descriptors[i]);
+                argumentsObject.put(this.DescriptorsNames[i], ScaledDescriptors[i]);
         } catch (Exception ex){
             log.warn(ex.getMessage());
         }

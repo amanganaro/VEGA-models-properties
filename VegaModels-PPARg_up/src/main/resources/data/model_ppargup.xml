@@ -8,7 +8,7 @@
     </Version>
     
     <Vega>
-        <TS>/data/ts_ppargup.dat</TS>
+        <TS>/data/ts_pparg_up.dat</TS>
         <HasAlerts>False</HasAlerts>
         <Units>a-dimensional</Units>
         
