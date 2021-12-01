@@ -97,10 +97,10 @@
         <module>VegaModels-LogK</module>
         <module>VegaModels-PXR_up</module>
         <module>VegaModels-PPARg_up</module>
-        <module>VegaModels-PPARAup</module>
+<!--        <module>VegaModels-PPARAup</module>-->
         <module>VegaModels-PPARa_up</module>
         <module>VegaModels-Ahr_up</module>
-        <module>NRF2Up</module>
+<!--        <module>NRF2Up</module>-->
         <module>VegaModels-NRF2Up</module>
     </modules>
 
