@@ -37,6 +37,7 @@ public class mainScriptSkinCosmetics {
                 System.out.println(smiles);
                 System.out.println(model.GetResultsName()[i] + " | " + out.getResults()[i]);
             }
-        }    }
+        }
+    }
 
 }

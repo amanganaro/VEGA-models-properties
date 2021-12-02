@@ -1,0 +1,24 @@
+<xml>
+   
+    <Version>
+        <Name>Carcinogenicity in female Rat (CORAL)</Name>
+        <Key>CARCINOGENICTY_FEMALE</Key>
+        <Summary>Carcinogenicity in female RAT coral model (CORAL)</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+
+    <Vega>
+        <TS>/data/ts_carcinogenicity_female.dat</TS>
+        <HasAlerts>False</HasAlerts>
+
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

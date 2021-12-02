@@ -26,7 +26,6 @@
         </ClassValues>
     </Vega>
 
-
     <Guide></Guide>
 
     <Reference></Reference>
@@ -34,6 +33,5 @@
     <Endpoint></Endpoint>
 
     <Stats></Stats>
-
 
 </xml>

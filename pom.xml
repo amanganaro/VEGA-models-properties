@@ -91,8 +91,6 @@
         <module>VegaModels-CramerToxTree</module>
         <module>VegaModels-PGPNic</module>
         <module>VegaModels-MoaIRFMN</module>
-        <module>VegaModels-CoralNoaelFRAHN</module>
-        <module>VegaModels-CoralLoaelFRAHN</module>
         <module>VegaModels-SQfu</module>
         <module>VegaModels-LogK</module>
         <module>VegaModels-PXR_up</module>
@@ -102,6 +100,10 @@
         <module>VegaModels-Ahr_up</module>
 <!--        <module>NRF2Up</module>-->
         <module>VegaModels-NRF2Up</module>
+        <module>VegaModels-CarcinogenicityRatFemale</module>
+        <module>VegaModels-CarcinogenicityRatMale</module>
+        <module>VegaModels-SkinSensitizationToxTree</module>
+        <module>VegaModels-LD50</module>
     </modules>
 
     <name>VegaModels</name>
