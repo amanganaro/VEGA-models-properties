@@ -408,11 +408,19 @@ public class EmbeddedDescriptors {
             if (nH>0) {
                 HMax = (HMax == MISSING_VALUE) ? es.getHEState()[at] : (Math.max(es.getHEState()[at], HMax));
             }
+
             // S groups
             if (curAt.getSymbol().equalsIgnoreCase("S")) {
 
                 if ((nBnd == 1) && (nSng == 1) && (nH == 1))
                     SsSH += es.getEState()[at];
+            }
+
+            // N groups
+            if (curAt.getSymbol().equalsIgnoreCase("N")) {
+
+                if ((nBnd == 1) && (nTri == 1) )
+                    StN += es.getEState()[at];
             }
 
         }
