@@ -1,9 +1,9 @@
 <xml>
    
     <Version>
-        <Name>LogK model test</Name>
-        <Key>LogK</Key>
-        <Summary>Some random summary</Summary>
+        <Name>Plasma Protein Binding - LogK (IRFMN)</Name>
+        <Key>PPB_LOGK</Key>
+        <Summary>Plasma Protein Binding fraction unbound expressed as LogK quantitative prediction</Summary>
         <Version>1.0.0</Version>
     </Version>
     
