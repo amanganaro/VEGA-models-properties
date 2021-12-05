@@ -4,7 +4,7 @@
         <Name>Skin Sensitization model (CAESAR)</Name>
         <Key>SKIN_CAESAR</Key>
         <Summary>QSAR classification model for Skin sensitization (from CAESAR project)</Summary>
-        <Version>2.1.6</Version>
+        <Version>2.1.7</Version>
     </Version>
 
     <Vega>

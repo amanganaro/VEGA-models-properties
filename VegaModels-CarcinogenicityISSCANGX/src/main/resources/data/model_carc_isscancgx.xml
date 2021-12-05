@@ -4,7 +4,7 @@
         <Name>Carcinogenicity model (IRFMN-ISSCAN-CGX)</Name>
         <Key>CARC_ISSCAN-CGX</Key>
         <Summary>QSAR classification model for Carcinogenicity (IRFMN/ISSCAN-CGX) based on the ISSCAN-CGX dataset</Summary>
-        <Version>1.0.0</Version>
+        <Version>1.0.1</Version>
     </Version>
     
     <Vega>

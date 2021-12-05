@@ -10,9 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-CarcinogenicityISSCANGX</artifactId>
-    <version>0.2.2</version>
+    <version>1.0.1</version>
 
-    <name>Carcinogenicity model (IRFMN-ISSCAN-CGX) - 1.0.0</name>
+    <name>Carcinogenicity model (IRFMN-ISSCAN-CGX)</name>
     <description>
         QSAR classification model for Carcinogenicity (IRFMN/ISSCAN-CGX) based on the ISSCAN-CGX dataset
     </description>

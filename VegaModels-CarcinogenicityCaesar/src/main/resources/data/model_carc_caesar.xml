@@ -4,11 +4,12 @@
         <Name>Carcinogenicity model (CAESAR)</Name>
         <Key>CARC_CAESAR</Key>
         <Summary>QSAR classification model for Carcinogenicity (from CAESAR project)</Summary>
-        <Version>2.1.9</Version>
+        <Version>2.1.10</Version>
     </Version>
     
     <Vega>
         <TS>/data/ts_carc_caesar.dat</TS>
+        <QMRF>/data/CARC_CAESAR_QMRF.pdf</QMRF>
         <HasAlerts>False</HasAlerts>
         <ClassValues>
             <Class>

@@ -3,7 +3,7 @@
         <Name>LogP model (Meylan-Kowwin)</Name>
         <Key>LOGP_MEYLAN</Key>
         <Summary>LogP model based on Meylan work (and implemented in EPI Suite software as KowWin)</Summary>
-        <Version>1.1.4</Version>
+        <Version>1.1.5</Version>
     </Version>
 
     <Vega>

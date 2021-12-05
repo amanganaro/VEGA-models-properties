@@ -10,10 +10,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-FatheadEPA</artifactId>
-    <version>0.2.1</version>
+    <version>1.0.8</version>
 
 
-    <name>Fathead Minnow LC50 96h (EPA) - 1.0.7 </name>
+    <name>Fathead Minnow LC50 96h (EPA)</name>
     <description>
         QSAR model for Fathead Minnow LC50 96h (from EPA T.E.S.T software)
     </description>
