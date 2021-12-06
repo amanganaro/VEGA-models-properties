@@ -2,12 +2,15 @@ package insilico.devtox_pg;
 
 import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
+import insilico.core.molecule.InsilicoMolecule;
 import insilico.core.molecule.conversion.SmilesMolecule;
+import insilico.devtox_pg.library.VirtualCompoundLibrary;
 import lombok.extern.slf4j.Slf4j;
 import utils.ModelsDeployment;
 
 import java.io.File;
 import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +20,11 @@ public class mainScriptDevToxPG {
 
     public static void main(String[] args) throws Exception {
 
+//        VirtualCompoundLibrary.ProcessDirectorySMI(Paths.get("G:\\Drive condivisi\\Tech\\Chemoinformatics\\IRFMN\\In progress\\VEGA - DevTox PG\\PG nuovo\\smiles elaborate e corrette"));
+        InsilicoModel mod = new ismDevToxPG();
+        InsilicoMolecule mol = SmilesMolecule.Convert("CCC=O");
+        System.out.println(mod.Execute(mol).getAssessment());
+        if (1==1) return;
 
         InsilicoModel model = new ismDevToxPG();
         ModelsDeployment.BuildDataset(model, "out_ts");

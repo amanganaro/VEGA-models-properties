@@ -5,6 +5,7 @@ import insilico.core.molecule.conversion.SmilesMolecule;
 import org.openscience.cdk.DefaultChemObjectBuilder;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.fingerprint.Fingerprinter;
+import org.openscience.cdk.interfaces.IAtomContainer;
 import org.openscience.cdk.isomorphism.Pattern;
 import org.openscience.cdk.ringsearch.AllRingsFinder;
 import org.openscience.cdk.smarts.SmartsPattern;
@@ -21,7 +22,7 @@ public class VirtualCompound implements Serializable {
     private String SMILES;
     private String SMARTS;
     private int nAtoms;
-    private Pattern Query;
+//    private SmartsPattern Query;
     private BitSet FP;
     
     
@@ -36,30 +37,36 @@ public class VirtualCompound implements Serializable {
             throw new CDKException("Unable to get structure - " + ex.getMessage());
         }
 
+        // TODO: controllare se ok, tolto codice precedente in cui si modificavano a mano le SMILES
+        //  in modo da avere SMARTS corrette, ora forse non necessario con CDK nuovo
+
+        this.SMARTS = this.SMILES;
+
         // pass structure through custom smiles/smarts writer
         // so to avoid matching on atoms which don't belong to
         // any ring, this is set as the SMARTS for the compound
-        try {
-            CustomSmilesWriterWithRings sg = new CustomSmilesWriterWithRings();
-            sg.setUseAromaticityFlag(true);
-            this.SMARTS = sg.createSMILES(curMol.GetStructure());
-        } catch (Throwable ex) {
-            throw new CDKException("Unable to build smarts - " + ex.getMessage());
-        }
+//        try {
+//            CustomSmilesWriterWithRings sg = new CustomSmilesWriterWithRings();
+//            sg.setUseAromaticityFlag(true);
+//            this.SMARTS = sg.createSMILES(curMol.GetStructure());
+//        } catch (Throwable ex) {
+//            throw new CDKException("Unable to build smarts - " + ex.getMessage());
+//        }
 
-        if (KeepQuery) {
-            try {
-                this.Query = SmartsPattern.create(this.SMARTS, DefaultChemObjectBuilder.getInstance()).setPrepare(false);
-            } catch (Throwable ex) {
-                throw new CDKException("Unable to parse as SMARTS the string: " + MolSMILES);
-            }
-        } else
-            this.Query = null;
-        
+//        if (KeepQuery) {
+//            try {
+//                this.Query = SmartsPattern.create(this.SMARTS, DefaultChemObjectBuilder.getInstance()).setPrepare(false);
+//            } catch (Throwable ex) {
+//                throw new CDKException("Unable to parse as SMARTS the string: " + MolSMILES);
+//            }
+//        } else {
+//            this.Query = null;
+//        }
+
         // Calculate FP for the query
         try {
             AllRingsFinder ARF = new AllRingsFinder();
-            ARF.setTimeout(10000);
+//            ARF.setTimeout(10000);
             Fingerprinter fp = new Fingerprinter();
             FP = fp.getFingerprint(curMol.GetStructure());
         } catch (Throwable ex) {
@@ -93,7 +100,13 @@ public class VirtualCompound implements Serializable {
      * @return the Query
      */
     public Pattern getQuery() {
-        return Query;
+        try {
+            return SmartsPattern.create(this.SMARTS, DefaultChemObjectBuilder.getInstance()).setPrepare(false);
+        } catch (Throwable ex) {
+            return null;
+        }
+
+//        return Query;
     }
 
     /**

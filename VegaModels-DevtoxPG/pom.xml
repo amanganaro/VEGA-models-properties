@@ -10,10 +10,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-DevtoxPG</artifactId>
-    <version>0.2.1</version>
+    <version>1.1.1</version>
 
 
-    <name>Developmental/Reproductive Toxicity library (PG) - 1.1.0</name>
+    <name>Developmental/Reproductive Toxicity library (PG)</name>
     <description>
         Virtual compound library for Developmental/Reproductive (developed by Procter And Gamble)
     </description>

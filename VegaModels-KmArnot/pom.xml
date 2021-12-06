@@ -10,9 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-KmArnot</artifactId>
-    <version>0.2.2</version>
+    <version>1.0.1</version>
 
-    <name>kM-Half-Life model (Arnot-EpiSuite)</name>
+    <name>kM/Half-Life model (Arnot-EpiSuite)</name>
     <description>
         kM/Half-Life (days) model based on Arnot work (and implemented in EPI Suite software in the BCFBAF module).
     </description>
