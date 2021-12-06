@@ -21,10 +21,10 @@ public class mainScriptDevToxPG {
     public static void main(String[] args) throws Exception {
 
 //        VirtualCompoundLibrary.ProcessDirectorySMI(Paths.get("G:\\Drive condivisi\\Tech\\Chemoinformatics\\IRFMN\\In progress\\VEGA - DevTox PG\\PG nuovo\\smiles elaborate e corrette"));
-        InsilicoModel mod = new ismDevToxPG();
-        InsilicoMolecule mol = SmilesMolecule.Convert("CCC=O");
-        System.out.println(mod.Execute(mol).getAssessment());
-        if (1==1) return;
+//        InsilicoModel mod = new ismDevToxPG();
+//        InsilicoMolecule mol = SmilesMolecule.Convert("CCC=O");
+//        System.out.println(mod.Execute(mol).getAssessment());
+//        if (1==1) return;
 
         InsilicoModel model = new ismDevToxPG();
         ModelsDeployment.BuildDataset(model, "out_ts");

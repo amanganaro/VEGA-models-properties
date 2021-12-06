@@ -562,23 +562,23 @@ public class ismMicronucleusInVivo extends InsilicoModel {
         }
     }
     
-    @Override
-    public void ProcessTrainingSet() throws Exception {
-        this.setSkipADandTSLoading(false);
-        
-        // When building TS, KNN prediction is run skipping exp (LOO)
-        // so to have unbiased predictions
-        System.out.println("Skipping exp values in KNN model");
-        this.KnnSkipExperimental = true;
-        
-        TrainingSet TS = new TrainingSet();
-        String TSPath = this.getInfo().getTrainingSetURL();
-        String[] buf = TSPath.split("/");
-        String DatName = buf[buf.length-1];
-        TSPath = TSPath.substring(0, TSPath.length()-3) + "txt";
-        TS.Build(TSPath, this);
-        TS.SerializeToFile(DatName);        
-    }
+//    @Override
+//    public void ProcessTrainingSet() throws Exception {
+//        this.setSkipADandTSLoading(false);
+//
+//        // When building TS, KNN prediction is run skipping exp (LOO)
+//        // so to have unbiased predictions
+//        System.out.println("Skipping exp values in KNN model");
+//        this.KnnSkipExperimental = true;
+//
+//        TrainingSet TS = new TrainingSet();
+//        String TSPath = this.getInfo().getTrainingSetURL();
+//        String[] buf = TSPath.split("/");
+//        String DatName = buf[buf.length-1];
+//        TSPath = TSPath.substring(0, TSPath.length()-3) + "txt";
+//        TS.Build(TSPath, this);
+//        TS.SerializeToFile(DatName);
+//    }
 
 
     

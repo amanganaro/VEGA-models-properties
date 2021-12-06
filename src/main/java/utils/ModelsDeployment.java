@@ -108,34 +108,56 @@ public class ModelsDeployment {
     }
 
 
-    public ModelsDeployment TestModelWithTrainingSet(InsilicoModel model) throws MalformedURLException, FileNotFoundException, GenericFailureException {
+    public static void TestModelWithTrainingSet(InsilicoModel model, String csvFilename) throws MalformedURLException, FileNotFoundException, GenericFailureException {
         List<String> smilesList = new ArrayList<>();
-        List<String> knimePredictionList = new ArrayList<>();
-        URL url = (getClass().getResource("/data/SQfu.csv"));
+
+        String datasetUrl = model.getInfo().getTrainingSetURL().split("\\.")[0] + ".txt";
+        URL url = ModelsDeployment.class.getResource(datasetUrl);
         String line;
         try (BufferedReader br = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())))){
             br.readLine();
             while ((line = br.readLine()) != null){
-                smilesList.add(line.split("\t")[1]);
-                knimePredictionList.add(line.split("\t")[4]);
+                smilesList.add(line.split("\t")[2]);
+//                knimePredictionList.add(line.split("\t")[4]);
             }
 
         } catch (Exception ex){ }
-        PrintWriter printWriter = new PrintWriter("results.csv");
-        StringBuilder stringBuilder = new StringBuilder("Smiles" + "\t" + "Knime Prediction " + "\t" + "Prediction" + "\n");
+        PrintWriter printWriter = new PrintWriter(csvFilename +  ".csv");
+        StringBuilder stringBuilder = new StringBuilder("Smiles"  + "\t");
+
+        for(String resultName : model.GetResultsName())
+            stringBuilder.append(resultName).append("\t");
+
+        stringBuilder.append("\n");
+        printWriter.print(stringBuilder);
+        printWriter.flush();
 //        printWriter.println(stringBuilder);
         int index = 0;
         for(String smiles: smilesList){
             log.info((index+1) + ": " + smiles + " ...");
             InsilicoModelOutput out = model.Execute(SmilesMolecule.Convert(smiles));
-            stringBuilder.append(smiles).append("\t").append(knimePredictionList.get(index)).append("\t").append(out.getMainResultValue()).append("\n");
+            if(index == 348)
+                System.out.println();
+            stringBuilder = new StringBuilder(smiles).append("\t");
+            if(out.getStatus() > -1){
+                for(String results : out.getResults())
+                    stringBuilder.append(results).append("\t");
+            }
+            else stringBuilder.append(out.getErrMessage());
+
+
+
+            stringBuilder.append("\n");
+
+            printWriter.print(stringBuilder);
+            printWriter.flush();
             index++;
         }
-        printWriter.print(stringBuilder);
-        printWriter.close();
-        printWriter.flush();
 
-        return this;
+
+        printWriter.print(stringBuilder);
+        printWriter.flush();
+        printWriter.close();
     }
 
 
