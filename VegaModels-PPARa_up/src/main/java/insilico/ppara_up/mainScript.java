@@ -15,7 +15,7 @@ public class mainScript {
 //        ModelsDeployment.BuildDataset(model, "out_ts");
 
 //        ModelsDeployment modelsDeployment = new ModelsDeployment().PrintDescriptor(model, "descriptors");
-        ModelsDeployment modelsDeployment = new ModelsDeployment().TestModelWithTrainingSet(model, "results_descriptors_embedded");
+        ModelsDeployment modelsDeployment = new ModelsDeployment().TestModelWithTrainingSet(model, "results_ppara_descriptors_embedded");
     }
 
 }

@@ -5,6 +5,7 @@ import insilico.core.exception.InitFailureException;
 import insilico.core.model.InsilicoModel;
 import insilico.core.pmml.ModelANNFromPMML;
 import insilico.pxr_up.descriptors.EmbeddedDescriptors;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.dmg.pmml.FieldName;
 import org.jpmml.evaluator.mining.MiningModelEvaluator;
@@ -93,6 +94,7 @@ public class ismPxrUp extends InsilicoModel {
         return DESCRIPTORS_CALCULATED;
     }
 
+    @SneakyThrows
     @Override
     protected short CalculateModel() {
 
@@ -127,17 +129,12 @@ public class ismPxrUp extends InsilicoModel {
         CurOutput.setMainResultValue(Prediction);
 
         String[] Res = new String[ResultsSize];
-        Res[0] = String.valueOf(Prediction);
+        Res[0] = this.GetTrainingSet().getClassLabel(CurOutput.getMainResultValue());
         Res[1] = String.valueOf(Probability0);
         Res[2] = String.valueOf(Probability1);
         Res[3] = String.valueOf(ExperimentalValue);
-//        double ConvertedValue = Math.pow( (Prediction * 0.03 + 1), (1.0 / 0.03) ) * MW;
-//        if (ConvertedValue>1)
-//            Res[1] = Format_2D.format(ConvertedValue); // mg/L
-//        else
-//            Res[1] = Format_4D.format(ConvertedValue); // mg/L
-//        Res[2] = Format_2D.format(MW); // MW
-//        Res[3] = "-";
+
+
         CurOutput.setResults(Res);
 
         return MODEL_CALCULATED;

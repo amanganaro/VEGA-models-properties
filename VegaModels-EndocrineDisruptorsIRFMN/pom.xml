@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>VegaModels</artifactId>
+        <groupId>InSilico</groupId>
+        <version>0.1</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>VegaModels-EndocrineDisruptorsIRFMN</artifactId>
+
+    <properties>
+        <maven.compiler.source>15</maven.compiler.source>
+        <maven.compiler.target>15</maven.compiler.target>
+    </properties>
+
+    <name>EndocrineDisruptorsIRFMN</name>
+    <description>
+        Some description for EndocrineDisruptorsIRFMN
+    </description>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>InSilico</groupId>
+            <artifactId>VegaModels</artifactId>
+            <version>0.1</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>11</source>
+                    <target>11</target>
+                </configuration>
+            </plugin>
+
+            <!--            <plugin>-->
+            <!--                <groupId>org.codehaus.mojo</groupId>-->
+            <!--                <artifactId>exec-maven-plugin</artifactId>-->
+            <!--                <version>3.0.0</version>-->
+            <!--                <executions>-->
+            <!--                    <execution>-->
+            <!--                        <phase>-->
+            <!--                            prepare-package-->
+            <!--                        </phase>-->
+            <!--                        <goals>-->
+            <!--                            <goal>java</goal>-->
+            <!--                        </goals>-->
+            <!--                    </execution>-->
+            <!--                </executions>-->
+            <!--                <configuration>-->
+            <!--                    <mainClass>mainScriptAlgaeCombase</mainClass>-->
+            <!--                </configuration>-->
+            <!--            </plugin>-->
+        </plugins>
+    </build>
+
+
+</project>

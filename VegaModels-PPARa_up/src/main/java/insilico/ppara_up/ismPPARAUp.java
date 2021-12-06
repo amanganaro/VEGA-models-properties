@@ -5,6 +5,7 @@ import insilico.core.exception.InitFailureException;
 import insilico.core.model.InsilicoModel;
 import insilico.core.pmml.ModelANNFromPMML;
 import insilico.ppara_up.descriptors.EmbeddedDescriptors;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.dmg.pmml.FieldName;
 
@@ -67,6 +68,7 @@ public class ismPPARAUp extends InsilicoModel {
         return DESCRIPTORS_CALCULATED;
     }
 
+    @SneakyThrows
     @Override
     protected short CalculateModel() {
         Map<String, Object> argumentsObject = new LinkedHashMap<>();
@@ -100,7 +102,8 @@ public class ismPPARAUp extends InsilicoModel {
         CurOutput.setMainResultValue(Prediction);
 
         String[] Res = new String[ResultsSize];
-        Res[0] = String.valueOf(Prediction);
+//        Res[0] = String.valueOf(Prediction);
+        Res[0] = this.GetTrainingSet().getClassLabel(CurOutput.getMainResultValue());
         Res[1] = String.valueOf(prediction_0);
         Res[2] = String.valueOf(prediction_1);
 

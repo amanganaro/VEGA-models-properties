@@ -104,6 +104,8 @@
         <module>VegaModels-CarcinogenicityRatMale</module>
         <module>VegaModels-SkinSensitizationToxTree</module>
         <module>VegaModels-LD50</module>
+        <module>VegaModels-AromataseActivity</module>
+        <module>VegaModels-EndocrineDisruptorsIRFMN</module>
     </modules>
 
     <name>VegaModels</name>

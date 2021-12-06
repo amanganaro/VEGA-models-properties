@@ -1,0 +1,25 @@
+<xml>
+   
+    <Version>
+        <Name>Aromatase Activity</Name>
+        <Key>AROMATASE_ACTIVITY</Key>
+        <Summary>summary</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_aromatase_activity.dat</TS>
+        <HasAlerts>False</HasAlerts>
+        <Units>a-dimensional</Units>
+        
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

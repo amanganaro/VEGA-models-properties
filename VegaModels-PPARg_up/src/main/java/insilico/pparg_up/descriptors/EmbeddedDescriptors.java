@@ -20,8 +20,8 @@ import insilico.core.molecule.matrix.TopoDistanceMatrix;
 import insilico.core.molecule.tools.InsilicoMoleculeNormalization;
 import insilico.core.molecule.tools.Manipulator;
 import insilico.core.tools.utils.MoleculeUtilities;
+
 import insilico.descriptor.blocks.Cats2D;
-import insilico.descriptor.blocks.P_VSA;
 import insilico.descriptor.localization.StringSelectorDescriptors;
 import lombok.extern.slf4j.Slf4j;
 import org.openscience.cdk.CDKConstants;
@@ -469,7 +469,7 @@ public class EmbeddedDescriptors {
             double AC=0, ACS=0;
 
             for (int i=0; i<nSK; i++) {
-                
+
                 for (int j=0; j<nSK; j++)
                     if (TopoMatrix[i][j] == lag) {
                         AC += w[i] * w[j];
@@ -603,7 +603,7 @@ public class EmbeddedDescriptors {
         } catch (Exception ex){
             log.warn(ex.getMessage());
         }
-        
+
     }
 
     private void CalculateF06(InsilicoMolecule mol) {

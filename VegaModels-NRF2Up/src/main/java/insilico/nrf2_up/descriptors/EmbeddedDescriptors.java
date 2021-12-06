@@ -323,7 +323,6 @@ public class EmbeddedDescriptors {
         }
 
         P_VSA_ppp_L = PVSA;
-        System.out.println();
 
         curAtomType = "cyc";
         PVSA = 0;

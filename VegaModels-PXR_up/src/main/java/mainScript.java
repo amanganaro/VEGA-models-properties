@@ -31,8 +31,8 @@ public class mainScript {
 
 
 //        new ModelsDeployment().PrintDescriptorBlock(model, new P_VSA());
-        ModelsDeployment modelsDeployment = new ModelsDeployment().PrintDescriptor(model, "pxrup_descriptors");
-        modelsDeployment = new ModelsDeployment().TestModelWithTrainingSet(model, "pxrup_results");
+//        ModelsDeployment modelsDeployment = new ModelsDeployment().PrintDescriptor(model, "pxrup_descriptors");
+        ModelsDeployment modelsDeployment = new ModelsDeployment().TestModelWithTrainingSet(model, "pxrup_results");
 
 //        InsilicoModelOutput out = model.Execute(SmilesMolecule.Convert("O=C(N(C)C)C"));
 //        System.out.println();

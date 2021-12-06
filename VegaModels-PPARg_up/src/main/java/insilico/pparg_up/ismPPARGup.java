@@ -5,6 +5,7 @@ import insilico.core.exception.InitFailureException;
 import insilico.core.model.InsilicoModel;
 import insilico.core.pmml.ModelANNFromPMML;
 import insilico.pparg_up.descriptors.EmbeddedDescriptors;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.dmg.pmml.FieldName;
 
@@ -109,6 +110,7 @@ public class ismPPARGup extends InsilicoModel {
 
 
 
+    @SneakyThrows
     @Override
     protected short CalculateModel() {
         Map<String, Object> argumentsObject = new LinkedHashMap<>();
@@ -145,7 +147,7 @@ public class ismPPARGup extends InsilicoModel {
         CurOutput.setMainResultValue(Prediction);
 
         String[] Res = new String[ResultsSize];
-        Res[0] = String.valueOf(Prediction);
+        Res[0] = this.GetTrainingSet().getClassLabel(CurOutput.getMainResultValue());
         Res[1] = String.valueOf(Probability0);
         Res[2] = String.valueOf(Probability1);
         Res[3] = String.valueOf(ExperimentalValue);

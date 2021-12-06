@@ -11,7 +11,16 @@
         <TS>/data/ts_ppara_up.dat</TS>
         <HasAlerts>False</HasAlerts>
         <Units>a-dimensional</Units>
-        
+        <ClassValues>
+            <Class>
+                <Value>0</Value>
+                <Label>Inactive</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Active</Label>
+            </Class>
+        </ClassValues>
     </Vega>
 
     <Guide></Guide>
