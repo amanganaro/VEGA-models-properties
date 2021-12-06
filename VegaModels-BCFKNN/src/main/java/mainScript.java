@@ -17,6 +17,9 @@ public class mainScript {
 
 
         InsilicoModel model = new ismBCFKnn();
+        model.SetKnnSkipExperimental(true);
+
+
         ModelsDeployment.BuildDataset(model, "out_ts");
         File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
         File destinationFile = new File("VegaModels-BCFKNN\\src\\main\\resources\\data\\ts_bcf_knn.dat");
