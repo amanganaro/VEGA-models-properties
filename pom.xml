@@ -92,7 +92,7 @@
         <module>VegaModels-PGPNic</module>
         <module>VegaModels-MoaIRFMN</module>
         <module>VegaModels-SQfu</module>
-        <module>VegaModels-LogK</module>
+        <module>VegaModels-PPBLogK</module>
         <module>VegaModels-PXR_up</module>
         <module>VegaModels-PPARg_up</module>
 <!--        <module>VegaModels-PPARAup</module>-->

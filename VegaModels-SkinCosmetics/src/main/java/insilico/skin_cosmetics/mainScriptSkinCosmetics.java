@@ -19,7 +19,7 @@ public class mainScriptSkinCosmetics {
         InsilicoModel model = new ismSkinCosmetics();
         model.SetKnnSkipExperimental(true);
 
-        ModelsDeployment.TestModelWithTrainingSet(model, "SkinCosmetics - New");
+//        ModelsDeployment.TestModelWithTrainingSet(model, "SkinCosmetics - New");
 //        ModelsDeployment.BuildDataset(model, "out_ts");
 //        File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
 //        File destinationFile = new File("VegaModels-SkinCosmetics\\src\\main\\resources\\data\\ts_skin_cosmetics.dat");

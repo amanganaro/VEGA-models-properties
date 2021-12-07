@@ -54,7 +54,7 @@
             <!--                    </execution>-->
             <!--                </executions>-->
             <!--                <configuration>-->
-            <!--                    <mainClass>mainScript</mainClass>-->
+            <!--                    <mainClass>mainScriptEndocrineDisruptors</mainClass>-->
             <!--                </configuration>-->
             <!--            </plugin>-->
 
