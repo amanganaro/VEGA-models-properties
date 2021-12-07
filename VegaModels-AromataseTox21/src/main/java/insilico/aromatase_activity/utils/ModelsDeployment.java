@@ -1,4 +1,4 @@
-package utils;
+package insilico.aromatase_activity.utils;
 
 import insilico.core.descriptor.DescriptorBlock;
 import insilico.core.exception.GenericFailureException;
@@ -6,7 +6,6 @@ import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
 import insilico.core.molecule.conversion.SmilesMolecule;
 import lombok.extern.slf4j.Slf4j;
-//import ModelsList;
 
 import java.io.*;
 import java.net.MalformedURLException;

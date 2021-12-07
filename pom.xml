@@ -100,11 +100,11 @@
         <module>VegaModels-Ahr_up</module>
 <!--        <module>NRF2Up</module>-->
         <module>VegaModels-NRF2Up</module>
+        <module>VegaModels-AromataseTox21</module>
         <module>VegaModels-CarcinogenicityRatFemale</module>
         <module>VegaModels-CarcinogenicityRatMale</module>
         <module>VegaModels-SkinSensitizationToxTree</module>
         <module>VegaModels-LD50</module>
-        <module>VegaModels-AromataseActivity</module>
         <module>VegaModels-EndocrineDisruptorsIRFMN</module>
         <module>VegaModels-PPBCoral</module>
     </modules>

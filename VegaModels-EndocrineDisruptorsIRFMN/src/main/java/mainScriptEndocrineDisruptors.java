@@ -13,7 +13,7 @@ import java.util.List;
 public class mainScriptEndocrineDisruptors {
     public static void main(String[] args) throws Exception {
         ismEndocrineDisruptorsIRFMN model = new ismEndocrineDisruptorsIRFMN();
-        model.setSkipADandTSLoading(true);
+//        model.setSkipADandTSLoading(fa  );
 
         ModelsDeployment.BuildDataset(model, "out_ts");
         File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);

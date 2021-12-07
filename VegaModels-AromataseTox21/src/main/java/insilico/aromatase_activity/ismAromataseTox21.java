@@ -12,7 +12,7 @@ import insilico.core.tools.utils.ModelUtilities;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class ismAromataseActivity extends InsilicoModel {
+public class ismAromataseTox21 extends InsilicoModel {
 
     private static final long serialVersionUID = 1L;
 
@@ -20,7 +20,7 @@ public class ismAromataseActivity extends InsilicoModel {
 
     private AromataseActivitySMARTS SAs;
 
-    public ismAromataseActivity() throws InitFailureException {
+    public ismAromataseTox21() throws InitFailureException {
         super(ModelData);
 
         try {
