@@ -106,6 +106,7 @@
         <module>VegaModels-LD50</module>
         <module>VegaModels-AromataseActivity</module>
         <module>VegaModels-EndocrineDisruptorsIRFMN</module>
+        <module>VegaModels-PPBCoral</module>
     </modules>
 
     <name>VegaModels</name>

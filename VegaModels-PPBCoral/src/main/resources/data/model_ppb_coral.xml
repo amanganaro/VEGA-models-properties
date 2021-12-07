@@ -1,0 +1,25 @@
+<xml>
+   
+    <Version>
+        <Name>Plasma Protein Binding - Coral (CORAL)</Name>
+        <Key>PPB_CORAL</Key>
+        <Summary>Plasma Protein Binding fraction unbound calculated with CORAL model</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_ppb_coral.dat</TS>
+        <HasAlerts>False</HasAlerts>
+        <Units>a-dimensional</Units>
+        
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>
