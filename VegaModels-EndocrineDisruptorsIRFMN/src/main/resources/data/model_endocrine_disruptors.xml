@@ -1,17 +1,25 @@
 <xml>
    
     <Version>
-        <Name>Aromatase Activity</Name>
-        <Key>AROMATASE_ACTIVITY</Key>
-        <Summary>summary</Summary>
+        <Name>Endocrine Disruptor activity screening (IRFMN)</Name>
+        <Key>ED_SCREEN</Key>
+        <Summary>Screening for ED activity based on EC lists and categories (IRFMN)</Summary>
         <Version>1.0.0</Version>
     </Version>
     
     <Vega>
-        <TS>/data/ts_aromatase_activity.dat</TS>
+        <TS>/data/ts_endocrine_disruptors.dat</TS>
         <HasAlerts>False</HasAlerts>
-        <Units>a-dimensional</Units>
-        
+        <ClassValues>
+            <Class>
+                <Value>0</Value>
+                <Label>Inactive</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Active</Label>
+            </Class>
+        </ClassValues>
     </Vega>
 
     <Guide></Guide>
