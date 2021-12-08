@@ -10,6 +10,7 @@
     <Vega>
         <TS>/data/ts_carcinogenicity_female.dat</TS>
         <HasAlerts>False</HasAlerts>
+        <units>-log(mg/kg bw/day)</units>
 
     </Vega>
 

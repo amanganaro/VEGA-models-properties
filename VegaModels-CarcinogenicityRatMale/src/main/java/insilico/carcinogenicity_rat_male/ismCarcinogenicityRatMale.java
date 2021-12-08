@@ -40,9 +40,11 @@ public class ismCarcinogenicityRatMale extends InsilicoModel {
         this.DescriptorsNames = new String[DescriptorsSize];
 
         // Defines results
-        this.ResultsSize = 1;
+        this.ResultsSize = 3;
         this.ResultsName = new String[ResultsSize];
-        this.ResultsName[0] = "Carcinogenicity in male rat";
+        this.ResultsName[0] = "Predicted TD50 [-log(mg/kg bw/day)]";
+        this.ResultsName[1] = "Predicted TD50 [mg/kg bw/day]";
+        this.ResultsName[2] = "Experimental TD50 [mg/kg bw/day]";
 
         // Define AD items
         this.ADItemsName = new String[4];
@@ -83,10 +85,14 @@ public class ismCarcinogenicityRatMale extends InsilicoModel {
 
         CurOutput.setMainResultValue(Prediction);
 
-        this.ResultsSize = 1;
         String[] Res = new String[ResultsSize];
         Res[0] = Format_4D.format(Prediction);
-
+        double ConvertedValue = Math.pow(10, (-1 * Prediction));
+        if (ConvertedValue>1)
+            Res[1] = Format_2D.format(ConvertedValue); // in mg/kg bw/day
+        else
+            Res[1] = Format_4D.format(ConvertedValue); // in mg/kg bw/day
+        Res[2] = "-";
 
         CurOutput.setResults(Res);
 
@@ -133,14 +139,14 @@ public class ismCarcinogenicityRatMale extends InsilicoModel {
                 CurOutput.getADIndex(ADIndexMaxError.class));
         CurOutput.setADI(ADI);
 
-        // Add transformed (mg/L) experimental if needed
-//        if (CurOutput.HasExperimental()) {
-//            double ConvertedValue = Math.pow(10, CurOutput.getExperimental());
-//            if (ConvertedValue>1)
-//                CurOutput.getResults()[2] = Format_2D.format(ConvertedValue); // 1/(mg/kg-day)
-//            else
-//                CurOutput.getResults()[2] = Format_4D.format(ConvertedValue); // 1/(mg/kg-day)
-//        }
+        // Add transformed (mg/kg bw/day) experimental if needed
+        if (CurOutput.HasExperimental()) {
+            double ConvertedValue = Math.pow(10, -1 * CurOutput.getExperimental());
+            if (ConvertedValue>1)
+                CurOutput.getResults()[2] = Format_2D.format(ConvertedValue); // mg/kg bw/day
+            else
+                CurOutput.getResults()[2] = Format_4D.format(ConvertedValue); // mg/kg bw/day
+        }
 
         return InsilicoModel.AD_CALCULATED;
     }
