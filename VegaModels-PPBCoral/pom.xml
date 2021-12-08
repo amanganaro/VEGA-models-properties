@@ -10,14 +10,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-PPBCoral</artifactId>
+    <version>1.0.0</version>
 
     <properties>
         <maven.compiler.source>15</maven.compiler.source>
         <maven.compiler.target>15</maven.compiler.target>
     </properties>
 
-    <name>Plasma Protein Binding - Coral (CORAL)</name>
-    <description>Plasma Protein Binding fraction unbound expressed calculated with CORAL model</description>
+    <name>Plasma Protein Binding - sqFU (CORAL)</name>
+    <description>Plasma Protein Binding fraction unbound expressed as sqFU calculated with CORAL model</description>
 
     <dependencies>
 

@@ -1,9 +1,9 @@
 <xml>
    
     <Version>
-        <Name>Plasma Protein Binding - Coral (CORAL)</Name>
+        <Name>Plasma Protein Binding - sqFU (CORAL)</Name>
         <Key>PPB_CORAL</Key>
-        <Summary>Plasma Protein Binding fraction unbound calculated with CORAL model</Summary>
+        <Summary>Plasma Protein Binding fraction unbound expressed as sqFU calculated with CORAL model</Summary>
         <Version>1.0.0</Version>
     </Version>
     

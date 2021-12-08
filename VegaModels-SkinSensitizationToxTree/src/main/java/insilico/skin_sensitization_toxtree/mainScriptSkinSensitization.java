@@ -3,20 +3,16 @@ package insilico.skin_sensitization_toxtree;
 import insilico.core.exception.GenericFailureException;
 import insilico.core.exception.InitFailureException;
 import insilico.core.model.InsilicoModel;
-import insilico.core.model.InsilicoModelOutput;
-import insilico.core.molecule.conversion.SmilesMolecule;
 import insilico.skin_sensitization_toxtree.utils.ModelsDeployment;
 
 import java.io.FileNotFoundException;
 import java.net.MalformedURLException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class mainScriptSkinSensitization {
 
     public static void main(String[] args) throws InitFailureException, GenericFailureException, MalformedURLException, FileNotFoundException {
 
-        InsilicoModel model = new ismSkinSensitization();
+        InsilicoModel model = new ismSkinSensitizationToxTree();
 
 //        ModelsDeployment.BuildDataset(model, "out_ts");
 

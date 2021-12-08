@@ -10,7 +10,6 @@
     <Vega>
         <TS>/data/ts_pxrup.dat</TS>
         <HasAlerts>False</HasAlerts>
-        <Units>a-dimensional</Units>
         <ClassValues>
             <Class>
                 <Value>0</Value>

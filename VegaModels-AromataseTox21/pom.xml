@@ -10,10 +10,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-AromataseTox21</artifactId>
+    <version>1.0.0</version>
 
-    <name>AromataseTox21</name>
+    <name>Aromatase activity model (TOX21)</name>
     <description>
-        Some description for aromatase activity
+        Qualitative model for aromatase, developed by IRFMN.
     </description>
 
     <properties>

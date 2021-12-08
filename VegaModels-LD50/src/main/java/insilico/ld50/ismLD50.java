@@ -177,47 +177,56 @@ public class ismLD50 extends InsilicoModel {
         // Can't use default utilities because a different experimental has
         // to be set (mg/kg) if available
 
-        String ADItemWarnings =
-                ModelUtilities.BuildADItemsWarningMsg(CurOutput.getADIndex());
+        if (CurOutput.getMainResultValue() == Descriptor.MISSING_VALUE) {
 
-        String Result = CurOutput.getResults()[1] + " mg/kg";
+            CurOutput.setAssessment("N/A");
+            CurOutput.setAssessmentVerbose(String.format(MessagesAD.ASSESS_LONG_NA, "N/A"));
+            CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_GRAY);
 
-        switch (CurOutput.getADI().GetAssessmentClass()) {
-            case ADIndex.INDEX_LOW:
-                CurOutput.setAssessment(String.format(MessagesAD.ASSESS_SHORT_LOW, Result));
-                CurOutput.setAssessmentVerbose(String.format(MessagesAD.ASSESS_LONG_LOW, Result, ADItemWarnings));
-                break;
-            case ADIndex.INDEX_MEDIUM:
-                CurOutput.setAssessment(String.format(MessagesAD.ASSESS_SHORT_MEDIUM, Result));
-                CurOutput.setAssessmentVerbose(String.format(MessagesAD.ASSESS_LONG_MEDIUM, Result, ADItemWarnings));
-                break;
-            case ADIndex.INDEX_HIGH:
-                CurOutput.setAssessment(String.format(MessagesAD.ASSESS_SHORT_HIGH, Result));
-                CurOutput.setAssessmentVerbose(String.format(MessagesAD.ASSESS_LONG_HIGH, Result));
-                if (!ADItemWarnings.isEmpty())
-                    CurOutput.setAssessmentVerbose(CurOutput.getAssessmentVerbose() +
-                            String.format(MessagesAD.ASSESS_LONG_ADD_ISSUES, ADItemWarnings));
-                break;
+        } else {
+
+            String ADItemWarnings =
+                    ModelUtilities.BuildADItemsWarningMsg(CurOutput.getADIndex());
+
+            String Result = CurOutput.getResults()[1] + " mg/kg";
+
+            switch (CurOutput.getADI().GetAssessmentClass()) {
+                case ADIndex.INDEX_LOW:
+                    CurOutput.setAssessment(String.format(MessagesAD.ASSESS_SHORT_LOW, Result));
+                    CurOutput.setAssessmentVerbose(String.format(MessagesAD.ASSESS_LONG_LOW, Result, ADItemWarnings));
+                    break;
+                case ADIndex.INDEX_MEDIUM:
+                    CurOutput.setAssessment(String.format(MessagesAD.ASSESS_SHORT_MEDIUM, Result));
+                    CurOutput.setAssessmentVerbose(String.format(MessagesAD.ASSESS_LONG_MEDIUM, Result, ADItemWarnings));
+                    break;
+                case ADIndex.INDEX_HIGH:
+                    CurOutput.setAssessment(String.format(MessagesAD.ASSESS_SHORT_HIGH, Result));
+                    CurOutput.setAssessmentVerbose(String.format(MessagesAD.ASSESS_LONG_HIGH, Result));
+                    if (!ADItemWarnings.isEmpty())
+                        CurOutput.setAssessmentVerbose(CurOutput.getAssessmentVerbose() +
+                                String.format(MessagesAD.ASSESS_LONG_ADD_ISSUES, ADItemWarnings));
+                    break;
+            }
+
+            // Override assessment if experimental value is available
+            if (CurOutput.HasExperimental()) {
+                CurOutput.setAssessmentVerbose(String.format(MessagesAD.ASSESS_LONG_EXPERIMENTAL, CurOutput.getResults()[3] + " mg/Kg", CurOutput.getAssessment()));
+                CurOutput.setAssessment(String.format(MessagesAD.ASSESS_SHORT_EXPERIMENTAL, CurOutput.getResults()[3] + " mg/Kg"));
+            }
+
+
+            // Sets assessment status
+            double Val = CurOutput.HasExperimental() ? CurOutput.getExperimental() : CurOutput.getMainResultValue();
+            Val = Math.pow(10, Val) * MW;
+            if (Val < LC_threshold_red)
+                CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_RED);
+            else if (Val < LC_threshold_orange)
+                CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_ORANGE);
+            else if (Val < LC_threshold_yellow)
+                CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_YELLOW);
+            else
+                CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_GREEN);
         }
-
-        // Override assessment if experimental value is available
-        if (CurOutput.HasExperimental()) {
-            CurOutput.setAssessmentVerbose(String.format(MessagesAD.ASSESS_LONG_EXPERIMENTAL, CurOutput.getResults()[3] + " mg/Kg", CurOutput.getAssessment()));
-            CurOutput.setAssessment(String.format(MessagesAD.ASSESS_SHORT_EXPERIMENTAL, CurOutput.getResults()[3] + " mg/Kg"));
-        }
-
-
-        // Sets assessment status
-        double Val = CurOutput.HasExperimental() ? CurOutput.getExperimental() : CurOutput.getMainResultValue();
-        Val = Math.pow(10, Val) * MW;
-        if (Val < LC_threshold_red)
-            CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_RED);
-        else if (Val < LC_threshold_orange)
-            CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_ORANGE);
-        else if (Val < LC_threshold_yellow)
-            CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_YELLOW);
-        else
-            CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_GREEN);
     }
 
 

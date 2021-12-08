@@ -1,16 +1,15 @@
 <xml>
    
     <Version>
-        <Name>PPARa up model test</Name>
-        <Key>PPARa</Key>
-        <Summary>Some random summary</Summary>
+        <Name>Hepatic Steatosis MIE assay for PPARa up (TOXCAST)</Name>
+        <Key>HEPA_PXRUP</Key>
+        <Summary>Assays of MIE for hepatic steatosis with target PPARa up activity classification prediction (TOXCAST)</Summary>
         <Version>1.0.0</Version>
     </Version>
     
     <Vega>
         <TS>/data/ts_ppara_up.dat</TS>
         <HasAlerts>False</HasAlerts>
-        <Units>a-dimensional</Units>
         <ClassValues>
             <Class>
                 <Value>0</Value>

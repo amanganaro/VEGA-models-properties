@@ -10,18 +10,17 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-PXR_up</artifactId>
-    <version>0.2.1</version>
+    <version>1.0.0</version>
+
+    <name>Hepatic Steatosis MIE assay for PXR up (TOXCAST)</name>
+    <description>
+        Assays of MIE for hepatic steatosis with target PXR up activity classification prediction (TOXCAST)
+    </description>
 
     <properties>
         <maven.compiler.source>15</maven.compiler.source>
         <maven.compiler.target>15</maven.compiler.target>
     </properties>
-
-
-    <name>PXR_up - 1.0.0</name>
-    <description>
-        SQfu model
-    </description>
 
     <dependencies>
 

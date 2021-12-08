@@ -10,16 +10,17 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-NRF2Up</artifactId>
+    <version>1.0.0</version>
+
+    <name>Hepatic Steatosis MIE assay for NRF2 (TOXCAST)</name>
+    <description>
+        Assays of MIE for hepatic steatosis with target NRF2 activity classification prediction (TOXCAST)
+    </description>
 
     <properties>
         <maven.compiler.source>15</maven.compiler.source>
         <maven.compiler.target>15</maven.compiler.target>
     </properties>
-
-    <name>NRF2_up - 1.0.0</name>
-    <description>
-        NRF2_up model
-    </description>
 
     <dependencies>
 

@@ -13,7 +13,7 @@ import insilico.core.tools.utils.ModelUtilities;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class ismSkinSensitization extends InsilicoModel {
+public class ismSkinSensitizationToxTree extends InsilicoModel {
 
     private static final long serialVersionUID = 1L;
 
@@ -24,7 +24,7 @@ public class ismSkinSensitization extends InsilicoModel {
     private ToxTreeSkinClassification ToxTreeSkin;
 
 
-    public ismSkinSensitization() throws InitFailureException {
+    public ismSkinSensitizationToxTree() throws InitFailureException {
         super(ModelData);
 
         ToxTreeSkin = new ToxTreeSkinClassification();
@@ -33,23 +33,16 @@ public class ismSkinSensitization extends InsilicoModel {
         this.DescriptorsNames = new String[DescriptorsSize];
 
         // Defines results
-        this.ResultsSize = 3;
+        this.ResultsSize = 2;
         this.ResultsName = new String[ResultsSize];
-        this.ResultsName[0] = "Tox Tree classification prediction";
-        this.ResultsName[1] = "Tox Tree classification name";
-        this.ResultsName[2] = "Tox Tree classification description";
+        this.ResultsName[0] = "Predicted class";
+        this.ResultsName[1] = "Predicted class description";
 
         // Define AD items
-        this.ADItemsName = new String[5];
-        this.ADItemsName[0] = new ADIndexSimilarity().GetIndexName();
-        this.ADItemsName[1] = new ADIndexAccuracy().GetIndexName();
-        this.ADItemsName[2] = new ADIndexConcordance().GetIndexName();
-        this.ADItemsName[3] = new ADIndexRange().GetIndexName();
-        this.ADItemsName[4] = new ADIndexACF().GetIndexName();
-
-
+        this.ADItemsName = new String[0];
 
     }
+
     @Override
     protected short CalculateDescriptors(DescriptorsEngine descriptorsEngine) {
         try {
@@ -76,9 +69,8 @@ public class ismSkinSensitization extends InsilicoModel {
 
         CurOutput.setMainResultValue(oToxTree.getId());
         String[] Res = new String[ResultsSize];
-        Res[0] = String.valueOf(oToxTree.getId());
-        Res[1] = oToxTree.getName();
-        Res[2] = oToxTree.getDescription();
+        Res[0] = oToxTree.getName();
+        Res[1] = oToxTree.getDescription();
 
         CurOutput.setResults(Res);
 
@@ -90,9 +82,16 @@ public class ismSkinSensitization extends InsilicoModel {
     @Override
     protected short CalculateAD() {
         // for now - AD not calculated
-        return 0;
+        return InsilicoModel.AD_ERROR;
     }
 
     @Override
-    protected void CalculateAssessment() { }
+    protected void CalculateAssessment() {
+        // Sets assessment message
+        ModelUtilities.SetDefaultAssessment(CurOutput, CurOutput.getResults()[0]);
+
+        // Sets assessment status
+        CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_GRAY);
+
+    }
 }

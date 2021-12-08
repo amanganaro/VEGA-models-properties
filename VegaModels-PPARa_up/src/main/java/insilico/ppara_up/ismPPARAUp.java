@@ -1,9 +1,15 @@
 package insilico.ppara_up;
 
+import insilico.core.ad.ADCheckACF;
+import insilico.core.ad.ADCheckDescriptorRange;
+import insilico.core.ad.ADCheckIndicesQualitative;
+import insilico.core.ad.item.*;
 import insilico.core.descriptor.DescriptorsEngine;
 import insilico.core.exception.InitFailureException;
 import insilico.core.model.InsilicoModel;
+import insilico.core.model.InsilicoModelOutput;
 import insilico.core.pmml.ModelANNFromPMML;
+import insilico.core.tools.utils.ModelUtilities;
 import insilico.ppara_up.descriptors.EmbeddedDescriptors;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -42,11 +48,13 @@ public class ismPPARAUp extends InsilicoModel {
         this.DescriptorsNames[1] = "PW4";
         this.DescriptorsNames[2] = "CATS2D_07_NL";
 
+        // Defines results
         this.ResultsSize = 3;
         this.ResultsName = new String[ResultsSize];
-        this.ResultsName[0] = "Prediction";
-        this.ResultsName[1] = "Prediction_0";
-        this.ResultsName[2] = "Prediction_1";
+        this.ResultsName[0] = "Predicted activity";
+        this.ResultsName[1] = "Inactivity class Probability";
+        this.ResultsName[2] = "Activity class Probability";
+
     }
 
     @Override
@@ -102,10 +110,14 @@ public class ismPPARAUp extends InsilicoModel {
         CurOutput.setMainResultValue(Prediction);
 
         String[] Res = new String[ResultsSize];
-//        Res[0] = String.valueOf(Prediction);
-        Res[0] = this.GetTrainingSet().getClassLabel(CurOutput.getMainResultValue());
-        Res[1] = String.valueOf(prediction_0);
-        Res[2] = String.valueOf(prediction_1);
+        try {
+            Res[0] = this.GetTrainingSet().getClassLabel(Prediction);
+        } catch (Throwable ex) {
+            log.warn("Unable to find label for value " + Prediction);
+            Res[0] = Integer.toString(Prediction);
+        }
+        Res[1] = Format_3D.format(prediction_0);
+        Res[2] = Format_3D.format(prediction_1);
 
         CurOutput.setResults(Res);
 
@@ -114,9 +126,60 @@ public class ismPPARAUp extends InsilicoModel {
 
     @Override
     protected short CalculateAD() {
-        return 0;
+
+        // Calculates various AD indices
+        ADCheckIndicesQualitative adq = new ADCheckIndicesQualitative(TS);
+        adq.AddMappingToPositiveValue(1);
+        adq.AddMappingToNegativeValue(0);
+        adq.setMoleculesForIndexSize(2);
+
+        if (!adq.Calculate(CurMolecule, CurOutput))
+            return InsilicoModel.AD_ERROR;
+
+        // Sets threshold for AD indices
+        try {
+            ((ADIndexSimilarity)CurOutput.getADIndex(ADIndexSimilarity.class)).SetThresholds(0.8, 0.6);
+            ((ADIndexAccuracy)CurOutput.getADIndex(ADIndexAccuracy.class)).SetThresholds(0.8, 0.6);
+            ((ADIndexConcordance)CurOutput.getADIndex(ADIndexConcordance.class)).SetThresholds(0.8, 0.6);
+        } catch (Throwable e) {
+            return InsilicoModel.AD_ERROR;
+        }
+
+        // Sets Range check
+        ADCheckDescriptorRange adrc = new ADCheckDescriptorRange();
+        if (!adrc.Calculate(TS, Descriptors, CurOutput))
+            return InsilicoModel.AD_ERROR;
+
+        // Sets ACF check
+        ADCheckACF adacf = new ADCheckACF(TS);
+        if (!adacf.Calculate(CurMolecule, CurOutput))
+            return InsilicoModel.AD_ERROR;
+
+        // Sets final AD index
+        double acfContribution = CurOutput.getADIndex(ADIndexACF.class).GetIndexValue();
+        double rcContribution = CurOutput.getADIndex(ADIndexRange.class).GetIndexValue();
+        double ADIValue = adq.getIndexADI() * acfContribution * rcContribution;
+
+        ADIndexADI ADI = new ADIndexADI();
+        ADI.SetIndexValue(ADIValue);
+        ADI.SetThresholds(0.8, 0.6);
+        CurOutput.setADI(ADI);
+
+        return InsilicoModel.AD_CALCULATED;
     }
 
     @Override
-    protected void CalculateAssessment() { }
+    protected void CalculateAssessment() {
+        // Sets assessment message
+        ModelUtilities.SetDefaultAssessment(CurOutput, CurOutput.getResults()[0]);
+
+        // Sets assessment status
+        double Val = CurOutput.HasExperimental() ? CurOutput.getExperimental() : CurOutput.getMainResultValue();
+        if (Val == 0)
+            CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_GREEN);
+        else if (Val == 1)
+            CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_RED);
+        else
+            CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_GRAY);
+    }
 }
