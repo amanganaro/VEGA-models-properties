@@ -1,16 +1,16 @@
 <xml>
    
     <Version>
-        <Name>LD50 model (KNN-Read-Across)</Name>
+        <Name>Acute Toxicity (LD50) model (KNN)</Name>
         <Key>LD50_KNN</Key>
-        <Summary>KNN (Read-Across) model for LD50</Summary>
+        <Summary>KNN model for acute toxicity (LD50)</Summary>
         <Version>1.0.0</Version>
     </Version>
     
     <Vega>
         <TS>/data/ts_ld50_knn.dat</TS>
         <HasAlerts>False</HasAlerts>
-        <Units>mmol/kg</Units>
+        <Units>log(mmol/kg)</Units>
     </Vega>
 
     <Guide></Guide>

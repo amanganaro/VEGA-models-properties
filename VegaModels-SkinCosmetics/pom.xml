@@ -10,9 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-SkinCosmetics</artifactId>
-    <version>0.2.2</version>
+    <version>1.0.0</version>
 
-    <name>Skin Sensitization model (NCSTOX) - 1.0.0</name>
+    <name>Skin Sensitization model (NCSTOX)</name>
     <description>
         QSAR classification model (consensus) for Skin sensitization (from NCSTOX project)
     </description>

@@ -3,6 +3,7 @@ package insilico.ld50;
 import insilico.core.ad.ADCheckACF;
 import insilico.core.ad.ADCheckIndicesQuantitative;
 import insilico.core.ad.item.*;
+import insilico.core.constant.MessagesAD;
 import insilico.core.descriptor.Descriptor;
 import insilico.core.descriptor.DescriptorsEngine;
 import insilico.core.exception.GenericFailureException;
@@ -10,7 +11,9 @@ import insilico.core.exception.InitFailureException;
 import insilico.core.knn.insilicoKnnPrediction;
 import insilico.core.knn.insilicoKnnQuantitative;
 import insilico.core.model.InsilicoModel;
+import insilico.core.model.InsilicoModelOutput;
 import insilico.core.model.trainingset.TrainingSet;
+import insilico.core.tools.utils.ModelUtilities;
 
 public class ismLD50 extends InsilicoModel {
 
@@ -20,6 +23,8 @@ public class ismLD50 extends InsilicoModel {
 
     private final insilicoKnnQuantitative KNN;
     private insilicoKnnPrediction KnnPrediction;
+    private double MW;
+
 
     public ismLD50()
             throws InitFailureException {
@@ -39,10 +44,12 @@ public class ismLD50 extends InsilicoModel {
         this.DescriptorsNames = new String[DescriptorsSize];
 
         // Defines results
-        this.ResultsSize = 2;
+        this.ResultsSize = 4;
         this.ResultsName = new String[ResultsSize];
-        this.ResultsName[0] = "Predicted Log LD50 [mmol/Kg]";
-        this.ResultsName[1] = "Molecules used for prediction";
+        this.ResultsName[0] = "Predicted log LD50 [log(mmol/Kg)]";
+        this.ResultsName[1] = "Predicted log LD50 [mg/Kg]";
+        this.ResultsName[2] = "Molecules used for prediction";
+        this.ResultsName[3] = "Experimental value [mg/Kg]";
 
         // Define AD items
         this.ADItemsName = new String[5];
@@ -59,6 +66,11 @@ public class ismLD50 extends InsilicoModel {
         try {
 
             Descriptors = new double[DescriptorsSize];
+
+            // MW in constitutional is given as a SCALED
+            // value (on carbon). Here it is transformed in real values
+            double CarbonWeight = 12.011;
+            MW = CarbonWeight * CurMolecule.GetBasicDescriptorByName("MW").getValue();
 
         } catch (Throwable e) {
             return DESCRIPTORS_ERROR;
@@ -78,11 +90,19 @@ public class ismLD50 extends InsilicoModel {
         CurOutput.setMainResultValue(KnnPrediction.getPrediction());
 
         String[] Res = new String[ResultsSize];
-        if (KnnPrediction.getPrediction() == Descriptor.MISSING_VALUE)
+        if (KnnPrediction.getPrediction() == Descriptor.MISSING_VALUE) {
             Res[0] = "-";
-        else
-            Res[0] = String.valueOf(Format_2D.format(KnnPrediction.getPrediction())); // BCF
-        Res[1] = String.valueOf(KnnPrediction.getNeighbours().size());
+            Res[1] = "-";
+        } else {
+            Res[0] = String.valueOf(Format_3D.format(KnnPrediction.getPrediction())); // log(mmol/kg)
+            double ConvertedValue = Math.pow(10, KnnPrediction.getPrediction()) * MW;
+            if (ConvertedValue>1)
+                Res[1] = Format_2D.format(ConvertedValue); // mg/kg
+            else
+                Res[1] = Format_4D.format(ConvertedValue); // mg/kg
+        }
+        Res[2] = String.valueOf(KnnPrediction.getNeighbours().size());
+        Res[3] = "-";
         CurOutput.setResults(Res);
 
         return MODEL_CALCULATED;
@@ -134,13 +154,72 @@ public class ismLD50 extends InsilicoModel {
                 CurOutput.getADIndex(ADIndexMaxError.class));
         CurOutput.setADI(ADI);
 
+        // Add transformed (mg/L) experimental if needed
+        if (CurOutput.HasExperimental()) {
+            double ConvertedValue = Math.pow(10, CurOutput.getExperimental()) * MW;
+            if (ConvertedValue>1)
+                CurOutput.getResults()[3] = Format_2D.format(ConvertedValue); // mg/kg
+            else
+                CurOutput.getResults()[3] = Format_4D.format(ConvertedValue); // mg/kg
+        }
+
         return InsilicoModel.AD_CALCULATED;
     }
 
     @Override
     protected void CalculateAssessment() {
 
+        double LC_threshold_red = 1; // in mg/kg
+        double LC_threshold_orange = 10; // in mg/kg
+        double LC_threshold_yellow = 100; // in mg/kg
+
+        // Sets assessment message
+        // Can't use default utilities because a different experimental has
+        // to be set (mg/kg) if available
+
+        String ADItemWarnings =
+                ModelUtilities.BuildADItemsWarningMsg(CurOutput.getADIndex());
+
+        String Result = CurOutput.getResults()[1] + " mg/kg";
+
+        switch (CurOutput.getADI().GetAssessmentClass()) {
+            case ADIndex.INDEX_LOW:
+                CurOutput.setAssessment(String.format(MessagesAD.ASSESS_SHORT_LOW, Result));
+                CurOutput.setAssessmentVerbose(String.format(MessagesAD.ASSESS_LONG_LOW, Result, ADItemWarnings));
+                break;
+            case ADIndex.INDEX_MEDIUM:
+                CurOutput.setAssessment(String.format(MessagesAD.ASSESS_SHORT_MEDIUM, Result));
+                CurOutput.setAssessmentVerbose(String.format(MessagesAD.ASSESS_LONG_MEDIUM, Result, ADItemWarnings));
+                break;
+            case ADIndex.INDEX_HIGH:
+                CurOutput.setAssessment(String.format(MessagesAD.ASSESS_SHORT_HIGH, Result));
+                CurOutput.setAssessmentVerbose(String.format(MessagesAD.ASSESS_LONG_HIGH, Result));
+                if (!ADItemWarnings.isEmpty())
+                    CurOutput.setAssessmentVerbose(CurOutput.getAssessmentVerbose() +
+                            String.format(MessagesAD.ASSESS_LONG_ADD_ISSUES, ADItemWarnings));
+                break;
+        }
+
+        // Override assessment if experimental value is available
+        if (CurOutput.HasExperimental()) {
+            CurOutput.setAssessmentVerbose(String.format(MessagesAD.ASSESS_LONG_EXPERIMENTAL, CurOutput.getResults()[3] + " mg/Kg", CurOutput.getAssessment()));
+            CurOutput.setAssessment(String.format(MessagesAD.ASSESS_SHORT_EXPERIMENTAL, CurOutput.getResults()[3] + " mg/Kg"));
+        }
+
+
+        // Sets assessment status
+        double Val = CurOutput.HasExperimental() ? CurOutput.getExperimental() : CurOutput.getMainResultValue();
+        Val = Math.pow(10, Val) * MW;
+        if (Val < LC_threshold_red)
+            CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_RED);
+        else if (Val < LC_threshold_orange)
+            CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_ORANGE);
+        else if (Val < LC_threshold_yellow)
+            CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_YELLOW);
+        else
+            CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_GREEN);
     }
+
 
     @Override
     public void ProcessTrainingSet() throws Exception {
