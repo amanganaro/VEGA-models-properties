@@ -1,9 +1,9 @@
 package insilico.carcinogenicity_rat_male;
 
-import insilico.core.ad.item.ADIndexACF;
-import insilico.core.ad.item.ADIndexAccuracy;
-import insilico.core.ad.item.ADIndexConcordance;
-import insilico.core.ad.item.ADIndexSimilarity;
+import insilico.core.ad.ADCheckACF;
+import insilico.core.ad.ADCheckDescriptorRange;
+import insilico.core.ad.ADCheckIndicesQuantitative;
+import insilico.core.ad.item.*;
 import insilico.core.coral.CoralModel;
 import insilico.core.coral.models.carcino.CoralFRCarcinogenicity;
 import insilico.core.coral.models.carcino.CoralMRCarcinogenicity;
@@ -85,7 +85,7 @@ public class ismCarcinogenicityRatMale extends InsilicoModel {
 
         this.ResultsSize = 1;
         String[] Res = new String[ResultsSize];
-        Res[0] = String.valueOf(Prediction);
+        Res[0] = Format_4D.format(Prediction);
 
 
         CurOutput.setResults(Res);
@@ -95,7 +95,54 @@ public class ismCarcinogenicityRatMale extends InsilicoModel {
 
     @Override
     protected short CalculateAD() {
-        return 0;
+
+        // Calculates various AD indices
+        ADCheckIndicesQuantitative adq = new ADCheckIndicesQuantitative(TS);
+        adq.setMoleculesForIndexSize(2);
+        if (!adq.Calculate(CurMolecule, CurOutput))
+            return InsilicoModel.AD_ERROR;
+
+        // Sets threshold for AD indices
+        try {
+            ((ADIndexSimilarity)CurOutput.getADIndex(ADIndexSimilarity.class)).SetThresholds(0.85, 0.7);
+            ((ADIndexAccuracy)CurOutput.getADIndex(ADIndexAccuracy.class)).SetThresholds(1.5, 0.8);
+            ((ADIndexConcordance)CurOutput.getADIndex(ADIndexConcordance.class)).SetThresholds(1.5, 0.8);
+            ((ADIndexMaxError)CurOutput.getADIndex(ADIndexMaxError.class)).SetThresholds(1.5, 0.8);
+        } catch (Throwable e) {
+            return InsilicoModel.AD_ERROR;
+        }
+
+        // Sets Range check
+        ADCheckDescriptorRange adrc = new ADCheckDescriptorRange();
+        if (!adrc.Calculate(TS, Descriptors, CurOutput))
+            return InsilicoModel.AD_ERROR;
+
+        // Sets ACF check
+        ADCheckACF adacf = new ADCheckACF(TS);
+        if (!adacf.Calculate(CurMolecule, CurOutput))
+            return InsilicoModel.AD_ERROR;
+
+        // Sets final AD index
+        double acfContribution = CurOutput.getADIndex(ADIndexACF.class).GetIndexValue();
+        double rcContribution = CurOutput.getADIndex(ADIndexRange.class).GetIndexValue();
+        double ADIValue = adq.getIndexADI() * acfContribution * rcContribution;
+
+        ADIndexADIAggregate ADI = new ADIndexADIAggregate(0.85, 0.7, 1, 0.85, 0.7);
+        ADI.SetValue(ADIValue, CurOutput.getADIndex(ADIndexAccuracy.class),
+                CurOutput.getADIndex(ADIndexConcordance.class),
+                CurOutput.getADIndex(ADIndexMaxError.class));
+        CurOutput.setADI(ADI);
+
+        // Add transformed (mg/L) experimental if needed
+//        if (CurOutput.HasExperimental()) {
+//            double ConvertedValue = Math.pow(10, CurOutput.getExperimental());
+//            if (ConvertedValue>1)
+//                CurOutput.getResults()[2] = Format_2D.format(ConvertedValue); // 1/(mg/kg-day)
+//            else
+//                CurOutput.getResults()[2] = Format_4D.format(ConvertedValue); // 1/(mg/kg-day)
+//        }
+
+        return InsilicoModel.AD_CALCULATED;
     }
 
     @Override
@@ -103,13 +150,7 @@ public class ismCarcinogenicityRatMale extends InsilicoModel {
         // Sets assessment message
         ModelUtilities.SetDefaultAssessment(CurOutput, CurOutput.getResults()[0]);
 
-        // Sets assessment status
-        double Val = CurOutput.HasExperimental() ? CurOutput.getExperimental() : CurOutput.getMainResultValue();
-        if (Val == -1)
-            CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_GREEN);
-        else if (Val == 1)
-            CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_RED);
-        else
-            CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_GRAY);
+        CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_GRAY);
+
     }
 }

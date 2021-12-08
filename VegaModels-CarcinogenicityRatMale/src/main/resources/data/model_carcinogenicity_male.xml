@@ -3,7 +3,7 @@
     <Version>
         <Name>Carcinogenicity in male rat (CORAL)</Name>
         <Key>CARCINOGENICTY_MALE</Key>
-        <Summary>Carcinogenicity in male rat coral model (CORAL)</Summary>
+        <Summary>Carcinogenicity in male rat quantitative (TD50) model model (CORAL)</Summary>
         <Version>1.0.0</Version>
     </Version>
 
