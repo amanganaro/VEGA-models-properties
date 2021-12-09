@@ -19,14 +19,16 @@ public class mainScriptPersistanceWaterIRFMN {
 
 
         InsilicoModel model = new ismPersistenceWaterIrfmn();
-        ModelsDeployment.BuildDataset(model, "out_ts");
-        File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
-        File destinationFile = new File("VegaModels-PersistenceWaterIRFMN\\src\\main\\resources\\data\\ts_pers_water_irfmn.dat");
-        try {
-            Files.move(sourceFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-        } catch (Exception ex) {
-            log.warn(ex.getMessage());
-        }
+        model.SetKnnSkipExperimental(true);
+//        ModelsDeployment.BuildDataset(model, "out_ts");
+//        File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
+//        File destinationFile = new File("VegaModels-PersistenceWaterIRFMN\\src\\main\\resources\\data\\ts_pers_water_irfmn.dat");
+//        try {
+//            Files.move(sourceFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+//        } catch (Exception ex) {
+//            log.warn(ex.getMessage());
+//        }
+        ModelsDeployment.TestModelWithTrainingSet(model, "persistence_water_irfmn_loo_results");
 
         List<String> smilesList = new ArrayList<>();
         smilesList.add("O=[N+]([O-])c1cc(cc(c1N(CCC)CCC)[N+](=O)[O-])S(=O)(=O)C");
@@ -40,17 +42,6 @@ public class mainScriptPersistanceWaterIRFMN {
             for(int i = 0; i < model.GetResultsName().length; i++)
                 System.out.println(model.GetResultsName()[i] + " | " + out.getResults()[i]);
         }
-        for(String smiles : smilesList) {
-            InsilicoModelOutput out = model.Execute(SmilesMolecule.Convert(smiles));
-            for(int i = 0; i < model.getDescriptorsSize(); i++){
-                System.out.println(model.getDescriptorsNames()[i] + " === " + model.GetDescriptor(i));
-
-            }
-            System.out.println("==============");
-
-        }
-
-
     }
 
 

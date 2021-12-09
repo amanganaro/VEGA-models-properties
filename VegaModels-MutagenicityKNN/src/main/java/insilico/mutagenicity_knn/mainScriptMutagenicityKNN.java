@@ -19,6 +19,8 @@ public class mainScriptMutagenicityKNN {
 
 
         InsilicoModel model = new ismMutagenicityKnn();
+        model.SetKnnSkipExperimental(true);
+//        ModelsDeployment.TestModelWithTrainingSet(model, "mutagenicity_knn_loo_results");
         ModelsDeployment.BuildDataset(model, "out_ts");
         File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
         File destinationFile = new File("VegaModels-MutagenicityKNN\\src\\main\\resources\\data\\ts_muta_knn.dat");
@@ -39,15 +41,7 @@ public class mainScriptMutagenicityKNN {
             for(int i = 0; i < model.GetResultsName().length; i++)
                 System.out.println(model.GetResultsName()[i] + " | " + out.getResults()[i]);
         }
-        for(String smiles : smilesList) {
-            InsilicoModelOutput out = model.Execute(SmilesMolecule.Convert(smiles));
-            for(int i = 0; i < model.getDescriptorsSize(); i++){
-                System.out.println(model.getDescriptorsNames()[i] + " === " + model.GetDescriptor(i));
 
-            }
-            System.out.println("==============");
-
-        }
 
 
     }

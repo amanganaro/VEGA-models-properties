@@ -238,16 +238,16 @@ public class ismFishKnn extends InsilicoModel {
 
     }
     
-    @Override
-    public void ProcessTrainingSet() throws Exception {
-        this.setSkipADandTSLoading(false);
-        TrainingSet TSK = new TrainingSet();
-        String TSPath = this.getInfo().getTrainingSetURL();
-        String[] buf = TSPath.split("/");
-        String DatName = buf[buf.length-1];
-        TSPath = TSPath.substring(0, TSPath.length()-3) + "txt";
-        TSK.Build(TSPath, this, true, false);
-        TSK.SerializeToFile(DatName);        
-    }
+//    @Override
+//    public void ProcessTrainingSet() throws Exception {
+//        this.setSkipADandTSLoading(false);
+//        TrainingSet TSK = new TrainingSet();
+//        String TSPath = this.getInfo().getTrainingSetURL();
+//        String[] buf = TSPath.split("/");
+//        String DatName = buf[buf.length-1];
+//        TSPath = TSPath.substring(0, TSPath.length()-3) + "txt";
+//        TSK.Build(TSPath, this, true, false);
+//        TSK.SerializeToFile(DatName);
+//    }
     
 }

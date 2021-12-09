@@ -19,6 +19,8 @@ public class mainScriptPersistenceSedimentIRFMN {
 
 
         InsilicoModel model = new ismPersistenceSedimentIrfmn();
+        model.SetKnnSkipExperimental(true);
+//        ModelsDeployment.TestModelWithTrainingSet(model, "persistence_sediment_irfmn_loo_results");
         ModelsDeployment.BuildDataset(model, "out_ts");
         File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
         File destinationFile = new File("VegaModels-PersistenceSedimentIRFMN\\src\\main\\resources\\data\\ts_pers_sed_irfmn.dat");

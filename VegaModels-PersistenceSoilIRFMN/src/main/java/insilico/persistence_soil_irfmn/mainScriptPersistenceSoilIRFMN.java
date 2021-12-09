@@ -19,14 +19,15 @@ public class mainScriptPersistenceSoilIRFMN {
 
 
         InsilicoModel model = new ismPersistenceSoilIrfmn();
-        ModelsDeployment.BuildDataset(model, "out_ts");
-        File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
-        File destinationFile = new File("VegaModels-PersistenceSoilIRFMN\\src\\main\\resources\\data\\ts_pers_soil_irfmn.dat");
-        try {
-            Files.move(sourceFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-        } catch (Exception ex) {
-            log.warn(ex.getMessage());
-        }
+        model.SetKnnSkipExperimental(true);
+//        ModelsDeployment.BuildDataset(model, "out_ts");
+//        File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
+//        File destinationFile = new File("VegaModels-PersistenceSoilIRFMN\\src\\main\\resources\\data\\ts_pers_soil_irfmn.dat");
+//        try {
+//            Files.move(sourceFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+//        } catch (Exception ex) {
+//            log.warn(ex.getMessage());
+//        }
 
         List<String> smilesList = new ArrayList<>();
         smilesList.add("O=[N+]([O-])c1cc(cc(c1N(CCC)CCC)[N+](=O)[O-])S(=O)(=O)C");
@@ -40,15 +41,8 @@ public class mainScriptPersistenceSoilIRFMN {
             for(int i = 0; i < model.GetResultsName().length; i++)
                 System.out.println(model.GetResultsName()[i] + " | " + out.getResults()[i]);
         }
-        for(String smiles : smilesList) {
-            InsilicoModelOutput out = model.Execute(SmilesMolecule.Convert(smiles));
-            for(int i = 0; i < model.getDescriptorsSize(); i++){
-                System.out.println(model.getDescriptorsNames()[i] + " === " + model.GetDescriptor(i));
 
-            }
-            System.out.println("==============");
-
-        }
+        ModelsDeployment.TestModelWithTrainingSet(model, "persistence_soil_irfmn_loo_results");
 
 
     }

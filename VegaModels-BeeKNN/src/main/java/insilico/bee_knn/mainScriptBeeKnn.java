@@ -1,4 +1,6 @@
-import insilico.bcf_knn.ismBCFKnn;
+package insilico.bee_knn;
+
+import insilico.bee_knn.ismBeeKnn;
 import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
 import insilico.core.molecule.conversion.SmilesMolecule;
@@ -12,17 +14,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
-public class mainScript {
+public class mainScriptBeeKnn {
+
     public static void main(String[] args) throws Exception {
 
 
-        InsilicoModel model = new ismBCFKnn();
+        InsilicoModel model = new ismBeeKnn();
         model.SetKnnSkipExperimental(true);
-
-
+//        ModelsDeployment.TestModelWithTrainingSet(model, "bee_knn_loo_results");
         ModelsDeployment.BuildDataset(model, "out_ts");
         File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
-        File destinationFile = new File("VegaModels-BCFKNN\\src\\main\\resources\\data\\ts_bcf_knn.dat");
+        File destinationFile = new File("VegaModels-BeeKNN\\src\\main\\resources\\data\\ts_bee_knn.dat");
         try {
             Files.move(sourceFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
         } catch (Exception ex) {
@@ -42,6 +44,5 @@ public class mainScript {
         }
 
     }
-
 
 }

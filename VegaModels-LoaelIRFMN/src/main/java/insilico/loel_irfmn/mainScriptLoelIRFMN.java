@@ -19,6 +19,8 @@ public class mainScriptLoelIRFMN {
 
 
         InsilicoModel model = new ismLoelIrfmn();
+        model.SetKnnSkipExperimental(true);
+//        ModelsDeployment.TestModelWithTrainingSet(model, "loel_irfmn_loo_results");
         ModelsDeployment.BuildDataset(model, "out_ts");
         File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
         File destinationFile = new File("VegaModels-LoelIRFMN\\src\\main\\resources\\data\\ts_loel_irfmn.dat");
