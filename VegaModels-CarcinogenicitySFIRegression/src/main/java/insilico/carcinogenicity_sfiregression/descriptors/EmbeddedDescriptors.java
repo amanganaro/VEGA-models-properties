@@ -59,7 +59,6 @@ public class EmbeddedDescriptors {
     }
 
     private void CalculateWAP(InsilicoMolecule Mol){
-        SRW7 = 0;
         short path = 7;
 
         IAtomContainer m;
@@ -95,25 +94,20 @@ public class EmbeddedDescriptors {
     }
 
     private void CalculateTopoDistances(InsilicoMolecule Mol){
-
-        B2Cl_Cl = 0; B4O_Cl = 0; B7Cl_Cl = 0; B8Cl_Cl = 0;
-
-        String AtomCouples1[][] = {
-                {"O", "Cl"},
-        };
-
-        String AtomCouples2[][] = {
-                {"Cl", "Cl"},
-        };
+//        B2Cl_Cl;
+//        B7Cl_Cl;
+//        B8Cl_Cl;
 
         int MAX_TOPO_DISTANCE = 10;
+        String AtomCouples[][] = {
+                {"O", "Cl"},
+                {"Cl", "Cl"}
+        };
 
         IAtomContainer m;
         try {
             m = Mol.GetStructure();
         } catch (InvalidMoleculeException e) {
-            B2Cl_Cl = MISSING_VALUE; B4O_Cl = MISSING_VALUE;
-            B7Cl_Cl = MISSING_VALUE; B8Cl_Cl = MISSING_VALUE;
             return;
         }
         int nSK = m.getAtomCount();
@@ -124,25 +118,31 @@ public class EmbeddedDescriptors {
             TopoMat = Mol.GetMatrixTopologicalDistance();
         } catch (GenericFailureException e) {
             log.warn(e.getMessage());
-            B2Cl_Cl = MISSING_VALUE; B4O_Cl = MISSING_VALUE;
-            B7Cl_Cl = MISSING_VALUE; B8Cl_Cl = MISSING_VALUE;
             return;
         }
 
-        for (int d=0; d<AtomCouples1.length; d++) {
+        for (int d=0; d<AtomCouples.length; d++) {
 
             int descT = 0;
             int[] descB = new int[MAX_TOPO_DISTANCE];
+            int[] descF = new int[MAX_TOPO_DISTANCE];
             Arrays.fill(descB, 0);
+            Arrays.fill(descF, 0);
 
-            for (int i=0; i<nSK; i++) {
+            for (int i = 0; i < nSK; i++) {
                 if (m.getAtom(i).getSymbol().equalsIgnoreCase(AtomCouples[d][0])) {
-                    for (int j=0; j<nSK; j++) {
-                        if (i==j) continue;
+                    for (int j = 0; j < nSK; j++) {
+                        if (i == j) continue;
                         if (m.getAtom(j).getSymbol().equalsIgnoreCase(AtomCouples[d][1])) {
 
+                            // T (sum of topo distances)
+                            if (TopoMat[i][j] > 2) // DA VEDERE PERCHE MAGGIORE DI 2
+                                descT += TopoMat[i][j];
+
+                            // B (presence of pair) and F (number of couples)
                             if (TopoMat[i][j] <= MAX_TOPO_DISTANCE) {
-                                descB[TopoMat[i][j]-1] = 1;
+                                descB[TopoMat[i][j] - 1] = 1;
+                                descF[TopoMat[i][j] - 1]++;
                             }
 
                         }
@@ -150,51 +150,42 @@ public class EmbeddedDescriptors {
                 }
             }
 
-            for (int i=0; i<descB.length; i++)
-            {
-                if(i == 4)
-                    B4O_Cl = descB[i];
+            // Fix: if atoms are the same, resulting value is calculated twice
+            if (AtomCouples[d][0].compareTo(AtomCouples[d][1]) == 0) {
+                descT /= 2;
+                for (int i = 0; i < descF.length; i++)
+                    descF[i] /= 2;
             }
 
 
-        }
+            if(AtomCouples[d][0].equals("O")){
+                for (int i=0; i<descB.length; i++)
+                    if(i==3)
+                        B4O_Cl = descB[i];
+            }
 
-        for (int d=0; d<AtomCouples2.length; d++) {
-
-            int[] descB = new int[MAX_TOPO_DISTANCE];
-            Arrays.fill(descB, 0);
-
-            for (int i=0; i<nSK; i++) {
-                if (m.getAtom(i).getSymbol().equalsIgnoreCase(AtomCouples[d][0])) {
-                    for (int j=0; j<nSK; j++) {
-                        if (i==j) continue;
-                        if (m.getAtom(j).getSymbol().equalsIgnoreCase(AtomCouples[d][1])) {
-
-                            if (TopoMat[i][j] <= MAX_TOPO_DISTANCE) {
-                                descB[TopoMat[i][j]-1] = 1;
-                            }
-
-                        }
-                    }
+            if(AtomCouples[d][0].equals("Cl")){
+                for (int i=0; i<descB.length; i++) {
+                    if (i == 1)
+                        B2Cl_Cl = descB[i];
+                    if (i == 7)
+                        B8Cl_Cl = descB[i];
+                    if (i == 6)
+                        B7Cl_Cl = descB[i];
                 }
             }
 
-            for (int i=0; i<descB.length; i++)
-            {
-                if(i == 2)
-                    B2Cl_Cl = descB[i];
-                if(i == 7)
-                    B7Cl_Cl = descB[i];
-                if(i == 8)
-                    B8Cl_Cl = descB[i];
-            }
+
+
 
         }
+
+
+
     }
 
     private void CalculateIC(InsilicoMolecule Mol) {
 
-        IC4 = 0;
         int MaxPath = 4;
 
         IAtomContainer m;
@@ -309,14 +300,12 @@ public class EmbeddedDescriptors {
     }
 
     private void CalculateFG(InsilicoMolecule Mol) throws DescriptorNotFoundException {
-        nN_N = 0;
         DescriptorBlock fg = new FunctionalGroups();
         fg.Calculate(Mol);
         nN_N = fg.GetByName("nN-N").getValue();
     }
 
     private void CalculateCats2D(InsilicoMolecule Mol) {
-        CATS2D_3_DL = 0; CATS2D_7_DL = 0;
         int MAX_CATS_DISTANCE = 10;
 
         IAtomContainer m;
@@ -385,7 +374,6 @@ public class EmbeddedDescriptors {
     }
 
     private void CalculateAutoCorrelation(InsilicoMolecule Mol){
-        ATS8m = 0; GATS6p = 0;
         double[] w_p, w_m;
 
         short lag_m = 8;
