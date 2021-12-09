@@ -13,11 +13,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
-public class mainScript {
+public class mainScriptCarcinogenicitySfiRegression {
     public static void main(String[] args) throws Exception {
 
 
         InsilicoModel model = new ismCarcinogenicitySFIRegression();
+//        ModelsDeployment.TestModelWithTrainingSet(model, "carcinogenicity_sfi_regression_results");
+//        ModelsDeployment.PrintDescriptor(model, "sfi_regression_descriptors");
         ModelsDeployment.BuildDataset(model, "out_ts");
         File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
         File destinationFile = new File("VegaModels-CarcinogenicitySFIRegression\\src\\main\\resources\\data\\ts_carc_sfiregression.dat");

@@ -623,8 +623,7 @@ public class EmbeddedDescriptors {
             for (FragDefinition frag : Fragments) {
                 if (N.containsKey("aasC")) {
                     NaasC = N.get("aasC");
-                } else
-                    NaasC = 0;
+                }
             }
         } catch (Exception e) {
             log.warn("unable to init EStates fragment definition from local resource -" + e.getMessage());
