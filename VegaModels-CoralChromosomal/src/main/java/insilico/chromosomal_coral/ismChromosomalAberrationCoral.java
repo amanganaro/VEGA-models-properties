@@ -1,10 +1,10 @@
 package insilico.chromosomal_coral;
 
-import insilico.coral.CoralModel;
-import insilico.coral.models.CHRAB.CoralCHRAB;
 import insilico.core.ad.ADCheckACF;
 import insilico.core.ad.ADCheckIndicesQualitative;
 import insilico.core.ad.item.*;
+import insilico.core.coral.CoralModel;
+import insilico.core.coral.models.CHRAB.CoralCHRAB;
 import insilico.core.descriptor.DescriptorBlock;
 import insilico.core.descriptor.DescriptorsEngine;
 import insilico.core.exception.InitFailureException;
