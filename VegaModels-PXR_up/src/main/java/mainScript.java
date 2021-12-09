@@ -2,6 +2,7 @@ import insilico.core.exception.GenericFailureException;
 import insilico.core.exception.InitFailureException;
 import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
+import insilico.core.molecule.InsilicoMolecule;
 import insilico.core.molecule.conversion.SmilesMolecule;
 import insilico.pxr_up.ismPxrUp;
 import insilico.pxr_up.utils.ModelsDeployment;
@@ -19,6 +20,11 @@ public class mainScript {
     public static void main(String[] args) throws InitFailureException, GenericFailureException, MalformedURLException, FileNotFoundException {
 
         InsilicoModel model = new ismPxrUp();
+        InsilicoMolecule mo = SmilesMolecule.Convert("CCC");
+        InsilicoModelOutput o= model.Execute(mo);
+        if(1==1) return;
+
+
 //        ModelsDeployment.BuildDataset(model, "out_ts");
 //        File sourceFile = new File("out_ts/ts_pxrup.dat");
 //        File destinationFile = new File("VegaModels-PXR_up\\src\\main\\resources\\data\\ts_pxrup.dat");
