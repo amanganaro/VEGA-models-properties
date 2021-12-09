@@ -75,7 +75,7 @@ public class ismPPBCoral extends InsilicoModel {
     protected short CalculateModel() {
         double Prediction;
         try {
-            Prediction = CoralPPB.Predict(this.CurMolecule.getInputSMILES());
+            Prediction = CoralPPB.Predict(this.CurMolecule.GetSMILES());
         } catch (Exception ex) {
             return MODEL_ERROR;
         }
