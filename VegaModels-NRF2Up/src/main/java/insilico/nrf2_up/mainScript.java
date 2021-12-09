@@ -18,12 +18,13 @@ public class mainScript {
     public static void main(String[] args) throws InitFailureException, MalformedURLException, FileNotFoundException, GenericFailureException {
 
         ismNRF2Up model = new ismNRF2Up();
-        InsilicoMolecule mo = SmilesMolecule.Convert("CCC");
-        InsilicoModelOutput o= model.Execute(mo);
-        if(1==1) return;
+//        InsilicoMolecule mo = SmilesMolecule.Convert("CCC");
+//        InsilicoModelOutput o= model.Execute(mo);
+//        if(1==1) return;
 
         model.setLoadDescriptorsFromFile(false);
-        InsilicoModelOutput out = model.Execute(SmilesMolecule.Convert("CCCCCCCCCCCCCCCCCCCC"));
+        InsilicoModelOutput out = model.Execute(SmilesMolecule.Convert("CCCCCCCCC"));
+        return;
 
 //        ModelsDeployment.TestModelWithTrainingSet(model, "asdasd");
 

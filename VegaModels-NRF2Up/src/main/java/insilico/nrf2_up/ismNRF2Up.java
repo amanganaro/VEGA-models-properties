@@ -41,7 +41,7 @@ public class ismNRF2Up extends InsilicoModel {
         super(ModelData);
 
         try {
-            URL src = getClass().getResource("/data/RF_model.pmml");
+            URL src = getClass().getResource("/data/RF_model_nrf2up.pmml");
             Model = new ModelANNFromPMML(src.openStream(), "Predicted Exp");
         } catch (IOException | InitFailureException ex) {
             throw new InitFailureException("Unable to read PMML source from .jar file");

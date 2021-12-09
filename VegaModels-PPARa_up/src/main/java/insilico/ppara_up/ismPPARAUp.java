@@ -35,7 +35,7 @@ public class ismPPARAUp extends InsilicoModel {
         super(ModelData);
 
         try {
-            URL src = getClass().getResource("/data/RF_model.pmml");
+            URL src = getClass().getResource("/data/RF_model_pparaup.pmml");
             Model = new ModelANNFromPMML(src.openStream(), "Predicted Exp");
         } catch (IOException ex) {
             throw new InitFailureException("Unable to read PMML source from .jar file");

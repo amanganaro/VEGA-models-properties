@@ -42,7 +42,7 @@ public class mainScriptPersistenceSoilIRFMN {
                 System.out.println(model.GetResultsName()[i] + " | " + out.getResults()[i]);
         }
 
-        ModelsDeployment.TestModelWithTrainingSet(model, "persistence_soil_irfmn_loo_results");
+//        ModelsDeployment.TestModelWithTrainingSet(model, "persistence_soil_irfmn_loo_results");
 
 
     }
