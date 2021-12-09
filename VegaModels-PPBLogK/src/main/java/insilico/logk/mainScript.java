@@ -6,8 +6,8 @@ import insilico.core.model.InsilicoModel;
 import insilico.core.molecule.conversion.SmilesMolecule;
 
 import insilico.logk.descriptors.EmbeddedDescriptors;
-import insilico.logk.utils.ModelsDeployment;
 import lombok.extern.slf4j.Slf4j;
+import utils.ModelsDeployment;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -21,6 +21,7 @@ public class mainScript {
     public static void main(String[] args) throws InitFailureException, GenericFailureException, MalformedURLException, FileNotFoundException {
 
         InsilicoModel model = new ismLogK();
+        ModelsDeployment.TestModelWithTrainingSet(model, "out_ts");
 //        ModelsDeployment.BuildDataset(model, "out_ts");
 //        File sourceFile = new File("out_ts/ts_logk.dat");
 //        File destinationFile = new File("VegaModels-LogK\\src\\main\\resources\\data\\ts_logk.dat");
@@ -32,8 +33,8 @@ public class mainScript {
 
 
 
-        ModelsDeployment modelsDeployment = new ModelsDeployment().PrintDescriptor(model, "descriptors");
-        modelsDeployment = new ModelsDeployment().TestModelWithTrainingSet(model, "results");
+//        ModelsDeployment modelsDeployment = new ModelsDeployment().PrintDescriptor(model, "descriptors");
+//        ModelsDeployment modelsDeployment = new ModelsDeployment().TestModelWithTrainingSet(model, "results");
 
 //        InsilicoModelOutput out = model.Execute(SmilesMolecule.Convert("COC1=C(OC)C=C2C(N)=NC(=[NH+]C2=C1)N1CCN(CC1)C(=O)C1=CC=CO1"));
 

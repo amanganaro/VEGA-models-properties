@@ -20,10 +20,8 @@ import insilico.core.molecule.matrix.ConnectionAugMatrix;
 import insilico.core.molecule.matrix.TopoDistanceMatrix;
 import insilico.core.molecule.tools.Manipulator;
 import insilico.core.tools.utils.MoleculeUtilities;
-import insilico.descriptor.blocks.*;
-import insilico.descriptor.blocks.logP.MLogP;
-import insilico.descriptor.localization.StringSelectorDescriptors;
 import lombok.extern.slf4j.Slf4j;
+import org.openscience.cdk.CDKConstants;
 import org.openscience.cdk.graph.ShortestPaths;
 import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IAtomContainer;
@@ -35,10 +33,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 @Slf4j
 public class EmbeddedDescriptors {
@@ -89,7 +84,7 @@ public class EmbeddedDescriptors {
         try {
             curMol = mol.GetStructure();
         } catch (InvalidMoleculeException e) {
-            log.warn(StringSelectorDescriptors.getString("invalid_structure") + mol.GetSMILES());
+            log.warn("Invalid structure, unable to calculate: " + mol.GetSMILES());
             return;
         }
 
@@ -157,13 +152,24 @@ public class EmbeddedDescriptors {
 
     private void CalculatePVSA(InsilicoMolecule mol) {
 
+//        DescriptorBlock block = new P_VSA();
+//        try {
+//            block.Calculate(mol);
+//            P_VSA_i_2 = block.GetByName("P_VSA_i_2").getValue();
+//            P_VSA_ppp_cyc = block.GetByName("P_VSA_ppp_cyc").getValue();
+//            P_VSA_ppp_L = block.GetByName("P_VSA_ppp_L").getValue();
+//            P_VSA_e_2 = block.GetByName("P_VSA_e_2").getValue();
+//        } catch (DescriptorNotFoundException ex){
+//            log.warn(ex.getMessage());
+//        }
+
         // P_VSA are calculated on H filled molecules
         IAtomContainer m;
         try {
             IAtomContainer orig_m = mol.GetStructure();
             m = Manipulator.AddHydrogens(orig_m);
         } catch (InvalidMoleculeException | GenericFailureException e) {
-            log.warn(StringSelectorDescriptors.getString("invalid_structure") + mol.GetSMILES());
+            log.warn("Invalid structure, unable to calculate: " + mol.GetSMILES());
             return;
         }
 
@@ -287,14 +293,13 @@ public class EmbeddedDescriptors {
             curMolNoH = mol.GetStructure();
             ConnAugMatrixNoH = mol.GetMatrixConnectionAugmented();
         } catch (Exception e) {
-            log.warn(StringSelectorDescriptors.getString("invalid_structure") + mol.GetSMILES());
+            log.warn("Invalid structure, unable to calculate: " + mol.GetSMILES());
             return;
         }
 
         int nSKnoH = curMolNoH.getAtomCount();
 
-        Cats2D cats = new Cats2D();
-        ArrayList<String>[] AtomTypesOnMolWithoutH = cats.setCatsAtomType(curMolNoH, ConnAugMatrixNoH);
+        ArrayList<String>[] AtomTypesOnMolWithoutH = setCatsAtomType(curMolNoH, ConnAugMatrixNoH);
 
         String curAtomType = "L";
         double PVSA = 0;
@@ -340,7 +345,7 @@ public class EmbeddedDescriptors {
             IAtomContainer orig_m = mol.GetStructure();
             m = Manipulator.AddHydrogens(orig_m);
         } catch (InvalidMoleculeException | GenericFailureException e) {
-            log.warn(StringSelectorDescriptors.getString("invalid_structure") + mol.GetSMILES());
+            log.warn("Invalid structure, unable to calculate: " + mol.GetSMILES());
         }
 
         // Gets matrix
@@ -392,13 +397,7 @@ public class EmbeddedDescriptors {
     }
 
     private void CalculateF(InsilicoMolecule mol) {
-        DescriptorBlock block = new AtomPairs2D();
-        try {
-            block.Calculate(mol);
-            F07_C_C = block.GetByName("F07[C-C]").getValue();
-        } catch (DescriptorNotFoundException ex){
-            log.warn(ex.getMessage());
-        }
+
 
         String[][] ATOM_COUPLES = {
                 {"C", "C"}
@@ -463,31 +462,199 @@ public class EmbeddedDescriptors {
         }
     }
 
+    private HashMap<String, Double> S;
+    private HashMap<String, Integer> N;
     private void CalculateNaasc(InsilicoMolecule mol) {
-        DescriptorBlock block = new EStateIndices();
+
+
+        String DEF_URL = "/data/EStatesIndices_definition.txt";
+
+        ArrayList<FragDefinition> Fragments = new ArrayList<>();
         try {
-            block.Calculate(mol);
-            NaasC = block.GetByName("NaasC").getValue();
-        } catch (DescriptorNotFoundException ex){
-            log.warn(ex.getMessage());
+            DataInputStream in;
+            BufferedReader bufferedReader;
+            URL tsURL = EmbeddedDescriptors.class.getResource(DEF_URL);
+            in = new DataInputStream(tsURL.openStream());
+            bufferedReader = new BufferedReader(new InputStreamReader(in));
+
+            String line;
+            line = bufferedReader.readLine(); // first line - headers
+            while((line = bufferedReader.readLine()) != null) {
+                String[] buf =line.split("\t");
+                FragDefinition f = new FragDefinition();
+                f.Name = buf[0];
+                f.AtomType = buf[1];
+                f.nSingle = Integer.parseInt(buf[2]);
+                f.nDouble = Integer.parseInt(buf[3]);
+                f.nTriple = Integer.parseInt(buf[4]);
+                f.nArom = Integer.parseInt(buf[5]);
+                f.nH = Integer.parseInt(buf[6]);
+                f.Charge = Integer.parseInt(buf[7]);
+                Fragments.add(f);
+            }
+
+            IAtomContainer m;
+            try {
+                m = mol.GetStructure();
+            } catch (InvalidMoleculeException e) {
+                log.warn("Invalid Strucuture: " + mol.GetSMILES());
+                return;
+            }
+
+            int[][] TopoMatrix;
+            try {
+                TopoMatrix =  mol.GetMatrixTopologicalDistance();
+            } catch (Exception e) {
+                log.warn(e.getMessage());
+                return;
+            }
+
+            int nSK = m.getAtomCount();
+
+            // Get I-States weights
+            WeightsIState w_istate = new WeightsIState();
+            double[] w_is = w_istate.getWeights(m, false);
+            for (double val : w_is)
+                if (val == Descriptor.MISSING_VALUE) {
+                    log.warn("Unable to calculate E_States");
+                    return;
+                }
+
+            double MaxDN = Descriptor.MISSING_VALUE;
+            double MaxDP = Descriptor.MISSING_VALUE;
+
+            // Calculate E-States
+            double[] w_es = new double[nSK];
+            for (int at = 0; at<nSK; at++) {
+                double sumDeltaI = 0;
+
+                for (int j = 0; j < nSK; j++)
+                    if (at != j)
+                        sumDeltaI += (w_is[at] - w_is[j]) / Math.pow((double) TopoMatrix[at][j] + 1.0, 2.0);
+
+                w_es[at] = w_is[at] + sumDeltaI;
+
+                // max variation
+                if (MaxDN == Descriptor.MISSING_VALUE)
+                    MaxDN = sumDeltaI;
+                if (MaxDP == Descriptor.MISSING_VALUE)
+                    MaxDP = sumDeltaI;
+                if (sumDeltaI > MaxDP)
+                    MaxDP = sumDeltaI;
+                if (sumDeltaI < MaxDN)
+                    MaxDN = sumDeltaI;
+            }
+
+            MaxDN = Math.abs(MaxDN);
+
+            // Calculation
+            S = new HashMap<>();
+            N = new HashMap<>();
+
+            double Gmax= Descriptor.MISSING_VALUE, Gmin= Descriptor.MISSING_VALUE;
+            double Ss = 0, Ms = 0;
+
+            for (int at=0; at<m.getAtomCount(); at++) {
+
+                IAtom curAt = m.getAtom(at);
+
+                // Count H
+                int nH = 0;
+                try {
+                    nH = curAt.getImplicitHydrogenCount();
+                } catch (Exception e) {
+                    log.warn("Unable to count H");
+                }
+
+                // formal charge
+                int Charge;
+                try {
+                    Charge = curAt.getFormalCharge();
+                } catch (Exception e) {
+                    Charge = 0;
+                }
+
+                // Count bonds
+                int nBnd=0, nSng = 0, nDbl = 0, nTri = 0, nAr=0;
+                for (IBond b : m.getConnectedBondsList(curAt)) {
+                    if (b.getFlag(CDKConstants.ISAROMATIC)) {
+                        nAr++;
+                        nBnd++;
+                        continue;
+                    }
+                    if (b.getOrder() == IBond.Order.SINGLE) {
+                        nSng++;
+                        nBnd++;
+                    }
+                    if (b.getOrder() == IBond.Order.DOUBLE) {
+                        nDbl++;
+                        nBnd++;
+                    }
+                    if (b.getOrder() == IBond.Order.TRIPLE) {
+                        nTri++;
+                        nBnd++;
+                    }
+                }
+
+                // Sum of e-states
+                Ss += w_es[at];
+
+                // Maximum and minimum Estate/HEstate
+                Gmax = (Gmax== Descriptor.MISSING_VALUE) ? w_es[at] : (Math.max(w_es[at], Gmax));
+                Gmin = (Gmin== Descriptor.MISSING_VALUE) ? w_es[at] : (Math.min(w_es[at], Gmin));
+
+                //// Groups count
+
+                for (FragDefinition frag : Fragments) {
+                    if  (frag.AtomType.equalsIgnoreCase(curAt.getSymbol())) {
+                        if ( (frag.nSingle == nSng) && (frag.nDouble == nDbl) &&
+                                (frag.nTriple == nTri) && (frag.nArom == nAr) &&
+                                (frag.nH == nH) && (frag.Charge == Charge)) {
+                            UpdateGroup(frag.Name, w_es[at]);
+
+                        }
+                    }
+                }
+
+            }
+
+            Ms = Ss / m.getAtomCount();
+
+            for (FragDefinition frag : Fragments) {
+                if (N.containsKey("aasC")) {
+                    NaasC = N.get("aasC");
+                }
+            }
+        } catch (Exception e) {
+            log.warn("unable to init EStates fragment definition from local resource -" + e.getMessage());
+        }
+
+
+
+
+
+    }
+
+    private void UpdateGroup(String group, double sumVal) {
+        if (S.containsKey(group)) {
+            double bufVal = S.get(group);
+            bufVal += sumVal;
+            S.put(group, bufVal);
+            int bufCount = N.get(group);
+            bufCount++;
+            N.put(group, bufCount);
+        } else {
+            S.put(group, sumVal);
+            N.put(group, 1);
         }
     }
 
     private void CalculateIC(InsilicoMolecule mol) {
-        DescriptorBlock block = new InformationContent();
-        try {
-            block.Calculate(mol);
-            IDDE = block.GetByName("IDDE").getValue();
-            IC3 = block.GetByName("IC3").getValue();
-        } catch (DescriptorNotFoundException ex){
-            log.warn(ex.getMessage());
-        }
-
         IAtomContainer curMol;
         try {
             curMol = mol.GetStructure();
         } catch (InvalidMoleculeException e) {
-            log.warn(StringSelectorDescriptors.getString("invalid_structure") + mol.GetSMILES());
+            log.warn("Invalid structure, unable to calculate: " + mol.GetSMILES());
             return;
         }
 
@@ -675,13 +842,6 @@ public class EmbeddedDescriptors {
     }
 
     private void CalculateATSC(InsilicoMolecule mol) {
-//        DescriptorBlock block = new AutoCorrelation();
-//        try {
-//            block.Calculate(mol);
-//            ATSC2s = block.GetByName("ATSC2s").getValue();
-//        } catch (DescriptorNotFoundException ex){
-//            log.warn(ex.getMessage());
-//        }
 
         try {
 
@@ -694,7 +854,7 @@ public class EmbeddedDescriptors {
                 IAtomContainer orig_m = mol.GetStructure();
                 m = Manipulator.AddHydrogens(orig_m);
             } catch (InvalidMoleculeException | GenericFailureException e) {
-                log.warn(StringSelectorDescriptors.getString("invalid_structure") + mol.GetSMILES());
+                log.warn("Invalid structure, unable to calculate: " + mol.GetSMILES());
                 return;
             }
 
@@ -865,7 +1025,7 @@ public class EmbeddedDescriptors {
             try {
                 H = CurAt.getImplicitHydrogenCount();
             } catch (Exception e) {
-                log.warn(StringSelectorDescriptors.getString("unable_count_h"));
+                log.warn("Unable to count H atoms");
             }
 
             // counters
@@ -996,13 +1156,19 @@ public class EmbeddedDescriptors {
         return AtomTypes;
     }
 
+    private final static String[] TYPE_D = { "D", ""} ;
+    private final static String[] TYPE_A = { "A", ""};
+    private final static String[] TYPE_P = { "P", ""};
+    private final static String[] TYPE_N = { "N", ""};
+    private final static String[] TYPE_L = { "L", ""};
+    private final static String[] TYPE_CYC = { "Cyc", ""};
     private final static String[][] PPP_TYPES = {
-            Cats2D.TYPE_D,
-            Cats2D.TYPE_A,
-            Cats2D.TYPE_P,
-            Cats2D.TYPE_N,
-            Cats2D.TYPE_L,
-            Cats2D.TYPE_CYC
+            TYPE_D,
+            TYPE_A,
+            TYPE_P,
+            TYPE_N,
+            TYPE_L,
+            TYPE_CYC
     };
 
     private final static Object[][] RefBondLengths = {
@@ -1216,6 +1382,21 @@ public class EmbeddedDescriptors {
 
         return 0;
     }
+
+    private class FragDefinition {
+        public String Name = "";
+        public String AtomType = "";
+        public int nSingle = 0;
+        public int nDouble = 0;
+        public int nTriple = 0;
+        public int nArom = 0;
+        public int nH = 0;
+        public int Charge = 0;
+    }
+
+
+
+
 
 
 

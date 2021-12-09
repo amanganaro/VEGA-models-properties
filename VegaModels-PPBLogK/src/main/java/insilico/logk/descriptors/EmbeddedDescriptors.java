@@ -67,6 +67,7 @@ public class EmbeddedDescriptors {
         if(fromFile)
             SearchDescriptors(mol);
         else CalculateDescriptors(mol);
+        System.out.println();
     }
 
     private void CalculateDescriptors(InsilicoMolecule mol) {

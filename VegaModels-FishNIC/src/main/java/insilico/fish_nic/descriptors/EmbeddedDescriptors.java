@@ -17,6 +17,7 @@ import org.openscience.cdk.graph.ShortestPaths;
 import org.openscience.cdk.graph.matrix.AdjacencyMatrix;
 import org.openscience.cdk.interfaces.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -72,7 +73,6 @@ public class EmbeddedDescriptors {
     }
 
     private void CalculateEigenvalueBased(InsilicoMolecule Mol){
-        this.setSeigv(0);
 
         IAtomContainer m;
         try {
@@ -145,7 +145,6 @@ public class EmbeddedDescriptors {
     }
 
     private void CalculateTopologicalCharge(InsilicoMolecule Mol){
-        this.setGGI4(0);
 
         IAtomContainer curMol;
         try {
@@ -234,7 +233,6 @@ public class EmbeddedDescriptors {
     }
 
     private void CalculateESPM(InsilicoMolecule Mol){
-        this.setESpm1dm(0);
         IAtomContainer m;
         try {
             m = Mol.GetStructure();
@@ -298,101 +296,94 @@ public class EmbeddedDescriptors {
     }
 
     private void CalculateEdgeAdjacency(InsilicoMolecule Mol){
-        this.setEEig14ed(0); this.setEEig14dm(0); this.setESpm1dm(0);
 
-        DescriptorBlock block = new EdgeAdjacency();
+        IAtomContainer m;
         try {
-            block.Calculate(Mol);
-            this.setEEig14dm(block.GetByName("EEig14dm").getValue());
-            this.setEEig14ed(block.GetByName("EEig14ed").getValue());
-            this.setESpm1dm(block.GetByName("ESpm1dm").getValue());
-        } catch (Exception ex){
-            log.warn(ex.getMessage());
+            m = Mol.GetStructure();
+        } catch (InvalidMoleculeException e) {
+            return;
         }
 
+        // Only for mol with nSK>1
+        if (m.getAtomCount() < 2) {
+            return;
+        }
 
-//        CalculateESPM(Mol);
+        // Gets matrices
+        double[][][] EdgeAdjMat;
+        try {
+            EdgeAdjMat = Mol.GetMatrixEdgeAdjacency();
+        } catch (GenericFailureException e) {
+            log.warn(e.getMessage());
+            return;
+        }
 
-//        IAtomContainer m;
-//        try {
-//            m = Mol.GetStructure();
-//        } catch (InvalidMoleculeException e) {
-//            this.setEEig14ed(MISSING_VALUE); this.setEEig14dm(MISSING_VALUE); this.setESpm1dm(MISSING_VALUE);
-//            return;
-//        }
-//
-//        // Only for mol with nSK>1
-//        if (m.getAtomCount() < 2) {
-//            this.setEEig14ed(MISSING_VALUE); this.setEEig14dm(MISSING_VALUE); this.setESpm1dm(MISSING_VALUE);
-//            return;
-//        }
-//
-//        // Gets matrices
-//        double[][][] EdgeAdjMat = null;
-//        try {
-//            EdgeAdjMat = Mol.GetMatrixEdgeAdjacency();
-//        } catch (GenericFailureException e) {
-//            log.warn(e.getMessage());
-//            this.setEEig14ed(MISSING_VALUE); this.setEEig14dm(MISSING_VALUE); this.setESpm1dm(MISSING_VALUE);
-//            return;
-//        }
-//
-//        Matrix DataMatrix = null;
-//        double[][] EdgeDegreeMat = new double[EdgeAdjMat.length][EdgeAdjMat[0].length];
-//        for (int i=0; i<EdgeAdjMat.length; i++)
-//            for (int j=0; j<EdgeAdjMat[0].length; j++)
-//                EdgeDegreeMat[i][j] = EdgeAdjMat[i][j][1];
-//
-//        DataMatrix = new Matrix(EdgeDegreeMat);
-//        double[] eigenvalues;
-//        EigenvalueDecomposition ed = new EigenvalueDecomposition(DataMatrix);
-//        eigenvalues = ed.getRealEigenvalues();
-//
-//        Arrays.sort(eigenvalues);
-//
-//
-//        // EEig
-//        for (int i=1; i<=15; i++) {
-//            if(i==14){
-//                int idx = (eigenvalues.length - 1) - (i-1);
-//                if (idx>=0)
-//                    this.setEEig14ed(eigenvalues[idx]);
-//                else
-//                    this.setEEig14ed(0);
-//            }
-//        }
-//
-//        DataMatrix = null;
-//        double[][] EdgeDipoleMat = new double[EdgeAdjMat.length][EdgeAdjMat[0].length];
-//        for (int i=0; i<EdgeAdjMat.length; i++)
-//            for (int j=0; j<EdgeAdjMat[0].length; j++)
-//                EdgeDipoleMat[i][j] = EdgeAdjMat[i][j][0];
-//
-//        for (int i=0; i<m.getBondCount(); i++) {
-//            IAtom a =  m.getBond(i).getAtom(0);
-//            IAtom b =  m.getBond(i).getAtom(1);
-//
-//            double CurVal = GetDipoleMoment(m, a, b);
-//            if (CurVal == 0)
-//                CurVal = GetDipoleMoment(m, b, a);
-//            EdgeDipoleMat[i][i] = CurVal;
-//        }
-//
-//        DataMatrix = new Matrix(EdgeDipoleMat);
-//        // EEig
-//        for (int i=1 ; i<=15; i++) {
-//            if(i == 14){
-//                int idx = (eigenvalues.length - 1) - (i-1);
-//                if (idx>=0)
-//                    this.setEEig14dm(eigenvalues[idx]);
-//                else
-//                    this.setEEig14dm(0);
-//            }
-//        }
+        Matrix DataMatrix;
+        // ed
+        double[][] EdgeDegreeMat = new double[EdgeAdjMat.length][EdgeAdjMat[0].length];
+        for (int i=0; i<EdgeAdjMat.length; i++)
+            for (int j=0; j<EdgeAdjMat[0].length; j++)
+                EdgeDegreeMat[i][j] = EdgeAdjMat[i][j][1];
+
+        DataMatrix = new Matrix(EdgeDegreeMat);
+
+        double[] eigenvalues;
+        EigenvalueDecomposition ed = new EigenvalueDecomposition(DataMatrix);
+        eigenvalues = ed.getRealEigenvalues();
+
+        Arrays.sort(eigenvalues);
+
+        // EEig
+        for (int i=1; i<=15; i++) {
+            int idx = (eigenvalues.length - 1) - (i-1);
+            if (idx>=0)
+                if (i == 14)
+                    this.setEEig14ed(eigenvalues[idx]);
+
+        }
+
+        // dm
+        double[][] EdgeDipoleMat = new double[EdgeAdjMat.length][EdgeAdjMat[0].length];
+        for (int i=0; i<EdgeAdjMat.length; i++)
+            for (int j=0; j<EdgeAdjMat[0].length; j++)
+                EdgeDipoleMat[i][j] = EdgeAdjMat[i][j][0];
+
+        for (int i=0; i<m.getBondCount(); i++) {
+            IAtom a =  m.getBond(i).getAtom(0);
+            IAtom b =  m.getBond(i).getAtom(1);
+
+            double CurVal = GetDipoleMoment(m, a, b);
+            if (CurVal == 0)
+                CurVal = GetDipoleMoment(m, b, a);
+            EdgeDipoleMat[i][i] = CurVal;
+        }
+        DataMatrix = new Matrix(EdgeDipoleMat);
+
+
+        ed = new EigenvalueDecomposition(DataMatrix);
+        eigenvalues = ed.getRealEigenvalues();
+        for (int i=1; i<=15; i++) {
+            int idx = (eigenvalues.length - 1) - (i-1);
+            if (idx>=0)
+                if (i == 14)
+                    this.setEEig14dm(eigenvalues[idx]);
+
+        }
+
+        // Spectral moment
+        for (int i=1; i<=15; i++) {
+            double curSM = 0;
+            for (int k=(eigenvalues.length-1); k>=0; k--) {
+                curSM += Math.pow(eigenvalues[k], (i));
+            }
+            curSM = Math.log(1 + curSM);
+
+            if(i == 1)
+                this.setESpm1dm(curSM);
+        }
     }
 
     private void CalculateAutoCorrelation(InsilicoMolecule Mol){
-        this.setMATS1e(0); this.setGATS7m(0);
 
         IAtomContainer m;
         try {
@@ -475,87 +466,77 @@ public class EmbeddedDescriptors {
     }
 
     private void CalculateWalkAndPath(InsilicoMolecule Mol) {
-        this.setPiPC09(0); this.setPCR(0); this.setMPC2(0);
 
-        DescriptorBlock block = new WalkAndPath(true);
-        block.setBoolProperty(WalkAndPath.PARAMETER_INCLUDE_INDICES, true);
+        List<Integer> PathList = new ArrayList<>();
+        for(int i = 1; i<=10; i++)
+            PathList.add(i);
 
+        IAtomContainer m;
         try {
-            block.Calculate(Mol);
-            this.setPiPC09(block.GetByName("piPC9").getValue());
-            this.setPCR(block.GetByName("PCR").getValue());
-            this.setMPC2(block.GetByName("MPC2").getValue());
-        } catch (DescriptorNotFoundException ex){
-            log.warn(ex.getMessage());
+            m = Mol.GetStructure();
+        } catch (InvalidMoleculeException e) {
+            log.warn(e.getMessage());
+            return;
         }
 
+        int[][] AdjMat = null;
+        try {
+            AdjMat = Mol.GetMatrixAdjacency();
+        } catch (GenericFailureException e) {
+            log.warn(e.getMessage());
+            return;
+        }
+        double[][] AdjMatDbl = new double[AdjMat.length][AdjMat[0].length];
+        for (int i=0; i<AdjMat.length; i++)
+            for (int j=0; j<AdjMat[0].length; j++)
+                AdjMatDbl[i][j] = AdjMat[i][j];
+
+        int nSK = m.getAtomCount();
+        double piID=0, TPC=0;
+        for (Integer curPath : PathList) {
 
 
-//        IAtomContainer m;
-//        try {
-//            m = Mol.GetStructure();
-//        } catch (InvalidMoleculeException e) {
-//            this.setPiPC09(MISSING_VALUE); this.setPCR(MISSING_VALUE); this.setMPC2(MISSING_VALUE);
-//            return;
-//        }
-//
-//        // Gets matrices
-//        int[][] AdjMat = null;
-//        try {
-//            AdjMat = Mol.GetMatrixAdjacency();
-//        } catch (GenericFailureException e) {
-//            log.warn(e.getMessage());
-//            this.setPiPC09(MISSING_VALUE); this.setPCR(MISSING_VALUE); this.setMPC2(MISSING_VALUE);
-//            return;
-//        }
-//        double[][] AdjMatDbl = new double[AdjMat.length][AdjMat[0].length];
-//        for (int i=0; i<AdjMat.length; i++)
-//            for (int j=0; j<AdjMat[0].length; j++)
-//                AdjMatDbl[i][j] = AdjMat[i][j];
-//
-//        int nSK = m.getAtomCount();
-//        double piID=0, TPC=0;
-//
-//
-//        int curPath = 9;
-//        double CurMPC=0;
-//        double[][] AtomPath = GetAtomsPaths(curPath, m);
-//
-//        for (int i=0; i<nSK; i++) {
-//            CurMPC += AtomPath[i][1];
-//        }
-//
-//
-//        CurMPC /= 2.0;
-//        CurMPC = Math.log(1+CurMPC);
-//
-//        this.setPiPC09(CurMPC);
-//
-//        piID = Math.log(1+piID+nSK);
-//        TPC = Math.log(1+TPC+nSK);
-//
-//        double PCR = piID / TPC;
-//        this.setPCR(PCR);
-//
-//        curPath = 2;
-//
-//        double CurPath=0;
-//        CurMPC=0;
-//        AtomPath = GetAtomsPaths(curPath, m);
-//
-//        for (int i=0; i<nSK; i++) {
-//            CurPath += AtomPath[i][0];
-//            CurMPC += AtomPath[i][1];
-//        }
-//
-//        CurPath /= 2;
-//
-//        this.setMPC2(CurPath);
+            double CurPath=0, CurWalk=0, CurPW=0, CurMPC=0;
+            int[] AtomWalk = GetAtomsWalks(curPath, AdjMatDbl);
+            double[][] AtomPath = GetAtomsPaths(curPath, m);
+
+            for (int i=0; i<nSK; i++) {
+                CurWalk += AtomWalk[i];
+                CurPath += AtomPath[i][0];
+                CurMPC += AtomPath[i][1];
+                CurPW += (double)AtomPath[i][0] / (double)AtomWalk[i];
+            }
+
+            if (curPath == 1) {
+                CurWalk /= 2;
+            } else {
+                CurWalk = Math.log(1 + CurWalk);
+            }
+            CurPath /= 2;
+            TPC += CurPath;
+            CurMPC /= 2.0;
+            piID += CurMPC;
+            CurMPC = Math.log(1+CurMPC);
+            CurPW /= nSK;
+
+
+            if(curPath == 2)
+                this.setMPC2(CurPath);
+
+            if(curPath == 9)
+                this.setPiPC09(CurMPC);
+
+        }
+
+        piID = Math.log(1+piID+nSK);
+        TPC = Math.log(1+TPC+nSK);
+
+        double PCR = piID / TPC;
+        this.setPCR(PCR);
 
     }
 
     private void CalculateTopologicaDistances(InsilicoMolecule Mol){
-        this.setT_N_P(0); this.setT_CL_CL(0); this.setT_P_CL(0);
         DescriptorBlock block = new TopologicalDistances();
         block.Calculate(Mol);
         try {
@@ -571,7 +552,6 @@ public class EmbeddedDescriptors {
 
     private void CalculateRings(InsilicoMolecule Mol){
 
-        this.setNR10(0);
         try {
 
             int nSizes = 9;
@@ -601,7 +581,6 @@ public class EmbeddedDescriptors {
     }
 
     private void CalculateConstitutional(InsilicoMolecule Mol){
-        this.setMw(0); this.setNTB(0); this.setNP(0); this.setNCL(0);
 
         IAtomContainer curMol;
         try {
