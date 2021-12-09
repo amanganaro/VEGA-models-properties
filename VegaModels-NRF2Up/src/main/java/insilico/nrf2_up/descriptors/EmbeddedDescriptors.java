@@ -159,17 +159,6 @@ public class EmbeddedDescriptors {
 
     private void CalculatePVSA(InsilicoMolecule mol) {
 
-//        DescriptorBlock block = new P_VSA();
-//        try {
-//            block.Calculate(mol);
-//            P_VSA_i_2 = block.GetByName("P_VSA_i_2").getValue();
-//            P_VSA_ppp_cyc = block.GetByName("P_VSA_ppp_cyc").getValue();
-//            P_VSA_ppp_L = block.GetByName("P_VSA_ppp_L").getValue();
-//            P_VSA_e_2 = block.GetByName("P_VSA_e_2").getValue();
-//        } catch (DescriptorNotFoundException ex){
-//            log.warn(ex.getMessage());
-//        }
-
         // P_VSA are calculated on H filled molecules
         IAtomContainer m;
         try {
