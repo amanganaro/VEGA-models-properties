@@ -10,9 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-RBAIrfmn</artifactId>
-    <version>0.2.2</version>
+    <version>1.0.2</version>
 
-    <name>Estrogen Receptor Relative Binding Affinity model (IRFMN) - 1.0.1</name>
+    <name>Estrogen Receptor Relative Binding Affinity model (IRFMN)</name>
     <description>
         Classification model for Estrogen Receptor Relative Binding Affinity (IRFMN)
     </description>

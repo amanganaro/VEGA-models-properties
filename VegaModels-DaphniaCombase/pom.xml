@@ -10,9 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-DaphniaCombase</artifactId>
-    <version>0.2.1</version>
+    <version>1.0.1</version>
 
-    <name>Daphnia Magna Acute (EC50) Toxicity model (IRFMN-Combase) 1.0.0</name>
+    <name>Daphnia Magna Acute (EC50) Toxicity model (IRFMN-Combase)</name>
     <description>
         Quantitative model for acute toxicity (EC50) in daphnia magna, specific for biocides
     </description>

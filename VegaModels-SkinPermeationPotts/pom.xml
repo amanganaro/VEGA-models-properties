@@ -10,9 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-SkinPermeationPotts</artifactId>
-    <version>0.2.2</version>
+    <version>1.0.1</version>
 
-    <name>Skin Permeation (LogKp) model (Potts and Guy) - 1.0.0</name>
+    <name>Skin Permeation (LogKp) model (Potts and Guy)</name>
     <description>
         Quantitative model for skin permeation (LogKp), Potts and guy formula.
     </description>

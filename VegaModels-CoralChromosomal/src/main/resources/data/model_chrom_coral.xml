@@ -4,7 +4,7 @@
         <Name>Chromosomal aberration model (CORAL)</Name>
         <Key>CHROM_CORAL</Key>
         <Summary>Classification model for chromosomal aberration,</Summary>
-        <Version>1.0.0</Version>
+        <Version>1.0.1</Version>
     </Version>
 
     <Vega>

@@ -4,7 +4,7 @@
         <Name>Androgen Receptor-mediated effect (IRFMN-COMPARA)</Name>
         <Key>ANDROGEN_COMPARA</Key>
         <Summary>Classification model for Androgen Receptor-mediated effect (IRFMN/COMPARA).</Summary>
-        <Version>1.0.0</Version>
+        <Version>1.0.1</Version>
     </Version>
     
     <Vega>

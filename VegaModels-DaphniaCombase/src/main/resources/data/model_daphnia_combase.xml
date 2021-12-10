@@ -4,7 +4,7 @@
         <Name>Daphnia Magna Acute (EC50) Toxicity model (IRFMN-Combase)</Name>
         <Key>DAPHNIA_COMBASE</Key>
         <Summary>Quantitative model for acute toxicity (EC50) in daphnia magna, specific for biocides</Summary>
-        <Version>1.0.0</Version>
+        <Version>1.0.1</Version>
     </Version>
     
     <Vega>

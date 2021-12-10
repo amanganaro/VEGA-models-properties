@@ -10,9 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-DaphniaEC50</artifactId>
-    <version>0.2.2</version>
+    <version>1.0.1</version>
 
-    <name>Daphnia Magna Acute (EC50) Toxicity model (IRFMN) - 1.0.0</name>
+    <name>Daphnia Magna Acute (EC50) Toxicity model (IRFMN)</name>
     <description>
         Quantitative model for acute toxicity (EC50) in daphnia magna
     </description>

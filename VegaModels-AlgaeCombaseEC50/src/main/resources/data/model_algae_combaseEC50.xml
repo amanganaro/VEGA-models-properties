@@ -4,6 +4,7 @@
         <Name>Algae Acute (EC50) Toxicity model (ProtoQSAR-Combase)</Name>
         <Key>ALGAE_COMBASEEC50</Key>
         <Summary>Quantitative model for acute toxicity (EC50) in algae, specific for biocides</Summary>
+        <Version>1.0.1</Version>
     </Version>
     
     <Vega>

@@ -10,9 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-HydrolysisCoral</artifactId>
-    <version>0.2.1</version>
+    <version>1.0.1</version>
 
-    <name>Hydrolysis (IRFMN-CORAL) 1.0.0</name>
+    <name>Hydrolysis (IRFMN-CORAL)</name>
     <description>
         Quantitative model for hydrolysis developed by CORAL software at IRFMN
     </description>

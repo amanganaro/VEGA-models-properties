@@ -4,7 +4,7 @@
         <Name>Skin Permeation (LogKp) model (Potts and Guy)</Name>
         <Key>SKINPERM_POTTS</Key>
         <Summary>Quantitative model for skin permeation (LogKp), Potts and guy formula.</Summary>
-        <Version>1.0.0</Version>
+        <Version>1.0.1</Version>
     </Version>
     
     <Vega>

@@ -10,9 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-ThyroidTRAlphaNRMEA</artifactId>
-    <version>0.2.1</version>
+    <version>1.0.1</version>
 
-    <name>Thyroid Receptor Alpha effect (NRMEA) - 1.0.0</name>
+    <name>Thyroid Receptor Alpha effect (NRMEA)</name>
     <description>
         Classification model for Thyroid Receptor Alpha effect ((NRMEA)).
     </description>

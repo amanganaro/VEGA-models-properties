@@ -4,7 +4,7 @@
         <Name>Developmental Toxicity model (CAESAR)</Name>
         <Key>DEVTOX_CAESAR</Key>
         <Summary>QSAR classification model for Developmental Toxicity (from CAESAR project)</Summary>
-        <Version>2.1.7</Version>
+        <Version>2.1.8</Version>
     </Version>
     
     <Vega>

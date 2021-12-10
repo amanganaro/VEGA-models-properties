@@ -19,7 +19,7 @@ public class mainScript {
 
 
         InsilicoModel model = new ismWaterSolubilityIRFMN();
-        ModelsDeployment.TestModelWithTrainingSet(model, "Water solubility model (IRFMN) - New");
+//        ModelsDeployment.TestModelWithTrainingSet(model, "Water solubility model (IRFMN) - New");
 //        ModelsDeployment.BuildDataset(model, "out_ts");
 //        File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/"  + model.getInfo().getTrainingSetURL().split("/data/")[1]);
 //        File destinationFile = new File("VegaModels-WaterSolubility\\src\\main\\resources\\data\\ts_watersolubility_irfmn.dat");

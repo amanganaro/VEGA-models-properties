@@ -10,9 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-TotalHLQsarins</artifactId>
-    <version>0.2.1</version>
+    <version>1.0.1</version>
 
-    <name>Total body elimination half-life (QSARINS) - 1.0.0</name>
+    <name>Total body elimination half-life (QSARINS)</name>
     <description>
         Quantitative model total body elimination half-life in human, developed in the QSARINS software.
     </description>

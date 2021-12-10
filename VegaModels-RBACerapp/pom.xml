@@ -10,9 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-RBACerapp</artifactId>
-    <version>0.2.2</version>
+    <version>1.0.1</version>
 
-    <name>Estrogen Receptor-mediated effect (IRFMN-CERAPP) - 1.0.0</name>
+    <name>Estrogen Receptor-mediated effect (IRFMN-CERAPP)</name>
     <description>
         Classification model for Estrogen Receptor-mediated effect (IRFMN/CERAPP)
     </description>

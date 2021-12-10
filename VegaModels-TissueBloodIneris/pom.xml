@@ -10,9 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-TissueBloodIneris</artifactId>
-    <version>0.2.1</version>
+    <version>1.0.1</version>
 
-    <name>Adipose tissue - blood model (INERIS) - 1.0.0</name>
+    <name>Adipose tissue - blood model (INERIS)</name>
     <description>
         Quantitative model for adipose tissue:blood partition coefficient on rat, developed by INERIS.
     </description>

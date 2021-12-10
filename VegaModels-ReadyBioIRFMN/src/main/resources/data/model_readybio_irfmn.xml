@@ -4,7 +4,7 @@
         <Name>Ready Biodegradability model (IRFMN)</Name>
         <Key>READYBIO_IRFMN</Key>
         <Summary>QSAR classification model for Ready Biodegradability</Summary>
-        <Version>1.0.9</Version>
+        <Version>1.0.10</Version>
     </Version>
     
     <Vega>

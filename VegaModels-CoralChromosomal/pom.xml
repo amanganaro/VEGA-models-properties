@@ -10,9 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-CoralChromosomal</artifactId>
-    <version>0.2.1</version>
+    <version>1.0.1</version>
 
-    <name>Chromosomal aberration model (CORAL) 1.0.0</name>
+    <name>Chromosomal aberration model (CORAL)</name>
     <description>
         Classification model for chromosomal aberration
     </description>

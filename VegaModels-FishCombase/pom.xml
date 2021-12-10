@@ -10,10 +10,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-FishCombase</artifactId>
-    <version>0.2.1</version>
+    <version>1.0.1</version>
 
 
-    <name>Fish Acute (LC50) Toxicity model (IRFMN-Combase)- 1.0.0</name>
+    <name>Fish Acute (LC50) Toxicity model (IRFMN-Combase)</name>
     <description>
         Quantitative model for acute toxicity (LC50) in fish, specific for biocides
     </description>

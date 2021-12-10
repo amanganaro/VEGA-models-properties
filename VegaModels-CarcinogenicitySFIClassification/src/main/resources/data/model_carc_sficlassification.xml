@@ -4,7 +4,7 @@
         <Name>Carcinogenicity inhalation classification model (IRFMN)</Name>
         <Key>CARC_SFI_CLASS</Key>
         <Summary>Classification model for carcinogenicity (inhalation route).</Summary>
-        <Version>1.0.0</Version>
+        <Version>1.0.1</Version>
     </Version>
     
     <Vega>

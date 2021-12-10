@@ -4,7 +4,7 @@
         <Name>Estrogen Receptor Relative Binding Affinity model (IRFMN)</Name>
         <Key>RBA_IRFMN</Key>
         <Summary>Classification model for Estrogen Receptor Relative Binding Affinity (IRFMN)</Summary>
-        <Version>1.0.1</Version>
+        <Version>1.0.2</Version>
     </Version>
     
     <Vega>

@@ -4,7 +4,7 @@
         <Name>Sludge (EC50) Toxicity model (ProtoQSAR-Combase)</Name>
         <Key>SLUDGE_COMBASEEC50</Key>
         <Summary>Quantitative model for toxicity (EC50) in sludge, specific for biocides</Summary>
-        <Version>1.0.0</Version>
+        <Version>1.0.1</Version>
     </Version>
 
     <Vega>

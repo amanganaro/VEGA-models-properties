@@ -10,9 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-ReadyBioIRFMN</artifactId>
-    <version>0.2.2</version>
+    <version>1.0.10</version>
 
-    <name>Ready Biodegradability model (IRFMN) - 1.0.9</name>
+    <name>Ready Biodegradability model (IRFMN)</name>
     <description>
         QSAR classification model for Ready Biodegradability
     </description>

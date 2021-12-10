@@ -2,6 +2,7 @@ package insilico.totalhl_qsarins;
 
 import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
+import insilico.core.molecule.InsilicoMolecule;
 import insilico.core.molecule.conversion.SmilesMolecule;
 import lombok.extern.slf4j.Slf4j;
 import utils.ModelsDeployment;
@@ -17,6 +18,10 @@ public class mainScriptTotalHLQsarins {
 
     public static void main(String[] args) throws Exception {
         InsilicoModel model = new ismTotalHLQsarins();
+        InsilicoMolecule mo = SmilesMolecule.Convert("CCC");
+        model.Execute(mo);
+        if(1==1) return;
+
         ModelsDeployment.BuildDataset(model, "out_ts");
         File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
         File destinationFile = new File("VegaModels-TotalHLQsarins\\src\\main\\resources\\data\\ts_totalhl_qsarins.dat");

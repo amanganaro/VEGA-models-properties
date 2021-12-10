@@ -10,10 +10,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-DevtoxCaesar</artifactId>
-    <version>0.2.1</version>
+    <version>2.1.8</version>
 
 
-    <name>Developmental Toxicity model (CAESAR) - 2.1.7</name>
+    <name>Developmental Toxicity model (CAESAR)</name>
     <description>
         QSAR classification model for Developmental Toxicity (from CAESAR project)
     </description>

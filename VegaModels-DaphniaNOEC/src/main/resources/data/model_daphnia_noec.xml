@@ -4,7 +4,7 @@
         <Name>Daphnia Magna Chronic (NOEC) Toxicity model (IRFMN)</Name>
         <Key>DAPHNIA_NOEC</Key>
         <Summary>Quantitative model for chronic toxicity (NOEC) in daphnia magna</Summary>
-        <Version>1.0.0</Version>
+        <Version>1.0.1</Version>
     </Version>
     
     <Vega>

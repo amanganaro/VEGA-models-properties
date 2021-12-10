@@ -10,9 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-SludgeCombaseClass</artifactId>
-    <version>0.2.1</version>
+    <version>1.0.1</version>
 
-    <name>Sludge Classification Toxicity model (ProtoQSAR-Combase) - 1.0.0</name>
+    <name>Sludge Classification Toxicity model (ProtoQSAR-Combase)</name>
     <description>
         Classification model for toxicity in sludge, specific for biocides
     </description>
