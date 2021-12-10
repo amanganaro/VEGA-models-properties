@@ -27,6 +27,7 @@ public class ismAhrUp extends InsilicoModel {
         super(ModelData);
 
         try {
+
             URL src = getClass().getResource("/data/RF_model_ahrup.pmml");
             Model = new ModelANNFromPMML(src.openStream(), "Predicted Exp");
         } catch (IOException | InitFailureException ex) {

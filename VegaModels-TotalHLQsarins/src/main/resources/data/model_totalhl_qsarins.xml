@@ -4,7 +4,7 @@
         <Name>Total body elimination half-life (QSARINS)</Name>
         <Key>TOTALHL_QSARINS</Key>
         <Summary>Quantitative model total body elimination half-life in human</Summary>
-        <Version>1.0.1/Version>
+        <Version>1.0.1</Version>
     </Version>
     
     <Vega>

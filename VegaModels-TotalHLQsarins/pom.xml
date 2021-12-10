@@ -25,16 +25,28 @@
             <version>0.1</version>
         </dependency>
 
+<!--        <dependency>-->
+<!--            <groupId>InSilico</groupId>-->
+<!--            <artifactId>ProtoQSAR</artifactId>-->
+<!--            <version>0.2</version>-->
+<!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>InSilico</groupId>-->
+<!--            <artifactId>OperaAdapter</artifactId>-->
+<!--            <version>1.0</version>-->
+<!--        </dependency>-->
+
         <dependency>
             <groupId>InSilico</groupId>
-            <artifactId>ProtoQSAR</artifactId>
-            <version>0.2</version>
+            <artifactId>PadelFullLib</artifactId>
+            <version>1.0.0</version>
         </dependency>
 
         <dependency>
             <groupId>InSilico</groupId>
-            <artifactId>OperaAdapter</artifactId>
-            <version>1.0</version>
+            <artifactId>PadelAdapter</artifactId>
+            <version>0.2</version>
         </dependency>
 
     </dependencies>
