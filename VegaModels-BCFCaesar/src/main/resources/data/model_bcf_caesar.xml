@@ -4,7 +4,7 @@
         <Name>BCF model (CAESAR)</Name>
         <Key>BCF_CAESAR</Key>
         <Summary>QSAR regression model for fish BCF (from CAESAR project)</Summary>
-        <Version>2.1.14</Version>
+        <Version>2.1.15</Version>
     </Version>
 
     <Vega>

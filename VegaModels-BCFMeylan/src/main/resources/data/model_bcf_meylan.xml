@@ -4,7 +4,7 @@
         <Name>BCF model (Meylan)</Name>
         <Key>BCF_MEYLAN</Key>
         <Summary>QSAR regression model for fish BCF (based on Meylan model)</Summary>
-        <Version>1.0.3</Version>
+        <Version>1.0.4</Version>
     </Version>
     
     <Vega>

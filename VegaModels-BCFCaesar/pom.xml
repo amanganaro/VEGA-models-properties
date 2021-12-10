@@ -10,9 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-BCFCaesar</artifactId>
-    <version>0.2.2</version>
+    <version>2.1.15</version>
 
-    <name>BCF model (CAESAR) - 2.1.14</name>
+    <name>BCF model (CAESAR)</name>
     <description>
         QSAR regression model for fish BCF (from CAESAR project)
     </description>

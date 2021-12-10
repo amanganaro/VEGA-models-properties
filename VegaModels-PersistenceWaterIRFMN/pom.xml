@@ -10,9 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-PersistenceWaterIRFMN</artifactId>
-    <version>0.2.2</version>
+    <version>1.0.1</version>
 
-    <name>Persistence (water) model (IRFMN)- 1.0.0</name>
+    <name>Persistence (water) model (IRFMN)</name>
     <description>
         Persistence (water) model developed by Istituto di Ricerche Farmacologiche Mario Negri.
     </description>

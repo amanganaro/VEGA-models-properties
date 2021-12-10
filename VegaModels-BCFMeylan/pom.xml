@@ -10,9 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-BCFMeylan</artifactId>
-    <version>0.2.2</version>
+    <version>1.0.4</version>
 
-    <name>BCF model (Meylan) - 1.0.3</name>
+    <name>BCF model (Meylan)</name>
     <description>
         QSAR regression model for fish BCF (based on Meylan model)
     </description>

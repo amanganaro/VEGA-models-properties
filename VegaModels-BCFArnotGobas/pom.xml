@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-BCFArnotGobas</artifactId>
-    <version>0.2.2</version>
+    <version>1.0.1</version>
 
     <name>BCF model (Arnot-Gobas)</name>
     <description>

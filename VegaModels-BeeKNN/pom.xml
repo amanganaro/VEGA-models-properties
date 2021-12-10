@@ -10,9 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-BeeKNN</artifactId>
-    <version>0.2.2</version>
+    <version>1.0.1</version>
 
-    <name>Bee acute toxicity model (KNN-IRFMN)- 1.0.0</name>
+    <name>Bee acute toxicity model (KNN-IRFMN)</name>
     <description>
         KNN model for bee contact and oral acute toxicity
     </description>

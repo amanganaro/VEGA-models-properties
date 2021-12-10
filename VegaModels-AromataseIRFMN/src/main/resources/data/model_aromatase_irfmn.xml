@@ -4,7 +4,7 @@
         <Name>Aromatase activity model (IRFMN)</Name>
         <Key>AROM_IRMFN</Key>
         <Summary>Qualitative model for aromatase activity</Summary>
-        <Version>1.0.0</Version>
+        <Version>1.0.1</Version>
     </Version>
     
     <Vega>

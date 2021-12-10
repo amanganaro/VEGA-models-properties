@@ -118,7 +118,7 @@ public class ismPersistenceSedimentIrfmn extends InsilicoModel {
     protected short CalculateModel() {
         
         try {
-            KnnPrediction = KNN.Calculate(CurMolecule, TS);
+            KnnPrediction = KNN.Calculate(CurMolecule, TS, KnnSkipExperimental);
         } catch (GenericFailureException ex) {
             return MODEL_ERROR;
         }
@@ -271,6 +271,7 @@ public class ismPersistenceSedimentIrfmn extends InsilicoModel {
     @Override
     public void ProcessTrainingSet() throws Exception {
         this.setSkipADandTSLoading(false);
+        this.SetKnnSkipExperimental(true);
         TrainingSet TSK = new TrainingSet();
         String TSPath = this.getInfo().getTrainingSetURL();
         String[] buf = TSPath.split("/");
