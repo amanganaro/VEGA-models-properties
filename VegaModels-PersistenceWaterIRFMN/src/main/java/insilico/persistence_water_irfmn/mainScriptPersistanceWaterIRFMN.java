@@ -20,15 +20,15 @@ public class mainScriptPersistanceWaterIRFMN {
 
         InsilicoModel model = new ismPersistenceWaterIrfmn();
         model.SetKnnSkipExperimental(true);
-//        ModelsDeployment.BuildDataset(model, "out_ts");
-//        File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
-//        File destinationFile = new File("VegaModels-PersistenceWaterIRFMN\\src\\main\\resources\\data\\ts_pers_water_irfmn.dat");
-//        try {
-//            Files.move(sourceFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-//        } catch (Exception ex) {
-//            log.warn(ex.getMessage());
-//        }
-        ModelsDeployment.TestModelWithTrainingSet(model, "persistence_water_irfmn_loo_results");
+        ModelsDeployment.BuildDataset(model, "out_ts");
+        File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
+        File destinationFile = new File("VegaModels-PersistenceWaterIRFMN\\src\\main\\resources\\data\\ts_pers_water_irfmn.dat");
+        try {
+            Files.move(sourceFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+        } catch (Exception ex) {
+            log.warn(ex.getMessage());
+        }
+//        ModelsDeployment.TestModelWithTrainingSet(model, "persistence_water_irfmn_loo_results");
 
         List<String> smilesList = new ArrayList<>();
         smilesList.add("O=[N+]([O-])c1cc(cc(c1N(CCC)CCC)[N+](=O)[O-])S(=O)(=O)C");

@@ -328,7 +328,7 @@ public class ismPersistenceWaterIrfmn extends InsilicoModel {
         String[] buf = TSPath.split("/");
         String DatName = buf[buf.length-1];
         TSPath = TSPath.substring(0, TSPath.length()-3) + "txt";
-        TSK.Build(TSPath, this, true, false);
+        TSK.Build(TSPath, this);
         TSK.SerializeToFile(DatName);        
     }
     

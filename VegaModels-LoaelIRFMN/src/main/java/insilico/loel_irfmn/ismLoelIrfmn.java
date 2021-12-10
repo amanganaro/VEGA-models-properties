@@ -228,7 +228,7 @@ public class ismLoelIrfmn extends InsilicoModel {
         }
 
     }
-    
+
     @Override
     public void ProcessTrainingSet() throws Exception {
         this.setSkipADandTSLoading(false);
@@ -237,7 +237,7 @@ public class ismLoelIrfmn extends InsilicoModel {
         String[] buf = TSPath.split("/");
         String DatName = buf[buf.length-1];
         TSPath = TSPath.substring(0, TSPath.length()-3) + "txt";
-        TSK.Build(TSPath);
+        TSK.Build(TSPath, this);
         TSK.SerializeToFile(DatName);
     }
     
