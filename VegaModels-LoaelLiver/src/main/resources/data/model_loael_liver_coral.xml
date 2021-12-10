@@ -1,0 +1,24 @@
+<xml>
+   
+    <Version>
+        <Name>Loel_Liver (CORAL)</Name>
+        <Key>LOEL_LIVER_CORAL</Key>
+        <Summary>Summary</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_loael_liver_coral.dat</TS>
+        <HasAlerts>False</HasAlerts>
+        <Units></Units>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats></Stats>
+    
+</xml>

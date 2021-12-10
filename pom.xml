@@ -107,6 +107,8 @@
         <module>VegaModels-LD50</module>
         <module>VegaModels-EndocrineDisruptorsIRFMN</module>
         <module>VegaModels-PPBCoral</module>
+        <module>VegaModels-NoaelLiver</module>
+        <module>VegaModels-LoaelLiver</module>
     </modules>
 
     <name>VegaModels</name>
