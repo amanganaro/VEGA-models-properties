@@ -4,7 +4,7 @@
         <Name>Zebrafish embryo AC50 (IRFMN-CORAL)</Name>
         <Key>ZEBRAFISH_CORAL</Key>
         <Summary>Quantitative model for Zebrafish embryo AC50 (half-maximal activity concentration).</Summary>
-        <Version>1.0.0</Version>
+        <Version>1.0.1</Version>
     </Version>
     
     <Vega>

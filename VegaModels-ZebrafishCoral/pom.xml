@@ -10,9 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-ZebrafishCoral</artifactId>
-    <version>0.2.2</version>
+    <version>1.0.1</version>
 
-    <name>Zebrafish embryo AC50 (IRFMN-CORAL) - 1.0.0</name>
+    <name>Zebrafish embryo AC50 (IRFMN-CORAL)</name>
     <description>
         Quantitative model for Zebrafish embryo AC50 (half-maximal activity concentration).
     </description>

@@ -10,9 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-NoelCoralIRFMN</artifactId>
-    <version>0.2.2</version>
+    <version>1.0.1</version>
 
-    <name>NOAEL (IRFMN-CORAL) - 1.0.0</name>
+    <name>NOAEL (IRFMN-CORAL)</name>
     <description>
         Quantitative model for NOAEL developed by CORAL software at IRFMN
     </description>

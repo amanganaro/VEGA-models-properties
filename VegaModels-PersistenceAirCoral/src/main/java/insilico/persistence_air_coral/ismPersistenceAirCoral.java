@@ -1,11 +1,11 @@
 package insilico.persistence_air_coral;
 
-import insilico.coral.CoralModel;
-import insilico.coral.models.airhalflife.CoralAirHalfLife;
 import insilico.core.ad.ADCheckACF;
 import insilico.core.ad.ADCheckDescriptorRange;
 import insilico.core.ad.ADCheckIndicesQuantitative;
 import insilico.core.ad.item.*;
+import insilico.core.coral.CoralModel;
+import insilico.core.coral.models.airhalflife.CoralAirHalfLife;
 import insilico.core.descriptor.DescriptorBlock;
 import insilico.core.descriptor.DescriptorsEngine;
 import insilico.core.exception.InitFailureException;

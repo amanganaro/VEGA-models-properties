@@ -2,6 +2,7 @@ package insilico.persistence_sediment_irfmn;
 
 import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
+import insilico.core.model.trainingset.TrainingSet;
 import insilico.core.molecule.conversion.SmilesMolecule;
 import lombok.extern.slf4j.Slf4j;
 import utils.ModelsDeployment;
@@ -19,6 +20,8 @@ public class mainScriptPersistenceSedimentIRFMN {
 
 
         InsilicoModel model = new ismPersistenceSedimentIrfmn();
+        TrainingSet ts = (TrainingSet) model.GetTrainingSet();
+
         model.SetKnnSkipExperimental(true);
 //        ModelsDeployment.TestModelWithTrainingSet(model, "persistence_sediment_irfmn_loo_results");
         ModelsDeployment.BuildDataset(model, "out_ts");

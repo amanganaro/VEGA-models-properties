@@ -10,9 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-PersistenceAirCoral</artifactId>
-    <version>0.2.2</version>
+    <version>1.0.1</version>
 
-    <name>Air Half-Life (IRFMN-CORAL) - 1.0.0</name>
+    <name>Air Half-Life (IRFMN-CORAL)</name>
     <description>
         Quantitative model for Air Half-Life developed by CORAL software at IRFMN.
     </description>
