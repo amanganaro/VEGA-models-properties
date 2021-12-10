@@ -10,10 +10,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-DaphniaDemetra</artifactId>
-    <version>0.4</version>
+    <version>1.0.5</version>
 
 
-    <name>Daphnia Magna LC50 48h (DEMETRA) - 1.0.4</name>
+    <name>Daphnia Magna LC50 48h (DEMETRA)</name>
     <description>
         Acute toxicity for Water Flea (Daphnia Magna) for pesticides: LC50 48-hours exposure
     </description>

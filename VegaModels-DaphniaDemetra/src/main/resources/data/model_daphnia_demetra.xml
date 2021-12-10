@@ -3,7 +3,7 @@
         <Name>Daphnia Magna LC50 48h (DEMETRA)</Name>
         <Key>DAPHNIA_DEMETRA</Key>
         <Summary>Acute toxicity for Water Flea (Daphnia Magna) for pesticides: LC50 48-hours exposure</Summary>
-        <Version>1.0.4</Version>
+        <Version>1.0.5</Version>
     </Version>
 
     <Vega>

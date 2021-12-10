@@ -10,9 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-CarcinogenicityAntares</artifactId>
-    <version>0.2.1</version>
+    <version>1.0.1</version>
 
-    <name>Carcinogenicity model (IRFMN-Antares) - 1.0.0</name>
+    <name>Carcinogenicity model (IRFMN-Antares)</name>
     <description>
         QSAR classification model for Carcinogenicity (IRFMN/Antares) based on the Antares dataset
     </description>

@@ -54,7 +54,7 @@ public class modelCPANN {
         
         URL u;
 
-        u = getClass().getResource("/data/nn_weights.csv");
+        u = getClass().getResource("/data/fish_nic_nn_weights.csv");
         InputStream is = u.openStream();
         BufferedReader br = new BufferedReader(new InputStreamReader(is));
 
@@ -107,7 +107,7 @@ public class modelCPANN {
         
         URL u;
 
-        u = getClass().getResource("/data/nn_normalization.csv");
+        u = getClass().getResource("/data/fish_nic_nn_normalization.csv");
         InputStream is = u.openStream();
         BufferedReader br = new BufferedReader(new InputStreamReader(is));
 

@@ -4,7 +4,7 @@
         <Name>Carcinogenicity model (ISS)</Name>
         <Key>CARC_ISS</Key>
         <Summary>Classification model for Carcinogenicity based on Benigni-Bossa (Istituto Superiore di Sanità) rule set</Summary>
-        <Version>1.0.2</Version>
+        <Version>1.0.3</Version>
     </Version>
     
     <Vega>

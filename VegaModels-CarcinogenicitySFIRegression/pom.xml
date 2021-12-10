@@ -10,9 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-CarcinogenicitySFIRegression</artifactId>
-    <version>0.2.2</version>
+    <version>1.0.1</version>
 
-    <name>Carcinogenicity inhalation Slope Factor model (IRFMN) - 1.0.0</name>
+    <name>Carcinogenicity inhalation Slope Factor model (IRFMN)</name>
     <description>
         Quantitative model for the carcinogenicity inhalation route) Slope Factor.
     </description>

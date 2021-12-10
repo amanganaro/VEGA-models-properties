@@ -10,9 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-FishNOEC</artifactId>
-    <version>0.2.2</version>
+    <version>1.0.1</version>
 
-    <name>Fish Chronic (NOEC) Toxicity model (IRFMN) - 1.0.0</name>
+    <name>Fish Chronic (NOEC) Toxicity model (IRFMN)</name>
     <description>
         Quantitative model for chronic toxicity (NOEC) in fish.
     </description>

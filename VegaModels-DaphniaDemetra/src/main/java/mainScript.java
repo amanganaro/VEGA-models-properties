@@ -32,7 +32,7 @@ public class mainScript {
 //            log.warn(ex.getMessage());
 //        }
 
-        ModelsDeployment.TestModelWithTrainingSet(model, "Daphnia Demetra - New");
+//        ModelsDeployment.TestModelWithTrainingSet(model, "Daphnia Demetra - New");
 
 //        List<String> smilesList = new ArrayList<>();
 //        smilesList.add("O=[N+]([O-])c1cc(cc(c1N(CCC)CCC)[N+](=O)[O-])S(=O)(=O)C");

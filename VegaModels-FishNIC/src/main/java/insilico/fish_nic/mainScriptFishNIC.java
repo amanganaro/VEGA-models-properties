@@ -19,6 +19,8 @@ public class mainScriptFishNIC {
 
 
         InsilicoModel model = new ismFishNic();
+
+
         ModelsDeployment.BuildDataset(model, "out_ts");
 
 //        ModelsDeployment.PrintDescriptor(model, "fish_nic_descriptors");
