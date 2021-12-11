@@ -10,9 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-KoaOpera</artifactId>
-    <version>0.2.1</version>
+    <version>1.0.1</version>
 
-    <name>KOA model (OPERA) - 1.0.0</name>
+    <name>KOA model (OPERA)</name>
     <description>
         KNN model for KOA (octanol/air coefficient)
     </description>

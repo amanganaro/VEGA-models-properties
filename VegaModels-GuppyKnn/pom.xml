@@ -10,9 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-GuppyKnn</artifactId>
-    <version>0.2.2</version>
+    <version>1.1.1</version>
 
-    <name>Guppy LC50 model (KNN-IRFMN) - 1.1.0</name>
+    <name>Guppy LC50 model (KNN-IRFMN)</name>
     <description>
         KNN model for acute toxicity on guppy
     </description>

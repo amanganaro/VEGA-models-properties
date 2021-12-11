@@ -10,9 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-MutagenicitySarpy</artifactId>
-    <version>0.2.2</version>
+    <version>1.0.8</version>
 
-    <name>Mutagenicity (Ames test) model (SarPy-IRFMN) - 1.0.7</name>
+    <name>Mutagenicity (Ames test) model (SarPy-IRFMN)</name>
     <description>
         QSAR classification model for Mutagenicity (SarPy/IRFMN)
     </description>

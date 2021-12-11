@@ -10,9 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-MoaEpa</artifactId>
-    <version>0.2.2</version>
+    <version>1.0.1</version>
 
-    <name>MOA toxicity classification (EPA T.E.S.T.)- 1.0.0</name>
+    <name>MOA toxicity classification (EPA T.E.S.T.)</name>
     <description>
         Classification model for MOA toxicity
     </description>

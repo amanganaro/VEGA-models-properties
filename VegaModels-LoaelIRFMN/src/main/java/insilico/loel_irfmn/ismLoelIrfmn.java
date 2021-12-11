@@ -73,6 +73,8 @@ public class ismLoelIrfmn extends InsilicoModel {
 
         // Build model object
         LOELKnn LOEL = new LOELKnn(TS);
+        if (KnnSkipExperimental)
+            LOEL.SetSkipExactMatch(true);
         
         try {
             KnnPrediction = LOEL.Calculate(CurMolecule);

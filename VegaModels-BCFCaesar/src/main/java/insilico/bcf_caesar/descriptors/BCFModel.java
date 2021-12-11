@@ -38,17 +38,17 @@ public class BCFModel {
             
             URL u;
             
-            u = getClass().getResource("/data/RBFNN_ranges.csv");
+            u = getClass().getResource("/data/bcfcaesar_RBFNN_ranges.csv");
             RangesReader = new RBFNNDataReader(u.openStream(),0,0,0);
             Ranges = new Matrix(RangesReader.Data);
 
             // Reads data for GA model
             
-            u = getClass().getResource("/data/GA_centres.csv");
+            u = getClass().getResource("/data/bcfcaesar_GA_centres.csv");
             DataCentresReader = new RBFNNDataReader(u.openStream(),0,0,0);
-            u = getClass().getResource("/data/GA_weights.csv");
+            u = getClass().getResource("/data/bcfcaesar_GA_weights.csv");
             DataWeightsReader = new RBFNNDataReader(u.openStream(),0,0,0);
-            u = getClass().getResource("/data/GA_subset.csv");
+            u = getClass().getResource("/data/bcfcaesar_GA_subset.csv");
             DataSubsetReader = new RBFNNDataReader(u.openStream(),0,0,0);
 
             GACentres = new Matrix(DataCentresReader.Data);
@@ -70,11 +70,11 @@ public class BCFModel {
             
             // Reads data for HM model
             
-            u = getClass().getResource("/data/HM_centres.csv");
+            u = getClass().getResource("/data/bcfcaesar_HM_centres.csv");
             DataCentresReader = new RBFNNDataReader(u.openStream(),0,0,0);
-            u = getClass().getResource("/data/HM_weights.csv");
+            u = getClass().getResource("/data/bcfcaesar_HM_weights.csv");
             DataWeightsReader = new RBFNNDataReader(u.openStream(),0,0,0);
-            u = getClass().getResource("/data/HM_subset.csv");
+            u = getClass().getResource("/data/bcfcaesar_HM_subset.csv");
             DataSubsetReader = new RBFNNDataReader(u.openStream(),0,0,0);
 
             HMCentres = new Matrix(DataCentresReader.Data);

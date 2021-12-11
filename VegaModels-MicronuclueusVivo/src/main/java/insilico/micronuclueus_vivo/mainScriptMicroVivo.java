@@ -18,20 +18,25 @@ public class mainScriptMicroVivo {
     public static void main(String[] args) throws Exception {
 
 
-        InsilicoModel model = new ismMicronucleusInVivo();
+        ismMicronucleusInVivo model = new ismMicronucleusInVivo();
 
+        // prima deployare il ts del knn interno
+//        model.ProcessKNNTrainingSet();
+//        if (1==1) return;
+
+        // poi deployare ts principale settando skip exp a true
         model.SetKnnSkipExperimental(true);
 
-//        ModelsDeployment.BuildDataset(model, "out_ts");
-//        File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
-//        File destinationFile = new File("VegaModels-MicronuclueusVivo\\src\\main\\resources\\data\\ts_micronucleus_vivo.dat");
-//        try {
-//            Files.move(sourceFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-//        } catch (Exception ex) {
-//            log.warn(ex.getMessage());
-//        }
+        ModelsDeployment.BuildDataset(model, "out_ts");
+        File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
+        File destinationFile = new File("VegaModels-MicronuclueusVivo\\src\\main\\resources\\data\\ts_micronucleus_vivo.dat");
+        try {
+            Files.move(sourceFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+        } catch (Exception ex) {
+            log.warn(ex.getMessage());
+        }
 
-        ModelsDeployment.TestModelWithTrainingSet(model, "MicronucleusVivo - New");
+//        ModelsDeployment.TestModelWithTrainingSet(model, "MicronucleusVivo - New");
 
 
 ////

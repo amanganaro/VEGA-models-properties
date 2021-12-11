@@ -4,7 +4,7 @@
         <Name>Henry's Law model (OPERA)</Name>
         <Key>HENRY_OPERA</Key>
         <Summary>KNN model for Henry's Law</Summary>
-        <Version>1.0.0</Version>
+        <Version>1.0.1</Version>
     </Version>
     
     <Vega>

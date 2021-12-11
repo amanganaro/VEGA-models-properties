@@ -42,7 +42,7 @@ public class ismLoaelCoralLiver extends InsilicoModel {
         // Defines results
         this.ResultsSize = 1;
         this.ResultsName = new String[ResultsSize];
-        this.ResultsName[0] = "Coral Liver Prediction";
+        this.ResultsName[0] = "Liver LOAEL [log(mg/kg bw)]";
 
         // Define AD items
         this.ADItemsName = new String[6];
@@ -88,10 +88,8 @@ public class ismLoaelCoralLiver extends InsilicoModel {
 
         CurOutput.setMainResultValue(Prediction);
 
-        this.ResultsSize = 1;
         String[] Res = new String[ResultsSize];
         Res[0] = Format_4D.format(Prediction);
-
 
         CurOutput.setResults(Res);
 

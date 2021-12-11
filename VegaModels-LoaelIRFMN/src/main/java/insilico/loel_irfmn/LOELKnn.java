@@ -30,12 +30,18 @@ public class LOELKnn {
     
     private final iTrainingSet ModelTrainSet;
     private final SimilarityDescriptorsBuilder SimDescEngine;
+
+    private boolean SkipExactMatch;
     
     public LOELKnn(iTrainingSet TrainSet) {
         ModelTrainSet = TrainSet;
         SimDescEngine = new SimilarityDescriptorsBuilder();
+        SkipExactMatch = false;
     }
 
+    public void SetSkipExactMatch(boolean status) {
+        SkipExactMatch = status;
+    }
     
     public insilicoKnnPrediction Calculate(InsilicoMolecule Mol) throws GenericFailureException {
         
@@ -233,6 +239,10 @@ public class LOELKnn {
                     boolean AreIsomorph = Similarity.CheckIsomorphism(A, B);
                     if (!AreIsomorph)
                         curSim = 0.999;
+                    else {
+                        if (SkipExactMatch)
+                            curSim = 0.0;
+                    }
                 }
 
                 // Adjust low similarities to avoid problems in some following indices

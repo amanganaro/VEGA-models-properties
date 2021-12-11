@@ -12,6 +12,7 @@ import insilico.core.constant.InsilicoConstants;
 import insilico.core.descriptor.Descriptor;
 import insilico.core.descriptor.DescriptorsEngine;
 import insilico.core.exception.GenericFailureException;
+import insilico.core.exception.InitFailureException;
 import insilico.core.knn.insilicoKnnPrediction;
 import insilico.core.knn.insilicoKnnQualitative;
 import insilico.core.model.InsilicoModel;
@@ -90,7 +91,7 @@ public class ismMicronucleusInVivo extends InsilicoModel {
     }
     
     public ismMicronucleusInVivo()
-            throws Exception {
+            throws InitFailureException {
         super(ModelData);
         
         // Set SA list
@@ -542,23 +543,24 @@ public class ismMicronucleusInVivo extends InsilicoModel {
     }
     
     // todo
-    public void ProcessKNNTrainingSet() throws Exception {
-        this.setSkipADandTSLoading(false);
-//        this.KnnSkipExperimental = false;
-        this.KNN_TS_ISBUILDING = true;
-        TS_KNN = new TrainingSet();
-        String TSPath = "/data/ts_micronucleus_vivo_knn.dat";
-        String[] buf = TSPath.split("/");
-        String DatName = buf[buf.length-1];
-        TSPath = TSPath.substring(0, TSPath.length()-3) + "txt";
-        TS_KNN.Build(TSPath, this, true, false);
-        TS_KNN.SerializeToFile("out_ts/" + DatName);
-        File sourceFile = new File("out_ts/" + DatName);
-        File destinationFile = new File("VegaModels-MicronuclueusVivo\\src\\main\\resources\\data\\ts_micronucleus_vivo_knn.dat");
+    public void ProcessKNNTrainingSet() throws InitFailureException {
         try {
+            this.setSkipADandTSLoading(false);
+            this.KnnSkipExperimental = true;
+            this.KNN_TS_ISBUILDING = true;
+            TS_KNN = new TrainingSet();
+            String TSPath = "/data/ts_micronucleus_vivo_knn.dat";
+            String[] buf = TSPath.split("/");
+            String DatName = buf[buf.length-1];
+            TSPath = TSPath.substring(0, TSPath.length()-3) + "txt";
+            TS_KNN.Build(TSPath, this, true, false);
+            TS_KNN.SerializeToFile("out_ts/" + DatName);
+            File sourceFile = new File("out_ts/" + DatName);
+            File destinationFile = new File("VegaModels-MicronuclueusVivo\\src\\main\\resources\\data\\ts_micronucleus_vivo_knn.dat");
             Files.move(sourceFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
         } catch (Exception ex) {
             log.warn(ex.getMessage());
+            throw  new InitFailureException((ex));
         }
     }
     

@@ -4,7 +4,7 @@
         <Name>P-Glycoprotein activity model (NIC)</Name>
         <Key>PGP_NIC</Key>
         <Summary>Classification model for P-Glycoprotein inhibition / substrate activity</Summary>
-        <Version>1.0.0</Version>
+        <Version>1.0.1</Version>
     </Version>
     
     <Vega>

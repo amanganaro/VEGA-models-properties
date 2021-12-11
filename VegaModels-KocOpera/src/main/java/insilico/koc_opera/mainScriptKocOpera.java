@@ -19,6 +19,7 @@ public class mainScriptKocOpera {
 
 
         InsilicoModel model = new ismKocOpera();
+        model.SetKnnSkipExperimental(true);
         ModelsDeployment.BuildDataset(model, "out_ts");
         File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
         File destinationFile = new File("VegaModels-KocOpera\\src\\main\\resources\\data\\ts_koc_opera.dat");

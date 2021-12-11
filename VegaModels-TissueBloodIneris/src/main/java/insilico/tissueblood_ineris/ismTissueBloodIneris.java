@@ -76,7 +76,7 @@ public class ismTissueBloodIneris extends InsilicoModel {
         
         // Init PMML models
         try {  
-            URL src = getClass().getResource("/data/randomforest_model.xml");
+            URL src = getClass().getResource("/data/tissueblood_randomforest_model.xml");
             ModelRF = new ModelGenericFromPMML(src.openStream());
         } catch (IOException ex) {
             throw new InitFailureException("Unable to read PMML source from .jar file");

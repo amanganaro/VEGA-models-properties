@@ -467,7 +467,7 @@ public class EmbeddedDescriptors {
     private void CalculateNaasc(InsilicoMolecule mol) {
 
 
-        String DEF_URL = "/data/EStatesIndices_definition.txt";
+        String DEF_URL = "/data/nrf2_EStatesIndices_definition.txt";
 
         ArrayList<FragDefinition> Fragments = new ArrayList<>();
         try {

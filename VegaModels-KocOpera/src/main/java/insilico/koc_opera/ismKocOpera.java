@@ -227,7 +227,8 @@ public class ismKocOpera extends InsilicoModel {
         int Opera_K = 5;
         short Opera_Distance = OperaDistance.DIST_EUCLIDEAN;
         OperaModel OperaKNN = new OperaModel(TS, 12, Opera_K, Opera_Distance);
-        
+        OperaKNN.SetSkipExactMatch(this.KnnSkipExperimental);
+
         double OperaResult = 0;
         
         try {

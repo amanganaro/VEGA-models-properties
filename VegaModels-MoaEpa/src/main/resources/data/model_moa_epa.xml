@@ -4,7 +4,7 @@
         <Name>MOA toxicity classification (EPA T.E.S.T.)</Name>
         <Key>MOA_EPA</Key>
         <Summary>Classification model for MOA toxicity</Summary>
-        <Version>1.0.0</Version>
+        <Version>1.0.1</Version>
     </Version>
     
     <Vega>

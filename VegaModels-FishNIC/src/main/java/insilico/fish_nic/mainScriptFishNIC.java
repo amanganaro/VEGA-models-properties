@@ -2,6 +2,7 @@ package insilico.fish_nic;
 
 import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
+import insilico.core.molecule.InsilicoMolecule;
 import insilico.core.molecule.conversion.SmilesMolecule;
 import lombok.extern.slf4j.Slf4j;
 import utils.ModelsDeployment;
@@ -19,6 +20,8 @@ public class mainScriptFishNIC {
 
 
         InsilicoModel model = new ismFishNic();
+        InsilicoMolecule mo = SmilesMolecule.Convert("CCC");
+        InsilicoModelOutput o = model.Execute(mo);
 
 
         ModelsDeployment.BuildDataset(model, "out_ts");

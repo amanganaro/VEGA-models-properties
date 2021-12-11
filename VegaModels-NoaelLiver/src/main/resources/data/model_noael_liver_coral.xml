@@ -1,16 +1,16 @@
 <xml>
    
     <Version>
-        <Name>NoaelLiver (CORAL)</Name>
+        <Name>Liver NOAEL (CORAL)</Name>
         <Key>NOAEL_LIVER_CORAL</Key>
-        <Summary>Summary</Summary>
-        <Version>1.0.0</Version>
+        <Summary>Liver NOAEL in Rats for oral sub-chronic RDT (CORAL)</Summary>
+        <Version>1.0.1</Version>
     </Version>
     
     <Vega>
         <TS>/data/ts_noael_liver_coral.dat</TS>
         <HasAlerts>False</HasAlerts>
-        <Units></Units>
+        <Units>log(mg/kg bw)</Units>
     </Vega>
 
     <Guide></Guide>

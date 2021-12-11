@@ -1,4 +1,5 @@
 import insilico.core.model.InsilicoModelOutput;
+import insilico.core.molecule.InsilicoMolecule;
 import insilico.core.molecule.conversion.SmilesMolecule;
 import insilico.henryslaw.ismHenrysLawOpera;
 import insilico.core.model.InsilicoModel;
@@ -17,6 +18,8 @@ public class mainScript {
     public static void main(String[] args) throws Exception {
 
         InsilicoModel model = new ismHenrysLawOpera();
+        model.SetKnnSkipExperimental(true);
+
         ModelsDeployment.BuildDataset(model, "out_ts");
         File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/"  + model.getInfo().getTrainingSetURL().split("/data/")[1]);
         File destinationFile = new File("VegaModels-HenrysLawOpera\\src\\main\\resources\\data\\ts_henryslaw_opera.dat");

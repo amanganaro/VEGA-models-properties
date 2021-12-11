@@ -4,7 +4,7 @@
         <Name>Skin Sensitization model (NCSTOX)</Name>
         <Key>SKIN_NCSTOX</Key>
         <Summary>QSAR classification model (consensus) for Skin sensitization (from NCSTOX project)</Summary>
-        <Version>1.0.0</Version>
+        <Version>1.0.1</Version>
     </Version>
     
     <Vega>

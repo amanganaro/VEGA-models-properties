@@ -4,7 +4,7 @@
         <Name>Hepatotoxicity model (IRFMN)</Name>
         <Key>HEPA_IRFMN</Key>
         <Summary>QSAR classification model for Hepatotoxicity (IRFMN)</Summary>
-        <Version>1.0.0</Version>
+        <Version>1.0.1</Version>
     </Version>
     
     <Vega>

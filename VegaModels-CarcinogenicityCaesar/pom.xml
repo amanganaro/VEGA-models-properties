@@ -12,7 +12,7 @@
     <artifactId>VegaModels-CarcinogenicityCaesar</artifactId>
     <version>2.1.10</version>
 
-    <name>Carcinogenicity model (CAESAR) - 2.1.10</name>
+    <name>Carcinogenicity model (CAESAR)</name>
     <description>
         QSAR classification model for Carcinogenicity (from CAESAR project)
     </description>

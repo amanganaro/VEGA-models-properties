@@ -210,6 +210,7 @@ public class ismHenrysLawOpera extends InsilicoModel {
         int Opera_K = 5;
         short Opera_Distance = OperaDistance.DIST_EUCLIDEAN;
         OperaModel OperaKNN = new OperaModel(TS, 9, Opera_K, Opera_Distance);
+        OperaKNN.SetSkipExactMatch(this.KnnSkipExperimental);
 
         double OperaResult = 0;
 

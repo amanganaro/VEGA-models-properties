@@ -47,7 +47,7 @@ public class ismAromataseIRFMN extends InsilicoModel {
         
         // Init PMML model
         try {  
-            URL src = getClass().getResource("/data/rangerRF.pmml");
+            URL src = getClass().getResource("/data/rangerRF_aromatase_irfmn.pmml");
             Model = new ModelGenericFromPMML(src.openStream());
         } catch (IOException ex) {
             throw new InitFailureException("Unable to read PMML source from .jar file");

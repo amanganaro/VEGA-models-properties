@@ -23,7 +23,7 @@ public class mainScriptLoelIRFMN {
 //        ModelsDeployment.TestModelWithTrainingSet(model, "loel_irfmn_loo_results");
         ModelsDeployment.BuildDataset(model, "out_ts");
         File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
-        File destinationFile = new File("VegaModels-LoelIRFMN\\src\\main\\resources\\data\\ts_loel_irfmn.dat");
+        File destinationFile = new File("VegaModels-LoaelIRFMN\\src\\main\\resources\\data\\ts_loel_irfmn.dat");
         try {
             Files.move(sourceFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
         } catch (Exception ex) {

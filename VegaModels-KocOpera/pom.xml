@@ -10,9 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-KocOpera</artifactId>
-    <version>0.2.1</version>
+    <version>1.0.1</version>
 
-    <name>KOC model (OPERA)- 1.0.0</name>
+    <name>KOC model (OPERA)</name>
     <description>
         KNN model for KOC (soil adsorption coefficient of organic compounds)
     </description>

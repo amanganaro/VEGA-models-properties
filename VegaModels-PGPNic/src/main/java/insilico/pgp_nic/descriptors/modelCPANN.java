@@ -11,8 +11,8 @@ import java.net.URL;
  */
 public class modelCPANN {
 
-    private final static String URL_WEIGHT = "/data/nn_weights.txt";
-    private final static String URL_NORM = "/data/nn_normalization.txt";
+    private final static String URL_WEIGHT = "/data/pgp_nn_weights.txt";
+    private final static String URL_NORM = "/data/pgp_nn_normalization.txt";
     
     private CPANNNeuron[][] NN;
     private int NN_dimX, NN_dimY;

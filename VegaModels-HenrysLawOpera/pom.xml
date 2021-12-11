@@ -10,9 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-HenrysLawOpera</artifactId>
-    <version>0.2.1</version>
+    <version>1.0.1</version>
 
-    <name>KNN model for Henry's Law - 1.0.0</name>
+    <name>Henry's Law constant (OPERA)</name>
     <description>
         KNN model for Henry's Law from the OPERA software
     </description>

@@ -10,9 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-LoelIRFMN</artifactId>
-    <version>0.2.2</version>
+    <version>1.0.1</version>
 
-    <name>Sub-Chronic Toxicity in rat (LOAEL) model (IRFMN-UniBa) - 0.1.0</name>
+    <name>Sub-Chronic Toxicity in rat (LOAEL) model (IRFMN-UniBa)</name>
     <description>
         Sub-Chronic Toxicity in rat (LOAEL) model
     </description>

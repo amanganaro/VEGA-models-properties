@@ -40,7 +40,7 @@ public class ismCarcinogenicityCaesar extends InsilicoModel {
 
         // Builds model objects
         CPANN = new modelCPANN();
-        NeuronChecker = new ADNeuronsChecker(35, 35, "/data/neurons.txt");
+        NeuronChecker = new ADNeuronsChecker(35, 35, "/data/carccaesar_neurons.txt");
 
         // Define no. of descriptors
         this.DescriptorsSize = 12;

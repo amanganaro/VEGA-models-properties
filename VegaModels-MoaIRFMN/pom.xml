@@ -10,9 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-MoaIRFMN</artifactId>
-    <version>0.2.2</version>
+    <version>1.0.1</version>
 
-    <name>MoA Classification (IRFMN) - 1.0.0</name>
+    <name>MoA Classification (IRFMN)</name>
     <description>
         MoA Classification (IRFMN)
     </description>

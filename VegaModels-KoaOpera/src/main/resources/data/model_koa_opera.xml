@@ -4,7 +4,7 @@
         <Name>KOA model (OPERA)</Name>
         <Key>KOA_OPERA</Key>
         <Summary>KNN model for KOA (octanol/air coefficient)</Summary>
-        <Version>1.0.0</Version>
+        <Version>1.0.1</Version>
     </Version>
     
     <Vega>
