@@ -1,10 +1,10 @@
 <xml>
    
     <Version>
-        <Name>MoA Classification (IRFMN)</Name>
+        <Name>MOA pesticide classification (IRFMN)</Name>
         <Key>MOA_IRFMN</Key>
-        <Summary>MoA classification (IRFMN)</Summary>
-        <Version>1.0.1</Version>
+        <Summary>MOA pesticide classification (IRFMN)</Summary>
+        <Version>1.0.2</Version>
     </Version>
     
     <Vega>

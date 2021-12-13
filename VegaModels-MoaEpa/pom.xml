@@ -10,11 +10,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-MoaEpa</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
 
-    <name>MOA toxicity classification (EPA T.E.S.T.)</name>
+    <name>MOA fish toxicity classification (EPA T.E.S.T.)</name>
     <description>
-        Classification model for MOA toxicity
+        Classification model for MOA fish toxicity
     </description>
 
     <dependencies>

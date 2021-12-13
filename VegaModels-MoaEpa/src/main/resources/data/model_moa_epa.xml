@@ -1,10 +1,10 @@
 <xml>
    
     <Version>
-        <Name>MOA toxicity classification (EPA T.E.S.T.)</Name>
+        <Name>MOA fish toxicity classification (EPA T.E.S.T.)</Name>
         <Key>MOA_EPA</Key>
-        <Summary>Classification model for MOA toxicity</Summary>
-        <Version>1.0.1</Version>
+        <Summary>Classification model for MOA fish toxicity</Summary>
+        <Version>1.0.2</Version>
     </Version>
     
     <Vega>

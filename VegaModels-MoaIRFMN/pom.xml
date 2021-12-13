@@ -10,11 +10,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-MoaIRFMN</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
 
-    <name>MoA Classification (IRFMN)</name>
+    <name>MOA pesticide classification (IRFMN)</name>
     <description>
-        MoA Classification (IRFMN)
+        MOA pesticide classification (IRFMN)
     </description>
 
     <dependencies>
