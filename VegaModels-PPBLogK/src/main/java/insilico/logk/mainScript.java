@@ -21,7 +21,7 @@ public class mainScript {
     public static void main(String[] args) throws InitFailureException, GenericFailureException, MalformedURLException, FileNotFoundException {
 
         InsilicoModel model = new ismLogK();
-        ModelsDeployment.TestModelWithTrainingSet(model, "out_ts");
+//        ModelsDeployment.TestModelWithTrainingSet(model, "out_ts");
 //        ModelsDeployment.BuildDataset(model, "out_ts");
 //        File sourceFile = new File("out_ts/ts_logk.dat");
 //        File destinationFile = new File("VegaModels-LogK\\src\\main\\resources\\data\\ts_logk.dat");

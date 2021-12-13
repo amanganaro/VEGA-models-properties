@@ -334,6 +334,7 @@ public class EmbeddedDescriptors {
         Arrays.sort(eigenvalues);
 
         // EEig
+        this.setEEig14ed(0); // zero by default - if no eigenvalue is available
         for (int i=1; i<=15; i++) {
             int idx = (eigenvalues.length - 1) - (i-1);
             if (idx>=0)
@@ -360,6 +361,7 @@ public class EmbeddedDescriptors {
         DataMatrix = new Matrix(EdgeDipoleMat);
 
 
+        this.setEEig14dm(0); // zero by default - if no eigenvalue is available
         ed = new EigenvalueDecomposition(DataMatrix);
         eigenvalues = ed.getRealEigenvalues();
         for (int i=1; i<=15; i++) {

@@ -59,7 +59,7 @@
         <module>VegaModels-MicronuclueusVivo</module>
         <module>VegaModels-MoaEpa</module>
         <module>VegaModels-MutagenicityCaesar</module>
-<!--        <module>VegaModels-MutagenicityConsensus</module>-->
+        <module>VegaModels-MutagenicityConsensus</module>
         <module>VegaModels-MutagenicityKNN</module>
         <module>VegaModels-MutagenicitySarpy</module>
         <module>VegaModels-NoaelCoral</module>

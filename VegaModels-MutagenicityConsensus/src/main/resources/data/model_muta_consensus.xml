@@ -4,6 +4,7 @@
         <Name>Mutagenicity (Ames test) CONSENSUS model</Name>
         <Key>MUTA_CONSENSUS</Key>
         <Summary>Mutagenicity (Ames test) Consensus model based on the predictions of VEGA mutagenicity models.</Summary>
+        <Version>1.0.4</Version>
     </Version>
     
     <Vega>

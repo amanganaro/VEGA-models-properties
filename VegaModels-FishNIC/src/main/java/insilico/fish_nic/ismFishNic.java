@@ -245,8 +245,8 @@ public class ismFishNic extends InsilicoModel {
             Descriptors[12] = Xindex;
             Descriptors[13] = embeddedDescriptors.getMATS1e();
             Descriptors[14] = embeddedDescriptors.getGATS7m();
-            Descriptors[15] = embeddedDescriptors.getEEig14ed();
-            Descriptors[16] = embeddedDescriptors.getEEig14dm();
+            Descriptors[15] = embeddedDescriptors.getEEig14ed(); // non va
+            Descriptors[16] = embeddedDescriptors.getEEig14dm(); // non va
             Descriptors[17] = embeddedDescriptors.getESpm1dm();
             Descriptors[18] = embeddedDescriptors.getGGI4();
             Descriptors[19] = embeddedDescriptors.getSeigv();
