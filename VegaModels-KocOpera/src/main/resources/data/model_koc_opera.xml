@@ -12,12 +12,100 @@
         <Units>log(L/Kg)</Units>
     </Vega>
 
-    <Guide></Guide>
+    <Guide>
+        <Description>The model provides a quantitative estimation of the organic carbon-water partition co-efficient (KOC). The soil adsorption coefficient is the ratio of the amount of chemical adsorbed per unit weight of organic carbon in the soil or sediment to the concentration of the chemical in solution at equilibrium (in L/Kg). It is based on k nearest neighbor (k-NN) model and it is an implementation of the same model present in OPERA.</Description>
+        <Model>The model is based on 729 chemicals collected from http://esc.syrres.com/interkow/EpiSuiteData.htm. These data are from PHYSPROP (The Physical Properties Database) which is a collection of a wide variety of sources built by Syracuse Research Corporation (SRC). Experimental protocols of the different parts of data can be traced back to the original referenced literature from the database.
+            Data has been cleaned according to “An automated curation procedure for addressing chemical errors and inconsistencies in public datasets used in QSAR modeling. 2016. Kamel Mansouri, Chris M. Grulke, Ann M. Richard, Richard S. Judson and Antony J. Williams. SAR & QSAR in Environ. Res; Vol. 27 , Iss. 11,2016.”
+            The model implemented is a distance weighted k-nearest neighbors (kNN), with k equal to 5 This is a refinement of the classical k-NN classification algorithm where the contribution of each of the k neighbors is weighted according to their distance to the query point, giving greater weight to closer neighbors. The used distance is the Euclidean distance calculated from a set of descriptors selected with a genetic algorithm.
+            The descriptors used are calculated with Padel (http://www.yapcwsoft.com/dd/padeldescriptor/) libraries.
+            Following, the list of descriptors used to derive the model:
+            ATS1v	Broto-Moreau autocorrelation - lag 1 / weighted by van der Waals volumes
+            AATS1m	Average Broto-Moreau autocorrelation - lag 1 / weighted by mass
+            SpDiam_Dzi	Spectral diameter from Barysz matrix / weighted by first ionization potential
+            VP-1	Valence path, order 1
+            CrippenLogP	Crippen's LogP
+            SsssN	Sum of atom-type E-State: >N-
+            nHBAcc	Number of hydrogen bond acceptors (using CDK HBondAcceptorCountDescriptor algorithm)
+            MPC3	Molecular path count of order 3
+            MPC6	Molecular path count of order 6
+            TPC	Total path count (up to order 10)
+            topoDiameter	Topological diameter (maximum atom eccentricity)
+            VABC	Van der Waals volume calculated using the method proposed in [Zhao, Yuan H. and Abraham, Michael H. and Zissimos, Andreas M., Fast Calculation of van der Waals Volume as a Sum of Atomic and Bond Contributions and Its Application to Drug Compounds, The Journal of Organic Chemistry, 2003, 68:7368-7373]
+            More information can be obtained from:
+            OPERA: A free and open source QSAR tool for physicochemical properties and environmental
+            fate predictions. Kamel Mansouri, Chris Grulke, Richard Judson, Antony Williams, Journal of
+            Cheminformatics (2018)</Model>
+        <Applicability_Domain>
+            <AD>
+                <Name>Similar_Molecules</Name>
+                <SimilarMols>3</SimilarMols>
+                <RangeTop>1 >= index > 0.75</RangeTop>
+                <DescriptionRangeTop>strongly similar compounds with known experimental value in the training set have been found</DescriptionRangeTop>
+                <RangeMid>0.75 >= index > 0.7</RangeMid>
+                <DescriptionRangeMid>only moderately similar compounds with known experimental value in the training set have been found</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.7</RangeBottom>
+                <DescriptionRangeBottom>no similar compounds with known experimental value in the training set have been found</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Accuracy</Name>
+                <RangeTop>index &lt; 0.5</RangeTop>
+                <DescriptionRangeTop>accuracy of prediction for similar molecules found in the training set is good</DescriptionRangeTop>
+                <RangeMid>0.5 > index > 1.0</RangeMid>
+                <DescriptionRangeMid>accuracy of prediction for similar molecules found in the training set is not optimal</DescriptionRangeMid>
+                <RangeBottom>index => 1.0</RangeBottom>
+                <DescriptionRangeBottom>accuracy of prediction for similar molecules found in the training set is not adequate</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Concordance</Name>
+                <RangeTop>index &lt; 0.5</RangeTop>
+                <DescriptionRangeTop>similar molecules found in the training set have experimental values that agree with the predicted value</DescriptionRangeTop>
+                <RangeMid>0.5 > index > 1.0</RangeMid>
+                <DescriptionRangeMid>some similar molecules found in the training set have experimental values that disagree with the predicted value</DescriptionRangeMid>
+                <RangeBottom>index => 1.0</RangeBottom>
+                <DescriptionRangeBottom>similar molecules found in the training set have experimental values that disagree with the predicted value</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Maximum_Error</Name>
+                <RangeTop>index &lt; 0.5</RangeTop>
+                <DescriptionRangeTop>the maximum error in prediction of similar molecules found in the training set has a low value, considering the experimental variability</DescriptionRangeTop>
+                <RangeMid>0.5 &lt;= index &lt; 1.0</RangeMid>
+                <DescriptionRangeMid>the maximum error in prediction of similar molecules found in the training set has a moderate value, considering the experimental variability</DescriptionRangeMid>
+                <RangeBottom>index >= 1.0</RangeBottom>
+                <DescriptionRangeBottom>the maximum error in prediction of similar molecules found in the training set has a high value, considering the experimental variability</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>ACF_SimCheck</Name>
+                <RangeTop>index = 1</RangeTop>
+                <DescriptionRangeTop>all atom centered fragment of the compound have been found in the compounds of the training set</DescriptionRangeTop>
+                <RangeMid>1 > index >= 0.7</RangeMid>
+                <DescriptionRangeMid>some atom centered fragment of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeMid>
+                <RangeBottom>index &lt; 0.7</RangeBottom>
+                <DescriptionRangeBottom>a prominent number of atom centered fragments of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>AD_Index</Name>
+                <RangeTop>1 >= index > 0.75</RangeTop>
+                <DescriptionRangeTop>predicted substance is into the Applicability Domain of the model</DescriptionRangeTop>
+                <RangeMid>0.75 >= index > 0.7</RangeMid>
+                <DescriptionRangeMid>predicted substance could be out of the Applicability Domain of the model</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.7</RangeBottom>
+                <DescriptionRangeBottom>predicted substance is out of the the Applicability Domain of the model</DescriptionRangeBottom>
+            </AD>
+        </Applicability_Domain>
+    </Guide>
 
     <Reference></Reference>
 
     <Endpoint></Endpoint>
 
-    <Stats></Stats>
+    <Stats>
+        <R2_Train_Mansouri>0.81</R2_Train_Mansouri>
+        <RMSE_Train_Mansouri>0.54</RMSE_Train_Mansouri>
+        <R2_Test_Mansouri>0.71</R2_Test_Mansouri>
+        <RMSE_Test_Mansouri>0.61</RMSE_Test_Mansouri>
+        <n_Vega>729</n_Vega>
+        <R2_Vega>0.785</R2_Vega>
+        <RMSE_Vega>0.569</RMSE_Vega>
+    </Stats>
     
 </xml>

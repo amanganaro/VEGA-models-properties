@@ -98,14 +98,24 @@
     <Endpoint></Endpoint>
 
     <Stats>
-        <n_Train>66.0</n_Train>
-        <R2_Train>0.745</R2_Train>
-        <RMSE_Train>1.017</RMSE_Train>
-        <n_Test>22.0</n_Test>
-        <R2_Test>0.733</R2_Test>
-        <RMSE_Test>0.723</RMSE_Test>
-        <Not_Predicted_Train>0.0</Not_Predicted_Train>
-        <Not_Predicted_Test>0.0</Not_Predicted_Test>
+        <n_Train_active>22.0</n_Train_active>
+        <R2_Train_active>0.7908</R2_Train_active>
+        <RMSE_Train_active>0.890</RMSE_Train_active>
+        <Q2_Train_active>0.7422</Q2_Train_active>
+        <F_Train_active>76</F_Train_active>
+        <n_Train_passive>22.0</n_Train_passive>
+        <R2_Train_passive>0.8323</R2_Train_passive>
+        <RMSE_Train_passive>1.4</RMSE_Train_passive>
+        <Q2_Train_passive>0.8051</Q2_Train_passive>
+        <F_Train_passive>99</F_Train_passive>
+        <n_calibration>22.0</n_calibration>
+        <R2_calibration>0.8351</R2_calibration>
+        <RMSE_calibration>0.707</RMSE_calibration>
+        <Q2_calibration>0.8004</Q2_calibration>
+        <F_calibration>101</F_calibration>
+        <n_validation>22.0</n_validation>
+        <R2_validation>0.7931</R2_validation>
+        <RMSE_validation>0.740</RMSE_validation>
     </Stats>
 
 </xml>

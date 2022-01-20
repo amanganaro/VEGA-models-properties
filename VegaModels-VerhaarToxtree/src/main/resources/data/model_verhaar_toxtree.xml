@@ -12,11 +12,33 @@
         <HasAlerts>false</HasAlerts>
     </Vega>
 
-    <Guide></Guide>
+    <Guide>
+        <Description>The model is a Structure-based model that gives a classification based on the mechanism of action of the substance to help in the assessment of the acute toxicity towards fish. </Description>
+        <Model>The original model implements the conceptual scheme developed by Verhaar et al. For the implementation in ToxTree: Nina jeliazkova; IDEA Consult, Joseph II straat 40 B1, 1000 Brussels, Belgium; jeliazkova.nina@gmail.com </Model>
+        <Dataset>Endpoint units: Adimensional.
+            Dependent variable: The dependent variable is the mechanism of action organized in four classes:
+            Class 1 (narcosis or baseline toxicity)
+            Class 2 (less inert compounds)
+            Class 3 (unspecific reactivity)
+            Class 4 (compounds and groups of compounds acting by a specific mechanism)
+            Class 5 (Not possible to classify according to these rules)
+            Data for the dependent variable for the external validation set: All</Dataset>
+        <Descriptors>The Verhaar classification is based on the same scheme as implemented in ToxTree, which is an open-source application. The scheme is expert-based and the model is structure-based.
+            Ad hoc decision tree has been implemented within Toxtree and the same tree is implemented in VEGA.
+            The model is a structure-based model and does not make use of descriptors.</Descriptors>
+    </Guide>
 
-    <Reference></Reference>
+    <Reference>The Toxtree model has been implemented in VEGA by Alberto Manganaro; IRCCS-Istituto di Ricerche Farmacologiche Mario Negri, Via La Masa 19, 20156 Milano, Italy; alberto.manganaro@marionegri.it in 2020.
+        It has been described here:
+        Verhaar, H.J.M., van Leeuwen, C.J., Hermens, J.L.M., 1992. Classifying environmental-pollutants. 1. 481 Structure-activity-relationships for prediction of aquatic toxicity. Chemosphere 25, 471-491.
+        For a general description of the VEGA software see:
+        Benfenati E, Manganaro A, Gini G
+        VEGA-QSAR: AI inside a platform for predictive toxicology
+        Proceedings of the workshop "Popularize Artificial Intelligence 2013", December 5th 2013, Turin, Italy
+        Published on CEUR Workshop Proceedings Vol-1107</Reference>
 
-    <Endpoint></Endpoint>
+    <Endpoint>This model identifies the mechanism of action of substances for fish acute toxicity. The species is referred to fish acute toxicity.
+        In particular, the model gives a classification based on the mechanism of action of the substance to help in the assessment of the acute toxicity towards fish.</Endpoint>
 
     <Stats></Stats>
     

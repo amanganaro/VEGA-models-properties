@@ -66,9 +66,9 @@
             </AD>
             <AD>
                 <Name>AD_Index</Name>
-                <RangeTop>1 >= index >= 0.85</RangeTop>
+                <RangeTop>1 >= index >= 0.9</RangeTop>
                 <DescriptionRangeTop>predicted substance is into the Applicability Domain of the model</DescriptionRangeTop>
-                <RangeMid>0.85 > index >= 0.7</RangeMid>
+                <RangeMid>0.9 > index >= 0.7</RangeMid>
                 <DescriptionRangeMid>predicted substance could be out of the Applicability Domain of the model</DescriptionRangeMid>
                 <RangeBottom>index &lt; 0.7</RangeBottom>
                 <DescriptionRangeBottom>predicted substance is out of the the Applicability Domain of the model</DescriptionRangeBottom>

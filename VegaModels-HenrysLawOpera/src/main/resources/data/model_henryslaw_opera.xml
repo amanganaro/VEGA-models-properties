@@ -12,12 +12,115 @@
         <Units>Log atm-m3/mole</Units>
     </Vega>
 
-    <Guide></Guide>
+    <Guide>
+        <Description>The Henry’s law model is a QSAR/QSPR model derived from weighted nearest neighbors algorithm (kNN) based on PaDEL descriptors.
+            The endpoint is the Henry’s law constant. The Henry’s law is defined that at a constant temperature, the amount of a given gas that dissolves in a given type and volume of liquid is directly proportional to the partial pressure of that gas in equilibrium with that liquid.</Description>
+        <Model>The model has been developed by Alberto Manganaro Kode srl info@kode-solutions.net in 2019.</Model>
+        <Dataset>Endpoint units: Log atm-m3/mole
+            Dependent variable: LogHL
+            Experimental protocol: The data were downloaded from OPERA software tool
+            Endpoint data quality and variability: Data as from OPERA software tool
+            (https://cfpub.epa.gov/si/si_public_record_report.cfm?Lab=NCCT&dirEntryId=340233)
+            Availability of the training set: Yes
+            Data for the dependent variable for the training set: All
+            Availability of the external validation set: Yes
+            Data for the dependent variables for the external validation set: All
+            Other information about the training set: The dataset used to develop the model implemented on VEGA was not split in training and test sets. The training set consists in the overall dataset, n= 591
+            Other information about the external validation set: In the original model (Mansouri et al. 2018), the validation set consists of 150 chemicals. The values are ranging from ~-10 to ~0.5.</Dataset>
+        <Descriptors>QSAR/QSPR model derived from weighted nearest neighbors algorithm (kNN) based on PaDEL descriptors. Distance weighted k-nearest neighbors (kNN). k=5
+            This is a refinement of the classical k-NN classification algorithm where the contribution of each of the k neighbors is weighted according to their distance to the query point, giving greater weight to closer neighbors. The used distance is the Euclidean distance. kNN is an unambiguous algorithm that fulfills the transparency requirements of OECD principle 2 with an optimal compromise between model complexity and performance.
+            Algorithm and descriptor have been generated in VEGA platform, where the descriptors have been implemented following the definition available in the Dragon software.
+            PaDEL-Descriptors V2.21
+            An open source software to calculate molecular descriptors and fingerprints
+            Chun Wei Yap (phayapc@nus.edu.sg)
+            PaDEL software was used to calculate 1440 molecular descriptors. A first filter was applied in order to remove descriptors with missing values, constant and near constant (standard deviation of 0.25 as a threshold) and highly correlated descriptors (96% as a threshold). The remaining 765 descriptors were used in a feature selection procedure to select a minimum number of variables encoding the most relevant structural information to the modeled endpoint. This step consisted of coupling Genetic Algorithms (GA) with the weighted kNN algorithm and was applied in 5 fold cross validation on the training set (441 chemicals). This procedure was run for 200 consecutive independent runs maximizing Q 2 in cross-validation and minimizing the number of descriptors. The number of k neighbors is optimized within the range of 3 to 7. The descriptors were then ranked based on their frequency of selection during the GA runs. The best model showed an optimal compromise between the simplicity (minimum number of descriptors) and performance (Q2 in cross-validation) to ensure transparency and facilitate the mechanistic interpretation as required by OECD principles 2 and 5. More details in paper as in 1.2.1.
 
-    <Reference></Reference>
+            The model uses the following descriptors:
+            [1] nHBDon, Unitless, Hbond donor count: Number of hydrogen bond donors (using CDKHBondDonorCountDescriptor algorithm).
+            [2] MLFER_S, Unitless, Molecular linear free energy relation: Combined dipolarity/polarizability. Platts JA, Butina D, Abraham MH, Hersey A. Estimation of molecular free energy relation descriptors using a group contribution approach. J Chem Inf Comput Sci. 1999;39(5):835-45.
+            [3] GATS1e, Unitless, Geary autocorrelation - lag 1 / weighted by Sanderson electronegativities. Todeschini, R. and Consonni, V. (2009). Molecular descriptors for chemoinformatics, (Weinheim: Wiley VCH) pg 27-37
+            [4] ndssC, Unitless, Atom type electrotopological state: Count of atom-type E-State: =C<. Hall, L. H., and Kier, L. B. (1995). Electrotopological state indices for atom types: A novel combination of electronic, topological, and valence state information. J Chem Inf Comput Sci 35, 1039-1045; Liu, R., Sun, H., and So, S. S. (2001). Development of quantitative structure-property relationship models for early ADME evaluation in drug discovery. 2. Blood-brain barrier penetration. J Chem Inf Comput Sci 41, 1623-1632.; Gramatica, P., Corradi, M., and Consonni, V. (2000). Modelling and prediction of soil sorption coefficients of non-ionic organic pesticides by molecular descriptors. Chemosphere 41, 763-777.
+            [5] ATS3m, Unitless, Broto-Moreau autocorrelation - lag 3 / weighted by mass. Todeschini, R. and Consonni, V. (2009). Molecular descriptors for chemoinformatics, (Weinheim: Wiley VCH) pg 27-37
+            [6] nHBint6, Unitless, Atom type electrotopological state: Count of E-State descriptors of strength for potential Hydrogen Bonds of path length 6. Hall, L. H., and Kier, L. B. (1995). Electrotopological state indices for atom types: A novel combination of electronic, topological, and valence state information. J Chem Inf Comput Sci 35, 1039-1045; Liu, R., Sun, H., and So, S. S. (2001).
+            [7] nHBAcc2, Unitless, Number of hydrogen bond acceptors (any oxygen; any nitrogen where the formal charge of the nitrogen is non-positive (i.e. formal charge <= 0) except a non-aromatic nitrogen that is adjacent to an oxygen and aromatic ring, or an aromatic nitrogen with a hydrogen atom in a ring, or an aromatic nitrogen with 3 neighouring atoms in a ring, or a nitrogen with total bond order >=4; any fluorine).
+            [8] AATSC0i, Unitless, Average centered Broto-Moreau autocorrelation - lag 0 / weighted by first ionization potential. Todeschini, R. and Consonni, V. (2009). Molecular descriptors for chemoinformatics, (Weinheim: Wiley VCH) pg 27-37
+            [9] SpAD_Dzm, Unitless, Barysz matrix: Spectral absolute deviation from Barysz matrix / weighted by mass. Todeschini, R. and Consonni, V. (2009). Molecular descriptors for chemoinformatics, (Weinheim: Wiley VCH) pg 714-726</Descriptors>
+        <Applicability_Domain>
+            <AD>
+                <Name>Similar_Molecules</Name>
+                <SimilarMols>3</SimilarMols>
+                <RangeTop>1 >= index > 0.75</RangeTop>
+                <DescriptionRangeTop>strongly similar compounds with known experimental value in the training set have been found</DescriptionRangeTop>
+                <RangeMid>0.75 >= index > 0.7</RangeMid>
+                <DescriptionRangeMid>only moderately similar compounds with known experimental value in the training set have been found</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.7</RangeBottom>
+                <DescriptionRangeBottom>no similar compounds with known experimental value in the training set have been found</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Accuracy</Name>
+                <RangeTop>index &lt; 0.5</RangeTop>
+                <DescriptionRangeTop>accuracy of prediction for similar molecules found in the training set is good</DescriptionRangeTop>
+                <RangeMid>0.5 > index > 1</RangeMid>
+                <DescriptionRangeMid>accuracy of prediction for similar molecules found in the training set is not optimal</DescriptionRangeMid>
+                <RangeBottom>index => 1</RangeBottom>
+                <DescriptionRangeBottom>accuracy of prediction for similar molecules found in the training set is not adequate</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Concordance</Name>
+                <RangeTop>index &lt; 0.5</RangeTop>
+                <DescriptionRangeTop>similar molecules found in the training set have experimental values that agree with the predicted value</DescriptionRangeTop>
+                <RangeMid>0.5 > index > 1</RangeMid>
+                <DescriptionRangeMid>some similar molecules found in the training set have experimental values that disagree with the predicted value</DescriptionRangeMid>
+                <RangeBottom>index => 1</RangeBottom>
+                <DescriptionRangeBottom>similar molecules found in the training set have experimental values that disagree with the predicted value</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Maximum_Error</Name>
+                <RangeTop>index &lt; 0.5</RangeTop>
+                <DescriptionRangeTop>the maximum error in prediction of similar molecules found in the training set has a low value, considering the experimental variability</DescriptionRangeTop>
+                <RangeMid>0.5 &lt;= index &lt; 1</RangeMid>
+                <DescriptionRangeMid>the maximum error in prediction of similar molecules found in the training set has a moderate value, considering the experimental variability</DescriptionRangeMid>
+                <RangeBottom>index >= 1</RangeBottom>
+                <DescriptionRangeBottom>the maximum error in prediction of similar molecules found in the training set has a high value, considering the experimental variability</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>ACF_SimCheck</Name>
+                <RangeTop>index = 1</RangeTop>
+                <DescriptionRangeTop>all atom centered fragment of the compound have been found in the compounds of the training set</DescriptionRangeTop>
+                <RangeMid>1 > index >= 0.7</RangeMid>
+                <DescriptionRangeMid>some atom centered fragment of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeMid>
+                <RangeBottom>index &lt; 0.7</RangeBottom>
+                <DescriptionRangeBottom>a prominent number of atom centered fragments of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>AD_Index</Name>
+                <RangeTop>1 >= index > 0.85</RangeTop>
+                <DescriptionRangeTop>predicted substance is into the Applicability Domain of the model</DescriptionRangeTop>
+                <RangeMid>0.85 >= index > 0.7</RangeMid>
+                <DescriptionRangeMid>predicted substance could be out of the Applicability Domain of the model</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.7</RangeBottom>
+                <DescriptionRangeBottom>predicted substance is out of the the Applicability Domain of the model</DescriptionRangeBottom>
+            </AD>
+        </Applicability_Domain>
+    </Guide>
 
-    <Endpoint></Endpoint>
+    <Reference>It has been described here:
+        [1] An automated curation procedure for addressing chemical errors and inconsistencies in public
+        datasets used in QSAR modeling. 2016. Kamel Mansouri, Chris M. Grulke, Ann M. Richard, Richard
+        S. Judson and Antony J. Williams. SAR & QSAR in Environ. Res; Vol. 27 , Iss. 11,2016.
+        http://www.qsar2016.com/program
+        [2] OPERA: A free and open source QSAR tool for physicochemical properties and environmental
+        fate predictions. Kamel Mansouri, Chris Grulke, Richard Judson, Antony Williams, Journal of
+        Cheminformatics (2017) https://jcheminf.biomedcentral.com/articles/
+        For a general description of the VEGA software see:
+        Benfenati E, Manganaro A, Gini G
+        VEGA-QSAR: AI inside a platform for predictive toxicology
+        Proceedings of the workshop "Popularize Artificial Intelligence 2013", December 5th 2013, Turin, Italy
+        Published on CEUR Workshop Proceedings Vol-1107</Reference>
 
-    <Stats></Stats>
+    <Endpoint>The endpoint of the model is the Henry’s law constant (ENV FATE 5.4.2.). The Henry’s law is defined that at a constant temperature, the amount of a given gas that dissolves in a given type and volume of liquid is directly proportional to the partial pressure of that gas in equilibrium with that liquid.</Endpoint>
+
+    <Stats>
+    </Stats>
     
 </xml>

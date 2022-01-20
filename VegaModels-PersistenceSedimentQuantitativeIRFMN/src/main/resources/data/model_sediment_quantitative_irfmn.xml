@@ -13,12 +13,99 @@
         <Units>log(days)</Units>
     </Vega>
 
-    <Guide></Guide>
+    <Guide>
+        <Description>The model is based on the half-lives (in days) test data and provides a semi-quantitative evaluation of persistence property in the sediment compartment. It has been developed using a counter-propagation neural network (CPANN) software, made available by NIC (https://www.ki.si/en/departments/)</Description>
+        <Model>The model is based on half-life test data of 221 compounds, collected from ECHA (https://echa.europa.eu/it/home) and Gouin et al., 2004 [Gouin, T., Cousins, I., Mackay, D., 2004. Comparison of two methods for obtaining degradation half-lives. Chemosphere 56, 531–535].
+            We cleaned the data following strict eligibility criteria based on the OECD 309 test guideline. In Gouin et al., 2004, the categorical data whose ranges were between two of nP/P/vP classes or/and the substances with ranges greater than 30 days, were erased. Likewise, we eliminated ECHA data with reliability three, not tested in lab, without a guideline or based on different database from OECD 309. In addition, we eliminated mixtures and outliers.
+            We split the dataset into a training (80%) and a test set (20%) using a stratified splitting and forcing ECHA substances in the test set.
+            The model uses 8 descriptors calculated with DRAGON v.7.0. and selected from a pool of descriptors using an in-house tool developed in R (with a bootstrap cross-validation approach). The selected descriptors are then implemented in java using cdk libraries.
+
+            Below, the list of descriptors used to derive the model:
+            MLogP	MLogP Descriptor	Moriguchi LogP
+            SpPosA_p	Burden Eigenvalue Descriptors	Normalized spectral positive sum
+            CATS2D_3_DL	CATS 2D Descriptors	CATS 2D D-L at topological distance 3
+            EEig7ri	Edge Adjacency Descriptors
+            P_VSA_i_3	PVSA Descriptors
+            B1(C..O)	Topological Distances Descriptors	Presence/absence of C-O at topological distance 1
+            B1(C..Cl)	Topological Distances Descriptors	Presence/absence of C-Cl at topological distance 1
+            B3(O..O)	Topological Distances Descriptors	Presence/absence of O-O at topological distance 3</Model>
+        <Applicability_Domain>
+            <AD>
+                <Name>Similar_Molecules</Name>
+                <SimilarMols>3</SimilarMols>
+                <RangeTop>1 >= index > 0.85</RangeTop>
+                <DescriptionRangeTop>strongly similar compounds with known experimental value in the training set have been found</DescriptionRangeTop>
+                <RangeMid>0.85 >= index > 0.7</RangeMid>
+                <DescriptionRangeMid>only moderately similar compounds with known experimental value in the training set have been found</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.7</RangeBottom>
+                <DescriptionRangeBottom>no similar compounds with known experimental value in the training set have been found</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Accuracy</Name>
+                <RangeTop>index &lt; 0.6</RangeTop>
+                <DescriptionRangeTop>accuracy of prediction for similar molecules found in the training set is good</DescriptionRangeTop>
+                <RangeMid>0.6 > index > 1.2</RangeMid>
+                <DescriptionRangeMid>accuracy of prediction for similar molecules found in the training set is not optimal</DescriptionRangeMid>
+                <RangeBottom>index >= 1.2</RangeBottom>
+                <DescriptionRangeBottom>accuracy of prediction for similar molecules found in the training set is not adequate</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Concordance</Name>
+                <RangeTop>index &lt; 0.6</RangeTop>
+                <DescriptionRangeTop>similar molecules found in the training set have experimental values that agree with the target compound predicted value</DescriptionRangeTop>
+                <RangeMid>0.6 > index > 1.2</RangeMid>
+                <DescriptionRangeMid>similar molecules found in the training set have experimental values that slightly disagree with the target compound predicted value</DescriptionRangeMid>
+                <RangeBottom>index >= 1.2</RangeBottom>
+                <DescriptionRangeBottom>similar molecules found in the training set have experimental values that completely disagree with the target compound predicted value</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Maximum_Error</Name>
+                <RangeTop>index &lt; 0.6</RangeTop>
+                <DescriptionRangeTop>the maximum error in prediction of similar molecules found in the training set has a low value, considering the experimental variability</DescriptionRangeTop>
+                <RangeMid>0.6 &lt;= index &lt; 1.2</RangeMid>
+                <DescriptionRangeMid>the maximum error in prediction of similar molecules found in the training set has a moderate value, considering the experimental variability</DescriptionRangeMid>
+                <RangeBottom>index >= 1.2</RangeBottom>
+                <DescriptionRangeBottom>the maximum error in prediction of similar molecules found in the training set has a high value, considering the experimental variability</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Model_Descriptors_Range_Check</Name>
+                <RangeTop>index = True</RangeTop>
+                <DescriptionRangeTop>descriptors for this compound have values inside the descriptor range of the compounds of the training set</DescriptionRangeTop>
+                <RangeBottom>index = False</RangeBottom>
+                <DescriptionRangeBottom>descriptors for this compound have values outside the descriptor range of the compounds of the training set</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>ACF_SimCheck</Name>
+                <RangeTop>index = 1</RangeTop>
+                <DescriptionRangeTop>all atom centered fragment of the compound have been found in the compounds of the training set</DescriptionRangeTop>
+                <RangeMid>1 > index >= 0.7</RangeMid>
+                <DescriptionRangeMid>some atom centered fragment of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeMid>
+                <RangeBottom>index &lt; 0.7</RangeBottom>
+                <DescriptionRangeBottom>a prominent number of atom centered fragments of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>AD_Index</Name>
+                <RangeTop>1 >= index > 0.85</RangeTop>
+                <DescriptionRangeTop>predicted substance is into the Applicability Domain of the model</DescriptionRangeTop>
+                <RangeMid>0.85 >= index > 0.7</RangeMid>
+                <DescriptionRangeMid>predicted substance could be out of the Applicability Domain of the model</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.7</RangeBottom>
+                <DescriptionRangeBottom>predicted substance is out of the the Applicability Domain of the model</DescriptionRangeBottom>
+            </AD>
+        </Applicability_Domain>
+    </Guide>
 
     <Reference></Reference>
 
     <Endpoint></Endpoint>
 
-    <Stats></Stats>
+    <Stats>
+        <n_Train>178</n_Train>
+        <R2_Train>0.89</R2_Train>
+        <RMSE_Train>0.28</RMSE_Train>
+        <n_Test>44</n_Test>
+        <R2_Calibration>0.84</R2_Calibration>
+        <RMSE_Calibration>0.34</RMSE_Calibration>
+    </Stats>
     
 </xml>

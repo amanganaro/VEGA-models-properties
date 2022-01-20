@@ -86,11 +86,11 @@
     <Endpoint></Endpoint>
 
     <Stats>
-        <n>5770.0</n>
+        <n>5764.0</n>
         <Specificity>0.759</Specificity>
         <Sensitivity>0.832</Sensitivity>
         <Accuracy>0.8</Accuracy>
-        <Not_Predicted>0.0</Not_Predicted>
+        <Not_Predicted>6.0</Not_Predicted>
     </Stats>
 
 

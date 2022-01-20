@@ -33,21 +33,18 @@
         <Model>The model has been built as a Counter Propagation Artificial Neural Network (CP ANN). The neural network output consists of two values labeled as Positive and Non-Positive, both in the range [0,1] and with sum equal to 1; they represent how much the neuron in which the predicted compound falls belongs to the class of carcinogenic or non-carcinogenic compounds. The higher between these two values leads to the prediction. Full reference and details of the used formulas can be found in:
         Fjodorova N., Vračko M., Novič M., Roncaglioni A. and Benfenati E. New public QSAR model for carcinogenicity. Chemistry Central Journal (2010), 4 (Suppl 1):S3 </Model>
         <Descriptors>The descriptors used are the following:
-            - BEHm1: highest eigenvalue n. 1 of Burden matrix / weighted by atomic masses
-            - Eig1p: Leading eigenvalue from polarizability weighted distance matrix
-            - IC2: information content index (neighborhood symmetry of 2-order)
-            - IDE: mean information content on the distance equality
-            - MLOGP: Moriguchi octanol-water partition coeff. (logP)
-            - Mp: mean atomic polarizability (scaled on Carbon atom)
-            - MW: molecular weight
-            - nHAcc: number of acceptor atoms for H-bonds (N O F)
-            - nNR2Ph: number of tertiary amines (aromatic)
-            - nP: number of Phosphorous atoms
-            - O-057: phenol / enol / carboxyl OH
-            - O-060: Al-O-Ar / Ar-O-Ar / R..O..R / R-O-C=X
-            - S-107: R2S / RS-SR; Class: atom-centred fragments
-            - SRW05: self-returning walk count of order 05
-            - T(F..Cl): sum of topologica</Descriptors>
+            - PW5: Path/walk 5 - Randic shape index
+            - D/Dr6: Distance/detour ring index of order 6
+            - MATS2: Moran autocorrelation - lag 2/weighted by atomic polarizabilities
+            - EEig10: Eigenvalue 10 from edge adj. matrix weighted by edge degrees
+            - ESpm11: Spectral moment 11 from edge adj. matrix weighted by edge degrees
+            - ESpm9: Spectral moment 09 from edge adj. matrix weighted by dipole moments
+            - GGI2: Topological charge index of order 2
+            - JGI6: Mean topological charge index of order 6
+            - nRNNOx: Number of N-nitroso groups (aliphatic)
+            - nPO4: Number of phosphates/thiophosphates
+            - N_067: Number of Al2-NH atom centered fragments
+            - N_078: Number of Ar-N = X/X-N = X atom centered fragments</Descriptors>
         <Applicability_Domain>
             <AD>
                 <Name>Similar_Molecules</Name>

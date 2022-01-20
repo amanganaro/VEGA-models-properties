@@ -13,13 +13,133 @@
         <Units>Log(h)</Units>
     </Vega>
 
-    <Guide></Guide>
+    <Guide>
+        <Description>The is a multiple linear regression model based on Ordinary Least Square (OLS) that provide prediction for the total body elimination half-lives in human</Description>
+        <Dataset>The model is based on data included in J.A. Arnot, T.N. Brown, F. Wania, Estimating screening-level organic chemical half-lives in human. Environ Sci Technol. 2014; 48:723-730. kT values (h-1) were transformed into LogHLT(h), then the dataset (n=1105) was split, before model development, into a training set used for model development and a prediction set used later for external validation; the splitting scheme was the same as the one used prevously by Arnot (n training=552 , n prediction=553). The range of LogHLTare -1.30 / 6.30 for the training set and -1.08 / 5.83 for the test set. After successful validation, the model has been retrained on the entire dataset for implementation.</Dataset>
+        <Descriptors>The model is based on the Ordinary Least Square – Multiple Linear Regression Methods (OLS – MLR) applied on LogHLT (total elimination half-life in human) data. The model is based on the following equation:
 
-    <Reference></Reference>
+            LogHLT= 0.6577 + 0.351 ScCl + 0.5905AATS7p - 0.0042 TopoPSA + 0.2105 nF - 0.0495 gmax - 0.4298 minsCl +0.0686 GGI1 - 0.2927 minsHsOH
 
-    <Endpoint></Endpoint>
+            The model uses the following descriptors:
 
-    <Stats></Stats>
+            [1]nF Number of fluorine atoms
+            [2]minsHsOH minimum atom-type H E-state -OH
+            [3]gmax maximum electrotopological state
+            [4]SsCl sum of atom-type E-state -Cl
+            [5]AATS7p average Broto-Moreau autocorrelation of lag 7 weighted by polarizabilities
+            [6]TopoPSA topological polar surface area
+            [7]GGI1 topological charge index of order 1
+            [8]minsCl minimum atom-type E-state -Cl
+
+            Descriptors were calculated based on canonical SMILES derived by OpenBabel (N.M. O'Boyle, M. Banck, C.A. James, C. Morley, T. Vandermeersch, G.R. Hutchinson, Open Babel: an open chemical toolbox. J Cheminform, 2011;3:33). The smiles string were used to calculate mono- and bidimensional descriptor by the software PaDEL-Descriptor (Yap C. PaDEL-Descriptor: an open source software to calculate molecular desctriptors and fingerprints. J Comput Chem. 2011). Constatnt descriptors and descriptors with a correlation greater than 0.98 were excluded from the total amout of descriptiors, using QSARINS software (Gramatica P., et al. QSARINS: A new software for the development, analysis and validation of QSAR MLR models, J Comput Chem (Software News and Updates). 2013, 34 (24), 2121-2132; Gramatica P., et al. QSARINS-Chem: Insubria Datasets and New QSAR/QSPR Models for Environmental Pollutants in QSARINS, submitted to J Comput Chem (Software News and Updates). 2013). The models were initially developed by the all-subset-procedure, and then GA was applied to obtain the final population of models (eight variables).</Descriptors>
+        <Applicability_Domain>
+            <AD>
+                <Name>Similar_Molecules</Name>
+                <SimilarMols>3</SimilarMols>
+                <RangeTop>1 >= index > 0.85</RangeTop>
+                <DescriptionRangeTop>strongly similar compounds with known experimental value in the training set have been found</DescriptionRangeTop>
+                <RangeMid>0.85 >= index > 0.7</RangeMid>
+                <DescriptionRangeMid>only moderately similar compounds with known experimental value in the training set have been found</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.7</RangeBottom>
+                <DescriptionRangeBottom>no similar compounds with known experimental value in the training set have been found</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Accuracy</Name>
+                <RangeTop>index &lt; 0.8</RangeTop>
+                <DescriptionRangeTop>accuracy of prediction for similar molecules found in the training set is good</DescriptionRangeTop>
+                <RangeMid>0.8 > index > 1.5</RangeMid>
+                <DescriptionRangeMid>accuracy of prediction for similar molecules found in the training set is not optimal</DescriptionRangeMid>
+                <RangeBottom>index => 1.5</RangeBottom>
+                <DescriptionRangeBottom>accuracy of prediction for similar molecules found in the training set is not adequate</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Concordance</Name>
+                <RangeTop>index &lt; 0.8</RangeTop>
+                <DescriptionRangeTop>similar molecules found in the training set have experimental values that agree with the target compound predicted value</DescriptionRangeTop>
+                <RangeMid>0.8 > index > 1.5</RangeMid>
+                <DescriptionRangeMid>similar molecules found in the training set have experimental values that slightly disagree with the target compound predicted value</DescriptionRangeMid>
+                <RangeBottom>index >= 1.5</RangeBottom>
+                <DescriptionRangeBottom>similar molecules found in the training set have experimental values that completely disagree with the target compound predicted value</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Maximum_Error</Name>
+                <RangeTop>index &lt; 0.8</RangeTop>
+                <DescriptionRangeTop>the maximum error in prediction of similar molecules found in the training set has a low value, considering the experimental variability</DescriptionRangeTop>
+                <RangeMid>0.8 &lt;= index &lt; 1.5</RangeMid>
+                <DescriptionRangeMid>the maximum error in prediction of similar molecules found in the training set has a moderate value, considering the experimental variability</DescriptionRangeMid>
+                <RangeBottom>index >= 1.5</RangeBottom>
+                <DescriptionRangeBottom>the maximum error in prediction of similar molecules found in the training set has a high value, considering the experimental variability</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Model_Descriptors_Range_Check</Name>
+                <RangeTop>index = True</RangeTop>
+                <DescriptionRangeTop>descriptors for this compound have values inside the descriptor range of the compounds of the training set</DescriptionRangeTop>
+                <RangeBottom>index = False</RangeBottom>
+                <DescriptionRangeBottom>descriptors for this compound have values outside the descriptor range of the compounds of the training set</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>ACF_SimCheck</Name>
+                <RangeTop>index = 1</RangeTop>
+                <DescriptionRangeTop>all atom centered fragment of the compound have been found in the compounds of the training set</DescriptionRangeTop>
+                <RangeMid>1 > index >= 0.7</RangeMid>
+                <DescriptionRangeMid>some atom centered fragment of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeMid>
+                <RangeBottom>index &lt; 0.7</RangeBottom>
+                <DescriptionRangeBottom>a prominent number of atom centered fragments of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>AD_Index</Name>
+                <RangeTop>1 >= index > 0.85</RangeTop>
+                <DescriptionRangeTop>predicted substance is into the Applicability Domain of the model</DescriptionRangeTop>
+                <RangeMid>0.85 >= index > 0.7</RangeMid>
+                <DescriptionRangeMid>predicted substance could be out of the Applicability Domain of the model</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.7</RangeBottom>
+                <DescriptionRangeBottom>predicted substance is out of the the Applicability Domain of the model</DescriptionRangeBottom>
+            </AD>
+        </Applicability_Domain>
+    </Guide>
+
+    <Reference>The model has been developed by:
+
+        [1]Alessandro Sangion University of Insubria (Varese - Italy) alessandro.sangion@uninsubria.it
+        www.qsar.it
+        [2]Lucrezia Motta DiSTA, University of Insubria (Varese - Italy)
+        [3]Ester Papa DiSTA, University of Insubria (Varese - Italy) ester.papa@uninsubria.it www.qsar.it
+        [4]Alberto Manganaro Kode srl info@kode-solutions.net
+
+        It has been described here:
+        [1]S. Cassani, P. Gramatica, Identification of potential PBT behavior of personal care products by structural approaches. Sustain Chem Pharm, 2015;1:19-27
+        [2]Papa E., et al. Metabolic biotransformation half-lives in fish: QSAR modelling and consensus analysis, STOTEN. 2014;470-471:1040-1046
+        [3]A. Sangion, P. Gramatica, PBT assessment and prioritization of contaminants of emerging concern: pharmaceuticals. Environ Res, 2016a;147:297-306
+        [4]Yap, C.W. PaDEL descriptor: an open source software to calculate molecular descriptors and fingerprints., J. Comput. Chem. 2011 32, 1466-1474
+        [5]Gramatica P., et al. QSARINS: A new software for the development, analysis and validation of QSAR MLR models, J. Comput. Chem. (Software News and Updates), 2013, 34 (24), 2121-2132
+        [6]Gramatica P., et al. QSARINS-Chem: Insubria Datasets and New QSAR/QSPR Models for Environmental Pollutants in QSARINS, submitted to J. Comput. Chem. (Software News and Updates), 2013.
+        [7]J.A. Arnot, T.N. Brown, F. Wania, Estimating screening-level organic chemical half-lives in humans. Environ Sci Technol, 2014; 48:723-730
+
+        For a general description of the VEGA software see:
+        Benfenati E, Manganaro A, Gini G
+        VEGA-QSAR: AI inside a platform for predictive toxicology
+        Proceedings of the workshop "Popularize Artificial Intelligence 2013", December 5th 2013, Turin, Italy
+        Published on CEUR Workshop Proceedings Vol-1107</Reference>
+
+    <Endpoint>Total body elimination half-lives in human (HLT, h) expressed in base 10 log units (LogHLT)</Endpoint>
+
+    <Stats>
+        <R2>0.78</R2>
+        <RMSEtr>0.62</RMSEtr>
+        <Q2LOO>0.77</Q2LOO>
+        <CCCcv>0.87</CCCcv>
+        <RMSEcv>0.63</RMSEcv>
+        <QL2LMO>0.77</QL2LMO>
+        <Q2_extF1>0.74</Q2_extF1>
+        <Q2_extF2>0.74</Q2_extF2>
+        <Q2_extF3>0.75</Q2_extF3>
+        <CCCex>0.86</CCCex>
+        <RMSEex>0.66</RMSEex>
+        <R2_ext>0.77</R2_ext>
+        <MAE_ext>0.489</MAE_ext>
+        <MSE_ext>0.404</MSE_ext>
+        <RMSE>0.636</RMSE>
+    </Stats>
 
 
 </xml>

@@ -12,13 +12,104 @@
         <Units>log(L/kg)</Units>
     </Vega>
 
-    <Guide></Guide>
+    <Guide>
+        <Description>The model provides a quantitative prediction of bioconcentration factor (BCF).
+            It is implemented inside the VEGA online platform (download at https://www.vegahub.eu/), and it is freely available.
+            The models developed by Arnot and Gobas (2003) was reimplemented and made available through the BCFBAF module in the EPISuiteTM v4.1 platform (US EPA.c, 2019). For the implementation, a dataset of 692 compounds, retrieved from EPISuiteTM platform, has been used, processed and cleaned.</Description>
+        <Model>Details of the model are available in “Arnot, J.A., Gobas, F.A.P.C. (2003): A Generic QSAR for Assessing the Bioaccumulation Potential of Organic Chemicals in Aquatic Food Webs. QSAR & Combinatorial Science 22, 337–345.”</Model>
+        <Dataset>The model is based on a dataset of 692 compounds, retrieved from EPISuiteTM platform.
+            Endpoint units: no units (concentration/concentration)
+            Dependent variable: Log Kow
+            Availability of the training set: Yes
+            Data for the dependent variable for the training set: All
+            Availability of the external validation set: Yes
+            Data for the dependent variable for the external validation set: All</Dataset>
+        <Descriptors>The model derives the BAF as the ratio of the chemical concentration in an upper trophic level organism (CB) and the total chemical concentration in unfiltered water (CW). It is the fraction of the total chemical concentration in the water that is freely dissolved, and which can permeate through the membranes of the respiratory surface area.
+            It reflects the ™bioavailable chemical concentration in the water (CWD). The model accounts for the rates of chemical uptake and elimination.
+            k1, kD, k2, kE, kG and kM are rate constants describing respectively the rates of chemical uptake via the respiratory area and the diet and chemical elimination via the respiratory surface, fecal egestion, growth dilution and metabolic transformation. The model includes the overall biomagnification that occurs in the food web in terms of an overall biomagnification factor (unitless). It is an empirical value derived by calibrating the model to empirical data. It provides a conservative upper trophic level BAF that incorporates a number of trophic interactions and sediment-water disequilibrium (unitless). It represents the degree of trophic dilution that occurs for substances that are metabolized at a significant rate in organisms of a food web.
+            The model uses the LogP (Meylan) descriptor, because the LogP is directly correlated to the logBCF value.</Descriptors>
+        <Applicability_domain>
+            <AD>
+                <Name>Similar_Molecules</Name>
+                <SimilarMols>3</SimilarMols>
+                <RangeTop>1 >= index > 0.85</RangeTop>
+                <DescriptionRangeTop>strongly similar compounds with known experimental value in the training set have been found</DescriptionRangeTop>
+                <RangeMid>0.85 >= index > 0.75</RangeMid>
+                <DescriptionRangeMid>only moderately similar compounds with known experimental value in the training set have been found</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.75</RangeBottom>
+                <DescriptionRangeBottom>no similar compounds with known experimental value in the training set have been found</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Accuracy</Name>
+                <RangeTop>index &lt; 0.5</RangeTop>
+                <DescriptionRangeTop>accuracy of prediction for similar molecules found in the training set is good</DescriptionRangeTop>
+                <RangeMid>0.5 > index > 1.0</RangeMid>
+                <DescriptionRangeMid>accuracy of prediction for similar molecules found in the training set is not optimal</DescriptionRangeMid>
+                <RangeBottom>index >= 1.0</RangeBottom>
+                <DescriptionRangeBottom>accuracy of prediction for similar molecules found in the training set is not adequate</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Concordance</Name>
+                <RangeTop>index &lt; 0.5</RangeTop>
+                <DescriptionRangeTop>similar molecules found in the training set have experimental values that agree with the target compound predicted value</DescriptionRangeTop>
+                <RangeMid>0.5 > index > 1.0</RangeMid>
+                <DescriptionRangeMid>similar molecules found in the training set have experimental values that slightly disagree with the target compound predicted value</DescriptionRangeMid>
+                <RangeBottom>index >= 1.0</RangeBottom>
+                <DescriptionRangeBottom>similar molecules found in the training set have experimental values that completely disagree with the target compound predicted value</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Maximum_Error</Name>
+                <RangeTop>index &lt; 0.5</RangeTop>
+                <DescriptionRangeTop>the maximum error in prediction of similar molecules found in the training set has a low value, considering the experimental variability</DescriptionRangeTop>
+                <RangeMid>0.5 &lt;= index &lt; 1.0</RangeMid>
+                <DescriptionRangeMid>the maximum error in prediction of similar molecules found in the training set has a moderate value, considering the experimental variability</DescriptionRangeMid>
+                <RangeBottom>index >= 1.0</RangeBottom>
+                <DescriptionRangeBottom>the maximum error in prediction of similar molecules found in the training set has a high value, considering the experimental variability</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>LogP_reliability</Name>
+                <RangeTop>index = 1</RangeTop>
+                <DescriptionRangeTop>reliability of logP value used by the model is good</DescriptionRangeTop>
+                <RangeMid>index = 0.7</RangeMid>
+                <DescriptionRangeMid>reliability of logP value used by the model is not optimal</DescriptionRangeMid>
+                <RangeBottom>index = 0</RangeBottom>
+                <DescriptionRangeBottom>reliability of logP value used by the model is not adequate</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>ACF_SimCheck</Name>
+                <RangeTop>index = 1</RangeTop>
+                <DescriptionRangeTop>all atom centered fragment of the compound have been found in the compounds of the training set</DescriptionRangeTop>
+                <RangeMid>1 > index >= 0.7</RangeMid>
+                <DescriptionRangeMid>some atom centered fragment of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeMid>
+                <RangeBottom>index &lt; 0.7</RangeBottom>
+                <DescriptionRangeBottom>a prominent number of atom centered fragments of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>AD_Index</Name>
+                <RangeTop>1 >= index > 0.85</RangeTop>
+                <DescriptionRangeTop>predicted substance is into the Applicability Domain of the model</DescriptionRangeTop>
+                <RangeMid>0.85 >= index > 0.75</RangeMid>
+                <DescriptionRangeMid>predicted substance could be out of the Applicability Domain of the model</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.75</RangeBottom>
+                <DescriptionRangeBottom>predicted substance is out of the the Applicability Domain of the model</DescriptionRangeBottom>
+            </AD>
+        </Applicability_domain>
+    </Guide>
 
-    <Reference></Reference>
+    <Reference>For a general description of the VEGA software see:
+        Benfenati E, Manganaro A, Gini G
+        VEGA-QSAR: AI inside a platform for predictive toxicology
+        Proceedings of the workshop "Popularize Artificial Intelligence 2013", December 5th 2013, Turin, Italy
+        Published on CEUR Workshop Proceedings Vol-1107</Reference>
 
-    <Endpoint></Endpoint>
+    <Endpoint>Species: bioconcentration factor (BCF) in fish.
+        Endpoint: ENV FATE 5.3.1. Bioaccumulation: aquatic / sediment
+        Comment on endpoint: Bioconcentration is the process where the chemical concentration in an aquatic organism achieves a level that exceeds that in the water as a result of the exposure of an organism to a chemical in the water but does not include exposure via the diet. Bioconcentration refers to a situation, typically derived under controlled laboratory conditions, wherein the chemical is absorbed from the water via the respiratory surface (e.g. gills) and/or the skin only. Standard protocols for conducting bioconcentration tests have been developed. The extent of chemical bioconcentration is usually expressed in the form of a bioconcentration factor (BCF), which is the ratio of the chemical concentration in the organism (CB) and the water (CW) BCF CB/CW</Endpoint>
 
-    <Stats></Stats>
+    <Stats>
+        <R2>0.66</R2>
+        <RMSE>0.83</RMSE>
+    </Stats>
 
 
 </xml>

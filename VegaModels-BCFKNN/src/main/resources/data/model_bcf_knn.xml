@@ -32,7 +32,7 @@
                 <RangeTop>index &lt; 0.6</RangeTop>
                 <DescriptionRangeTop>accuracy of prediction for similar molecules found in the training set is good</DescriptionRangeTop>
                 <RangeMid>0.6 &lt;= index &lt;= 1.2</RangeMid>
-                <DescriptionRangeMid>accuracy of prediction for similar molecules found in the training set is not optimal</DescriptionRangeMid>
+                <DescriptionRangeMid>accuracy of prediction for similar molecFules found in the training set is not optimal</DescriptionRangeMid>
                 <RangeBottom>index > 1.2</RangeBottom>
                 <DescriptionRangeBottom>accuracy of prediction for similar molecules found in the training set is not adequate</DescriptionRangeBottom>
             </AD>
@@ -65,11 +65,11 @@
             </AD>
             <AD>
                 <Name>AD_Index</Name>
-                <RangeTop>1 >= index >= 0.85</RangeTop>
+                <RangeTop>1 >= index > 0.85</RangeTop>
                 <DescriptionRangeTop>predicted substance is into the Applicability Domain of the model</DescriptionRangeTop>
-                <RangeMid>0.85 > index >= 0.7</RangeMid>
+                <RangeMid>0.85 >= index > 0.7</RangeMid>
                 <DescriptionRangeMid>predicted substance could be out of the Applicability Domain of the model</DescriptionRangeMid>
-                <RangeBottom>index &lt; 0.7</RangeBottom>
+                <RangeBottom>index &lt;= 0.7</RangeBottom>
                 <DescriptionRangeBottom>predicted substance is out of the the Applicability Domain of the model</DescriptionRangeBottom>
             </AD>
         </Applicability_Domain>

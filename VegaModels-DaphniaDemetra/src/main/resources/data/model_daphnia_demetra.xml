@@ -66,9 +66,9 @@
                 <Name>Maximum_Error</Name>
                 <RangeTop>index &lt; 0.7</RangeTop>
                 <DescriptionRangeTop>the maximum error in prediction of similar molecules found in the training set has a low value, considering the experimental variability</DescriptionRangeTop>
-                <RangeMid>0.7 &lt;= index &lt;= 1.0</RangeMid>
+                <RangeMid>0.7 &lt;= index &lt; 1.0</RangeMid>
                 <DescriptionRangeMid>the maximum error in prediction of similar molecules found in the training set has a moderate value, considering the experimental variability</DescriptionRangeMid>
-                <RangeBottom>index > 1.0</RangeBottom>
+                <RangeBottom>index >= 1.0</RangeBottom>
                 <DescriptionRangeBottom>the maximum error in prediction of similar molecules found in the training set has a high value, considering the experimental variability</DescriptionRangeBottom>
             </AD>
             <AD>

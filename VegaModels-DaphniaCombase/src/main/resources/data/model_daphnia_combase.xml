@@ -65,7 +65,7 @@
                 <DescriptionRangeTop>the maximum error in prediction of similar molecules found in the training set has a low value, considering the experimental variability</DescriptionRangeTop>
                 <RangeMid>0.8 &lt;= index &lt;= 1.2</RangeMid>
                 <DescriptionRangeMid>the maximum error in prediction of similar molecules found in the training set has a moderate value, considering the experimental variability</DescriptionRangeMid>
-                <RangeBottom>index > 1.2</RangeBottom>
+                <RangeBottom>index >= 1.2</RangeBottom>
                 <DescriptionRangeBottom>the maximum error in prediction of similar molecules found in the training set has a high value, considering the experimental variability</DescriptionRangeBottom>
             </AD>
             <AD>
@@ -225,14 +225,27 @@
     <Endpoint></Endpoint>
 
     <Stats>
-        <n_Train>99.0</n_Train>
-        <R2_Train>0.724</R2_Train>
-        <RMSE_Train>1.237</RMSE_Train>
-        <n_Test>34.0</n_Test>
-        <R2_Test>0.597</R2_Test>
-        <RMSE_Test>1.082</RMSE_Test>
-        <Not_Predicted_Train>0.0</Not_Predicted_Train>
-        <Not_Predicted_Test>0.0</Not_Predicted_Test>
+        <n_Train_active>33.0</n_Train_active>
+        <R2_Train_active>0.7522</R2_Train_active>
+        <RMSE_Train_active>1.16</RMSE_Train_active>
+        <Q2_Train_active>0.7163</Q2_Train_active>
+        <F_Train_active>7694</F_Train_active>
+        <MAE_Train_active>0.928</MAE_Train_active>
+        <n_Train_passive>34</n_Train_passive>
+        <R2_Train_passive>0.7522</R2_Train_passive>
+        <RMSE_Train_passive>1.16</RMSE_Train_passive>
+        <Q2_Train_passive>0.7333</Q2_Train_passive>
+        <F_Train_passive>100</F_Train_passive>
+        <MAE_Train_passive>0.982</MAE_Train_passive>
+        <n_calibration>32.0</n_calibration>
+        <R2_calibration>0.7005</R2_calibration>
+        <RMSE_calibration>1.35</RMSE_calibration>
+        <Q2_calibration>0.6651</Q2_calibration>
+        <F_calibration>70</F_calibration>
+        <MAE_Train_passive>1.04</MAE_Train_passive>
+        <n_validation>34.0</n_validation>
+        <R2_validation>0.7506</R2_validation>
+        <RMSE_validation>1.10</RMSE_validation>
     </Stats>
     
 </xml>

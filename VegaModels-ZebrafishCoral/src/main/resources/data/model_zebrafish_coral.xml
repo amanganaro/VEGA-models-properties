@@ -13,12 +13,119 @@
         <Units>log(umol/l)</Units>
     </Vega>
 
-    <Guide></Guide>
+    <Guide>
+        <Description>The model provides a quantitative prediction of developmental toxicity towards zebrafish embryo (AC50) expressed in µM with a decimal logarithm transformation and converted in µg/L. It has been built using CORAL v. 2017 software (http://www.insilico.eu/coral) and it has been developed inside the JANUS project (FKZ 3716 65 4140).</Description>
+        <Dataset>The model is based on 170 compounds with experimental data on AC50 zebrafish embryo expressed as Log (µM).
+            The used data set is part of the Computational Toxicology Research Program of the U.S. EPA (https://www.epa.gov/chemical-research/toxicity-forecasting). The used data set and the published developmental toxicity data for zebrafish was retrieved from:
+            S. Padilla, D. Corum, B. Padnos, D. L. Hunter, A. Beam, K. A. Houck,N. Sipes, N.Kleinstreuer, T. Knudsen, D. J. Dix, and D. M. Reif. Zebrafish developmental screening of the ToxCastTM Phase I chemical library. Reproductive Toxicology, 33(2):174{187, Apr. 2012.
+            The simplified molecular input line entry system (SMILES) in the data set have been cleaned and standardized with software istMolBase (https://chm.kode-solutions.net/products_istmolbase.php). After a meticulous check of each chemical structure, 10 compounds were removed because they were mixtures or had disconnected molecular structures. To build the model 16 compounds with low frequency distribution of AC50 have been removed because considered noise. The final data set contained 170 compounds.
+            The data set was split into four groups: training (37%), invisible training (39%), calibration (12%) and validation (12%) sets.</Dataset>
+        <Descriptors>The software CORAL v. 2017 was used to develop the regression QSAR model from SMILES based optimal descriptors. A CORAL model describes the relationship between an endpoint (dependent variable) and relevant SMILES attributes (independent variables), as explained in:
+            Development of Monte Carlo Approaches in Support of Environmental Research. Toropova A.P., Toropov A.A., Benfenati E., Rallo R., Leszczynska D., Leszczynski J. (2017). In: Roy K. (eds) Advances in QSAR Modeling. Challenges and Advances in Computational Chemistry and Physics, vol 24. Springer, Cham.
+            The model obtained in CORAL is given below:
+            logAC50=1.1053641+0.0272434*DCW1,15
 
-    <Reference></Reference>
+            where DCW is represented by the following formula:
+            DCWT,N=CWSk+CWSSk+CWSSSk
+            The SMILES attributes Sk, SSk and SSSk are defined by a sequence of atoms and bonds present in the SMILES string. The attribute Sk represents single elements, SSk two combined elements and SSSk three combined elements. The complete list of structural attributes (SAk) used in the model and their correlation weights (CW) can be found in Supporting Material (Table S7):
+            Lavado, G., Gadaleta, D., Toma, C., Golbamaki, A., Toropov, A., Toropova, A., Marzo, M., Baderna, D., Arning, J., & Benfenati, E. (2020). Zebrafish AC50 modelling: (Q)SAR models to predict developmental toxicity in zebrafish embryo. Ecotoxicology and environmental safety, 202, 110936 .</Descriptors>
+        <Applicability_domain>
+            <AD>
+                <Name>Similar_Molecules</Name>
+                <SimilarMols>3</SimilarMols>
+                <RangeTop>1 >= index > 0.85</RangeTop>
+                <DescriptionRangeTop>strongly similar compounds with known experimental value in the training set have been found</DescriptionRangeTop>
+                <RangeMid>0.85 >= index > 0.7</RangeMid>
+                <DescriptionRangeMid>only moderately similar compounds with known experimental value in the training set have been found</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.7</RangeBottom>
+                <DescriptionRangeBottom>no similar compounds with known experimental value in the training set have been found</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Accuracy</Name>
+                <RangeTop>index &lt; 0.6 </RangeTop>
+                <DescriptionRangeTop>accuracy of prediction for similar molecules found in the training set is good</DescriptionRangeTop>
+                <RangeMid>0.6 > index > 1.2</RangeMid>
+                <DescriptionRangeMid>accuracy of prediction for similar molecules found in the training set is not optimal</DescriptionRangeMid>
+                <RangeBottom>index => 1.2</RangeBottom>
+                <DescriptionRangeBottom>accuracy of prediction for similar molecules found in the training set is not adequate</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Concordance</Name>
+                <RangeTop>index &lt; 0.8</RangeTop>
+                <DescriptionRangeTop>similar molecules found in the training set have experimental values that agree with the target compound predicted value</DescriptionRangeTop>
+                <RangeMid>0.8 > index > 1.5</RangeMid>
+                <DescriptionRangeMid>similar molecules found in the training set have experimental values that slightly disagree with the target compound predicted value</DescriptionRangeMid>
+                <RangeBottom>index >= 1.5</RangeBottom>
+                <DescriptionRangeBottom>similar molecules found in the training set have experimental values that completely disagree with the target compound predicted value</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Maximum_Error</Name>
+                <RangeTop>index &lt; 0.6</RangeTop>
+                <DescriptionRangeTop>the maximum error in prediction of similar molecules found in the training set has a low value, considering the experimental variability</DescriptionRangeTop>
+                <RangeMid>0.6 &lt;= index &lt; 1.2</RangeMid>
+                <DescriptionRangeMid>the maximum error in prediction of similar molecules found in the training set has a moderate value, considering the experimental variability</DescriptionRangeMid>
+                <RangeBottom>index >= 1.2</RangeBottom>
+                <DescriptionRangeBottom>the maximum error in prediction of similar molecules found in the training set has a high value, considering the experimental variability</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Model_Descriptors_Range_Check</Name>
+                <RangeTop>index = True</RangeTop>
+                <DescriptionRangeTop>descriptors for this compound have values inside the descriptor range of the compounds of the training set</DescriptionRangeTop>
+                <RangeBottom>index = False</RangeBottom>
+                <DescriptionRangeBottom>descriptors for this compound have values outside the descriptor range of the compounds of the training set</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>ACF_SimCheck</Name>
+                <RangeTop>index = 1</RangeTop>
+                <DescriptionRangeTop>all atom centered fragment of the compound have been found in the compounds of the training set</DescriptionRangeTop>
+                <RangeMid>1 > index >= 0.7</RangeMid>
+                <DescriptionRangeMid>some atom centered fragment of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeMid>
+                <RangeBottom>index &lt; 0.7</RangeBottom>
+                <DescriptionRangeBottom>a prominent number of atom centered fragments of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>AD_Index</Name>
+                <RangeTop>1 >= index > 0.85</RangeTop>
+                <DescriptionRangeTop>predicted substance is into the Applicability Domain of the model</DescriptionRangeTop>
+                <RangeMid>0.85 >= index > 0.7</RangeMid>
+                <DescriptionRangeMid>predicted substance could be out of the Applicability Domain of the model</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.7</RangeBottom>
+                <DescriptionRangeBottom>predicted substance is out of the the Applicability Domain of the model</DescriptionRangeBottom>
+            </AD>
+        </Applicability_domain>
+    </Guide>
 
-    <Endpoint></Endpoint>
+    <Reference>The model has been developed on October 2017 by:
+        [1] Andrey Toropov Istituto di Ricerche Farmacologiche Mario Negri IRCCS
+        andrey.toropov@marionegri.it
+        [2] Alla Toropova Istituto di Ricerche Farmacologiche Mario Negri IRCCS
+        alla.toropova@merionegri.it
+        The model has been described here:
+        Lavado, G., Gadaleta, D., Toma, C., Golbamaki, A., Toropov, A., Toropova, A., Marzo, M., Baderna, D., Arning, J., & Benfenati, E. (2020). Zebrafish AC50 modelling: (Q)SAR models to predict developmental toxicity in zebrafish embryo. Ecotoxicology and environmental safety, 202, 110936 .
+        For a general description of the VEGA software see:
+        Benfenati E, Manganaro A, Gini G
+        VEGA-QSAR: AI inside a platform for predictive toxicology
+        Proceedings of the workshop "Popularize Artificial Intelligence 2013", December 5th 2013, Turin, Italy
+        Published on CEUR Workshop Proceedings Vol-1107</Reference>
 
-    <Stats></Stats>
+    <Endpoint>Zebrafish embryo (Danio rerio) The model provides a quantitative prediction of developmental toxicity towards zebrafish half-maximal activity concentration (AC50) expressed in Log (µM).</Endpoint>
+
+    <Stats>
+        <n_Train>64</n_Train>
+        <R2_Train>0.7437</R2_Train>
+        <RMSE_Train>0.361</RMSE_Train>
+        <Q2_Train>0.728</Q2_Train>
+        <n_Invisible_Train>66</n_Invisible_Train>
+        <R2_Invisible_Train>0.7436</R2_Invisible_Train>
+        <RMSE_Invisible_Train>0.395</RMSE_Invisible_Train>
+        <Q2_Invisible_Train>0.726</Q2_Invisible_Train>
+        <n_Calibration>20</n_Calibration>
+        <R2_Calibration>0.6577</R2_Calibration>
+        <RMSE_Calibration>0.385</RMSE_Calibration>
+        <Q2_Calibration>0.592</Q2_Calibration>
+        <n_Calibration>20</n_Calibration>
+        <R2_Calibration>0.6970</R2_Calibration>
+        <RMSE_Calibration>0.386</RMSE_Calibration>
+    </Stats>
     
 </xml>

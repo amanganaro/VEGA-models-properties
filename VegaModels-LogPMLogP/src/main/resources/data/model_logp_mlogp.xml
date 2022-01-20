@@ -32,7 +32,7 @@
                 <Name>Accuracy</Name>
                 <RangeTop>index &lt; 0.5</RangeTop>
                 <DescriptionRangeTop>accuracy of prediction for similar molecules found in the training set is good</DescriptionRangeTop>
-                <RangeMid>0.5 &lt;= index &lt;= 1.0</RangeMid>
+                <RangeMid>0.5 &lt;= index &lt; 1.0</RangeMid>
                 <DescriptionRangeMid>accuracy of prediction for similar molecules found in the training set is not optimal</DescriptionRangeMid>
                 <RangeBottom>index > 1.0</RangeBottom>
                 <DescriptionRangeBottom>accuracy of prediction for similar molecules found in the training set is not adequate</DescriptionRangeBottom>
@@ -41,7 +41,7 @@
                 <Name>Concordance</Name>
                 <RangeTop>index &lt; 0.5</RangeTop>
                 <DescriptionRangeTop>similar molecules found in the training set have experimental values that agree with the target compound predicted value</DescriptionRangeTop>
-                <RangeMid>0.5 &lt;= index &lt;= 1.0</RangeMid>
+                <RangeMid>0.5 &lt;= index &lt; 1.0</RangeMid>
                 <DescriptionRangeMid>similar molecules found in the training set have experimental values that slightly disagree with the target compound predicted value</DescriptionRangeMid>
                 <RangeBottom>index > 1.0</RangeBottom>
                 <DescriptionRangeBottom>similar molecules found in the training set have experimental values that completely disagree with the target compound predicted value</DescriptionRangeBottom>

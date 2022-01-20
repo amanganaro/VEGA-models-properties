@@ -106,11 +106,9 @@
 
     <Stats>
         <n_Train>252.0</n_Train>
-        <R2_Train>0.765</R2_Train>
-        <RMSE_Train>0.6</RMSE_Train>
+        <R2_Train>0.75</R2_Train>
         <n_Test>109.0</n_Test>
-        <R2_Test>0.72</R2_Test>
-        <RMSE_Test>0.639</RMSE_Test>
+        <Q2_Test>0.64</Q2_Test>
         <Not_Predicted_Train>0.0</Not_Predicted_Train>
         <Not_Predicted_Test>0.0</Not_Predicted_Test>
     </Stats>

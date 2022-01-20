@@ -108,16 +108,18 @@
     <Endpoint></Endpoint>
 
     <Stats>
-        <n_Train>253.0</n_Train>
-        <Specificity_Train>0.759</Specificity_Train>
-        <Sensitivity_Train>0.844</Sensitivity_Train>
-        <Accuracy_Train>0.806</Accuracy_Train>
-        <n_Test>108.0</n_Test>
-        <Specificity_Test>0.786</Specificity_Test>
-        <Sensitivity_Test>0.818</Sensitivity_Test>
-        <Accuracy_Test>0.806</Accuracy_Test>
-        <Not_Predicted_Test>0.0</Not_Predicted_Test>
-        <Not_Predicted_Train>0.0</Not_Predicted_Train>
+        <n_Train>254.0</n_Train>
+        <Specificity_Train>0.7943</Specificity_Train>
+        <Sensitivity_Train>0.8150</Sensitivity_Train>
+        <Accuracy_Train>0.8046</Accuracy_Train>
+        <n_Validation>53.0</n_Validation>
+        <Specificity_Validation>0.7307</Specificity_Validation>
+        <Sensitivity_Validation>0.8928</Sensitivity_Validation>
+        <Accuracy_Validation>0.8117</Accuracy_Validation>
+        <n_Ext_Validation>54.0</n_Ext_Validation>
+        <Specificity_Ext_Validation>0.7368</Specificity_Ext_Validation>
+        <Sensitivity_Ext_Validation>0.8529</Sensitivity_Ext_Validation>
+        <Accuracy_Ext_Validation>0.7948</Accuracy_Ext_Validation>
     </Stats>
     
 </xml>

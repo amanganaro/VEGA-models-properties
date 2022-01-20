@@ -27,11 +27,93 @@
     </Vega>
 
 
-    <Guide></Guide>
+    <Guide>
+        <Description>The model provides a qualitative prediction of skin sensitisation on mouse (local lymph node assay model) according to OECD 429 guideline. It is a decision tree (rpart R package) model based on 2D DRAGON descriptors. It is implemented inside the VEGA platform, accessible at https://www.vegahub.eu/</Description>
+        <Model>The model has been developed by:
+            [1] Serena Manganelli; Chemical Food Safety Group, Nestlé Research Serena.Manganelli@rd.nestle.com
+            [2] David Asturiol; European Commission, Joint Research Centre (JRC) David.ASTURIOL-BOFILL@ec.europa.eu
+            [3] Alberto Manganaro; Kode srl info@kode-solutions.net
+            </Model>
+        <Dataset>The model is based on a data set of 332 chemicals with data on local lymph node assay (LLNA) (226 sensitizers and 106 non-sensitizers). Data were collected from the CAESAR model database (209 substances) and 269 substances from Asturiol et al. (2016). The dataset was split into a training (80%) and test (20%) set. To partition the chemicals into training set and test set, assuring high diversity and keeping the ratio sensitisers/non sensitisers, the used procedure was the following: the chemicals were initially separated into sensitisers and non-sensitisers. The subsequent steps were carried out separately for sensitisers and non-sensitisers. Each group was clustered based on the chemical similarity defined by their fingerprints (RDKit atomic pairs) into as many clusters ad the number of chemicals divided by 10. Subsequently, 80% of the clustered chemicals were assigned randomly to the training set using the assigned cluster as stratification variable. The remaining 20% of chemicals were assigned to the test set. The chemicals were structurally diverse and the distribution between sensitizers and non-sensitizers was preserved. Structural diversity refers to diversity in terms of chemical classes. It was taken into account in the previous detailed explanation of the split methodology. Details have been described by Asturiol (Asturiol et al., 2016).
+            The training set contains 264 compounds. The test set counts 68 compounds.</Dataset>
+        <Descriptors>It is a decision tree (rpart R package) model based on 2D DRAGON descriptors.
+            The model is based on 2D descriptors calculated using DRAGON (Dragon v. 7.0.8, Kode srl, 2017). The descriptors are:
+            [1] nDB number of double bonds
+            [2] IC1 Information Content index (neighborhood symmetry of 1-order)
+            [3] SIC2 Structural Information Content index (neighborhood symmetry of 2-order)
+            [4] GATS8s Geary autocorrelation of lag 8 weighted by I-state
+            [5] nRCHO number of aldehydes (aliphatic)
+            [6] CATS2D_01_NL CATS2D Negative-Lipophilic at lag 01
+            [7] F04[C-O] Frequency of C - O at topological distance 4
+            [8] MLOGP Moriguchi octanol-water partition coefficient (logP)
+            An in-house tool developed in the R platform has been used to select the best descriptors employed for the final model. The approach was based on a forward selection technique: starting from the descriptor most correlated with the experimental data, at each iteration the descriptor leading to the best model (among all the available descriptors) was added, until the size of 25 descriptors. Models have been built, with a linear discriminant analysis modelling, applied with a bootstrap cross-validation approach (n = 100). For each model, the fitness function has been calculated as the mean value between specificity and sensitivity obtained from the models built in each bootstrap iteration. This fitness function has been used to select the best descriptor to be added to proceed to the next iteration. From this procedure, the set of descriptors with the best cross-validation values has been chosen as the set to be used for the final model. The "best" values have been considered taking into account their trend: by progressively adding descriptors to the model, the cross-validation performances increase until a plateau (and, following, a decrease), which means that the optimal number of descriptors have been reached, and adding</Descriptors>
+        <Applicability_domain>
+            <AD>
+                <Name>Similar_Molecules</Name>
+                <SimilarMols>3</SimilarMols>
+                <RangeTop>1 >= index > 0.8</RangeTop>
+                <DescriptionRangeTop>strongly similar compounds with known experimental value in the training set have been found</DescriptionRangeTop>
+                <RangeMid>0.8 >= index > 0.7</RangeMid>
+                <DescriptionRangeMid>only moderately similar compounds with known experimental value in the training set have been found</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.7</RangeBottom>
+                <DescriptionRangeBottom>no similar compounds with known experimental value in the training set have been found</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Accuracy</Name>
+                <RangeTop>index &lt; 0.6</RangeTop>
+                <DescriptionRangeTop>accuracy of prediction for similar molecules found in the training set is good</DescriptionRangeTop>
+                <RangeMid>0.6 > index > 0.8</RangeMid>
+                <DescriptionRangeMid>accuracy of prediction for similar molecules found in the training set is not optimal</DescriptionRangeMid>
+                <RangeBottom>index => 0.8</RangeBottom>
+                <DescriptionRangeBottom>accuracy of prediction for similar molecules found in the training set is not adequate</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Concordance</Name>
+                <RangeTop>index &lt; 0.6</RangeTop>
+                <DescriptionRangeTop>similar molecules found in the training set have experimental values that agree with the predicted value</DescriptionRangeTop>
+                <RangeMid>0.6 > index > 0.8 </RangeMid>
+                <DescriptionRangeMid>some similar molecules found in the training set have experimental values that disagree with the predicted value</DescriptionRangeMid>
+                <RangeBottom>index >= 0.8</RangeBottom>
+                <DescriptionRangeBottom>similar molecules found in the training set have experimental values that disagree with the predicted value</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Model_Descriptors_Range_Check</Name>
+                <RangeTop>index = True</RangeTop>
+                <DescriptionRangeTop>descriptors for this compound have values inside the descriptor range of the compounds of the training set</DescriptionRangeTop>
+                <RangeBottom>index = False</RangeBottom>
+                <DescriptionRangeBottom>descriptors for this compound have values outside the descriptor range of the compounds of the training set</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>ACF_SimCheck</Name>
+                <RangeTop>index = 1</RangeTop>
+                <DescriptionRangeTop>all atom centered fragment of the compound have been found in the compounds of the training set</DescriptionRangeTop>
+                <RangeMid>1 > index >= 0.7</RangeMid>
+                <DescriptionRangeMid>some atom centered fragment of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeMid>
+                <RangeBottom>index &lt; 0.7</RangeBottom>
+                <DescriptionRangeBottom>a prominent number of atom centered fragments of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>AD_Index</Name>
+                <RangeTop>1 >= index > 0.85</RangeTop>
+                <DescriptionRangeTop>predicted substance is into the Applicability Domain of the model</DescriptionRangeTop>
+                <RangeMid>0.85 >= index > 0.6</RangeMid>
+                <DescriptionRangeMid>predicted substance could be out of the Applicability Domain of the model</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.6</RangeBottom>
+                <DescriptionRangeBottom>predicted substance is out of the the Applicability Domain of the model</DescriptionRangeBottom>
+            </AD>
+        </Applicability_domain>
+    </Guide>
 
-    <Reference></Reference>
+    <Reference>It has been described here:
+        Asturiol, D., Casati, S. and Worth, A. (2016). Consensus of classification trees for skin sensitisation hazard prediction. Toxicology in Vitro 36, 197–209. https://doi.org/10.1016/j.tiv.2016.07.014
+        For a general description of the VEGA software see:
+        Benfenati E, Manganaro A, Gini G
+        VEGA-QSAR: AI inside a platform for predictive toxicology
+        Proceedings of the workshop "Popularize Artificial Intelligence 2013", December 5th 2013, Turin, Italy
+        Published on CEUR Workshop Proceedings Vol-1107</Reference>
 
-    <Endpoint></Endpoint>
+    <Endpoint>Skin sensitization model on mouse (Local Lymph Node Assay of CBA mice).
+        Skin sensitizers are substances able to elicit an allergic response following contact with the skin, termed allergic contact dermatitis (ACD) in humans. The LLNA assay evaluates the induction phase of the allergenic response. Molecules have been classified as "sensitisers" or "non sensitisers"</Endpoint>
 
     <Stats>
         <n_Train>264.0</n_Train>

@@ -14,12 +14,130 @@
         
     </Vega>
 
-    <Guide></Guide>
+    <Guide>
+        <Descrption>The model is based on experiments with HYDROLYSIS.
+            Comment on endpoint: ENV FATE 5.1.2. Hydrolysis
+            Type of model: One-variable model based on 2D descriptor</Descrption>
+        <Model>The model has been developed by:
+            Andrey Toropov, Istituto di Ricerche Farmacologiche Mario Negri IRCSS, Via Mario Negri 2, 20156 Milano, Italy (andrey.toropov@marionegri.it) https://www.marionegri.it/
+            Alla Toropova, Istituto di Ricerche Farmacologiche Mario Negri IRCSS, Via Mario Negri 2, 20156 Milano, Italy (alla.toropova@marionegri.it) https://www.marionegri.it/
+            Giovanna J. Lavado, Istituto di Ricerche Farmacologiche Mario Negri IRCSS, Via Mario Negri 2, 20156 Milano, Italy (giovanna.lavado@marionegri.it) https://www.marionegri.it/</Model>
+        <Dataset>The model is based on experiments with HYDROLYSIS.
+            Endpoint units: logarithmic scale for hydrolysis half-life
+            Dependent variable: Log(HL)
+            Experimental protocol: Test Guideline No. 111
+            Endpoint data quality and variability: -
+            Pre-processing of data before modelling: The SMILES were pre-processed using the KNIME software to kekulize (RDKit Kekulizer node), canonicalize (RDKit Canon SMILES node) and standardize (Lychi Standardizer node) the structure retrieved from the web (using Comptox and Cactus form both CAS and name) and from AMBIT. All the SMILES structures obtained were compared for consistency.
+            Availability of the training set: Yes
+            Data for the dependent variable for the training set: NA
+            Availability of the external validation set: Yes
+            Data for the dependent variable for the external validation set: All
+            Other information about the training set: The initial dataset was divided into three sets (training, calibration, and validation) using a random distribution.
+            Other information about the external validation set: NA</Dataset>
+        <Descriptors>Type of model: One variable model based on 2D descriptor
+            Explicit algorithm: The Monte Carlo method
+            Endpoint = -1.2867 (± 0.0419) + 0.2545 (± 0.0033) * DCW(1,35)
+            Algorithm and descriptor generation: The Monte Carlo Method
+            Software name and version for descriptor generation:
+            CORAL 2019 (modified), Istituto di Ricerche Farmacologiche Mario Negri IRCCS, 20156 Milano, Italy
+            http://www.insilico.eu/coral/
 
-    <Reference></Reference>
+            The model uses optimal 2D descriptors.
 
-    <Endpoint></Endpoint>
+            Descriptors in the model: NA
+            Descriptor selection: 2D optimal descriptor
+            DCWT,N=CW(APPN,O,S)+CWC5+CW(C6)
+            +CW(Sk)+CW(SSk)+CW(SSSk)
+            Algorithm and descriptor generation: The Monte Carlo Method
+            Software name and version for descriptor generation:
+            CORAL 2019 (modified), Istituto di Ricerche Farmacologiche Mario Negri IRCCS, 20156 Milano, Italy
+            http://www.insilico.eu/coral/</Descriptors>
+        <Applicability_Domain>
+            <AD>
+                <Name>Similar_Molecules</Name>
+                <SimilarMols>3</SimilarMols>
+                <RangeTop>1 >= index > 0.85</RangeTop>
+                <DescriptionRangeTop>strongly similar compounds with known experimental value in the training set have been found</DescriptionRangeTop>
+                <RangeMid>0.85 >= index > 0.7</RangeMid>
+                <DescriptionRangeMid>only moderately similar compounds with known experimental value in the training set have been found</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.7</RangeBottom>
+                <DescriptionRangeBottom>no similar compounds with known experimental value in the training set have been found</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Accuracy</Name>
+                <RangeTop>index &lt; 0.6</RangeTop>
+                <DescriptionRangeTop>accuracy of prediction for similar molecules found in the training set is good</DescriptionRangeTop>
+                <RangeMid>0.6 > index > 1.2</RangeMid>
+                <DescriptionRangeMid>accuracy of prediction for similar molecules found in the training set is not optimal</DescriptionRangeMid>
+                <RangeBottom>index => 1.2</RangeBottom>
+                <DescriptionRangeBottom>accuracy of prediction for similar molecules found in the training set is not adequate</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Concordance</Name>
+                <RangeTop>index &lt; 0.6</RangeTop>
+                <DescriptionRangeTop>similar molecules found in the training set have experimental values that agree with the predicted value</DescriptionRangeTop>
+                <RangeMid>0.6 > index > 1.2</RangeMid>
+                <DescriptionRangeMid>some similar molecules found in the training set have experimental values that disagree with the predicted value</DescriptionRangeMid>
+                <RangeBottom>index => 1.2</RangeBottom>
+                <DescriptionRangeBottom>similar molecules found in the training set have experimental values that disagree with the predicted value</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Maximum_Error</Name>
+                <RangeTop>index &lt; 0.6</RangeTop>
+                <DescriptionRangeTop>the maximum error in prediction of similar molecules found in the training set has a low value, considering the experimental variability</DescriptionRangeTop>
+                <RangeMid>0.6 &lt;= index &lt; 1.2</RangeMid>
+                <DescriptionRangeMid>the maximum error in prediction of similar molecules found in the training set has a moderate value, considering the experimental variability</DescriptionRangeMid>
+                <RangeBottom>index >= 1.2</RangeBottom>
+                <DescriptionRangeBottom>the maximum error in prediction of similar molecules found in the training set has a high value, considering the experimental variability</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Model_Descriptors_Range_Check</Name>
+                <RangeTop>index = True</RangeTop>
+                <DescriptionRangeTop>descriptors for this compound have values inside the descriptor range of the compounds of the training set</DescriptionRangeTop>
+                <RangeBottom>index = False</RangeBottom>
+                <DescriptionRangeBottom>descriptors for this compound have values outside the descriptor range of the compounds of the training set</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>ACF_SimCheck</Name>
+                <RangeTop>index = 1</RangeTop>
+                <DescriptionRangeTop>all atom centered fragment of the compound have been found in the compounds of the training set</DescriptionRangeTop>
+                <RangeMid>1 > index >= 0.7</RangeMid>
+                <DescriptionRangeMid>some atom centered fragment of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeMid>
+                <RangeBottom>index &lt; 0.7</RangeBottom>
+                <DescriptionRangeBottom>a prominent number of atom centered fragments of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>AD_Index</Name>
+                <RangeTop>1 >= index > 0.85</RangeTop>
+                <DescriptionRangeTop>predicted substance is into the Applicability Domain of the model</DescriptionRangeTop>
+                <RangeMid>0.85 >= index > 0.7</RangeMid>
+                <DescriptionRangeMid>predicted substance could be out of the Applicability Domain of the model</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.7</RangeBottom>
+                <DescriptionRangeBottom>predicted substance is out of the the Applicability Domain of the model</DescriptionRangeBottom>
+            </AD>
+        </Applicability_Domain>
+    </Guide>
 
-    <Stats></Stats>
+    <Reference>Date of model development and/or publication: April 22, 2020
+
+        It has been described here: Toropov A.A., Toropova, A.P., Roncaglioni, A., Benfenati, E. Prediction of biochemical endpoints by the CORAL software: Prejudices, Paradoxes, and Results. (2018) Methods in Molecular Biology, 1800, pp. 573-583.
+
+        Andrey A. Toropov, Alla P. Toropova, Anna Lombardo, Alessandra Roncaglioni, Giovanna Lavado, Emilio Benfenati, The Monte Carlo method to build up models of the hydrolysis half-lives of organic compounds. Submitted in SAR and QSAR in Environmental Research.
+
+        For a general description of the VEGA software see:
+        Benfenati E, Manganaro A, Gini G. VEGA-QSAR: AI inside a platform for predictive toxicology
+        Proceedings of the workshop "Popularize Artificial Intelligence 2013", December 5th 2013, Turin, Italy
+        Published on CEUR Workshop Proceedings Vol-1107</Reference>
+
+    <Endpoint>Species: NA.
+        Endpoint: ENV FATE 5.1.2. Hydrolysis
+        Comment on endpoint: According to OECD, the test should be performed at three different pH (4, 7, and 9) at two different temperatures (50 and 25°C). This model is based on the hydrolysis data at 25°C and pH7. All the data were half-life (HL) in days converted in logarithm units.
+        Endpoint units: logarithmic scale for hydrolysis half-life</Endpoint>
+
+    <Stats>
+        <n_Train>44.0</n_Train>
+        <R2_Train>0.71</R2_Train>
+        <RMSE_Train>0.84</RMSE_Train>
+    </Stats>
     
 </xml>
