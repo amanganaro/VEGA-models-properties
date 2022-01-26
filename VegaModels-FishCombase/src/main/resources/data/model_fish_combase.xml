@@ -14,19 +14,28 @@
     </Vega>
 
     <Guide>
-        <Description>The model provides a quantitative prediction of acute toxicity in Fisha (LC50), given in -log(mmol/L) and converted in mg/L. It has been developed inside the EU LIFE COMBASE project (LIFE15 ENV/ES/416). It is implemented inside the VEGA online platform, accessible at:http://www.vega-qsar.eu/. </Description>
+        <Description>The model provides a quantitative prediction of acute toxicity in Fish (LC50), given in -log(mmol/L) and converted in mg/L. It has been developed inside the EU LIFE COMBASE project
+            (LIFE15 ENV/ES/416). It is implemented inside the VEGA online platform, accessible at: http://www.vegahub.eu.</Description>
         <Model>88 biocides with experimental data on LC50 96h for Fish Acute Toxicity (expressed as –Log mmol/L in base 10). Toxicity data were searched on several public sources and literature databases:
-            - the Office of Pesticide Programs (OPP) Pesticides Ecotoxicity Database
-            (http://www.ipmcenters.org/ecotox/)),
+
+            - the Office of Pesticide Programs (OPP) Pesticides Ecotoxicity Database (http://www.ipmcenters.org/ecotox/)),
             - the ECOTOX (https://cfpub.epa.gov/ecotox/) database.
             - the OECD QSAR toolbox (www.qsartoolbox.org),
             - the Pesticide Properties Database (PPDB) database (https://sitem.herts.ac.uk/aeru/ppdb/en),
             - AMBIT (http://cefic-lri.org/toolbox/ambit/) database.
-            The data were selected considering all the criteria required by OECD 203 guideline. CORAL (http://www.insilico.eu/coral) was used to develop a regression QSAR model from SMILES-based optimal descriptors. A CORAL mathematical model describes the relationship between an endpoint (dependent variable) and relevant SMILES attributes (independent variable), as explained in:
+
+            The data were selected considering all the criteria required by OECD 203 guideline.
+
+            CORAL (http://www.insilico.eu/coral) was used to develop a regression QSAR model from SMILES-based optimal descriptors. A CORAL mathematical model describes the relationship between an endpoint (dependent variable) and relevant SMILES attributes (independent variable), as explained in:
+
             Toropov, A.A., Toropova, A.P., Roncaglioni, A., Benfenati, E. "Prediction of biochemical endpoints by the CORAL software: Prejudices, Paradoxes, and Results" (2018) Methods in Molecular Biology, 1800, pp. 573-583.
+
             The final model formula obtained with CORAL is:
-            Endpoint = -0.9887356 (± 0.1138834) + 0.0454373 (± 0.0013499) * DCW(1,15)
-            where DCW is represented by the following formula, see section 1.4 for the list of CORAL fragments used in the model and their correlation weights:</Model>
+
+            Endpoint =  -0.9887356 (± 0.1138834) + 0.0454373 (± 0.0013499) * DCW(1,15)
+
+            where DCW is represented by the following formula, see section 1.4 for the list of CORAL fragments used in the model and their correlation weights:
+        </Model>
         <Applicability_Domain>
             <AD>
                 <Name>Similar_Molecules</Name>
@@ -50,11 +59,11 @@
             <AD>
                 <Name>Concordance</Name>
                 <RangeTop>index &lt; 0.8</RangeTop>
-                <DescriptionRangeTop>similar molecules found in the training set have experimental values that agree with the target compound predicted value</DescriptionRangeTop>
+                <DescriptionRangeTop>similar molecules found in the training set have experimental values that agree with the predicted value</DescriptionRangeTop>
                 <RangeMid>0.8 &lt;= index &lt;= 1.2</RangeMid>
-                <DescriptionRangeMid>similar molecules found in the training set have experimental values that slightly disagree with the target compound predicted value</DescriptionRangeMid>
+                <DescriptionRangeMid>some similar molecules found in the training set have experimental values that disagree with the predicted value</DescriptionRangeMid>
                 <RangeBottom>index > 1.2</RangeBottom>
-                <DescriptionRangeBottom>similar molecules found in the training set have experimental values that completely disagree with the target compound predicted value</DescriptionRangeBottom>
+                <DescriptionRangeBottom>similar molecules found in the training set have experimental values that disagree with the predicted value</DescriptionRangeBottom>
             </AD>
             <AD>
                 <Name>Maximum_Error</Name>
@@ -98,24 +107,24 @@
     <Endpoint></Endpoint>
 
     <Stats>
-        <n_Train_active>22.0</n_Train_active>
-        <R2_Train_active>0.7908</R2_Train_active>
-        <RMSE_Train_active>0.890</RMSE_Train_active>
-        <Q2_Train_active>0.7422</Q2_Train_active>
-        <F_Train_active>76</F_Train_active>
-        <n_Train_passive>22.0</n_Train_passive>
-        <R2_Train_passive>0.8323</R2_Train_passive>
-        <RMSE_Train_passive>1.4</RMSE_Train_passive>
-        <Q2_Train_passive>0.8051</Q2_Train_passive>
-        <F_Train_passive>99</F_Train_passive>
-        <n_calibration>22.0</n_calibration>
-        <R2_calibration>0.8351</R2_calibration>
-        <RMSE_calibration>0.707</RMSE_calibration>
-        <Q2_calibration>0.8004</Q2_calibration>
-        <F_calibration>101</F_calibration>
-        <n_validation>22.0</n_validation>
-        <R2_validation>0.7931</R2_validation>
-        <RMSE_validation>0.740</RMSE_validation>
+        <n_Active_Train>22</n_Active_Train>
+        <R2_Active_Train>0.7908</R2_Active_Train>
+        <Q2_Active_Train>0.7422</Q2_Active_Train>
+        <RMSE_Active_Train>0.890</RMSE_Active_Train>
+        <F_Active_Train>76</F_Active_Train>
+        <n_Passive_Train>22</n_Passive_Train>
+        <R2_Passive_Train>0.8323</R2_Passive_Train>
+        <Q2_Passive_Train>0.8051</Q2_Passive_Train>
+        <RMSE_Passive_Train>1.40</RMSE_Passive_Train>
+        <F_Passive_Train>99</F_Passive_Train>
+        <n_Calibration>22</n_Calibration>
+        <R2_Calibration>0.8351</R2_Calibration>
+        <Q2_Calibration>0.8004</Q2_Calibration>
+        <RMSE_Calibration>0.707</RMSE_Calibration>
+        <F_Calibration>101</F_Calibration>
+        <n_Validation>22</n_Validation>
+        <R2_Validation>0.7931</R2_Validation>
+        <RMSE_Validation>0.740</RMSE_Validation>
     </Stats>
 
 </xml>

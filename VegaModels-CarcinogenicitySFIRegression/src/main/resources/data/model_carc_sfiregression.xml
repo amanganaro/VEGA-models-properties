@@ -13,12 +13,117 @@
         <Units>log(1/(mg/kg-day))</Units>
     </Vega>
 
-    <Guide></Guide>
+    <Guide>
+        <Description>The model is a Multi-layer perceptron – artificial neural networks (MLP-ANNs) that provide prediction for the inhalation slope factor (ISF) (Expert assessment based on presence of carcinogenic effects in rodents)</Description>
+        <Dataset>The model is based on a dataset of including 263 compounds with ISF data from the Risk Assessment Information System (RAIS) Toxicity values database (https://rais.ornl.gov). Data cover different pollutants categories including organic and inorganic compounds such as dioxins, polycyclic aromatic hydrocarbons (PAHs, pesticides and metals frequently found in contaminated sites). 990 values were retrieved for Inhalation Unit Risk (IUR, μg/m3). Only compounds with continuous data were used for modelling. IUR values were first converted in inhalation slope factor according with this formula: ISF=(IUR*BW*CF)/IR where IUR= inhalation unit risk [(μg/m3)-1]; BW =average body weight [70 kg]; IR= inhalation rate [20 m3/day]; CF= conversion factor [ 1000 μg/mg]. ISF values were converted in logarithmic units for modelling. Canonical SMILES were retrieved for each chemical from two sources (JChem for Office and ChemID plus) then chemicals showing incongruences between the various sources were rejected. Most of the QSAR models cannot handle inorganic compounds, metals and metal complexes, organic salts and data related to mixtures and these compounds have been also rejected. Ionized structures were neutralized and counterions eliminated. The datasets were further checked for the presence of duplicates. The 10% of the entire data set was randomly extracted to form the evaluation set (ES) for external validation while the modeling set consisting of the remaining chemicals was split into a training set (TrS) and a test set (TS) (45) containing the 80% and 20% of the modeling set respectively.</Dataset>
+        <Descriptors>The model is based on a Multi-layer perceptron – artificial neural network (MLP-ANN) implementation in KNIME.
 
-    <Reference></Reference>
+            The model uses the following descriptors:
 
-    <Endpoint></Endpoint>
+            [1]C-041 X-C(=X)-X
+            [2]ATS8m Broto-Moreau autocorrelation of lag 8 (log function) weighted by mass
+            [3]GATS6p Geary autocorrelation of lag 6 weighted by polarizability
+            [4]CATS2D_03_DL CATS2D Donor-Lipophilic at lag 03
+            [5]CATS2D_07_DL CATS2D Donor-Lipophilic at lag 07
+            [6]nN-N number of N hydrazines
+            [7]IC4 Information Content index (neighborhood symmetry of 4-order)
+            [8]B02[Cl-Cl] Presence/absence of Cl - Cl at topological distance 2
+            [9]B04[O-Cl] Presence/absence of O - Cl at topological distance 4
+            [10]B07[Cl-Cl] Presence/absence of Cl - Cl at topological distance 7
+            [11]B08[Cl-Cl] Presence/absence of Cl - Cl at topological distance 8
+            [12]SRW7 Walk and Path Descriptors
 
-    <Stats></Stats>
+            The descriptors have been generated with VEGA software using CDK libraries, while feature selection was performed with the “gaselect” R package that implements partial least square - genetic algorithm (PLS-GA) and repeated double cross-validation for statistical evaluation of subset of descriptors. The following settings were applied for the PLS-GA: initial population 2000; number of iterations 5000; minimum number of variable 5; maximum number of variable 12. Optimal subsets of descriptors returned by the final iteration of the run were used for model derivation, using R2 as fitness function.</Descriptors>
+        <Applicability_Domain>
+            <AD>
+                <Name>Similar_Molecules</Name>
+                <SimilarMols>3</SimilarMols>
+                <RangeTop>1 >= index > 0.85</RangeTop>
+                <DescriptionRangeTop>strongly similar compounds with known experimental value in the training set have been found</DescriptionRangeTop>
+                <RangeMid>0.85 >= index > 0.7</RangeMid>
+                <DescriptionRangeMid>only moderately similar compounds with known experimental value in the training set have been found</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.7</RangeBottom>
+                <DescriptionRangeBottom>no similar compounds with known experimental value in the training set have been found</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Accuracy</Name>
+                <RangeTop>index &lt; 0.8</RangeTop>
+                <DescriptionRangeTop>accuracy of prediction for similar molecules found in the training set is good</DescriptionRangeTop>
+                <RangeMid>0.8 > index > 1.5</RangeMid>
+                <DescriptionRangeMid>accuracy of prediction for similar molecules found in the training set is not optimal</DescriptionRangeMid>
+                <RangeBottom>index >= 1.5</RangeBottom>
+                <DescriptionRangeBottom>accuracy of prediction for similar molecules found in the training set is not adequate</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Concordance</Name>
+                <RangeTop>index &lt; 0.8</RangeTop>
+                <DescriptionRangeTop>similar molecules found in the training set have experimental values that agree with the target compound predicted value</DescriptionRangeTop>
+                <RangeMid>0.8 > index > 1.5</RangeMid>
+                <DescriptionRangeMid>similar molecules found in the training set have experimental values that slightly disagree with the target compound predicted value</DescriptionRangeMid>
+                <RangeBottom>index >= 1.5</RangeBottom>
+                <DescriptionRangeBottom>similar molecules found in the training set have experimental values that completely disagree with the target compound predicted value</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Maximum_Error</Name>
+                <RangeTop>index &lt; 0.8</RangeTop>
+                <DescriptionRangeTop>the maximum error in prediction of similar molecules found in the training set has a low value, considering the experimental variability</DescriptionRangeTop>
+                <RangeMid>0.8 &lt;= index &lt; 1.5</RangeMid>
+                <DescriptionRangeMid>the maximum error in prediction of similar molecules found in the training set has a moderate value, considering the experimental variability</DescriptionRangeMid>
+                <RangeBottom>index >= 1.5</RangeBottom>
+                <DescriptionRangeBottom>the maximum error in prediction of similar molecules found in the training set has a high value, considering the experimental variability</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>Model_Descriptors_Range_Check</Name>
+                <RangeTop>index = True</RangeTop>
+                <DescriptionRangeTop>descriptors for this compound have values inside the descriptor range of the compounds of the training set</DescriptionRangeTop>
+                <RangeBottom>index = False</RangeBottom>
+                <DescriptionRangeBottom>descriptors for this compound have values outside the descriptor range of the compounds of the training set</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>ACF_SimCheck</Name>
+                <RangeTop>index = 1</RangeTop>
+                <DescriptionRangeTop>all atom centered fragment of the compound have been found in the compounds of the training set</DescriptionRangeTop>
+                <RangeMid>1 > index >= 0.7</RangeMid>
+                <DescriptionRangeMid>some atom centered fragment of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeMid>
+                <RangeBottom>index &lt; 0.7</RangeBottom>
+                <DescriptionRangeBottom>a prominent number of atom centered fragments of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeBottom>
+            </AD>
+            <AD>
+                <Name>AD_Index</Name>
+                <RangeTop>1 >= index > 0.85</RangeTop>
+                <DescriptionRangeTop>predicted substance is into the Applicability Domain of the model</DescriptionRangeTop>
+                <RangeMid>0.85 >= index > 0.7</RangeMid>
+                <DescriptionRangeMid>predicted substance could be out of the Applicability Domain of the model</DescriptionRangeMid>
+                <RangeBottom>index &lt;= 0.7</RangeBottom>
+                <DescriptionRangeBottom>predicted substance is out of the the Applicability Domain of the model</DescriptionRangeBottom>
+            </AD>
+        </Applicability_Domain>
+    </Guide>
+
+    <Reference>The model has been developed by:
+        [1] Alberto Manganaro Kode srl info@kode-solutions.net
+        [2] Emilio Benfenati Istituto di Ricerche Farmacologiche Mario Negri IRCCS emilio.benfenati@marionegri.it
+
+        It has been described here:
+        [1] Toma, C., Manganaro, A., Raitano, G., Marzo, M., Gadaleta, D., Baderna, D., ... & Benfenati, E. (2021). QSAR Models for Human Carcinogenicity: An Assessment Based on Oral and Inhalation Slope Factors. Molecules, 26(1), 127.
+        [2] Benfenati E, Roncaglioni A, Lombardo A, Manganaro A. Integrating QSAR, Read-Across, and Screening Tools: The VEGAHUB Platform as an Example. Advances in Computational Toxicology: Springer; 2019. p. 365-81.
+
+        For a general description of the VEGA software see:
+        Benfenati E, Manganaro A, Gini G
+        VEGA-QSAR: AI inside a platform for predictive toxicology
+        Proceedings of the workshop "Popularize Artificial Intelligence 2013", December 5th 2013, Turin, Italy
+        Published on CEUR Workshop Proceedings Vol-1107</Reference>
+
+    <Endpoint>The endpoint is the Inhalation Slope Factor (ISF) expressed in base 10 logaritmic units (logISF, 1/(mg/kg-day)). Different species (rodents). </Endpoint>
+
+    <Stats>
+        <n_Train>236</n_Train>
+        <R2_Train>0.59</R2_Train>
+        <RMSE_Train>1.12</RMSE_Train>
+        <n_Test>27</n_Test>
+        <R2_Test>0.57</R2_Test>
+        <RMSE_Test>1.21</RMSE_Test>
+        <Coverage_Test>68%</Coverage_Test>
+    </Stats>
     
 </xml>

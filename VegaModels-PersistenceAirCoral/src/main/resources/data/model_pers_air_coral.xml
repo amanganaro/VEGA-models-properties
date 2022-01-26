@@ -13,12 +13,139 @@
         <Units>log(hours)</Units>
     </Vega>
 
-    <Guide></Guide>
+    <Guide>
+        <Description>The Air Half life (CORAL) is a one-variable model based on 2D descriptor and on experiments with Air Half life. </Description>
+        <Model>The model has been developed by:
+            Andrey Toropov, Istituto di Ricerche Farmacologiche Mario Negri IRCSS, Via Mario Negri 2, 20156 Milano, Italy (andrey.toropov@marionegri.it) https://www.marionegri.it/
+            Alla Toropova, Istituto di Ricerche Farmacologiche Mario Negri IRCSS, Via Mario Negri 2, 20156 Milano, Italy (alla.toropova@marionegri.it) https://www.marionegri.it/
+            Giovanna J. Lavado, Istituto di Ricerche Farmacologiche Mario Negri IRCSS, Via Mario Negri 2, 20156 Milano, Italy (giovanna.lavado@marionegri.it) https://www.marionegri.it/
 
-    <Reference></Reference>
+            Date of model development and/or publication: July 9, 2019</Model>
+        <Dataset>The model is based on experiments with Air Half life
+            Endpoint units: Half life =log(hours)
+            Dependent variable: Log(hours)
+            Experimental protocol: NA
+            Endpoint data quality and variability: NA
+            Pre-processing of data before modelling: The SMILES were pre-processed using the KNIME software.
+            Availability of the training set: Yes
+            Data for the dependent variable for the training set: All
+            Availability of the external validation set: Yes
+            Data for the dependent variable for the external validation set: All
+            Other information about the training set: The original total set of compounds has been randomly split into the training (75%) and validation (25%) sets.
+            Other information about the external validation set: NA</Dataset>
+        <Descriptors>Type of model: One variable model based on 2D descriptor
+            Explicit algorithm: Monte Carlo method based on CORAL descriptors.
+            Endpoint = 2.2271129+ 0.0900047 × DCW(1,15)
+            Algorithm and descriptor generation: The Monte Carlo Method for the optimization, and SMILES attributes as descriptors.
+            Software name and version for descriptor generation:
+            CORAL 2019 (modified), Istituto di Ricerche Farmacologiche Mario Negri IRCCS, 20156 Milano, Italy
+            http://www.insilico.eu/coral/
 
-    <Endpoint></Endpoint>
+            The model uses optimal 2D descriptors.
 
-    <Stats></Stats>
+            Descriptors in the model: Applied the correlation weights for standard SMILES attributes S, SS, and SSS together with the correlation weights of HARD codes.
+            Descriptor selection: 2D optimal descriptor
+            𝐷𝐶𝑊(𝑇,𝑁)=𝐶𝑊(𝐻𝐴𝑅𝐷)+Σ𝐶𝑊(𝑆𝑘)+Σ𝐶𝑊(𝑆𝑆𝑘)+Σ𝐶𝑊(𝑆𝑆𝑆𝑘)
+            Algorithm and descriptor generation: The Monte Carlo Method for the optimization, and SMILES attributes as descriptors.
+            Software name and version for descriptor generation:
+            CORAL 2019 (modified), Istituto di Ricerche Farmacologiche Mario Negri IRCCS, 20156 Milano, Italy
+            http://www.insilico.eu/coral/</Descriptors>
+        <AD>
+            <Name>Similar_Molecules</Name>
+            <SimilarMols>3</SimilarMols>
+            <RangeTop>1 >= index > 0.85</RangeTop>
+            <DescriptionRangeTop>strongly similar compounds with known experimental value in the training set have been found</DescriptionRangeTop>
+            <RangeMid>0.85 >= index > 0.7</RangeMid>
+            <DescriptionRangeMid>only moderately similar compounds with known experimental value in the training set have been found</DescriptionRangeMid>
+            <RangeBottom>index &lt;= 0.7</RangeBottom>
+            <DescriptionRangeBottom>no similar compounds with known experimental value in the training set have been found</DescriptionRangeBottom>
+        </AD>
+        <AD>
+            <Name>Accuracy</Name>
+            <RangeTop>index &lt; 0.6</RangeTop>
+            <DescriptionRangeTop>accuracy of prediction for similar molecules found in the training set is good</DescriptionRangeTop>
+            <RangeMid>0.6 > index > 1.2</RangeMid>
+            <DescriptionRangeMid>accuracy of prediction for similar molecules found in the training set is not optimal</DescriptionRangeMid>
+            <RangeBottom>index >= 1.2</RangeBottom>
+            <DescriptionRangeBottom>accuracy of prediction for similar molecules found in the training set is not adequate</DescriptionRangeBottom>
+        </AD>
+        <AD>
+            <Name>Concordance</Name>
+            <RangeTop>index &lt; 0.6</RangeTop>
+            <DescriptionRangeTop>similar molecules found in the training set have experimental values that agree with the target compound predicted value</DescriptionRangeTop>
+            <RangeMid>0.6 > index > 1.2</RangeMid>
+            <DescriptionRangeMid>similar molecules found in the training set have experimental values that slightly disagree with the target compound predicted value</DescriptionRangeMid>
+            <RangeBottom>index >= 1.2</RangeBottom>
+            <DescriptionRangeBottom>similar molecules found in the training set have experimental values that completely disagree with the target compound predicted value</DescriptionRangeBottom>
+        </AD>
+        <AD>
+            <Name>Maximum_Error</Name>
+            <RangeTop>index &lt; 0.6</RangeTop>
+            <DescriptionRangeTop>the maximum error in prediction of similar molecules found in the training set has a low value, considering the experimental variability</DescriptionRangeTop>
+            <RangeMid>0.6 &lt;= index &lt; 1.2</RangeMid>
+            <DescriptionRangeMid>the maximum error in prediction of similar molecules found in the training set has a moderate value, considering the experimental variability</DescriptionRangeMid>
+            <RangeBottom>index >= 1.2</RangeBottom>
+            <DescriptionRangeBottom>the maximum error in prediction of similar molecules found in the training set has a high value, considering the experimental variability</DescriptionRangeBottom>
+        </AD>
+        <AD>
+            <Name>Model_Descriptors_Range_Check</Name>
+            <RangeTop>index = True</RangeTop>
+            <DescriptionRangeTop>descriptors for this compound have values inside the descriptor range of the compounds of the training set</DescriptionRangeTop>
+            <RangeBottom>index = False</RangeBottom>
+            <DescriptionRangeBottom>descriptors for this compound have values outside the descriptor range of the compounds of the training set</DescriptionRangeBottom>
+        </AD>
+        <AD>
+            <Name>ACF_SimCheck</Name>
+            <RangeTop>index = 1</RangeTop>
+            <DescriptionRangeTop>all atom centered fragment of the compound have been found in the compounds of the training set</DescriptionRangeTop>
+            <RangeMid>1 > index >= 0.7</RangeMid>
+            <DescriptionRangeMid>some atom centered fragment of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeMid>
+            <RangeBottom>index &lt; 0.7</RangeBottom>
+            <DescriptionRangeBottom>a prominent number of atom centered fragments of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeBottom>
+        </AD>
+        <AD>
+            <Name>AD_Index</Name>
+            <RangeTop>1 >= index > 0.85</RangeTop>
+            <DescriptionRangeTop>predicted substance is into the Applicability Domain of the model</DescriptionRangeTop>
+            <RangeMid>0.85 >= index > 0.7</RangeMid>
+            <DescriptionRangeMid>predicted substance could be out of the Applicability Domain of the model</DescriptionRangeMid>
+            <RangeBottom>index &lt;= 0.7</RangeBottom>
+            <DescriptionRangeBottom>predicted substance is out of the the Applicability Domain of the model</DescriptionRangeBottom>
+        </AD>
+    </Guide>
+
+    <Reference>It has been described here:
+        Toropov A., Toropova A., Roncaglioni A., Benfenati E., Prediction of biochemical endpoints by the CORAL software: Prejudices, Paradoxes, and Results. (2018) Methods in Molecular Biology, 1800, pp. 573-583. https://link.springer.com/protocol/10.1007%2F978-1-4939-7899-1_27
+        A.P. Toropova, A.A. Toropov, A. Lombardo, G. Lavado, and E. Benfenati, Paradox of "ideal correlations": improved model for air half-life of persistent organic pollutants. Environmental Technology, Accepted Jan 22, 2021. DOI: 10.1080/09593330.2021.1882588
+
+        For a general description of the VEGA software see:
+        Benfenati E, Manganaro A, Gini G. VEGA-QSAR: AI inside a platform for predictive toxicology
+        Proceedings of the workshop "Popularize Artificial Intelligence 2013", December 5th 2013, Turin, Italy
+        Published on CEUR Workshop Proceedings Vol-1107</Reference>
+
+    <Endpoint>The endpoint is the phototrasformation in Air (half life calculated as log(hours)) according to ENV FATE 5.1.1 guidance.</Endpoint>
+
+    <Stats>
+        <n_Train>76</n_Train>
+        <R2_Train>0.8113</R2_Train>
+        <Q2_Train>0.8034</Q2_Train>
+        <RMSE_Train>0.392</RMSE_Train>
+        <MAE_Train>0.292</MAE_Train>
+        <n_Invisible_Train>77</n_Invisible_Train>
+        <R2_Invisible_Train>0.8158</R2_Invisible_Train>
+        <Q2_Invisible_Train>0.8067</Q2_Invisible_Train>
+        <RMSE_Invisible_Train>0.376</RMSE_Invisible_Train>
+        <MAE_Invisible_Train>0.299</MAE_Invisible_Train>
+        <n_Calibration>74</n_Calibration>
+        <R2_Calibration>0.7109</R2_Calibration>
+        <Q2_Calibration>0.6927</Q2_Calibration>
+        <RMSE_Calibration>0.495</RMSE_Calibration>
+        <MAE_Calibration>0.377</MAE_Calibration>
+        <n_Validation>75</n_Validation>
+        <R2_Validation>0.6999</R2_Validation>
+        <Q2_Validation>0.6761</Q2_Validation>
+        <RMSE_Validation>0.550</RMSE_Validation>
+        <MAE_Validation>0.408</MAE_Validation>
+    </Stats>
     
 </xml>

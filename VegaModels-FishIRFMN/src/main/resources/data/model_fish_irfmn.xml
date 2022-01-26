@@ -126,7 +126,7 @@
             [s;R]
             [$([c]([Cl,Br,F])[c]([Cl,Br,F])),$([c]([Cl,Br,F])[c][c]([Cl,Br,F]))]
 
-            Following, the list of the alerts, as SMARTS strings, related to class 1 toxicity:
+            Following, the list of the alerts, as SMARTS strings, related to class 3 toxicity:
             C(OC)c1ccc(cc1)
             NCCCCCC
             c1cc(c(cc1)C)C
@@ -160,9 +160,7 @@
 
     <Stats>
         <n>567.0</n>
-        <Specificity>0.741</Specificity>
-        <Sensitivity>0.928</Sensitivity>
-        <Accuracy>0.873</Accuracy>
+        <Accuracy>0.69</Accuracy>
         <Not_Predicted>0.0</Not_Predicted>
     </Stats>
 

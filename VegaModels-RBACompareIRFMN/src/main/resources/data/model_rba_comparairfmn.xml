@@ -28,47 +28,41 @@
 
 
     <Guide>
-        <Description>The model provides a qualitative prediction for Relative Binding Affinity (RBA) for endocrine disruptor screening. It is implemented inside the VEGA online platform, accessible at:http://www.vega-qsar.eu/</Description>
-        <Model>The model is a QSAR classification model based on a classification and regression tree (CART) algorithm, as described in:
-            A. Roncaglioni, N. Piclin, M. Pintore, E. Benfenati, "Binary classification models for endocrine disrupter effects mediated through the estrogen receptor", SAR and QSAR in Environmental Research (2008), 19, 7-8</Model>
-        <Descriptors>The descriptors used by the model are the following:
-            - X2v: Valence connectivity index chi-2
-            - MATS6m: Moran autocorrelation – lag 6 / weighted by atomic masses
-            - MATS8v: Moran autocorrelation – lag 8 / weighted by atomic van der Waals volumes
-            - MATS5p: Moran autocorrelation – lag 5 / weighted by atomic polarizabilities
-            - BEH2e: Highest eigenvalue no. 2 of Burden matrix/weighted by atomic Sanderson electronegativities
-            - BEH1p: Highest eigenvalue no. 1 of Burden matrix/weighted by atomic polarizabilities
-            - nArOH: Number of aromatic hydroxyls
-            - MlogP: Moriguchi octanol-water partition coeff. (log P)
-            The training set of the model, taken from the cited work, consists of 806 compounds.</Descriptors>
+        <Description>The model provides a qualitative prediction for Androgen Receptor (AR) effects mediated through the AR pathway. The data were used to generate binary classification models to discriminate active (both agonists and antagonists) compounds from inactive ones. The model provides a qualitative prediction for Androgen Receptor (AR) effects mediated through the AR pathway. The data were used to generate binary classification models to discriminate active (both agonists and antagonists) compounds from inactive ones. The model provides a qualitative prediction for Androgen Receptor (AR) effects mediated through the AR pathway. The data were used to generate binary classification models to discriminate active (both agonists and antagonists) compounds from inactive ones.</Description>
+        <Model>The model has been developed by Alessandra Roncaglioni Istituto di ricerche farmacologiche Mario Negri - IRCSS on 19 December 2018.</Model>
+        <Dataset>Model is built based on in vitro high-throughput screening (HTS) assays measuring activity of chemicals at multiple points along the androgen receptor (AR) activity pathway. Chemical data were collected from the open free library ToxCast/Tox21 (https://www.epa.gov/chemical-research/toxcast-dashboard).</Dataset>
+        <Descriptors>Structural fragment features, it is a two steps model developed with SARpy. In the first step SARpy was used to model the two classes, identifying a set of 127 rules (17 for active and 110 for inactive). Then, a second set of 22 rules identifying active compounds is applied to unpredicted compounds only. Compounds are labelled as inactive if matched ether by an inactive SA in the first step or not matched by the latter step. More precisely: If a compound matches active class when applying the first ruleset the output is Active; If a compound matches inactive class when applying the first ruleset the output is Inctive; If a compound matches active class when applying the second ruleset the output is Probably Active; If a compound does not match any class when applying the first ruleset nor the second one the output is Probably Inactive.
+            The first set of structural alerts was extracted relative only for the active class. The second set of structural alerts was extracted taking in account both class. Fragment are generated using SARPy software. [SARpy software SARpy software (for secondary and tertiary fragment) https://www.vegahub.eu/portfolio-item/sarpy/ 4.Defining the algorithm - OECD Principle 2].
+
+            1667 chemicals/ 149 structural alerts</Descriptors>
         <Applicability_Domain>
             <AD>
                 <Name>Similar_Molecules</Name>
                 <SimilarMols>3</SimilarMols>
-                <RangeTop>1 >= index > 0.85</RangeTop>
+                <RangeTop>1 >= index > 0.8</RangeTop>
                 <DescriptionRangeTop>strongly similar compounds with known experimental value in the training set have been found</DescriptionRangeTop>
-                <RangeMid>0.85 >= index > 0.7</RangeMid>
+                <RangeMid>0.8 >= index > 0.6</RangeMid>
                 <DescriptionRangeMid>only moderately similar compounds with known experimental value in the training set have been found</DescriptionRangeMid>
-                <RangeBottom>index &lt;= 0.7</RangeBottom>
+                <RangeBottom>index &lt;= 0.6</RangeBottom>
                 <DescriptionRangeBottom>no similar compounds with known experimental value in the training set have been found</DescriptionRangeBottom>
             </AD>
             <AD>
                 <Name>Accuracy</Name>
-                <RangeTop>1 >= index > 0.9</RangeTop>
+                <RangeTop>index &lt; 0.6</RangeTop>
                 <DescriptionRangeTop>accuracy of prediction for similar molecules found in the training set is good</DescriptionRangeTop>
-                <RangeMid>0.9 >= index > 0.5</RangeMid>
+                <RangeMid>0.6 > index > 0.8</RangeMid>
                 <DescriptionRangeMid>accuracy of prediction for similar molecules found in the training set is not optimal</DescriptionRangeMid>
-                <RangeBottom>index &lt;= 0.5</RangeBottom>
+                <RangeBottom>index => 0.8</RangeBottom>
                 <DescriptionRangeBottom>accuracy of prediction for similar molecules found in the training set is not adequate</DescriptionRangeBottom>
             </AD>
             <AD>
                 <Name>Concordance</Name>
-                <RangeTop>1 >= index > 0.9</RangeTop>
-                <DescriptionRangeTop>similar molecules found in the training set have experimental values that agree with the predicted value</DescriptionRangeTop>
-                <RangeMid>0.9 >= index > 0.5 </RangeMid>
-                <DescriptionRangeMid>some similar molecules found in the training set have experimental values that disagree with the predicted value</DescriptionRangeMid>
-                <RangeBottom>index &lt;= 0.5</RangeBottom>
-                <DescriptionRangeBottom>similar molecules found in the training set have experimental values that disagree with the predicted value</DescriptionRangeBottom>
+                <RangeTop>index &lt; 0.6</RangeTop>
+                <DescriptionRangeTop>similar molecules found in the training set have experimental values that agree with the target compound predicted value</DescriptionRangeTop>
+                <RangeMid>0.6 > index > 0.8</RangeMid>
+                <DescriptionRangeMid>similar molecules found in the training set have experimental values that slightly disagree with the target compound predicted value</DescriptionRangeMid>
+                <RangeBottom>index >= 0.8</RangeBottom>
+                <DescriptionRangeBottom>similar molecules found in the training set have experimental values that completely disagree with the target compound predicted value</DescriptionRangeBottom>
             </AD>
             <AD>
                 <Name>ACF_SimCheck</Name>
@@ -80,37 +74,34 @@
                 <DescriptionRangeBottom>a prominent number of atom centered fragments of the compound have not been found in the compounds of the training set or are rare fragments</DescriptionRangeBottom>
             </AD>
             <AD>
-                <Name>Model_Descriptors_Range_Check</Name>
-                <RangeTop>index = True</RangeTop>
-                <DescriptionRangeTop>descriptors for this compound have values inside the descriptor range of the compounds of the training set</DescriptionRangeTop>
-                <RangeBottom>index = False</RangeBottom>
-                <DescriptionRangeBottom>descriptors for this compound have values outside the descriptor range of the compounds of the training set</DescriptionRangeBottom>
-            </AD>
-            <AD>
                 <Name>AD_Index</Name>
-                <RangeTop>1 >= index >= 0.85</RangeTop>
+                <RangeTop>1 >= index >= 0.9</RangeTop>
                 <DescriptionRangeTop>predicted substance is into the Applicability Domain of the model</DescriptionRangeTop>
-                <RangeMid>0.85 > index >= 0.7</RangeMid>
+                <RangeMid>0.9 >= index > 0.65</RangeMid>
                 <DescriptionRangeMid>predicted substance could be out of the Applicability Domain of the model</DescriptionRangeMid>
-                <RangeBottom>index &lt; 0.7</RangeBottom>
+                <RangeBottom>index &lt;= 0.65</RangeBottom>
                 <DescriptionRangeBottom>predicted substance is out of the the Applicability Domain of the model</DescriptionRangeBottom>
             </AD>
         </Applicability_Domain>
     </Guide>
 
-    <Reference></Reference>
+    <Reference>It has been described here:
+        Development, validation and integration of in silico models to identify androgen active chemicals https://www.sciencedirect.com/science/article/pii/S0045653518324664?via%3Dihub
+        For a general description of the VEGA software see:
+        Benfenati E, Manganaro A, Gini G
+        VEGA-QSAR: AI inside a platform for predictive toxicology
+        Proceedings of the workshop "Popularize Artificial Intelligence 2013", December 5th 2013, Turin, Italy
+        Published on CEUR Workshop Proceedings Vol-1107</Reference>
 
-    <Endpoint></Endpoint>
+    <Endpoint>Data are from Human. The model provides a qualitative prediction of effect of compound on Androgen receptor.</Endpoint>
 
     <Stats>
-        <n_Train>656.0</n_Train>
-        <Specificity_Train>0.848</Specificity_Train>
-        <Sensitivity_Train>0.868</Sensitivity_Train>
-        <Accuracy_Train>0.855</Accuracy_Train>
-        <n_Test>150.0</n_Test>
-        <Specificity_Test>0.875</Specificity_Test>
-        <Sensitivity_Test>0.778</Sensitivity_Test>
-        <Accuracy_Test>0.84</Accuracy_Test>
+        <Specificity_Train>0.96</Specificity_Train>
+        <Sensitivity_Train>0.76</Sensitivity_Train>
+        <Accuracy_Train>0.93</Accuracy_Train>
+        <Specificity_Test>0.66</Specificity_Test>
+        <Sensitivity_Test>0.93</Sensitivity_Test>
+        <Accuracy_Test>0.74</Accuracy_Test>
         <Not_Predicted_Test>0.0</Not_Predicted_Test>
         <Not_Predicted_Train>0.0</Not_Predicted_Train>
     </Stats>
