@@ -97,6 +97,7 @@ public class ismAromataseTox21 extends InsilicoModel {
             log.warn("Unable to find label for ED value " + MainResult);
             Res[0] = Integer.toString(MainResult);
         }
+
         Res[1] = AromataseActivitySMARTS.FormatAlertArray(SAs.Matches_Active);
         Res[2] = AromataseActivitySMARTS.FormatAlertArray(SAs.Matches_Inactive);
         Res[3] = AromataseActivitySMARTS.FormatAlertArray(SAs.Matches_Active_Agonist);

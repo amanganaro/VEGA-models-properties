@@ -1,12 +1,12 @@
 <xml>
-   
+
     <Version>
         <Name>P-Glycoprotein activity model (NIC)</Name>
         <Key>PGP_NIC</Key>
         <Summary>Classification model for P-Glycoprotein inhibition / substrate activity</Summary>
         <Version>1.0.1</Version>
     </Version>
-    
+
     <Vega>
         <TS>/data/ts_pgp_nic.dat</TS>
         <HasAlerts>False</HasAlerts>
@@ -33,8 +33,10 @@
     <Guide>
         <Description>The model provides a qualitative prediction of P-Glycoprotein inhibition/substrate activity. It is
             implemented inside the VEGA online platform, accessible at:http://www.vega-qsar.eu/.
-            The model has been implemented by the National Institute of Chemistry (Slovenia)</Description>
-        <Model>The model has been built as a Counter Propagation Artificial Neural Network (CP ANN). The neural
+            The model has been implemented by the National Institute of Chemistry (Slovenia)
+        </Description>
+        <Model>
+            The model has been built as a Counter Propagation Artificial Neural Network (CP ANN). The neural
             network output consists of three values labeled as “Inhibitor”, “Substrate” and “Non active”, all in the
             range [0,1] and with sum equal to 1; they represent the probability that the neuron in which the
             predicted compound falls belongs to the class of inhibitor, substrate or non active compounds. The
@@ -82,7 +84,8 @@
             distance can be used as a further evaluation regarding the applicability domain, besides the standard
             AD provided for all VEGA models (see section 1.3). The largest distance value found in the original
             data is 5.45 and this value can be used as a threshold: higher values suggest that the molecule could be
-            out of the applicability domain of the model.</Model>
+            out of the applicability domain of the model.
+        </Model>
         <Applicability_Domain>
             <AD>
                 <Name>Similar_Molecules</Name>
@@ -184,7 +187,7 @@
 
     <Stats>
 
-<!--        Inhibitor vs All-->
+        <!--        Inhibitor vs All-->
         <n_Train>1785.0</n_Train>
         <Specificity_Train>0.947</Specificity_Train>
         <Sensitivity_Train>0.951</Sensitivity_Train>
@@ -205,5 +208,5 @@
 
 
     </Stats>
-    
+
 </xml>

@@ -109,6 +109,7 @@
         <module>VegaModels-PPBCoral</module>
         <module>VegaModels-NoaelLiver</module>
         <module>VegaModels-LoaelLiver</module>
+        <module>VegaModels-GlucocorticoidReceptor</module>
     </modules>
 
     <name>VegaModels</name>
