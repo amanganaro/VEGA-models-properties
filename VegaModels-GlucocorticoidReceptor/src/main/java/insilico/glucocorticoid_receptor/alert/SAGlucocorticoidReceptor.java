@@ -67,12 +67,12 @@ public class SAGlucocorticoidReceptor {
 //            "N-C-C-[C,c]:[C,c]",
 //    };
     private final static String[] SmartsPrimaryI = {
-            "[#6]-[#7]-[C,c]:[C,c]",
-            "[#7]-[C,c]:[CH,cH]",
-            "[#7]-[C,c]:[C,c]-[#6]",
-            "[#7]-[#6]-[C,c]:[C,c]",
-            "[#6]-[#7]-[#6]-[C,c]:[C,c]",
-            "[#7]-[#6]-[#6]-[C,c]:[C,c]",
+            "[#6][#7][#6]:[#6]",
+            "[#7][#6]:[CH,cH]",
+            "[#7][#6]:[#6][#6]",
+            "[#7][#6][#6]:[#6]",
+            "[#6][#7][#6][#6]:[#6]",
+            "[#7][#6][#6][#6]:[#6]",
     };
 
 //    private final static String[] SmartsPrimaryII = {
@@ -86,11 +86,11 @@ public class SAGlucocorticoidReceptor {
 
     private final static String[] SmartsPrimaryII = {
 //            "N-C=[CH,cH]",
-            "[#7]-[#6]=[CH,cH]",
-            "[#7]-[#6]-[#6]=[#6]",
-            "[#6]-[#6]-[#7]-[#6]-[#6]",
-            "[#6]-[#7]-[#6]-[#6]-[#6]",
-            "[#7]-[#6]-[#6]-[#6]-[#6]-[#6]",
+            "[#7][#6]=[CH,cH]",
+            "[#7][#6][#6]=[#6]",
+            "[#6][#6][#7][#6][#6]",
+            "[#6][#7][#6][#6][#6]",
+            "[#7][#6][#6][#6][#6][#6]",
     };
 
 //    private final static String[] SmartsPrimaryIII = {
@@ -99,8 +99,8 @@ public class SAGlucocorticoidReceptor {
 //    };
 
     private final static String[] SmartsPrimaryIII = {
-            "[#6]-[#6]([#6])-[#6]([#6])-[#6]",
-            "[#6]-[#6]-[#6]-[#6]-[#6]-[#6]([#6])-[#6]"
+            "[#6][#6]([#6])[#6]([#6])[#6]",
+            "[#6][#6][#6][#6][#6][#6]([#6])[#6]"
     };
 
     private final static String[] SmartsSecondary_1_1 = {
