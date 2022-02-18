@@ -1,0 +1,40 @@
+<xml>
+   
+    <Version>
+        <Name>TPO OBERON</Name>
+        <Key>TPO_OBERON</Key>
+        <Summary>Descrpition of TPO OBERON</Summary>
+        <Version>1.0.1</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_tpo_oberon.dat</TS>
+<!--        <QMRF>/data/QMRF_Life_algae.pdf</QMRF>-->
+        <HasAlerts>False</HasAlerts>
+        <ClassValues>
+            <Class>
+                <Value>0</Value>
+                <Label>HSE</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>INA</Label>
+            </Class>
+            <Class>
+                <Value>-1</Value>
+                <Label>Not predicted</Label>
+            </Class>
+        </ClassValues>
+    </Vega>
+
+    <Guide>
+
+    </Guide>
+
+    <Reference></Reference>
+    <Endpoint></Endpoint>
+
+    <Stats>
+    </Stats>
+    
+</xml>
