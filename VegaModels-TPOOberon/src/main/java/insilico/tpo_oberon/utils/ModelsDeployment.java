@@ -60,6 +60,17 @@ public class ModelsDeployment {
         String datasetUrl = model.getInfo().getTrainingSetURL().split("\\.")[0] + ".txt";
         URL url = ModelsDeployment.class.getResource(datasetUrl);
 
+        String line;
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())))){
+            br.readLine();
+            while ((line = br.readLine()) != null) {
+                smilesList.add(line.split("\t")[2]);
+            }
+        } catch (IOException ex){
+            log.warn(ex.getMessage());
+        }
+
+
         StringBuilder stringBuilder = new StringBuilder("#" + "\t" + "Smiles\t");
         for(String descriptorName : model.getDescriptorsNames())
             stringBuilder.append(descriptorName).append("\t");
@@ -70,17 +81,17 @@ public class ModelsDeployment {
         printWriter.flush();
 
 
-        for(int i = 0; i < model.GetTrainingSet().getMoleculesSize(); i++){
+        for(int i = 0; i < smilesList.size(); i++){
             try {
                 SmilesMolecule.EXCLUDE_DISCONNECTED_STRUCTURES = false;
-                EmbeddedDescriptors embeddedDescriptors = new EmbeddedDescriptors(SmilesMolecule.Convert(model.GetTrainingSet().getSMILES(i)));
-                stringBuilder = new StringBuilder(i+1 + "\t" + model.GetTrainingSet().getSMILES(i));
+                EmbeddedDescriptors embeddedDescriptors = new EmbeddedDescriptors(SmilesMolecule.Convert(smilesList.get(i)));
+                stringBuilder = new StringBuilder(i+1 + "\t" + smilesList.get(i));
                 for(double descriptor : embeddedDescriptors.descriptorsArray){
                     stringBuilder.append("\t").append(descriptor);
                 }
                 printWriter.println(stringBuilder);
                 printWriter.flush();
-            } catch (DescriptorNotFoundException | GenericFailureException e) {
+            } catch (DescriptorNotFoundException e) {
                 e.printStackTrace();
             }
         }

@@ -103,7 +103,7 @@ public class KnnAlgorithm {
 
                 if(this.skipExp) {
                     if(sim == 1.0)
-                        return curDatasetElement.getExperimentalValue();
+                        continue;
                 }
 
 
