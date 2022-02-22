@@ -9,11 +9,6 @@ import insilico.core.molecule.InsilicoMolecule;
 import insilico.descriptor.blocks.*;
 import insilico.descriptor.blocks.logP.MLogP;
 
-import java.io.BufferedReader;
-import java.io.DataInputStream;
-import java.io.InputStreamReader;
-import java.net.URL;
-
 public class EmbeddedDescriptors {
 
     private final double MISSING_VALUE = -999;
@@ -37,7 +32,7 @@ public class EmbeddedDescriptors {
     public double MATS1m;
     public double MLOGP;
     public double SpMax2_Bh_s;
-//    public double Eta_C_A= MISSING_VALUE;
+    public double Eta_C_A;
 
     public double[] descriptorsArray;
 
@@ -54,6 +49,7 @@ public class EmbeddedDescriptors {
         MATS1m = block.GetByName("MATS1m").getValue();
         MATS1p = block.GetByName("MATS1p").getValue();
         MATS1s = block.GetByName("MATS1s").getValue();
+        GATS1s = block.GetByName("GATS1s").getValue();
 
 
         block = new FunctionalGroups();
@@ -101,9 +97,9 @@ public class EmbeddedDescriptors {
         block.Calculate(mol);
         MLOGP = block.GetByName("MLOGP").getValue();
 
-//        block = new EtaIndices();
-//        block.Calculate(mol);
-//        Eta_C_A = block.GetByName("Eta_C_A").getValue();
+        block = new EtaIndices();
+        block.Calculate(mol);
+        Eta_C_A = block.GetByName("Eta_C_A").getValue();
 
 //        getETA(mol);
         descriptorsArray = new double[]{
@@ -126,6 +122,7 @@ public class EmbeddedDescriptors {
                 MATS1m,
                 MLOGP,
                 SpMax2_Bh_s,
+                Eta_C_A
         };
 
     }

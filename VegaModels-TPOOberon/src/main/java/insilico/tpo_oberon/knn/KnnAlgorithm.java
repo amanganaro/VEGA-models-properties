@@ -1,6 +1,5 @@
 package insilico.tpo_oberon.knn;
 
-import insilico.core.exception.DescriptorNotFoundException;
 import insilico.core.exception.GenericFailureException;
 import insilico.core.exception.InvalidMoleculeException;
 import insilico.core.model.trainingset.iTrainingSet;
@@ -8,8 +7,6 @@ import insilico.core.molecule.InsilicoMolecule;
 import insilico.core.molecule.conversion.SmilesMolecule;
 import insilico.core.similarity.Similarity;
 import insilico.core.similarity.SimilarityDescriptorsBuilder;
-import insilico.tpo_oberon.descriptors.EmbeddedDescriptors;
-import insilico.tpo_oberon.utils.ModelsDeployment;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.BufferedReader;
@@ -32,7 +29,6 @@ public class KnnAlgorithm {
     private final InsilicoMolecule curMolecule;
     private final boolean skipExp;
 
-
     public KnnAlgorithm(InsilicoMolecule insilicoMolecule, double[] curMoleculeDescriptors, iTrainingSet trainingSet, boolean skipExp) {
         this.curMolecule = insilicoMolecule;
         this.skipExp = skipExp;
@@ -41,6 +37,9 @@ public class KnnAlgorithm {
         initializeDescriptors(trainingSet);
     }
 
+    public void setkNeighbours(int kNeighbours) {
+        this.kNeighbours = kNeighbours;
+    }
 
     private void initializeDescriptors(iTrainingSet trainingSet) {
 
@@ -101,22 +100,22 @@ public class KnnAlgorithm {
                         curDatasetElement.getInputMolecule().GetStructure()
                 );
 
-                if(this.skipExp) {
-                    if(sim == 1.0)
+                if(sim == 1.0){
+                    if (this.skipExp)
                         continue;
+                    else return curDatasetElement.getExperimentalValue();
                 }
 
 
 
+
                 double euclideanDistance = calculateDistance(curMoleculeDescriptors, curDatasetElement.getDescriptors());
-                distances.add(new DistanceClassification(
-                        euclideanDistance, curDatasetElement.getExperimentalValue())
-                );
+                distances.add(new DistanceClassification(euclideanDistance, curDatasetElement.getExperimentalValue()));
             }
 
             distances.sort(Comparator.comparing(DistanceClassification::getDistance));
 
-            List<DistanceClassification> selectedDistances = distances.subList(0, kNeighbours -1);
+            List<DistanceClassification> selectedDistances = distances.subList(0, kNeighbours);
 
             double weight_0 = 0.0;
             double weight_1 = 0.0;
@@ -128,9 +127,11 @@ public class KnnAlgorithm {
                     weight_1 += neigh.getWeight();
             }
 
-            if(weight_0 > weight_1)
-                return 0;
-            else return 1;
+            return weight_0 > weight_1 ? 0 : 1;
+
+//            if(weight_0 > weight_1)
+//                return 0;
+//            else return 1;
         } catch (Exception ex){
             System.out.println(ex.getMessage());
             return -1;
@@ -139,7 +140,6 @@ public class KnnAlgorithm {
 
 
     private double calculateDistance(double[] curMoleculeDescriptors, double[] curDatasetElementDescriptors){
-
         double distance = 0.0;
 
         for(int i = 0; i < curMoleculeDescriptors.length; i++){
@@ -148,7 +148,4 @@ public class KnnAlgorithm {
         return Math.sqrt(distance);
     }
 
-    public void setkNeighbours(int kNeighbours) {
-        this.kNeighbours = kNeighbours;
-    }
 }

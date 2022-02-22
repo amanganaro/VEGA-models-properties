@@ -14,13 +14,13 @@ public class ismTpoOberon extends InsilicoModel {
     private static final long serialVersionUID = 1L;
     private static final String ModelData = "/data/model_tpo_oberon.xml";
 
-    public static boolean SkipExperimental = false;
+//    public boolean SkipExperimental = false;
 
 
     public ismTpoOberon() throws InitFailureException {
         super(ModelData);
 
-        this.DescriptorsSize = 19;
+        this.DescriptorsSize = 20;
         DescriptorsNames = new String[DescriptorsSize];
         this.DescriptorsNames[0] = "GATS1e";
         this.DescriptorsNames[1] = "nArOH";
@@ -41,7 +41,7 @@ public class ismTpoOberon extends InsilicoModel {
         this.DescriptorsNames[16] = "MATS1m";
         this.DescriptorsNames[17] = "MLOGP";
         this.DescriptorsNames[18] = "SpMax2_Bh(s)";
-//        this.DescriptorsNames[19] = "Eta_C_A";
+        this.DescriptorsNames[19] = "Eta_C_A";
 
         // Defines results
         this.ResultsSize = 1;
@@ -77,7 +77,7 @@ public class ismTpoOberon extends InsilicoModel {
             this.Descriptors[16] = embeddedDescriptors.MATS1m;
             this.Descriptors[17] = embeddedDescriptors.MLOGP;
             this.Descriptors[18] = embeddedDescriptors.SpMax2_Bh_s;
-//            this.Descriptors[19] = embeddedDescriptors.Eta_C_A;
+            this.Descriptors[19] = embeddedDescriptors.Eta_C_A;
 
         } catch (Throwable e){
             return DESCRIPTORS_ERROR;
@@ -89,7 +89,7 @@ public class ismTpoOberon extends InsilicoModel {
     protected short CalculateModel() {
 
         try {
-            KnnAlgorithm knn = new KnnAlgorithm(CurMolecule, Descriptors, this.TS, SkipExperimental);
+            KnnAlgorithm knn = new KnnAlgorithm(CurMolecule, Descriptors, this.TS, this.KnnSkipExperimental);
             knn.setkNeighbours(5);
             int prediction = knn.calculatePrediction();
 
@@ -104,8 +104,6 @@ public class ismTpoOberon extends InsilicoModel {
             e.printStackTrace();
             return MODEL_ERROR;
         }
-
-
     }
 
     @Override

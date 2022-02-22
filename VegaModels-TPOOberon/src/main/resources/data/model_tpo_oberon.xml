@@ -3,13 +3,12 @@
     <Version>
         <Name>TPO OBERON</Name>
         <Key>TPO_OBERON</Key>
-        <Summary>Descrpition of TPO OBERON</Summary>
+        <Summary>Description of TPO OBERON</Summary>
         <Version>1.0.1</Version>
     </Version>
     
     <Vega>
         <TS>/data/ts_tpo_oberon.dat</TS>
-<!--        <QMRF>/data/QMRF_Life_algae.pdf</QMRF>-->
         <HasAlerts>False</HasAlerts>
         <ClassValues>
             <Class>
@@ -27,14 +26,12 @@
         </ClassValues>
     </Vega>
 
-    <Guide>
-
-    </Guide>
+    <Guide></Guide>
 
     <Reference></Reference>
+
     <Endpoint></Endpoint>
 
-    <Stats>
-    </Stats>
+    <Stats></Stats>
     
 </xml>

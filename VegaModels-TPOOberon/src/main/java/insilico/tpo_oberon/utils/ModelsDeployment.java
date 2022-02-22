@@ -85,6 +85,7 @@ public class ModelsDeployment {
             try {
                 SmilesMolecule.EXCLUDE_DISCONNECTED_STRUCTURES = false;
                 EmbeddedDescriptors embeddedDescriptors = new EmbeddedDescriptors(SmilesMolecule.Convert(smilesList.get(i)));
+                System.out.println("# Printing descriptors for molecule #" + i + ": " + smilesList.get(i));
                 stringBuilder = new StringBuilder(i+1 + "\t" + smilesList.get(i));
                 for(double descriptor : embeddedDescriptors.descriptorsArray){
                     stringBuilder.append("\t").append(descriptor);
