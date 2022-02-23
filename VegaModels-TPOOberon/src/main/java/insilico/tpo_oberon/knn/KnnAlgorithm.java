@@ -33,7 +33,7 @@ public class KnnAlgorithm {
         this.curMolecule = insilicoMolecule;
         this.skipExp = skipExp;
         this.curMoleculeDescriptors = curMoleculeDescriptors;
-        this.kNeighbours = 3;
+        this.kNeighbours = 5;
         initializeDescriptors(trainingSet);
     }
 

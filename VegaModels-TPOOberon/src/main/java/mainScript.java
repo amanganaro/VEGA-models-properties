@@ -1,6 +1,7 @@
 import insilico.core.exception.GenericFailureException;
 import insilico.core.exception.InitFailureException;
 import insilico.core.model.InsilicoModel;
+import insilico.core.model.InsilicoModelOutput;
 import insilico.core.molecule.conversion.SmilesMolecule;
 import insilico.tpo_oberon.ismTpoOberon;
 import insilico.tpo_oberon.utils.ModelsDeployment;
@@ -18,6 +19,7 @@ public class mainScript {
     public static void main(String[] args) throws InitFailureException, MalformedURLException, FileNotFoundException, GenericFailureException, InterruptedException {
         ismTpoOberon model = new ismTpoOberon();
         model.SetKnnSkipExperimental(true);
+
 //        model.SkipExperimental = true;
 //        ModelsDeployment.PrintDescriptor(model, "dataset_descriptors");
 
@@ -32,7 +34,7 @@ public class mainScript {
 
 //        Thread.sleep(5000);
         ModelsDeployment.TestModelWithTrainingSet(model, model.getInfo().getName());
-
+//
 
 
 //        EmbeddedDescriptors embeddedDescriptors = new EmbeddedDescriptors(SmilesMolecule.Convert("Oc1ccc(c(O)c1)CCCCCC"));
