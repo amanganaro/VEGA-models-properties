@@ -671,7 +671,6 @@ No.	CAS	SMILES	Status	CARC
 670	57653-85-7	O1c3cc(c(c(c3(Oc2cc(c(c(c12)Cl)Cl)Cl))Cl)Cl)Cl	Training	1
 671	56-04-2	O=C1C=C(NC(N1)=S)C	Training	1
 672	68006-83-7	n1c(N)c(cc3c1[nH]c2ccccc23)C	Training	1
-673	53973-98-1	[*]OC1C(O)C(OC(CO)C1(OS(=O)(=O)[O-]))OC3C2OC([*])C(OS(=O)(=O)[O-])C3(OC2)	Training	1
 674	1694-09-3	O=S(=O)([O-])c1cccc(c1)CN(c2ccc(cc2)[CH2+](c3ccc(cc3)N(C)C)c4ccc(cc4)N(Cc5cccc(c5)S(=O)(=O)O)CC)CC	Training	1
 675	108171-27-3	CC(CCCC(CCCC(CCCC(CCCC(CCCC(CCCl)Cl)Cl)Cl)Cl)Cl)Cl	Training	1
 676	11097-69-1    	c2cc(c1ccc(c(c1Cl)Cl)Cl)c(c(c2)Cl)Cl	Training	1

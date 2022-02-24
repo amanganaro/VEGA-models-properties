@@ -18,15 +18,17 @@ public class mainScript {
 
 
         InsilicoModel model = new ismCarcinogenicityIsscanCgx();
-        ModelsDeployment.TestModelWithTrainingSet(model, model.getInfo().getName() +" - Results");
-//        ModelsDeployment.BuildDataset(model, "out_ts");
-//        File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
-//        File destinationFile = new File("VegaModels-CarcinogenicityISSCANGX\\src\\main\\resources\\data\\ts_carc_isscancgx.dat");
-//        try {
-//            Files.move(sourceFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-//        } catch (Exception ex) {
-//            log.warn(ex.getMessage());
-//        }
+//        InsilicoModelOutput out = model.Execute(SmilesMolecule.Convert("[*]OC1C(O)C(OC(CO)C1(OS(=O)(=O)[O-]))OC3C2OC([*])C(OS(=O)(=O)[O-])C3(OC2)"));
+//        return;
+//        ModelsDeployment.TestModelWithTrainingSet(model, model.getInfo().getName() +" - Results");
+        ModelsDeployment.BuildDataset(model, "out_ts");
+        File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
+        File destinationFile = new File("VegaModels-CarcinogenicityISSCANGX\\src\\main\\resources\\data\\ts_carc_isscancgx.dat");
+        try {
+            Files.move(sourceFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+        } catch (Exception ex) {
+            log.warn(ex.getMessage());
+        }
 
 //        List<String> smilesList = new ArrayList<>();
 //        smilesList.add("O=[N+]([O-])c1cc(cc(c1N(CCC)CCC)[N+](=O)[O-])S(=O)(=O)C");
