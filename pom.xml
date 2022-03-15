@@ -22,6 +22,7 @@
         <module>VegaModels-AlgaeEC50</module>
         <module>VegaModels-AlgaeNoec</module>
         <module>VegaModels-AromataseIRFMN</module>
+        <module>VegaModels-AromataseIRFMN-TK</module>
         <module>VegaModels-BCFArnotGobas</module>
         <module>VegaModels-KmArnot</module>
         <module>VegaModels-BCFCaesar</module>
@@ -184,7 +185,6 @@
                 </plugin>
             </plugins>
         </pluginManagement>
-
 
         <plugins>
 
