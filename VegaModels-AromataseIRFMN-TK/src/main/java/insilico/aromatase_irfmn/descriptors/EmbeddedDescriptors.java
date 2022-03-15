@@ -58,7 +58,12 @@ public class EmbeddedDescriptors {
         H049 = acf.GetByName("H-049").getValue();
 
         CalculateBEH(Mol);
-        CalculateWAP(Mol);
+
+// old code - replaced by the new not using CDK PathTools
+//        CalculateWAP(Mol);
+
+        CalculatePiPC(Mol);
+
         CalculateX5Sol(Mol);
         CalculatenRNR2(Mol);
         CalculateATS(Mol);
@@ -548,6 +553,20 @@ public class EmbeddedDescriptors {
                 X5sol = curDescXsol[i];
         }
     }
+
+
+    private void CalculatePiPC(InsilicoMolecule Mol) {
+        try {
+            MoleculePaths paths = new MoleculePaths(Mol);
+            piPC08 = Math.log(1 + paths.Multiple_Path_Counts[7]);
+            piPC09 = Math.log(1 + paths.Multiple_Path_Counts[8]);
+
+        } catch (Exception e) {
+            piPC08 = Descriptor.MISSING_VALUE;
+            piPC09 = Descriptor.MISSING_VALUE;
+        }
+    }
+
 
     private void CalculateWAP(InsilicoMolecule Mol){
         piPC08 = 0;
