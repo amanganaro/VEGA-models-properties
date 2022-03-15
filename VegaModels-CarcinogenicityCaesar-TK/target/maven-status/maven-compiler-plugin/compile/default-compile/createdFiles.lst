@@ -1,0 +1,12 @@
+insilico\carcinogenicity_caesar\modelCPANN.class
+insilico\carcinogenicity_caesar\ismCarcinogenicityCaesar.class
+insilico\carcinogenicity_caesar\descriptors\weights\VertexDegree.class
+insilico\carcinogenicity_caesar\descriptors\weights\Polarizability.class
+mainScriptCarcinogenicityCaesar.class
+insilico\carcinogenicity_caesar\ADIndexNNReliability.class
+insilico\carcinogenicity_caesar\CarcinogenicityGroups.class
+insilico\carcinogenicity_caesar\ADNeuronsChecker.class
+insilico\carcinogenicity_caesar\ADIndexNNNeuronsConcordance.class
+insilico\carcinogenicity_caesar\descriptors\weights\Mass.class
+insilico\carcinogenicity_caesar\CPANNNeuron.class
+insilico\carcinogenicity_caesar\descriptors\EmbeddedDescriptors.class

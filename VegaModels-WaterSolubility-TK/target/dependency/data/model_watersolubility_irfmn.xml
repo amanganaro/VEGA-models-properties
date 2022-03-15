@@ -1,0 +1,33 @@
+<xml>
+   
+    <Version>
+        <Name>Water solubility model (IRFMN)</Name>
+        <Key>WS_IRFMN</Key>
+        <Summary>Quantitative model for water solubility.</Summary>
+        <Version>1.0.1</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_watersolubility_irfmn.dat</TS>
+        <HasAlerts>False</HasAlerts>
+        <Units>-log(mol/L)</Units>
+    </Vega>
+
+    <Guide></Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats>
+        <n_Train>4014.0</n_Train>
+        <R2_Train>0.857</R2_Train>
+        <RMSE_Train>0.833</RMSE_Train>
+        <n_Test>1004.0</n_Test>
+        <R2_Test>0.824</R2_Test>
+        <RMSE_Test>0.935</RMSE_Test>
+        <Not_Predicted_Train>0.0</Not_Predicted_Train>
+        <Not_Predicted_Test>0.0</Not_Predicted_Test>
+    </Stats>
+    
+</xml>

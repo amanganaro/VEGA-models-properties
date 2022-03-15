@@ -12,7 +12,9 @@
         <module>VegaModels-FatHeadKNN</module>
         <module>VegaModels-CarcinogenicityAntares</module>
         <module>VegaModels-WaterSolubility</module>
+        <module>VegaModels-WaterSolubility-TK</module>
         <module>VegaModels-CarcinogenicityCaesar</module>
+        <module>VegaModels-CarcinogenicityCaesar-TK</module>
         <module>VegaModels-LogPMeylan</module>
         <module>VegaModels-CoralChromosomal</module>
         <module>VegaModels-AlgaeCombaseClass</module>
@@ -21,6 +23,7 @@
         <module>VegaModels-AlgaeCombaseEC50</module>
         <module>VegaModels-AlgaeEC50</module>
         <module>VegaModels-AlgaeNoec</module>
+        <module>VegaModels-AlgaeNoec-TK</module>
         <module>VegaModels-AromataseIRFMN</module>
         <module>VegaModels-AromataseIRFMN-TK</module>
         <module>VegaModels-BCFArnotGobas</module>
@@ -33,6 +36,7 @@
         <module>VegaModels-MutagenicityBB</module>
         <module>VegaModels-CarcinogenicityISSCANGX</module>
         <module>VegaModels-CarcinogenicitySFIClassification</module>
+        <module>VegaModels-CarcinogenicitySFIClassification-TK</module>
         <module>VegaModels-CarcinogenicitySFIRegression</module>
         <module>VegaModels-CarcinogenicitySFOClassification</module>
         <module>VegaModels-CarcinogenicitySFORegression</module>
@@ -49,6 +53,7 @@
         <module>VegaModels-FishKNN</module>
         <module>VegaModels-FishLC50</module>
         <module>VegaModels-FishNIC</module>
+        <module>VegaModels-FishNIC-TK</module>
         <module>VegaModels-FishNOEC</module>
         <module>VegaModels-GuppyKnn</module>
         <module>VegaModels-HepatoxicityIRFMN</module>
