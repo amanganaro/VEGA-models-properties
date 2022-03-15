@@ -18,11 +18,13 @@
     </description>
 
     <dependencies>
+
         <dependency>
             <groupId>InSilico</groupId>
             <artifactId>VegaModels</artifactId>
             <version>0.1</version>
         </dependency>
+
     </dependencies>
 
     <build>
@@ -34,6 +36,7 @@
                 <configuration>
                     <source>11</source>
                     <target>11</target>
+
                 </configuration>
             </plugin>
 

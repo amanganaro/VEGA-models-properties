@@ -28,7 +28,7 @@
             where DCW is represented by the following formula:
             DCWT,N=CWSk+CWSSk+CWSSSk
             The SMILES attributes Sk, SSk and SSSk are defined by a sequence of atoms and bonds present in the SMILES string. The attribute Sk represents single elements, SSk two combined elements and SSSk three combined elements. The complete list of structural attributes (SAk) used in the model and their correlation weights (CW) can be found in Supporting Material (Table S7):
-            Lavado, G., Gadaleta, D., Toma, C., Golbamaki, A., Toropov, A., Toropova, A., Marzo, M., Baderna, D., Arning, J., & Benfenati, E. (2020). Zebrafish AC50 modelling: (Q)SAR models to predict developmental toxicity in zebrafish embryo. Ecotoxicology and environmental safety, 202, 110936 .</Descriptors>
+            Lavado, G., Gadaleta, D., Toma, C., Golbamaki, A., Toropov, A., Toropova, A., Marzo, M., Baderna, D., Arning, J., and Benfenati, E. (2020). Zebrafish AC50 modelling: (Q)SAR models to predict developmental toxicity in zebrafish embryo. Ecotoxicology and environmental safety, 202, 110936 .</Descriptors>
         <Applicability_domain>
             <AD>
                 <Name>Similar_Molecules</Name>
@@ -101,7 +101,7 @@
         [2] Alla Toropova Istituto di Ricerche Farmacologiche Mario Negri IRCCS
         alla.toropova@merionegri.it
         The model has been described here:
-        Lavado, G., Gadaleta, D., Toma, C., Golbamaki, A., Toropov, A., Toropova, A., Marzo, M., Baderna, D., Arning, J., & Benfenati, E. (2020). Zebrafish AC50 modelling: (Q)SAR models to predict developmental toxicity in zebrafish embryo. Ecotoxicology and environmental safety, 202, 110936 .
+        Lavado, G., Gadaleta, D., Toma, C., Golbamaki, A., Toropov, A., Toropova, A., Marzo, M., Baderna, D., Arning, J., and Benfenati, E. (2020). Zebrafish AC50 modelling: (Q)SAR models to predict developmental toxicity in zebrafish embryo. Ecotoxicology and environmental safety, 202, 110936 .
         For a general description of the VEGA software see:
         Benfenati E, Manganaro A, Gini G
         VEGA-QSAR: AI inside a platform for predictive toxicology

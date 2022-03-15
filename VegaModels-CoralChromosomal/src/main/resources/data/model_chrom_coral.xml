@@ -3,7 +3,7 @@
     <Version>
         <Name>Chromosomal aberration model (CORAL)</Name>
         <Key>CHROM_CORAL</Key>
-        <Summary>Classification model for chromosomal aberration,</Summary>
+        <Summary>Classification model for chromosomal aberration</Summary>
         <Version>1.0.1</Version>
     </Version>
 
@@ -35,7 +35,7 @@
             Alla P. Toropova, Istituto di Ricerche Farmacologiche Mario Negri IRCSS Via Mario Negri 2, 20156 Milano, Italy (alla.toropova@marionegri.it ) https://www.marionegri.it/
             Giuseppa Raitano, Istituto di Ricerche Farmacologiche Mario Negri IRCSS Via Mario Negri 2, 20156 Milano, Italy (giuseppa.raitano @marionegri.it) https://www.marionegri.it/</Model>
         <Dataset>The model is based on experiments with Chromosomal aberrations.
-            Endpoint units: The model provides a quantitative prediction for chromosomal aberrations in a continuous number between +1 (active) and -1 (inactive). The threshold to discriminate between active and inactive is 0 (< 0 is inactive; > 0 is active).
+            Endpoint units: The model provides a quantitative prediction for chromosomal aberrations in a continuous number between +1 (active) and -1 (inactive). The threshold to discriminate between active and inactive is 0 (&lt; 0 is inactive; > 0 is active).
             Dependent variable: One-variable model based on optimal descriptor.
             Experimental protocol: According to OECD 473 guideline, the purpose of the in vitro chromosomal aberration test is to identify substances that cause structural chromosomal aberrations in cultured mammalian cells. This test is not designed to measure aneuploidy. The analysis of chromosomal aberration induction should be done using cells in metaphase. It is thus essential that cells should reach mitosis both in treated and in untreated cultures. Cell cultures of human or other mammalian origin are exposed to the test chemical both with and without an exogenous source of metabolic activation unless cells with an adequate metabolizing capability are used. At an appropriate predetermined interval after the start of exposure of cell cultures to the test chemical, they are treated with a metaphase-arresting substance (e.g. Colcemid® or colchicine), harvested, stained and metaphase cells are analyzed microscopically for the presence of chromatid-type and chromosome-type aberrations.
             Endpoint data quality and variability: Experimental data for this work were taken from the Genotoxicity OASIS Database (http://oasis-lmc.org/products/databases/rat-liver-metabolism-extended.aspx) and the Toxicity Japan MHLW (http://dra4.nihs.go.jp/mhlw_data/jsp/SearchPageENG.jsp) that include data for chromosomal aberrations determined by in vitro test using Chinese hamster lung (CHL) and ovary (CHO) cells, with and without metabolic activation (metabolic system S9). Data were selected on the basis of their compliance with OECD 473 guideline.
@@ -51,7 +51,7 @@
 
             Chromosomal aberrations = -0.604 (± 0.002) +    0.0614 (± 0.0001) * DCW(1,13)
 
-            Category={active  if, y≥0.5 inactive if,y<0.5
+            Category={active  if, y≥0.5 inactive if,y&lt;0.5
 
             Algorithm and descriptor generation: The Monte Carlo Method
             Software name and version for descriptor generation:
@@ -130,7 +130,7 @@
     <Endpoint>Species: Data for chromosomal aberrations determined by in vitro test using Chinese hamster lung (CHL) and ovary (CHO) cells, with and without metabolic activation (metabolic system S9).
         Endpoint: Chromosomal aberrations
         Comment on endpoint: Structural aberrations may be of two types, chromosome or chromatid. Polyploidy (including endoreduplication) could arise in chromosome aberration assays in vitro. While aneugens can induce polyploidy, polyploidy alone does not indicate aneugenic potential and can simply indicate cell cycle perturbation or cytotoxicity. Chromosome aberrations, including breakage, rearrangement, and change in the number of chromosomes in the metaphase, have been associated with carcinogenicity and developmental effects.
-        Endpoint units: The model provides a quantitative prediction for chromosomal aberrations in a continuous number between +1 (active) and -1 (inactive). The threshold to discriminate between active and inactive is 0 (< 0 is inactive; > 0 is active).</Endpoint>
+        Endpoint units: The model provides a quantitative prediction for chromosomal aberrations in a continuous number between +1 (active) and -1 (inactive). The threshold to discriminate between active and inactive is 0 (&lt; 0 is inactive; > 0 is active).</Endpoint>
 
     <Stats></Stats>
     

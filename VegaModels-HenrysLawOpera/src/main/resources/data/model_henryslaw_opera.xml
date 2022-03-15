@@ -20,7 +20,6 @@
             Dependent variable: LogHL
             Experimental protocol: The data were downloaded from OPERA software tool
             Endpoint data quality and variability: Data as from OPERA software tool
-            (https://cfpub.epa.gov/si/si_public_record_report.cfm?Lab=NCCT&dirEntryId=340233)
             Availability of the training set: Yes
             Data for the dependent variable for the training set: All
             Availability of the external validation set: Yes
@@ -39,10 +38,10 @@
             [1] nHBDon, Unitless, Hbond donor count: Number of hydrogen bond donors (using CDKHBondDonorCountDescriptor algorithm).
             [2] MLFER_S, Unitless, Molecular linear free energy relation: Combined dipolarity/polarizability. Platts JA, Butina D, Abraham MH, Hersey A. Estimation of molecular free energy relation descriptors using a group contribution approach. J Chem Inf Comput Sci. 1999;39(5):835-45.
             [3] GATS1e, Unitless, Geary autocorrelation - lag 1 / weighted by Sanderson electronegativities. Todeschini, R. and Consonni, V. (2009). Molecular descriptors for chemoinformatics, (Weinheim: Wiley VCH) pg 27-37
-            [4] ndssC, Unitless, Atom type electrotopological state: Count of atom-type E-State: =C<. Hall, L. H., and Kier, L. B. (1995). Electrotopological state indices for atom types: A novel combination of electronic, topological, and valence state information. J Chem Inf Comput Sci 35, 1039-1045; Liu, R., Sun, H., and So, S. S. (2001). Development of quantitative structure-property relationship models for early ADME evaluation in drug discovery. 2. Blood-brain barrier penetration. J Chem Inf Comput Sci 41, 1623-1632.; Gramatica, P., Corradi, M., and Consonni, V. (2000). Modelling and prediction of soil sorption coefficients of non-ionic organic pesticides by molecular descriptors. Chemosphere 41, 763-777.
+            [4] ndssC, Unitless, Atom type electrotopological state: Count of atom-type E-State: =C&lt;. Hall, L. H., and Kier, L. B. (1995). Electrotopological state indices for atom types: A novel combination of electronic, topological, and valence state information. J Chem Inf Comput Sci 35, 1039-1045; Liu, R., Sun, H., and So, S. S. (2001). Development of quantitative structure-property relationship models for early ADME evaluation in drug discovery. 2. Blood-brain barrier penetration. J Chem Inf Comput Sci 41, 1623-1632.; Gramatica, P., Corradi, M., and Consonni, V. (2000). Modelling and prediction of soil sorption coefficients of non-ionic organic pesticides by molecular descriptors. Chemosphere 41, 763-777.
             [5] ATS3m, Unitless, Broto-Moreau autocorrelation - lag 3 / weighted by mass. Todeschini, R. and Consonni, V. (2009). Molecular descriptors for chemoinformatics, (Weinheim: Wiley VCH) pg 27-37
             [6] nHBint6, Unitless, Atom type electrotopological state: Count of E-State descriptors of strength for potential Hydrogen Bonds of path length 6. Hall, L. H., and Kier, L. B. (1995). Electrotopological state indices for atom types: A novel combination of electronic, topological, and valence state information. J Chem Inf Comput Sci 35, 1039-1045; Liu, R., Sun, H., and So, S. S. (2001).
-            [7] nHBAcc2, Unitless, Number of hydrogen bond acceptors (any oxygen; any nitrogen where the formal charge of the nitrogen is non-positive (i.e. formal charge <= 0) except a non-aromatic nitrogen that is adjacent to an oxygen and aromatic ring, or an aromatic nitrogen with a hydrogen atom in a ring, or an aromatic nitrogen with 3 neighouring atoms in a ring, or a nitrogen with total bond order >=4; any fluorine).
+            [7] nHBAcc2, Unitless, Number of hydrogen bond acceptors (any oxygen; any nitrogen where the formal charge of the nitrogen is non-positive (i.e. formal charge &lt;= 0) except a non-aromatic nitrogen that is adjacent to an oxygen and aromatic ring, or an aromatic nitrogen with a hydrogen atom in a ring, or an aromatic nitrogen with 3 neighouring atoms in a ring, or a nitrogen with total bond order >=4; any fluorine).
             [8] AATSC0i, Unitless, Average centered Broto-Moreau autocorrelation - lag 0 / weighted by first ionization potential. Todeschini, R. and Consonni, V. (2009). Molecular descriptors for chemoinformatics, (Weinheim: Wiley VCH) pg 27-37
             [9] SpAD_Dzm, Unitless, Barysz matrix: Spectral absolute deviation from Barysz matrix / weighted by mass. Todeschini, R. and Consonni, V. (2009). Molecular descriptors for chemoinformatics, (Weinheim: Wiley VCH) pg 714-726</Descriptors>
         <Applicability_Domain>
@@ -107,7 +106,7 @@
     <Reference>It has been described here:
         [1] An automated curation procedure for addressing chemical errors and inconsistencies in public
         datasets used in QSAR modeling. 2016. Kamel Mansouri, Chris M. Grulke, Ann M. Richard, Richard
-        S. Judson and Antony J. Williams. SAR & QSAR in Environ. Res; Vol. 27 , Iss. 11,2016.
+        S. Judson and Antony J. Williams. SAR and QSAR in Environ. Res; Vol. 27 , Iss. 11,2016.
         http://www.qsar2016.com/program
         [2] OPERA: A free and open source QSAR tool for physicochemical properties and environmental
         fate predictions. Kamel Mansouri, Chris Grulke, Richard Judson, Antony Williams, Journal of

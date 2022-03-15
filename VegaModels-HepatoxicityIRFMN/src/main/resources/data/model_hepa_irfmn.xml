@@ -176,15 +176,18 @@
 
     <Endpoint></Endpoint>
 
-    <n_Train>760.0</n_Train>
-    <Specificity_Train>0.798</Specificity_Train>
-    <Sensitivity_Train>0.64</Sensitivity_Train>
-    <Accuracy_Train>0.713</Accuracy_Train>
-    <n_Test>291.0</n_Test>
-    <Specificity_Test>0.683</Specificity_Test>
-    <Sensitivity_Test>0.48</Sensitivity_Test>
-    <Accuracy_Test>0.564</Accuracy_Test>
-    <Not_Predicted_Test>0.0</Not_Predicted_Test>
-    <Not_Predicted_Train>0.0</Not_Predicted_Train>
+    <Stats>
+        <n_Train>760.0</n_Train>
+        <Specificity_Train>0.798</Specificity_Train>
+        <Sensitivity_Train>0.64</Sensitivity_Train>
+        <Accuracy_Train>0.713</Accuracy_Train>
+        <n_Test>291.0</n_Test>
+        <Specificity_Test>0.683</Specificity_Test>
+        <Sensitivity_Test>0.48</Sensitivity_Test>
+        <Accuracy_Test>0.564</Accuracy_Test>
+        <Not_Predicted_Test>0.0</Not_Predicted_Test>
+        <Not_Predicted_Train>0.0</Not_Predicted_Train>
+    </Stats>
+
     
 </xml>

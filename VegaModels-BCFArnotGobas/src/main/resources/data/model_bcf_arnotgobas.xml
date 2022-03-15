@@ -16,7 +16,7 @@
         <Description>The model provides a quantitative prediction of bioconcentration factor (BCF).
             It is implemented inside the VEGA online platform (download at https://www.vegahub.eu/), and it is freely available.
             The models developed by Arnot and Gobas (2003) was reimplemented and made available through the BCFBAF module in the EPISuiteTM v4.1 platform (US EPA.c, 2019). For the implementation, a dataset of 692 compounds, retrieved from EPISuiteTM platform, has been used, processed and cleaned.</Description>
-        <Model>Details of the model are available in “Arnot, J.A., Gobas, F.A.P.C. (2003): A Generic QSAR for Assessing the Bioaccumulation Potential of Organic Chemicals in Aquatic Food Webs. QSAR & Combinatorial Science 22, 337–345.”</Model>
+        <Model>Details of the model are available in “Arnot, J.A., Gobas, F.A.P.C. (2003): A Generic QSAR for Assessing the Bioaccumulation Potential of Organic Chemicals in Aquatic Food Webs. QSAR and Combinatorial Science 22, 337–345.”</Model>
         <Dataset>The model is based on a dataset of 692 compounds, retrieved from EPISuiteTM platform.
             Endpoint units: no units (concentration/concentration)
             Dependent variable: Log Kow

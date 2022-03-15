@@ -19,7 +19,7 @@ public class mainScriptCoralPPB {
 
     public static void main(String[] args) throws InitFailureException, GenericFailureException, MalformedURLException, FileNotFoundException {
         InsilicoModel model = new ismPPBCoral();
-        ModelsDeployment.TestModelWithTrainingSet(model, "ppb_vega_smiles");
+//        ModelsDeployment.TestModelWithTrainingSet(model, "ppb_vega_smiles");
 //        ModelsDeployment.BuildDataset(model, "out_ts");
 //        File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
 //        File destinationFile = new File("VegaModels-PPBCoral\\src\\main\\resources\\data\\ts_ppb_coral.dat");
