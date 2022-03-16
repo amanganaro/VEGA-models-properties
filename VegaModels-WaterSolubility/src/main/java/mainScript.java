@@ -1,6 +1,6 @@
 import insilico.core.model.InsilicoModel;
 //import utils.ModelsDeployment;
-import insilico.watersolubility_tk.ismWaterSolubilityIRFMN;
+import insilico.watersolubility.ismWaterSolubilityIRFMN;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

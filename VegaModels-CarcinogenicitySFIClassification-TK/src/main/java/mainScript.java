@@ -1,15 +1,6 @@
-import insilico.carcinogenicity_sfi_classification.ismCarcinogenicitySFIClassification;
+import insilico.carcinogenicity_sfi_classification_tk.ismCarcinogenicitySFIClassification;
 import insilico.core.model.InsilicoModel;
-import insilico.core.model.InsilicoModelOutput;
-import insilico.core.molecule.conversion.SmilesMolecule;
 import lombok.extern.slf4j.Slf4j;
-import utils.ModelsDeployment;
-
-import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.StandardCopyOption;
-import java.util.ArrayList;
-import java.util.List;
 
 @Slf4j
 public class mainScript {

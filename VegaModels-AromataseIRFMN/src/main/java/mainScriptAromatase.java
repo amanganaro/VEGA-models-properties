@@ -1,4 +1,4 @@
-import insilico.aromatase_irfmn_tk.ismAromataseIRFMN;
+import insilico.aromatase_irfmn.ismAromataseIRFMN;
 import insilico.core.model.InsilicoModel;
 import lombok.extern.slf4j.Slf4j;
 
