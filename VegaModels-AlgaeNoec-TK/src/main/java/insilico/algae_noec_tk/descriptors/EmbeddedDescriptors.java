@@ -2,7 +2,7 @@ package insilico.algae_noec_tk.descriptors;
 
 import Jama.EigenvalueDecomposition;
 import Jama.Matrix;
-import insilico.algae_noec.descriptors.weights.*;
+import insilico.algae_noec_tk.descriptors.weights.*;
 import insilico.algae_noec_tk.descriptors.weights.*;
 import insilico.core.descriptor.Descriptor;
 import insilico.core.descriptor.DescriptorBlock;

@@ -2,7 +2,7 @@ package insilico.carcinogenicity_sfi_classification_tk.descriptors;
 
 import Jama.EigenvalueDecomposition;
 import Jama.Matrix;
-import insilico.carcinogenicity_sfi_classification.descriptors.weights.*;
+import insilico.carcinogenicity_sfi_classification_tk.descriptors.weights.*;
 //import insilico.carcinogenicity_sfi_classification.descriptors.weights.*;
 import insilico.carcinogenicity_sfi_classification_tk.descriptors.weights.*;
 import insilico.core.descriptor.Descriptor;

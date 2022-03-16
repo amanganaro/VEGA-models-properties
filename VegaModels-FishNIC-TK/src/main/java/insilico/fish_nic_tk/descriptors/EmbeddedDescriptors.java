@@ -7,7 +7,7 @@ import insilico.core.descriptor.DescriptorBlock;
 import insilico.core.exception.GenericFailureException;
 import insilico.core.exception.InvalidMoleculeException;
 import insilico.core.molecule.InsilicoMolecule;
-import insilico.fish_nic.descriptors.weights.*;
+//import insilico.fish_nic.descriptors.weights.*;
 import insilico.fish_nic_tk.descriptors.weights.*;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;

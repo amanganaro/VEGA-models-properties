@@ -5,7 +5,7 @@ import Jama.Matrix;
 import insilico.aromatase_irfmn.descriptors.weights.*;
 import insilico.aromatase_irfmn.descriptors.weights.ACF;
 import insilico.aromatase_irfmn.descriptors.weights.DescriptorMLogP;
-import insilico.aromatase_irfmn_tk.descriptors.weights.*;
+import insilico.aromatase_irfmn.descriptors.weights.*;
 import insilico.core.descriptor.Descriptor;
 import insilico.core.descriptor.DescriptorBlock;
 import insilico.aromatase_irfmn.descriptors.weights.EStateCorrectForH;
