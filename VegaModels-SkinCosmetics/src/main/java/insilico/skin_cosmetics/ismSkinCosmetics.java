@@ -31,7 +31,7 @@ public class ismSkinCosmetics extends InsilicoModel {
     
     private static final String ModelData = "/data/model_skin_cosmetics.xml";
     
-    private final static boolean CALCULATE_AD = false;
+    private final static boolean CALCULATE_AD = true;
     
     private final String SarpyFullAlertSet;
     private ToxTreeSkinClassification ToxTreeSkin;

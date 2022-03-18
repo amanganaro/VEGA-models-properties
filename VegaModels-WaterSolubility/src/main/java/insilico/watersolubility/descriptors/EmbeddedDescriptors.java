@@ -19,7 +19,7 @@ import insilico.core.molecule.InsilicoMolecule;
 import insilico.core.molecule.matrix.ConnectionAugMatrix;
 import insilico.core.molecule.tools.Manipulator;
 import insilico.core.tools.utils.MoleculeUtilities;
-import insilico.watersolubility_tk.descriptors.weights.*;
+import insilico.watersolubility.descriptors.weights.*;
 import lombok.extern.slf4j.Slf4j;
 import org.openscience.cdk.CDKConstants;
 import org.openscience.cdk.RingSet;
