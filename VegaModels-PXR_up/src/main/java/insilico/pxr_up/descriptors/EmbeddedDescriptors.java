@@ -22,9 +22,6 @@ import insilico.core.molecule.matrix.TopoDistanceMatrix;
 import insilico.core.molecule.tools.InsilicoMoleculeNormalization;
 import insilico.core.molecule.tools.Manipulator;
 import insilico.core.tools.utils.MoleculeUtilities;
-import insilico.descriptor.blocks.*;
-import insilico.descriptor.blocks.logP.MLogP;
-import insilico.descriptor.localization.StringSelectorDescriptors;
 import insilico.pxr_up.descriptors.weights.*;
 import lombok.extern.slf4j.Slf4j;
 import org.openscience.cdk.CDKConstants;
@@ -107,7 +104,7 @@ public class EmbeddedDescriptors {
         try {
             curMol = mol.GetStructure();
         } catch (InvalidMoleculeException e) {
-            log.warn(StringSelectorDescriptors.getString("invalid_structure") + mol.GetSMILES());
+            log.warn("Invalid structure: " + mol.GetSMILES());
         }
 
 
@@ -278,7 +275,7 @@ public class EmbeddedDescriptors {
             IAtomContainer orig_m = mol.GetStructure();
             m = Manipulator.AddHydrogens(orig_m);
         } catch (InvalidMoleculeException | GenericFailureException e) {
-            log.warn(StringSelectorDescriptors.getString("invalid_structure") + mol.GetSMILES());
+            log.warn("Invalid structure: " + mol.GetSMILES());
         }
 
         // Gets matrix
@@ -333,7 +330,7 @@ public class EmbeddedDescriptors {
         try {
             curMol = mol.GetStructure();
         } catch (InvalidMoleculeException e) {
-            log.warn(StringSelectorDescriptors.getString("invalid_structure") + mol.GetSMILES());
+            log.warn("Invalid structure for: " + mol.GetSMILES());
             return;
         }
 
@@ -360,7 +357,7 @@ public class EmbeddedDescriptors {
                 eigenvalues = ed.getRealEigenvalues();
                 Arrays.sort(eigenvalues);
             } catch (Throwable e) {
-                log.warn(StringSelectorDescriptors.getString("unable_eigenvalue") + e.getMessage());
+                log.warn("Invalid structure for: " + e.getMessage());
                 return;
             }
 
@@ -385,7 +382,7 @@ public class EmbeddedDescriptors {
                 eigenvalues = ed.getRealEigenvalues();
                 Arrays.sort(eigenvalues);
             } catch (Throwable e) {
-                log.warn(StringSelectorDescriptors.getString("unable_eigenvalue") + e.getMessage());
+                log.warn("Unable to calculate eigenvalues: " + e.getMessage());
                 return;
             }
 
@@ -409,7 +406,7 @@ public class EmbeddedDescriptors {
                 eigenvalues = ed.getRealEigenvalues();
                 Arrays.sort(eigenvalues);
             } catch (Throwable e) {
-                log.warn(StringSelectorDescriptors.getString("unable_eigenvalue") + e.getMessage());
+                log.warn("Unable to calculate eigenvalues: " + e.getMessage());
             }
 
             double SpPos = 0;
@@ -526,14 +523,6 @@ public class EmbeddedDescriptors {
 
     private void CalculatePVSA(InsilicoMolecule mol) {
 
-        DescriptorBlock block = new P_VSA();
-        try {
-            block.Calculate(mol);
-            P_VSA_ppp_L = (block.GetByName("P_VSA_ppp_L").getValue());
-            P_VSA_ppp_D = (block.GetByName("P_VSA_ppp_D").getValue());
-        } catch (DescriptorNotFoundException ex){
-            log.warn(ex.getMessage());
-        }
 
         // Calculate PPP before everything else, as the original H-depleted molecule is used
         IAtomContainer curMolNoH = null;
@@ -542,20 +531,20 @@ public class EmbeddedDescriptors {
             curMolNoH = mol.GetStructure();
             ConnAugMatrixNoH = mol.GetMatrixConnectionAugmented();
         } catch (Exception e) {
-            log.warn(StringSelectorDescriptors.getString("invalid_structure") +mol.GetSMILES());
+            log.warn("Invalid structure for: " +mol.GetSMILES());
         }
 
         int nSKnoH = curMolNoH.getAtomCount();
 
-        Cats2D cats = new Cats2D();
-        ArrayList<String>[] AtomTypesOnMolWithoutH = cats.setCatsAtomType(curMolNoH, ConnAugMatrixNoH);
+//        Cats2D cats = new Cats2D();
+        ArrayList<String>[] AtomTypesOnMolWithoutH = setCatsAtomType(curMolNoH, ConnAugMatrixNoH);
 
         IAtomContainer m = null;
         try {
             IAtomContainer orig_m = mol.GetStructure();
             m = Manipulator.AddHydrogens(orig_m);
         } catch (InvalidMoleculeException | GenericFailureException e) {
-            log.warn(StringSelectorDescriptors.getString("invalid_structure") + mol.GetSMILES());
+            log.warn("Invalid structure for: " + mol.GetSMILES());
         }
 
         int nSK = m.getAtomCount();
@@ -650,7 +639,7 @@ public class EmbeddedDescriptors {
             // in the new mol the H are all added after the original atoms, so the first nSK atoms
             // and calculated VSA are the same both for the original mol and for the H-filled one
 
-            String curAtomType = PPP_TYPES[b-1][0];
+            String curAtomType = PPP_TYPES[b-1];
 
             for (int i = 0; i < nSKnoH; i++) {
 
@@ -662,11 +651,11 @@ public class EmbeddedDescriptors {
                 }
             }
 
-            if(curAtomType.equalsIgnoreCase(Cats2D.TYPE_D[0])){
+            if(curAtomType.equalsIgnoreCase("D")){
                 P_VSA_ppp_D = PVSA;
             }
 
-            if(curAtomType.equalsIgnoreCase(Cats2D.TYPE_L[0])){
+            if(curAtomType.equalsIgnoreCase("L")){
                 P_VSA_ppp_L = PVSA;
             }
 
@@ -964,7 +953,7 @@ public class EmbeddedDescriptors {
         try {
             curMol = mol.GetStructure();
         } catch (InvalidMoleculeException e) {
-            log.warn(StringSelectorDescriptors.getString("invalid_structure") + mol.GetSMILES());
+            log.warn("Invalid structure for: " + mol.GetSMILES());
         }
 
         // Gets matrices
@@ -1285,12 +1274,13 @@ public class EmbeddedDescriptors {
         return Descriptor.MISSING_VALUE;
     }
 
-    private final static String[][] PPP_TYPES = {
-            Cats2D.TYPE_D,
-            Cats2D.TYPE_A,
-            Cats2D.TYPE_P,
-            Cats2D.TYPE_N,
-            Cats2D.TYPE_L
+    private final static String[] PPP_TYPES = {
+            "D",
+            "A",
+            "P",
+            "N",
+            "L",
+            "Cyc"
     };
 
     private int Calculate_PRX() {
@@ -2200,6 +2190,169 @@ public class EmbeddedDescriptors {
         }
 
         return false;
+    }
+
+    /**
+     * Sets CATS 2D atom types for each atom, as a list of string containing
+     * all matching types for each atom.
+     **/
+    public ArrayList<String>[] setCatsAtomType(IAtomContainer m, double[][]ConnAugMatrix) {
+
+        int nSK = m.getAtomCount();
+        ArrayList[] AtomTypes = new ArrayList[nSK];
+
+        for (int i=0; i<nSK; i++) {
+
+            AtomTypes[i] = new ArrayList<>();
+            IAtom CurAt =  m.getAtom(i);
+
+            boolean tN=false, tP=false, tA=false, tD=false, tL=false, tCyc=false;
+
+            // Definition of CATS types
+            //
+            // A: O, N without H
+            // N: [+], NH2
+            // P: [-], COOH, POOH, SOOH
+
+            // Hydrogens
+            int H = 0;
+            try {
+                H = CurAt.getImplicitHydrogenCount();
+            } catch (Exception e) {
+                log.warn("Unable to count H");
+            }
+
+            // counters
+            int nSglBnd = 0, nOtherBnd = 0, VD = 0;
+            int nC = 0, nDblO = 0, nOtherNonOBond=0, nSglOH = 0;
+            for (int j=0; j<nSK; j++) {
+                if (j==i) continue;
+                if (ConnAugMatrix[i][j]>0) {
+
+                    VD++;
+
+                    if (ConnAugMatrix[j][j] == 6)
+                        nC++;
+
+                    if (ConnAugMatrix[i][j] == 1) {
+                        nSglBnd++;
+
+                        if (ConnAugMatrix[j][j] == 8) {
+                            int Obonds = 0;
+                            for (int k=0; k<nSK; k++) {
+                                if (k == j) continue;
+                                if (ConnAugMatrix[k][j]>0) Obonds++;
+                            }
+                            if (Obonds == 1) nSglOH++;
+                        }
+
+                    } else {
+                        nOtherBnd++;
+                        if ( (ConnAugMatrix[i][j] == 2) && (ConnAugMatrix[j][j] == 8) )
+                            nDblO++;
+                        else
+                            nOtherNonOBond++;
+                    }
+                }
+
+            }
+
+
+            // [+]
+            if (CurAt.getFormalCharge() > 0) {
+
+                boolean NpOm = false;
+                if (ConnAugMatrix[i][i] == 7) {
+                    for (int j=0; j<nSK; j++) {
+                        if (j==i) continue;
+                        if (ConnAugMatrix[i][j]==1) {
+                            if (ConnAugMatrix[j][j] == 8) {
+                                IAtom Oxy = m.getAtom(j);
+                                if (Oxy.getFormalCharge()!=0)
+                                    NpOm = true;
+                            }
+                        }
+                    }
+                }
+
+                if (!NpOm)
+                    tP = true;
+            }
+
+            // [-]
+            if (CurAt.getFormalCharge() < 0)
+                tN = true;
+
+            // O
+            if (CurAt.getSymbol().equalsIgnoreCase("O")) {
+                tA = true;
+
+                if ( (CurAt.getFormalCharge() == 0) && (H == 1))
+                    tD = true;
+
+            }
+
+            // N (NH2 and N without H)
+            if (CurAt.getSymbol().equalsIgnoreCase("N")) {
+
+                if ( (CurAt.getFormalCharge() == 0) &&
+                        (H == 2) &&
+                        (nSglBnd == 1) &&
+                        (nOtherBnd == 0) )
+                    tP = true;
+
+                if (H == 0)
+                    tA = true;
+
+                if  ( (H == 1) || (H ==2) )
+                    tD = true;
+
+            }
+
+            // COOH, POOH, SOOH
+            if ( ( (CurAt.getSymbol().equalsIgnoreCase("C")) ||
+                    (CurAt.getSymbol().equalsIgnoreCase("S")) ||
+                    (CurAt.getSymbol().equalsIgnoreCase("P")) ) &&
+                    (CurAt.getFormalCharge() == 0) )  {
+
+                if ( (nSglBnd == 2) && (nSglOH == 1) && (nDblO == 1) && (nOtherNonOBond == 0) )
+                    tN = true;
+            }
+
+            if (CurAt.getSymbol().equalsIgnoreCase("Cl"))
+                tL = true;
+
+            if (CurAt.getSymbol().equalsIgnoreCase("Br"))
+                tL = true;
+
+            if (CurAt.getSymbol().equalsIgnoreCase("I"))
+                tL = true;
+
+            if (CurAt.getSymbol().equalsIgnoreCase("C")) {
+                if ( VD == nC)
+                    tL = true;
+            }
+
+            if (CurAt.getSymbol().equalsIgnoreCase("S")) {
+                if ( (nC == 2) && ( (VD+H) == 2 ))
+                    tL = true;
+            }
+
+            if (CurAt.isInRing())
+                tCyc = true;
+
+
+            // Sets final types
+            if (tA) AtomTypes[i].add("A");
+            if (tN) AtomTypes[i].add("N");
+            if (tP) AtomTypes[i].add("P");
+            if (tD) AtomTypes[i].add("D");
+            if (tL) AtomTypes[i].add("L");
+            if (tCyc) AtomTypes[i].add("Cyc");
+
+        }
+
+        return AtomTypes;
     }
 
 
