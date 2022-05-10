@@ -119,7 +119,8 @@ public class SAGlucocorticoidReceptor {
     };
 
     private final static String[] SmartsSecondary_2_1 = {
-            "n1c(=O)[nH]c(c(Cc2ccccc2)c1=O)",
+            "O=C1NC=C(Cc2ccccc2)C(=O)N1",
+            // "n1c(=O)[nH]c(c(Cc2ccccc2)c1=O)",  this has been changed with the prev one, structure can not be aromatic
             "CC(C)(C(c1ccccc1))CN"
     };
 
@@ -141,7 +142,8 @@ public class SAGlucocorticoidReceptor {
 
     private final static String[] SmartsTertiary_1_1_2 = {
             "c1cccc(NS(=O)(=O)C)c1",
-            "O=c1[nH]c(=O)c(c([nH]1))C",
+            "CC1=CNC(=O)NC1=O",
+            // "O=c1[nH]c(=O)c(c([nH]1))C",  this has been changed with the prev one, structure can not be aromatic
             "C(Nc1ccc(cc1))c1cccc(F)c1"
     };
 
@@ -190,7 +192,8 @@ public class SAGlucocorticoidReceptor {
     };
 
     private final static String[] SmartsTertiary_2_1_1 = {
-            "n1c(=O)[nH]c(c(Cc2ccccc2)c1=O)",
+            "O=C1NC=C(Cc2ccccc2)C(=O)N1",
+//            "n1c(=O)[nH]c(c(Cc2ccccc2)c1=O)", this has been changed with the prev one, structure can not be aromatic
             "N1CCC2=CC(=O)CCC2(Cc2ccccc2)C1"
     };
 
@@ -531,10 +534,11 @@ public class SAGlucocorticoidReceptor {
                                                 found_tertiary_3_1_1_1 = true;
                                                 Matches = ACTIVE_AGONIST;
                                             }
-
-                                            if(found_tertiary_3_1_1_1)
-                                                break;
                                         }
+
+                                        if(found_tertiary_3_1_1_1)
+                                            break;
+
                                         if(!found_tertiary_3_1_1_1)
                                             Matches = ACTIVE_A_ANTA;
                                     }
@@ -561,10 +565,10 @@ public class SAGlucocorticoidReceptor {
                                                     found_tertiary_3_2_1_1 = true;
                                                     Matches = ACTIVE_A_ANTA;
                                                 }
-
-                                                if(found_tertiary_3_2_1_1)
-                                                    break;
                                             }
+
+                                            if(found_tertiary_3_2_1_1)
+                                                break;
 
                                             if(!found_tertiary_3_2_1_1)
                                                 Matches = ACTIVE_ANTAGONIST;
@@ -576,7 +580,7 @@ public class SAGlucocorticoidReceptor {
 
                                 boolean found_tertiary_3_3_1 = false;
                                 // search for tertiary 3_3_1
-                                if(!found_tertiary_3_2_1){
+                                if ( (!found_tertiary_3_1_1) && (!found_tertiary_3_2_1) ) {
                                     for (int k = 0; k < SA_SmartsTertiary_3_3_1.length; k++){
                                         if(SA_SmartsTertiary_3_1_1[k].matches(mol.GetStructure())){
                                             found_tertiary_3_3_1 = true;
@@ -587,7 +591,7 @@ public class SAGlucocorticoidReceptor {
                                     }
                                 }
 
-                                if(!found_tertiary_3_3_1)
+                                if ( (!found_tertiary_3_1_1) && (!found_tertiary_3_2_1) && (!found_tertiary_3_3_1) )
                                     Matches = ACTIVE_AGONIST;
                             }
                         }
