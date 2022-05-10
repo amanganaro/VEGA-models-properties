@@ -3,14 +3,12 @@ package insilico.ppara_up.descriptors;
 import Jama.EigenvalueDecomposition;
 import Jama.Matrix;
 import insilico.core.descriptor.Descriptor;
-import insilico.core.descriptor.DescriptorBlock;
-import insilico.core.exception.DescriptorNotFoundException;
+
 import insilico.core.exception.GenericFailureException;
 import insilico.core.exception.InvalidMoleculeException;
 import insilico.core.molecule.InsilicoMolecule;
 import insilico.core.molecule.conversion.SmilesMolecule;
-import insilico.descriptor.blocks.Cats2D;
-import insilico.descriptor.localization.StringSelectorDescriptors;
+
 import insilico.ppara_up.utils.MoleculePaths;
 import lombok.extern.slf4j.Slf4j;
 import org.openscience.cdk.interfaces.IAtom;
@@ -58,7 +56,7 @@ public class EmbeddedDescriptors {
         try {
             curMol = mol.GetStructure();
         } catch (InvalidMoleculeException e) {
-            log.warn(StringSelectorDescriptors.getString("invalid_structure") + mol.GetSMILES());
+            log.warn("Invalid structure for: " + mol.GetSMILES());
             return;
         }
 
@@ -84,7 +82,7 @@ public class EmbeddedDescriptors {
                 eigenvalues = ed.getRealEigenvalues();
                 Arrays.sort(eigenvalues);
             } catch (Throwable e) {
-                log.warn(StringSelectorDescriptors.getString("unable_eigenvalue") + e.getMessage());
+                log.warn("Unable to calculate eigenvalue: " + e.getMessage());
             }
 
             double MIN_EIG_VALUE = Math.pow(1.5, -45);
@@ -127,14 +125,7 @@ public class EmbeddedDescriptors {
     }
 
     private void CalculateCATS2D(InsilicoMolecule mol) {
-        DescriptorBlock block = new Cats2D();
-        try {
-            block.Calculate(mol);
-            CATS2D_07_NL = block.GetByName("CATS2D_07_NL").getValue();
-        } catch (DescriptorNotFoundException ex){
-            log.warn(ex.getMessage());
 
-        }
         String[] TYPE_N = { "N", ""};
         String[] TYPE_L = { "L", ""};
 
@@ -146,7 +137,7 @@ public class EmbeddedDescriptors {
         try {
             curMol = mol.GetStructure();
         } catch (InvalidMoleculeException e) {
-            log.warn(StringSelectorDescriptors.getString("invalid_structure") + mol.GetSMILES());
+            log.warn("Invalid structure for: " + mol.GetSMILES());
             return;
         }
 
@@ -260,7 +251,7 @@ public class EmbeddedDescriptors {
             try {
                 H = CurAt.getImplicitHydrogenCount();
             } catch (Exception e) {
-                log.warn(StringSelectorDescriptors.getString("unable_count_h"));
+                log.warn("Unable to count H");
             }
 
             // counters

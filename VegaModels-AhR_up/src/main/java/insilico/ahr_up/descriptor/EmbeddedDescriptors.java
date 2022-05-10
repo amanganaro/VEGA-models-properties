@@ -8,6 +8,7 @@ import insilico.core.descriptor.blocks.Constitutional;
 import insilico.core.descriptor.blocks.weights.basic.WeightsElectronegativity;
 import insilico.core.descriptor.blocks.weights.basic.WeightsIonizationPotential;
 import insilico.core.descriptor.blocks.weights.basic.WeightsMass;
+import insilico.core.descriptor.blocks.weights.basic.WeightsVanDerWaals;
 import insilico.core.descriptor.blocks.weights.iBasicWeight;
 import insilico.core.descriptor.blocks.weights.other.WeightsIState;
 import insilico.core.exception.DescriptorNotFoundException;
@@ -16,16 +17,10 @@ import insilico.core.exception.InvalidMoleculeException;
 import insilico.core.localization.StringSelectorCore;
 import insilico.core.molecule.InsilicoMolecule;
 import insilico.core.molecule.conversion.SmilesMolecule;
+import insilico.core.molecule.matrix.BurdenMatrix;
 import insilico.core.molecule.matrix.TopoDistanceMatrix;
 import insilico.core.molecule.tools.Manipulator;
-import insilico.descriptor.blocks.AutoCorrelation;
-import insilico.descriptor.blocks.BurdenEigenvalues;
-import insilico.descriptor.blocks.EdgeAdjacency;
-import insilico.descriptor.blocks.Matrices2D;
-import insilico.descriptor.localization.StringSelectorDescriptors;
-import javassist.runtime.Desc;
 import lombok.extern.slf4j.Slf4j;
-import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IAtomContainer;
 
 import java.io.BufferedReader;
@@ -108,13 +103,7 @@ public class EmbeddedDescriptors {
     }
 
     private void CalculateChiA(InsilicoMolecule mol) {
-        DescriptorBlock block = new Matrices2D();
-        try {
-            block.Calculate(mol);
-            ChiA_D = block.GetByName("ChiA_D").getValue();
-        } catch (DescriptorNotFoundException ex){
-            log.warn(ex.getMessage());
-        }
+
 
         // CHIA_D
 
@@ -123,7 +112,7 @@ public class EmbeddedDescriptors {
             try {
                 curMol = mol.GetStructure();
             } catch (InvalidMoleculeException e) {
-                log.warn(StringSelectorDescriptors.getString("invalid_structure") + mol.GetSMILES());
+                log.warn("Invalid structure for: " + mol.GetSMILES());
                 return;
             }
 
@@ -167,20 +156,14 @@ public class EmbeddedDescriptors {
     }
 
     private void CalculateSpMax(InsilicoMolecule mol) {
-        DescriptorBlock block = new Matrices2D();
-        try {
-            block.Calculate(mol);
-            SpMaxA_B_s = block.GetByName("SpMaxA_B(s)").getValue();
-        } catch (DescriptorNotFoundException ex){
-            log.warn(ex.getMessage());
-        }
+
 
         try {
             IAtomContainer curMol;
             try {
                 curMol = mol.GetStructure();
             } catch (InvalidMoleculeException e) {
-                log.warn(StringSelectorDescriptors.getString("invalid_structure") + mol.GetSMILES());
+                log.warn("Invalid strucuture for: " + mol.GetSMILES());
                 return;
             }
 
@@ -204,7 +187,7 @@ public class EmbeddedDescriptors {
                 eigenvalues = ed.getRealEigenvalues();
                 Arrays.sort(eigenvalues);
             } catch (Throwable e) {
-                log.warn(StringSelectorDescriptors.getString("unable_eigenvalue") + e.getMessage());
+                log.warn("Unable to calculate eigenvalue: " + e.getMessage());
                 return;
             }
 
@@ -226,26 +209,72 @@ public class EmbeddedDescriptors {
     }
 
     private void CalculateSpMin(InsilicoMolecule mol) {
-        DescriptorBlock block = new BurdenEigenvalues();
+
+        int MAXEIG = 8;
+
+        IAtomContainer m = null;
         try {
-            block.Calculate(mol);
-            SpMin3_Bh_v = block.GetByName("SpMin3_Bh(v)").getValue();
-        } catch (DescriptorNotFoundException ex){
-            log.warn(ex.getMessage());
+            IAtomContainer orig_m = mol.GetStructure();
+            m = Manipulator.AddHydrogens(orig_m);
+        } catch (InvalidMoleculeException | GenericFailureException e) {
+            log.warn("Invalid structure for: " + mol.GetSMILES());
+            SpMin3_Bh_v = MISSING_VALUE;
         }
+
+        double[][] BurdenMat;
+        try {
+            BurdenMat = BurdenMatrix.getMatrix(m);
+        } catch (Exception e) {
+            log.warn(e.getMessage());
+            SpMin3_Bh_v = MISSING_VALUE;
+            return;
+        }
+
+        int nSK = m.getAtomCount();
+        WeightsVanDerWaals curWeight = new WeightsVanDerWaals();
+        double[] w = curWeight.getScaledWeights(m);
+        boolean MissingWeight = false;
+        for (int i=0; i<nSK; i++)
+            if (w[i] == Descriptor.MISSING_VALUE)
+                MissingWeight = true;
+//        if (MissingWeight)
+//            continue;
+
+        // Builds the weighted matrix
+        for (int i=0; i<nSK; i++) {
+            BurdenMat[i][i] = w[i];
+        }
+
+        // Calculates eigenvalues
+        Matrix DataMatrix = new Matrix(BurdenMat);
+        double[] eigenvalues;
+        EigenvalueDecomposition ed = new EigenvalueDecomposition(DataMatrix);
+        eigenvalues = ed.getRealEigenvalues();
+        Arrays.sort(eigenvalues);
+
+        for (int i=0; i<MAXEIG; i++) {
+            double valH, valL;
+            if (i>(eigenvalues.length-1)) {
+                valH = 0;
+                valL = 0;
+            } else {
+                if (eigenvalues[eigenvalues.length-1-i] > 0)
+                    valH = eigenvalues[eigenvalues.length-1-i];
+                else
+                    valH = 0;
+                if (eigenvalues[i] < 0)
+                    valL = Math.abs(eigenvalues[i]);
+                else
+                    valL = 0;
+            }
+            if(i == 2)
+                SpMin3_Bh_v = valL;
+        }
+
     }
 
     private void CalculateATS(InsilicoMolecule mol) {
 
-        DescriptorBlock block = new AutoCorrelation();
-        try {
-            block.Calculate(mol);
-            ATS7s = block.GetByName("ATS7s").getValue();
-            ATSC5m = block.GetByName("ATSC5m").getValue();
-            ATSC7e = block.GetByName("ATSC7e").getValue();
-        } catch (DescriptorNotFoundException ex){
-            log.warn(ex.getMessage());
-        }
 
         // s
         IAtomContainer m;
@@ -253,7 +282,7 @@ public class EmbeddedDescriptors {
             IAtomContainer orig_m = mol.GetStructure();
             m = Manipulator.AddHydrogens(orig_m);
         } catch (InvalidMoleculeException | GenericFailureException e) {
-            log.warn(StringSelectorDescriptors.getString("invalid_structure") + mol.GetSMILES());
+            log.warn("Invalid structure for: " + mol.GetSMILES());
             return;
         }
 

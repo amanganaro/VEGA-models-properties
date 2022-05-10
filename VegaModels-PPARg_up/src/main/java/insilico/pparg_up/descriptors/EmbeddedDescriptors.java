@@ -21,8 +21,6 @@ import insilico.core.molecule.tools.InsilicoMoleculeNormalization;
 import insilico.core.molecule.tools.Manipulator;
 import insilico.core.tools.utils.MoleculeUtilities;
 
-import insilico.descriptor.blocks.Cats2D;
-import insilico.descriptor.localization.StringSelectorDescriptors;
 import lombok.extern.slf4j.Slf4j;
 import org.openscience.cdk.CDKConstants;
 import org.openscience.cdk.RingSet;
@@ -117,7 +115,7 @@ public class EmbeddedDescriptors {
         try {
             curMol = mol.GetStructure();
         } catch (InvalidMoleculeException e) {
-            log.warn(StringSelectorDescriptors.getString("invalid_structure") + mol.GetSMILES());
+            log.warn("Invalid structure for structure: " + mol.GetSMILES());
             return;
         }
 
@@ -186,15 +184,10 @@ public class EmbeddedDescriptors {
             curMolNoH = mol.GetStructure();
             ConnAugMatrixNoH = mol.GetMatrixConnectionAugmented();
         } catch (Exception e) {
-            log.warn(StringSelectorDescriptors.getString("invalid_structure") + mol.GetSMILES());
+            log.warn("Invalid structure for: " + mol.GetSMILES());
             return;
         }
-
-        int nSKnoH = curMolNoH.getAtomCount();
-
-        Cats2D cats = new Cats2D();
-        ArrayList<String>[] AtomTypesOnMolWithoutH = cats.setCatsAtomType(curMolNoH, ConnAugMatrixNoH);
-
+        
 
         // P_VSA are calculated on H filled molecules
         IAtomContainer m;
@@ -202,7 +195,7 @@ public class EmbeddedDescriptors {
             IAtomContainer orig_m = mol.GetStructure();
             m = Manipulator.AddHydrogens(orig_m);
         } catch (InvalidMoleculeException | GenericFailureException e) {
-            log.warn(StringSelectorDescriptors.getString("invalid_structure") + mol.GetSMILES());
+            log.warn("Invalid structure for: " + mol.GetSMILES());
             return;
         }
 
@@ -313,7 +306,7 @@ public class EmbeddedDescriptors {
         try {
             curMol = mol.GetStructure();
         } catch (InvalidMoleculeException e) {
-            log.warn(StringSelectorDescriptors.getString("invalid_structure") + mol.GetSMILES());
+            log.warn("Invalid structure for: " + mol.GetSMILES());
             return;
         }
 
@@ -443,7 +436,7 @@ public class EmbeddedDescriptors {
                 IAtomContainer orig_m = mol.GetStructure();
                 m = Manipulator.AddHydrogens(orig_m);
             } catch (InvalidMoleculeException | GenericFailureException e) {
-                log.warn(StringSelectorDescriptors.getString("invalid_structure") + mol.GetSMILES());
+                log.warn("Invalid structure for: " + mol.GetSMILES());
                 return;
             }
 
@@ -678,7 +671,7 @@ public class EmbeddedDescriptors {
             IAtomContainer orig_m = mol.GetStructure();
             m = Manipulator.AddHydrogens(orig_m);
         } catch (InvalidMoleculeException | GenericFailureException e) {
-            log.warn(StringSelectorDescriptors.getString("invalid_structure") + mol.GetSMILES());
+            log.warn("Invalid structure for: " + mol.GetSMILES());
             return;
         }
 
@@ -745,7 +738,7 @@ public class EmbeddedDescriptors {
                 IAtomContainer orig_m = mol.GetStructure();
                 m = Manipulator.AddHydrogens(orig_m);
             } catch (InvalidMoleculeException | GenericFailureException e) {
-                log.warn(StringSelectorDescriptors.getString("invalid_structure") + mol.GetSMILES());
+                log.warn("Invalid structure for: " + mol.GetSMILES());
                 return;
             }
 
@@ -1293,7 +1286,7 @@ public class EmbeddedDescriptors {
             IAtomContainer orig_m = mol.GetStructure();
             m = Manipulator.AddHydrogens(orig_m);
         } catch (InvalidMoleculeException | GenericFailureException e) {
-            log.warn(StringSelectorDescriptors.getString("invalid_structure") + mol.GetSMILES());
+            log.warn("Invalid structure for: " + mol.GetSMILES());
         }
 
         int nSK = m.getAtomCount();
@@ -1396,7 +1389,7 @@ public class EmbeddedDescriptors {
             try {
                 curMol = mol.GetStructure();
             } catch (InvalidMoleculeException e) {
-                log.warn(StringSelectorDescriptors.getString("invalid_structure") + mol.GetSMILES());
+                log.warn("Invalid structure for: " + mol.GetSMILES());
                 return;
             }
 
@@ -2500,7 +2493,7 @@ public class EmbeddedDescriptors {
             try {
                 H = CurAt.getImplicitHydrogenCount();
             } catch (Exception e) {
-                log.warn(StringSelectorDescriptors.getString("unable_count_h"));
+                log.warn("Unable to count H");
             }
 
             // counters
@@ -2639,11 +2632,11 @@ public class EmbeddedDescriptors {
         return false;
     }
 
-    public final static String[] TYPE_D = { "D", StringSelectorDescriptors.getString("cats_2d_donor")} ;
-    public final static String[] TYPE_A = { "A", StringSelectorDescriptors.getString("cats_2s_acceptor")};
-    public final static String[] TYPE_P = { "P", StringSelectorDescriptors.getString("cats_2d_positive")};
-    public final static String[] TYPE_N = { "N", StringSelectorDescriptors.getString("cats_2d_negative")};
-    public final static String[] TYPE_L = { "L", StringSelectorDescriptors.getString("cats_2d_lipophilic")};
+    public final static String[] TYPE_D = { "D", ""};
+    public final static String[] TYPE_A = { "A", ""};
+    public final static String[] TYPE_P = { "P", ""};
+    public final static String[] TYPE_N = { "N", ""};
+    public final static String[] TYPE_L = { "L", ""};
 
     private final static String[][][] AtomCouplesAL = {
             {TYPE_A, TYPE_L},
