@@ -1,9 +1,9 @@
 <xml>
    
     <Version>
-        <Name>Glucocorticoid Receptor (Oberon)</Name>
+        <Name>Glucocorticoid Receptor (OBERON)</Name>
         <Key>GLUCO_RECEPTOR</Key>
-        <Summary>Glucocorticoid Receptor based on smarts</Summary>
+        <Summary>Glucocorticoid Receptor classification model, developed within the OBERON project</Summary>
         <Version>1.0.0</Version>
     </Version>
     

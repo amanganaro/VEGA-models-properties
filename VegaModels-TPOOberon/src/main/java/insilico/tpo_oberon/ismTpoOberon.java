@@ -14,11 +14,12 @@ public class ismTpoOberon extends InsilicoModel {
     private static final long serialVersionUID = 1L;
     private static final String ModelData = "/data/model_tpo_oberon.xml";
 
-//    public boolean SkipExperimental = false;
-
+    private  KnnAlgorithm knn;
 
     public ismTpoOberon() throws InitFailureException {
         super(ModelData);
+
+        knn = null;
 
         this.DescriptorsSize = 20;
         DescriptorsNames = new String[DescriptorsSize];
@@ -88,10 +89,18 @@ public class ismTpoOberon extends InsilicoModel {
     @Override
     protected short CalculateModel() {
 
+        if (knn == null) {
+            try {
+                knn = new KnnAlgorithm(this, this.KnnSkipExperimental);
+                knn.setkNeighbours(5);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return MODEL_ERROR;
+            }
+        }
+
         try {
-            KnnAlgorithm knn = new KnnAlgorithm(CurMolecule, Descriptors, this.TS, this.KnnSkipExperimental);
-            knn.setkNeighbours(5);
-            int prediction = knn.calculatePrediction();
+            int prediction = knn.calculatePrediction(CurMolecule, Descriptors);
 
             CurOutput.setMainResultValue(prediction);
 
