@@ -19,15 +19,16 @@ public class mainScriptGlucocorticoidReceptor {
 
     public static void main (String[] args) throws InitFailureException, MalformedURLException, FileNotFoundException, GenericFailureException {
         InsilicoModel model = new ismGlucocorticoidReceptor();
-        ModelsDeployment.TestModelWithTrainingSet(model, model.getInfo().getName() + " - New");
-//        ModelsDeployment.BuildDataset(model, "out_ts");
-//        File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
-//        File destinationFile = new File("VegaModels-GlucocorticoidReceptor\\src\\main\\resources\\data\\ts_glucocorticoid_receptor.dat");
-//        try {
-//            Files.move(sourceFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-//        } catch (Exception ex ) {
-//            log.warn(ex.getMessage());
-//        }
+//        ModelsDeployment.TestModelWithTrainingSet(model, model.getInfo().getName() + " - New");
+
+        ModelsDeployment.BuildDataset(model, "out_ts");
+        File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
+        File destinationFile = new File("VegaModels-GlucocorticoidReceptor\\src\\main\\resources\\data\\ts_glucocorticoid_receptor.dat");
+        try {
+            Files.move(sourceFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+        } catch (Exception ex ) {
+            log.warn(ex.getMessage());
+        }
 
 //        SAGlucocorticoidReceptor saGlucocorticoidReceptor = new SAGlucocorticoidReceptor();
 //        SmilesMolecule.EXCLUDE_DISCONNECTED_STRUCTURES = false;

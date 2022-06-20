@@ -1,9 +1,9 @@
 <xml>
    
     <Version>
-        <Name>TPO OBERON</Name>
+        <Name>Thyroperoxidase Inhibitory Activity (OBERON)</Name>
         <Key>TPO_OBERON</Key>
-        <Summary>Description of TPO OBERON</Summary>
+        <Summary>Thyroperoxidase Inhibitory Activity (TPO) classification model based on a KNN approach, developed within the OBERON project</Summary>
         <Version>1.0.1</Version>
     </Version>
     

@@ -10,10 +10,10 @@ public class DatasetElement {
     private InsilicoMolecule inputMolecule;
     private double[] descriptors;
     private int experimentalValue;
-    private short status;
+    private int status;
 
 
-    public DatasetElement(InsilicoMolecule inputMolecule, double[] descriptors, int experimentalValue, short status) {
+    public DatasetElement(InsilicoMolecule inputMolecule, double[] descriptors, int experimentalValue, int status) {
         this.inputMolecule = inputMolecule;
         this.descriptors = descriptors;
         this.experimentalValue = experimentalValue;
@@ -51,7 +51,7 @@ public class DatasetElement {
         this.experimentalValue = experimentalValue;
     }
 
-    public short getStatus() {
+    public int getStatus() {
         return status;
     }
 
