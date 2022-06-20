@@ -13,11 +13,11 @@ import insilico.core.coral.models.biocides.daphniamagna.OptimizedCoralDaphnia;
 import insilico.core.descriptor.DescriptorBlock;
 import insilico.core.descriptor.DescriptorsEngine;
 //import insilico.core.descriptor.blocks.old.Constitutional;
+import insilico.core.descriptor.blocks.Constitutional;
 import insilico.core.exception.InitFailureException;
 import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
 import insilico.core.tools.utils.ModelUtilities;
-import insilico.daphnia_combase.descriptors.Constitutional;
 
 import java.util.ArrayList;
 

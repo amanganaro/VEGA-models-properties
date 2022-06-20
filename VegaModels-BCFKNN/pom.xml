@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-BCFKNN</artifactId>
-    <version>1.1.1</version>
+    <version>1.1.2</version>
 
     <name>BCF model (KNN/Read-Across)</name>
     <description>

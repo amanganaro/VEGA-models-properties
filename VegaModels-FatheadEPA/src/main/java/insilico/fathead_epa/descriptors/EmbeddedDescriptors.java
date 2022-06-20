@@ -4,6 +4,8 @@ import Jama.EigenvalueDecomposition;
 import Jama.Matrix;
 import insilico.core.descriptor.Descriptor;
 import insilico.core.descriptor.DescriptorBlock;
+import insilico.core.descriptor.blocks.Constitutional;
+import insilico.core.exception.DescriptorNotFoundException;
 import insilico.core.exception.GenericFailureException;
 import insilico.core.exception.InvalidMoleculeException;
 import insilico.core.molecule.InsilicoMolecule;
@@ -262,92 +264,19 @@ public class EmbeddedDescriptors {
     }
 
     private void CalculateConstitutional(InsilicoMolecule Mol) {
-        MW = 0; nDblBo = 0; nS = 0;
 
-        IAtomContainer curMol;
-        try {
-            curMol = Mol.GetStructure();
-        } catch (InvalidMoleculeException e) {
-            MW = MISSING_VALUE; nDblBo = MISSING_VALUE; nS = MISSING_VALUE;
-            return;
-        }
+        DescriptorBlock block = new Constitutional();
+        block.Calculate(Mol);
 
         try {
-
-            int nSK = curMol.getAtomCount();
-            int nBO = curMol.getBondCount();
-            int[] H = new int[nSK];
-
-            //// Counts on atoms
-
-            for (int i=0; i<nSK; i++) {
-
-                IAtom CurAt = curMol.getAtom(i);
-
-                if (CurAt.getSymbol().equalsIgnoreCase("S"))
-                    nS++;
-            }
-
-            this.setNS(nS);
-
-
-            int nArBonds=0, nDblBonds=0, nTrpBonds=0, nMulBonds=0;
-            double scbo=0;
-
-            for (int i=0; i<nBO; i++) {
-
-                IBond CurBo = curMol.getBond(i);
-
-                if (CurBo.getFlag(CDKConstants.ISAROMATIC)) {
-                    nArBonds++;
-                    nMulBonds++;
-                    scbo += 1.5;
-                } else {
-                    if (CurBo.getOrder() == IBond.Order.SINGLE) {
-                        scbo++;
-                    } else {
-                        nMulBonds++;
-                        if (CurBo.getOrder() == IBond.Order.DOUBLE) {
-                            nDblBonds++;
-                            scbo += 2;
-                        }
-                        if (CurBo.getOrder() == IBond.Order.TRIPLE) {
-                            nTrpBonds++;
-                            scbo += 3;
-                        }
-                    }
-                }
-
-            }
-
-
-            this.setNDblBo(nDblBonds);
-
-
-            // Weights sums
-            double[] wMass = Mass.getWeights(curMol);
-            double HMass = Mass.GetMass("H");
-
-            for (int i=0; i<nSK; i++) {
-                if (wMass[i] == -999)
-                    MW = -999;
-            }
-
-            for (int i=0; i<nSK; i++) {
-                if (MW != -999) {
-                    MW += wMass[i];
-                    if (H[i]>0) {
-                        MW += HMass * H[i];
-                    }
-                }
-
-            }
-
-            this.setMW(MW);
-
-        } catch (Throwable e) {
+            MW = block.GetByName("MW").getValue();
+            nDblBo = block.GetByName("nDB").getValue();
+            nS = block.GetByName("nS").getValue();
+        } catch (DescriptorNotFoundException ex){
+            log.warn(ex.getMessage());
             MW = MISSING_VALUE; nDblBo = MISSING_VALUE; nS = MISSING_VALUE;
         }
+
     }
 
     private void CalculateBE(InsilicoMolecule Mol){

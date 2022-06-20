@@ -20,6 +20,7 @@ import insilico.core.descriptor.blocks.*;
 import insilico.core.exception.InitFailureException;
 import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
+import insilico.core.model.trainingset.TrainingSet;
 import insilico.core.tools.utils.ModelUtilities;
 import lombok.extern.slf4j.Slf4j;
 
@@ -250,4 +251,17 @@ public class ismBCFCaesar extends InsilicoModel {
         }
         
     }
+
+    @Override
+    public void ProcessTrainingSet() throws Exception {
+        this.setSkipADandTSLoading(false);
+        TrainingSet TSK = new TrainingSet();
+        String TSPath = this.getInfo().getTrainingSetURL();
+        String[] buf = TSPath.split("/");
+        String DatName = buf[buf.length-1];
+        TSPath = TSPath.substring(0, TSPath.length()-3) + "txt";
+        TSK.Build(TSPath, this, false, true);
+        TSK.SerializeToFile(DatName);
+    }
+
 }

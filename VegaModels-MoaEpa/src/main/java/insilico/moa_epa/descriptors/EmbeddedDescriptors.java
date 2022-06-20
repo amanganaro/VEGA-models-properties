@@ -83,11 +83,7 @@ public class EmbeddedDescriptors {
             int nBO = curMol.getBondCount();
             int[] H = new int[nSK];
 
-            int nTotH=0;
-            int nC=0, nN=0, nO=0, nP=0, nS=0;
-            int nI=0, nF=0, nCl=0, nBr=0, nB=0;
-            int nHet=0;
-            double mw=0, amw=0, sv=0, mv=0, sp=0, mp=0, se=0, me=0;
+            int nI=0, nF=0, nCl=0, nBr=0;
 
 
             //// Counts on atoms
@@ -101,22 +97,9 @@ public class EmbeddedDescriptors {
                 try {
                     H[i] = CurAt.getImplicitHydrogenCount();
                 } catch (Exception e) { }
-                nTotH += H[i];
 
 
-                if (CurAt.getSymbol().equalsIgnoreCase("C"))
-                    nC++;
-                else
-                    nHet++;
 
-                if (CurAt.getSymbol().equalsIgnoreCase("N"))
-                    nN++;
-                if (CurAt.getSymbol().equalsIgnoreCase("O"))
-                    nO++;
-                if (CurAt.getSymbol().equalsIgnoreCase("P"))
-                    nP++;
-                if (CurAt.getSymbol().equalsIgnoreCase("S"))
-                    nS++;
                 if (CurAt.getSymbol().equalsIgnoreCase("F"))
                     nF++;
                 if (CurAt.getSymbol().equalsIgnoreCase("Cl"))
@@ -125,8 +108,7 @@ public class EmbeddedDescriptors {
                     nBr++;
                 if (CurAt.getSymbol().equalsIgnoreCase("I"))
                     nI++;
-                if (CurAt.getSymbol().equalsIgnoreCase("B"))
-                    nB++;
+
 
             }
 

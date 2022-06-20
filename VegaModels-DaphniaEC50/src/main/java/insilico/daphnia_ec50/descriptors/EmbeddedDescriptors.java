@@ -365,10 +365,7 @@ public class EmbeddedDescriptors {
             int[] H = new int[nSK];
 
             int nTotH=0;
-            int nC=0, nN=0, nO=0, nP=0, nS=0;
-            int nI=0, nF=0, nCl=0, nBr=0, nB=0;
-            int nHet=0;
-            double mw=0, amw=0, sv=0, mv=0, sp=0, mp=0, se=0, me=0;
+            double sv=0, sp=0, se=0;
 
 
             //// Counts on atoms
@@ -388,63 +385,13 @@ public class EmbeddedDescriptors {
                 nTotH += H[i];
 
 
-                if (CurAt.getSymbol().equalsIgnoreCase("C"))
-                    nC++;
-                else
-                    nHet++;
-
-                if (CurAt.getSymbol().equalsIgnoreCase("N"))
-                    nN++;
-                if (CurAt.getSymbol().equalsIgnoreCase("O"))
-                    nO++;
-                if (CurAt.getSymbol().equalsIgnoreCase("P"))
-                    nP++;
-                if (CurAt.getSymbol().equalsIgnoreCase("S"))
-                    nS++;
-                if (CurAt.getSymbol().equalsIgnoreCase("F"))
-                    nF++;
-                if (CurAt.getSymbol().equalsIgnoreCase("Cl"))
-                    nCl++;
-                if (CurAt.getSymbol().equalsIgnoreCase("Br"))
-                    nBr++;
-                if (CurAt.getSymbol().equalsIgnoreCase("I"))
-                    nI++;
-                if (CurAt.getSymbol().equalsIgnoreCase("B"))
-                    nB++;
 
             }
 
 
-            //// Counts on bonds
 
-            int nArBonds=0, nDblBonds=0, nTrpBonds=0, nMulBonds=0;
-            double scbo=0;
 
-            for (int i=0; i<nBO; i++) {
-
-                IBond CurBo = curMol.getBond(i);
-
-                if (CurBo.getFlag(CDKConstants.ISAROMATIC)) {
-                    nArBonds++;
-                    nMulBonds++;
-                    scbo += 1.5;
-                } else {
-                    if (CurBo.getOrder() == IBond.Order.SINGLE) {
-                        scbo++;
-                    } else {
-                        nMulBonds++;
-                        if (CurBo.getOrder() == IBond.Order.DOUBLE) {
-                            nDblBonds++;
-                            scbo += 2;
-                        }
-                        if (CurBo.getOrder() == IBond.Order.TRIPLE) {
-                            nTrpBonds++;
-                            scbo += 3;
-                        }
-                    }
-                }
-
-            }
+//
 
 
             // Weights sums
@@ -460,7 +407,7 @@ public class EmbeddedDescriptors {
 
             for (int i=0; i<nSK; i++) {
                 if (wMass[i] == -999)
-                    mw = -999;
+                    Mw = -999;
                 if (wVdW[i] == -999)
                     sv = -999;
                 if (wPol[i] == -999)
@@ -470,8 +417,8 @@ public class EmbeddedDescriptors {
             }
 
             for (int i=0; i<nSK; i++) {
-                if (mw != -999) {
-                    mw += wMass[i];
+                if (Mw != -999) {
+                    Mw += wMass[i];
                     if (H[i]>0) {
                         Mw += HMass * H[i];
                     }
@@ -493,12 +440,6 @@ public class EmbeddedDescriptors {
                 }
             }
 
-            if (mw != -999)
-                amw = mw/(nSK + nTotH);
-            if (sv != -999)
-                mv = sv/(nSK + nTotH);
-            if (sp != -999)
-                mp = sp/(nSK + nTotH);
             if (se != -999)
                 Me = se/(nSK + nTotH);
 

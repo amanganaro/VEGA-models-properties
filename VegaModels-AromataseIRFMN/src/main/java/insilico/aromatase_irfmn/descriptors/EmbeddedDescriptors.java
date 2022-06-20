@@ -185,7 +185,6 @@ public class EmbeddedDescriptors {
                 if (i == 1)
                     F02C_N = descF[i];
 
-
         }
     }
 

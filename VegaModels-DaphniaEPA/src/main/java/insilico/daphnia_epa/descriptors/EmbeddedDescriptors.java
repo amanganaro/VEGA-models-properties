@@ -4,6 +4,8 @@ import Jama.EigenvalueDecomposition;
 import Jama.Matrix;
 import insilico.core.descriptor.Descriptor;
 import insilico.core.descriptor.DescriptorBlock;
+import insilico.core.descriptor.blocks.AtomCenteredFragments;
+import insilico.core.descriptor.blocks.Constitutional;
 import insilico.core.exception.GenericFailureException;
 import insilico.core.exception.InvalidMoleculeException;
 import insilico.core.molecule.InsilicoMolecule;
@@ -63,7 +65,7 @@ public class EmbeddedDescriptors {
         }
 
         // Retrieves or calculates ACF
-        DescriptorBlock CurACF = new ACF();
+        DescriptorBlock CurACF = new AtomCenteredFragments();
         CurACF.Calculate(Mol);
 
 
