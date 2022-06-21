@@ -28,8 +28,9 @@ import insilico.core.molecule.tools.Manipulator;
 import insilico.core.tools.utils.MoleculeUtilities;
 //import insilico.descriptor.blocks.*;
 
-import insilico.descriptor.blocks.logP.weights.GCWeights;
+//import insilico.descriptor.blocks.logP.weights.GCWeights;
 import insilico.logk.descriptors.weights.GCAtomCentredFragments;
+import insilico.logk.descriptors.weights.GCWeights;
 import insilico.logk.descriptors.weights.MoleculePaths;
 import lombok.extern.slf4j.Slf4j;
 import org.openscience.cdk.CDKConstants;
