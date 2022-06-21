@@ -26,13 +26,11 @@ import insilico.core.molecule.matrix.BurdenMatrix;
 import insilico.core.molecule.matrix.TopoDistanceMatrix;
 import insilico.core.molecule.tools.Manipulator;
 import insilico.core.tools.utils.MoleculeUtilities;
-import insilico.descriptor.blocks.*;
-import insilico.descriptor.blocks.logP.ALogP;
-import insilico.descriptor.blocks.logP.MLogP;
-import insilico.descriptor.blocks.logP.weights.GCAtomCentredFragments;
+//import insilico.descriptor.blocks.*;
+
 import insilico.descriptor.blocks.logP.weights.GCWeights;
-import insilico.descriptor.blocks.utils.MoleculePaths;
-import insilico.descriptor.localization.StringSelectorDescriptors;
+import insilico.logk.descriptors.weights.GCAtomCentredFragments;
+import insilico.logk.descriptors.weights.MoleculePaths;
 import lombok.extern.slf4j.Slf4j;
 import org.openscience.cdk.CDKConstants;
 import org.openscience.cdk.RingSet;
@@ -166,6 +164,7 @@ public class EmbeddedDescriptors {
 
     private void CalculateJDDT(InsilicoMolecule mol) {
 
+
         IAtomContainer curMol;
         try {
             curMol = mol.GetStructure();
@@ -174,7 +173,6 @@ public class EmbeddedDescriptors {
             J_D_DT = MISSING_VALUE;
             return;
         }
-
         // Adj matrix available for calculations
         int[][] AdjMatrix = null;
         try {
@@ -405,14 +403,6 @@ public class EmbeddedDescriptors {
     }
 
     private void CalculateSP(InsilicoMolecule mol) {
-        BurdenEigenvalues block = new BurdenEigenvalues();
-
-        try {
-            block.Calculate(mol);
-            SpMax2_Bh_P = block.GetByName("SpMax2_Bh(p)").getValue();
-        } catch (DescriptorNotFoundException ex){
-            log.warn(ex.getMessage());
-        }
 
         // Burden matrix is calculated on H-filled molecules
         IAtomContainer m;
@@ -785,14 +775,6 @@ public class EmbeddedDescriptors {
     }
 
     private void CalculateEtaBeta(InsilicoMolecule mol) {
-        DescriptorBlock block = new EtaIndices();
-
-        try {
-            block.Calculate(mol);
-            Eta_betaP = block.GetByName("Eta_betaP").getValue();
-        } catch (DescriptorNotFoundException ex){
-            log.warn(ex.getMessage());
-        }
 
         IAtomContainer curMol;
         try {
@@ -1013,15 +995,7 @@ public class EmbeddedDescriptors {
 
 
     private void CalculateP_VSA(InsilicoMolecule mol) {
-        DescriptorBlock block = new P_VSA();
-
-        try {
-            block.Calculate(mol);
-            P_VSA_p_3 = block.GetByName("P_VSA_p_3").getValue();
-            P_VSA_i_2 = block.GetByName("P_VSA_i_2").getValue();
-        } catch (DescriptorNotFoundException ex){
-            log.warn(ex.getMessage());
-        }
+//        DescriptorBlock block = new P_VSA();
 
         String[][] PPP_TYPES = {
                 {"D",""},
@@ -1047,8 +1021,7 @@ public class EmbeddedDescriptors {
 
         int nSKnoH = curMolNoH.getAtomCount();
 
-        Cats2D cats = new Cats2D();
-        ArrayList<String>[] AtomTypesOnMolWithoutH = cats.setCatsAtomType(curMolNoH, ConnAugMatrixNoH);
+        ArrayList<String>[] AtomTypesOnMolWithoutH = setCatsAtomType(curMolNoH, ConnAugMatrixNoH);
 
 
         // P_VSA are calculated on H filled molecules
@@ -1175,21 +1148,6 @@ public class EmbeddedDescriptors {
     }
 
     private void CalculateLogP(InsilicoMolecule mol) {
-        DescriptorBlock block = new MLogP();
-        try {
-            block.Calculate(mol);
-            MLogP = block.GetByName("MLogP").getValue();
-        } catch (DescriptorNotFoundException ex) {
-            log.warn(ex.getMessage());
-        }
-
-        block = new ALogP();
-        try {
-            block.Calculate(mol);
-            ALogP = block.GetByName("ALogP").getValue();
-        } catch (DescriptorNotFoundException ex) {
-            log.warn(ex.getMessage());
-        }
 
         IAtomContainer m;
         try {
@@ -1488,7 +1446,7 @@ public class EmbeddedDescriptors {
             try {
                 H = CurAt.getImplicitHydrogenCount();
             } catch (Exception e) {
-                log.warn(StringSelectorDescriptors.getString("unable_count_h"));
+                log.warn("unable to count H");
             }
 
             // counters

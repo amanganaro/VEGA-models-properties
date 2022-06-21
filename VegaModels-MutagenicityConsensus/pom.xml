@@ -17,16 +17,7 @@
         Mutagenicity (Ames test) Consensus model based on the predictions of VEGA mutagenicity models    </description>
 
     <dependencies>
-<!--        <dependency>-->
-<!--            <groupId>InSilico</groupId>-->
-<!--            <artifactId>VegaModels-All</artifactId>-->
-<!--            <version>0.1.1</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>InSilico</groupId>-->
-<!--            <artifactId>VegaModels</artifactId>-->
-<!--            <version>0.1</version>-->
-<!--        </dependency>-->
+
         <dependency>
             <groupId>InSilico</groupId>
             <artifactId>VegaModels-MutagenicityBB</artifactId>

@@ -27,13 +27,6 @@
             <version>0.1</version>
         </dependency>
 
-        <dependency>
-            <groupId>InSilico</groupId>
-            <artifactId>Descriptors</artifactId>
-            <version>1.2</version>
-        </dependency>
-
-
     </dependencies>
 
 

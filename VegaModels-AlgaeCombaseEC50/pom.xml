@@ -27,13 +27,13 @@
         <dependency>
             <groupId>InSilico</groupId>
             <artifactId>ProtoQSAR</artifactId>
-            <version>0.2</version>
+            <version>0.3</version>
         </dependency>
 
         <dependency>
             <groupId>InSilico</groupId>
             <artifactId>VegaModels-AlgaeCombaseClass</artifactId>
-            <version>0.2.1</version>
+            <version>1.0.1</version>
         </dependency>
 
 
