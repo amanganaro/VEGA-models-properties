@@ -38,15 +38,15 @@
 <!--        </dependency>-->
 
         <dependency>
-            <groupId>InSilico</groupId>
+            <groupId>Insilico</groupId>
             <artifactId>PadelFullLib</artifactId>
-            <version>1.0.0</version>
+            <version>1.1</version>
         </dependency>
 
         <dependency>
             <groupId>InSilico</groupId>
             <artifactId>PadelAdapter</artifactId>
-            <version>0.2</version>
+            <version>0.3</version>
         </dependency>
 
     </dependencies>
