@@ -53,79 +53,7 @@ public class ModelsDeployment {
 
     }
 
-    public static void PrintDescriptor(InsilicoModel model, String filename) throws FileNotFoundException {
-        List<String> smilesList = new ArrayList<>();
 
-
-        String datasetUrl = model.getInfo().getTrainingSetURL().split("\\.")[0] + ".txt";
-        URL url = ModelsDeployment.class.getResource(datasetUrl);
-
-        String line;
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())))){
-            br.readLine();
-            while ((line = br.readLine()) != null) {
-                smilesList.add(line.split("\t")[2]);
-            }
-        } catch (IOException ex){
-            log.warn(ex.getMessage());
-        }
-
-
-        StringBuilder stringBuilder = new StringBuilder("#" + "\t" + "Smiles\t");
-        for(String descriptorName : model.getDescriptorsNames())
-            stringBuilder.append(descriptorName).append("\t");
-
-
-        PrintWriter printWriter = new PrintWriter(filename + ".csv");
-        printWriter.print(stringBuilder + "\n");
-        printWriter.flush();
-
-
-        for(int i = 0; i < smilesList.size(); i++){
-            try {
-                SmilesMolecule.EXCLUDE_DISCONNECTED_STRUCTURES = false;
-                EmbeddedDescriptors embeddedDescriptors = new EmbeddedDescriptors(SmilesMolecule.Convert(smilesList.get(i)));
-                System.out.println("# Printing descriptors for molecule #" + i + ": " + smilesList.get(i));
-                stringBuilder = new StringBuilder(i+1 + "\t" + smilesList.get(i));
-                for(double descriptor : embeddedDescriptors.descriptorsArray){
-                    stringBuilder.append("\t").append(descriptor);
-                }
-                printWriter.println(stringBuilder);
-                printWriter.flush();
-            } catch (DescriptorNotFoundException e) {
-                e.printStackTrace();
-            }
-        }
-
-        printWriter.flush();
-        printWriter.close();
-//        String line;
-//        try (BufferedReader br = new BufferedReader(new InputStreamReader(new DataInputStream(url.openStream())))){
-//            br.readLine();
-//            while ((line = br.readLine()) != null) {
-//                smilesList.add(line.split("\t")[2]);
-//            }
-//
-//            for(String smiles: smilesList){
-//                InsilicoModelOutput curOutput = model.Execute(SmilesMolecule.Convert(smiles));
-//                stringBuilder = new StringBuilder(smilesList.indexOf(smiles) + 1).append("\t").append(smiles);
-//                System.out.println("Printing Descriptors for #:" + (smilesList.indexOf(smiles) + 1) + " - " + model.getInfo().getKey() + " - " + smiles);
-//                for(int i = 0; i < model.getDescriptorsSize(); i++)
-//                    stringBuilder.append("\t").append(model.GetDescriptor(i));
-//
-//                printWriter.print(stringBuilder + "\n");
-//                printWriter.flush();
-//            }
-//
-//            printWriter.flush();
-//            printWriter.close();
-//
-//        } catch (GenericFailureException | IOException e) {
-//            log.warn(e.getClass() + ": " + e.getMessage());
-//        }
-
-
-    }
 
 
     public static void TestModelWithTrainingSet(InsilicoModel model, String csvFilename) throws MalformedURLException, FileNotFoundException, GenericFailureException {
