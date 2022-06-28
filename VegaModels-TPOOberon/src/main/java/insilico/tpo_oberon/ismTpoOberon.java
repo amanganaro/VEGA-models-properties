@@ -1,11 +1,17 @@
 package insilico.tpo_oberon;
 
+import insilico.core.ad.ADCheckACF;
+import insilico.core.ad.ADCheckDescriptorRange;
+import insilico.core.ad.ADCheckIndicesQualitative;
+import insilico.core.ad.item.*;
 import insilico.core.descriptor.DescriptorsEngine;
 import insilico.core.exception.GenericFailureException;
 import insilico.core.exception.InitFailureException;
 import insilico.core.exception.InvalidMoleculeException;
 import insilico.core.model.InsilicoModel;
+import insilico.core.model.InsilicoModelOutput;
 import insilico.core.model.trainingset.TrainingSet;
+import insilico.core.tools.utils.ModelUtilities;
 import insilico.tpo_oberon.descriptors.EmbeddedDescriptors;
 import insilico.tpo_oberon.knn.KnnAlgorithm;
 
@@ -117,11 +123,73 @@ public class ismTpoOberon extends InsilicoModel {
 
     @Override
     protected short CalculateAD() {
-        return 0;
+
+        // Calculates various AD indices
+        ADCheckIndicesQualitative adq = new ADCheckIndicesQualitative(TS);
+        adq.AddMappingToPositiveValue(0);
+        adq.AddMappingToNegativeValue(1);
+        adq.setMoleculesForIndexSize(3);
+
+        // (only retrieve similar molecules if n.a. prediction)
+        double Val = CurOutput.HasExperimental() ? CurOutput.getExperimental() : CurOutput.getMainResultValue();
+        if (Val == -1) {
+            try {
+                adq.SetSimilarMolecules(CurMolecule, CurOutput);
+            } catch (GenericFailureException ex) {
+                // do nothing
+            }
+            return InsilicoModel.AD_ERROR;
+        }
+
+        if (!adq.Calculate(CurMolecule, CurOutput))
+            return InsilicoModel.AD_ERROR;
+
+        // Sets threshold for AD indices
+        try {
+            ((ADIndexSimilarity)CurOutput.getADIndex(ADIndexSimilarity.class)).SetThresholds(0.85, 0.7);
+            ((ADIndexAccuracy)CurOutput.getADIndex(ADIndexAccuracy.class)).SetThresholds(0.85, 0.7);
+            ((ADIndexConcordance)CurOutput.getADIndex(ADIndexConcordance.class)).SetThresholds(0.85, 0.7);
+        } catch (Throwable e) {
+            return InsilicoModel.AD_ERROR;
+        }
+
+        // Sets Range check
+        ADCheckDescriptorRange adrc = new ADCheckDescriptorRange();
+        if (!adrc.Calculate(TS, Descriptors, CurOutput))
+            return InsilicoModel.AD_ERROR;
+
+        // Sets ACF check
+        ADCheckACF adacf = new ADCheckACF(TS);
+        if (!adacf.Calculate(CurMolecule, CurOutput))
+            return InsilicoModel.AD_ERROR;
+
+        // Sets final AD index
+        double acfContribution = CurOutput.getADIndex(ADIndexACF.class).GetIndexValue();
+        double rcContribution = CurOutput.getADIndex(ADIndexRange.class).GetIndexValue();
+        double ADIValue = adq.getIndexADI() * acfContribution * rcContribution;
+
+        ADIndexADI ADI = new ADIndexADI();
+        ADI.SetIndexValue(ADIValue);
+        ADI.SetThresholds(0.85, 0.7);
+        CurOutput.setADI(ADI);
+
+        return InsilicoModel.AD_CALCULATED;
     }
 
     @Override
     protected void CalculateAssessment() {
+
+        // Sets assessment message
+        ModelUtilities.SetDefaultAssessment(CurOutput, CurOutput.getResults()[0]);
+
+        // Sets assessment status
+        double Val = CurOutput.HasExperimental() ? CurOutput.getExperimental() : CurOutput.getMainResultValue();
+        if (Val == 1)
+            CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_GREEN);
+        else if (Val == 0)
+            CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_RED);
+        else
+            CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_GRAY);
 
     }
 
