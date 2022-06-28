@@ -78,8 +78,6 @@ public class EmbeddedDescriptors {
         CalculateBurdenEigenValues(mol);
         CalculateMLOGP(mol);
         CalculateEtaIndeces(mol);
-
-
     }
 
     private void CalculateEtaIndeces(InsilicoMolecule mol) {
@@ -1024,7 +1022,6 @@ public class EmbeddedDescriptors {
             }
         }
 
-        System.out.println();
 
         w = (new WeightsElectronegativity()).getWeights(m);
 

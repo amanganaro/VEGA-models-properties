@@ -34,7 +34,9 @@ public class mainScript {
 
 //        Thread.sleep(5000);
 //        ModelsDeployment.TestModelWithTrainingSet(model, model.getInfo().getName());
-        model.Execute(SmilesMolecule.Convert("O=[N+]([O-])c1cc(cc(c1N(CCC)CCC)[N+](=O)[O-])S(=O)(=O)C"));
+//        InsilicoModelOutput out = model.Execute(SmilesMolecule.Convert("O=[N+]([O-])c1cc(cc(c1N(CCC)CCC)[N+](=O)[O-])S(=O)(=O)C"));
+        InsilicoModelOutput out = model.Execute(SmilesMolecule.Convert("O=S(=O)(O)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)F"));
+        System.out.println();
 
 
 //        EmbeddedDescriptors embeddedDescriptors = new EmbeddedDescriptors(SmilesMolecule.Convert("Oc1ccc(c(O)c1)CCCCCC"));
