@@ -50,7 +50,6 @@ public class EmbeddedDescriptors {
     public double H050;
     public double DDr3;
     public double CATS2D_7_DL;
-    public double Mw;
 
     private double[][] ConnAugMatrix;
 
@@ -70,7 +69,6 @@ public class EmbeddedDescriptors {
         BIC3 = MISSING_VALUE;
         H050 = MISSING_VALUE;
         DDr3 = MISSING_VALUE;
-        Mw = MISSING_VALUE;
     }
 
 
@@ -87,8 +85,6 @@ public class EmbeddedDescriptors {
         CalculateBIC3(Mol);
         CalculateH050(Mol);
         CalculateDDr3(Mol);
-        CalculateMw(Mol);
-
     }
 
     private void CalculateDDr3(InsilicoMolecule Mol) {
@@ -808,54 +804,6 @@ public class EmbeddedDescriptors {
             piPC8 = Math.log(1+CurMPC);
         }
     }
-
-    private void CalculateMw(InsilicoMolecule Mol){
-
-        Mw = 0;
-        IAtomContainer curMol;
-        try {
-            curMol = Mol.GetStructure();
-        } catch (InvalidMoleculeException e) {
-            log.warn(e.getMessage());
-            return;
-        }
-
-        try {
-
-            int nSK = curMol.getAtomCount();
-            int[] H = new int[nSK];
-
-            for (int i=0; i<nSK; i++) {
-                IAtom CurAt = curMol.getAtom(i);
-                try {
-                    H[i] = CurAt.getImplicitHydrogenCount();
-                } catch (Exception e) {
-                    log.warn(e.getMessage());
-                }
-            }
-
-            // Weights sums
-            double[] wMass = Mass.getWeights(curMol);
-            double HMass = Mass.GetMass("H");
-
-            for (int i=0; i<nSK; i++) {
-                if (wMass[i] == -999)
-                    Mw = -999;
-            }
-
-            for (int i=0; i<nSK; i++) {
-                if (Mw != -999) {
-                    Mw += wMass[i];
-                    if (H[i] > 0) {
-                        Mw += HMass * H[i];
-                    }
-                }
-            }
-        } catch (Throwable e) {
-            log.warn(e.getMessage());
-        }
-    }
-
 
 
     private int[] GetAtomsWalks(int WalksOrder, double[][] AdjMatrix) {

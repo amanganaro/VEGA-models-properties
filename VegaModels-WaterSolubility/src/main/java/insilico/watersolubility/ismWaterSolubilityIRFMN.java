@@ -142,8 +142,7 @@ public class ismWaterSolubilityIRFMN extends InsilicoModel {
             Descriptors[13] = embeddedDescriptors.DDr3;
             Descriptors[14] = embeddedDescriptors.CATS2D_7_DL;
 
-            double CarbonWeight = 12.011;
-            MW = CarbonWeight * embeddedDescriptors.Mw;
+            MW = CurMolecule.GetBasicDescriptorByName("MW_da").getValue();
         } catch (Throwable e) {
             log.warn(e.getMessage());
             return DESCRIPTORS_ERROR;
