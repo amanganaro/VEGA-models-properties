@@ -4,7 +4,7 @@
         <Name>Fish Acute (LC50) Toxicity model (NIC)</Name>
         <Key>FISH_NIC</Key>
         <Summary>QSAR quantitative model for fish acute toxicity (by NIC)</Summary>
-        <Version>1.0.1</Version>
+        <Version>1.0.2</Version>
     </Version>
     
     <Vega>

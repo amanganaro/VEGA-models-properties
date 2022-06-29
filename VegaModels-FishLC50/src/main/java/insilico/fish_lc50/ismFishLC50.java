@@ -100,11 +100,8 @@ public class ismFishLC50 extends InsilicoModel {
             Descriptors[9] = embeddedDescriptors.getBIC3();
             Descriptors[10] = embeddedDescriptors.getALogP();
             Descriptors[11] = embeddedDescriptors.getMLogP();
-            
-            // MW in constitutional is given as a SCALED 
-            // value (on carbon). Here it is transformed in real values
-            double CarbonWeight = 12.011;
-            MW = CarbonWeight * embeddedDescriptors.getMw();
+
+            MW = CurMolecule.GetBasicDescriptorByName("MW_da").getValue();
             
         } catch (Throwable e) {
             return DESCRIPTORS_ERROR;

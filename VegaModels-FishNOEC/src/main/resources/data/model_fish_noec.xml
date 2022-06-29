@@ -4,7 +4,7 @@
         <Name>Fish Chronic (NOEC) Toxicity model (IRFMN)</Name>
         <Key>FISH_NOEC</Key>
         <Summary>Quantitative model for chronic toxicity (NOEC) in fish.</Summary>
-        <Version>1.0.1</Version>
+        <Version>1.0.2</Version>
     </Version>
     
     <Vega>

@@ -16,7 +16,6 @@ import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
 import insilico.core.model.trainingset.TrainingSet;
 import insilico.core.tools.utils.ModelUtilities;
-import insilico.guppy_knn.descriptors.EmbeddedDescriptors;
 
 import java.util.ArrayList;
 
@@ -73,31 +72,13 @@ public class ismGuppyKnn extends InsilicoModel {
     
     
     @Override
-    public ArrayList<DescriptorBlock> GetRequiredDescriptorBlocks() {
-        
-        ArrayList<DescriptorBlock> blocks = new ArrayList<>();
-        DescriptorBlock desc;
-
-        // MW
-        desc = new Constitutional();
-        blocks.add(desc);        
-        
-        return blocks;
-    }
-    
-    
-    @Override
     protected short CalculateDescriptors(DescriptorsEngine DescEngine) {
 
         try {
             
             Descriptors = new double[DescriptorsSize];
-            EmbeddedDescriptors embeddedDescriptors = new EmbeddedDescriptors(CurMolecule);
 
-            // MW in constitutional is given as a SCALED 
-            // value (on carbon). Here it is transformed in real values
-            double CarbonWeight = 12.011;
-            MW = CarbonWeight * embeddedDescriptors.getMW();
+            MW = CurMolecule.GetBasicDescriptorByName("MW_da").getValue();
             
         } catch (Throwable e) {
             return DESCRIPTORS_ERROR;

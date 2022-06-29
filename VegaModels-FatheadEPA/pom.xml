@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-FatheadEPA</artifactId>
-    <version>1.0.9</version>
+    <version>1.0.10</version>
 
 
     <name>Fathead Minnow LC50 96h (EPA)</name>

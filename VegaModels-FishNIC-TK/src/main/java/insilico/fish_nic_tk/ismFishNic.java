@@ -245,11 +245,8 @@ public class ismFishNic extends InsilicoModel {
             Descriptors[17] = embeddedDescriptors.getESpm1dm();
             Descriptors[18] = embeddedDescriptors.getGGI4();
             Descriptors[19] = embeddedDescriptors.getSeigv();
-                        
-            // MW in constitutional is given as a SCALED 
-            // value (on carbon). Here it is transformed in real values
-            double CarbonWeight = 12.011;
-            MW = CarbonWeight * embeddedDescriptors.getMw();
+
+            MW = CurMolecule.GetBasicDescriptorByName("MW_da").getValue();
             
         } catch (Throwable e) {
             return DESCRIPTORS_ERROR;

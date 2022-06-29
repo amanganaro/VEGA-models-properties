@@ -4,7 +4,7 @@
         <Name>Fathead Minnow LC50 96h (EPA)</Name>
         <Key>FATHEAD_EPA</Key>
         <Summary>QSAR model for Fathead Minnow LC50 96h (from EPA T.E.S.T software)</Summary>
-        <Version>1.0.8</Version>
+        <Version>1.0.10</Version>
     </Version>
     
     <Vega>

@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-DaphniaNOEC</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
 
 
     <name>Daphnia Magna Chronic (NOEC) Toxicity model (IRFMN)</name>

@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-WaterSolubility-TK</artifactId>
-    <version>1.1.1</version>
+    <version>1.1.2</version>
 
     <name>Water solubility model (IRFMN) - TK</name>
     <description>

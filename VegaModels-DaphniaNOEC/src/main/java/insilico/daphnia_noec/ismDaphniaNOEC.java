@@ -125,11 +125,8 @@ public class ismDaphniaNOEC extends InsilicoModel {
             Descriptors[7] = embeddedDescriptors.CATS2D_7_DL;
             Descriptors[8] = embeddedDescriptors.C_026;
             Descriptors[9] = embeddedDescriptors.JGI3;
-            
-            // MW in constitutional is given as a SCALED 
-            // value (on carbon). Here it is transformed in real values
-            double CarbonWeight = 12.011;
-            MW = CarbonWeight * embeddedDescriptors.Mw;
+
+            MW = CurMolecule.GetBasicDescriptorByName("MW_da").getValue();
             
         } catch (Throwable e) {
             return DESCRIPTORS_ERROR;

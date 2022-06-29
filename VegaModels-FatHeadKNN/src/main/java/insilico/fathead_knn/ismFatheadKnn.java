@@ -69,11 +69,7 @@ public class ismFatheadKnn extends InsilicoModel {
         try {
             Descriptors = new double[DescriptorsSize];
 
-            // MW in constitutional is given as a SCALED
-            // value (on carbon). Here it is transformed in real values
-            double CarbonWeight = 12.011;
-
-            MW = CarbonWeight * CurMolecule.GetBasicDescriptorByName("MW").getValue();
+            MW = CurMolecule.GetBasicDescriptorByName("MW_da").getValue();
 
         } catch (Throwable e) {
 //            log.warn(e.getMessage());

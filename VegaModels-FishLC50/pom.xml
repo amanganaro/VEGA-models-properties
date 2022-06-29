@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-FishLC50</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
 
     <name>Fish Acute (LC50) Toxicity model (IRFMN)</name>
     <description>

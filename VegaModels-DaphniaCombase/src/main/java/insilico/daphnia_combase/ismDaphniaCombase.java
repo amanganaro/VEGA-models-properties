@@ -77,14 +77,11 @@ public class ismDaphniaCombase extends InsilicoModel {
             
             Descriptors = new double[DescriptorsSize];
 
-            DescriptorBlock desc = new Constitutional();
-            desc.Calculate(CurMolecule);
+//            DescriptorBlock desc = new Constitutional();
+//            desc.Calculate(CurMolecule);
 
 
-            // MW in constitutional is given as a SCALED 
-            // value (on carbon). Here it is transformed in real values
-            double CarbonWeight = 12.011;
-            MW = CarbonWeight * desc.GetByName("MW").getValue();
+            MW = CurMolecule.GetBasicDescriptorByName("MW_da").getValue();
             
         } catch (Throwable e) {
             return DESCRIPTORS_ERROR;

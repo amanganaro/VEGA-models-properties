@@ -124,11 +124,8 @@ public class ismFatheadEPA extends InsilicoModel {
             Descriptors[18] = CustomDescriptors.getN_CN();
             Descriptors[19] = CustomDescriptors.getN_Cl();
             Descriptors[20] = CustomDescriptors.getN_aCHO();
-            
-            // MW in constitutional is given as a SCALED 
-            // value (on carbon). Here it is transformed in real values
-            double CarbonWeight = 12.011;
-            MW = CarbonWeight * embeddedDescriptors.getMW();
+
+            MW = CurMolecule.GetBasicDescriptorByName("MW_da").getValue();
             
         } catch (Throwable e) {
             return DESCRIPTORS_ERROR;
