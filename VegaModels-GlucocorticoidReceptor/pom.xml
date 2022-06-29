@@ -20,6 +20,7 @@
     <description>
         Glucocorticoid Receptor (OBERON) model
     </description>
+    <version>1.0.1</version>
 
 
     <dependencies>
