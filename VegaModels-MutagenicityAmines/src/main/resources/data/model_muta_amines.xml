@@ -1,0 +1,41 @@
+<xml>
+
+    <Version>
+        <Name>Mutagenicity Amines (Ames test)</Name>
+        <Key>MUTA_AMINES</Key>
+        <Summary>A knowledge-based expert rule system for predicting mutagenicity (AMES test)</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+
+    <Vega>
+        <TS>/data/ts_muta_amines.dat</TS>
+        <HasAlerts>True</HasAlerts>
+        <ClassValues>
+            <Class>
+                <Value>0</Value>
+                <Label>NON-Mutagenic</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Mutagenic</Label>
+            </Class>
+            <Class>
+                <Value>-1</Value>
+                <Label>NA</Label>
+            </Class>
+        </ClassValues>
+    </Vega>
+
+    <Guide>
+
+    </Guide>
+
+    <Reference></Reference>
+
+    <Endpoint></Endpoint>
+
+    <Stats>
+
+    </Stats>
+
+</xml>

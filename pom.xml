@@ -117,6 +117,7 @@
         <module>VegaModels-LoaelLiver</module>
         <module>VegaModels-GlucocorticoidReceptor</module>
         <module>VegaModels-TPOOberon</module>
+        <module>VegaModels-MutagenicityAmines</module>
     </modules>
 
     <name>VegaModels</name>

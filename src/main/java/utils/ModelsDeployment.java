@@ -2,8 +2,10 @@ package utils;
 
 import insilico.core.descriptor.DescriptorBlock;
 import insilico.core.exception.GenericFailureException;
+import insilico.core.exception.InitFailureException;
 import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
+import insilico.core.model.trainingset.TrainingSet;
 import insilico.core.molecule.conversion.SmilesMolecule;
 import lombok.extern.slf4j.Slf4j;
 //import ModelsList;
@@ -19,6 +21,40 @@ import java.util.List;
 
 @Slf4j
 public class ModelsDeployment {
+
+    public static void printResultsFroTrainingSet(InsilicoModel model) throws InitFailureException, FileNotFoundException {
+
+        TrainingSet trainingSet = (TrainingSet) model.GetTrainingSet();
+
+        PrintWriter writer = new PrintWriter(model.getInfo().getKey() + ".csv");
+        StringBuilder builder = new StringBuilder("id")
+                .append("\t").append("SMILES")
+                .append("\t").append("Experimental Value")
+                .append("\t").append("Prediction")
+                .append("\t").append("Compare");
+
+        writer.println(builder);
+        writer.flush();
+        log.info("Printing results for " + model.getInfo().getKey());
+
+        for(int i = 0; i < trainingSet.getMoleculesSize(); i++){
+
+            log.info("# " + trainingSet.getId()[i] + " - " + trainingSet.getSMILES()[i]);
+            builder = new StringBuilder(String.valueOf(trainingSet.getId()[i]))
+                    .append("\t").append(trainingSet.getSMILES()[i])
+                    .append("\t").append(trainingSet.getExperimental()[i])
+                    .append("\t").append(trainingSet.getPrediction()[i])
+                    .append("\t").append(trainingSet.getPrediction()[i] == trainingSet.getExperimental()[i] ? "OK" : "KO");
+
+            writer.println(builder);
+            if((i % 10) == 0)
+                writer.flush();
+        }
+
+        writer.flush();
+        writer.close();
+    }
+
 
     public void PrintDescriptorBlock(InsilicoModel model, DescriptorBlock block){
         List<String> smilesList = new ArrayList<>();
