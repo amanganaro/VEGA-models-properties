@@ -11,14 +11,14 @@ import insilico.core.model.InsilicoModelOutput;
 import insilico.core.pmml.ModelANNFromPMML;
 import insilico.core.tools.utils.ModelUtilities;
 import insilico.logk.descriptors.EmbeddedDescriptors;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@Slf4j
+@Log4j
 public class ismLogK extends InsilicoModel {
 
     private static final String ModelData = "/data/model_logk.xml";

@@ -15,7 +15,7 @@ import insilico.core.tools.utils.ModelUtilities;
 import insilico.moa_epa.descriptors.EmbeddedDescriptors;
 import insilico.moa_epa.descriptors.MOAToxAdditionalDescriptors;
 import insilico.moa_epa.descriptors.MOAToxMultipleModels;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 
 import java.util.ArrayList;
 
@@ -23,7 +23,7 @@ import java.util.ArrayList;
  *
  * @author Alberto Manganaro (a.manganaro@kode-solutions.net)
  */
-@Slf4j
+@Log4j
 public class ismMoaEpa extends InsilicoModel {
     
     private static final long serialVersionUID = 1L;

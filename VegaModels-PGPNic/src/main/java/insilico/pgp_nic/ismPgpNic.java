@@ -17,7 +17,7 @@ import insilico.core.model.InsilicoModelOutput;
 import insilico.core.tools.utils.ModelUtilities;
 import insilico.pgp_nic.descriptors.modelCPANN;
 import insilico.pgp_nic.descriptors.modelPgpDescriptors;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
@@ -26,7 +26,7 @@ import java.text.DecimalFormatSymbols;
  *
  * @author User
  */
-@Slf4j
+@Log4j
 public class ismPgpNic extends InsilicoModel {
     
     private static final long serialVersionUID = 1L;

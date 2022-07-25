@@ -10,7 +10,7 @@ import insilico.core.exception.InitFailureException;
 import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
 import insilico.core.tools.utils.ModelUtilities;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 import protoqsar.filters.BiocideFilter;
 import protoqsar.sludge.SludgeDescriptors;
 import protoqsar.sludge.SludgeQualitativeTree;
@@ -21,7 +21,7 @@ import java.util.ArrayList;
  *
  * @author User
  */
-@Slf4j
+@Log4j
 public class ismSludgeCombaseClass extends InsilicoModel {
     
     private static final long serialVersionUID = 1L;

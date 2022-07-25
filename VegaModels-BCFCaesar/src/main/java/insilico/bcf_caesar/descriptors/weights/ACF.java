@@ -6,11 +6,11 @@ import insilico.core.descriptor.blocks.AtomCenteredFragments;
 import insilico.core.exception.GenericFailureException;
 import insilico.core.exception.InvalidMoleculeException;
 import insilico.core.molecule.InsilicoMolecule;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 import org.openscience.cdk.CDKConstants;
 import org.openscience.cdk.interfaces.IAtomContainer;
 
-@Slf4j
+@Log4j
 public class ACF extends DescriptorBlock {
 
     private static final long serialVersionUID = 1L;

@@ -6,7 +6,7 @@ import insilico.core.model.InsilicoModel;
 import insilico.core.molecule.conversion.SmilesMolecule;
 import insilico.glucocorticoid_receptor.alert.SAGlucocorticoidReceptor;
 import insilico.glucocorticoid_receptor.utils.ModelsDeployment;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -14,7 +14,7 @@ import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 
-@Slf4j
+@Log4j
 public class mainScriptGlucocorticoidReceptor {
 
     public static void main (String[] args) throws InitFailureException, MalformedURLException, FileNotFoundException, GenericFailureException {

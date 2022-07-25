@@ -14,7 +14,7 @@ import insilico.skin_irfmn.desciptors.weights.EStateCorrectForH;
 import insilico.skin_irfmn.desciptors.weights.FG;
 import insilico.skin_irfmn.desciptors.weights.VertexDegree;
 import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 import org.openscience.cdk.CDKConstants;
 import org.openscience.cdk.graph.ShortestPaths;
 import org.openscience.cdk.interfaces.IAtom;
@@ -26,7 +26,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-@Slf4j
+@Log4j
 @Data
 public class EmbeddedDescriptors {
 

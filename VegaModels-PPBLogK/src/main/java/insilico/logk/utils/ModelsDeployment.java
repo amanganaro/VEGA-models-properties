@@ -5,7 +5,7 @@ import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
 import insilico.core.molecule.conversion.SmilesMolecule;
 import insilico.logk.descriptors.EmbeddedDescriptors;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 
 import java.io.*;
 import java.net.MalformedURLException;
@@ -16,7 +16,7 @@ import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 
-@Slf4j
+@Log4j
 public class ModelsDeployment {
 
     public ModelsDeployment PrintDescriptor(InsilicoModel model, String filename) throws FileNotFoundException {

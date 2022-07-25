@@ -10,7 +10,7 @@ import insilico.core.exception.InvalidMoleculeException;
 import insilico.core.molecule.InsilicoMolecule;
 import insilico.core.tools.utils.MoleculeUtilities;
 import insilico.daphnia_ec50.descriptors.weights.*;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 import org.openscience.cdk.CDKConstants;
 import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IAtomContainer;
@@ -18,7 +18,7 @@ import org.openscience.cdk.interfaces.IBond;
 
 import java.util.Arrays;
 
-@Slf4j
+@Log4j
 public class EmbeddedDescriptors {
 
     private final int MISSING_VALUE = -999;

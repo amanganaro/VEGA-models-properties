@@ -1,10 +1,11 @@
-C:\Users\Alberto\Documents\Repository\VegaModels\VegaModels-CarcinogenicitySFIClassification\src\main\java\insilico\carcinogenicity_sfi_classification\descriptors\weights\VanDerWaals.java
-C:\Users\Alberto\Documents\Repository\VegaModels\VegaModels-CarcinogenicitySFIClassification\src\main\java\insilico\carcinogenicity_sfi_classification\ismCarcinogenicitySFIClassification.java
-C:\Users\Alberto\Documents\Repository\VegaModels\VegaModels-CarcinogenicitySFIClassification\src\main\java\insilico\carcinogenicity_sfi_classification\descriptors\EmbeddedDescriptors.java
-C:\Users\Alberto\Documents\Repository\VegaModels\VegaModels-CarcinogenicitySFIClassification\src\main\java\insilico\carcinogenicity_sfi_classification\descriptors\weights\ValenceVertexDegree.java
-C:\Users\Alberto\Documents\Repository\VegaModels\VegaModels-CarcinogenicitySFIClassification\src\main\java\insilico\carcinogenicity_sfi_classification\descriptors\weights\BurdenMatrix.java
-C:\Users\Alberto\Documents\Repository\VegaModels\VegaModels-CarcinogenicitySFIClassification\src\main\java\insilico\carcinogenicity_sfi_classification\descriptors\weights\Electronegativity.java
-C:\Users\Alberto\Documents\Repository\VegaModels\VegaModels-CarcinogenicitySFIClassification\src\main\java\insilico\carcinogenicity_sfi_classification\descriptors\weights\EState.java
-C:\Users\Alberto\Documents\Repository\VegaModels\VegaModels-CarcinogenicitySFIClassification\src\main\java\insilico\carcinogenicity_sfi_classification\descriptors\weights\Mass.java
-C:\Users\Alberto\Documents\Repository\VegaModels\VegaModels-CarcinogenicitySFIClassification\src\main\java\mainScript.java
-C:\Users\Alberto\Documents\Repository\VegaModels\VegaModels-CarcinogenicitySFIClassification\src\main\java\insilico\carcinogenicity_sfi_classification\descriptors\weights\Polarizability.java
+C:\Users\Alessio Sommovigo\Desktop\Kode\Projects\VegaModels\VegaModels-CarcinogenicitySFIClassification-TK\src\main\java\mainScript.java
+C:\Users\Alessio Sommovigo\Desktop\Kode\Projects\VegaModels\VegaModels-CarcinogenicitySFIClassification-TK\src\main\java\insilico\carcinogenicity_sfi_classification_tk\descriptors\weights\EState.java
+C:\Users\Alessio Sommovigo\Desktop\Kode\Projects\VegaModels\VegaModels-CarcinogenicitySFIClassification-TK\src\main\java\insilico\carcinogenicity_sfi_classification_tk\descriptors\EmbeddedDescriptors.java
+C:\Users\Alessio Sommovigo\Desktop\Kode\Projects\VegaModels\VegaModels-CarcinogenicitySFIClassification-TK\src\main\java\insilico\carcinogenicity_sfi_classification_tk\descriptors\weights\Electronegativity.java
+C:\Users\Alessio Sommovigo\Desktop\Kode\Projects\VegaModels\VegaModels-CarcinogenicitySFIClassification-TK\src\main\java\insilico\carcinogenicity_sfi_classification_tk\descriptors\weights\Mass.java
+C:\Users\Alessio Sommovigo\Desktop\Kode\Projects\VegaModels\VegaModels-CarcinogenicitySFIClassification-TK\src\main\java\insilico\carcinogenicity_sfi_classification_tk\descriptors\weights\Polarizability.java
+C:\Users\Alessio Sommovigo\Desktop\Kode\Projects\VegaModels\VegaModels-CarcinogenicitySFIClassification-TK\src\main\java\insilico\carcinogenicity_sfi_classification_tk\descriptors\weights\ValenceVertexDegree.java
+C:\Users\Alessio Sommovigo\Desktop\Kode\Projects\VegaModels\VegaModels-CarcinogenicitySFIClassification-TK\src\main\java\insilico\carcinogenicity_sfi_classification_tk\descriptors\weights\BurdenMatrix.java
+C:\Users\Alessio Sommovigo\Desktop\Kode\Projects\VegaModels\VegaModels-CarcinogenicitySFIClassification-TK\src\main\java\insilico\carcinogenicity_sfi_classification_tk\descriptors\weights\VanDerWaals.java
+C:\Users\Alessio Sommovigo\Desktop\Kode\Projects\VegaModels\VegaModels-CarcinogenicitySFIClassification-TK\src\main\java\insilico\carcinogenicity_sfi_classification_tk\descriptors\MoleculePaths.java
+C:\Users\Alessio Sommovigo\Desktop\Kode\Projects\VegaModels\VegaModels-CarcinogenicitySFIClassification-TK\src\main\java\insilico\carcinogenicity_sfi_classification_tk\ismCarcinogenicitySFIClassification.java

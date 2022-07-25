@@ -1,9 +1,9 @@
 import insilico.core.model.InsilicoModel;
 //import utils.ModelsDeployment;
 import insilico.watersolubility.ismWaterSolubilityIRFMN;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 
-@Slf4j
+@Log4j
 public class mainScript {
 
     public static void main(String[] args) throws Exception {

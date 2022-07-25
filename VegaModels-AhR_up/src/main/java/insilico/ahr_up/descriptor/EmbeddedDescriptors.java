@@ -20,7 +20,7 @@ import insilico.core.molecule.conversion.SmilesMolecule;
 import insilico.core.molecule.matrix.BurdenMatrix;
 import insilico.core.molecule.matrix.TopoDistanceMatrix;
 import insilico.core.molecule.tools.Manipulator;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 import org.openscience.cdk.interfaces.IAtomContainer;
 
 import java.io.BufferedReader;
@@ -31,7 +31,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Arrays;
 
-@Slf4j
+@Log4j
 public class EmbeddedDescriptors {
 
     private final double MISSING_VALUE = -999;

@@ -13,7 +13,7 @@ import insilico.core.model.InsilicoModelOutput;
 import insilico.core.tools.utils.ModelUtilities;
 import insilico.devtox_caesar.descriptors.EmbeddedDescriptors;
 import insilico.devtox_caesar.descriptors.IcycemDescriptor;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 
 import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
@@ -25,7 +25,7 @@ import java.util.ArrayList;
  *
  * @author Alberto Manganaro (a.manganaro@kode-solutions.net)
  */
-@Slf4j
+@Log4j
 public class ismDevtoxCaesar extends InsilicoModel {
 
     private static final long serialVersionUID = 1L;

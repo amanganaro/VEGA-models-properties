@@ -9,7 +9,7 @@ import insilico.core.molecule.conversion.SmilesMolecule;
 import insilico.core.similarity.SimilarMolecule;
 import insilico.core.similarity.Similarity;
 import insilico.core.similarity.SimilarityDescriptorsBuilder;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IAtomContainer;
 
@@ -20,7 +20,7 @@ import java.util.Arrays;
  *
  * @author Alberto Manganaro <a.manganaro@kode-solutions.net>
  */
-@Slf4j
+@Log4j
 public class LOELKnn {
     
     private final static int NeighboursNumber = 2;

@@ -22,7 +22,7 @@ import insilico.core.molecule.matrix.TopoDistanceMatrix;
 import insilico.core.molecule.tools.Manipulator;
 import insilico.core.tools.utils.MoleculeUtilities;
 import insilico.tpo_oberon.descriptors.weights.DescriptorMLogP;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 import org.openscience.cdk.CDKConstants;
 import org.openscience.cdk.RingSet;
 import org.openscience.cdk.interfaces.IAtom;
@@ -33,7 +33,7 @@ import org.openscience.cdk.interfaces.IRing;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-@Slf4j
+@Log4j
 public class EmbeddedDescriptors {
 
     private final double MISSING_VALUE = -999;

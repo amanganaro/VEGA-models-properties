@@ -13,7 +13,7 @@ import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
 import insilico.core.pmml.ModelANNFromPMML;
 import insilico.core.tools.utils.ModelUtilities;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 
 import java.io.IOException;
 import java.net.URL;
@@ -25,7 +25,7 @@ import java.util.Map;
  *
  * @author User
  */
-@Slf4j
+@Log4j
 public class ismCarcinogenicitySFIRegression extends InsilicoModel {
     
     private static final long serialVersionUID = 1L;

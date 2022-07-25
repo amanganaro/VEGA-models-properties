@@ -13,7 +13,7 @@ import insilico.persistence_soil_quantitative_irfmn.descriptors.weights.Descript
 import insilico.persistence_soil_quantitative_irfmn.descriptors.weights.IonizationPotential;
 import insilico.persistence_soil_quantitative_irfmn.descriptors.weights.Polarizability;
 import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IAtomContainer;
 import org.openscience.cdk.interfaces.IBond;
@@ -21,7 +21,7 @@ import org.openscience.cdk.interfaces.IBond;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-@Slf4j
+@Log4j
 @Data
 public class EmbeddedDescriptors {
 

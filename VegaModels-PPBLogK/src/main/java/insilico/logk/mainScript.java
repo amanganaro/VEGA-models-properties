@@ -7,7 +7,7 @@ import insilico.core.model.InsilicoModelOutput;
 import insilico.core.molecule.conversion.SmilesMolecule;
 
 import insilico.logk.descriptors.EmbeddedDescriptors;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 import utils.ModelsDeployment;
 
 import java.io.File;
@@ -16,23 +16,24 @@ import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 
-@Slf4j
+@Log4j
 public class mainScript {
 
     public static void main(String[] args) throws InitFailureException, GenericFailureException, MalformedURLException, FileNotFoundException {
 
         InsilicoModel model = new ismLogK();
-        InsilicoModelOutput out = model.Execute(SmilesMolecule.Convert("ClC1=C(CCN2CCN(CC2)C2=NSC3=CC=CC=C23)C=C2CC(=O)NC2=C1"));
+//        InsilicoModelOutput out = model.Execute(SmilesMolecule.Convert("ClC1=C(CCN2CCN(CC2)C2=NSC3=CC=CC=C23)C=C2CC(=O)NC2=C1"));
+//        System.out.println();
         
-//        ModelsDeployment.TestModelWithTrainingSet(model, "out_ts");
-//        ModelsDeployment.BuildDataset(model, "out_ts");
-//        File sourceFile = new File("out_ts/ts_logk.dat");
-//        File destinationFile = new File("VegaModels-LogK\\src\\main\\resources\\data\\ts_logk.dat");
-//        try {
-//            Files.move(sourceFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-//        } catch (Exception ex) {
-//            log.warn(ex.getMessage());
-//        }
+        ModelsDeployment.TestModelWithTrainingSet(model, "out_ts");
+        ModelsDeployment.BuildDataset(model, "out_ts");
+        File sourceFile = new File("out_ts/ts_logk.dat");
+        File destinationFile = new File("VegaModels-LogK\\src\\main\\resources\\data\\ts_logk.dat");
+        try {
+            Files.move(sourceFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+        } catch (Exception ex) {
+            log.warn(ex.getMessage());
+        }
 
 
 
@@ -48,6 +49,6 @@ public class mainScript {
 //        System.out.println("prediction: " + out.getMainResultValue());
 //        System.out.println("prediction^2: " + Math.pow(out.getMainResultValue(), 2));
 
-        return;
+//        return;
     }
 }

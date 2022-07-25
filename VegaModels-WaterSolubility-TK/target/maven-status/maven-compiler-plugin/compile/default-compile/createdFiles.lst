@@ -1,11 +1,1 @@
-insilico\watersolubility\descriptors\weights\ACF.class
-insilico\watersolubility\descriptors\weights\VertexDegree.class
-insilico\watersolubility\descriptors\weights\Polarizability.class
 mainScript.class
-insilico\watersolubility\descriptors\weights\GhoseCrippenWeights.class
-insilico\watersolubility\descriptors\weights\IonizationPotential.class
-insilico\watersolubility\ismWaterSolubilityIRFMN.class
-insilico\watersolubility\descriptors\EmbeddedDescriptors.class
-insilico\watersolubility\descriptors\weights\Mass.class
-insilico\watersolubility\descriptors\weights\VanDerWaals.class
-insilico\watersolubility\descriptors\weights\Electronegativity.class

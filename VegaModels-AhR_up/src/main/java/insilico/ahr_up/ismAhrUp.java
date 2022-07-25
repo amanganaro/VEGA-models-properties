@@ -5,7 +5,7 @@ import insilico.core.descriptor.DescriptorsEngine;
 import insilico.core.exception.InitFailureException;
 import insilico.core.model.InsilicoModel;
 import insilico.core.pmml.ModelANNFromPMML;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 import org.dmg.pmml.FieldName;
 
 import java.io.IOException;
@@ -13,7 +13,7 @@ import java.net.URL;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@Slf4j
+@Log4j
 public class ismAhrUp extends InsilicoModel {
 
     private static final double[] mean = {22.9688277512, 1.6291110048, 0.4232038278, 0.0201980861, 4.7118889952, 0.3668679426, 41.4590545455};

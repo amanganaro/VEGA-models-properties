@@ -1,6 +1,6 @@
 package insilico.logk.descriptors.weights;
 
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 
 /**
  * Coefficients for Ghose-Crippen atom centered fragments, for logP and
@@ -8,7 +8,7 @@ import lombok.extern.slf4j.Slf4j;
  *
  * @author Alberto Manganaro (a.manganaro@kode-solutions.net)
  */
-@Slf4j
+@Log4j
 public class GCWeights {
 
     final static double[] Hydrophobicity = {

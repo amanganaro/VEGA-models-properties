@@ -4,7 +4,7 @@
         <Name>Fish Acute (LC50) Toxicity model (NIC)</Name>
         <Key>FISH_NIC</Key>
         <Summary>QSAR quantitative model for fish acute toxicity (by NIC)</Summary>
-        <Version>1.0.1</Version>
+        <Version>1.1.2</Version>
     </Version>
     
     <Vega>
@@ -14,10 +14,12 @@
     </Vega>
 
     <Guide>
-        <Description>The model provides a quantitative prediction of acute toxicity in fish (LC50), given in log(1/(mmol/L)). It is implemented inside the VEGA online platform, accessible at:http://www.vega-qsar.eu/. </Description>
+        <Description>The model provides a quantitative prediction of acute toxicity in fish (LC50), given in log(1/(mmol/L)). It is implemented inside the VEGA online platform, accessible at: http://www.vegahub.eu.</Description>
         <Model>The model has been built as a Counter Propagation Artificial Neural Network (CP ANN) by the National Institute of Chemistry Slovenia (NIC). The model has been built on a set of 946 compounds, retrieved from the paper:
-            LM. Su, X. Liu, Y. Wang, J.J. Li, X.H. Wang, L.X. Sheng, Y.H. Zhao, “The discrimination of excess toxicity from baseline effect: Effect of bioconcentration”, Science of the Total Environment 484 (2014) 137–145</Model>
-        <Descriptors>The descriptors used by the CPANN are the following:
+
+            LM. Su, X. Liu, Y. Wang, J.J. Li, X.H. Wang, L.X. Sheng, Y.H. Zhao, “The discrimination of excess toxicity from baseline effect: Effect of bioconcentration”, Science of the Total Environment 484 (2014) 137–145
+
+            The descriptors used by the CPANN are the following:
             - nCIR: number of circuits
             - nTB: number of Triple Bonds
             - nP: number of P atoms
@@ -38,7 +40,8 @@
             - ESpm01d: spectral moment of order 1 rom edge adjacency matrix weighted by dipole moment
             - GGI4: topological charge index of order 4
             - Seigv: spectral moment of order 1 from Brysz matrix weighted by van der Waals volume
-            The descriptors were calculated, in the original model, by means of Dragon software and are now entirely calculated by an in-house software module in which they are implemented as described in: R. Todeschini and V. Consonni, Molecular Descriptors for Chemoinformatics, Wiley-VCH, 2009.</Descriptors>
+
+            The descriptors were calculated, in the original model, by means of Dragon software and are now entirely calculated by an in-house software module in which they are implemented as described in: R. Todeschini and V. Consonni, Molecular Descriptors for Chemoinformatics, Wiley-VCH, 2009.</Model>
         <Applicability_Domain>
             <AD>
                 <Name>Similar_Molecules</Name>
@@ -102,21 +105,24 @@
                 <RangeBottom>index &lt; 0.7</RangeBottom>
                 <DescriptionRangeBottom>predicted substance is out of the the Applicability Domain of the model</DescriptionRangeBottom>
             </AD>
-
         </Applicability_Domain>
     </Guide>
 
-    <Reference></Reference>
+    <Reference>For a general description of the VEGA software see:
+        Benfenati E, Manganaro A, Gini G
+        VEGA-QSAR: AI inside a platform for predictive toxicology
+        Proceedings of the workshop "Popularize Artificial Intelligence 2013", December 5th 2013, Turin, Italy
+        Published on CEUR Workshop Proceedings Vol-1107</Reference>
 
-    <Endpoint></Endpoint>
+    <Endpoint>The endpoint is the short-term toxicity to fish according to ECOTOX 6.1.1 (LC50 96h, acute (mortality)).  The specie is Fish (Oryzias latipes). </Endpoint>
 
     <Stats>
         <n_Train>564.0</n_Train>
-        <R2_Train>0.453</R2_Train>
-        <RMSE_Train>0.936</RMSE_Train>
+        <R2_Train>0.89</R2_Train>
+        <RMSE_Train>0.42</RMSE_Train>
         <n_Test>382.0</n_Test>
-        <R2_Test>0.316</R2_Test>
-        <RMSE_Test>1.091</RMSE_Test>
+        <R2_Test>0.54</R2_Test>
+        <RMSE_Test>0.90</RMSE_Test>
         <Not_Predicted_Train>0.0</Not_Predicted_Train>
         <Not_Predicted_Test>0.0</Not_Predicted_Test>
     </Stats>

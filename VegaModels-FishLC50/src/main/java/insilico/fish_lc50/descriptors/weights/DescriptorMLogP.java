@@ -4,7 +4,7 @@ import insilico.core.exception.GenericFailureException;
 import insilico.core.exception.InvalidMoleculeException;
 import insilico.core.molecule.InsilicoMolecule;
 import insilico.core.tools.utils.MoleculeUtilities;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 import org.openscience.cdk.CDKConstants;
 import org.openscience.cdk.RingSet;
 import org.openscience.cdk.graph.ShortestPaths;
@@ -16,7 +16,7 @@ import org.openscience.cdk.interfaces.IRing;
 import java.util.Arrays;
 import java.util.List;
 
-@Slf4j
+@Log4j
 public class DescriptorMLogP {
 
     private double MISSING_VALUE = -999;

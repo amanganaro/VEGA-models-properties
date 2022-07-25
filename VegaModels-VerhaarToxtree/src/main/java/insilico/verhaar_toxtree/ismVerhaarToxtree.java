@@ -5,7 +5,7 @@ import insilico.core.exception.InitFailureException;
 import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
 import insilico.core.tools.utils.ModelUtilities;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 import shadedTTv31.org.openscience.cdk.DefaultChemObjectBuilder;
 import shadedTTv31.org.openscience.cdk.exception.InvalidSmilesException;
 import shadedTTv31.org.openscience.cdk.interfaces.IAtomContainer;
@@ -23,7 +23,7 @@ import verhaar.VerhaarScheme;
  *
  * @author Alberto Manganaro (a.manganaro@kode-solutions.net)
  */
-@Slf4j
+@Log4j
 public class ismVerhaarToxtree extends InsilicoModel {
     
     private static final long serialVersionUID = 1L;

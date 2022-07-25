@@ -13,7 +13,7 @@ import insilico.core.model.InsilicoModelOutput;
 import insilico.core.pmml.ModelGenericFromPMML;
 
 import insilico.core.tools.utils.ModelUtilities;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 import org.dmg.pmml.FieldName;
 
 import java.io.IOException;
@@ -25,7 +25,7 @@ import java.util.Map;
  *
  * @author User
  */
-@Slf4j
+@Log4j
 public class ismAromataseIRFMN extends InsilicoModel {
     
     private static final long serialVersionUID = 1L;

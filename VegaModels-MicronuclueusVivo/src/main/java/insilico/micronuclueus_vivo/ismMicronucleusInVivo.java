@@ -19,7 +19,7 @@ import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
 import insilico.core.model.trainingset.TrainingSet;
 import insilico.core.tools.utils.ModelUtilities;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 
 
 import java.io.File;
@@ -34,7 +34,7 @@ import java.util.ArrayList;
  *
  * @author Alberto Manganaro (a.manganaro@kode-solutions.net)
  */
-@Slf4j
+@Log4j
 public class ismMicronucleusInVivo extends InsilicoModel {
     
     private static final short PRED_NA = 0;

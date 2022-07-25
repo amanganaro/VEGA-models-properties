@@ -8,10 +8,10 @@ import insilico.core.exception.GenericFailureException;
 import insilico.core.exception.InitFailureException;
 import insilico.core.exception.InvalidMoleculeException;
 import insilico.core.molecule.InsilicoMolecule;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 import org.openscience.cdk.interfaces.IAtomContainer;
 
-@Slf4j
+@Log4j
 public class EmbeddedDescriptors {
 
     private final int MISSING_VALUE = -999;

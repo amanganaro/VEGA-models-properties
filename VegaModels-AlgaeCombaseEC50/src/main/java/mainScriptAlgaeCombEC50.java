@@ -2,14 +2,14 @@ import insilico.algae_combaseEC50.ismAlgaeCombaseEC50;
 import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
 import insilico.core.molecule.conversion.SmilesMolecule;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 import utils.ModelsDeployment;
 
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 
-@Slf4j
+@Log4j
 public class mainScriptAlgaeCombEC50 {
 
     public static void main(String[] args) throws Exception {

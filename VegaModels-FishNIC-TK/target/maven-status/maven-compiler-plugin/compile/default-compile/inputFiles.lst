@@ -1,16 +1,17 @@
-C:\Users\Alberto\Documents\Repository\VegaModels\VegaModels-FishNIC\src\main\java\insilico\fish_nic\CPANNNeuron.java
-C:\Users\Alberto\Documents\Repository\VegaModels\VegaModels-FishNIC\src\main\java\insilico\fish_nic\descriptors\weights\ValenceVertexDegree.java
-C:\Users\Alberto\Documents\Repository\VegaModels\VegaModels-FishNIC\src\main\java\insilico\fish_nic\descriptors\weights\WalkAndPath.java
-C:\Users\Alberto\Documents\Repository\VegaModels\VegaModels-FishNIC\src\main\java\insilico\fish_nic\ismFishNic.java
-C:\Users\Alberto\Documents\Repository\VegaModels\VegaModels-FishNIC\src\main\java\insilico\fish_nic\descriptors\weights\Electronegativity.java
-C:\Users\Alberto\Documents\Repository\VegaModels\VegaModels-FishNIC\src\main\java\insilico\fish_nic\mainScriptFishNIC.java
-C:\Users\Alberto\Documents\Repository\VegaModels\VegaModels-FishNIC\src\main\java\insilico\fish_nic\modelCPANN.java
-C:\Users\Alberto\Documents\Repository\VegaModels\VegaModels-FishNIC\src\main\java\insilico\fish_nic\descriptors\weights\TopologicalDistances.java
-C:\Users\Alberto\Documents\Repository\VegaModels\VegaModels-FishNIC\src\main\java\insilico\fish_nic\descriptors\weights\VanDerWaals.java
-C:\Users\Alberto\Documents\Repository\VegaModels\VegaModels-FishNIC\src\main\java\insilico\fish_nic\descriptors\weights\Mass.java
-C:\Users\Alberto\Documents\Repository\VegaModels\VegaModels-FishNIC\src\main\java\insilico\fish_nic\descriptors\weights\VertexDegree.java
-C:\Users\Alberto\Documents\Repository\VegaModels\VegaModels-FishNIC\src\main\java\insilico\fish_nic\descriptors\weights\QuantumNumber.java
-C:\Users\Alberto\Documents\Repository\VegaModels\VegaModels-FishNIC\src\main\java\insilico\fish_nic\descriptors\weights\Polarizability.java
-C:\Users\Alberto\Documents\Repository\VegaModels\VegaModels-FishNIC\src\main\java\insilico\fish_nic\descriptors\weights\CovalentRadius.java
-C:\Users\Alberto\Documents\Repository\VegaModels\VegaModels-FishNIC\src\main\java\insilico\fish_nic\descriptors\EmbeddedDescriptors.java
-C:\Users\Alberto\Documents\Repository\VegaModels\VegaModels-FishNIC\src\main\java\insilico\fish_nic\descriptors\weights\EdgeAdjacency.java
+C:\Users\Alessio Sommovigo\Desktop\Kode\Projects\VegaModels\VegaModels-FishNIC-TK\src\main\java\insilico\fish_nic_tk\descriptors\weights\EdgeAdjacency.java
+C:\Users\Alessio Sommovigo\Desktop\Kode\Projects\VegaModels\VegaModels-FishNIC-TK\src\main\java\insilico\fish_nic_tk\mainScriptFishNIC.java
+C:\Users\Alessio Sommovigo\Desktop\Kode\Projects\VegaModels\VegaModels-FishNIC-TK\src\main\java\insilico\fish_nic_tk\descriptors\weights\ValenceVertexDegree.java
+C:\Users\Alessio Sommovigo\Desktop\Kode\Projects\VegaModels\VegaModels-FishNIC-TK\src\main\java\insilico\fish_nic_tk\descriptors\weights\VanDerWaals.java
+C:\Users\Alessio Sommovigo\Desktop\Kode\Projects\VegaModels\VegaModels-FishNIC-TK\src\main\java\insilico\fish_nic_tk\descriptors\weights\TopologicalDistances.java
+C:\Users\Alessio Sommovigo\Desktop\Kode\Projects\VegaModels\VegaModels-FishNIC-TK\src\main\java\insilico\fish_nic_tk\descriptors\EmbeddedDescriptors.java
+C:\Users\Alessio Sommovigo\Desktop\Kode\Projects\VegaModels\VegaModels-FishNIC-TK\src\main\java\insilico\fish_nic_tk\descriptors\weights\Mass.java
+C:\Users\Alessio Sommovigo\Desktop\Kode\Projects\VegaModels\VegaModels-FishNIC-TK\src\main\java\insilico\fish_nic_tk\descriptors\weights\CovalentRadius.java
+C:\Users\Alessio Sommovigo\Desktop\Kode\Projects\VegaModels\VegaModels-FishNIC-TK\src\main\java\insilico\fish_nic_tk\ismFishNic.java
+C:\Users\Alessio Sommovigo\Desktop\Kode\Projects\VegaModels\VegaModels-FishNIC-TK\src\main\java\insilico\fish_nic_tk\descriptors\weights\VertexDegree.java
+C:\Users\Alessio Sommovigo\Desktop\Kode\Projects\VegaModels\VegaModels-FishNIC-TK\src\main\java\insilico\fish_nic_tk\descriptors\weights\Electronegativity.java
+C:\Users\Alessio Sommovigo\Desktop\Kode\Projects\VegaModels\VegaModels-FishNIC-TK\src\main\java\insilico\fish_nic_tk\descriptors\weights\Polarizability.java
+C:\Users\Alessio Sommovigo\Desktop\Kode\Projects\VegaModels\VegaModels-FishNIC-TK\src\main\java\insilico\fish_nic_tk\descriptors\weights\QuantumNumber.java
+C:\Users\Alessio Sommovigo\Desktop\Kode\Projects\VegaModels\VegaModels-FishNIC-TK\src\main\java\insilico\fish_nic_tk\modelCPANN.java
+C:\Users\Alessio Sommovigo\Desktop\Kode\Projects\VegaModels\VegaModels-FishNIC-TK\src\main\java\insilico\fish_nic_tk\descriptors\weights\WalkAndPath.java
+C:\Users\Alessio Sommovigo\Desktop\Kode\Projects\VegaModels\VegaModels-FishNIC-TK\src\main\java\insilico\fish_nic_tk\CPANNNeuron.java
+C:\Users\Alessio Sommovigo\Desktop\Kode\Projects\VegaModels\VegaModels-FishNIC-TK\src\main\java\insilico\fish_nic_tk\descriptors\MoleculePaths.java

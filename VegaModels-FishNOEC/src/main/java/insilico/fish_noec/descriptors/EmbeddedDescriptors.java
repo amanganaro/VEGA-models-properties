@@ -11,7 +11,7 @@ import insilico.core.molecule.matrix.BurdenMatrix;
 import insilico.fish_noec.descriptors.weights.*;
 import insilico.fish_noec.descriptors.weights.ACF;
 import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 import org.openscience.cdk.CDKConstants;
 import org.openscience.cdk.graph.PathTools;
 import org.openscience.cdk.interfaces.IAtom;
@@ -21,7 +21,7 @@ import org.openscience.cdk.interfaces.IBond;
 import java.util.Arrays;
 import java.util.List;
 
-@Slf4j
+@Log4j
 @Data
 public class EmbeddedDescriptors {
 

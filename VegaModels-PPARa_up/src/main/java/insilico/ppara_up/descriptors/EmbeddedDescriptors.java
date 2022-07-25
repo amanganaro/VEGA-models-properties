@@ -10,7 +10,7 @@ import insilico.core.molecule.InsilicoMolecule;
 import insilico.core.molecule.conversion.SmilesMolecule;
 
 import insilico.ppara_up.utils.MoleculePaths;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IAtomContainer;
 
@@ -23,7 +23,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-@Slf4j
+@Log4j
 public class EmbeddedDescriptors {
 
     private final double MISSING_VALUE = -999;

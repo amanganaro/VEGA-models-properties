@@ -7,7 +7,7 @@ import insilico.core.molecule.conversion.SmilesMolecule;
 import insilico.daphnia_demetra.ismDaphniaDemetra;
 import insilico.core.model.InsilicoModel;
 import insilico.daphnia_demetra.utils.ModelsDeployment;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -17,7 +17,7 @@ import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 
-@Slf4j
+@Log4j
 public class mainScript {
 
     public static void main(String[] args) throws Exception {

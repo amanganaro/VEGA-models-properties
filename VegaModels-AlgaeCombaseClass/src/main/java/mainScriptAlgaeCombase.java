@@ -1,14 +1,14 @@
 import insilico.algae_combaseclass.ismAlgaeCombaseClass;
 import insilico.core.localization.StringSelectorCore;
 import insilico.core.model.InsilicoModel;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 import utils.ModelsDeployment;
 
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 
-@Slf4j
+@Log4j
 public class mainScriptAlgaeCombase {
 
     public static void main(String[] args) throws Exception {

@@ -13,7 +13,7 @@ import insilico.core.pmml.ModelANNFromPMML;
 import insilico.core.tools.utils.ModelUtilities;
 import insilico.pxr_up.descriptors.EmbeddedDescriptors;
 import lombok.SneakyThrows;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 import org.dmg.pmml.FieldName;
 import org.jpmml.evaluator.mining.MiningModelEvaluator;
 
@@ -22,7 +22,7 @@ import java.net.URL;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@Slf4j
+@Log4j
 public class ismPxrUp extends InsilicoModel {
 
     private static final String ModelData = "/data/model_pxrup.xml";

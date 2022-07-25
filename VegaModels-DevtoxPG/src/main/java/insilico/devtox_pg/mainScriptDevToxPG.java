@@ -5,7 +5,7 @@ import insilico.core.model.InsilicoModelOutput;
 import insilico.core.molecule.InsilicoMolecule;
 import insilico.core.molecule.conversion.SmilesMolecule;
 import insilico.devtox_pg.library.VirtualCompoundLibrary;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 import utils.ModelsDeployment;
 
 import java.io.File;
@@ -15,7 +15,7 @@ import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 
-@Slf4j
+@Log4j
 public class mainScriptDevToxPG {
 
     public static void main(String[] args) throws Exception {

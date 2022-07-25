@@ -3,7 +3,7 @@ package insilico.pxr_up.descriptors.weights;
 import insilico.core.descriptor.Descriptor;
 import insilico.core.exception.GenericFailureException;
 import insilico.core.molecule.matrix.TopoDistanceMatrix;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 import org.openscience.cdk.CDKConstants;
 import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IAtomContainer;
@@ -17,7 +17,7 @@ import java.util.Map;
  *
  * @author Alberto Manganaro (a.manganaro@kode-solutions.net)
  */
-@Slf4j
+@Log4j
 public class EState {
     
     private Map<String, Integer> periods;

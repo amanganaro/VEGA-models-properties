@@ -20,7 +20,7 @@ import insilico.core.molecule.matrix.ConnectionAugMatrix;
 import insilico.core.molecule.tools.Manipulator;
 import insilico.core.tools.utils.MoleculeUtilities;
 import insilico.watersolubility.descriptors.weights.*;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 import org.openscience.cdk.CDKConstants;
 import org.openscience.cdk.RingSet;
 
@@ -30,7 +30,7 @@ import org.openscience.cdk.interfaces.*;
 
 import java.util.*;
 
-@Slf4j
+@Log4j
 public class EmbeddedDescriptors {
 
     public static final int MISSING_VALUE = -999;

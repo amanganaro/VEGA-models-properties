@@ -32,6 +32,8 @@ import opera_adapter.OperaDistance;
 import opera_adapter.OperaModel;
 import org.openscience.cdk1.qsar.IMolecularDescriptor;
 import padeladapter.PadelInterface;
+//import padeladapter;
+
 
 /**
  *

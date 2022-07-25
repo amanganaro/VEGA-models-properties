@@ -29,10 +29,11 @@ import insilico.core.tools.utils.MoleculeUtilities;
 //import insilico.descriptor.blocks.*;
 
 //import insilico.descriptor.blocks.logP.weights.GCWeights;
+import insilico.logk.descriptors.weights.DescriptorMLogP;
 import insilico.logk.descriptors.weights.GCAtomCentredFragments;
 import insilico.logk.descriptors.weights.GCWeights;
 import insilico.logk.descriptors.weights.MoleculePaths;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 import org.openscience.cdk.CDKConstants;
 import org.openscience.cdk.RingSet;
 import org.openscience.cdk.interfaces.IAtom;
@@ -53,7 +54,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-@Slf4j
+@Log4j
 public class EmbeddedDescriptors {
 
     private double MISSING_VALUE = -999;
@@ -143,7 +144,22 @@ public class EmbeddedDescriptors {
         CalculateAtomPairs(mol);
         CalculateJDDT(mol);
         CalculateNcs(mol);
+        CalculateMLogP(mol);
     }
+
+    private void CalculateMLogP(InsilicoMolecule mol) {
+
+        try {
+            DescriptorMLogP descriptorMLogP = new DescriptorMLogP();
+            descriptorMLogP.CalculateAllDescriptors(mol);
+            MLogP = descriptorMLogP.MLogP;
+            MLOGP2 = Math.pow(MLogP, 2);
+        } catch (Exception ex){
+            MLogP = MISSING_VALUE;
+            MLOGP2 = MISSING_VALUE;
+        }
+    }
+
 
     private void CalculateNcs(InsilicoMolecule mol) {
         String ncsSmart = "[$([C;D2]([#6])[#6]),$([C;D3]([#6])([#6])[*;!#6]),$([C;D4]([#6])([#6])([*;!#6])[*;!#6])]";

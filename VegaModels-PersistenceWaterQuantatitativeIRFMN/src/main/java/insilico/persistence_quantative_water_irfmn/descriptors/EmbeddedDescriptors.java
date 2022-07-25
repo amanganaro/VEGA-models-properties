@@ -8,7 +8,7 @@ import insilico.core.exception.InvalidMoleculeException;
 import insilico.core.molecule.InsilicoMolecule;
 import insilico.persistence_quantative_water_irfmn.descriptors.weights.*;
 import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IAtomContainer;
 import org.openscience.cdk.interfaces.IRing;
@@ -17,7 +17,7 @@ import org.openscience.cdk.interfaces.IRingSet;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-@Slf4j
+@Log4j
 @Data
 public class EmbeddedDescriptors {
 

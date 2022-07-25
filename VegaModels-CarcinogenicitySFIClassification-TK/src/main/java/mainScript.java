@@ -1,8 +1,8 @@
 import insilico.carcinogenicity_sfi_classification_tk.ismCarcinogenicitySFIClassification;
 import insilico.core.model.InsilicoModel;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 
-@Slf4j
+@Log4j
 public class mainScript {
 
     public static void main(String[] args) throws Exception {

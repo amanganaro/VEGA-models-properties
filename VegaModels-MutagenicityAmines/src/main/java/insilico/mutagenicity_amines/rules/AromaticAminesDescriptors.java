@@ -6,7 +6,7 @@ import insilico.core.exception.DescriptorNotFoundException;
 import insilico.core.exception.InvalidMoleculeException;
 import insilico.core.molecule.InsilicoMolecule;
 import insilico.core.molecule.tools.AtomicNumber;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IAtomContainer;
@@ -18,7 +18,7 @@ import org.openscience.cdk.qsar.descriptors.molecular.RotatableBondsCountDescrip
 import org.openscience.cdk.tools.manipulator.AtomContainerManipulator;
 import uk.ac.ebi.beam.Element;
 
-@Slf4j
+@Log4j
 public class AromaticAminesDescriptors {
 
     private double MISSING_VALUE = -999;

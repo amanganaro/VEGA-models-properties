@@ -2,12 +2,12 @@ import insilico.aromatase_irfmn_tk.ismAromataseIRFMN;
 import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
 import insilico.core.molecule.conversion.SmilesMolecule;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Slf4j
+@Log4j
 public class mainScriptAromatase {
 
     public static void main(String[] args) throws Exception {

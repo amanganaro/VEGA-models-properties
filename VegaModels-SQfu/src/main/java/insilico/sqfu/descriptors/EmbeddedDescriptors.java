@@ -27,7 +27,7 @@ import insilico.core.tools.utils.MoleculeUtilities;
 import insilico.sqfu.descriptors.weights.GCAtomCentredFragments;
 import insilico.sqfu.descriptors.weights.GCWeights;
 import insilico.sqfu.descriptors.weights.MoleculePaths;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 import org.openscience.cdk.CDKConstants;
 import org.openscience.cdk.RingSet;
 import org.openscience.cdk.graph.ShortestPaths;
@@ -48,7 +48,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-@Slf4j
+@Log4j
 public class EmbeddedDescriptors {
 
     private int MISSING_VALUE = -999;

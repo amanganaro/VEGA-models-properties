@@ -2,11 +2,11 @@ package insilico.mutagenicity_amines.rules;
 
 import insilico.core.exception.InvalidMoleculeException;
 import insilico.core.molecule.InsilicoMolecule;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 import org.openscience.cdk.DefaultChemObjectBuilder;
 import org.openscience.cdk.smarts.SmartsPattern;
 
-@Slf4j
+@Log4j
 public class AromaticAminesFunctionalGroups {
 
     private int aggCount;

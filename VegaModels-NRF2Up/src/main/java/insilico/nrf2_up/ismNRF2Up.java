@@ -12,7 +12,7 @@ import insilico.core.pmml.ModelANNFromPMML;
 import insilico.core.tools.utils.ModelUtilities;
 import insilico.nrf2_up.descriptors.EmbeddedDescriptors;
 import lombok.SneakyThrows;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 import org.dmg.pmml.FieldName;
 
 import java.io.IOException;
@@ -20,7 +20,7 @@ import java.net.URL;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@Slf4j
+@Log4j
 public class ismNRF2Up extends InsilicoModel {
 
     private static final double[] mean = {2.265985932,72.8069519343,83.3807702227,1.6320257913,77.8901148886,7.5287221571,2.4724501758,3.368042204,4.427901524,5.1652989449,4.0572450176,42.6454279015,62.3047221571};

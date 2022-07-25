@@ -5,7 +5,7 @@ import insilico.core.model.InsilicoModelOutput;
 import insilico.core.molecule.conversion.SmilesMolecule;
 import insilico.tpo_oberon.ismTpoOberon;
 import insilico.tpo_oberon.utils.ModelsDeployment;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -13,7 +13,7 @@ import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 
-@Slf4j
+@Log4j
 public class mainScript {
 
     public static void main(String[] args) throws InitFailureException, MalformedURLException, FileNotFoundException, GenericFailureException, InterruptedException {

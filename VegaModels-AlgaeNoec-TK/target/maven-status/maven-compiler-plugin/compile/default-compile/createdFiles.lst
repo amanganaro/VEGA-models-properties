@@ -1,17 +1,1 @@
 mainScriptAlgaeNOEC.class
-insilico\algae_noec\descriptors\weights\GhoseCrippenWeights.class
-insilico\algae_noec\descriptors\weights\EState.class
-insilico\algae_noec\descriptors\weights\FunctionalGroups.class
-insilico\algae_noec\descriptors\weights\Polarizability.class
-insilico\algae_noec\descriptors\weights\ACF.class
-insilico\algae_noec\descriptors\weights\Electronegativity.class
-insilico\algae_noec\descriptors\weights\DescriptorMLogP.class
-insilico\algae_noec\descriptors\weights\QuantumNumber.class
-insilico\algae_noec\descriptors\weights\VanDerWaals.class
-insilico\algae_noec\descriptors\EmbeddedDescriptors.class
-insilico\algae_noec\descriptors\weights\IonizationPotential.class
-insilico\algae_noec\descriptors\weights\VertexDegree.class
-insilico\algae_noec\descriptors\weights\ValenceVertexDegree.class
-insilico\algae_noec\ismAlgaeNOEC.class
-insilico\algae_noec\descriptors\weights\Mass.class
-insilico\algae_noec\descriptors\weights\BurdenMatrix.class

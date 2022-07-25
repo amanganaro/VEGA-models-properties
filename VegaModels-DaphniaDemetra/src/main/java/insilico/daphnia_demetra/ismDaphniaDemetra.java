@@ -19,7 +19,7 @@ import insilico.core.tools.utils.ModelUtilities;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-//@Slf4j
+//@Log4j
 public class ismDaphniaDemetra extends InsilicoModel {
 
     private static final long serialVersionUID = 1L;

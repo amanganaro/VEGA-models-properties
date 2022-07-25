@@ -5,14 +5,14 @@ import insilico.core.exception.InitFailureException;
 import insilico.core.model.InsilicoModel;
 import insilico.core.pmml.ModelANNFromPMML;
 import insilico.sqfu.descriptors.EmbeddedDescriptors;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@Slf4j
+@Log4j
 public class ismSQfu extends InsilicoModel {
 
     private static final String ModelData = "/data/model_sqfu.xml";

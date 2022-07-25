@@ -3,7 +3,7 @@ package insilico.devtox_pg.library;
 import insilico.core.molecule.InsilicoMolecule;
 import insilico.core.molecule.conversion.MDLMolecule;
 import insilico.core.molecule.conversion.file.MoleculeFile;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ import java.util.ArrayList;
  * 
  * @author Alberto Manganaro (a.manganaro@kode-solutions.net)
  */
-@Slf4j
+@Log4j
 public class PGMoleculeFileSDF extends MoleculeFile {
 
     private String CASTag;
