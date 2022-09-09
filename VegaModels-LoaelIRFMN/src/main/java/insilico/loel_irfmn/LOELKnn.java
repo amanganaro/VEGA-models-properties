@@ -10,6 +10,8 @@ import insilico.core.similarity.SimilarMolecule;
 import insilico.core.similarity.Similarity;
 import insilico.core.similarity.SimilarityDescriptorsBuilder;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IAtomContainer;
 
@@ -20,9 +22,10 @@ import java.util.Arrays;
  *
  * @author Alberto Manganaro <a.manganaro@kode-solutions.net>
  */
-@Log4j
+
 public class LOELKnn {
-    
+    private static final Logger log = LogManager.getLogger(LOELKnn.class);
+
     private final static int NeighboursNumber = 2;
     private final static double SimThreshold = 0.85;
     private final static double SimThresholdSingle = 0.90;

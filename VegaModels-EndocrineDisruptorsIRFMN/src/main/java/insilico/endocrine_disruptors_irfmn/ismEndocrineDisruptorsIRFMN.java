@@ -7,9 +7,12 @@ import insilico.core.model.InsilicoModelOutput;
 import insilico.core.molecule.InsilicoMolecule;
 import insilico.core.tools.utils.ModelUtilities;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-@Log4j
+
 public class ismEndocrineDisruptorsIRFMN extends InsilicoModel {
+    private static final Logger log = LogManager.getLogger(ismEndocrineDisruptorsIRFMN.class);
 
     private static final long serialVersionUID = 1L;
 

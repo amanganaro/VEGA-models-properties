@@ -10,9 +10,12 @@ import insilico.core.model.InsilicoModelOutput;
 import insilico.core.tools.utils.ModelUtilities;
 import insilico.glucocorticoid_receptor.alert.SAGlucocorticoidReceptor;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-@Log4j
+
 public class ismGlucocorticoidReceptor extends InsilicoModel {
+    private static final Logger log = LogManager.getLogger(ismGlucocorticoidReceptor.class);
 
     private static final long serialVersionUID = 1L;
 

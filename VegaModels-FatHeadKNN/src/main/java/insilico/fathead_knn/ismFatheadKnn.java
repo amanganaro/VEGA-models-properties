@@ -16,7 +16,7 @@ import insilico.core.model.trainingset.TrainingSet;
 import insilico.core.tools.utils.ModelUtilities;
 //import lombok.extern.log4j.Log4j;
 
-//@Log4j
+
 public class ismFatheadKnn extends InsilicoModel {
 
     private static final long serialVersionUID = 1L;

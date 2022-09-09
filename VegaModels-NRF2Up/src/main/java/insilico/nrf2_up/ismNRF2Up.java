@@ -11,8 +11,11 @@ import insilico.core.model.InsilicoModelOutput;
 import insilico.core.pmml.ModelANNFromPMML;
 import insilico.core.tools.utils.ModelUtilities;
 import insilico.nrf2_up.descriptors.EmbeddedDescriptors;
+import insilico.nrf2_up.descriptors.MLogP;
 import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.dmg.pmml.FieldName;
 
 import java.io.IOException;
@@ -20,8 +23,9 @@ import java.net.URL;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@Log4j
+
 public class ismNRF2Up extends InsilicoModel {
+    private static final Logger log = LogManager.getLogger(ismNRF2Up.class);
 
     private static final double[] mean = {2.265985932,72.8069519343,83.3807702227,1.6320257913,77.8901148886,7.5287221571,2.4724501758,3.368042204,4.427901524,5.1652989449,4.0572450176,42.6454279015,62.3047221571};
     private static final double[] stdDeviation = {1.5379366535,41.9561232784,41.1852020728,0.232307716,38.9656361906,9.6637448823,2.1303206186,0.7763722853,5.8889185286,7.1158829198,0.6753593947,47.4645068958,41.8755590915};

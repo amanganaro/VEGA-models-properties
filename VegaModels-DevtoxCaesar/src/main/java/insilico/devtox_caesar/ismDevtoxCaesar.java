@@ -14,6 +14,8 @@ import insilico.core.tools.utils.ModelUtilities;
 import insilico.devtox_caesar.descriptors.EmbeddedDescriptors;
 import insilico.devtox_caesar.descriptors.IcycemDescriptor;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
@@ -25,8 +27,9 @@ import java.util.ArrayList;
  *
  * @author Alberto Manganaro (a.manganaro@kode-solutions.net)
  */
-@Log4j
+
 public class ismDevtoxCaesar extends InsilicoModel {
+    private static final Logger log = LogManager.getLogger(ismDevtoxCaesar.class);
 
     private static final long serialVersionUID = 1L;
 

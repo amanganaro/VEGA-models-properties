@@ -15,6 +15,8 @@ import insilico.skin_irfmn.desciptors.weights.FG;
 import insilico.skin_irfmn.desciptors.weights.VertexDegree;
 import lombok.Data;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openscience.cdk.CDKConstants;
 import org.openscience.cdk.graph.ShortestPaths;
 import org.openscience.cdk.interfaces.IAtom;
@@ -26,9 +28,10 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-@Log4j
+
 @Data
 public class EmbeddedDescriptors {
+    private static final Logger log = LogManager.getLogger(EmbeddedDescriptors.class);
 
     private final double MISSING_VALUE = -999;
 

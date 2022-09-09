@@ -22,6 +22,8 @@ import insilico.core.molecule.tools.Manipulator;
 import insilico.core.tools.utils.MoleculeUtilities;
 
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openscience.cdk.CDKConstants;
 import org.openscience.cdk.RingSet;
 import org.openscience.cdk.graph.ShortestPaths;
@@ -42,8 +44,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-@Log4j
+
 public class EmbeddedDescriptors {
+    private static final Logger log = LogManager.getLogger(EmbeddedDescriptors.class);
 
     private final double MISSING_VALUE = -999;
 

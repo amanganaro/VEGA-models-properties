@@ -14,6 +14,8 @@ import insilico.core.pmml.ModelANNFromPMML;
 import insilico.core.tools.utils.ModelUtilities;
 import insilico.fish_noec.descriptors.EmbeddedDescriptors;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.net.URL;
@@ -24,9 +26,10 @@ import java.util.Map;
  *
  * @author User
  */
-@Log4j
+
 public class ismFishNOEC extends InsilicoModel {
-    
+    private static final Logger log = LogManager.getLogger(ismFishNOEC.class);
+
     private static final long serialVersionUID = 1L;
     
     private static final String ModelData = "/data/model_fish_noec.xml";

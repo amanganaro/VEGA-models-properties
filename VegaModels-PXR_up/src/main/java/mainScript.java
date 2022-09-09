@@ -7,6 +7,8 @@ import insilico.core.molecule.conversion.SmilesMolecule;
 import insilico.pxr_up.ismPxrUp;
 import insilico.pxr_up.utils.ModelsDeployment;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -14,8 +16,9 @@ import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 
-@Log4j
+
 public class mainScript {
+    private static final Logger log = LogManager.getLogger(mainScript.class);
 
     public static void main(String[] args) throws InitFailureException, GenericFailureException, MalformedURLException, FileNotFoundException {
 

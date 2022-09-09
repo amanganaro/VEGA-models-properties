@@ -1,6 +1,7 @@
 package insilico.carcinogenicity_sfi_classification_tk;
 
 import insilico.carcinogenicity_sfi_classification_tk.descriptors.EmbeddedDescriptors;
+import insilico.carcinogenicity_sfi_classification_tk.descriptors.weights.EState;
 import insilico.core.ad.ADCheckACF;
 import insilico.core.ad.ADCheckDescriptorRange;
 import insilico.core.ad.ADCheckIndicesQualitative;
@@ -12,14 +13,18 @@ import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
 import insilico.core.tools.utils.ModelUtilities;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  *
  * @author User
  */
-@Log4j
+
 public class ismCarcinogenicitySFIClassification extends InsilicoModel {
-    
+    private static final Logger log = LogManager.getLogger(ismCarcinogenicitySFIClassification.class);
+
+
     private static final long serialVersionUID = 1L;
     
     private static final String ModelData = "/data/model_carc_sficlassification.xml";

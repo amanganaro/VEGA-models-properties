@@ -15,6 +15,8 @@ import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
 import insilico.core.tools.utils.ModelUtilities;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 
 import java.util.ArrayList;
@@ -23,9 +25,10 @@ import java.util.ArrayList;
  *
  * @author Alberto Manganaro (a.manganaro@kode-solutions.net)
  */
-@Log4j
+
 public class ismEstrogenBindingCerapp extends InsilicoModel {
-    
+    private static final Logger log = LogManager.getLogger(ismEstrogenBindingCerapp.class);
+
     private static final long serialVersionUID = 1L;
     
     private static final String ModelData = "/data/model_estrogen_cerapp.xml";

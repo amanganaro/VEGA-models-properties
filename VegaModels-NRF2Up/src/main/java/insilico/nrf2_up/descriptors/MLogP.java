@@ -8,6 +8,8 @@ import insilico.core.molecule.InsilicoMolecule;
 import insilico.core.molecule.tools.InsilicoMoleculeNormalization;
 import insilico.core.tools.utils.MoleculeUtilities;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openscience.cdk.CDKConstants;
 import org.openscience.cdk.RingSet;
 import org.openscience.cdk.graph.ShortestPaths;
@@ -24,8 +26,9 @@ import java.util.List;
  *
  * @author Alberto Manganaro (a.manganaro@kode-solutions.net)
  */
-@Log4j
+
 public class MLogP extends DescriptorBlock {
+    private static final Logger log = LogManager.getLogger(MLogP.class);
 
     private final static long serialVersionUID = 1L;
 

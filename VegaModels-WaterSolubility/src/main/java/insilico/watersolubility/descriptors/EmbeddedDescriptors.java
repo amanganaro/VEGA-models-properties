@@ -21,6 +21,8 @@ import insilico.core.molecule.tools.Manipulator;
 import insilico.core.tools.utils.MoleculeUtilities;
 import insilico.watersolubility.descriptors.weights.*;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openscience.cdk.CDKConstants;
 import org.openscience.cdk.RingSet;
 
@@ -30,8 +32,9 @@ import org.openscience.cdk.interfaces.*;
 
 import java.util.*;
 
-@Log4j
+
 public class EmbeddedDescriptors {
+    private static final Logger log = LogManager.getLogger(EmbeddedDescriptors.class);
 
     public static final int MISSING_VALUE = -999;
 

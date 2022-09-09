@@ -10,6 +10,8 @@ import insilico.core.molecule.InsilicoMolecule;
 import insilico.skin_caesar.descriptors.weights.*;
 import lombok.Data;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openscience.cdk.graph.PathTools;
 import org.openscience.cdk.graph.matrix.AdjacencyMatrix;
 import org.openscience.cdk.interfaces.IAtom;
@@ -19,9 +21,10 @@ import org.openscience.cdk.interfaces.IBond;
 import java.util.Arrays;
 import java.util.List;
 
-@Log4j
+
 @Data
 public class EmbeddedDescriptors {
+    private static final Logger log = LogManager.getLogger(EmbeddedDescriptors.class);
 
     private double MISSING_VALUE = -999;
 

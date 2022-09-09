@@ -4,7 +4,10 @@ import insilico.core.exception.GenericFailureException;
 import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
 import insilico.core.molecule.conversion.SmilesMolecule;
+import insilico.skin_cosmetics.mainScriptSkinCosmetics;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.*;
 import java.net.MalformedURLException;
@@ -15,8 +18,9 @@ import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 
-@Log4j
+
 public class ModelsDeployment {
+    private static final Logger log = LogManager.getLogger(ModelsDeployment.class);
 
 
     public static void TestModelWithTrainingSet(InsilicoModel model, String filename, boolean kodeDataset) throws MalformedURLException, FileNotFoundException, GenericFailureException {

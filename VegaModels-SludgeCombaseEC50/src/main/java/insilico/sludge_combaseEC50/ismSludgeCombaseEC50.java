@@ -12,6 +12,8 @@ import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
 import insilico.core.tools.utils.ModelUtilities;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import protoqsar.filters.BiocideFilter;
 import protoqsar.sludge.SludgeDescriptors;
 import protoqsar.sludge.SludgeQuantitativeRegression;
@@ -23,9 +25,10 @@ import java.util.ArrayList;
  *
  * @author User
  */
-@Log4j
+
 public class ismSludgeCombaseEC50 extends InsilicoModel {
-    
+    private static final Logger log = LogManager.getLogger(ismSludgeCombaseEC50.class);
+
     private static final long serialVersionUID = 1L;
     
     private static final String ModelData = "/data/model_sludge_combaseEC50.xml";

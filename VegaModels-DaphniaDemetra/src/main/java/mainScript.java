@@ -8,6 +8,8 @@ import insilico.daphnia_demetra.ismDaphniaDemetra;
 import insilico.core.model.InsilicoModel;
 import insilico.daphnia_demetra.utils.ModelsDeployment;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -17,8 +19,9 @@ import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 
-@Log4j
+
 public class mainScript {
+    private static final Logger log = LogManager.getLogger(mainScript.class);
 
     public static void main(String[] args) throws Exception {
 

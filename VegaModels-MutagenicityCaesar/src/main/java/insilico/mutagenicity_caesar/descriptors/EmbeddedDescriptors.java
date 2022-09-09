@@ -12,14 +12,17 @@ import insilico.mutagenicity_caesar.descriptors.weights.GhoseCrippenWeights;
 import insilico.mutagenicity_caesar.descriptors.weights.VertexDegree;
 import lombok.Data;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openscience.cdk.CDKConstants;
 import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IAtomContainer;
 import org.openscience.cdk.interfaces.IBond;
 
-@Log4j
+
 @Data
 public class EmbeddedDescriptors {
+    private static final Logger log = LogManager.getLogger(EmbeddedDescriptors.class);
 
     private double MISSING_VALUE = -999;
 

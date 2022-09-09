@@ -4,6 +4,8 @@ import insilico.core.model.InsilicoModel;
 import insilico.sqfu.utils.ModelsDeployment;
 import insilico.sqfu.ismSQfu;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -11,8 +13,9 @@ import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 
-@Log4j
+
 public class mainScript {
+    private static final Logger log = LogManager.getLogger(mainScript.class);
 
     public static void main(String[] args) throws InitFailureException, GenericFailureException, MalformedURLException, FileNotFoundException {
 

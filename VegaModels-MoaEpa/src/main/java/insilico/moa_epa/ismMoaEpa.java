@@ -15,7 +15,10 @@ import insilico.core.tools.utils.ModelUtilities;
 import insilico.moa_epa.descriptors.EmbeddedDescriptors;
 import insilico.moa_epa.descriptors.MOAToxAdditionalDescriptors;
 import insilico.moa_epa.descriptors.MOAToxMultipleModels;
+import insilico.moa_epa.descriptors.weights.EState;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 
@@ -23,9 +26,10 @@ import java.util.ArrayList;
  *
  * @author Alberto Manganaro (a.manganaro@kode-solutions.net)
  */
-@Log4j
+
 public class ismMoaEpa extends InsilicoModel {
-    
+    private static final Logger log = LogManager.getLogger(ismMoaEpa.class);
+
     private static final long serialVersionUID = 1L;
     
     private static final String ModelData = "/data/model_moa_epa.xml";

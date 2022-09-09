@@ -1,6 +1,8 @@
 package insilico.sqfu.descriptors.weights;
 
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * Coefficients for Ghose-Crippen atom centered fragments, for logP and
@@ -8,8 +10,9 @@ import lombok.extern.log4j.Log4j;
  *
  * @author Alberto Manganaro (a.manganaro@kode-solutions.net)
  */
-@Log4j
+
 public class GCWeights {
+    private static final Logger log = LogManager.getLogger(GCWeights.class);
 
     final static double[] Hydrophobicity = {
             0,  // foo for index 0

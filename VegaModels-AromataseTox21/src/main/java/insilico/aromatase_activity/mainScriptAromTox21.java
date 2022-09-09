@@ -5,6 +5,8 @@ import insilico.core.exception.GenericFailureException;
 import insilico.core.exception.InitFailureException;
 import insilico.core.model.InsilicoModel;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -12,9 +14,12 @@ import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 
-@Log4j
+
 public class mainScriptAromTox21 {
 
+    private static final Logger log = LogManager.getLogger(mainScriptAromTox21.class);
+
+    
     public static void main (String[] args) throws InitFailureException, MalformedURLException, FileNotFoundException, GenericFailureException {
         InsilicoModel model = new ismAromataseTox21();
 //        ModelsDeployment.TestModelWithTrainingSet(model, model.getInfo().getName() + " - New");

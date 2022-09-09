@@ -5,15 +5,19 @@ import insilico.core.exception.InitFailureException;
 import insilico.core.model.InsilicoModel;
 import insilico.core.pmml.ModelANNFromPMML;
 import insilico.sqfu.descriptors.EmbeddedDescriptors;
+import insilico.sqfu.descriptors.weights.MoleculePaths;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@Log4j
+
 public class ismSQfu extends InsilicoModel {
+    private static final Logger log = LogManager.getLogger(ismSQfu.class);
 
     private static final String ModelData = "/data/model_sqfu.xml";
     private ModelANNFromPMML Model;

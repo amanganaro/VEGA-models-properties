@@ -12,6 +12,8 @@ import insilico.fish_noec.descriptors.weights.*;
 import insilico.fish_noec.descriptors.weights.ACF;
 import lombok.Data;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openscience.cdk.CDKConstants;
 import org.openscience.cdk.graph.PathTools;
 import org.openscience.cdk.interfaces.IAtom;
@@ -21,9 +23,10 @@ import org.openscience.cdk.interfaces.IBond;
 import java.util.Arrays;
 import java.util.List;
 
-@Log4j
+
 @Data
 public class EmbeddedDescriptors {
+    private static final Logger log = LogManager.getLogger(EmbeddedDescriptors.class);
 
     public final int MISSING_VALUE = -999;
 

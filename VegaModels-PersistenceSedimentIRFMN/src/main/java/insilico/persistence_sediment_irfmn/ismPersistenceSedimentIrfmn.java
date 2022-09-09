@@ -21,6 +21,8 @@ import insilico.core.model.InsilicoModelOutput;
 import insilico.core.model.trainingset.TrainingSet;
 import insilico.core.tools.utils.ModelUtilities;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 
 import java.util.ArrayList;
@@ -32,9 +34,10 @@ import static insilico.core.constant.InsilicoConstants.KEY_ALERT_PERS_SEDIMENT_V
  *
  * @author User
  */
-@Log4j
+
 public class ismPersistenceSedimentIrfmn extends InsilicoModel {
-    
+    private static final Logger log = LogManager.getLogger(ismPersistenceSedimentIrfmn.class);
+
     private static final long serialVersionUID = 1L;
     
     private static final String ModelData = "/data/model_pers_sed_irfmn.xml";

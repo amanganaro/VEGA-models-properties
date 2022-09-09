@@ -18,6 +18,8 @@ import insilico.core.tools.utils.ModelUtilities;
 import insilico.pgp_nic.descriptors.modelCPANN;
 import insilico.pgp_nic.descriptors.modelPgpDescriptors;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
@@ -26,9 +28,10 @@ import java.text.DecimalFormatSymbols;
  *
  * @author User
  */
-@Log4j
+
 public class ismPgpNic extends InsilicoModel {
-    
+    private static final Logger log = LogManager.getLogger(ismPgpNic.class);
+
     private static final long serialVersionUID = 1L;
     
     private static final String ModelData = "/data/model_pgp_nic.xml";

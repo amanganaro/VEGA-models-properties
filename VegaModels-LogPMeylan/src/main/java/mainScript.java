@@ -1,14 +1,19 @@
 import insilico.meylanlogp.ismLogPMeylan;
 import insilico.core.model.InsilicoModel;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import utils.ModelsDeployment;
 
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 
-@Log4j
+
 public class mainScript {
+
+    private static final Logger log = LogManager.getLogger(mainScript.class);
+
 
     public static void main(String[] args) throws Exception {
 

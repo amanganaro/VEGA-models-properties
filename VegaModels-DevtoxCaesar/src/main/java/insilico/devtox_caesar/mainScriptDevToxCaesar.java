@@ -3,7 +3,10 @@ package insilico.devtox_caesar;
 import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
 import insilico.core.molecule.conversion.SmilesMolecule;
+import insilico.devtox_caesar.descriptors.EmbeddedDescriptors;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import utils.ModelsDeployment;
 
 import java.io.File;
@@ -12,8 +15,9 @@ import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 
-@Log4j
+
 public class mainScriptDevToxCaesar {
+    private static final Logger log = LogManager.getLogger(mainScriptDevToxCaesar.class);
 
     public static void main(String[] args) throws Exception {
 

@@ -2,9 +2,12 @@ package insilico.mutagenicity_amines.rules;
 
 import insilico.core.molecule.InsilicoMolecule;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-@Log4j
+
 public class AromaticAminesModel {
+    private static final Logger log = LogManager.getLogger(AromaticAminesModel.class);
 
     private final AromaticAminesDescriptors aromaticAminesDescriptors;
     private final AromaticAminesSubclassClassifier aromaticAminesSubclassClassifier;

@@ -11,10 +11,13 @@ import insilico.core.model.InsilicoModelOutput;
 import insilico.core.tools.utils.ModelUtilities;
 import insilico.mutagenicity_amines.rules.AromaticAminesModel;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-@Log4j
+
 public class ismMutagenicityAmines extends InsilicoModel {
 
+    private static final Logger log = LogManager.getLogger(ismMutagenicityAmines.class);
 
     private static final String ModelData = "/data/model_muta_amines.xml";
 

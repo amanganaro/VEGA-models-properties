@@ -8,6 +8,8 @@ import insilico.core.exception.GenericFailureException;
 import insilico.core.exception.InvalidMoleculeException;
 import insilico.core.molecule.InsilicoMolecule;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openscience.cdk.CDKConstants;
 import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IAtomContainer;
@@ -21,8 +23,9 @@ import java.util.Arrays;
  * 
  * @author Alberto Manganaro (a.manganaro@kode-solutions.net)
  */
-@Log4j
+
 public class EdgeAdjacency extends DescriptorBlock {
+    private static final Logger log = LogManager.getLogger(EdgeAdjacency.class);
 
     private final static long serialVersionUID = 1L;
     private final static String BlockName = "Edge Adjacency Descriptors";

@@ -18,7 +18,10 @@ import insilico.core.model.InsilicoModelOutput;
 import insilico.core.tools.utils.ModelUtilities;
 import insilico.mutagenicity_caesar.descriptors.EmbeddedDescriptors;
 import insilico.mutagenicity_caesar.descriptors.MutagenDescriptors;
+import insilico.mutagenicity_caesar.descriptors.weights.EState;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 
 import java.io.IOException;
@@ -29,9 +32,10 @@ import java.util.ArrayList;
  *
  * @author Alberto Manganaro (a.manganaro@kode-solutions.net)
  */
-@Log4j
+
 public class ismMutagenicityCaesar extends InsilicoModel {
-    
+    private static final Logger log = LogManager.getLogger(ismMutagenicityCaesar.class);
+
     private static final long serialVersionUID = 1L;
     
     private static final String ModelData = "/data/model_muta_caesar.xml";

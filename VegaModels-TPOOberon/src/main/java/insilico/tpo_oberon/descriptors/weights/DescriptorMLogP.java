@@ -5,7 +5,10 @@ import insilico.core.exception.InvalidMoleculeException;
 import insilico.core.molecule.InsilicoMolecule;
 import insilico.core.molecule.tools.InsilicoMoleculeNormalization;
 import insilico.core.tools.utils.MoleculeUtilities;
+import insilico.tpo_oberon.descriptors.EmbeddedDescriptors;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openscience.cdk.CDKConstants;
 import org.openscience.cdk.RingSet;
 import org.openscience.cdk.graph.ShortestPaths;
@@ -17,8 +20,9 @@ import org.openscience.cdk.interfaces.IRing;
 import java.util.Arrays;
 import java.util.List;
 
-@Log4j
+
 public class DescriptorMLogP {
+    private static final Logger log = LogManager.getLogger(DescriptorMLogP.class);
 
     private final static long serialVersionUID = 1L;
 

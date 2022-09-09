@@ -6,6 +6,8 @@ import insilico.core.exception.GenericFailureException;
 import insilico.core.exception.InitFailureException;
 import insilico.core.molecule.InsilicoMolecule;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openscience.cdk.DefaultChemObjectBuilder;
 import org.openscience.cdk.isomorphism.Pattern;
 import org.openscience.cdk.smarts.SmartsPattern;
@@ -14,8 +16,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-@Log4j
+
 public class SAGlucocorticoidReceptor {
+    private static final Logger log = LogManager.getLogger(SAGlucocorticoidReceptor.class);
 
     private final static short INACTIVE = 0;
     private final static short ACTIVE_AGONIST = 1;

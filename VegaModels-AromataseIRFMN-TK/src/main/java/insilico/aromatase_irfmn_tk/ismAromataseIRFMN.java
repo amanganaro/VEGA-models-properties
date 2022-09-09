@@ -14,6 +14,8 @@ import insilico.core.pmml.ModelGenericFromPMML;
 
 import insilico.core.tools.utils.ModelUtilities;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.dmg.pmml.FieldName;
 
 import java.io.IOException;
@@ -25,9 +27,12 @@ import java.util.Map;
  *
  * @author User
  */
-@Log4j
+
 public class ismAromataseIRFMN extends InsilicoModel {
-    
+
+    private static final Logger log = LogManager.getLogger(ismAromataseIRFMN.class);
+
+
     private static final long serialVersionUID = 1L;
     
     private static final String ModelData = "/data/model_aromatase_irfmn.xml";

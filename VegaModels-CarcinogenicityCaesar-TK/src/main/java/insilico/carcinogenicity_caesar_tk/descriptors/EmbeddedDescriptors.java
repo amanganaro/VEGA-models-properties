@@ -10,6 +10,8 @@ import insilico.core.exception.GenericFailureException;
 import insilico.core.exception.InvalidMoleculeException;
 import insilico.core.molecule.InsilicoMolecule;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openscience.cdk.CDKConstants;
 import org.openscience.cdk.RingSet;
 import org.openscience.cdk.graph.PathTools;
@@ -18,14 +20,17 @@ import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IAtomContainer;
 import org.openscience.cdk.interfaces.IBond;
 import org.openscience.cdk.interfaces.IRing;
+import utils.ModelsDeployment;
 
 import java.util.Arrays;
 import java.util.List;
 
-@Log4j
+
 public class EmbeddedDescriptors {
 
     private double MISSING_VALUE = -999;
+
+    private static final Logger log = LogManager.getLogger(EmbeddedDescriptors.class);
 
     public double PW5;
     public double DDr6;

@@ -1,16 +1,20 @@
 package insilico.carcinogenicity_sfiregression.descriptors.weights;
 
+import insilico.carcinogenicity_sfiregression.ismCarcinogenicitySFIRegression;
 import insilico.core.descriptor.Descriptor;
 import insilico.core.descriptor.DescriptorBlock;
 import insilico.core.exception.GenericFailureException;
 import insilico.core.exception.InvalidMoleculeException;
 import insilico.core.molecule.InsilicoMolecule;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openscience.cdk.CDKConstants;
 import org.openscience.cdk.interfaces.IAtomContainer;
 
-@Log4j
+
 public class ACF extends DescriptorBlock {
+    private static final Logger log = LogManager.getLogger(ACF.class);
 
     private static final long serialVersionUID = 1L;
 

@@ -2,10 +2,13 @@ package insilico.ahr_up;
 
 import insilico.ahr_up.descriptor.EmbeddedDescriptors;
 import insilico.core.descriptor.DescriptorsEngine;
+import insilico.core.descriptor.blocks.weights.TopologicalDistances;
 import insilico.core.exception.InitFailureException;
 import insilico.core.model.InsilicoModel;
 import insilico.core.pmml.ModelANNFromPMML;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.dmg.pmml.FieldName;
 
 import java.io.IOException;
@@ -13,7 +16,6 @@ import java.net.URL;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@Log4j
 public class ismAhrUp extends InsilicoModel {
 
     private static final double[] mean = {22.9688277512, 1.6291110048, 0.4232038278, 0.0201980861, 4.7118889952, 0.3668679426, 41.4590545455};
@@ -22,6 +24,9 @@ public class ismAhrUp extends InsilicoModel {
     private static final String ModelData = "/data/model_ahr_up.xml";
     private ModelANNFromPMML Model;
     private double ExperimentalValue = 0;
+
+    private static final Logger log = LogManager.getLogger(ismAhrUp.class);
+
 
     public ismAhrUp() throws InitFailureException {
         super(ModelData);

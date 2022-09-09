@@ -14,6 +14,8 @@ import insilico.persistence_soil_quantitative_irfmn.descriptors.weights.Ionizati
 import insilico.persistence_soil_quantitative_irfmn.descriptors.weights.Polarizability;
 import lombok.Data;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IAtomContainer;
 import org.openscience.cdk.interfaces.IBond;
@@ -21,9 +23,10 @@ import org.openscience.cdk.interfaces.IBond;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-@Log4j
+
 @Data
 public class EmbeddedDescriptors {
+    private static final Logger log = LogManager.getLogger(EmbeddedDescriptors.class);
 
     private double MISSING_VALUE = -999;
 

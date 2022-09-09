@@ -11,7 +11,10 @@ import insilico.core.similarity.Similarity;
 import insilico.core.similarity.SimilarityDescriptorsBuilder;
 import insilico.core.tools.utils.GeneralUtilities;
 import insilico.tpo_oberon.descriptors.EmbeddedDescriptors;
+import insilico.tpo_oberon.descriptors.weights.DescriptorMLogP;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.BufferedReader;
 import java.io.DataInputStream;
@@ -23,8 +26,9 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
-@Log4j
+
 public class KnnAlgorithm {
+    private static final Logger log = LogManager.getLogger(KnnAlgorithm.class);
 
     private final static int DESC_NUM = 20;
 

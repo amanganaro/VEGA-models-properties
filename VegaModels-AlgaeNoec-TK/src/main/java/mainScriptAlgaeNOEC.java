@@ -1,9 +1,12 @@
 import insilico.algae_noec_tk.ismAlgaeNOEC;
 import insilico.core.model.InsilicoModel;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-@Log4j
+
 public class mainScriptAlgaeNOEC {
+    private static final Logger log = LogManager.getLogger(mainScriptAlgaeNOEC.class);
 
     public static void main(String[] args) throws Exception {
 

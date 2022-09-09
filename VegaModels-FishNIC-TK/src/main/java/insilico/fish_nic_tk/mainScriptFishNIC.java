@@ -3,13 +3,17 @@ package insilico.fish_nic_tk;
 import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
 import insilico.core.molecule.conversion.SmilesMolecule;
+import insilico.fish_nic_tk.descriptors.weights.WalkAndPath;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Log4j
+
 public class mainScriptFishNIC {
+    private static final Logger log = LogManager.getLogger(mainScriptFishNIC.class);
 
     public static void main(String[] args) throws Exception {
 

@@ -9,6 +9,8 @@ import insilico.core.model.trainingset.TrainingSet;
 import insilico.core.molecule.conversion.SmilesMolecule;
 import lombok.extern.log4j.Log4j;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 //import ModelsList;
 
 import java.io.*;
@@ -20,9 +22,11 @@ import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 
-@Log4j
 
 public class ModelsDeployment {
+
+    private static final Logger log = LogManager.getLogger(ModelsDeployment.class);
+
 
     public static void printResultsFroTrainingSet(InsilicoModel model) throws InitFailureException, FileNotFoundException {
 

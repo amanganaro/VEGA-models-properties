@@ -7,6 +7,8 @@ import insilico.core.exception.DescriptorNotFoundException;
 import insilico.core.exception.InvalidMoleculeException;
 import insilico.core.molecule.InsilicoMolecule;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openscience.cdk.exception.Intractable;
 import org.openscience.cdk.graph.Cycles;
 import org.openscience.cdk.interfaces.IAtom;
@@ -20,8 +22,9 @@ import org.openscience.cdk.ringsearch.RingSearch;
 import java.util.List;
 import java.util.Map;
 
-@Log4j
+
 public class AromaticAminesSubclassClassifier {
+    private static final Logger log = LogManager.getLogger(AromaticAminesSubclassClassifier.class);
 
     public static final String MONOCYCLES = "Monocycles";
     public static final String BICYCLES = "Bicycles, non-fused";

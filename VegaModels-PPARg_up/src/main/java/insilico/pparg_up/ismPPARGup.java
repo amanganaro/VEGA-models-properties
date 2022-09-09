@@ -13,6 +13,8 @@ import insilico.core.tools.utils.ModelUtilities;
 import insilico.pparg_up.descriptors.EmbeddedDescriptors;
 import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.dmg.pmml.FieldName;
 
 import java.io.IOException;
@@ -20,8 +22,9 @@ import java.net.URL;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@Log4j
+
 public class ismPPARGup extends InsilicoModel {
+    private static final Logger log = LogManager.getLogger(ismPPARGup.class);
 
     private static final String ModelData = "/data/model_ppargup.xml";
     private ModelANNFromPMML Model;

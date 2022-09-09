@@ -9,6 +9,8 @@ import insilico.core.descriptor.Descriptor;
 import insilico.core.exception.GenericFailureException;
 import insilico.core.molecule.matrix.TopoDistanceMatrix;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openscience.cdk.CDKConstants;
 import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IAtomContainer;
@@ -22,9 +24,10 @@ import java.util.Map;
  *
  * @author Alberto Manganaro (a.manganaro@kode-solutions.net)
  */
-@Log4j
+
 public class EStateCorrectForH {
-    
+    private static final Logger log = LogManager.getLogger(EStEStateCorrectForHate.class);
+
     private Map<String, Integer> periods;
 
     private final double [] D;

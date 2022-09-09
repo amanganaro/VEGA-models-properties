@@ -19,8 +19,8 @@ import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 
-@Log4j
 public class mainScriptMutagenicityAmines {
+
 
     public static void main (String[] args) throws InitFailureException, GenericFailureException, FileNotFoundException {
         InsilicoModel model = new ismMutagenicityAmines();

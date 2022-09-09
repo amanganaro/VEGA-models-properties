@@ -20,6 +20,8 @@ import insilico.core.model.InsilicoModelOutput;
 import insilico.core.model.trainingset.TrainingSet;
 import insilico.core.tools.utils.ModelUtilities;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 
 import java.io.File;
@@ -34,9 +36,10 @@ import java.util.ArrayList;
  *
  * @author Alberto Manganaro (a.manganaro@kode-solutions.net)
  */
-@Log4j
+
 public class ismMicronucleusInVivo extends InsilicoModel {
-    
+    private static final Logger log = LogManager.getLogger(ismMicronucleusInVivo.class);
+
     private static final short PRED_NA = 0;
     private static final short PRED_AGREEMENT = 1;
     private static final short PRED_NOT_AGREEMENT = -1;

@@ -3,6 +3,8 @@ import insilico.core.molecule.conversion.SmilesMolecule;
 import insilico.fathead_knn.ismFatheadKnn;
 import insilico.core.model.InsilicoModel;
 import lombok.extern.log4j.Log4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import utils.ModelsDeployment;
 
 import java.io.File;
@@ -11,8 +13,9 @@ import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 
-@Log4j
+
 public class mainScriptFatheadKNN {
+    private static final Logger log = LogManager.getLogger(mainScriptFatheadKNN.class);
 
     public static void main(String[] args) throws Exception {
 
