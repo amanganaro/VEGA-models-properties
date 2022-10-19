@@ -26,7 +26,7 @@ import java.util.Map;
  */
 
 public class EStateCorrectForH {
-    private static final Logger log = LogManager.getLogger(EStEStateCorrectForHate.class);
+    private static final Logger log = LogManager.getLogger(EStateCorrectForH.class);
 
     private Map<String, Integer> periods;
 
