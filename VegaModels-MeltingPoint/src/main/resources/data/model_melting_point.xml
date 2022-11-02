@@ -1,0 +1,27 @@
+<xml>
+   
+    <Version>
+        <Name>Melting Point</Name>
+        <Key>MELTING_POINT</Key>
+        <Summary>TBA</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_melting_point.dat</TS>
+        <HasAlerts>False</HasAlerts>
+        <Units>°C</Units>
+    </Vega>
+
+    <Guide>
+    </Guide>
+
+    <Reference>
+    </Reference>
+
+    <Endpoint>
+    </Endpoint>
+    <Stats>
+    </Stats>
+    
+</xml>

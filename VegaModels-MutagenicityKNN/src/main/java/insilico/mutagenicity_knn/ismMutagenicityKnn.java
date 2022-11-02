@@ -8,6 +8,8 @@ import insilico.core.descriptor.Descriptor;
 import insilico.core.descriptor.DescriptorsEngine;
 import insilico.core.exception.GenericFailureException;
 import insilico.core.exception.InitFailureException;
+//import insilico.core.knn.InsilicoKnnQualitative;
+//import insilico.core.knn.InsilicoKnnPrediction;
 import insilico.core.knn.insilicoKnnPrediction;
 import insilico.core.knn.insilicoKnnQualitative;
 import insilico.core.model.InsilicoModel;
