@@ -18,10 +18,8 @@ import insilico.core.molecule.matrix.ConnectionAugMatrix;
 import insilico.core.molecule.matrix.TopoDistanceMatrix;
 import insilico.core.molecule.tools.Manipulator;
 import insilico.core.tools.utils.MoleculeUtilities;
-//import insilico.descriptor.blocks.*;
-import insilico.descriptor.blocks.AtomPairs2D;
-import insilico.descriptor.blocks.utils.MoleculePaths;
-import insilico.descriptor.localization.StringSelectorDescriptors;
+
+import insilico.melting_point.descriptors.weights.MoleculePaths;
 import lombok.Data;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -338,7 +336,7 @@ public class EmbeddedDescriptors {
             IAtomContainer orig_m = mol.GetStructure();
             m = Manipulator.AddHydrogens(orig_m);
         } catch (InvalidMoleculeException | GenericFailureException e) {
-            log.warn(StringSelectorDescriptors.getString("invalid_structure") + mol.getInputSMILES());
+            log.warn("Invalid structure: " + mol.getInputSMILES());
         }
 
         int nSK = m.getAtomCount();
@@ -450,7 +448,7 @@ public class EmbeddedDescriptors {
             IAtomContainer orig_m = mol.GetStructure();
             m = Manipulator.AddHydrogens(orig_m);
         } catch (InvalidMoleculeException | GenericFailureException e) {
-            log.warn(StringSelectorDescriptors.getString("invalid_structure") + mol.getInputSMILES());
+            log.warn("Invalid structure: " + mol.getInputSMILES());
             return;
         }
 
@@ -587,7 +585,7 @@ public class EmbeddedDescriptors {
         try {
             curMol = mol.GetStructure();
         } catch (InvalidMoleculeException e) {
-            log.warn(StringSelectorDescriptors.getString("invalid_structure") + mol.getInputSMILES());
+            log.warn("Invalid structure: " + mol.getInputSMILES());
             return;
         }
 
@@ -652,7 +650,7 @@ public class EmbeddedDescriptors {
         try {
             curMol = mol.GetStructure();
         } catch (InvalidMoleculeException e) {
-            log.warn(StringSelectorDescriptors.getString("invalid_structure") + mol.getInputSMILES());
+            log.warn("Invalid structure: " + mol.getInputSMILES());
             return;
         }
 
@@ -731,7 +729,7 @@ public class EmbeddedDescriptors {
             try {
                 H = CurAt.getImplicitHydrogenCount();
             } catch (Exception e) {
-                log.warn(StringSelectorDescriptors.getString("unable_count_h"));
+                log.warn("Unable to count H");
             }
 
             // counters
