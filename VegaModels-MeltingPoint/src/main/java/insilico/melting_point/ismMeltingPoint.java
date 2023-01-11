@@ -4,6 +4,8 @@ import insilico.core.descriptor.DescriptorsEngine;
 import insilico.core.exception.InitFailureException;
 import insilico.core.model.InsilicoModel;
 import insilico.melting_point.descriptors.EmbeddedDescriptors;
+import insilico.melting_point.runner.nrNetwork;
+import javassist.runtime.Desc;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -43,13 +45,10 @@ public class ismMeltingPoint extends InsilicoModel {
         DescriptorsNames[18] = "T(N..N)";
         DescriptorsNames[19] = "N-072";
 
-
-
         // Defines results
         this.ResultsSize = 1;
         this.ResultsName = new String[ResultsSize];
         this.ResultsName[0] = "Melting Point [°C]";
-
     }
 
 
@@ -67,7 +66,7 @@ public class ismMeltingPoint extends InsilicoModel {
             Descriptors[3] = embeddedDescriptors.P_VSA_LogP_3;
             Descriptors[4] = embeddedDescriptors.nCIC;
             Descriptors[5] = embeddedDescriptors.CIC3;
-            Descriptors[6] =embeddedDescriptors.GATS1e;
+            Descriptors[6] = embeddedDescriptors.GATS1e;
             Descriptors[7] = embeddedDescriptors.BIC1;
             Descriptors[8] = embeddedDescriptors.ATSC1i;
             Descriptors[9] = embeddedDescriptors.nArCOOH;
@@ -90,26 +89,27 @@ public class ismMeltingPoint extends InsilicoModel {
 
     @Override
     protected short CalculateModel() {
-        double Prediction = Double.NaN;
+        double Prediction;
         try {
-            // todo INSERT MODEL CALCULATION HERE
+            nrNetwork nn = nrNetwork.ReadFromFile("VegaModels-MeltingPoint\\src\\main\\resources\\meltingPoint.nn");
+            Prediction = nn.Calculate(Descriptors,true);
+
+            CurOutput.setMainResultValue(Prediction);
+
+            String[] Res = new String[ResultsSize];
+            Res[0] = String.valueOf(Format_3D.format(Prediction));
+            CurOutput.setResults(Res);
+
+            return MODEL_CALCULATED;
+
         } catch (Exception ex){
             return MODEL_ERROR;
         }
 
-        CurOutput.setMainResultValue(Prediction);
-
-        String[] Res = new String[ResultsSize];
-        Res[0] = Format_4D.format(Prediction);
-
-        CurOutput.setResults(Res);
-
-        return MODEL_CALCULATED;
     }
 
     @Override
     protected short CalculateAD() {
-
         // todo Insert Applicability Domain here
         return 0;
     }
@@ -117,7 +117,5 @@ public class ismMeltingPoint extends InsilicoModel {
     @Override
     protected void CalculateAssessment() {
         // todo Insert Model Assessment here
-
-
     }
 }

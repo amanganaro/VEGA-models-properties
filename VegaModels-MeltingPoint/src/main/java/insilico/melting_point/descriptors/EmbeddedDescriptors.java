@@ -1,6 +1,7 @@
 package insilico.melting_point.descriptors;
 
 import insilico.core.descriptor.Descriptor;
+import insilico.core.descriptor.DescriptorBlock;
 import insilico.core.descriptor.blocks.Constitutional;
 import insilico.core.descriptor.blocks.FunctionalGroups;
 import insilico.core.descriptor.blocks.Rings;
@@ -18,7 +19,6 @@ import insilico.core.molecule.matrix.ConnectionAugMatrix;
 import insilico.core.molecule.matrix.TopoDistanceMatrix;
 import insilico.core.molecule.tools.Manipulator;
 import insilico.core.tools.utils.MoleculeUtilities;
-
 import insilico.melting_point.descriptors.weights.MoleculePaths;
 import lombok.Data;
 import org.apache.logging.log4j.LogManager;
@@ -422,23 +422,16 @@ public class EmbeddedDescriptors {
         }
 
         double[] w = (new WeightsHydrophobicityGC()).getWeightsForFragmentId(ACF);
-        for (int b=1; b<=8; b++) {
 
-            if(b < 4)
-                continue;
-            if(b > 4)
-                break;
-
-
-            double PVSA = 0;
-            for (int i = 0; i < nSK; i++) {
-                if (w[i] == Descriptor.MISSING_VALUE) continue;
-                if (b == CalculateBin( w[i]))
-                    PVSA += VSA[i];
-            }
-            P_VSA_LogP_3 = PVSA;
-
+        int b = 3;
+        double PVSA = 0;
+        for (int i = 0; i < nSK; i++) {
+            if (w[i] == Descriptor.MISSING_VALUE) continue;
+            if (b == CalculateBin(w[i]))
+                PVSA += VSA[i];
         }
+
+        P_VSA_LogP_3 = PVSA;
 
     }
 
