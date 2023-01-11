@@ -113,6 +113,10 @@
         <module>VegaModels-TPOOberon</module>
         <module>VegaModels-MutagenicityAmines</module>
         <module>VegaModels-MeltingPoint</module>
+        <module>VegaModels-EarthwormToxicity</module>
+        <module>VegaModels-MeltingPointKNN</module>
+        <module>VegaModels-SkinSensitizationSarpy</module>
+        <module>VegaModels-SkinIrritation</module>
     </modules>
 
     <name>VegaModels</name>

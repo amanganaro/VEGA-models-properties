@@ -35,7 +35,6 @@ public class EmbeddedDescriptors {
 
     private int MISSING_VALUE = -999;
 
-
     public double piPC01 = MISSING_VALUE;
     public double CATS2D_00_DD = MISSING_VALUE;
     public double ATS2i = MISSING_VALUE;
@@ -330,6 +329,7 @@ public class EmbeddedDescriptors {
     }
 
     private void CalculatePVSA(InsilicoMolecule mol) {
+
 
         IAtomContainer m = null;
         try {
