@@ -46,5 +46,10 @@ public class mainScriptMeltingPoint {
             for(int i = 0; i < model.GetResultsName().length; i++)
                 System.out.println(model.GetResultsName()[i] + " | " + out.getResults()[i]);
         }
+
+//        PERFORMANCES:
+//        Training:    R2 = 0.838 RMSE = 38.400
+//        Test:        R2 = 0.669 RMSE = 50.960
+
     }
 }
