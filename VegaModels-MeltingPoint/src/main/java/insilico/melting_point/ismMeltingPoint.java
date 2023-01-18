@@ -89,6 +89,7 @@ public class ismMeltingPoint extends InsilicoModel {
 
     @Override
     protected short CalculateModel() {
+
         double Prediction;
         try {
             nrNetwork nn = nrNetwork.ReadFromFile("VegaModels-MeltingPoint\\src\\main\\resources\\meltingPoint.nn");
