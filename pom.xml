@@ -118,6 +118,7 @@
         <module>VegaModels-SkinSensitizationSarpy</module>
         <module>VegaModels-SkinIrritation</module>
         <module>VegaModels-EyeIrritation</module>
+        <module>VegaModels-VapourPressure</module>
     </modules>
 
     <name>VegaModels</name>
