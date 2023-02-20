@@ -1,5 +1,6 @@
 package insilico.vapour_pressure;
 
+import insilico.core.descriptor.Descriptor;
 import insilico.core.descriptor.DescriptorsEngine;
 import insilico.core.exception.InitFailureException;
 import insilico.core.model.InsilicoModel;
@@ -112,7 +113,6 @@ public class ismVapourPressure extends InsilicoModel {
             Descriptors[35] = EmbeddedDescriptors.nN_N;
             Descriptors[36] = EmbeddedDescriptors.F10_C_Cl;
 
-
         } catch (Throwable e) {
             return DESCRIPTORS_ERROR;
         }
@@ -127,6 +127,11 @@ public class ismVapourPressure extends InsilicoModel {
             nrNetwork nn = nrNetwork.ReadFromFile("VegaModels-VapourPressure\\src\\main\\resources\\vapourPressure.nn");
             Prediction = nn.Calculate(Descriptors, true);
             CurOutput.setMainResultValue(Prediction);
+
+            for (int i=0; i<Descriptors.length; i++){
+                System.out.print("\t" + Descriptors[i]);
+            }
+            System.out.println();
 
             String[] Res = new String[ResultsSize];
             Res[0] = String.valueOf(Format_3D.format(Prediction));
