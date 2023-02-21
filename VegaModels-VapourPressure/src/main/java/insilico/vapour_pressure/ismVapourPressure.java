@@ -124,14 +124,9 @@ public class ismVapourPressure extends InsilicoModel {
     protected short CalculateModel() {
         double Prediction;
         try {
-            nrNetwork nn = nrNetwork.ReadFromFile("VegaModels-VapourPressure\\src\\main\\resources\\vapourPressure.nn");
+            nrNetwork nn = nrNetwork.ReadFromFile("VegaModels-VapourPressure/src/main/resources/vapourPressure.nn");
             Prediction = nn.Calculate(Descriptors, true);
             CurOutput.setMainResultValue(Prediction);
-
-            for (int i=0; i<Descriptors.length; i++){
-                System.out.print("\t" + Descriptors[i]);
-            }
-            System.out.println();
 
             String[] Res = new String[ResultsSize];
             Res[0] = String.valueOf(Format_3D.format(Prediction));

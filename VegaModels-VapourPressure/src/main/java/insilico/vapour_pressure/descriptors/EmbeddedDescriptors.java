@@ -179,7 +179,6 @@ public class EmbeddedDescriptors {
             }
         }
 
-        // IDDE
         int[] DistDeg = new int[nSK];
         for (int i=0; i<nSK; i++) {
             DistDeg[i] = 0;
@@ -208,7 +207,6 @@ public class EmbeddedDescriptors {
             }
         }
 
-        // IVDE
         double IVDE = 0;
 
         int[] VerDegCount = new int[10];
@@ -222,15 +220,12 @@ public class EmbeddedDescriptors {
                 IVDE = IVDE - ( ((double)VerDegCount[i]) / ((double)nSK)) * Math.log( ((double)VerDegCount[i]) / ((double)nSK) );
         }
 
-        // IVDEM (implementation from TEST software)
         double IVDEM = 0;
 
         for (int i=0; i<10; i++) {
             if (VerDegCount[i]>0)
                 IVDEM = IVDEM - ( ( (double)VerDegCount[i] / (double)nSK ) * Log(2, ( (double)VerDegCount[i] / (double)nSK ) ) );
         }
-
-        //// Neighborhood indices - on H-filled molecule
 
         IAtomContainer curMolH;
         try {
@@ -322,13 +317,12 @@ public class EmbeddedDescriptors {
     private void CalculateED(InsilicoMolecule mol) throws Exception {
 
         try {
-            SmartsPattern SA_add_3 = SmartsPattern.create("[Cl,Br]", DefaultChemObjectBuilder.getInstance()).setPrepare(false);
+            SmartsPattern SA = SmartsPattern.create("[$(c1cccc([Cl,Br])c1[Cl,Br]),$(c1ccc([Cl,Br])cc1[Cl,Br]),$(c1cc([Cl,Br])ccc1[Cl,Br]),$(c1c([Cl,Br])cccc1[Cl,Br]),$(c1ccc([Cl,Br])c([Cl,Br])c1),$(c1cc([Cl,Br])cc([Cl,Br])c1),$(c1ccc([Cl,Br])c([Cl,Br])c1)][O,o][$(c1cccc([Cl,Br])c1[Cl,Br]),$(c1ccc([Cl,Br])cc1[Cl,Br]),$(c1cc([Cl,Br])ccc1[Cl,Br]),$(c1c([Cl,Br])cccc1[Cl,Br]),$(c1ccc([Cl,Br])c([Cl,Br])c1),$(c1cc([Cl,Br])cc([Cl,Br])c1),$(c1ccc([Cl,Br])c([Cl,Br])c1)]", DefaultChemObjectBuilder.getInstance()).setPrepare(false);
             ED_3 = 0;
 
-            if (SA_add_3.matches(mol.GetStructure())) {
-                if (SA_add_3.matchAll(mol.GetStructure()).countUnique() >= 4)
+            if (SA.matches(mol.GetStructure()))
                     ED_3 = 1;
-            }
+
         } catch (Throwable e) {
             log.warn("Unable to calculate" + e.getMessage());
         }
@@ -386,6 +380,8 @@ public class EmbeddedDescriptors {
                 MaxDN = sumDeltaI;
         }
 
+        SaaNH = 0;
+
         for (int at=0; at<m.getAtomCount(); at++) {
 
             IAtom curAt = m.getAtom(at);
@@ -424,7 +420,6 @@ public class EmbeddedDescriptors {
                 }
             }
 
-            SaaNH = 0;
 
             if (curAt.getSymbol().equals("N")) {
                 if ((nSng == 0) && (nDbl == 0) &&
@@ -524,10 +519,10 @@ public class EmbeddedDescriptors {
         BB_SA31c = 0;
         AlertList res = BB.Calculate(mol);
         for (Alert a: res.getSAList()){
-            if (a.getId().equals("SA12")){
+            if (a.getId().equals("010c")){
                 BB_SA12 = 1;
             }
-            if (a.getId().equals("SA31c")){
+            if (a.getId().equals("010z")){
                 BB_SA31c = 1;
             }
         }
@@ -591,30 +586,6 @@ public class EmbeddedDescriptors {
         }
     }
     private void CalculateCATS2D(InsilicoMolecule mol){
-
-        String TYPE_D = "D";
-        String TYPE_A = "A";
-        String TYPE_P = "P";
-        String TYPE_N = "N";
-        String TYPE_L = "L";
-
-
-        String[][] AtomCouples = {
-                {TYPE_D, TYPE_D},
-                {TYPE_D, TYPE_A},
-                {TYPE_D, TYPE_P},
-                {TYPE_D, TYPE_N},
-                {TYPE_D, TYPE_L},
-                {TYPE_A, TYPE_A},
-                {TYPE_A, TYPE_P},
-                {TYPE_A, TYPE_N},
-                {TYPE_A, TYPE_L},
-                {TYPE_P, TYPE_P},
-                {TYPE_P, TYPE_N},
-                {TYPE_P, TYPE_L},
-                {TYPE_N, TYPE_N},
-                {TYPE_N, TYPE_L},
-                {TYPE_L, TYPE_L}};
 
         IAtomContainer curMol;
         try {
@@ -1129,7 +1100,8 @@ public class EmbeddedDescriptors {
 
         for (int i=0; i<nSK; i++) {
             if (m.getAtom(i).getSymbol().equalsIgnoreCase("F")) {
-                for (int j=i+1; j<nSK; j++) {
+                for (int j=0; j<nSK; j++) {
+                    if (i == j) continue;
                     if (m.getAtom(j).getSymbol().equalsIgnoreCase("F")) {
                         if (TopoMat[i][j] == 2)
                             F02_F_F++;
@@ -1139,7 +1111,8 @@ public class EmbeddedDescriptors {
                 }
             }
             if (m.getAtom(i).getSymbol().equalsIgnoreCase("C")) {
-                for (int j=i+1; j<nSK; j++) {
+                for (int j=0; j<nSK; j++) {
+                    if (i == j) continue;
                     if (m.getAtom(j).getSymbol().equalsIgnoreCase("S")) {
                         if (TopoMat[i][j] == 7)
                             F07_C_S++;
@@ -1151,6 +1124,7 @@ public class EmbeddedDescriptors {
                     if (m.getAtom(j).getSymbol().equalsIgnoreCase("Cl")) {
                         if (TopoMat[i][j] == 10)
                             F10_C_Cl++;
+
                     }
                     if (m.getAtom(j).getSymbol().equalsIgnoreCase("N")) {
                         if (TopoMat[i][j] == 1)
@@ -1159,7 +1133,8 @@ public class EmbeddedDescriptors {
                 }
             }
             if (m.getAtom(i).getSymbol().equalsIgnoreCase("O")) {
-                for (int j=i+1; j<nSK; j++) {
+                for (int j=0; j<nSK; j++) {
+                    if (i == j) continue;
                     if (m.getAtom(j).getSymbol().equalsIgnoreCase("O")) {
                         if (TopoMat[i][j] == 9)
                             F09_O_O++;
@@ -1167,6 +1142,8 @@ public class EmbeddedDescriptors {
                 }
             }
         }
+        F02_F_F /= 2;
+        F09_O_O /= 2;
     }
     private void CalculateAtomCentredFragments(InsilicoMolecule mol){
 
