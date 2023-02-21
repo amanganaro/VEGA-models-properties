@@ -1,5 +1,7 @@
 package insilico.skin_irritation.descriptors;
 
+import Jama.EigenvalueDecomposition;
+import Jama.Matrix;
 import insilico.core.descriptor.Descriptor;
 import insilico.core.descriptor.blocks.AtomCenteredFragments;
 import insilico.core.descriptor.blocks.Constitutional;
@@ -13,6 +15,7 @@ import insilico.core.descriptor.blocks.weights.other.WeightsVertexDegree;
 import insilico.core.exception.GenericFailureException;
 import insilico.core.exception.InvalidMoleculeException;
 import insilico.core.molecule.InsilicoMolecule;
+import insilico.skin_irritation.descriptors.utils.BaryszMatrixCorrect;
 import insilico.core.molecule.acf.GhoseCrippenACF;
 import insilico.core.molecule.matrix.ConnectionAugMatrix;
 import insilico.core.molecule.matrix.TopoDistanceMatrix;
@@ -27,10 +30,7 @@ import org.openscience.cdk.interfaces.IAtomContainer;
 import org.openscience.cdk.interfaces.IBond;
 import org.openscience.cdk.interfaces.IRingSet;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class EmbeddedDescriptors {
 
@@ -83,12 +83,91 @@ public class EmbeddedDescriptors {
     public double B06_C_N = MISSING_VALUE;
     public double GATS1e = MISSING_VALUE;
 
-    public EmbeddedDescriptors(InsilicoMolecule mol) throws GenericFailureException {
+    public EmbeddedDescriptors(InsilicoMolecule mol){
         CalculateAllDescriptors(mol);
     }
 
-    private void CalculateAllDescriptors(InsilicoMolecule mol) throws GenericFailureException {
+    private void CalculateAllDescriptors(InsilicoMolecule mol){
+        CalculateMatrixBasedDescriptors(mol);
 
     }
+
+    private void CalculateMatrixBasedDescriptors(InsilicoMolecule mol){
+        IAtomContainer curMol;
+        try {
+            curMol = mol.GetStructure();
+        } catch (InvalidMoleculeException e) {
+            log.warn("invalid_structure");
+            return;
+        }
+
+        // Adj matrix available for calculations
+        int nSK = curMol.getAtomCount();
+
+        String[] MATRICES = {"D/Dt", "Dz(i)"};
+
+        for (String curMat : MATRICES) {
+
+            // Gets current matrix
+            double[][] Mat = new double[nSK][nSK];
+            try {
+
+                if (curMat.equalsIgnoreCase("D/Dt")) {
+                    Mat = mol.GetMatrixDistanceDetour();
+                }
+
+                if (curMat.equalsIgnoreCase("Dz(i)")) {
+                    double[][][] BarMat = BaryszMatrixCorrect.getMatrix(mol.GetStructure());
+                    int BarLayer = 5;
+                    for (int i = 0; i < nSK; i++)
+                        for (int j = 0; j < nSK; j++)
+                            Mat[i][j] = BarMat[i][j][BarLayer];
+                }
+
+            } catch (Exception e) {
+                log.warn(e.getMessage());
+                return;
+            }
+
+
+            Matrix DataMatrix = new Matrix(Mat);
+            double[] eigenvalues;
+
+            try {
+                EigenvalueDecomposition ed = new EigenvalueDecomposition(DataMatrix);
+                eigenvalues = ed.getRealEigenvalues();
+                Arrays.sort(eigenvalues);
+            } catch (Throwable e) {
+                log.warn("unable_eigenvalue" + e.getMessage());
+                return;
+            }
+
+            double EigMax = eigenvalues[0];
+            double EigMin = eigenvalues[0];
+            for (double val : eigenvalues) {
+                if (val > EigMax)
+                    EigMax = val;
+                if (val< EigMin)
+                    EigMin = val;
+            }
+
+            double NormEigMax = EigMax / (double) nSK;
+
+            if (curMat.equals("Dz(i)")) {
+                SM1_Dzi = 0;
+
+                for (double val : eigenvalues)
+                    SM1_Dzi += val;
+
+                SM1_Dzi = Math.signum(SM1_Dzi) * Math.log(1 + Math.abs(SM1_Dzi));
+            }
+
+            if (curMat.equals("D/Dt"))
+                SpMaxA_D_Dt =  NormEigMax;
+
+        }
+    }
+
+
 
 }
