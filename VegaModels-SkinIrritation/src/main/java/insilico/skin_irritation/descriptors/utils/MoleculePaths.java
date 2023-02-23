@@ -5,10 +5,10 @@ import insilico.core.exception.InvalidMoleculeException;
 import insilico.core.molecule.InsilicoMolecule;
 import insilico.core.molecule.matrix.TopoDistanceMatrix;
 import insilico.core.tools.utils.MoleculeUtilities;
-import lombok.extern.slf4j.Slf4j;
+//import lombok.extern.slf4j.Slf4j;
 import org.openscience.cdk.interfaces.IAtomContainer;
 
-@Slf4j
+//@Slf4j
 public class MoleculePaths {
 
     // Limit for the number of atoms
@@ -68,15 +68,13 @@ public class MoleculePaths {
         try {
             m = Mol.GetStructure();
         } catch (InvalidMoleculeException e) {
-            log.warn("Invalid structure, unable to calculate paths");
-            throw new GenericFailureException("invalid structure");
+            throw new GenericFailureException("Invalid structure, unable to calculate paths");
         }
 
         int[][] AdjMat;
         try {
             AdjMat = Mol.GetMatrixAdjacency();
         } catch (GenericFailureException e) {
-            log.warn(e.getMessage());
             throw new GenericFailureException(e.getMessage());
         }
         double[][] AdjMatDbl = new double[AdjMat.length][AdjMat[0].length];
@@ -92,13 +90,11 @@ public class MoleculePaths {
         try {
             TopoDistMatrix = TopoDistanceMatrix.getMatrix(m);
         } catch (Exception e) {
-            log.warn(e.getMessage());
             throw new GenericFailureException(e.getMessage());
         }
         try {
             AdjConnectionMatrix = Mol.GetMatrixConnectionAugmented();
         } catch (Exception e) {
-            log.warn(e.getMessage());
             throw new GenericFailureException(e.getMessage());
         }
 

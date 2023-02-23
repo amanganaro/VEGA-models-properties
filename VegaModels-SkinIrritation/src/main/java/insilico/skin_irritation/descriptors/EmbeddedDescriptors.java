@@ -5,11 +5,9 @@ import Jama.Matrix;
 import insilico.core.alerts.Alert;
 import insilico.core.alerts.AlertBlock;
 import insilico.core.alerts.AlertList;
-import insilico.core.alerts.builders.SABenigniBossa;
+import insilico.core.alerts.builders.SABenigniBossaAdditional;
 import insilico.core.descriptor.Descriptor;
-import insilico.core.descriptor.blocks.AtomCenteredFragments;
 import insilico.core.descriptor.blocks.Constitutional;
-import insilico.core.descriptor.blocks.FunctionalGroups;
 import insilico.core.descriptor.blocks.Rings;
 import insilico.core.descriptor.blocks.weights.basic.*;
 import insilico.core.descriptor.blocks.weights.iBasicWeight;
@@ -18,16 +16,13 @@ import insilico.core.descriptor.blocks.weights.other.*;
 import insilico.core.exception.DescriptorNotFoundException;
 import insilico.core.exception.GenericFailureException;
 import insilico.core.exception.InvalidMoleculeException;
-import insilico.core.localization.StringSelectorCore;
 import insilico.core.molecule.InsilicoMolecule;
 import insilico.core.molecule.matrix.BurdenMatrix;
 import insilico.skin_irritation.descriptors.utils.BaryszMatrixCorrect;
-import insilico.core.molecule.acf.GhoseCrippenACF;
 import insilico.core.molecule.matrix.ConnectionAugMatrix;
 import insilico.core.molecule.matrix.TopoDistanceMatrix;
 import insilico.core.molecule.tools.Manipulator;
 import insilico.core.tools.utils.MoleculeUtilities;
-//import lombok.Data;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openscience.cdk.CDKConstants;
@@ -35,10 +30,10 @@ import org.openscience.cdk.graph.ShortestPaths;
 import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IAtomContainer;
 import org.openscience.cdk.interfaces.IBond;
-import org.openscience.cdk.interfaces.IRingSet;
 import org.openscience.cdk.isomorphism.Mappings;
 import org.openscience.cdk.isomorphism.Pattern;
 import org.openscience.cdk.smarts.SmartsPattern;
+import insilico.skin_irritation.descriptors.weights.WeightsIState;
 
 import java.util.*;
 
@@ -98,8 +93,9 @@ public class EmbeddedDescriptors {
     }
 
     private void CalculateAllDescriptors(InsilicoMolecule mol) throws Exception {
-
-
+        CalculateAutoCorrelationDescriptors(mol);
+        CalculateRingDescriptors(mol);
+        CalculateBenigniBossaAlerts(mol);
         CalculateWalkAndPath(mol);
         CalculateBurdenEigenvalues(mol);
         CalculateConstitutionalIndices(mol);
@@ -114,10 +110,129 @@ public class EmbeddedDescriptors {
         CalculateMatrixBasedDescriptors(mol);
     }
 
+    private void CalculateAutoCorrelationDescriptors(InsilicoMolecule mol){
+        try {
+
+            IAtomContainer m;
+            try {
+                IAtomContainer orig_m = mol.GetStructure();
+                m = Manipulator.AddHydrogens(orig_m);
+            } catch (InvalidMoleculeException | GenericFailureException e) {
+                log.warn("invalid_structure");
+                return;
+            }
+
+            // Gets matrices
+            int[][] TopoMatrix;
+            try {
+                TopoMatrix = TopoDistanceMatrix.getMatrix(m);
+            } catch (Exception e) {
+                log.warn(e.getMessage());
+                return;
+            }
+
+            int nSK = m.getAtomCount();
+
+            ArrayList<iWeight> bWeights = new ArrayList<>();
+            bWeights.add(new WeightsElectronegativity());
+            bWeights.add(new WeightsIState());
+
+            for (iWeight curWeight : bWeights) {
+
+                double[] w;
+
+                if (curWeight.getClass() == WeightsIState.class) {
+
+                    w = ((WeightsIState)curWeight).getWeights(m, true);
+
+                    for (int i=0; i<nSK; i++) {
+                        if (m.getAtom(i).getSymbol().equalsIgnoreCase("H"))
+                            w[i] = 1;
+                    }
+
+                } else {
+
+                    w = ((iBasicWeight) curWeight).getScaledWeights(m);
+                }
+
+                boolean MissingWeight = false;
+                for (int i=0; i<nSK; i++)
+                    if (w[i] == Descriptor.MISSING_VALUE)
+                        MissingWeight = true;
+                if (MissingWeight)
+                    continue;
+
+                // Calculates weights averages
+                double wA = 0;
+                for (int i=0; i<nSK; i++)
+                    wA += w[i];
+                wA = wA / ((double) nSK);
+
+                // Calculates autocorrelations
+                if (curWeight.getClass() == WeightsIState.class) {
+                    double GearyAC = 0;
+                    double denom = 0, delta = 0;
+
+                    for (int i = 0; i < nSK; i++) {
+
+                        denom += Math.pow((w[i] - wA), 2);
+
+                        for (int j = 0; j < nSK; j++)
+                            if (TopoMatrix[i][j] == 5) {
+                                GearyAC += Math.pow((w[i] - w[j]), 2);
+                                delta++;
+                            }
+                    }
+
+                    if (delta > 0) {
+                        if (denom == 0) {
+                            GearyAC = 0;
+                        } else {
+                            GearyAC = ((1 / (2 * delta)) * GearyAC) / ((1 / ((double) (nSK - 1))) * denom);
+                        }
+                    }
+                    GATS5s = GearyAC;
+                }
+
+                if (curWeight.getClass() == WeightsElectronegativity.class) {
+                    double GearyAC = 0;
+                    double denom = 0, delta = 0;
+
+                    for (int i = 0; i < nSK; i++) {
+
+                        denom += Math.pow((w[i] - wA), 2);
+
+                        for (int j = 0; j < nSK; j++)
+                            if (TopoMatrix[i][j] == 1) {
+                                GearyAC += Math.pow((w[i] - w[j]), 2);
+                                delta++;
+                            }
+                    }
+
+                    if (delta > 0) {
+                        if (denom == 0) {
+                            GearyAC = 0;
+                        } else {
+                            GearyAC = ((1 / (2 * delta)) * GearyAC) / ((1 / ((double) (nSK - 1))) * denom);
+                        }
+                    }
+                    GATS1e = GearyAC;
+                }
+            }
+
+        } catch (Throwable e) {
+            log.warn("Unable to calculate: AutoCorrelation Descriptors - " + e.getMessage());
+        }
+    }
+    private void CalculateRingDescriptors(InsilicoMolecule mol) throws DescriptorNotFoundException {
+        Rings R = new Rings();
+        R.Calculate(mol);
+        nR5 = R.GetByName("nR5").getValue();
+    }
     private void CalculateBenigniBossaAlerts(InsilicoMolecule mol) throws InvalidMoleculeException, GenericFailureException {
         AlertBlock BB;
         try {
-            BB = new SABenigniBossa();
+            BB = new SABenigniBossaAdditional();
         } catch (Exception e) {
             BB = null;
             log.warn("Unable to init BB alert block - " + e.getMessage());
@@ -126,7 +241,7 @@ public class EmbeddedDescriptors {
         BB_SA44 = 0;
         AlertList res = BB.Calculate(mol);
         for (Alert a: res.getSAList()){
-            if (a.getId().equals("")){
+            if (a.getId().equals("0d08")){
                 BB_SA44 = 1;
             }
         }
@@ -290,6 +405,8 @@ public class EmbeddedDescriptors {
                     if (m.getAtom(j).getSymbol().equalsIgnoreCase("N")) {
                         if (TopoMat[i][j] == 4) {
                             B04_C_N = 1;
+                        }
+                        if (TopoMat[i][j] == 6) {
                             B06_C_N = 1;
                         }
                         if (TopoMat[i][j] == 8)
@@ -1657,6 +1774,7 @@ public class EmbeddedDescriptors {
                 }
             }
 
+
             if (ConnAugMatrix[AtomIndex][AtomIndex] == 6) {
 
                 int c_VD=0;
@@ -1742,13 +1860,13 @@ public class EmbeddedDescriptors {
                     }
 
                     if (IsAlphaCarbon) {
-                        H_051++;
+                        H_051 += nH;
 
                     } else {
 
                         // C0sp3 with 1 X atom attached to next C
                         if ((C_OxiNumber==0) && (C_Hybridazion==3) && (C_CX==1) && (C_CM==0))
-                            H_052++;
+                            H_052 += nH;
 
                     }
                 }

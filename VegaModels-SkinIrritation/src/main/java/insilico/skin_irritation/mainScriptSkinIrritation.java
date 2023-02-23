@@ -6,7 +6,6 @@ import insilico.core.molecule.conversion.SmilesMolecule;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.ModelsDeployment;
-
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
@@ -21,12 +20,13 @@ public class mainScriptSkinIrritation {
         InsilicoModel model = new ismSkinIrritation();
         ModelsDeployment.BuildDataset(model, "out_ts");
         File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
-        File destinationFile = new File("VegaModels-SkinIRFMN\\src\\main\\resources\\data\\ts_skin_irfmn.dat");
+        File destinationFile = new File("VegaModels-SkinIrritation\\src\\main\\resources\\data\\ts_skin_irritation.dat");
         try {
             Files.move(sourceFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
         } catch (Exception ex) {
             log.warn(ex.getMessage());
         }
+
         List<String> smilesList = new ArrayList<>();
         smilesList.add("O=[N+]([O-])c1cc(cc(c1N(CCC)CCC)[N+](=O)[O-])S(=O)(=O)C");
         smilesList.add("O=S(=O)(N)c1cc2c(cc1C(F)(F)F)NC(NS2(=O)(=O))Cc3ccccc3");
@@ -34,12 +34,12 @@ public class mainScriptSkinIrritation {
         smilesList.add("O=S(=O)(C(C)(C)C)C(C)(C)C");
 
         for(String smiles : smilesList) {
+            System.out.print(smiles);
             InsilicoModelOutput out = model.Execute(SmilesMolecule.Convert(smiles));
             for(int i = 0; i < model.GetResultsName().length; i++){
-                System.out.println(smiles);
+                System.out.print(smiles);
                 System.out.println(model.GetResultsName()[i] + " | " + out.getResults()[i]);
             }
         }
     }
-
 }
