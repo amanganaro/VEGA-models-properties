@@ -16,7 +16,7 @@ import insilico.moa_epa.descriptors.EmbeddedDescriptors;
 import insilico.moa_epa.descriptors.MOAToxAdditionalDescriptors;
 import insilico.moa_epa.descriptors.MOAToxMultipleModels;
 import insilico.moa_epa.descriptors.weights.EState;
-import lombok.extern.log4j.Log4j;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

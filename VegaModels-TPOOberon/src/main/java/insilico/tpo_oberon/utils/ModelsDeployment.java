@@ -9,7 +9,7 @@ import insilico.core.model.InsilicoModelOutput;
 import insilico.core.molecule.conversion.SmilesMolecule;
 import insilico.tpo_oberon.descriptors.EmbeddedDescriptors;
 import insilico.tpo_oberon.knn.KnnAlgorithm;
-import lombok.extern.log4j.Log4j;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

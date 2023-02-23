@@ -1,0 +1,32 @@
+<xml>
+   
+    <Version>
+<!--        <Name>NOAEL (IRFMN-CORAL)</Name>-->
+<!--        <Key>NOAEL_CORAL</Key>-->
+<!--        <Summary>Quantitative model for NOAEL.</Summary>-->
+<!--        <Version>1.0.1</Version>-->
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_eye_irritation_knn.dat</TS>
+<!--        <HasAlerts>False</HasAlerts>-->
+<!--        <Units>-log(mg/kg)</Units>-->
+    </Vega>
+
+    <Guide>
+
+    </Guide>
+
+    <Reference>
+
+
+    </Reference>
+
+    <Endpoint>
+
+    </Endpoint>
+
+    <Stats>
+    </Stats>
+    
+</xml>

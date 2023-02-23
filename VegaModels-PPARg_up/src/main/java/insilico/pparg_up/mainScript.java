@@ -8,7 +8,7 @@ import insilico.core.model.InsilicoModel;
 import insilico.pparg_up.descriptors.EmbeddedDescriptors;
 import insilico.pparg_up.utils.ModelsDeployment;
 import javassist.runtime.Desc;
-import lombok.extern.log4j.Log4j;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

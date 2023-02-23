@@ -14,7 +14,7 @@ import insilico.skin_irfmn.desciptors.weights.EStateCorrectForH;
 import insilico.skin_irfmn.desciptors.weights.FG;
 import insilico.skin_irfmn.desciptors.weights.VertexDegree;
 import lombok.Data;
-import lombok.extern.log4j.Log4j;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openscience.cdk.CDKConstants;

@@ -119,6 +119,14 @@
         <module>VegaModels-SkinIrritation</module>
         <module>VegaModels-EyeIrritation</module>
         <module>VegaModels-VapourPressure</module>
+        <module>VegaModels-NoaelGeneralCoral</module>
+        <module>LoaelGeneralCoral</module>
+        <module>VegaModels-LoaelGeneralCoral</module>
+        <module>VegaModels-SkinIrritationCoral</module>
+        <module>VegaModels-SkinIrritationSarpy</module>
+        <module>VegaModels-SkinSensitizationConcert</module>
+        <module>VegaModels-EyeIrritationSarpy</module>
+        <module>VegaModels-EyeIrritationKnn</module>
     </modules>
 
     <name>VegaModels</name>

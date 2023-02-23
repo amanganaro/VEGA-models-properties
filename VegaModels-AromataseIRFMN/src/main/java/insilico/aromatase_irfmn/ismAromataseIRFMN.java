@@ -13,7 +13,7 @@ import insilico.core.model.InsilicoModelOutput;
 import insilico.core.pmml.ModelGenericFromPMML;
 
 import insilico.core.tools.utils.ModelUtilities;
-import lombok.extern.log4j.Log4j;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.dmg.pmml.FieldName;

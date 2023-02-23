@@ -12,7 +12,7 @@ import insilico.core.similarity.SimilarityDescriptorsBuilder;
 import insilico.core.tools.utils.GeneralUtilities;
 import insilico.tpo_oberon.descriptors.EmbeddedDescriptors;
 import insilico.tpo_oberon.descriptors.weights.DescriptorMLogP;
-import lombok.extern.log4j.Log4j;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

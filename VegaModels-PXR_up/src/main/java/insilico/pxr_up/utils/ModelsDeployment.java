@@ -7,7 +7,7 @@ import insilico.core.model.InsilicoModelOutput;
 import insilico.core.molecule.conversion.SmilesMolecule;
 import insilico.pxr_up.descriptors.EmbeddedDescriptors;
 import insilico.pxr_up.ismPxrUp;
-import lombok.extern.log4j.Log4j;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

@@ -27,7 +27,7 @@ import insilico.core.tools.utils.MoleculeUtilities;
 import insilico.sqfu.descriptors.weights.GCAtomCentredFragments;
 import insilico.sqfu.descriptors.weights.GCWeights;
 import insilico.sqfu.descriptors.weights.MoleculePaths;
-import lombok.extern.log4j.Log4j;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openscience.cdk.CDKConstants;

@@ -1,6 +1,6 @@
 package insilico.logk.descriptors.weights;
 
-import lombok.extern.log4j.Log4j;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

@@ -6,7 +6,7 @@ import insilico.core.molecule.InsilicoMolecule;
 import insilico.core.molecule.conversion.SmilesMolecule;
 import insilico.devtox_pg.library.PGMoleculeFileSDF;
 import insilico.devtox_pg.library.VirtualCompoundLibrary;
-import lombok.extern.log4j.Log4j;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.ModelsDeployment;

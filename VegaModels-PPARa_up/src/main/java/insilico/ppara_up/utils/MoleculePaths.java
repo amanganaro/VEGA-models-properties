@@ -6,7 +6,7 @@ import insilico.core.molecule.InsilicoMolecule;
 import insilico.core.molecule.matrix.TopoDistanceMatrix;
 import insilico.core.tools.utils.MoleculeUtilities;
 import insilico.ppara_up.ismPPARAUp;
-import lombok.extern.log4j.Log4j;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openscience.cdk.interfaces.IAtomContainer;

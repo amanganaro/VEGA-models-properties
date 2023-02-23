@@ -13,7 +13,7 @@ import insilico.core.tools.utils.ModelUtilities;
 import insilico.nrf2_up.descriptors.EmbeddedDescriptors;
 import insilico.nrf2_up.descriptors.MLogP;
 import lombok.SneakyThrows;
-import lombok.extern.log4j.Log4j;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.dmg.pmml.FieldName;
