@@ -817,8 +817,6 @@ public class EmbeddedDescriptors {
         // weights for the matrix
         double[] w = new double[nBO];
 
-        /////////////////////// PARTE COMUNE!!
-
         //// Dipole moment
 
         for (int i=0; i<nBO; i++) {
@@ -874,9 +872,6 @@ public class EmbeddedDescriptors {
                 SM03_AEAdm += Math.pow(val, 3);
         }
         SM03_AEAdm = Math.log(1 + SM03_AEAdm);
-
-
-        ///////////////////////////////
 
         curDataMatrix = new double[nBO][nBO];
 
@@ -948,8 +943,6 @@ public class EmbeddedDescriptors {
         Eig15_EAdm =  eig;
 
 
-        ///////////////////////////////
-
         curDataMatrix = new double[nBO][nBO];
 
         // plain EA
@@ -1006,8 +999,6 @@ public class EmbeddedDescriptors {
         idx = eigenvalues.length - 9;
         eig = (idx >= 0) ? eigenvalues[idx] : 0;
         Eig09_EAri =  eig;
-
-        ///////////////////////////////
 
         curDataMatrix = new double[nBO][nBO];
 
@@ -1906,8 +1897,6 @@ public class EmbeddedDescriptors {
 
         private boolean IsAtomElectronegative(int AtomicNumber) {
 
-            // O, N, S, P, B, Si, Se, halogen
-
             if ((AtomicNumber==7)||(AtomicNumber==8)||(AtomicNumber==15)||
                     (AtomicNumber==16)||(AtomicNumber==34)||(AtomicNumber==9)||
                     (AtomicNumber==5)||(AtomicNumber==14)||
@@ -1917,8 +1906,6 @@ public class EmbeddedDescriptors {
             return false;
         }
         private boolean IsAtomMetal(int AtomicNumber) {
-
-            // only Sn, Pb, Hg, As, Se, Ge
 
             if ((AtomicNumber==32) || (AtomicNumber==33) || (AtomicNumber==50) ||
                     (AtomicNumber==80) || (AtomicNumber==82)) {
@@ -1936,22 +1923,15 @@ public class EmbeddedDescriptors {
     }
     private class MoleculePaths {
 
-        // Limit for the number of atoms
         private static final int MAX_PATH_LENGTH = 2000;
         private static final int MAX_PATH_LENGTH_FOR_WALKS = 10;
 
         private IAtomContainer m;
 
-        // Path indices
         public double[] Path_Counts;
         public double[] Multiple_Path_Counts;
         public double[] TotalPC;
         public double Total_Path_Count;
-//        public double IDpi;
-//        public double PCR;
-//        public double PCD;
-//        public double ID_Randic;
-//        public double ID_Balaban;
         public double[] Pws;
 
 
@@ -1968,8 +1948,6 @@ public class EmbeddedDescriptors {
         }
 
         private void Calculate(InsilicoMolecule Mol) throws GenericFailureException {
-
-            //// Get structure, matrices and initial settings
 
             try {
                 m = Mol.GetStructure();
@@ -2041,9 +2019,6 @@ public class EmbeddedDescriptors {
 
             }
 
-
-            //// Paths calculation
-
             int LenChi = 5;
 
             int lim = Math.min(nSK, MAX_PATH_LENGTH);
@@ -2080,28 +2055,12 @@ public class EmbeddedDescriptors {
 
                 int PathLength = 0;
 
-//                double VD1 = 0;
-//                for (int k=0; k<nSK; k++)
-//                    if (k != i)
-//                        if (AdjMat[i][k] != 0)
-//                            VD1++;
-
-                // Cycle on all atoms connected to i-th
                 for (int j = 0; j < nSK; j++) {
                     if (j == i) continue;
                     if (AdjConnectionMatrix[i][j] != 0) {
 
-//                        double VD2 = 0;
-//                        for (int k=0; k<nSK; k++)
-//                            if (k != j)
-//                                if (AdjMat[j][k] != 0)
-//                                    VD2++;
-
                         double Cur_Mult_Bond_Order = MoleculeUtilities.Bond2Double(m.getBond(m.getAtom(i), m.getAtom(j)));
-//                        double Cur_Mult_Ver_Deg = 1.0 / Math.sqrt(VD1 * VD2);
-//                        double Cur_Balaban_Weight = 1.0 / Math.sqrt(Vertex_Distance_Degree[i] * Vertex_Distance_Degree[j]);
 
-//                        NextPathVisit(j, PathLength, Cur_Mult_Bond_Order, Cur_Mult_Ver_Deg, Cur_Balaban_Weight);
                         NextPathVisit(j, PathLength, Cur_Mult_Bond_Order);
 
                     }
@@ -2126,17 +2085,10 @@ public class EmbeddedDescriptors {
             }
 
             Total_Path_Count = nSK;
-//            IDpi = nSK;
-//            ID_Randic = nSK;
-//            ID_Balaban = nSK;
 
             for (int i=0; i<lim; i++) {
                 Total_Path_Count = Total_Path_Count + TotPC[i];
-//                IDpi = IDpi + TotPCMult[i];
             }
-
-//            PCR = (IDpi / Total_Path_Count);
-//            PCD = (IDpi - Total_Path_Count);
 
             for (int i=0; i<lim; i++) {
                 Path_Counts[i] = TotPC[i];
@@ -2144,8 +2096,6 @@ public class EmbeddedDescriptors {
             }
         }
 
-//        private void NextPathVisit(int Atom_Idx, int PathLength, double Mult_Bond_Order,
-//                                   double Mult_Ver_Deg, double Balaban_Weight) {
         private void NextPathVisit(int Atom_Idx, int PathLength, double Mult_Bond_Order) {
 
             Entered[Atom_Idx] = true;
@@ -2158,31 +2108,10 @@ public class EmbeddedDescriptors {
                     if (Next_Atom_Idx == Atom_Idx) continue;
                     if (Entered[Next_Atom_Idx]) continue;
                     if (AdjConnectionMatrix[Atom_Idx][Next_Atom_Idx] != 0) {
-
-//                        double BW1 = Vertex_Distance_Degree[Atom_Idx];
-//                        double BW2 = Vertex_Distance_Degree[Next_Atom_Idx];
-
                         double BO = MoleculeUtilities.Bond2Double(m.getBond(m.getAtom(Atom_Idx), m.getAtom(Next_Atom_Idx)));
-
-//                        double VD = 0;
-//                        for (int k=0; k<nSK; k++)
-//                            if (k != Atom_Idx)
-//                                if (AdjConnectionMatrix[Atom_Idx][k] != 0)
-//                                    VD++;
-//
-//                        double VD2= 0;
-//                        for (int k=0; k<nSK; k++)
-//                            if (k != Next_Atom_Idx)
-//                                if (AdjConnectionMatrix[Next_Atom_Idx][k] != 0)
-//                                    VD2++;
-
                         double Cur_Mult_Bond_Order = BO * Mult_Bond_Order;
-//                        double Cur_Mult_Ver_Deg = Mult_Ver_Deg * 1.0 / Math.sqrt(VD * VD2);
-//                        double Cur_Balaban_Weight = Balaban_Weight * 1.0 / Math.sqrt(BW1 * BW2);
 
-//                        NextPathVisit(Next_Atom_Idx, PathLength + 1, Cur_Mult_Bond_Order, Cur_Mult_Ver_Deg, Cur_Balaban_Weight);
                         NextPathVisit(Next_Atom_Idx, PathLength + 1, Cur_Mult_Bond_Order);
-
                     }
                 }
 
