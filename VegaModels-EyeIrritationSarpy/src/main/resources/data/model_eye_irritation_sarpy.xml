@@ -1,16 +1,29 @@
 <xml>
-   
+
     <Version>
-<!--        <Name>NOAEL (IRFMN-CORAL)</Name>-->
-<!--        <Key>NOAEL_CORAL</Key>-->
-<!--        <Summary>Quantitative model for NOAEL.</Summary>-->
-<!--        <Version>1.0.1</Version>-->
+        <Name>Eye Irritation Sarpy</Name>
+        <Key>EYE_IRRITATION_SARPY</Key>
+        <Summary>Qualitative model for Eye Irritation</Summary>
+        <Version>1.0.0</Version>
     </Version>
-    
+
     <Vega>
         <TS>/data/ts_eye_irritation_sarpy.dat</TS>
-<!--        <HasAlerts>False</HasAlerts>-->
-<!--        <Units>-log(mg/kg)</Units>-->
+        <HasAlerts>True</HasAlerts>
+        <ClassValues>
+            <Class>
+                <Value>0</Value>
+                <Label>NON-Irritating</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Irritating</Label>
+            </Class>
+            <Class>
+                <Value>-1</Value>
+                <Label>Non Predicted</Label>
+            </Class>
+        </ClassValues>
     </Vega>
 
     <Guide>
@@ -28,5 +41,5 @@
 
     <Stats>
     </Stats>
-    
+
 </xml>

@@ -1,17 +1,31 @@
 <xml>
-   
+
     <Version>
-<!--        <Name>NOAEL (IRFMN-CORAL)</Name>-->
-<!--        <Key>NOAEL_CORAL</Key>-->
-<!--        <Summary>Quantitative model for NOAEL.</Summary>-->
-<!--        <Version>1.0.1</Version>-->
+        <Name>Skin Irritation model (Sarpy)</Name>
+        <Key>SKIN_IRRITATION_SARPY</Key>
+        <Summary>QSAR classification model for Skin Irritation</Summary>
+        <Version>1.0</Version>
     </Version>
-    
+
     <Vega>
         <TS>/data/ts_skin_irritation_sarpy.dat</TS>
-<!--        <HasAlerts>False</HasAlerts>-->
-<!--        <Units>-log(mg/kg)</Units>-->
+        <HasAlerts>True</HasAlerts>
+        <ClassValues>
+            <Class>
+                <Value>0</Value>
+                <Label>NON-Irritating</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Irritating</Label>
+            </Class>
+            <Class>
+                <Value>-1</Value>
+                <Label>Not Classifiable</Label>
+            </Class>
+        </ClassValues>
     </Vega>
+
 
     <Guide>
 
@@ -19,14 +33,12 @@
 
     <Reference>
 
-
     </Reference>
 
     <Endpoint>
 
     </Endpoint>
-
     <Stats>
+
     </Stats>
-    
 </xml>

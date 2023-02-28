@@ -7,7 +7,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.ModelsDeployment;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
@@ -39,21 +41,11 @@ public class mainScriptSkinSensitizationConcert {
         smilesList.add("O=C(OC2CC1N(C)C(CC1)C2(C(=O)OC))c3ccccc3");
 
         for(String smiles : smilesList) {
+            System.out.print(smiles + "\t");
             InsilicoModelOutput out = model.Execute(SmilesMolecule.Convert(smiles));
             for(int i = 0; i < model.GetResultsName().length; i++)
                 System.out.println(model.GetResultsName()[i] + " | " + out.getResults()[i]);
         }
-        for(String smiles : smilesList) {
-            InsilicoModelOutput out = model.Execute(SmilesMolecule.Convert(smiles));
-            for(int i = 0; i < model.getDescriptorsSize(); i++){
-                System.out.println(model.getDescriptorsNames()[i] + " === " + model.GetDescriptor(i));
-
-            }
-            System.out.println("==============");
-
-        }
-
-
     }
 
 

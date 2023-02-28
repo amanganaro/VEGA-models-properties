@@ -614,8 +614,6 @@ public class EmbeddedDescriptors {
     }
     private void CalculateFunctionalGroupsDescriptors(InsilicoMolecule mol) throws Exception {
         Pattern Query;
-
-        double[] FuncGroupDescr = new double[]{nArOH, nCrs, nRCO, nArCHO, nRNR2};
         String[] SMARTS = new String[]{
                 "[O;D1;!-]a",
                 "[$([C;D2;H2](@[#6])@[#6]),$([C;D3;H](@[#6])(@[#6])[*;!#6]),$([C;D3;H](@[#6])(@[!#6])[#6]),$([C;D4](@[#6])(@[#6])([*;!#6])[*;!#6]),$([C;D4](@[#6])(@[!#6])([#6])[*;!#6]),$([C;D4](@[!#6])(@[!#6])([#6])[#6])]",

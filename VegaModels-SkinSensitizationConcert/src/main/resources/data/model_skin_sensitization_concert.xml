@@ -1,16 +1,29 @@
 <xml>
    
     <Version>
-<!--        <Name>NOAEL (IRFMN-CORAL)</Name>-->
-<!--        <Key>NOAEL_CORAL</Key>-->
-<!--        <Summary>Quantitative model for NOAEL.</Summary>-->
-<!--        <Version>1.0.1</Version>-->
+        <Name>Skin Sensitization Concert</Name>
+        <Key>SKIN_SENSITIZATION_CONCERT</Key>
+        <Summary>Qualitative model for Skin Sensitization.</Summary>
+        <Version>1.0</Version>
     </Version>
-    
+
     <Vega>
         <TS>/data/ts_skin_sensitization_concert.dat</TS>
-<!--        <HasAlerts>False</HasAlerts>-->
-<!--        <Units>-log(mg/kg)</Units>-->
+        <HasAlerts>True</HasAlerts>
+        <ClassValues>
+            <Class>
+                <Value>1</Value>
+                <Label>Active</Label>
+            </Class>
+            <Class>
+                <Value>0</Value>
+                <Label>Inactive</Label>
+            </Class>
+            <Class>
+                <Value>-1</Value>
+                <Label>No class found</Label>
+            </Class>
+        </ClassValues>
     </Vega>
 
     <Guide>
