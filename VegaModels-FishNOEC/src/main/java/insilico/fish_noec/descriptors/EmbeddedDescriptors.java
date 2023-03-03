@@ -11,7 +11,7 @@ import insilico.core.molecule.matrix.BurdenMatrix;
 import insilico.fish_noec.descriptors.weights.*;
 import insilico.fish_noec.descriptors.weights.ACF;
 import lombok.Data;
-import lombok.extern.log4j.Log4j;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openscience.cdk.CDKConstants;

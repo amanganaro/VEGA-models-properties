@@ -2,13 +2,13 @@
    
     <Version>
         <Name>Skin Sensitization model (IRFMN-JRC)</Name>
-        <Key>SKIN_IRFMN</Key>
+        <Key>SKIN_IRRITATION</Key>
         <Summary>QSAR classification model for Skin sensitization</Summary>
         <Version>1.0.1</Version>
     </Version>
     
     <Vega>
-        <TS>/data/ts_skin_irfmn.dat</TS>
+        <TS>/data/ts_skin_irritation.dat</TS>
         <HasAlerts>False</HasAlerts>
         <ClassValues>
             <Class>

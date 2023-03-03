@@ -1,0 +1,44 @@
+<xml>
+
+    <Version>
+        <Name>Skin Irritation model (Sarpy)</Name>
+        <Key>SKIN_IRRITATION_SARPY</Key>
+        <Summary>QSAR classification model for Skin Irritation</Summary>
+        <Version>1.0</Version>
+    </Version>
+
+    <Vega>
+        <TS>/data/ts_skin_irritation_sarpy.dat</TS>
+        <HasAlerts>True</HasAlerts>
+        <ClassValues>
+            <Class>
+                <Value>0</Value>
+                <Label>NON-Irritating</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Irritating</Label>
+            </Class>
+            <Class>
+                <Value>-1</Value>
+                <Label>Not Classifiable</Label>
+            </Class>
+        </ClassValues>
+    </Vega>
+
+
+    <Guide>
+
+    </Guide>
+
+    <Reference>
+
+    </Reference>
+
+    <Endpoint>
+
+    </Endpoint>
+    <Stats>
+
+    </Stats>
+</xml>

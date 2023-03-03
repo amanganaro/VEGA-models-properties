@@ -6,7 +6,7 @@ import insilico.core.model.InsilicoModel;
 import insilico.core.molecule.conversion.SmilesMolecule;
 import insilico.glucocorticoid_receptor.alert.SAGlucocorticoidReceptor;
 import insilico.glucocorticoid_receptor.utils.ModelsDeployment;
-import lombok.extern.log4j.Log4j;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

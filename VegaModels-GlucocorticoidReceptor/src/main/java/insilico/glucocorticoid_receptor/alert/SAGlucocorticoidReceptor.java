@@ -5,7 +5,7 @@ import insilico.core.alerts.AlertList;
 import insilico.core.exception.GenericFailureException;
 import insilico.core.exception.InitFailureException;
 import insilico.core.molecule.InsilicoMolecule;
-import lombok.extern.log4j.Log4j;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openscience.cdk.DefaultChemObjectBuilder;

@@ -7,7 +7,7 @@ import insilico.core.molecule.conversion.SmilesMolecule;
 import insilico.daphnia_demetra.ismDaphniaDemetra;
 import insilico.core.model.InsilicoModel;
 import insilico.daphnia_demetra.utils.ModelsDeployment;
-import lombok.extern.log4j.Log4j;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

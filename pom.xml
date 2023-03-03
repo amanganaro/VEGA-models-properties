@@ -117,6 +117,16 @@
         <module>VegaModels-MeltingPointKNN</module>
         <module>VegaModels-SkinSensitizationSarpy</module>
         <module>VegaModels-SkinIrritation</module>
+        <module>VegaModels-EyeIrritation</module>
+        <module>VegaModels-VapourPressure</module>
+        <module>VegaModels-NoaelGeneralCoral</module>
+<!--        <module>LoaelGeneralCoral</module>-->
+        <module>VegaModels-LoaelGeneralCoral</module>
+        <module>VegaModels-SkinIrritationCoral</module>
+        <module>VegaModels-SkinIrritationSarpy</module>
+        <module>VegaModels-SkinSensitizationConcert</module>
+        <module>VegaModels-EyeIrritationSarpy</module>
+        <module>VegaModels-EyeIrritationKnn</module>
     </modules>
 
     <name>VegaModels</name>
@@ -152,16 +162,9 @@
         </dependency>
 
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.22</version>
-<!--            <scope>provided</scope>-->
-        </dependency>
-
-        <dependency>
             <groupId>InSilico</groupId>
             <artifactId>Core</artifactId>
-            <version>1.3.17</version>
+            <version>1.3.18</version>
         </dependency>
 
 
@@ -191,13 +194,6 @@
 
                     <release>11</release>
 
-                    <annotationProcessorPaths>
-                        <path>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                            <version>1.18.20</version>
-                        </path>
-                    </annotationProcessorPaths>
 
                 </configuration>
             </plugin>

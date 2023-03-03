@@ -13,7 +13,7 @@ import insilico.core.model.InsilicoModelOutput;
 import insilico.core.tools.utils.ModelUtilities;
 import insilico.devtox_caesar.descriptors.EmbeddedDescriptors;
 import insilico.devtox_caesar.descriptors.IcycemDescriptor;
-import lombok.extern.log4j.Log4j;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

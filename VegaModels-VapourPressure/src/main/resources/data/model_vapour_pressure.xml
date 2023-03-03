@@ -1,0 +1,27 @@
+<xml>
+
+    <Version>
+        <Name>Vapour Pressure</Name>
+        <Key>VAPOUR_PRESSURE</Key>
+        <Summary>TBA</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+
+    <Vega>
+        <TS>/data/ts_vapour_pressure.dat</TS>
+        <HasAlerts>False</HasAlerts>
+        <Units>log10(atm)</Units>
+    </Vega>
+
+    <Guide>
+    </Guide>
+
+    <Reference>
+    </Reference>
+
+    <Endpoint>
+    </Endpoint>
+    <Stats>
+    </Stats>
+
+</xml>

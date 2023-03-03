@@ -1,0 +1,36 @@
+<xml>
+
+    <Version>
+        <Name>Eye Irritation</Name>
+        <Key>EYE IRRITATION</Key>
+        <Summary>TBA</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+
+    <Vega>
+        <TS>/data/ts_eye_irritation.dat</TS>
+        <HasAlerts>False</HasAlerts>
+        <ClassValues>
+            <Class>
+                <Value>0</Value>
+                <Label>NOT IRRITANT</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>IRRITANT</Label>
+            </Class>
+        </ClassValues>
+    </Vega>
+
+    <Guide>
+    </Guide>
+
+    <Reference>
+    </Reference>
+
+    <Endpoint>
+    </Endpoint>
+    <Stats>
+    </Stats>
+
+</xml>

@@ -9,7 +9,7 @@ import insilico.core.molecule.conversion.SmilesMolecule;
 import insilico.pparg_up.descriptors.EmbeddedDescriptors;
 import insilico.pparg_up.ismPPARGup;
 import insilico.pparg_up.mainScript;
-import lombok.extern.log4j.Log4j;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

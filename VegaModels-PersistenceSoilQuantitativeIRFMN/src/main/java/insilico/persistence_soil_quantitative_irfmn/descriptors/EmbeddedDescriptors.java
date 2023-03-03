@@ -13,7 +13,7 @@ import insilico.persistence_soil_quantitative_irfmn.descriptors.weights.Descript
 import insilico.persistence_soil_quantitative_irfmn.descriptors.weights.IonizationPotential;
 import insilico.persistence_soil_quantitative_irfmn.descriptors.weights.Polarizability;
 import lombok.Data;
-import lombok.extern.log4j.Log4j;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openscience.cdk.interfaces.IAtom;
