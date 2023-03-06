@@ -31,16 +31,16 @@ public class mainScriptVapourPressure {
         }
 
 
-        List<String> smilesList = new ArrayList<>();
-        smilesList.add("O=C1c3ccccc3(C(=O)c2cc(N)ccc12)");
-
-        for(String smiles : smilesList) {
-            InsilicoModelOutput out = model.Execute(SmilesMolecule.Convert(smiles));
-            for(int i = 0; i < model.GetResultsName().length; i++){
-                System.out.println(smiles);
-                System.out.println(model.GetResultsName()[i] + " | " + out.getResults()[i]);
-            }
-        }
+//        List<String> smilesList = new ArrayList<>();
+//        smilesList.add("O=C1c3ccccc3(C(=O)c2cc(N)ccc12)");
+//
+//        for(String smiles : smilesList) {
+//            InsilicoModelOutput out = model.Execute(SmilesMolecule.Convert(smiles));
+//            for(int i = 0; i < model.GetResultsName().length; i++){
+//                System.out.println(smiles);
+//                System.out.println(model.GetResultsName()[i] + " | " + out.getResults()[i]);
+//            }
+//        }
     }
 
 }

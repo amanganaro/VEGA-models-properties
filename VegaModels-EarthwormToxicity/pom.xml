@@ -12,6 +12,7 @@
     <artifactId>VegaModels-EarthwormToxicity</artifactId>
 
     <name>Earthwork Toxicity</name>
+    <version>1.0.0</version>
     <description>
         -
     </description>

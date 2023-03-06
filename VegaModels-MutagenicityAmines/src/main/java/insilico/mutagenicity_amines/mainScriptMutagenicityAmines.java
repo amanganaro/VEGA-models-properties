@@ -37,16 +37,22 @@ public class mainScriptMutagenicityAmines {
 //        ModelsDeployment.printResultsFroTrainingSet(model);
 //
 ////
-        List<String> smilesList = new ArrayList<>();
-        smilesList.add("n1cc(nc2c1c3nc(N)n(c3(cc2C))C)c4ccccc4"); // 0 ma è 1
+//        List<String> smilesList = new ArrayList<>();
+//        smilesList.add("O=S(=O)(O)c2cc(N)ccc2(c1ccc(N)cc1S(=O)(=O)O)"); // 0 ma è 1
 ////        smilesList.add("Nc1ccc(cc1)Sc2ccccc2"); // 0 ma è 1
 ////        smilesList.add("O=S(=O)(O)c2cc(N)ccc2(c1ccc(N)cc1S(=O)(=O)O)"); // -1
 ////        smilesList.add("O=[N+]([O-])c1ccc(cc1)c3nc2c(ncnc2n3c4ccc(cc4)[N+](=O)[O-])N"); //-1
 ////
-        for(String smiles : smilesList) {
-            InsilicoModelOutput out = model.Execute(SmilesMolecule.Convert(smiles));
-            for(int i = 0; i < model.GetResultsName().length; i++)
-                System.out.println(smiles + " | " + out.getResults()[i]);
+//        for(String smiles : smilesList) {
+//            InsilicoModelOutput out = model.Execute(SmilesMolecule.Convert(smiles));
+//            for(int i = 0; i < model.GetResultsName().length; i++)
+//                System.out.println(smiles + " | " + out.getResults()[i]);
+//        }
+
+
+        for (int i=0; i<model.GetTrainingSet().getMoleculesSize(); i++) {
+            InsilicoModelOutput out = model.Execute(SmilesMolecule.Convert(model.GetTrainingSet().getSMILES(i)));
+            System.out.println(model.GetTrainingSet().getSMILES(i) + "\t" + out.getExperimental()  + "\t"+ out.getMainResultValue());
         }
 
     }
