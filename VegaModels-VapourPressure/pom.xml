@@ -12,6 +12,7 @@
     <artifactId>VegaModels-VapourPressure</artifactId>
 
     <name>Vapour Pressure</name>
+    <version>1.0.0</version>
     <description>
         -
     </description>

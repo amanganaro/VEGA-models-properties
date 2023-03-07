@@ -1,9 +1,9 @@
 <xml>
    
     <Version>
-        <Name>Earthworm Toxicity</Name>
+        <Name>Earthworm Toxicity (CONCERT)</Name>
         <Key>EW_TOXICITY</Key>
-        <Summary>-</Summary>
+        <Summary>Quantitative model for earthworm toxicity</Summary>
         <Version>1.0.0</Version>
     </Version>
     
