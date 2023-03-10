@@ -148,6 +148,6 @@ public class ismMutagenicityAmines extends InsilicoModel {
         else if (Val == 1)
             CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_RED);
         else
-            CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_YELLOW);
+            CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_GRAY);
     }
 }

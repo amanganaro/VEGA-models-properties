@@ -16,7 +16,8 @@
         <maven.compiler.target>11</maven.compiler.target>
     </properties>
 
-    <name>Melting Point</name>
+    <name>Melting Point (CONCERT/Kode)</name>
+    <version>1.0.0</version>
     <description>
         -
     </description>

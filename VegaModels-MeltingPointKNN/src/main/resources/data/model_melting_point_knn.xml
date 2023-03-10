@@ -1,9 +1,9 @@
 <xml>
    
     <Version>
-        <Name>Melting Point KNN</Name>
+        <Name>Melting Point (CONCERT/KNN)</Name>
         <Key>MELTING_POINT_KNN</Key>
-        <Summary>TBA</Summary>
+        <Summary>Quantitative KNN model for melting point in celsius degree</Summary>
         <Version>1.0.0</Version>
     </Version>
     

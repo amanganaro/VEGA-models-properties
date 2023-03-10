@@ -1,10 +1,10 @@
 <xml>
    
     <Version>
-        <Name>Skin Sensitization Concert</Name>
+        <Name>Skin Sensitization (CONCERT/Kode)</Name>
         <Key>SKIN_SENSITIZATION_CONCERT</Key>
         <Summary>Qualitative model for Skin Sensitization.</Summary>
-        <Version>1.0</Version>
+        <Version>1.0.0</Version>
     </Version>
 
     <Vega>

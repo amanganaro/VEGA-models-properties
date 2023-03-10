@@ -21,14 +21,15 @@ public class mainScriptEyeIrritationSarpy {
 
         InsilicoModel model = new ismEyeIrritationSarpy();
         model.setSkipADandTSLoading(false);
-        ModelsDeployment.BuildDataset(model, "out_ts");
-        File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
-        File destinationFile = new File("VegaModels-EyeIrritationSarpy\\src\\main\\resources\\data\\ts_eye_irritation_sarpy.dat");
-        try {
-            Files.move(sourceFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-        } catch (Exception ex) {
-            log.warn(ex.getMessage());
-        }
+
+//        ModelsDeployment.BuildDataset(model, "out_ts");
+//        File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
+//        File destinationFile = new File("VegaModels-EyeIrritationSarpy\\src\\main\\resources\\data\\ts_eye_irritation_sarpy.dat");
+//        try {
+//            Files.move(sourceFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+//        } catch (Exception ex) {
+//            log.warn(ex.getMessage());
+//        }
 
         List<String> smilesList = new ArrayList<>();
         smilesList.add("O=S(=O)(N)c1cc2c(cc1C(F)(F)F)NC(NS2(=O)(=O))Cc3ccccc3");

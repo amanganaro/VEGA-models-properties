@@ -21,35 +21,17 @@ public class mainScriptMeltingPointKNN {
     public static void main (String[] args) throws InitFailureException, GenericFailureException, IOException {
 
         ismMeltingPointKnn model = new ismMeltingPointKnn();
-        model.SetKnnSkipExperimental(true);
-        ModelsDeployment.BuildDataset(model, "out_ts");
-        File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
-        File destinationFile = new File("VegaModels-MeltingPointKNN\\src\\main\\resources\\data\\ts_melting_point_knn.dat");
-        try {
-            Files.move(sourceFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-        } catch (Exception ex) {
-            log.warn(ex.getMessage());
-        }
-
-        List<String> smilesList = new ArrayList<>();
-
-//        BufferedReader reader = new BufferedReader(new FileReader("VegaModels-MeltingPointKNN/src/main/resources/smilesMP.txt"));
-//        String line = reader.readLine();
-//        int n=0;
-//        while (line != null) {
-////        while (n != 10) {
-//            String[] buf = line.split("\t");
-//            InsilicoModelOutput out = model.Execute(SmilesMolecule.Convert(buf[0]));
-//            BufferedWriter writer = new BufferedWriter(new FileWriter("VegaModels-MeltingPointKNN/src/main/resources/smilesMP_out.txt",true));
-//            writer.write(buf[1] + "\n");
-//            writer.flush();
-//            line = reader.readLine();
-//            n++;
-//            if (n%100 == 0)
-//                System.out.println(n);
+//        model.SetKnnSkipExperimental(true);
+//        ModelsDeployment.BuildDataset(model, "out_ts");
+//        File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
+//        File destinationFile = new File("VegaModels-MeltingPointKNN\\src\\main\\resources\\data\\ts_melting_point_knn.dat");
+//        try {
+//            Files.move(sourceFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+//        } catch (Exception ex) {
+//            log.warn(ex.getMessage());
 //        }
 
-//        reader.close();
+        List<String> smilesList = new ArrayList<>();
 
         smilesList.add("O=[N+]([O-])c1cc(cc(c1N(CCC)CCC)[N+](=O)[O-])S(=O)(=O)C");
         smilesList.add("O=S(=O)(N)c1cc2c(cc1C(F)(F)F)NC(NS2(=O)(=O))Cc3ccccc3");

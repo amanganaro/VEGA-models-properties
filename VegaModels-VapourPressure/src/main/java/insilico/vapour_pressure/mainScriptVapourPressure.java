@@ -21,26 +21,26 @@ public class mainScriptVapourPressure {
 
     public static void main(String[] args) throws Exception {
         InsilicoModel model = new ismVapourPressure();
-        ModelsDeployment.BuildDataset(model, "out_ts");
-        File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
-        File destinationFile = new File("VegaModels-VapourPressure/src/main/resources/data/ts_vapour_pressure.dat");
-        try {
-            Files.move(sourceFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-        } catch (Exception ex) {
-            log.warn(ex.getMessage());
-        }
-
-
-//        List<String> smilesList = new ArrayList<>();
-//        smilesList.add("O=C1c3ccccc3(C(=O)c2cc(N)ccc12)");
-//
-//        for(String smiles : smilesList) {
-//            InsilicoModelOutput out = model.Execute(SmilesMolecule.Convert(smiles));
-//            for(int i = 0; i < model.GetResultsName().length; i++){
-//                System.out.println(smiles);
-//                System.out.println(model.GetResultsName()[i] + " | " + out.getResults()[i]);
-//            }
+//        ModelsDeployment.BuildDataset(model, "out_ts");
+//        File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
+//        File destinationFile = new File("VegaModels-VapourPressure/src/main/resources/data/ts_vapour_pressure.dat");
+//        try {
+//            Files.move(sourceFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+//        } catch (Exception ex) {
+//            log.warn(ex.getMessage());
 //        }
+
+
+        List<String> smilesList = new ArrayList<>();
+        smilesList.add("O=C1c3ccccc3(C(=O)c2cc(N)ccc12)");
+
+        for(String smiles : smilesList) {
+            InsilicoModelOutput out = model.Execute(SmilesMolecule.Convert(smiles));
+            for(int i = 0; i < model.GetResultsName().length; i++){
+                System.out.println(smiles);
+                System.out.println(model.GetResultsName()[i] + " | " + out.getResults()[i]);
+            }
+        }
     }
 
 }

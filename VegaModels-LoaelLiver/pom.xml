@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-LoaelLiver</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -30,7 +30,7 @@
         <dependency>
             <groupId>InSilico</groupId>
             <artifactId>Coral</artifactId>
-            <version>2.1</version>
+            <version>2.2</version>
         </dependency>
 
 

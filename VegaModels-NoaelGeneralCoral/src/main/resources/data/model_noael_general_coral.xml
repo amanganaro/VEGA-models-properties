@@ -1,16 +1,16 @@
 <xml>
-   
+
     <Version>
-<!--        <Name>NOAEL (IRFMN-CORAL)</Name>-->
-<!--        <Key>NOAEL_CORAL</Key>-->
-<!--        <Summary>Quantitative model for NOAEL.</Summary>-->
-<!--        <Version>1.0.1</Version>-->
+        <Name>NOAEL (CONCERT/Coral)</Name>
+        <Key>NOAEL_CONCERT_CORAL</Key>
+        <Summary>Quantitative model for NOAEL (CONCERT/Coral).</Summary>
+        <Version>1.0.0</Version>
     </Version>
     
     <Vega>
         <TS>/data/ts_noael_general_coral.dat</TS>
-<!--        <HasAlerts>False</HasAlerts>-->
-<!--        <Units>-log(mg/kg)</Units>-->
+        <HasAlerts>False</HasAlerts>
+        <Units>log(mg/kg bw)</Units>
     </Vega>
 
     <Guide>

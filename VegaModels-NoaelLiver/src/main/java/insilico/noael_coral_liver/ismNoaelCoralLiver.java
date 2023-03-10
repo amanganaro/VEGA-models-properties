@@ -6,6 +6,7 @@ import insilico.core.ad.ADCheckIndicesQuantitative;
 import insilico.core.ad.item.*;
 import insilico.core.coral.CoralModel;
 import insilico.core.coral.models.noael.liver.CoralLiverNoael;
+import insilico.core.coral.models.noael.liver.CoralLiverNoaelNew;
 import insilico.core.descriptor.DescriptorBlock;
 import insilico.core.descriptor.DescriptorsEngine;
 import insilico.core.exception.InitFailureException;
@@ -32,7 +33,7 @@ public class ismNoaelCoralLiver extends InsilicoModel {
     public ismNoaelCoralLiver() throws InitFailureException {
         super(ModelData);
         try {
-            NoaelLiver = new CoralLiverNoael();
+            NoaelLiver = new CoralLiverNoaelNew();
         } catch (Exception ex){
             throw new InitFailureException("Unable to init coral model");
 

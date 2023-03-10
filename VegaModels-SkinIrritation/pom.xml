@@ -11,7 +11,8 @@
 
     <artifactId>VegaModels-SkinIrritation</artifactId>
 
-    <name>Skin Irritation (Coral)</name>
+    <name>Skin Irritation (CONCERT/Kode)</name>
+    <version>1.0.0</version>
     <description>
         -
     </description>

@@ -1,6 +1,9 @@
 package insilico.melting_point_knn;
 
+import insilico.core.ad.ADCheckACF;
+import insilico.core.ad.ADCheckIndicesQuantitative;
 import insilico.core.ad.item.*;
+import insilico.core.constant.MessagesAD;
 import insilico.core.descriptor.Descriptor;
 import insilico.core.descriptor.DescriptorsEngine;
 import insilico.core.exception.GenericFailureException;
@@ -8,6 +11,9 @@ import insilico.core.exception.InitFailureException;
 import insilico.core.knn.insilicoKnnPrediction;
 import insilico.core.knn.insilicoKnnQuantitative;
 import insilico.core.model.InsilicoModel;
+import insilico.core.model.InsilicoModelOutput;
+import insilico.core.model.trainingset.TrainingSet;
+import insilico.core.tools.utils.ModelUtilities;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -111,11 +117,84 @@ public class ismMeltingPointKnn extends InsilicoModel {
 
     @Override
     protected short CalculateAD() {
-        return 0;
+
+        // Calculates various AD indices
+        ADCheckIndicesQuantitative adq = new ADCheckIndicesQuantitative(TS);
+        // Ad is performed on the K molecules used for the KNN model
+        adq.setMoleculesForIndexSize(Knn1Prediction.getNeighbours().size());
+
+        // (only retrieve similar molecules if n.a. prediction)
+        double Val = CurOutput.HasExperimental() ? CurOutput.getExperimental() : CurOutput.getMainResultValue();
+        if (Val == Descriptor.MISSING_VALUE) {
+            try {
+                adq.SetSimilarMolecules(CurMolecule, CurOutput);
+            } catch (GenericFailureException ex) {
+                // do nothing
+            }
+            return InsilicoModel.AD_ERROR;
+        }
+
+        if (!adq.Calculate(CurMolecule, CurOutput))
+            return InsilicoModel.AD_ERROR;
+
+        // Sets threshold for AD indices
+        try {
+            ((ADIndexSimilarity)CurOutput.getADIndex(ADIndexSimilarity.class)).SetThresholds(0.8, 0.7);
+            ((ADIndexAccuracy)CurOutput.getADIndex(ADIndexAccuracy.class)).SetThresholds(50.0, 10.0);
+            ((ADIndexConcordance)CurOutput.getADIndex(ADIndexConcordance.class)).SetThresholds(50.0, 10.0);
+            ((ADIndexMaxError)CurOutput.getADIndex(ADIndexMaxError.class)).SetThresholds(50.0, 10.0);
+        } catch (Throwable e) {
+            return InsilicoModel.AD_ERROR;
+        }
+
+        // Sets ACF check
+        ADCheckACF adacf = new ADCheckACF(TS);
+        if (!adacf.Calculate(CurMolecule, CurOutput))
+            return InsilicoModel.AD_ERROR;
+
+        // Sets final AD index
+        double acfContribution = CurOutput.getADIndex(ADIndexACF.class).GetIndexValue();
+        double ADIValue = adq.getIndexADI() * acfContribution;
+
+        ADIndexADIAggregate ADI = new ADIndexADIAggregate(0.75, 0.7, 1, 0.85, 0.7);
+        ADI.SetValue(ADIValue, CurOutput.getADIndex(ADIndexAccuracy.class),
+                CurOutput.getADIndex(ADIndexConcordance.class),
+                CurOutput.getADIndex(ADIndexMaxError.class));
+        CurOutput.setADI(ADI);
+
+        return InsilicoModel.AD_CALCULATED;
     }
+
 
     @Override
     protected void CalculateAssessment() {
 
+        // Sets assessment message
+        if (CurOutput.getMainResultValue() == Descriptor.MISSING_VALUE) {
+
+            CurOutput.setAssessment("N/A");
+            CurOutput.setAssessmentVerbose(String.format(MessagesAD.ASSESS_LONG_NA, "N/A"));
+
+        } else {
+
+            ModelUtilities.SetDefaultAssessment(CurOutput, CurOutput.getResults()[0], "°C");
+
+        }
+
+        // Sets assessment status
+        CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_GRAY);
     }
+
+    @Override
+    public void ProcessTrainingSet() throws Exception {
+        this.setSkipADandTSLoading(false);
+        TrainingSet TSK = new TrainingSet();
+        String TSPath = this.getInfo().getTrainingSetURL();
+        String[] buf = TSPath.split("/");
+        String DatName = buf[buf.length-1];
+        TSPath = TSPath.substring(0, TSPath.length()-3) + "txt";
+        TSK.Build(TSPath, this);
+        TSK.SerializeToFile(DatName);
+    }
+
 }

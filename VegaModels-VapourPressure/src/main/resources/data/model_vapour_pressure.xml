@@ -1,7 +1,7 @@
 <xml>
 
     <Version>
-        <Name>Vapour Pressure (CONCERT)</Name>
+        <Name>Vapour Pressure (CONCERT/Kode)</Name>
         <Key>VAPOUR_PRESSURE</Key>
         <Summary>Quantitative model for vapour pressure in log10(atm)</Summary>
         <Version>1.0.0</Version>

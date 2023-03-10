@@ -11,7 +11,8 @@
 
     <artifactId>VegaModels-SkinSensitizationSarpy</artifactId>
 
-    <name>Skin Sensitization (Sarpy)</name>
+    <name>Skin Sensitization (CONCERT/SarPy)</name>
+    <version>1.0.0</version>
     <description>
         -
     </description>

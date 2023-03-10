@@ -1,7 +1,7 @@
 <xml>
 
     <Version>
-        <Name>Eye Irritation Sarpy</Name>
+        <Name>Eye Irritation (CONCERT/SarPy)</Name>
         <Key>EYE_IRRITATION_SARPY</Key>
         <Summary>Qualitative model for Eye Irritation</Summary>
         <Version>1.0.0</Version>
@@ -21,7 +21,7 @@
             </Class>
             <Class>
                 <Value>-1</Value>
-                <Label>Non Predicted</Label>
+                <Label>N.A.</Label>
             </Class>
         </ClassValues>
     </Vega>

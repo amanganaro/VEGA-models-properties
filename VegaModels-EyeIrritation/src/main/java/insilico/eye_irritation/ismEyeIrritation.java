@@ -1,14 +1,23 @@
 package insilico.eye_irritation;
 
+import insilico.core.ad.ADCheckACF;
+import insilico.core.ad.ADCheckIndicesQualitative;
+import insilico.core.ad.item.*;
 import insilico.core.descriptor.DescriptorsEngine;
 import insilico.core.exception.InitFailureException;
 import insilico.core.model.InsilicoModel;
+import insilico.core.model.InsilicoModelOutput;
+import insilico.core.tools.utils.ModelUtilities;
 import insilico.eye_irritation.descriptors.EmbeddedDescriptors;
 import insilico.eye_irritation.runner.nrNetwork;
 import javassist.runtime.Desc;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.Arrays;
 
 public class ismEyeIrritation extends InsilicoModel {
@@ -18,6 +27,7 @@ public class ismEyeIrritation extends InsilicoModel {
     private static final long serialVersionUID = 1L;
 
     private static final String ModelData = "/data/model_eye_irritation.xml";
+    private static final String NNData = "/data/eyeIrritation.nn";
 
     public ismEyeIrritation() throws InitFailureException {
         super(ModelData);
@@ -156,12 +166,16 @@ public class ismEyeIrritation extends InsilicoModel {
 
         double Prediction;
         try {
-            nrNetwork nn = nrNetwork.ReadFromFile("VegaModels-EyeIrritation\\src\\main\\resources\\eyeIrritation.nn");
+            DataInputStream in;
+            URL nnURL = getClass().getResource(NNData);
+            in = new DataInputStream(nnURL.openStream());
+            nrNetwork nn = nrNetwork.ReadFromFile(in);
+
             Prediction = nn.Calculate(Descriptors, true);
             CurOutput.setMainResultValue(Prediction);
 
             String[] Res = new String[ResultsSize];
-            Res[0] = String.valueOf(Format_3D.format(Prediction));
+            Res[0] = this.GetTrainingSet().getClassLabel(Prediction);
             CurOutput.setResults(Res);
 
             return MODEL_CALCULATED;
@@ -174,12 +188,54 @@ public class ismEyeIrritation extends InsilicoModel {
 
     @Override
     protected short CalculateAD() {
-        // todo Insert Applicability Domain here
-        return 0;
+
+        // Calculates various AD indices
+        ADCheckIndicesQualitative adq = new ADCheckIndicesQualitative(TS);
+        adq.AddMappingToPositiveValue(1);
+        adq.AddMappingToNegativeValue(0);
+        adq.AddMappingToNegativeValue(-1);
+        adq.setMoleculesForIndexSize(3);
+        if (!adq.Calculate(CurMolecule, CurOutput))
+            return InsilicoModel.AD_ERROR;
+
+        // Sets threshold for AD indices
+        try {
+            ((ADIndexSimilarity)CurOutput.getADIndex(ADIndexSimilarity.class)).SetThresholds(0.8, 0.6);
+            ((ADIndexAccuracy)CurOutput.getADIndex(ADIndexAccuracy.class)).SetThresholds(0.9, 0.5);
+            ((ADIndexConcordance)CurOutput.getADIndex(ADIndexConcordance.class)).SetThresholds(0.9, 0.5);
+        } catch (Throwable e) {
+            return InsilicoModel.AD_ERROR;
+        }
+
+        // Sets ACF check
+        ADCheckACF adacf = new ADCheckACF(TS);
+        if (!adacf.Calculate(CurMolecule, CurOutput))
+            return InsilicoModel.AD_ERROR;
+
+        // Sets final AD index
+        double acfContribution = CurOutput.getADIndex(ADIndexACF.class).GetIndexValue();
+        double ADIValue = adq.getIndexADI() * acfContribution;
+
+        ADIndexADI ADI = new ADIndexADI();
+        ADI.SetIndexValue(ADIValue);
+        ADI.SetThresholds(0.9, 0.65);
+        CurOutput.setADI(ADI);
+
+        return InsilicoModel.AD_CALCULATED;
     }
 
     @Override
     protected void CalculateAssessment() {
-        // todo Insert Model Assessment here
+        // Sets assessment message
+        ModelUtilities.SetDefaultAssessment(CurOutput, CurOutput.getResults()[0]);
+
+        // Sets assessment status
+        double Val = CurOutput.HasExperimental() ? CurOutput.getExperimental() : CurOutput.getMainResultValue();
+        if (Val == 0)
+            CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_GREEN);
+        else if (Val == 1)
+            CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_RED);
+        else
+            CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_GRAY);
     }
 }

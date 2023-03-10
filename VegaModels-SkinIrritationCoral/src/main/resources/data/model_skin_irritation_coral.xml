@@ -1,17 +1,32 @@
 <xml>
-   
+
     <Version>
-<!--        <Name>NOAEL (IRFMN-CORAL)</Name>-->
-<!--        <Key>NOAEL_CORAL</Key>-->
-<!--        <Summary>Quantitative model for NOAEL.</Summary>-->
-<!--        <Version>1.0.1</Version>-->
+        <Name>Skin Irritation (CONCERT/Coral)</Name>
+        <Key>SKIN_IRRITATION_CORAL</Key>
+        <Summary>QSAR classification model for Skin Irritation based on Coral</Summary>
+        <Version>1.0.0</Version>
     </Version>
-    
+
     <Vega>
         <TS>/data/ts_skin_irritation_coral.dat</TS>
-<!--        <HasAlerts>False</HasAlerts>-->
-<!--        <Units>-log(mg/kg)</Units>-->
+        <HasAlerts>False</HasAlerts>
+        <ClassValues>
+            <Class>
+                <Value>0</Value>
+                <Label>NON-Irritating</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Irritating</Label>
+            </Class>
+            <Class>
+                <Value>-1</Value>
+                <Label>Not Classifiable</Label>
+            </Class>
+        </ClassValues>
     </Vega>
+
+
 
     <Guide>
 

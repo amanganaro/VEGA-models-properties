@@ -4,7 +4,7 @@
         <Name>Liver NOAEL (CORAL)</Name>
         <Key>NOAEL_LIVER_CORAL</Key>
         <Summary>Liver NOAEL in Rats for oral sub-chronic RDT (CORAL)</Summary>
-        <Version>1.0.1</Version>
+        <Version>1.0.2</Version>
     </Version>
     
     <Vega>

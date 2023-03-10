@@ -9,6 +9,7 @@ import insilico.core.alerts.AlertEncoding;
 import insilico.core.alerts.AlertList;
 import insilico.core.constant.InsilicoConstants;
 import insilico.core.descriptor.DescriptorsEngine;
+import insilico.core.exception.GenericFailureException;
 import insilico.core.exception.InitFailureException;
 import insilico.core.model.InsilicoModel;
 import insilico.core.alerts.builders.SAEyeIrritationConcert;
@@ -124,6 +125,8 @@ public class ismEyeIrritationSarpy extends InsilicoModel {
                 MainResult = -1;
         }
 
+        CurOutput.setMainResultValue(MainResult);
+
         String[] Res = new String[ResultsSize];
         try {
             Res[0] = this.GetTrainingSet().getClassLabel(MainResult);
@@ -148,6 +151,18 @@ public class ismEyeIrritationSarpy extends InsilicoModel {
         adq.AddMappingToNegativeValue(0);
         adq.AddMappingToNegativeValue(-1);
         adq.setMoleculesForIndexSize(3);
+
+        // (only retrieve similar molecules if n.a. prediction)
+        double Val = CurOutput.HasExperimental() ? CurOutput.getExperimental() : CurOutput.getMainResultValue();
+        if (Val == -1) {
+            try {
+                adq.SetSimilarMolecules(CurMolecule, CurOutput);
+            } catch (GenericFailureException ex) {
+                // do nothing
+            }
+            return InsilicoModel.AD_ERROR;
+        }
+
         if (!adq.Calculate(CurMolecule, CurOutput))
             return InsilicoModel.AD_ERROR;
 
@@ -198,7 +213,7 @@ public class ismEyeIrritationSarpy extends InsilicoModel {
         else if (Val == 1)
             CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_RED);
         else
-            CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_YELLOW);
+            CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_GRAY);
 
         // Additional assessment when some SAs are found
         try {

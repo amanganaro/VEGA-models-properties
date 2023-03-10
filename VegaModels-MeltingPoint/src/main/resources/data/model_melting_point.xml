@@ -1,9 +1,9 @@
 <xml>
    
     <Version>
-        <Name>Melting Point</Name>
+        <Name>Melting Point (CONCERT/Kode)</Name>
         <Key>MELTING_POINT</Key>
-        <Summary>TBA</Summary>
+        <Summary>Quantitative model for melting point in celsius degree</Summary>
         <Version>1.0.0</Version>
     </Version>
     

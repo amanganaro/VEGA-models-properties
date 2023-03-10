@@ -1,7 +1,7 @@
 <xml>
    
     <Version>
-        <Name>Eye Irritation KNN</Name>
+        <Name>Eye Irritation (CONCERT/KNN)</Name>
         <Key>EYE_IRRITATION_KNN</Key>
         <Summary>Qualitative model for Eye Irritation</Summary>
         <Version>1.0.0</Version>

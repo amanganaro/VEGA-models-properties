@@ -15,6 +15,9 @@ import insilico.vapour_pressure.runner.nrNetwork;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.DataInputStream;
+import java.net.URL;
+
 public class ismVapourPressure extends InsilicoModel {
 
     private static final Logger log = LogManager.getLogger(ismVapourPressure.class);
@@ -22,6 +25,7 @@ public class ismVapourPressure extends InsilicoModel {
     private static final long serialVersionUID = 1L;
 
     private static final String ModelData = "/data/model_vapour_pressure.xml";
+    private static final String NNData = "/data/vapourPressure.nn";
 
     public ismVapourPressure() throws InitFailureException {
         super(ModelData);
@@ -130,12 +134,16 @@ public class ismVapourPressure extends InsilicoModel {
     protected short CalculateModel() {
         double Prediction;
         try {
-            nrNetwork nn = nrNetwork.ReadFromFile("VegaModels-VapourPressure/src/main/resources/vapourPressure.nn");
+            DataInputStream in;
+            URL nnURL = getClass().getResource(NNData);
+            in = new DataInputStream(nnURL.openStream());
+            nrNetwork nn = nrNetwork.ReadFromFile(in);
+
             Prediction = nn.Calculate(Descriptors, true);
             CurOutput.setMainResultValue(Prediction);
 
             String[] Res = new String[ResultsSize];
-            Res[0] = String.valueOf(Format_3D.format(Prediction));
+            Res[0] = Format_4D.format(Prediction);
             CurOutput.setResults(Res);
 
             return MODEL_CALCULATED;

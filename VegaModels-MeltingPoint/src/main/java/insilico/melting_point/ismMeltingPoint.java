@@ -1,13 +1,22 @@
 package insilico.melting_point;
 
+import insilico.core.ad.ADCheckACF;
+import insilico.core.ad.ADCheckDescriptorRange;
+import insilico.core.ad.ADCheckIndicesQuantitative;
+import insilico.core.ad.item.*;
 import insilico.core.descriptor.DescriptorsEngine;
 import insilico.core.exception.InitFailureException;
 import insilico.core.model.InsilicoModel;
+import insilico.core.model.InsilicoModelOutput;
+import insilico.core.tools.utils.ModelUtilities;
 import insilico.melting_point.descriptors.EmbeddedDescriptors;
 import insilico.melting_point.runner.nrNetwork;
 import javassist.runtime.Desc;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.io.DataInputStream;
+import java.net.URL;
 
 public class ismMeltingPoint extends InsilicoModel {
 
@@ -16,6 +25,7 @@ public class ismMeltingPoint extends InsilicoModel {
     private static final long serialVersionUID = 1L;
 
     private static final String ModelData = "/data/model_melting_point.xml";
+    private static final String NNData = "/data/meltingPoint.nn";
 
     public ismMeltingPoint() throws InitFailureException {
         super(ModelData);
@@ -92,13 +102,17 @@ public class ismMeltingPoint extends InsilicoModel {
 
         double Prediction;
         try {
-            nrNetwork nn = nrNetwork.ReadFromFile("VegaModels-MeltingPoint\\src\\main\\resources\\meltingPoint.nn");
+            DataInputStream in;
+            URL nnURL = getClass().getResource(NNData);
+            in = new DataInputStream(nnURL.openStream());
+            nrNetwork nn = nrNetwork.ReadFromFile(in);
+
             Prediction = nn.Calculate(Descriptors,true);
 
             CurOutput.setMainResultValue(Prediction);
 
             String[] Res = new String[ResultsSize];
-            Res[0] = String.valueOf(Format_3D.format(Prediction));
+            Res[0] = String.valueOf(Format_2D.format(Prediction));
             CurOutput.setResults(Res);
 
             return MODEL_CALCULATED;
@@ -111,12 +125,55 @@ public class ismMeltingPoint extends InsilicoModel {
 
     @Override
     protected short CalculateAD() {
-        // todo Insert Applicability Domain here
-        return 0;
+
+        // Calculates various AD indices
+        ADCheckIndicesQuantitative adq = new ADCheckIndicesQuantitative(TS);
+        adq.setMoleculesForIndexSize(2);
+        if (!adq.Calculate(CurMolecule, CurOutput))
+            return InsilicoModel.AD_ERROR;
+
+        // Sets threshold for AD indices
+        try {
+            ((ADIndexSimilarity)CurOutput.getADIndex(ADIndexSimilarity.class)).SetThresholds(0.85, 0.7);
+            ((ADIndexAccuracy)CurOutput.getADIndex(ADIndexAccuracy.class)).SetThresholds(50.0, 10.0);
+            ((ADIndexConcordance)CurOutput.getADIndex(ADIndexConcordance.class)).SetThresholds(50.0, 10.0);
+            ((ADIndexMaxError)CurOutput.getADIndex(ADIndexMaxError.class)).SetThresholds(50.0, 10.0);
+        } catch (Throwable e) {
+            return InsilicoModel.AD_ERROR;
+        }
+
+        // Sets Range check
+        ADCheckDescriptorRange adrc = new ADCheckDescriptorRange();
+        if (!adrc.Calculate(TS, Descriptors, CurOutput))
+            return InsilicoModel.AD_ERROR;
+
+        // Sets ACF check
+        ADCheckACF adacf = new ADCheckACF(TS);
+        if (!adacf.Calculate(CurMolecule, CurOutput))
+            return InsilicoModel.AD_ERROR;
+
+        // Sets final AD index
+        double acfContribution = CurOutput.getADIndex(ADIndexACF.class).GetIndexValue();
+        double rcContribution = CurOutput.getADIndex(ADIndexRange.class).GetIndexValue();
+        double ADIValue = adq.getIndexADI() * acfContribution * rcContribution;
+
+        ADIndexADIAggregate ADI = new ADIndexADIAggregate(0.85, 0.7, 1, 0.85, 0.7);
+        ADI.SetValue(ADIValue, CurOutput.getADIndex(ADIndexAccuracy.class),
+                CurOutput.getADIndex(ADIndexConcordance.class),
+                CurOutput.getADIndex(ADIndexMaxError.class));
+        CurOutput.setADI(ADI);
+
+        return InsilicoModel.AD_CALCULATED;
+
     }
 
     @Override
     protected void CalculateAssessment() {
-        // todo Insert Model Assessment here
+        // Sets assessment message
+        ModelUtilities.SetDefaultAssessment(CurOutput, CurOutput.getResults()[0], "°C");
+
+        // Sets assessment status
+        CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_GRAY);
+
     }
 }
