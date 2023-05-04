@@ -25,14 +25,10 @@
             <version>LATEST</version>
         </dependency>
 
-        <dependency>
-            <groupId>InSilico</groupId>
-            <artifactId>VegaModels</artifactId>
-            <version>0.1</version>
-        </dependency>
+
 
         <dependency>
-            <groupId>com.kode.lib</groupId>
+            <groupId>InSilico</groupId>
             <artifactId>ToxTreeWrapper</artifactId>
             <version>1.0</version>
             <classifier>shaded</classifier>

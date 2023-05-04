@@ -24,13 +24,6 @@
 
     <dependencies>
 
-        <dependency>
-            <groupId>InSilico</groupId>
-            <artifactId>VegaModels</artifactId>
-            <version>0.1</version>
-        </dependency>
-
-
 
     </dependencies>
 

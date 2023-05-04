@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>VegaModels-Ahr_up</artifactId>
+    <version>1.0.1</version>
 
     <properties>
         <maven.compiler.source>15</maven.compiler.source>
@@ -25,10 +26,9 @@
 
         <dependency>
             <groupId>InSilico</groupId>
-            <artifactId>VegaModels</artifactId>
-            <version>0.1</version>
+            <artifactId>ModelsUtils</artifactId>
+            <version>1.0</version>
         </dependency>
-
 
     </dependencies>
 

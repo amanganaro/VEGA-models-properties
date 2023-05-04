@@ -1,7 +1,6 @@
 package insilico.logp_alogp;
 
 import insilico.core.tools.utils.ModelUtilities;
-import insilico.meylanlogp.descriptors.ADIndexADILogP;
 import insilico.core.ad.ADCheckIndicesQuantitative;
 import insilico.core.ad.item.ADIndexADI;
 import insilico.core.ad.item.ADIndexAccuracy;

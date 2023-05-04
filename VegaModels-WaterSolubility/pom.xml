@@ -25,11 +25,7 @@
 <!--            <scope>provided</scope>-->
 <!--        </dependency>-->
 
-        <dependency>
-            <groupId>InSilico</groupId>
-            <artifactId>VegaModels</artifactId>
-            <version>0.1</version>
-        </dependency>
+
 
     </dependencies>
 

@@ -140,27 +140,33 @@
     </properties>
 
 
-    <repositories>
-        <repository>
-            <id>maven-group</id>
-            <url>http://tech.kode-datacenter.net:8081/repository/maven-group/</url>
-        </repository>
-    </repositories>
-
     <distributionManagement>
-
         <snapshotRepository>
-            <id>nexus-snapshots</id>
-            <url>http://tech.kode-datacenter.net:8081/repository/maven-snapshots/</url>
+            <id>maven-snapshots</id>
+            <url>http://195.231.76.108:8081/repository/maven-snapshots/</url>
         </snapshotRepository>
         <repository>
-            <id>nexus-releases</id>
-            <url>http://tech.kode-datacenter.net:8081/repository/maven-releases/</url>
+            <id>maven-releases</id>
+            <url>http://195.231.76.108:8081/repository/maven-releases/</url>
         </repository>
 
     </distributionManagement>
 
+    <repositories>
+        <repository>
+            <id>maven-public</id>
+            <url>http://195.231.76.108:8081/repository/maven-public/</url>
+        </repository>
+    </repositories>
+
+
     <dependencies>
+
+        <dependency>
+            <groupId>InSilico</groupId>
+            <artifactId>ModelsUtils</artifactId>
+            <version>1.0</version>
+        </dependency>
 
         <!--        LOGGING-->
 
@@ -237,22 +243,22 @@
                             <goal>copy-dependencies</goal>
                         </goals>
                     </execution>
-                    <execution>
-                        <id>unpack</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>unpack</goal>
-                        </goals>
-                        <configuration>
-                            <artifactItems>
-                                <artifactItem>
-                                    <groupId>${project.groupId}</groupId>
-                                    <artifactId>${project.artifactId}</artifactId>
-                                    <version>${project.version}</version>
-                                </artifactItem>
-                            </artifactItems>
-                        </configuration>
-                    </execution>
+<!--                    <execution>-->
+<!--                        <id>unpack</id>-->
+<!--                        <phase>package</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>unpack</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            <artifactItems>-->
+<!--                                <artifactItem>-->
+<!--                                    <groupId>${project.groupId}</groupId>-->
+<!--                                    <artifactId>${project.artifactId}</artifactId>-->
+<!--                                    <version>${project.version}</version>-->
+<!--                                </artifactItem>-->
+<!--                            </artifactItems>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
                 </executions>
             </plugin>
 
