@@ -19,7 +19,7 @@ public class ismLD50 extends InsilicoModel {
 
     private static final long serialVersionUID = 1L;
 
-    private static final String ModelData = "/data/model_ld50_knn.xml";
+    private static final String ModelData = "/data/acute_ld50/model_ld50_knn.xml";
 
     private final insilicoKnnQuantitative KNN;
     private insilicoKnnPrediction KnnPrediction;

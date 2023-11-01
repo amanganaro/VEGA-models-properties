@@ -36,7 +36,7 @@ public class ismTissueBloodIneris extends InsilicoModel {
     
     private static final long serialVersionUID = 1L;
     
-    private static final String ModelData = "/data/model_tissueblood_ineris.xml";
+    private static final String ModelData = "/data/tissuebloodineris/model_tissueblood_ineris.xml";
     
     private final double[] MLR_COEFF = {
         0.3393, // AATS8m
@@ -76,7 +76,7 @@ public class ismTissueBloodIneris extends InsilicoModel {
         
         // Init PMML models
         try {  
-            URL src = getClass().getResource("/data/tissueblood_randomforest_model.xml");
+            URL src = getClass().getResource("/data/tissuebloodineris/tissueblood_randomforest_model.xml");
             ModelRF = new ModelGenericFromPMML(src.openStream());
         } catch (IOException ex) {
             throw new InitFailureException("Unable to read PMML source from .jar file");

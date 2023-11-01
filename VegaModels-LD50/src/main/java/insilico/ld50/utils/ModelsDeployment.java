@@ -26,7 +26,7 @@ public class ModelsDeployment {
         List<String> smilesList = new ArrayList<>();
         URL url;
         if(!kodeDataset)
-             url = (ModelsDeployment.class.getResource("/data/ts_ld50_knn.txt"));
+             url = (ModelsDeployment.class.getResource("/data/acute_ld50/ts_ld50_knn.txt"));
         else url = (ModelsDeployment.class.getResource("/data/kode_dataset.txt"));
 
         String line;

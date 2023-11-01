@@ -1,0 +1,17 @@
+<xml>
+   
+    <Version>
+        <Name>Air Half-Life (IRFMN-CORAL)</Name>
+        <Key>PERS_AIR_CORAL</Key>
+        <Summary>Quantitative model for Air Half-Life .</Summary>
+        <Version>1.0.1</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/airhl/ts_pers_air_coral.dat</TS>
+        <QMRF>/data/airhl/qmrf_air_hl.xml</QMRF>
+        <HasAlerts>False</HasAlerts>
+        <Units>log(hours)</Units>
+    </Vega>
+    
+</xml>

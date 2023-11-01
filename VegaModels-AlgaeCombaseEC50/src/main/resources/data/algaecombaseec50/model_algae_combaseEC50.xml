@@ -1,0 +1,17 @@
+<xml>
+   
+    <Version>
+        <Name>Algae Acute (EC50) Toxicity model (ProtoQSAR-Combase)</Name>
+        <Key>ALGAE_COMBASEEC50</Key>
+        <Summary>Quantitative model for acute toxicity (EC50) in algae, specific for biocides</Summary>
+        <Version>1.0.1</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/algaecombaseec50/ts_algae_combaseEC50.dat</TS>
+        <QMRF>/data/algaecombaseec50/qmrf_algae_combase_ec50.xml</QMRF>
+        <HasAlerts>False</HasAlerts>
+        <Units>log(mg/L)</Units>
+    </Vega>
+
+</xml>

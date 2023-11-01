@@ -28,7 +28,7 @@ public class ismCarcinogenicityAntares extends InsilicoModel  {
 
     private static final long serialVersionUID = 1L;
 
-    private static final String ModelData = "/data/model_carc_antares.xml";
+    private static final String ModelData = "/data/carc_antares/model_carc_antares.xml";
 
     private final String SarpyFullAlertSet;
 

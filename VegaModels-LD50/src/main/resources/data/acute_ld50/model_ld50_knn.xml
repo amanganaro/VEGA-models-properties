@@ -8,17 +8,10 @@
     </Version>
     
     <Vega>
-        <TS>/data/ts_ld50_knn.dat</TS>
+        <TS>/data/acute_ld50/ts_ld50_knn.dat</TS>
+        <QMRF>/data/acute_ld50/qmrf_acute_ld50.xml</QMRF>
         <HasAlerts>False</HasAlerts>
         <Units>log(mmol/kg)</Units>
     </Vega>
-
-    <Guide></Guide>
-
-    <Reference></Reference>
-
-    <Endpoint></Endpoint>
-
-    <Stats></Stats>
     
 </xml>

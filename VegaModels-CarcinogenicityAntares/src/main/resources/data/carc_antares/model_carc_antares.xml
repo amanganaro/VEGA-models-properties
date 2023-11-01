@@ -1,0 +1,30 @@
+<xml>
+   
+    <Version>
+        <Name>Carcinogenicity model (IRFMN-Antares)</Name>
+        <Key>CARC_ANTARES</Key>
+        <Summary>QSAR classification model for Carcinogenicity (IRFMN/Antares) based on the Antares dataset</Summary>
+        <Version>1.0.2</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/carc_antares/ts_carc_antares.dat</TS>
+        <QMRF>/data/carc_antares/qmrf_carc_antares.xml</QMRF>
+        <HasAlerts>True</HasAlerts>
+        <ClassValues>
+            <Class>
+                <Value>0</Value>
+                <Label>NON-Carcinogen</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Carcinogen</Label>
+            </Class>
+            <Class>
+                <Value>-1</Value>
+                <Label>Possible NON-Carcinogen</Label>
+            </Class>
+        </ClassValues>
+    </Vega>
+
+</xml>

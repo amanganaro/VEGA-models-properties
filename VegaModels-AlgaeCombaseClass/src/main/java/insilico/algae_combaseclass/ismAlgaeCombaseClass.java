@@ -25,7 +25,7 @@ public class ismAlgaeCombaseClass extends InsilicoModel {
     private static final long serialVersionUID = 1L;
     private static final Logger log = LogManager.getLogger(ismAlgaeCombaseClass.class);
 
-    private static final String ModelData = "/data/model_algae_combaseClass.xml";
+    private static final String ModelData = "/data/algaecombaseclass/model_algae_combaseClass.xml";
 
 
     public ismAlgaeCombaseClass()

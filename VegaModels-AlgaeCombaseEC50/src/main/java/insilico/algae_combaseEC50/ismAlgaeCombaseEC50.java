@@ -27,7 +27,7 @@ public class ismAlgaeCombaseEC50 extends InsilicoModel {
 
     private static final long serialVersionUID = 1L;
 
-    private static final String ModelData = "/data/model_algae_combaseEC50.xml";
+    private static final String ModelData = "/data/algaecombaseec50/model_algae_combaseEC50.xml";
 
     private final iTrainingSet AlgaeClassTS;
 

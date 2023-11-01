@@ -1,6 +1,8 @@
 import insilico.carcinogenicity_antares.ismCarcinogenicityAntares;
+import insilico.core.main;
 import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
+import insilico.core.model.qmrf.QMRFDocument;
 import insilico.core.molecule.conversion.SmilesMolecule;
 
 import org.apache.logging.log4j.LogManager;
@@ -8,6 +10,8 @@ import org.apache.logging.log4j.Logger;
 import utils.ModelsDeployment;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;

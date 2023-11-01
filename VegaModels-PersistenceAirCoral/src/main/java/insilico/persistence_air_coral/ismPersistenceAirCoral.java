@@ -23,7 +23,7 @@ public class ismPersistenceAirCoral extends InsilicoModel {
     
     private static final long serialVersionUID = 1L;
     
-    private static final String ModelData = "/data/model_pers_air_coral.xml";
+    private static final String ModelData = "/data/airhl/model_pers_air_coral.xml";
 
     
     private CoralModel AirHL;

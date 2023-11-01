@@ -8,7 +8,8 @@
     </Version>
     
     <Vega>
-        <TS>/data/ts_tissueblood_ineris.dat</TS>
+        <TS>/data/tissuebloodineris/ts_tissueblood_ineris.dat</TS>
+        <QMRF>/data/tissuebloodineris/qmrf_adipose_blood.xml</QMRF>
         <HasAlerts>False</HasAlerts>
         <Units>Log units</Units>
     </Vega>

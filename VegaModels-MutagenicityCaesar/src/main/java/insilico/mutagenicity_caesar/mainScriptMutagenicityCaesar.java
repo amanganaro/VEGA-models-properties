@@ -1,7 +1,9 @@
 package insilico.mutagenicity_caesar;
 
+import insilico.core.main;
 import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
+import insilico.core.model.qmrf.QMRFDocument;
 import insilico.core.molecule.conversion.SmilesMolecule;
 
 import org.apache.logging.log4j.LogManager;
@@ -9,6 +11,8 @@ import org.apache.logging.log4j.Logger;
 import utils.ModelsDeployment;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
@@ -21,6 +25,19 @@ public class mainScriptMutagenicityCaesar {
     public static void main(String[] args) throws Exception {
 
         InsilicoModel model = new ismMutagenicityCaesar();
+
+        String qmrf = model.getInfo().getQMRF();
+        URL u = mainScriptMutagenicityCaesar.class.getResource(qmrf);
+        QMRFDocument doc = new QMRFDocument(u);
+        byte[] bos = doc.CreatePDF();
+
+        try (FileOutputStream fos = new FileOutputStream("prova.pdf")) {
+            fos.write(bos);
+        }
+
+        if (1==1) return;
+
+
 //        ModelsDeployment.BuildDataset(model, "out_ts");
 //        File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
 //        File destinationFile = new File("VegaModels-MutagenicityCaesar\\src\\main\\resources\\data\\ts_muta_caesar.dat");
