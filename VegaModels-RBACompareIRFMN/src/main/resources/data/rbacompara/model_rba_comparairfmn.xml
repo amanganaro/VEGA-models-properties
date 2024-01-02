@@ -1,0 +1,31 @@
+<xml>
+   
+    <Version>
+        <Name>Androgen Receptor-mediated effect (IRFMN-COMPARA)</Name>
+        <Key>ANDROGEN_COMPARA</Key>
+        <Summary>Classification model for Androgen Receptor-mediated effect (IRFMN/COMPARA).</Summary>
+        <Version>1.0.1</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/rbacompara/ts_rba_comparairfmn.dat</TS>
+        <QMRF>/data/rbacompara/qmrf_androgen_compara.xml</QMRF>
+        <HasAlerts>True</HasAlerts>
+        <ClassValues>
+            <Class>
+                <Value>-1</Value>
+                <Label>Not predicted</Label>
+            </Class>
+            <Class>
+                <Value>0</Value>
+                <Label>NON-active</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Active</Label>
+            </Class>
+        </ClassValues>
+    </Vega>
+
+
+</xml>

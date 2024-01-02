@@ -30,7 +30,7 @@ public class ismBCFArnotGobas extends InsilicoModel {
 
     private static final long serialVersionUID = 1L;
 
-    private static final String ModelData = "/data/model_bcf_arnotgobas.xml";
+    private static final String ModelData = "/data/bcfarnotgobas/model_bcf_arnotgobas.xml";
 
     private final ismLogPMeylan LogPModel;
     private final ismKmArnot kMModel;

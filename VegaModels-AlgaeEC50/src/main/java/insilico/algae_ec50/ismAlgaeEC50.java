@@ -23,7 +23,7 @@ import java.util.Map;
 public class ismAlgaeEC50 extends InsilicoModel {
     private static final long serialVersionUID = 1L;
 
-    private static final String ModelData = "/data/model_algae_ec50.xml";
+    private static final String ModelData = "/data/algaeec50irfmn/model_algae_ec50.xml";
 
     private static final double[] NormalizationStd = {1.845303661, 1.399946997, 1.013529117, 0.409783504, 0.99737062, 0.332882058, 1.009054835, 5.129926891, 1.535201118, 34.81612088};
     private static final double[] NormalizationMean = {1.920075397, 2.074214286, 1.068178571, -0.199599206, 0.839785714, -0.136900794, 1.713869048, 13.08706349, 0.924603175, 16.23630556};
@@ -39,7 +39,7 @@ public class ismAlgaeEC50 extends InsilicoModel {
 
         // Init PMML model
         try {
-            URL src = getClass().getResource("/data/algae_ec50_model.pmml");
+            URL src = getClass().getResource("/data/algaeec50irfmn/algae_ec50_model.pmml");
             Model = new ModelANNFromPMML(src.openStream(), "Exp");
         } catch (IOException ex) {
             throw new InitFailureException("Unable to read PMML source from .jar file");

@@ -35,7 +35,7 @@ public class ismAromataseIRFMN extends InsilicoModel {
 
     private static final long serialVersionUID = 1L;
     
-    private static final String ModelData = "/data/model_aromatase_irfmn.xml";
+    private static final String ModelData = "/data/aromataseirfmn/model_aromatase_irfmn.xml";
     
     private static final double[] NormalizationStd = {0.711769967075992,0.290475667889515,0.115044003629162,2.32014205188935,2.67041727590661,1.60271810184668,39.4984891454959,2.79017398841024,6.21542806393645,0.824916629012428,1.37409213162412,0.968245511028326,0.413271775530228,0.940353551341537,1.95524050568146,0.584625806488982,3.54631053724478,5.77201335431423};
     private static final double[] NormalizationMean = {3.74823674096849,3.54761913912375,0.236886241352806,4.42416448885473,4.18082013835511,2.10361568024596,56.8000303612606,4.04461606456572,7.87367063797079,2.56390392006149,0.7273904688701,9.01345157571099,0.162567255956956,5.28766372021522,1.05276441199078,0.194081475787856,3.35395849346656,34.6697601844735};
@@ -51,7 +51,7 @@ public class ismAromataseIRFMN extends InsilicoModel {
         
         // Init PMML model
         try {  
-            URL src = getClass().getResource("/data/rangerRF_aromatase_irfmn.pmml");
+            URL src = getClass().getResource("/data/aromataseirfmn/rangerRF_aromatase_irfmn.pmml");
             Model = new ModelGenericFromPMML(src.openStream());
         } catch (IOException ex) {
             throw new InitFailureException("Unable to read PMML source from .jar file");

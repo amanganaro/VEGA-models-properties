@@ -24,20 +24,21 @@ public class mainScriptSkinSensitizationSarpy {
 
         InsilicoModel model = new ismSkinSensitizationSarpy();
 
-        ModelsDeployment.BuildDataset(model, "out_ts");
-        File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
-        File destinationFile = new File("VegaModels-SkinSensitizationSarpy\\src\\main\\resources\\data\\ts_skin_sensitization_sarpy.dat");
-        try {
-            Files.move(sourceFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-        } catch (Exception ex) {
-            log.warn(ex.getMessage());
-        }
+//        ModelsDeployment.BuildDataset(model, "out_ts");
+//        File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
+//        File destinationFile = new File("VegaModels-SkinSensitizationSarpy\\src\\main\\resources\\data\\ts_skin_sensitization_sarpy.dat");
+//        try {
+//            Files.move(sourceFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+//        } catch (Exception ex) {
+//            log.warn(ex.getMessage());
+//        }
 
         List<String> smilesList = new ArrayList<>();
-        smilesList.add("O=S(=O)(N)c1cc2c(cc1C(F)(F)F)NC(NS2(=O)(=O))Cc3ccccc3");
-        smilesList.add("O=[N+]([O-])c1cc(c(O)c(c1)C(C)(C)C)[N+](=O)[O-]");
-        smilesList.add("O=S(=O)(C(C)(C)C)C(C)(C)C");
-        smilesList.add("O=C(OC2CC1N(C)C(CC1)C2(C(=O)OC))c3ccccc3");
+        smilesList.add("CCCC=O");
+//        smilesList.add("O=S(=O)(N)c1cc2c(cc1C(F)(F)F)NC(NS2(=O)(=O))Cc3ccccc3");
+//        smilesList.add("O=[N+]([O-])c1cc(c(O)c(c1)C(C)(C)C)[N+](=O)[O-]");
+//        smilesList.add("O=S(=O)(C(C)(C)C)C(C)(C)C");
+//        smilesList.add("O=C(OC2CC1N(C)C(CC1)C2(C(=O)OC))c3ccccc3");
 
         for (String smiles : smilesList) {
             InsilicoModelOutput out = model.Execute(SmilesMolecule.Convert(smiles));

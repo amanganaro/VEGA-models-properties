@@ -127,6 +127,7 @@
         <module>VegaModels-SkinSensitizationConcert</module>
         <module>VegaModels-EyeIrritationSarpy</module>
         <module>VegaModels-EyeIrritationKnn</module>
+        <module>VegaModels-SteroidogenesisOberon</module>
     </modules>
 
     <name>VegaModels</name>

@@ -30,7 +30,7 @@ public class ismAndrogenBindingComparaIRFMN extends InsilicoModel {
 
     private static final long serialVersionUID = 1L;
     
-    private static final String ModelData = "/data/model_rba_comparairfmn.xml";
+    private static final String ModelData = "/data/rbacompara/model_rba_comparairfmn.xml";
     
     private final String SarpyFullAlertSet;
     

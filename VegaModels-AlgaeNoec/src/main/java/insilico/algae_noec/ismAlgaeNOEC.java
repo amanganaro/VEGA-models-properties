@@ -23,7 +23,6 @@ import insilico.core.tools.utils.ModelUtilities;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -35,7 +34,7 @@ public class ismAlgaeNOEC extends InsilicoModel {
     
     private static final long serialVersionUID = 1L;
     
-    private static final String ModelData = "/data/model_algae_noec.xml";
+    private static final String ModelData = "/data/algaenoec/model_algae_noec.xml";
 
     private static final double[] NormalizationStd = {1.96580628946963, 1.57270679007972, 0.407508563802331, 1.03131710701777, 2.07719955834384, 32.8951110912294, 2.53471963094721, 0.221410388880736, 0.420070597187593, 0.450166150332932, 0.074720585843248, 4.01795287765648, 0.421206580880607, 0.769309315072312, 0.209147840709661, 1.48747286370226, 0.17838451166724, 43.5600847116374, 17.7584167812485, 0.032927333533898, 1.80592869978331, 0.533378608054094};
     private static final double[] NormalizationMean = {2.05642682926829, 2.13852743902439, 0.031094512195122, 0.738807926829268, 4.08796951219512, 54.4145457317073, 1.54493597560976, -0.112451219512195, 0.740356707317073, 0.103844512195122, 1.22189329268293, 4.84451219512195, 1.00453048780488, 2.43940243902439, 1.41829268292683, 1.19512195121951, 0.691198170731707, 18.1890243902439, 11.7759329268293, 0.060329268292683, 3.08689329268293, -0.071612804878049};
@@ -51,7 +50,7 @@ public class ismAlgaeNOEC extends InsilicoModel {
         
         // Init PMML model
         try {  
-            URL src = getClass().getResource("/data/algae_noec_model.pmml");
+            URL src = getClass().getResource("/data/algaenoec/algae_noec_model.pmml");
             Model = new ModelANNFromPMML(src.openStream(), "Exp");
         } catch (IOException ex) {
             throw new InitFailureException("Unable to read PMML source from .jar file");

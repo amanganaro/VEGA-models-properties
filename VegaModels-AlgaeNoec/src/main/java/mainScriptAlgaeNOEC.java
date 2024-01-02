@@ -1,6 +1,8 @@
 import insilico.algae_noec.ismAlgaeNOEC;
+import insilico.core.main;
 import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
+import insilico.core.model.qmrf.QMRFDocument;
 import insilico.core.molecule.conversion.SmilesMolecule;
 
 import org.apache.logging.log4j.LogManager;
@@ -8,6 +10,8 @@ import org.apache.logging.log4j.Logger;
 import utils.ModelsDeployment;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
@@ -32,6 +36,12 @@ public class mainScriptAlgaeNOEC {
 //            log.warn(ex.getMessage());
 //        }
 
+        URL u = main.class.getResource(model.getInfo().getQMRF());
+        QMRFDocument doc = new QMRFDocument(u);
+        byte[] bos = doc.CreatePDF();
+        try (FileOutputStream fos = new FileOutputStream(model.getInfo().getName() + ".pdf")) {
+            fos.write(bos);
+        }
         List<String> smilesList = new ArrayList<>();
         smilesList.add("O=[N+]([O-])c1cc(cc(c1N(CCC)CCC)[N+](=O)[O-])S(=O)(=O)C");
         smilesList.add("O=S(=O)(N)c1cc2c(cc1C(F)(F)F)NC(NS2(=O)(=O))Cc3ccccc3");
