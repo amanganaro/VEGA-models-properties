@@ -11,7 +11,7 @@
 
     <artifactId>VegaModels-SteroidogenesisOberon</artifactId>
 
-    <name>Steroidogenesis classification (Oberon)</name>
+    <name>Steroidogenesis (IRFMN/Oberon)</name>
     <version>1.0.0</version>
     <description>
         Classification model for steroidogenesis activity

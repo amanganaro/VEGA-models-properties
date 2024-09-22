@@ -1,35 +1,21 @@
 package insilico.steroidogenesis;
 
-import insilico.core.exception.GenericFailureException;
-import insilico.core.exception.InitFailureException;
-import insilico.core.exception.InvalidMoleculeException;
-import insilico.core.knn.insilicoKnnPrediction;
-import insilico.core.knn.insilicoKnnQualitative;
 import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
 import insilico.core.model.trainingset.TrainingSet;
 import insilico.core.model.trainingset.iTrainingSet;
-import insilico.core.molecule.InsilicoMolecule;
 import insilico.core.molecule.conversion.SmilesMolecule;
-import insilico.steroidogenesis.descriptors.EmbeddedDescriptors;
-import insilico.steroidogenesis.descriptors.PubchemFingerprinterVega;
-import insilico.steroidogenesis.ismSteroidogenesis;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openscience.cdk.DefaultChemObjectBuilder;
-import org.openscience.cdk.debug.DebugChemObjectBuilder;
-import org.openscience.cdk.exception.CDKException;
-import org.openscience.cdk.fingerprint.IBitFingerprint;
-import org.openscience.cdk.fingerprint.PubchemFingerprinter;
-import org.openscience.cdk.interfaces.IAtomContainer;
 import utils.ModelsDeployment;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.InputStreamReader;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
-import java.util.BitSet;
 import java.util.List;
 
 public class mainScriptSG {
@@ -38,6 +24,7 @@ public class mainScriptSG {
 
 
     public static void main(String[] args) throws Exception {
+
 
         InsilicoModel model = new ismSteroidogenesis();
 
@@ -49,43 +36,73 @@ public class mainScriptSG {
 //        } catch (Exception ex) {
 //            log.warn(ex.getMessage());
 //        }
+//        if (1==1) return;
 
-//        List<String> smilesList = new ArrayList<>();
-//        smilesList.add("CC(C)(C)C1=CC=CC=C1O");
-//
-//        for (String smiles : smilesList) {
-//            InsilicoModelOutput out = model.Execute(SmilesMolecule.Convert(smiles));
-//            System.out.println("\n"+smiles);
-//            for (int i = 0; i < model.GetResultsName().length; i++)
-//                System.out.println(model.GetResultsName()[i] + " | " + out.getResults()[i]);
-//        }
 
         iTrainingSet ts = model.GetTrainingSet();
-        URL KnnData = ismSteroidogenesis.class.getResource("/data/knn_data_only_train.txt");
-        KNN knn = new KNN(KnnData);
-
         for (int i=0; i<ts.getMoleculesSize(); i++) {
             String SMI = ts.getSMILES(i);
-
-            double[] Descriptors = new double[11];
-
-            EmbeddedDescriptors embeddedDescriptors = new EmbeddedDescriptors(SmilesMolecule.Convert(SMI));
-            Descriptors[0] = embeddedDescriptors.SRW9;
-            Descriptors[1] = embeddedDescriptors.PubchemFP20;
-            Descriptors[2] = embeddedDescriptors.PubchemFP37;
-            Descriptors[3] = embeddedDescriptors.PubchemFP183;
-            Descriptors[4] = embeddedDescriptors.PubchemFP189;
-            Descriptors[5] = embeddedDescriptors.PubchemFP341;
-            Descriptors[6] = embeddedDescriptors.PubchemFP342;
-            Descriptors[7] = embeddedDescriptors.PubchemFP379;
-            Descriptors[8] = embeddedDescriptors.PubchemFP418;
-            Descriptors[9] = embeddedDescriptors.PubchemFP755;
-            System.out.print(SMI + "\t");
-            int prediction = knn.getPredictionCustom(Descriptors, i);
-//            System.out.println(SMI + "\t" + prediction);
-
-//            InsilicoModelOutput out = model.Execute(SmilesMolecule.Convert(SMI));
-//            System.out.println(SMI + "\t" + out.getMainResultValue());
+            if (ts.getMoleculeSet(i) == TrainingSet.MOLECULE_TRAINING)
+                model.SetKnnSkipExperimental(true);
+            else
+                model.SetKnnSkipExperimental(false);
+            InsilicoModelOutput o = model.Execute(SmilesMolecule.Convert(SMI));
+            System.out.println(SMI + "\t" + o.getMainResultValue());
         }
+        if (1==1) return;
+
+
+        List<String> smilesList = new ArrayList<>();
+        URL newData = ismSteroidogenesis.class.getResource("/data/test.txt");
+        BufferedReader br = new BufferedReader(new InputStreamReader(newData.openStream()));
+        String line;
+        while ((line = br.readLine()) != null)
+            smilesList.add(line);
+        br.close();
+
+        FpKNN k = new FpKNN();
+        int n=0;
+        for (String smiles : smilesList) {
+            double pred = k.Calculate(SmilesMolecule.Convert(smiles), false);
+            n++;
+//            System.out.println(smiles + "\t" + pred);
+//            InsilicoModelOutput out = model.Execute(SmilesMolecule.Convert(smiles));
+//            System.out.println(smiles + "\t" + out.getMainResultValue());
+//            for (int i = 0; i < model.GetResultsName().length; i++)
+//                System.out.println(model.GetResultsName()[i] + " | " + out.getResults()[i]);
+        }
+
+
+//        iTrainingSet ts = model.GetTrainingSet();
+//        URL KnnData = ismSteroidogenesis.class.getResource("/data/knn_data.txt");
+//        KNN knn = new KNN(KnnData);
+//
+//        for (int i=0; i<ts.getMoleculesSize(); i++) {
+//            String SMI = ts.getSMILES(i);
+//
+//            double[] Descriptors = new double[11];
+//
+//            EmbeddedDescriptors embeddedDescriptors = new EmbeddedDescriptors(SmilesMolecule.Convert(SMI));
+//            Descriptors[0] = embeddedDescriptors.SRW9;
+//            Descriptors[1] = embeddedDescriptors.PubchemFP20;
+//            Descriptors[2] = embeddedDescriptors.PubchemFP37;
+//            Descriptors[3] = embeddedDescriptors.PubchemFP183;
+//            Descriptors[4] = embeddedDescriptors.PubchemFP189;
+//            Descriptors[5] = embeddedDescriptors.PubchemFP341;
+//            Descriptors[6] = embeddedDescriptors.PubchemFP342;
+//            Descriptors[7] = embeddedDescriptors.PubchemFP379;
+//            Descriptors[8] = embeddedDescriptors.PubchemFP418;
+//            Descriptors[9] = embeddedDescriptors.PubchemFP755;
+//
+////            if (i==39)
+////                System.out.println();
+//
+//            int prediction = knn.getPredictionCustom(Descriptors, i);
+////            int prediction = knn.getPredictionCustom(Descriptors, null);
+//            System.out.println(SMI + "\t" + prediction);
+//
+////            InsilicoModelOutput out = model.Execute(SmilesMolecule.Convert(SMI));
+////            System.out.println(SMI + "\t" + out.getMainResultValue());
+//        }
     }
 }

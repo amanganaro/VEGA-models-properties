@@ -6,6 +6,7 @@ import org.junit.runners.model.InitializationError;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class KNN {
@@ -99,28 +100,60 @@ public class KNN {
     public int getPredictionCustom(double[] sample, Integer SkipSample){
         this.sample = sample;
         double[] distances = calculateDistances(sample);
-        int[] bestNeigh = getSortedNeighbours(distances, 3, SkipSample);
+        int nMax = 15;
+        int[] bestNeigh = getSortedNeighbours(distances, nMax, SkipSample);
 
         // matching exp values
-        if ( (dataY[bestNeigh[0]] == dataY[bestNeigh[1]]) && (dataY[bestNeigh[0]] == dataY[bestNeigh[2]])) {
-            System.out.println(dataY[bestNeigh[0]] + "\t" + "matching");
+        if (dataY[bestNeigh[0]] == dataY[bestNeigh[1]])
             return dataY[bestNeigh[0]];
-        }
 
+        // otherwise, not matching but some with dist = 0
+        if (distances[bestNeigh[0]] == 0) {
 
-        // otherwise weights experimentals by distance
-        double[] ClassWeights = new double[2];
-        ClassWeights[0] = 0; ClassWeights[1] = 0;
-        for (int simIndex : bestNeigh)
-            ClassWeights[dataY[simIndex]] += distances[simIndex];
+            ArrayList<Integer> neighWithZeroDist = new ArrayList<>();
+            for (int idx : bestNeigh)
+                if (distances[idx] == 0)
+                    neighWithZeroDist.add(idx);
 
-        if (ClassWeights[0] < ClassWeights[1]) {
-            System.out.println("0");
-            return 0;
-        } else {
-            System.out.println("1");
+            int clZero = 0; int clOne = 0;
+            for (Integer idx : neighWithZeroDist) {
+                if (dataY[idx] == 0) clZero++;
+                else clOne++;
+            }
+
+            if (clZero==clOne)
+                return dataY[bestNeigh[0]];
+            if (clZero > clOne)
+                return 0;
             return 1;
         }
+
+        // otherwise, prediction come from first (less distant) neigh
+        return dataY[bestNeigh[0]];
+
+
+
+
+//        // matching exp values
+//        if ( (dataY[bestNeigh[0]] == dataY[bestNeigh[1]]) && (dataY[bestNeigh[0]] == dataY[bestNeigh[2]])) {
+//            System.out.println(dataY[bestNeigh[0]] + "\t" + "matching");
+//            return dataY[bestNeigh[0]];
+//        }
+//
+//
+//        // otherwise weights experimentals by distance
+//        double[] ClassWeights = new double[2];
+//        ClassWeights[0] = 0; ClassWeights[1] = 0;
+//        for (int simIndex : bestNeigh)
+//            ClassWeights[dataY[simIndex]] += distances[simIndex];
+//
+//        if (ClassWeights[0] < ClassWeights[1]) {
+//            System.out.println("0");
+//            return 0;
+//        } else {
+//            System.out.println("1");
+//            return 1;
+//        }
     }
 
     private int[] getSortedNeighbours(double[] DistanceArray, int nNeigh, Integer SkipSample) {

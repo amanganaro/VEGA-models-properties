@@ -1,483 +1,1801 @@
-ID	CAS	SMILES	STATUS	EXP VALUE
-13		O=C(CC1=CC=CC=C1)C1=CC=CC=C1	Trainining	0
-27		CC(=O)C1=CC=C2C=CC=CC2=C1	Trainining	0
-54		CC(C)(C)C1=CC=CC=C1O	Trainining	1
-91		CCCC1=CC=C(O)C=C1	Trainining	0
-15		CCN1CN(CC)CN(CC)C1	Trainining	0
-234		CCCCCCCCN(C)C	Trainining	1
-418		CCCCCCCCCCCCN(C)C	Trainining	1
-284		CN(C)C(=S)S	Trainining	1
-16		CC1=CC(C)=CC(C)=C1	Trainining	1
-62		CC1=CC(N)=CC=C1	Trainining	1
-57		CC1=CC=C(O)C=C1C	Trainining	1
-42		CC1=CC=CC(C)=C1N	Trainining	0
-306		BrC1=CC=C(OC2=CC=CC=C2)C=C1	Trainining	1
-79		CC1=CC(O)=CC=C1Cl	Trainining	0
-90		CC=CC1=CC=C(OC)C(OC)=C1	Trainining	0
-206		CC1=CC(=O)CC(C)(C)C1	Trainining	1
-275		O=C1C=CCC(=O)C1	Trainining	0
-145		C=C1C=CCC(C)(C)C1C(=O)C=CC	Trainining	1
-83		OC1CCC(C2CCCCC2)CC1	Trainining	0
-318		CCCCCCCCCCCCCCCO	Trainining	0
-25		C=CCCCCCCCCC(=O)O	Trainining	1
-28		N#CC(Br)(Br)C(N)=O	Trainining	0
-160		CNC(=O)CSP(=S)(OC)OC	Trainining	1
-80		NC1=CC=C(Cl)C=C1	Trainining	0
-30		OC1=C(Br)C=C(Br)C=C1Br	Trainining	0
-52		OC1=CC=C2C=CC=CC2=C1	Trainining	0
-329		CC(C)(C1=CC(Br)=C(O)C(Br)=C1)C1=CC(Br)=C(O)C(Br)=C1	Trainining	0
-39		OC1=CC(Cl)=CC=C1Cl	Trainining	0
-34		CC1=CC=C(N)C=C1N	Trainining	1
-95		CC1=CC=C(N)C=C1O	Trainining	0
-76		CC1=CC(Cl)=CC=C1N	Trainining	0
-36		O=C(O)COC1=CC=C(Cl)C=C1Cl	Trainining	1
-130		COC1=CC(Cl)=C(OC)C=C1Cl	Trainining	1
-422		O=[N+]([O-])C1=CC=C(OC2=CC=C(Cl)C=C2Cl)C=C1	Trainining	1
-37		CC(C)C1=CC=C(O)C(C(C)C)=C1	Trainining	0
-92		CC(C)(C)C1=CC=C(O)C=C1	Trainining	0
-208		CC1=CC=C(C(C)C)C=C1O	Trainining	0
-181		C=CCC1=CC=C(O)C(OC)=C1	Trainining	0
-430		CC(C)(C)C(O)C(CC1=CC=C(Cl)C=C1)N1C=NC=N1	Trainining	0
-123		CC1=CC(NC(=O)C(=O)O)=CC(C)=C1OC1=CC=C(O)C2=C1CCC2	Trainining	0
-44		C1=CC=C(CCCC2=CC=CC=N2)C=C1	Trainining	0
-298		CCCCC(CC)C(=O)OCCOCCOCCOC(=O)C(CC)CCCC	Trainining	1
-219		CCCCCC1C(=O)CCC1CC(=O)OC	Trainining	1
-163		COC(=O)C1CCC(C(=O)OC)CC1	Trainining	1
-87		O=[N+]([O-])C1=CC=C(O)C=C1	Trainining	0
-334		NC1=CC=C(Cl)C=C1N	Trainining	0
-86		O=C(O)C1=CC=C([N+](=O)[O-])C=C1	Trainining	0
-97		CC1=CC(=O)OC2=CC(N(C)C)=CC=C12	Trainining	0
-456		COC1=CC=CC(C2=CC=C(C=CCN3CCCCCC3)C=C2Cl)=C1	Trainining	1
-152		C=CCOC(=O)C1=CC=CC=C1C(=O)OCC=C	Trainining	1
-94		COC1=CC(OC)=C2C=CC(=O)OC2=C1	Trainining	0
-191		CN(C)C(=O)NC1=CC=CC(C(F)(F)F)=C1	Trainining	0
-393		CC(C)N(C(=O)COC1=NN=C(C(F)(F)F)S1)C1=CC=C(F)C=C1	Trainining	1
-109		CCCCN(CC)C1=C([N+](=O)[O-])C=C(C(F)(F)F)C=C1[N+](=O)[O-]	Trainining	1
-114		O=C(OCC1=CC=CC=C1)C1=CC=CC=C1O	Trainining	0
-228		COC(=O)C1=CC=CC=C1C(=O)O	Trainining	1
-349		CCCCOC(=O)C1=CC=C(O)C=C1	Trainining	0
-125		CC(C)C1=NN=C2C=CC(C3=C(C4=CC(F)=CC=C4F)N=CO3)=CN21	Trainining	1
-435		CCOC1=CC(N2C=C(C(=O)N3CCN(C4=CC5=CC=CC=C5C(C(=O)O)=C4)CC3)N=C2C2=CC=C(C)C=C2)=CC=C1	Trainining	1
-420		COC1=CC=C(S(=O)(=O)N2C(=O)C(C3=CC=CC=C3OC)(N3CC(O)CC3C(=O)N(C)C)C3=CC(Cl)=CC=C32)C(OC)=C1	Trainining	0
-127		CC1=C(C(=O)NC2=CC=CC=C2)SCCO1	Trainining	0
-305		O=C(O)CN1C(=O)N(CC2=CC=C(Br)C=C2F)C(=O)C2=CC=C(Cl)C=C21	Trainining	0
-269		CC(C)OC(=O)NC1=CC=CC=C1	Trainining	1
-258		CCCCC1C(=O)N(C2=CC=CC=C2)N(C2=CC=CC=C2)C1=O	Trainining	0
-277		CCS(=O)(=O)C1=CC=CN=C1S(=O)(=O)NC(=O)NC1=NC(OC)=CC(OC)=N1	Trainining	0
-399		O=C(NC(=O)C1=C(F)C=CC=C1F)NC1=CC(Cl)=C(OC(F)(F)C(F)F)C(Cl)=C1	Trainining	1
-142		CCSC(=O)N(CC)C1CCCCC1	Trainining	0
-359		O=C1C2CC=CCC2C(=O)N1SC(Cl)(Cl)Cl	Trainining	1
-410		CCCCC(CC)CN1C(=O)C2C(=C3C=CC2C3)C1O	Trainining	1
-207		CC1(C)CC(N=C=O)CC(C)(CN=C=O)C1	Trainining	1
-362		N#CC1=C(Cl)C(Cl)=C(Cl)C(C#N)=C1Cl	Trainining	1
-164		COC(=O)C1=CC=CC(C(=O)OC)=C1	Trainining	1
-227		CCCCOC(=O)C1=CC=CC=C1C(=O)O	Trainining	1
-328		COC1=CC=C(C(=O)C2=CC=CC=C2)C(O)=C1	Trainining	0
-424		CCCCCCCCCCOC(=O)C1=CC=CC=C1C(=O)OCCCCCCCC	Trainining	0
-221		CC(N)(CC1=CC(=O)C(O)C=C1)C(=O)O	Trainining	1
-276		CC(=O)OCC=C(C)C=CC=C(C)C=CC1=C(C)CCCC1(C)C	Trainining	0
-449		CCCC1COC(CN2C=NC=N2)(C2=CC=C(Cl)C=C2Cl)O1	Trainining	0
-425		CCCCCCCCOC(=O)C1=CC(O)C(=O)C(=O)C1	Trainining	0
-237		NC1=CC=C(NC2=CC=CC=C2)C=C1	Trainining	0
-182		O=S(=O)(O)C1=CC=C(N=NC2=C3C=CC(S(=O)(=O)O)=CC3=CC=C2O)C=C1	Trainining	1
-300		C1=CC=C(OP(OC2=CC=CC=C2)OC2=CC=CC=C2)C=C1	Trainining	0
-262		CC1=C(C)C(OC(=O)N(C)C)=NC(N(C)C)=N1	Trainining	1
-479		CC1=C(O)C(C)=C2CCC(C)(COC3=CC=C(CC4SC(=O)NC4=O)C=C3)OC2=C1C	Trainining	1
-465		CCC1=CC=C(C(=O)NN(C(=O)C2=CC(C)=CC(C)=C2)C(C)(C)C)C=C1	Trainining	1
-450		CC(COC1=CC=C(OC2=CC=CC=C2)C=C1)OC1=CC=CC=N1	Trainining	1
-477		CCCCOCCOP(=O)(OCCOCCCC)OCCOCCCC	Trainining	1
-302		O=P(OCCCl)(OCCCl)OCCCl	Trainining	1
-297		CCCCCCCC[Si](OCC)(OCC)OCC	Trainining	1
-407		N#CC1=CC=C(C(C2=CC=C(C#N)C=C2)N2C=NC=N2)C=C1	Trainining	0
-428		NS(=O)(=O)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)F	Trainining	1
-432		O=[N+]([O-])C1=C(Cl)C(Cl)=C(Cl)C(Cl)=C1Cl	Trainining	1
-395		C[Si](CN1C=NC=N1)(C1=CC=C(F)C=C1)C1=CC=C(F)C=C1	Trainining	0
-433		OC1=C(Cl)C(Cl)=C(Cl)C(Cl)=C1Cl	Trainining	1
-200		ClC(Cl)=C(Cl)C(Cl)=C(Cl)Cl	Trainining	1
-50		COC1=CC=C([N+](=O)[O-])C=C1N	Trainining	0
-89		OC1=CC=C(C2=CC=CC=C2)C=C1	Trainining	0
-85		COC1=CC=C(N)C=C1	Trainining	0
-289		C1=CC=C2NC(C3=CSC=N3)=NC2=C1	Trainining	0
-331		C1=CC(C2=CC=NC=C2)=CC=N1	Trainining	0
-2		SC1=NC2=CC=CC=C2S1	Trainining	0
-350		COC1=CC=C(OC)C(N=NC2=C3C=CC=CC3=CC=C2O)=C1	Trainining	1
-346		O=C1NC2=CC=C([SH](O)C=CN3CCC(CC4=CC=C(F)C=C4)CC3)C=C2O1	Trainining	0
-5		C1=CC=C(CNC2=NC=NC3=C2N=CN3)C=C1	Trainining	0
-210		C1=COC(CNC2=NC=NC3=C2NC=N3)=C1	Trainining	1
-453		O=C(NC1=CC=C2NC=CC2=C1)C1=CC2=CC(F)=CC=C2N1CC1=CC=CC(F)=C1	Trainining	0
-119		CC1=CC2=C3C(=C1)C(C1=CC=CC=C1)=NC(NC(=O)C1=CC=NC=C1)C(=O)N3CC2	Trainining	0
-6		CN(C)C1C(=O)C(C(N)=O)=C(O)C2(O)C(=O)C3C(=O)C4=C(O)C=CC=C4C(C)(O)C3C(O)C12	Trainining	0
-171		CC12CCC3C4=CC=C(O)C=C4CC=C3C1CCC2=O	Trainining	0
-7		CC(C)=CCCC(C)=CCO	Trainining	1
-58		CC(C)=CCCC(C)=CC=O	Trainining	1
-9		CC=CC(=O)C1C(C)=CCCC1(C)C	Trainining	0
-361		O=C1C=CC=CC1O	Trainining	1
-10		CC1=CC=C(C(C)C2=CC(C)=C(C)C=C2)C=C1C	Trainining	0
-323		OC1=CC=C(C(C2=CC=C(O)C=C2)C(Cl)(Cl)Cl)C=C1	Trainining	0
-66		CC1=CC(CC2=CC=C(N)C(C)=C2)=CC=C1N	Trainining	0
-84		O=C1CCC(C2CCCCC2)CC1	Trainining	0
-336		CC12CCC3C(CCC4CC(=O)CCC43C)C1CCC2O	Trainining	0
-23		CCCCCCCCO	Trainining	1
-12		C1=CC=C(OCCOC2=CC=CC=C2)C=C1	Trainining	0
-33		CCCCOC(=O)COC1=CC=C(Cl)C=C1Cl	Trainining	1
-270		CNC(=O)OC1=CC=CC=C1OC(C)C	Trainining	1
-366		CCN(CC)CCOC1=CC=C(C(C2=CC=CC=C2)=C(Cl)C2=CC=CC=C2)C=C1	Trainining	0
-317		NC1=CC=CC2=C(N)C=CC=C12	Trainining	0
-56		NC1=CC=C(Cl)C(Cl)=C1	Trainining	0
-53		NC1=CC=C2C=CC=CC2=C1	Trainining	0
-17		NC(=NC1=CC=CC=C1)NC1=CC=CC=C1	Trainining	0
-468		COC(=O)NC(=S)NC1=CC=CC=C1NC(=S)NC(=O)OC	Trainining	1
-20		CC1(C)C(=O)N(Cl)C(=O)N1Br	Trainining	1
-117		CCC(C)N1C(=O)N=C(C)C(Br)C1=O	Trainining	1
-370		CC1CC(C)C(=O)C(C(O)CC2CC(=O)NC(=O)C2)C1	Trainining	0
-118		CC(C)N(CC1=CC=CC=C1)C(=O)C(C)(C)C	Trainining	0
-70		CCC(C)(C)C1=CC=C(O)C=C1	Trainining	0
-22		O=C1CC=C2C=CC3=CC=CC4=CC=C1C2=C34	Trainining	0
-26		CC12C=CC3=C4CCC(=O)C=C4CCC3C1CCC2O	Trainining	0
-148		CC12CCC3C(CC=C4CC(O)CCC43C)C1CCC2=O	Trainining	0
-322		CC(=O)C1(O)CCC2C3CCC4=CC(=O)CCC4(C)C3CCC21C	Trainining	0
-330		CC1=CC=C(N)C(N)=C1	Trainining	0
-51		CC1=CC=C([N+](=O)[O-])C=C1N	Trainining	0
-43		CC1=C([N+](=O)[O-])C=CC=C1[N+](=O)[O-]	Trainining	1
-338		CC1=C2C=CC=CC2=C(C)C2=C1C=CC1=CC=CC=C12	Trainining	0
-265		COC1=NC(NC(C)C)=NC(NC(C)C)=N1	Trainining	0
-32		CC(C)CC(C)(O)C#CC(C)(O)CC(C)C	Trainining	0
-241		C#CC1(O)CCC2C3CCC4=CC(=O)CCC4C3CCC21C	Trainining	0
-320		CC12CCC(=O)C=C1CCC1C2CCC2(C)C1CCC2(C)O	Trainining	0
-243		C#CC1(O)CCC2C3CCC4=CC(=O)CCC4C3CCC21CC	Trainining	0
-77		CC1=CC(Cl)=CC=C1O	Trainining	0
-78		CC1=CC(O)=CC(C)=C1Cl	Trainining	0
-61		CC(C)C1=CC(O)=CC=C1	Trainining	0
-73		NC1=CC=C(N=NC2=CC=CC=C2)C=C1	Trainining	0
-431		CCOP(=S)(OCC)OC1=CC=C([N+](=O)[O-])C=C1	Trainining	0
-55		CC1CC(OC(=O)C2=CC=CC=C2O)CC(C)(C)C1	Trainining	0
-250		O=C(OCCCCCOC(=O)C1=CC=CC=C1)C1=CC=CC=C1	Trainining	1
-157		CCCCCCCOC(=O)C1=CC=CC=C1C(=O)OCCCCCCC	Trainining	1
-115		CCCCC(CC)COC(=O)C1=CC=C(C(=O)OCC(CC)CCCC)C=C1	Trainining	1
-60		OC1=CC=C2CC3=CC=CC=C3C2=C1	Trainining	0
-104		O=C1C2=C(O)C=CC=C2CC2=CC=CC(O)=C12	Trainining	0
-68		NC1=CC=C(OC2=CC=C(N)C=C2)C=C1	Trainining	0
-100		O=C(O)C1=CC(OC2=CC=C(C(F)(F)F)C=C2Cl)=CC=C1[N+](=O)[O-]	Trainining	0
-189		O=C(NC(=O)C1=C(F)C=CC=C1F)NC1=CC=C(OC2=CC=C(C(F)(F)F)C=C2Cl)C=C1F	Trainining	0
-69		O=S(=O)(C1=CC=C(O)C=C1)C1=CC=C(O)C=C1	Trainining	0
-332		C=CCC1=CC(S(=O)(=O)C2=CC=C(O)C(CC=C)=C2)=CC=C1O	Trainining	0
-223		COC(=O)C1=CC=C(O)C=C1	Trainining	0
-146		NC1=CC=C(S(=O)(=O)C2=CC=C(N)C=C2)C=C1	Trainining	0
-326		NC1=CC=C2C(=O)C3=CC=CC=C3C(=O)C2=C1	Trainining	0
-81		O=C(C1=CC=CC=C1)C1=CC=C(Cl)C=C1	Trainining	0
-376		OC1=CC=C(Cl)C=C1CC1=CC(Cl)=CC=C1O	Trainining	1
-71		CC(C)(C1=CC=CC=C1)C1=CC=C(NC2=CC=C(C(C)(C)C3=CC=CC=C3)C=C2)C=C1	Trainining	0
-74		CC12CCC3C(CCC4=CC(=O)CCC43C)C1CCC2=O	Trainining	0
-447		CC(=O)C1CCC2C3CCC4=CC(=O)CCC4(C)C3CCC12C	Trainining	0
-374		CC(=O)OC1(C(C)=O)CCC2C3C=C(Cl)C4=CC(=O)C5CC5C4(C)C3CCC21C	Trainining	0
-471		CC12C=CC(=O)C=C1CCC1C3CC(O)C(O)(C(=O)CO)C3(C)CC(O)C12F	Trainining	0
-105		CC(C)(C)C1=CC(CCC(=O)NCCCCCCNC(=O)CCC2=CC(C(C)(C)C)=C(O)C(C(C)(C)C)=C2)=CC(C(C)(C)C)=C1O	Trainining	0
-294		CCON=C(CC)C1C(=O)CC(C2=C(C)C=C(C)C=C2C)CC1=O	Trainining	0
-93		O=C1NC(=O)C(C2=CC=CC=C2)(C2=CC=CC=C2)N1	Trainining	0
-103		CCC1(C2=CC=C(N)C=C2)CCC(=O)NC1=O	Trainining	1
-367		ClC1=CC=CC=C1C(C1=CC=CC=C1)(C1=CC=CC=C1)N1C=CN=C1	Trainining	0
-460		CCC(C)(C)C(=O)OC1CC(C)C=C2C=CC(C)C(CCC3CC(O)CC(=O)O3)C21	Trainining	0
-409		CCC(C)C(=O)OC1CC(C)C=C2C=CC(C)C(CCC3CC(O)CC(=O)O3)C21	Trainining	0
-444		C#CCC1=C(C)C(OC(=O)C2C(C=C(C)C)C2(C)C)CC1=O	Trainining	1
-98		COP(=O)(NC(C)=O)SC	Trainining	1
-172		CCOP(=S)(OCC)SCSP(=S)(OCC)OCC	Trainining	0
-268		CCNP(=S)(OC)OC(C)=CC(=O)OC(C)C	Trainining	0
-173		CCCSP(=O)(OCC)SCCC	Trainining	0
-401		CC1C(C2=CC=C(Cl)C=C2)SC(=O)N1C(=O)NC1CCCCC1	Trainining	1
-316		O=C(O)C1=CC(=O)C2=CC=CC=C2C1O	Trainining	0
-226		O=C(O)C1=CC=CC=C1C(=O)OCC1=CC=CC=C1	Trainining	0
-101		C=CC(N)=O	Trainining	1
-232		C=CC(=O)N(C)C	Trainining	1
-319		O=C1C=CC(=O)N1C1=CC=CC=C1	Trainining	1
-239		O=C(O)CN(CC(=O)O)CC(=O)O	Trainining	0
-266		CSC1=NC(NC(C)C)=NC(NC(C)C)=N1	Trainining	0
-141		CSC1=NC(NC2CC2)=NC(NC(C)(C)C)=N1	Trainining	0
-106		CCNC1=NC(NC(C)C)=NC(Cl)=N1	Trainining	0
-267		CC(C)NC1=NC(Cl)=NC(NC(C)C)=N1	Trainining	1
-107		C1=CC=C(N=NC2=CC=CC=C2)C=C1	Trainining	1
-111		C1=CC=C2C=C3C(=CC2=C1)C=CC1=CC=CC=C13	Trainining	0
-469		CC1=CC=C(N=C=O)C=C1N=C=O	Trainining	1
-274		C1=CC2=CC=C3C=CC=C4C=CC(=C1)C2=C43	Trainining	0
-196		CNC(=O)OC1=CC=CC(N=CN(C)C)=C1	Trainining	0
-279		O=C(OC1=CC=C(Br)C=C1)N1CCN2CCC1CC2	Trainining	0
-441		CCOP(=S)(OCC)SCN1C(=O)OC2=CC(Cl)=CC=C21	Trainining	0
-113		O=C(C=CC1=CC=CC=C1)OCC1=CC=CC=C1	Trainining	0
-156		CCOC(=O)C1=CC=CC=C1C(=O)OCC	Trainining	1
-257		CC(C)=CC1C(C(=O)OCC2=CC=CC(OC3=CC=CC=C3)=C2)C1(C)C	Trainining	0
-437		O=C(O)C1=CC=CC(N(CC2=CN=CC=C2)C2=CC=C(OC(F)F)C(OC(F)F)=C2)=C1	Trainining	0
-421		O=C(NC1=CC=C([N+](=O)[O-])C=C1Cl)C1=CC(Cl)=CC=C1O	Trainining	1
-388		CC1=C(C(C)(C)O)C2=C(O1)C(NC(=O)C1=C(Cl)C=CC=C1Cl)=CC=C2	Trainining	0
-120		CC(C)(O)C1=COC(S(=O)(=O)NC(=O)NC2=C3CCCC3=CC3=C2CCC3)=C1	Trainining	0
-253		CC1=NC=C(C(CCCCCCC2=NC3=C(C=C2)CCCN3)CC(=O)O)C=N1	Trainining	0
-124		CC(OC1=CC=C(CNC(=O)C2=CC=CN=C2OC2=CC=C3OCOC3=C2)C(F)=C1)C(=O)O	Trainining	0
-247		CC1=C(CCOC2=C3C=CN(CCC(=O)O)C3=CC=C2)N=C(C2=CC=CC=C2)O1	Trainining	0
-121		CCOC1=NC2=C(O)C(C(=O)NCC3=CC=CC=C3)=CN=C2C=C1	Trainining	0
-458		CCOC(=O)C1(C2=CC=CC=C2)OC2=CC=CC=C2C1N	Trainining	0
-405		CC(=O)N1CCN(C2=CC=C(OCC3COC(CN4C=CN=C4)(C4=CC=C(Cl)C=C4Cl)O3)C=C2)CC1	Trainining	0
-128		CCOC(=O)C(Cl)CC1=CC(N2N=C(C)N(C(F)F)C2=O)=C(F)C=C1Cl	Trainining	0
-448		CCC(=O)NC1=CC=C(Cl)C(Cl)=C1	Trainining	0
-391		CC1(C(=O)NC2=CC=C(O)C(Cl)=C2Cl)CCCCC1	Trainining	0
-416		CCC1=CC=CC(C)=C1N(C(=O)CCl)C(C)COC	Trainining	1
-129		N=C1C=NN(C2=CC=CC=C2)C(=O)C1Cl	Trainining	1
-131		CC(C)OC(=O)NC1=CC=CC(Cl)=C1	Trainining	0
-303		C=CC1(C)OC(=O)N(C2=CC(Cl)=CC(Cl)=C2)C1=O	Trainining	0
-203		CC(C)NC(=O)N1CC(=O)N(C2=CC(Cl)=CC(Cl)=C2)C1=O	Trainining	0
-339		ClC1=CC=CC=C1NC1=NC(Cl)=NC(Cl)=N1	Trainining	0
-132		COC(=O)C1=C(Cl)C(Cl)=C(C(=O)OC)C(Cl)=C1Cl	Trainining	0
-271		CCCOC(=O)C1=CC=C(O)C=C1	Trainining	0
-165		COC(=O)C1=CC=CC=C1C(=O)OC	Trainining	1
-133		CC1=CC=CC=C1COC1CC2(C(C)C)CCC1(C)O2	Trainining	0
-166		CCCCCCCCOC(=O)C1=CC=CC=C1C(=O)OCCCCCCCC	Trainining	1
-211		CCCCC(CC)COC(=O)C1=CC=CC=C1C(=O)O	Trainining	1
-154		CCCCOC(=O)C1=CC=CC=C1C(=O)OCCCC	Trainining	1
-310		FC1=CC=CC=C1C(F)COC1CCC(NC2=C3C=NN=C3N=CN2)CC1	Trainining	0
-480		CC1=C(C2=CN=CC=C2)C2=CC=CC=C2N1CCCCC(=O)O	Trainining	0
-373		CC(C1CC1)C(O)(CN1C=NC=N1)C1=CC=C(Cl)C=C1	Trainining	0
-188		CCCCOC(=O)C(C)OC1=CC=C(OC2=NC=C(C(F)(F)F)C=C2)C=C1	Trainining	0
-185		CCOC(=O)C(C)OC1=CC=C(OC2=NC3=CC=C(Cl)C=C3O2)C=C1	Trainining	0
-199		COC(=O)C(C)OC1=CC=C(OC2=NC=C(C(F)(F)F)C=C2Cl)C=C1	Trainining	0
-136		CC1(C)CON(CC2=CC=CC=C2Cl)C1=O	Trainining	0
-396		O=C1C2=CC=CC=C2C(=O)N1SC(Cl)(Cl)Cl	Trainining	1
-254		O=C1C2=CC=CC=C2C(=O)N1CCC1=NOC(C2=CC=C(CN3CCCCCC3)S2)=N1	Trainining	0
-238		CN1CCCC1C1=CN=CC=C1	Trainining	0
-466		CC1=C(F)C(F)=C(COC(=O)C2C(C=C(Cl)C(F)(F)F)C2(C)C)C(F)=C1F	Trainining	0
-251		CC1(C)C(C=C(Cl)Cl)C1C(=O)OCC1=CC=CC(OC2=CC=CC=C2)=C1	Trainining	0
-245		CCCCCCCCOC1=CC=C(C(=O)C2=CC=CC=C2)C(O)=C1	Trainining	0
-209		CCC(C)(CC)C1=NOC(NC(=O)C2=C(OC)C=CC=C2OC)=C1	Trainining	0
-147		CC(C)NC1=NC(Cl)=NC(N)=N1	Trainining	1
-149		CCNC1=NC(Cl)=NC(N)=N1	Trainining	1
-377		C1CCC(NC2CCCCC2)CC1	Trainining	0
-459		CCNC1=NC(Cl)=NC(NCC)=N1	Trainining	0
-153		CCOP(=S)(OCC)OC1=NC(C(C)C)=NC(C)=C1	Trainining	0
-263		CCN(CC)C1=NC(C)=CC(OP(=S)(OC)OC)=N1	Trainining	0
-204		CCOP(=S)(OCC)OC1=NN(C(C)C)C(Cl)=N1	Trainining	0
-356		CC1=NC(C)=NC(N2CC(C)N(C3=NC(C(C)O)=NC=C3)C(C)C2)=N1	Trainining	0
-161		COC1=CC=C(C(=CC(=O)N2CCOCC2)C2=CC=C(Cl)C=C2)C=C1OC	Trainining	0
-463		CCC(C1=CC=CC=C1)=C(C1=CC=CC=C1)C1=CC=C(OCCN(C)C)C=C1	Trainining	0
-369		CCOP(=S)(OCC)OC1=CC=C2C(=C1)OC(=O)C(Cl)=C2C	Trainining	0
-384		O=S1(=O)OCC2C(CO1)C1(Cl)C(Cl)=C(Cl)C2(Cl)C1(Cl)Cl	Trainining	0
-341		O=C1C=C2OC(C3=CC=C(O)C=C3)=CC(=O)C2C(=O)C1	Trainining	0
-353		NC(=O)N(O)C1C=CC(OC2=CC=CC(OC3=CC=C(F)C=C3)=C2)C1	Trainining	1
-386		CCOC1=CC(C(C)(C)C)=CC=C1C1COC(C2=C(F)C=CC=C2F)=N1	Trainining	1
-179		CCOC1=CC=C(C(C)(C)COCC2=CC(OC3=CC=CC=C3)=CC=C2)C=C1	Trainining	0
-451		O=C(C1=CC=C(OCCN2CCCCC2)C=C1)C1=C(C2=CC=C(O)C=C2)SC2=CC(O)=CC=C21	Trainining	1
-175		CCOC(=O)CC1=CC=CC2=CC=CC=C21	Trainining	0
-260		CCOP(=S)(OCC)ON=C(C#N)C1=CC=CC=C1	Trainining	0
-461		CCC(C)(C)C(=O)OC1=C(C2=CC=C(Cl)C=C2Cl)C(=O)OC12CCCCC2	Trainining	0
-473		CC1=CC=C(OP(=O)(OC2=CC=C(C)C=C2)OC2=CC=C(C)C=C2)C=C1	Trainining	1
-187		CC(C)(C)NC(=O)C1CCC2C3CCC4NC(=O)C=CC4(C)C3CCC12C	Trainining	0
-236		CCCCCCCCN1CCCC1=O	Trainining	1
-235		CCCCCCCCN(C)CCCCCCCC	Trainining	0
-190		CCCCCOC(=O)COC1=CC(N2C(=O)C3=C(CCC=C3)C2O)=C(F)C=C1Cl	Trainining	0
-192		C1=CC=C2C(=C1)C1=CC=CC3=C1C2=CC=C3	Trainining	0
-411		NC(=O)C1=NN=C(C2=CC=CC(C3=CC(F)=CC=C3OCC(F)(F)C(F)(F)F)=C2)N1	Trainining	1
-439		O=C1OC(C2=CC=C(O)C=C2)(C2=CC=C(O)C=C2)C2=CC=CC=C12	Trainining	0
-201		COCC1=CN=C(C2=NC(C)(C(C)C)C(=O)N2)C(C(=O)O)=C1	Trainining	1
-436		CN1C(=O)C=C(OC2=CC=C(F)C=C2F)C2=CN=C(NCC(C)(C)O)N=C21	Trainining	0
-202		COC1=CC=C2C(=C1)C(CC(=O)O)=C(C)N2C(=O)C1=CC=C(Cl)C=C1	Trainining	0
-378		CC1COC(CN2C=NC=N2)(C2=CC=C(OC3=CC=C(Cl)C=C3)C=C2Cl)O1	Trainining	0
-389		N#CC1=CC=C(C2CCCC3=CN=CN32)C=C1	Trainining	0
-212		CCOC(=O)CC(SP(=S)(OC)OC)C(=O)OCC	Trainining	0
-446		CCCSP(=O)(OCC)OC1=CC=C(Br)C=C1Cl	Trainining	0
-286		CCCSP(=S)(OCC)OC1=CC=C(SC)C=C1	Trainining	0
-443		CC1=C(C)C(NC2=CC(Cl)=NC(SCC(=O)O)=N2)=CC=C1	Trainining	1
-308		CN(C)C1=CC=C2N=C3C=CC(=[N+](C)C)C=C3SC2=C1	Trainining	0
-474		CCCOCC(=NC1=CC=C(Cl)C=C1C(F)(F)F)N1C=CN=C1	Trainining	0
-343		CCCCNC(=O)N1C2=CC=CC=C2N=C1NC(=O)OC	Trainining	1
-224		CC(C)(C(=O)C1=CN=CC=C1)C1=CN=CC=C1	Trainining	0
-290		N#CN=C1SCCN1CC1=CN=C(Cl)C=C1	Trainining	0
-385		FC1=CC=C(C2(CN3C=NC=N3)OC2C2=CC=CC=C2Cl)C=C1	Trainining	0
-390		N#CC(CCC1=CC=C(Cl)C=C1)(CN1C=NC=N1)C1=CC=CC=C1	Trainining	0
-382		CCCCCCCCCCCC[N+](C)(C)C	Trainining	1
-233		CCCCCCCCCC[N+](C)(C)[O-]	Trainining	0
-358		O=C1C2CC=CCC2C(=O)N1SC(Cl)(Cl)C(Cl)Cl	Trainining	1
-225		CCSC(=O)N1CCCCCC1	Trainining	0
-364		O=C1C=C2OC(C3=CC=CC=C3)=CC(=O)C2C(=O)C1	Trainining	0
-352		CCCCCCCCCCCCCC=C[SH](=O)(O)OC1=CC=CC=C1	Trainining	0
-413		CC1(C)CCC(CC2=CC=C(Cl)C=C2)C1(O)CN1C=NC=N1	Trainining	0
-281		CCCC(=NOCC)C1C(=O)CC(CC(C)SCC)CC1=O	Trainining	0
-285		CCCN(CC)CC1COC2(CCC(C(C)(C)C)CC2)O1	Trainining	0
-403		C=CCOC(CN1C=CN=C1)C1=CC=C(Cl)C=C1Cl	Trainining	0
-464		CC(C)(C)C(O)(CCC1=CC=C(Cl)C=C1)CN1C=NC=N1	Trainining	0
-295		CC(C)(C)C(=O)C(OC1=CC=C(Cl)C=C1)N1C=NC=N1	Trainining	0
-293		N=NC(S)NN	Trainining	0
-400		CN1CN(C)CN(C)C1	Trainining	1
-379		C=C1C(=C)[SH2](O)(O)C=CS1(=O)=O	Trainining	0
-363		COP(=S)(OC)OC1=NC(Cl)=C(Cl)C=C1Cl	Trainining	1
-375		CCCC[Sn](Cl)(Cl)CCCC	Trainining	1
-476		O=P(OC1=CC=CC=C1)(OC1=CC=CC=C1)OC1=CC=CC=C1	Trainining	0
-383		CCOP(=S)(OC1=CC=C([N+](=O)[O-])C=C1)C1=CC=CC=C1	Trainining	0
-18		BrCC1=CC(OC2=CC=CC=C2)=CC=C1	Test	0
-21		CC(=O)C1=C(C)C2CC3(C1)C(C)CCC3C2(C)C	Test	1
-230		CCCCCCCCCCCCCOP(=O)(O)O	Test	1
-217		CNC(=O)ON=C(C)SC	Test	1
-313		NC1=CC=CC=C1N	Test	1
-419		CCN(CC)C(=O)C(C)OC1=CC=CC2=CC=CC=C21	Test	0
-337		CC(=O)C1=CC2=C(C=C1C)C(C)(C)C(C)CC2(C)C	Test	1
-45		CCOCCOC(C)=O	Test	1
-48		COC1=CC([N+](=O)[O-])=CC=C1N	Test	0
-397		N#CC1=CC=C(N(CC(N)=O)CC(F)(F)F)C=C1C(F)(F)F	Test	1
-176		CCOC(=O)C1=CC=CC=C1N	Test	1
-355		CCC1=NN(C2CCCCC2)C2=CC(C3(C#N)CCC(C(=O)O)CC3)=CC=C21	Test	1
-139		CNC(=N[N+](=O)[O-])NCC1=CN=C(Cl)S1	Test	1
-342		COP(=S)(OC)SCN1N=NC2=CC=CC=C2C1=O	Test	0
-301		C1=CC=C(B(C2=CC=CC=C2)C2=CC=CC=C2)C=C1	Test	0
-340		C1=CC=C2C=C3C=CC=CC3=CC2=C1	Test	1
-484		ClC1=CC=C(C(C2=CC=CC=C2Cl)C(Cl)(Cl)Cl)C=C1	Test	1
-325		CC1=CC(N=NC2=CC=CC=C2C)=CC=C1N	Test	0
-246		CNC(=O)ON=C(SC)C(=O)N(C)C	Test	1
-259		COP(=S)(OC)SCN1C(=O)C2=CC=CC=C2C1=O	Test	1
-287		CCOP(=S)(OCC)SCSC(C)(C)C	Test	0
-442		CCCCOCCOCCOCC1=C(CCC)C=C2OCOC2=C1	Test	0
-426		CC(C)OC1=C(Cl)C=C(Cl)C(N2N=C(C(C)(C)C)OC2=O)=C1	Test	0
-1		COC1=CC(C2=CC=C(N)C(OC)=C2)=CC=C1N	Test	0
-282		SC1=NC2=CC=CC=C2S1	Test	1
-3		COC1=CC=C(N=NC2=C(OC)C=C(N=NC3=CC=C(S(=O)(=O)O)C=C3)C(C)=C2)C=C1	Test	0
-387		C=S(O)C1=CC=C(C2=CC(C(F)F)=NN2C2=CC=C(OC)C=C2)C=C1	Test	1
-357		CCC1CCC(NCC2=C(OC)C=C3C(=C2)N(C)C(=O)C2CC32)C(C2=CC=CC=C2)N1	Test	0
-348		COC1=CC=C(C2=COC3=CC(=O)CC(=O)C3C2=O)C=C1	Test	0
-67		NC1=CC=C(CC2=CC=C(N)C=C2)C=C1	Test	0
-240		CCCCCCCCC(=O)O	Test	1
-167		C1=CC=C(NC2=CC=CC=C2)C=C1	Test	0
-82		NC(=O)NC1=CC=C(Cl)C=C1	Test	0
-168		CN(C)C(=O)NC1=CC=C(Cl)C(Cl)=C1	Test	0
-72		CCC(C)C1=CC=C(O)C=C1	Test	0
-398		O=C(CCCN1CCC(O)(C2=CC=C(Cl)C=C2)CC1)C1=CC=C(F)C=C1	Test	0
-140		CC12CCC(=O)C=C1CCC1C2C(O)CC2(C)C(C(=O)CO)CCC12	Test	0
-31		C=CCOC1=NC(OCC=C)=NC(OCC=C)=N1	Test	0
-218		C=C1CC(=O)C(C)C(=O)C1C(=O)OC	Test	0
-197		C=CC1(C)CC(=O)C2(O)C(C)(O1)C(OC(C)=O)C(O)C1C(C)(C)CCC(O)C12C	Test	0
-47		N#CC1=CC=CC=C1O	Test	0
-249		CCOP(=O)(OCC)OC1=CC=C([N+](=O)[O-])C=C1	Test	0
-220		COP(=S)(OC)OC1=CC=C([N+](=O)[O-])C=C1	Test	0
-138		OC1=CC=C(Cl)C=C1CC1=CC=CC=C1	Test	0
-193		C1=CC=C2C(=C1)CC1=CC=CC=C12	Test	1
-126		CNC(=O)OC1=CC=CC2=CC=CC=C21	Test	0
-75		CCCCC1=CC=C(O)C=C1	Test	0
-222		C=CCC1=CC=C(OC)C(OC)=C1	Test	0
-457		CN(C)C(=O)NC1(C2=CC=CC=C2)CCN(CCCC2(C3=CC=C(Cl)C(Cl)=C3)CCCN(C(=O)C3=CC=CC=C3)C2)CC1	Test	1
-462		CC(=O)SC1CC2=CC(=O)CCC2(C)C2CCC3(C)C(CCC34CCC(=O)O4)C12	Test	0
-99		CSC(=O)C1=CC=CC2=C1SN=N2	Test	0
-108		CNC(=O)OC1=CC=CC2=C1OC(C)(C)O2	Test	0
-159		CC(C)OC(=O)C1=CC=CC=C1C(=O)OC(C)C	Test	1
-195		CC(C)OC1=CC(NC(=O)C2=CC=CC=C2C(F)(F)F)=CC=C1	Test	0
-481		CCCOC1=CC=C(S(=O)(=O)N2CCN(CC)CC2)C=C1C1=NC2=C(CC)N(CC3=NC=CC=C3)N=C2C(=O)N1	Test	0
-470		NC(=O)CN1C(=O)C=C(CCN2CCN(C3=NC=CC4=C3C=CS4)CC2)C2=CC=C(F)C=C21	Test	0
-122		CC(C)(O)C1=CC=C(CNC(=O)C2=CC=CN=C2OC2=CC3=NON=C3C=C2)C=C1	Test	0
-311		CN1CCN(CC2=CC(C3=CC=C4NC(=O)OC4=C3)=CO2)C(C2=CC=C(F)C=C2)C1	Test	0
-158		CC(C)COC(=O)C1=CC=CC=C1C(=O)OCC(C)C	Test	1
-4		CCCCC1=NC2=CC=CN=C2N1CC1=CC=C(C2=CC=CC=C2C2=NN=NN2)C=C1	Test	0
-135		C#CCOC(=O)C(C)OC1=CC=C(OC2=NC=C(Cl)C=C2F)C=C1	Test	0
-143		CC1(C)C(C=C(Cl)Cl)C1C(=O)OC(C#N)C1=CC=C(F)C(OC2=CC=CC=C2)=C1	Test	0
-347		CC1=C(C2=CC=CC=C2)C=CC=C1COC(=O)C1C(C=C(Cl)C(F)(F)F)C1(C)C	Test	0
-205		CC=CC1=CC=C(O)C(OC)=C1	Test	0
-354		OC1=CC=C2C(=C1)OCC(N1CCC(O)(C3=CC=C(F)C=C3)CC1)C2O	Test	1
-455		CC1=NC(C2=CC=C3CCN(CCC4CCC(NC(=O)C=CC5=CC=C(F)C=C5)CC4)CCC3=C2)=NO1	Test	0
-371		CC1=C2CC3C(CC=C4CC(O)CCC43C)C2CCC12OC1CC(C)CNC1C2C	Test	1
-309		CCC(C)C(=O)OC1CC(O)C=C2C=CC(C)C(CCC(O)CC(O)CC(=O)O)C21	Test	0
-296		CCCCCCCCCCCCCN1CC(C)OC(C)C1	Test	0
-394		C#CCN1C(=O)COC2=CC(F)=C(N3C(=O)C4=C(CCC=C4)C3O)C=C21	Test	1
-273		CCOC(=O)COC1=CC(C2=NN(C)C(OC(F)F)=C2Cl)=C(F)C=C1Cl	Test	0
-198		OC12N=C(C3=CC=CC=C3)SC1CC1=CC(Cl)=CC=C12	Test	0
-365		ClC1=CC=CC=C1C1=NN=C(C2=CC=CC=C2Cl)N=N1	Test	0
-291		COC(=O)C1=C(C(F)F)N=C(C(F)(F)F)C(C2=NCCS2)=C1CC(C)C	Test	0
-252		CCN1N=C(C)C2=C1C(=O)NCC(C1=CC=C(O)C=C1)=N2	Test	0
-406		CCOC(=O)C(C)OC(=O)C1=CC(OC2=CC=C(C(F)(F)F)C=C2Cl)=CC=C1[N+](=O)[O-]	Test	1
-216		COC1=NN(CSP(=S)(OC)OC)C(=O)S1	Test	0
-380		CC(C)(C)C(O)C(=CC1=CC=C(Cl)C=C1Cl)N1C=NC=N1	Test	0
-65		CC(C)(C)C1=CC(O)=CC=C1	Test	1
-169		CCCN(CCC)C(=O)SCC	Test	1
-307		CC1=CC=C(O)C=C1	Test	0
-63		OCC1=CC=CC(OC2=CC=CC=C2)=C1	Test	0
-46		CCCC=C(C=O)CC	Test	1
-24		CCCCCCCCCCCCCCO	Test	1
-59		CCO[Si](CCCN)(OCC)OCC	Test	1
-35		OC1=CC=C(Cl)C=C1Cl	Test	0
-49		COC1=CC=C(C)C=C1N	Test	0
-423		CCCCCCCCCC1=CC=C(OCCOCCO)C=C1	Test	1
-40		CCC1=CC(C(C)(C)C)=C(O)C(C(C)(C)C)=C1	Test	1
-321		C#CC1(O)CCC2C3CCC4=CC(O)=CC=C4C3CCC21C	Test	0
-162		COC(=O)CCCCC(=O)OC	Test	1
-324		CC1=C([N+](=O)[O-])C([N+](=O)[O-])=CC=C1	Test	0
-64		OCC=CC1=CC=CC=C1	Test	0
-475		CCCN(CCC)C1=C([N+](=O)[O-])C=C(C(F)(F)F)C=C1[N+](=O)[O-]	Test	1
-345		CCCCOC(=O)C1=CC=CC=C1C(=O)OCC1=CC=CC=C1	Test	1
-429		CCC(C)N(C)C(=O)C1=NC(C2=CC=CC=C2Cl)=C2C=CC=CC2=C1	Test	0
-244		O=C(NC(=O)C1=C(F)C=CC=C1F)NC1=CC=C(OC(F)(F)C(F)OC(F)(F)F)C(Cl)=C1	Test	1
-414		COC1=C(C)C(C(=O)NN(C(=O)C2=CC(C)=CC(C)=C2)C(C)(C)C)=CC=C1	Test	1
-434		ClC1=CC(Cl)=C2CN3CCCCCC3=NC2=C1	Test	1
-155		N#CC1=C(Cl)C=CC=C1Cl	Test	1
-229		O=C(O)C1=CC=CC=C1C(=O)O	Test	1
-360		CC1=C2C(=O)C3=C(O)C(C4OC(CO)C(O)C(O)C4O)=C(O)C(O)=C3C(=O)C2=CC(O)=C1C(=O)O	Test	1
-408		CON(C)C(=O)NC1=CC=C(Cl)C(Cl)=C1	Test	0
-417		CSC1=NN=C(C(C)(C)C)C(=O)N1N	Test	0
-280		C=CCC1=CC=C2OCOC2=C1	Test	1
-467		FC(F)C(F)(F)OCC(CN1C=NC=N1)C1=CC=C(Cl)C=C1Cl	Test	0
-283		OC1=CC=CC=C1C1=CC=CC=C1	Test	0
-112		NC1=CC=C(C2=CC=C(N)C=C2)C=C1	Test	0
-19		C1=CC=C(C[N+]2=CC=CC3=CC=CC=C32)C=C1	Test	1
-351		OC1=CC=C2C=CC=CC2=C1N=NC1=CC=CC=C1	Test	0
-110		O=C(NC1=CC=CC=C1)C1=CC=CC=C1I	Test	0
-452		CCOC(=O)C1=CC=C(C2CCC(NCC(O)COC3=CC=C(O)C(N=S(C)(=O)O)=C3)CC2)C=C1	Test	0
-8		CCCCCC=CCCC=O	Test	1
-333		CC1=C(C(C)(C)C)C=C(C(C)(C)C)C(O)=C1	Test	1
-11		ClC1C(Cl)C(Cl)C(Cl)C(Cl)C1Cl	Test	0
-427		CCOC1=CC(OC2=CC=C(C(F)(F)F)C=C2Cl)=CC=C1[N+](=O)[O-]	Test	0
-14		C1=CC=C(NNC2=CC=CC=C2)C=C1	Test	0
-472		O=C(NC1=CC=C(Cl)C=C1)NC1=CC=C(Cl)C(Cl)=C1	Test	0
-299		O=CNC(N1CCN(C(NC=O)C(Cl)(Cl)Cl)CC1)C(Cl)(Cl)Cl	Test	0
-88		CCCCCC1=CC=C(N)C=C1	Test	0
-483		C=C(C=CC=C(C)C=CC1=C(C)CCCC1(C)C)CC(=O)O	Test	0
-29		CC1=C(N)C(N)=CC=C1	Test	0
-180		CCOC1=NC(C(Cl)(Cl)Cl)=NS1	Test	1
-248		O=C(O)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)F	Test	1
-38		CC1=CC=C(O)C(C)=C1	Test	0
-41		NC1=C(Br)C=C([N+](=O)[O-])C=C1Br	Test	0
-150		CCCCC(CC)COC(=O)C1=CC=CC=C1C(=O)OCC(CC)CCCC	Test	1
-440		O=C(O)C1=CC=CC=C1C(C1=CC=C(O)C=C1)C1=CC=C(O)C=C1	Test	0
-314		NC1=CC=C(OC2=CC=CC(OC3=CC=C(N)C=C3)=C2)C=C1	Test	0
-186		COP(=S)(OC)OC1=CC=C(SC)C(C)=C1	Test	0
-315		NC1=C2C(=O)C3=CC=CC=C3C(=O)C2=C(N)C=C1	Test	0
-402		O=C1C=CC(=O)CC1	Test	0
-415		CC1=CC(C(C)(C)CC(C)(C)C)=CC=C1OCCOCC[N+](C)(C)CC1=CC=CC=C1	Test	0
-272		C#CC(C)(C)NC(=O)C1=CC(Cl)=CC(Cl)=C1	Test	0
-96		CCCCCCCC1CCC(=O)O1	Test	1
-184		CCOP(=O)(NC(C)C)OC1=CC=C(SC)C(C)=C1	Test	0
-292		CCN(CC)C(=O)SCC1=CC=C(Cl)C=C1	Test	0
-312		S=C(S)NCCNC(=S)S	Test	1
-102		CCNC1=NC(NC(C)C)=NC(SC)=N1	Test	0
-255		C1=CC=C2C(=C1)C=CC1=CC=CC=C12	Test	0
-256		COC(=O)NC1=CC(OC(=O)NC2=CC=CC(C)=C2)=CC=C1	Test	0
-151		CC(COCC(C)OC(=O)C1=CC=CC=C1)OC(=O)C1=CC=CC=C1	Test	1
-116		O=C(NC1=CC=CC=C1C1=CC=C(Cl)C=C1)C1=CC=CN=C1Cl	Test	0
-454		CC1=NC=CC=C1OC1=NC=C(NC(=O)N2CCC3=CC(C)=C(C(F)(F)F)C=C32)C=C1	Test	0
-213		COC1=CC=C2NC=C(CCNC(C)=O)C2=C1	Test	0
-242		CN=C1C=NN(C2=CC=CC(C(F)(F)F)=C2)C(=O)C1Cl	Test	0
-264		CC12CC1(C)C(=O)N(C1=CC(Cl)=CC(Cl)=C1)C2=O	Test	0
-215		COCC(=O)N(C1=C(C)C=CC=C1C)C(C)C(=O)OC	Test	1
-178		CCOC(=O)C1=CC=C(O)C=C1	Test	0
-327		CCCCC(CC)COC(=O)C1=CC=C(N(C)C)C=C1	Test	0
-134		NC1=C2N=CN(C3CC(O)C(CO)O3)C2=NC(Cl)=N1	Test	0
-137		CCCCCC(C)OC(=O)COC1=CC=C(Cl)C2=CC=CN=C12	Test	0
-183		CC1=CC=C2OC(CN(CC3=CC=CC=C3)C(=O)NC3=C(F)C=C(F)C=C3F)=C(C3=CC=C(Cl)C=C3)C2=C1	Test	0
-372		CC1(C)C(C=C(Cl)Cl)C1C(=O)OC(C#N)C1=CC=CC(OC2=CC=CC=C2)=C1	Test	1
-144		O=C1C(C2=CC=C(O)C=C2)=COC2=CC(O)=CC=C12	Test	0
-288		CCNC1=NC(NC(C)(C)C)=NC(Cl)=N1	Test	0
-392		COP(=S)(OC)OC1=CC=C([N+](=O)[O-])C(C)=C1	Test	0
-304		COC1=C(OC)C(C(O)C2CCN(CCC3=CC=C(F)C=C3)CC2)=CC=C1	Test	0
-170		O=S1OCC2C(CO1)C1(Cl)C(Cl)=C(Cl)C2(Cl)C1(Cl)Cl	Test	0
-174		CCOC1=CC2=C(C)CC(C)(C)N=C2C=C1	Test	0
-194		CN1C=C(C2=CC=CC=C2)C(=O)C(C2=CC=CC(C(F)(F)F)=C2)=C1	Test	0
-335		CCCCCCCCCCCCN1CCOCC1	Test	0
-438		CN1C(=O)N(C2=CC=CC=C2Br)CC2=CN=C(NC3=CC=C4OC(CO)COC4=C3)N=C21	Test	0
-344		C1=CC=C2C(=C1)C=C1C3=CC=CC=C3C3=C1C2=CC=C3	Test	0
-261		CCC1=CN=C(CCOC2=CC=C(CC3SC(=O)NC3=O)C=C2)C=C1	Test	0
-278		CC1=CN(NC(=O)C2=CN=C(C3=NC=CC=C3)N=C2C)C2=CC=C(F)C=C12	Test	0
-368		COC(=O)C(N)CC1=CN=CN1	Test	0
-214		CC#CC1=NC(NC2=CC=CC=C2)=NC(C)=C1	Test	0
-231		CCCCC(C#N)(CN1C=NC=N1)C1=CC=C(Cl)C=C1	Test	0
-381		CCN(CC)C(=S)SSC(=S)N(CC)CC	Test	1
-478		CC1(C)CCC(=CC2=CC=C(Cl)C=C2)C1(O)CN1C=NC=N1	Test	0
-445		CCCN(CCOC1=C(Cl)C=C(Cl)C=C1Cl)C(=O)N1C=CN=C1	Test	0
-412		CNC(=S)S	Test	1
-482		COP(=O)(OC)OC(=CCl)C1=CC(Cl)=C(Cl)C=C1Cl	Test	1
+id	CAS	smiles	status	exp
+1	n.a.	NC1=NC(=S)C2=C(N=CN2)N1	Training	0
+2	n.a.	CN1C=NC2=C1C(=O)NC(=O)N2C	Training	0
+3	n.a.	CN1C(=O)C2=C(N=CN2)N(C)C1=O	Training	0
+4	n.a.	O=S(=O)(O)C1=CC=C(N=NC2=C(O)C=CC3=CC(S(=O)(=O)O)=CC=C32)C=C1	Training	0
+5	n.a.	O=S(=O)(O)C1=CC=C(N=NC2=C(O)C=CC3=CC=CC=C32)C=C1	Training	0
+6	n.a.	NC1=C(N=NC2=CC=CC=C2C(F)(F)F)C2=C(O)C=C(S(=O)(=O)O)C=C2C=C1	Training	0
+7	n.a.	COC1=C(C)C=CC(C(C)C)=C1	Training	0
+8	n.a.	CCCC1=CC=C(OC)C=C1	Training	0
+9	n.a.	COC1=CC(C(C)(C)C)=C(O)C=C1	Training	0
+10	n.a.	O=C(O)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)F	Training	0
+11	n.a.	O=C(O)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)F	Training	0
+12	n.a.	O=C(O)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)F	Training	0
+13	n.a.	CS(=O)(=O)OCCOS(C)(=O)=O	Training	0
+14	n.a.	O=S1(=O)CCCO1	Training	0
+15	n.a.	CCOS(=O)(=O)OCC	Training	0
+16	n.a.	COC(=O)CCCCC(=O)OC	Training	0
+17	n.a.	CCCCCCCCCCCC(=O)OC	Training	0
+18	n.a.	COC(=O)CCCC(=O)OC	Training	0
+19	n.a.	COC(=O)C1=CC=CC=C1C(=O)O	Training	0
+20	n.a.	O=C(O)C1=CC=CC=C1	Training	0
+21	n.a.	CCOC(=O)C1=CC=CC=C1	Training	0
+22	n.a.	NC(=O)C1=NC(C2=CC=CC(C3=C(OCC(F)(F)C(F)(F)F)C=CC(F)=C3)=C2)=NN1	Training	0
+23	n.a.	CCN1CCC2(CC1)COC1=C2C=C2C(=C1)CCN2C(=O)C1=CC=C(C2=CC=C(C3=NN=C(C)O3)C=C2C)C=C1	Training	0
+24	n.a.	CCCCCCCCSC(=O)OC1=CC(Cl)=NN=C1C1=CC=CC=C1	Training	0
+25	n.a.	CCC1=CC(C(C)(C)C)=C(O)C(C(C)(C)C)=C1	Training	0
+26	n.a.	CC(C)(C)C1=CC(C(C)(C)C)=C(O)C(C(C)(C)C)=C1	Training	0
+27	n.a.	CC(C)C1=CC=CC(C(C)C)=C1O	Training	0
+28	n.a.	CCN(CC)C1=CC=CC(C)=C1	Training	0
+29	n.a.	CCNC1=CC=CC(C)=C1	Training	0
+30	n.a.	CC1(C)NC(=O)N(C2=CC(C(F)(F)F)=C([N+](=O)[O-])C=C2)C1=O	Training	0
+31	n.a.	O=C(OCCCCCCOC(=O)C1=CC=CC=C1)C1=CC=CC=C1	Training	0
+32	n.a.	CCCCC(CC)COC(=O)C1=CC=C(O)C=C1	Training	0
+33	n.a.	CC(C)CCOC(=O)C1=CC=CC=C1	Training	0
+34	n.a.	C=CCOC(=O)C1=CC(C(=O)OCC=C)=C(C(=O)OCC=C)C=C1	Training	0
+35	n.a.	CC(C)CCCCCCCOC(=O)C1=CC=CC=C1C(=O)OCCCCCCCC(C)C	Training	0
+36	n.a.	CCCCOC(=O)C1=CC=CC=C1	Training	0
+37	n.a.	CCCCCCCCC(CO)CCCCCC	Training	0
+38	n.a.	CCCCCCCCCCC(CO)CCCCCCCC	Training	0
+39	n.a.	CCCCCCCCCCCCCCCCO	Training	0
+40	n.a.	O=C1OC(=O)C2C3C=CC(C3)C12	Training	0
+41	n.a.	CCC(=O)OC(C)(C)C1CC=C(C)CC1	Training	0
+42	n.a.	CC(=O)OC(C)(C)C1CC=C(C)CC1	Training	0
+43	n.a.	CC1CCCCC1	Training	0
+44	n.a.	CCCCCCCCCC	Training	0
+45	n.a.	CCCCCCCCCCC	Training	0
+46	n.a.	O=C1C2CC=CCC2C(=O)N1SC(Cl)(Cl)Cl	Training	0
+47	n.a.	CCCCC(CC)CN1C(=O)C2C3C=CC(C3)C2C1=O	Training	0
+48	n.a.	CCCCCCCCN1SC(Cl)=C(Cl)C1=O	Training	0
+49	n.a.	CCCCN(CC)C1=C([N+](=O)[O-])C=C(C(F)(F)F)C=C1[N+](=O)[O-]	Training	0
+50	n.a.	C=C(C)CN(CC)C1=C([N+](=O)[O-])C=C(C(F)(F)F)C=C1[N+](=O)[O-]	Training	0
+51	n.a.	CCCN(CCC)C1=C([N+](=O)[O-])C=C(C(F)(F)F)C(N)=C1[N+](=O)[O-]	Training	0
+52	n.a.	C=COCCCC	Training	0
+53	n.a.	CCC(C)C(=O)OC	Training	0
+54	n.a.	O=C1CCCO1	Training	0
+55	n.a.	N#CC1=C(Cl)C=CC=C1Cl	Training	0
+56	n.a.	N#CC1=CC=CC=C1Cl	Training	0
+57	n.a.	ClC1=CC=CC(Cl)=C1Cl	Training	0
+58	n.a.	BrC1=CC=C(OC2=CC=CC=C2)C=C1	Training	0
+59	n.a.	C1=CC=C(OC2=CC=CC=C2)C=C1	Training	0
+60	n.a.	ClC1=CC=C(OC2=CC=CC=C2)C=C1	Training	0
+61	n.a.	CC(=O)OCCOC(C)=O	Training	0
+62	n.a.	CC(=O)OCCOCCOCCOC(C)=O	Training	0
+63	n.a.	COCCOCCOCCOC	Training	0
+64	n.a.	CC(C)(C)C1=CC=CC=C1O	Training	0
+65	n.a.	CC(C)(C)C1=CC(C(C)(C)C)=C(O)C=C1	Training	0
+66	n.a.	CC(C)(C)C1=C(O)C=CC(O)=C1	Training	0
+67	n.a.	C=C(C)C(=O)O	Training	0
+68	n.a.	C=CC(C)C#N	Training	0
+69	n.a.	CC(C)(O)C#N	Training	0
+70	n.a.	N#CC1=C(Cl)C(Cl)=C(Cl)C(C#N)=C1Cl	Training	0
+71	n.a.	ClC1=CC(Cl)=C(Cl)C=C1Cl	Training	0
+72	n.a.	FC(F)(F)C1=CC(Cl)=C(Cl)C=C1	Training	0
+73	n.a.	CCCC=CC=O	Training	0
+74	n.a.	CC(=O)CCC=C(C)C	Training	0
+75	n.a.	C=CC(=C)CCC=C(C)C	Training	0
+76	n.a.	CC=CC1=CC=C(OC)C=C1	Training	0
+77	n.a.	O=S(=O)(O)C1=CC=CC=C1C=CC1=CC=C(C2=CC=C(C=CC3=CC=CC=C3S(=O)(=O)O)C=C2)C=C1	Training	0
+78	n.a.	COC1=CC=C(OC(F)(F)F)C=C1CNC1CCCNC1C1=CC=CC=C1	Training	0
+79	n.a.	CCCCCCCCO	Training	0
+80	n.a.	CCCCCCCCCCCCO	Training	0
+81	n.a.	CCCCCCCCCCO	Training	0
+82	n.a.	O=C1C=CC(=O)N1C1=CC=CC=C1	Training	0
+83	n.a.	O=C1C=CC(=O)N1C1=CC=C(CC2=CC=C(N3C(=O)C=CC3=O)C=C2)C=C1	Training	0
+84	n.a.	CCN(CC)C1=CC=CC=C1	Training	0
+85	n.a.	CN(C)C1C(=O)C(C(N)=O)=C(O)C2(O)C(=O)C3=C(O)C4=C(C=CC=C4O)C(C)(O)C3CC12	Training	0
+86	n.a.	O=C(O)C1=CC=CC(CC2COC3=C(C=C(OCC4=NC5=C(C=CC(F)=C5)S4)C=C3)C2O)=C1	Training	0
+87	n.a.	COC1=CC(C(C)C)=C2C(=O)N(COC3=CC(=O)N4C=CC=C(OCCN5CCCCC5)C4=N3)S(=O)(=O)C2=C1	Training	0
+88	n.a.	O=C(NC1=C(Cl)C=C([N+](=O)[O-])C=C1)C1=C(O)C=CC(Cl)=C1	Training	0
+89	n.a.	CC(C)(O)C(=O)NC1=CC(C(F)(F)F)=C([N+](=O)[O-])C=C1	Training	0
+90	n.a.	CS(=O)(=O)NC(=O)C1=C([N+](=O)[O-])C=CC(OC2=C(Cl)C=C(C(F)(F)F)C=C2)=C1	Training	0
+91	n.a.	BrC1=C(Br)C(Br)=C(OC2=C(Br)C(Br)=C(Br)C(Br)=C2Br)C(Br)=C1Br	Training	0
+92	n.a.	BrC1=CC(Br)=CC(Br)=C1	Training	0
+93	n.a.	O=C(Cl)OC1=CC=CC=C1	Training	0
+94	n.a.	BrC1=CC=CC=N1	Training	0
+95	n.a.	N#CC1=CN=CC=C1	Training	0
+96	n.a.	C1=CC=C2N=CC=CC2=C1	Training	0
+97	n.a.	CCCCCCCCCCBr	Training	0
+98	n.a.	CCCCCCCCCCCCCCCC	Training	0
+99	n.a.	N#CCCC(Br)(C#N)CBr	Training	0
+100	n.a.	BrCC(Br)C1=CC=CC=C1	Training	0
+101	n.a.	CCCC1=CC=CC=C1	Training	0
+102	n.a.	CC(C)C1=CC2=C(C=C1)C=C(C(C)C)C=C2	Training	0
+103	n.a.	C#CC(C)(O)CC(C)C	Training	0
+104	n.a.	C#CC(O)C(CC)CCCC	Training	0
+105	n.a.	CC(O)CC(C)(C)O	Training	0
+106	n.a.	ClC1=CC2=NC=CC(Cl)=C2C=C1	Training	0
+107	n.a.	OC1=CC=CC2=C1N=CC=C2	Training	0
+108	n.a.	FC1=CC=C(OC2=CC=NC3=CC(Cl)=CC(Cl)=C32)C=C1	Training	0
+109	n.a.	N#CC=CC1=CC=CC=C1	Training	0
+110	n.a.	C=CC1=CC=CC(C)=C1	Training	0
+111	n.a.	O=C(O)C=CC1=CC=CC=C1	Training	0
+112	n.a.	C1=CC2=C3C(=C1)CCC3=CC=C2	Training	0
+113	n.a.	CCCCC1=CC=CC=C1	Training	0
+114	n.a.	CCC1=CC=CC(CC)=C1	Training	0
+115	n.a.	C1=CC2=NNN=C2C=C1	Training	0
+116	n.a.	CC(C)(C)CC(C)(C)C1=CC(N2N=C3C=CC=CC3=N2)=C(O)C=C1	Training	0
+117	n.a.	NC1=CC=CC(N)=C1	Training	0
+118	n.a.	CCOC(=O)COC1=CC=C2CCC(NCC(O)C3=CC(Cl)=CC=C3)CC2=C1	Training	0
+119	n.a.	CN(C)CCOC(C1=CC=CC=C1)C1=CC=CC=C1	Training	0
+120	n.a.	COCCOCC(CC1(C(=O)NC2CCC(C(=O)O)CC2)CCCC1)C(=O)OC1=CC=C2CCCC2=C1	Training	0
+121	n.a.	C1=CC=C(C2=CC=CC=C2)C=C1	Training	0
+122	n.a.	C1=CC=C(C2=CC=CC=C2C2=CC=CC=C2)C=C1	Training	0
+123	n.a.	OC1=C(Cl)C=C(C2=CC=CC=C2)C=C1	Training	0
+124	n.a.	COC(=O)NC1=NC2=CC=CC=C2N1	Training	0
+125	n.a.	CC1=CC=C(C2=C(Cl)N=C(C#N)N2S(=O)(=O)N(C)C)C=C1	Training	0
+126	n.a.	NC(CC1=CNC2=CC=CC=C12)C(=O)O	Training	0
+127	n.a.	OCC(O)C1=CC=CC=C1	Training	0
+128	n.a.	CC(=O)OC(C)C1=CC=CC=C1	Training	0
+129	n.a.	OCCC1=CC=CC=C1	Training	0
+130	n.a.	C1=CC=C(CC2=CC=CC=C2)C=C1	Training	0
+131	n.a.	ClC(C1=CC=CC=C1)(C1=CC=CC=C1)C1=CC=CC=C1	Training	0
+132	n.a.	CN(C)C(=O)C(C1=CC=CC=C1)C1=CC=CC=C1	Training	0
+133	n.a.	C1=CC=C(C[P+](C2=CC=CC=C2)(C2=CC=CC=C2)C2=CC=CC=C2)C=C1	Training	0
+134	n.a.	CC1=CP(=O)(C2=CC=CC=C2)CC1	Training	0
+135	n.a.	CC1=CC=CC(C)=C1	Training	0
+136	n.a.	O=NC1=CC=C(NC2=CC=CC=C2)C=C1	Training	0
+137	n.a.	NC1=CC=CC2=CC=CC=C12	Training	0
+138	n.a.	NC(=O)NC1=CC=CC=C1	Training	0
+139	n.a.	C1=CC=C2OC=CC2=C1	Training	0
+140	n.a.	OC1=CC2=CC=CC=C2C2=CC=CC=C12	Training	0
+141	n.a.	CCN(CC)C1=CC2=[O+]C3=C(C=CC(N(CC)CC)=C3)C(C3=CC=CC=C3C(=O)O)=C2C=C1	Training	0
+142	n.a.	C1=CC=C2CC=CC2=C1	Training	0
+143	n.a.	CCCCCCC(C=O)=CC1=CC=CC=C1	Training	0
+144	n.a.	CCC(=O)OCC=CC1=CC=CC=C1	Training	0
+145	n.a.	C1=CC=C2SC(SSN3CCOCC3)=NC2=C1	Training	0
+146	n.a.	N#CSCSC1=NC2=CC=CC=C2S1	Training	0
+147	n.a.	ClC1=NC2=CC=CC=C2S1	Training	0
+148	n.a.	C1=CCC=C1	Training	0
+149	n.a.	C=CCC=CCC=CCC=CC	Training	0
+150	n.a.	CC(=O)C=C(C)O	Training	0
+151	n.a.	C1=CCCC=CCCC=CCC1	Training	0
+152	n.a.	C=CC(C)(O)CCC=C(C)CCC=C(C)C	Training	0
+153	n.a.	CC=C1CC2C=CC1C2	Training	0
+154	n.a.	NC1=NC=NN1	Training	0
+155	n.a.	NN1C=NN=C1	Training	0
+156	n.a.	CC1=CN=CC=N1	Training	0
+157	n.a.	C1CC2OC2CC1C1CO1	Training	0
+158	n.a.	O=C(OCC1CCC2OC2C1)C1CCC2OC2C1	Training	0
+159	n.a.	CC(C)CCCCCCCOC(=O)CCCCC(=O)OCCCCCCCC(C)C	Training	0
+160	n.a.	C1CCSC1	Training	0
+161	n.a.	CCCCCCCCSCCO	Training	0
+162	n.a.	CC(=O)CCC(C)C	Training	0
+163	n.a.	O=C1CCCCCN1	Training	0
+164	n.a.	C[N+]1(C)CCCCC1	Training	0
+165	n.a.	CCCCCCCCCCCCCCCC[N+](C)(C)CC	Training	0
+166	n.a.	C1CN(SSN2CCOCC2)CCO1	Training	0
+167	n.a.	ClCCN1CCOCC1	Training	0
+168	n.a.	C[N+](C)(C)CC1CO1	Training	0
+169	n.a.	CN1CCN(C)CC1	Training	0
+170	n.a.	CCN(CC)N=O	Training	0
+171	n.a.	CNC(C)=O	Training	0
+172	n.a.	CC1COC(=O)O1	Training	0
+173	n.a.	COCC(C)O	Training	0
+174	n.a.	OCC1CO1	Training	0
+175	n.a.	CNC(=S)NC	Training	0
+176	n.a.	ClC=CC[N+]12CN3CN(CN(C3)C1)C2	Training	0
+177	n.a.	CN(C)N=O	Training	0
+178	n.a.	C=C(C)C#N	Training	0
+179	n.a.	CC(O)C#N	Training	0
+180	n.a.	C=C(C)C(N)=O	Training	0
+181	n.a.	C=C(C)C(=O)OCC(C)C	Training	0
+182	n.a.	C=C(C)C(=O)OCCC(C)OC(=O)C(=C)C	Training	0
+183	n.a.	C=CCOC(=O)CC(C)C	Training	0
+184	n.a.	C=C(C)C(=O)OCCC(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)F	Training	0
+185	n.a.	C=CC(=O)OCC(CC)CCCC	Training	0
+186	n.a.	C=CC(=O)OCCCCCC	Training	0
+187	n.a.	CC(=O)C(C)=CC1C(C)=CCCC1(C)C	Training	0
+188	n.a.	CCC(=O)C=CC1C(C)=CCCC1(C)C	Training	0
+189	n.a.	CC1(C)C2=CCCC(C)(C)C23CCC1C3	Training	0
+190	n.a.	C=CC(O)CCCCC	Training	0
+191	n.a.	CC1CCC(C(C)(C)O)CC1	Training	0
+192	n.a.	CCC(C)(C)C1CCC(O)CC1	Training	0
+193	n.a.	C=CCCCCCCCCCCCC	Training	0
+194	n.a.	CC1=CC=C(C(C)C)CC1	Training	0
+195	n.a.	CC(C)=CCCC(C)(O)C1CC=C(C)CC1	Training	0
+196	n.a.	C=C1CCC2OC2(C)CCC2C1CC2(C)C	Training	0
+197	n.a.	C=CCCCCCCCCC(=O)OCC	Training	0
+198	n.a.	CCCCCCCCC=CCCCCCCCC(=O)OCC	Training	0
+199	n.a.	O=C(O)CC(C(=O)O)S(=O)(=O)O	Training	0
+200	n.a.	O=C1CCC(=O)N1	Training	0
+201	n.a.	C=CC(=O)NCNC(=O)C=C	Training	0
+202	n.a.	C=CC(=O)OCC(Br)CBr	Training	0
+203	n.a.	C=CC(=O)OCC(C)OCC(C)OCC(C)OC(=O)C=C	Training	0
+204	n.a.	CCCOC(=O)CC	Training	0
+205	n.a.	NCCCN1CCOCC1	Training	0
+206	n.a.	CC1CNCC(C)O1	Training	0
+207	n.a.	CCOC(=O)CN	Training	0
+208	n.a.	C=CC(C)(CCC=C(C)C)OC(C)=O	Training	0
+209	n.a.	CCC(=O)OCC=C(C)CCC=C(C)C	Training	0
+210	n.a.	CC(=O)OCC=C(C)CCC=C(C)C	Training	0
+211	n.a.	COC1=CC=CC(OC)=C1O	Training	0
+212	n.a.	CCOC1=CC=CC=C1O	Training	0
+213	n.a.	COC1=CC=C(OC)C(C=O)=C1	Training	0
+214	n.a.	C=CC1=CC=NC=C1	Training	0
+215	n.a.	CC1=CN=CC(C)=C1	Training	0
+216	n.a.	CC1=NC=C(O)C=C1	Training	0
+217	n.a.	CC(C)=CC1C(C(=O)OCN2C(=O)C3=C(CCCC3)C2=O)C1(C)C	Training	0
+218	n.a.	CC1(C)CN=C(NN=C(C=CC2=CC=C(C(F)(F)F)C=C2)C=CC2=CC=C(C(F)(F)F)C=C2)NC1	Training	0
+219	n.a.	CCC(=CC(=NO)C(N)=O)C(C)[N+](=O)[O-]	Training	0
+220	n.a.	CCCCCC=CC=CC=O	Training	0
+221	n.a.	CC=CC=CCCCCCCCO	Training	0
+222	n.a.	CC(C=CC1=C(C)CCCC1(C)C)=CC=CC(C)=CCO	Training	0
+223	n.a.	C=CCN=C=S	Training	0
+224	n.a.	CN(C)CCCl	Training	0
+225	n.a.	CC(Cl)CN(C)C	Training	0
+226	n.a.	O=C(NC(=O)C1=CC(F)=C(F)C=C1Cl)NC1=C(N2CCC(C(=O)O)CC2)C=CC(F)=C1	Training	0
+227	n.a.	CCOC(=O)COC1=C(Cl)C=C(F)C(N2N=CC(C(F)(F)F)=C(C)C2=O)=C1	Training	0
+228	n.a.	CN1CCN(C2=CC=CC=C2C=C2SCCN(C3=CC(Cl)=C(Cl)C=C3)C2=O)CC1	Training	0
+229	n.a.	C=CCOC(=O)CCCCCC	Training	0
+230	n.a.	CCCCCCCCCCCCCC(=O)OC(C)C	Training	0
+231	n.a.	CCCCC(CC)COC(=O)CCCCCCCC(=O)OCC(CC)CCCC	Training	0
+232	n.a.	CN1CCCC1=O	Training	0
+233	n.a.	CCCCCCCCCCCCN1CCCC1=O	Training	0
+234	n.a.	CCCCCCCC(=O)N(C)C	Training	0
+235	n.a.	C=C[Si](C)(C)O[Si](C)(C)C=C	Training	0
+236	n.a.	C[Si](C)(C)O[Si](C)(C)O[Si](C)(C)C	Training	0
+237	n.a.	C[Si]1(C)O[Si](C)(C)O[Si](C)(C)O[Si](C)(C)O1	Training	0
+238	n.a.	C=C[Si](OCCOC)(OCCOC)OCCOC	Training	0
+239	n.a.	CCO[Si](C)(OCC)OCC	Training	0
+240	n.a.	CCO[Si](C)(C)OCC	Training	0
+241	n.a.	CC(=NC#N)N(C)CC1=CN=C(Cl)C=C1	Training	0
+242	n.a.	CCC1=CN=C(C)C=C1	Training	0
+243	n.a.	OCCCC1=CN=CC=C1	Training	0
+244	n.a.	CC(=NNC(=O)NC1=CC(F)=CC(F)=C1)C1=C(C(=O)O)C=CC=N1	Training	0
+245	n.a.	CC(C)C1(C)N=C(C2=C(C(=O)O)C=CC=N2)NC1=O	Training	0
+246	n.a.	CCC1=CC(C(=O)O)=C(C2=NC(C)(C(C)C)C(=O)N2)N=C1	Training	0
+247	n.a.	CC(O)C(=O)O	Training	0
+248	n.a.	CC(C)CCO	Training	0
+249	n.a.	CC(C)CC(=O)O	Training	0
+250	n.a.	CC(=O)C1(C)CC2=C(CCCC2(C)C)CC1C	Training	0
+251	n.a.	CCCCCCC(O)CC=CCCCCCCCC(=O)O	Training	0
+252	n.a.	CCCCCC=CCC=CCCCCCCCC(=O)O	Training	0
+253	n.a.	CC(=O)C1=C2CCC(C)(C)C2=CC(C(C)(C)C)=C1	Training	0
+254	n.a.	O=C1CC2=CC=CC=C2C1	Training	0
+255	n.a.	O=C(CC(=O)C1=CC=CC=C1)C1=CC=CC=C1	Training	0
+256	n.a.	CC(=O)C1=CC2=C(C=C1)OC(C)(C)C(O)C2NC(=O)C1=CC=C(F)C=C1	Training	0
+257	n.a.	O=C(NC(CC1=CC=CC=C1)C(O)C(=O)N1CC(O)C(O)C1)C1=CC2=CC(Cl)=CC=C2N1	Training	0
+258	n.a.	NC(=O)N(O)C1COC2=C1C=CC(OCC1=CC=CC=C1)=C2	Training	0
+259	n.a.	CC(=O)C1=CC=CC=C1	Training	0
+260	n.a.	O=C(CCl)C1=CC=CC=C1	Training	0
+261	n.a.	CC(=O)C1=CC=CC=C1N	Training	0
+262	n.a.	O=CC1CC1	Training	0
+263	n.a.	CC(C)C(=O)Cl	Training	0
+264	n.a.	CCCC(C)C=O	Training	0
+265	n.a.	CC(=O)CC(C)(C)O	Training	0
+266	n.a.	CCCCC(=O)O	Training	0
+267	n.a.	CCCC(CCC)C(=O)O	Training	0
+268	n.a.	CC(=O)CC(C1=CC=CC=C1)C1=C(O)C2=CC=CC=C2OC1=O	Training	0
+269	n.a.	COC1=CC(OC)=C(Cl)C2=C1C(=O)C1(O2)C(OC)=CC(=O)CC1C	Training	0
+270	n.a.	O=C1C(O)=C(C2=C(O)C=C(O)C=C2)OC2=CC(O)=CC(O)=C12	Training	0
+271	n.a.	CC(=O)CC(N)=O	Training	0
+272	n.a.	CC(N)=O	Training	0
+273	n.a.	CC(C)(C)N	Training	0
+274	n.a.	CCN(CC)C(=O)Cl	Training	0
+275	n.a.	CN(C)CCO	Training	0
+276	n.a.	CN(C)C(=O)Cl	Training	0
+277	n.a.	CC(=O)NC1=CC=C(C(=O)CCl)C=C1	Training	0
+278	n.a.	CC(=O)NC1=CC=C(O)C=C1	Training	0
+279	n.a.	CCNC1=CC=CC=C1	Training	0
+280	n.a.	CC(=O)O	Training	0
+281	n.a.	O=C(O)CF	Training	0
+282	n.a.	O=C(O)C(Cl)Cl	Training	0
+283	n.a.	CCCC(=O)OC(C)(C)CC1=CC=CC=C1	Training	0
+284	n.a.	CC(C=O)CC1=CC=C(C(C)(C)C)C=C1	Training	0
+285	n.a.	CCCCCCCCCCC1=CC=CC=C1	Training	0
+286	n.a.	CC(=O)OC1=CC=CC=C1C(=O)O	Training	0
+287	n.a.	O=C(OC1=CC=CC=C1)C1=CC=CC=C1O	Training	0
+288	n.a.	COC1=C(Cl)C=CC(Cl)=C1C(=O)O	Training	0
+289	n.a.	CC(=O)OC1CC(C)OC(C)O1	Training	0
+290	n.a.	CC(C)C(=O)OCC(C)(C)C(OC(=O)C(C)C)C(C)C	Training	0
+291	n.a.	CCOC(=O)CC(C)O	Training	0
+292	n.a.	CCCCCCCCOC(C)=O	Training	0
+293	n.a.	CCCCC(CC)COC(C)=O	Training	0
+294	n.a.	CC(=O)OC1CCCCC1	Training	0
+295	n.a.	CCCC(=O)OCC(COC(=O)CCC)OC(=O)CCC	Training	0
+296	n.a.	CCCCOCCOC(C)=O	Training	0
+297	n.a.	CCOC(=O)CC(=O)OCC	Training	0
+298	n.a.	CC(=O)OCC1=CC=CC=C1	Training	0
+299	n.a.	O=C(OCC1=CC=CC=C1)C1=CC=CC=C1	Training	0
+300	n.a.	CC(C)CCOCC1=CC=CC=C1	Training	0
+301	n.a.	CC(=O)OCC1OC(OC2(COC(C)=O)OC(COC(C)=O)C(OC(C)=O)C2OC(C)=O)C(OC(C)=O)C(OC(C)=O)C1OC(C)=O	Training	0
+302	n.a.	CCCCCCOC(=O)CC(CC(=O)OCCCCCC)(OC(=O)CCC)C(=O)OCCCCCC	Training	0
+303	n.a.	CCCCCCCCOC1OC(CO)C(O)C(O)C1O	Training	0
+304	n.a.	CCOC(C=C(C)CCC=C(C)C)OCC	Training	0
+305	n.a.	CC(C)=CC1CC(C)CCO1	Training	0
+306	n.a.	CC1=CCC(C(C)C)=CC1	Training	0
+307	n.a.	CC(=O)OCCC(C)CC(C)(C)C	Training	0
+308	n.a.	CCC(CC)C(C)CCOC(C)=O	Training	0
+309	n.a.	CCCCCOC(C)=O	Training	0
+310	n.a.	COC(=O)C(CC1=CC=CC=C1)NC(=O)C(N)CC(=O)O	Training	0
+311	n.a.	CN(CC1=NC2=C(N)N=C(N)N=C2N=C1)C1=CC=C(C(=O)NC(CCC(=O)O)C(=O)O)C=C1	Training	0
+312	n.a.	CNC1CCC(C2=CC(Cl)=C(Cl)C=C2)C2=C1C=C(S(N)(=O)=O)C=C2	Training	0
+313	n.a.	CC(C)(C)C1=CC(CC2=CC(C(C)(C)C)=C(O)C(C(C)(C)C)=C2)=CC(C(C)(C)C)=C1O	Training	0
+314	n.a.	CC1=CC(CC2=C(O)C(C(C)(C)C)=CC(C)=C2)=C(O)C(C(C)(C)C)=C1	Training	0
+315	n.a.	CC1=CC(C(C)(C)C)=C(O)C=C1	Training	0
+316	n.a.	CC(C)(C)C1=CC(CCC(=O)OCCSCCOC(=O)CCC2=CC(C(C)(C)C)=C(O)C(C(C)(C)C)=C2)=CC(C(C)(C)C)=C1O	Training	0
+317	n.a.	CCOC(=O)C1OC1C1=CC=CC=C1	Training	0
+318	n.a.	OC1=C(C2CCCCC2)C=C(C2(C3=CC(C4CCCCC4)=C(O)C=C3)CCCCC2)C=C1	Training	0
+319	n.a.	CC(C)(C)C1=CC(O)=C(C(C)(C)C)C=C1O	Training	0
+320	n.a.	CC1=CC(O)=C(C(C)(C)C)C=C1	Training	0
+321	n.a.	CC1=CC(O)=C(C(C)C)C=C1	Training	0
+322	n.a.	CC(C)(C1=CC=C(OCC2CO2)C=C1)C1=CC=C(OCC2CO2)C=C1	Training	0
+323	n.a.	CC1=CC(OCCCC(C)(C)C(=O)O)=C(C)C=C1	Training	0
+324	n.a.	CC(C)(C1=CC(Br)=C(OCCO)C(Br)=C1)C1=CC(Br)=C(OCCO)C(Br)=C1	Training	0
+325	n.a.	CC(C)(C)C1=CSC(C2=CC3=CC(OCC4=CC=CC=C4CC(=O)O)=CC=C3O2)=N1	Training	0
+326	n.a.	COC=C(C(=O)OC)C1=CC=CC=C1COC1=CC=CC(C(F)(F)F)=N1	Training	0
+327	n.a.	CCC1=CC(C2=C(C(=O)O)N(C3=CC=CC=C3C(F)(F)F)S(=O)(=O)C3=CC=CC=C32)=CC2=C1OCO2	Training	0
+328	n.a.	CCC1(C)NC(=O)NC1=O	Training	0
+329	n.a.	CCC1(C)C(=O)N(Cl)C(=O)N1Cl	Training	0
+330	n.a.	CC1(C)NC(=O)NC1=O	Training	0
+331	n.a.	CC(C)(C)C1CCC(=O)CC1	Training	0
+332	n.a.	CCCC(C)CCC(C)=O	Training	0
+333	n.a.	CCCCCC(C)=O	Training	0
+334	n.a.	CC(C)(C)CC(C)(C)C1=CC=C(O)C=C1	Training	0
+335	n.a.	CCCCCCCCC1=CC=C(O)C=C1	Training	0
+336	n.a.	CCCCCCCCCC1=CC=C(O)C=C1	Training	0
+337	n.a.	CC(C)(C)CCCCCC(=O)O	Training	0
+338	n.a.	CCCCCCCC(=O)O	Training	0
+339	n.a.	CC(C)CCCCCCCCCCCCCCC(=O)O	Training	0
+340	n.a.	CC(C)(C)OOC(=O)C1=CC=CC=C1	Training	0
+341	n.a.	NC1=CC=C(C(=O)O)C=C1	Training	0
+342	n.a.	COC(=O)C1=CC=CC=C1N	Training	0
+343	n.a.	CC(C)(C)OOC(C)(C)C	Training	0
+344	n.a.	CC(C)(C)OOC(C)(C)CCC(C)(C)OOC(C)(C)C	Training	0
+345	n.a.	CC(O)CO	Training	0
+346	n.a.	CC(C1=CC=C(O)C=C1)(C1=CC=C(O)C=C1)C1=CC=C(O)C=C1	Training	0
+347	n.a.	CCC(C)(C1=CC=C(O)C=C1)C1=CC=C(O)C=C1	Training	0
+348	n.a.	CC(CCC(=O)O)(C1=CC=C(O)C=C1)C1=CC=C(O)C=C1	Training	0
+349	n.a.	CC(C)=CC1C(C(=O)OCC2=COC(CC3=CC=CC=C3)=C2)C1(C)C	Training	0
+350	n.a.	CCCCC(CC)COC(=O)CCCCC(=O)OCC1=CC=CC=C1	Training	0
+351	n.a.	CC(C)CCCCCCOC(=O)C1=CC(C(=O)OCCCCCCC(C)C)=C(C(=O)OCCCCCCC(C)C)C=C1	Training	0
+352	n.a.	CC(C)=CCCC(C)CCO	Training	0
+353	n.a.	CC(C)=CCCC(C)O	Training	0
+354	n.a.	OC1CCCCC1	Training	0
+355	n.a.	CC(C)=NNC(N)=S	Training	0
+356	n.a.	S=C1NCCN1	Training	0
+357	n.a.	CN(N=O)C(N)=O	Training	0
+358	n.a.	CC(C)C1=CC(C(C)C)=CC(C(C)C)=C1	Training	0
+359	n.a.	CC(C=O)C1=CC=CC=C1	Training	0
+360	n.a.	O=CCC1=CC=CC=C1	Training	0
+361	n.a.	CCCCCCCCCCCCC1=CC=CC=C1S(=O)(=O)O	Training	0
+362	n.a.	CC1=CC(S(=O)(=O)O)=C(C)C=C1	Training	0
+363	n.a.	O=CC1=CC=CC=C1S(=O)(=O)O	Training	0
+364	n.a.	ClCC(Cl)CCl	Training	0
+365	n.a.	OCC(CO)(CBr)CBr	Training	0
+366	n.a.	N#CC(Br)Br	Training	0
+367	n.a.	CC(C)CC(=O)CC(C)C	Training	0
+368	n.a.	CCC(C)C1CCCCC1=O	Training	0
+369	n.a.	CCCCCCCC(C)=O	Training	0
+370	n.a.	CC(C)CC(C)CC(O)CC(C)C	Training	0
+371	n.a.	CCCCCC(CO)CCC	Training	0
+372	n.a.	CCCCCCCCCO	Training	0
+373	n.a.	CCCCCCCO	Training	0
+374	n.a.	CCCC(O)C(CC)CO	Training	0
+375	n.a.	CC(CCO)CC(C)(C)C	Training	0
+376	n.a.	CCCCC(CC)COC(=O)CCCCCCCCC(=O)OCC(CC)CCCC	Training	0
+377	n.a.	CCCCCCC1CCC(=O)O1	Training	0
+378	n.a.	CCCCCC1CCC(=O)O1	Training	0
+379	n.a.	CC(C)COC(=O)CC(C(=O)OCC(C)C)S(=O)(=O)O	Training	0
+380	n.a.	CCCCC(CC)COC(=O)CC(C(=O)OCC(CC)CCCC)S(=O)(=O)O	Training	0
+381	n.a.	CCOC(=O)CCC(=O)OCC	Training	0
+382	n.a.	CC(C)COC(=O)CCCCC(=O)OCC(C)C	Training	0
+383	n.a.	CCCCC(CC)COC(=O)CCCCC(=O)OCC(CC)CCCC	Training	0
+384	n.a.	CCCCCOC(=O)CCC	Training	0
+385	n.a.	CC(C)N(C(=O)SCC(Cl)=C(Cl)Cl)C(C)C	Training	0
+386	n.a.	CCCSC(=O)N(CCC)CCC	Training	0
+387	n.a.	CCCCN(CC)C(=O)SCCC	Training	0
+388	n.a.	CC(C)N(C1=CC=CC=C1)C(C)C	Training	0
+389	n.a.	CN(C)C1=CC(O)=CC=C1	Training	0
+390	n.a.	CCN(CC)C1=CC(O)=C(C=O)C=C1	Training	0
+391	n.a.	CC(C)N1C(=O)C2=CC=CC=C2NS1(=O)=O	Training	0
+392	n.a.	CCN(CC)C(=O)C1=CC=CC(C)=C1	Training	0
+393	n.a.	CCC(NC(=O)C1=C(NS(=O)(=O)C2=CC=CC3=C2N=CC=C3)C=CC(F)=C1)C1=CC=CC=C1	Training	0
+394	n.a.	CC(C)N1C(=O)N(C2=CC=CC=C2)CSC1=NC(C)(C)C	Training	0
+395	n.a.	CN(C)C(=O)NC1=CC=C(Cl)C=C1	Training	0
+396	n.a.	CC1=CC2=C(C=C1C)N(CC(O)C(O)C(O)CO)C1=NC(=O)NC(=O)C1=N2	Training	0
+397	n.a.	CC(C)NCC(O)C1=CC(O)=C(O)C=C1	Training	0
+398	n.a.	O=C(NC(CO)C(O)C1=CC=C([N+](=O)[O-])C=C1)C(Cl)Cl	Training	0
+399	n.a.	CCCCCCCCCCCCC1=CC=C(O)C=C1	Training	0
+400	n.a.	CC(C)OC(=O)C(C)(C)OC1=CC=C(C(=O)C2=CC=C(Cl)C=C2)C=C1	Training	0
+401	n.a.	CCOC(=O)C(C)(C)OC1=CC=C(Cl)C=C1	Training	0
+402	n.a.	CCCCOCCOC(=O)COC1=C(Cl)C=C(Cl)C=C1	Training	0
+403	n.a.	CC(C)OP(=S)(OC(C)C)SCCNS(=O)(=O)C1=CC=CC=C1	Training	0
+404	n.a.	CCCCNS(=O)(=O)C1=CC=C(C)C=C1	Training	0
+405	n.a.	CC1=CC=C(S(=O)(=O)NC(=O)NN2CCCCCC2)C=C1	Training	0
+406	n.a.	CCOP(=O)(OCC)OCC	Training	0
+407	n.a.	CC(C)OP(OC(C)C)OC(C)C	Training	0
+408	n.a.	CCO[PH](=O)OCC	Training	0
+409	n.a.	CC(CC=O)CCCC(C)(C)O	Training	0
+410	n.a.	CCCCCCCCCCCCCC(=O)O	Training	0
+411	n.a.	CCCCCCCCCCCCCCCC(=O)O	Training	0
+412	n.a.	CC(Cl)(Cl)C(=O)O	Training	0
+413	n.a.	O=C(O)C(O)C(O)C(=O)O	Training	0
+414	n.a.	O=C(O)CC(O)C(=O)O	Training	0
+415	n.a.	CCC(O)CO	Training	0
+416	n.a.	CCCC(O)C(O)CO	Training	0
+417	n.a.	OCC(O)C(O)C(O)C(O)CO	Training	0
+418	n.a.	CC(O)CNCC(C)O	Training	0
+419	n.a.	CCN(CCO)CCO	Training	0
+420	n.a.	OCCN(CCO)CCO	Training	0
+421	n.a.	CC(OC1=CC=CC(Cl)=C1)C(=O)O	Training	0
+422	n.a.	O=C(O)COC1=C(Cl)C=C(Cl)C(Cl)=C1	Training	0
+423	n.a.	OCCOC1=CC=CC=C1	Training	0
+424	n.a.	CC1(C)C(=O)N(Br)C(=O)N1Br	Training	0
+425	n.a.	CC1(C)C(=O)N(CO)C(=O)N1CO	Training	0
+426	n.a.	CC1(C)C(=O)NC(=O)N1CO	Training	0
+427	n.a.	CC1(C)CC(=O)CC(C)(C)N1	Training	0
+428	n.a.	NCCCCCCN	Training	0
+429	n.a.	CCCCCCCCCCN	Training	0
+430	n.a.	CC1(C)CC2=C(O1)C(O)=CC=C2	Training	0
+431	n.a.	CCCCN(CCCC)SN(C)C(=O)OC1=CC=CC2=C1OC(C)(C)C2	Training	0
+432	n.a.	CC1=CC(O)=C(C)C=C1	Training	0
+433	n.a.	CCN(CC)C1=CC2=C(C=C1)C1(OC(=O)C3=CC=CC=C31)C1=C(C=C(N(CC)CC)C=C1)O2	Training	0
+434	n.a.	CON=C(C1=CC=CC=C1OC1=C(F)C(OC2=CC=CC=C2Cl)=NC=N1)C1=NOCCO1	Training	0
+435	n.a.	NC1=C(OC2=CC=CC=C2)C=C(O)C2=C1C(=O)C1=CC=CC=C1C2=O	Training	0
+436	n.a.	CCCCCCC(O)CC=CCCCCCCCC(=O)OCC(O)CO	Training	0
+437	n.a.	CCCCCCCCC=CCCCCCCCC(=O)OCC(O)C1OCC(O)C1O	Training	0
+438	n.a.	CCCCC(CC)COC(=O)C=CC(=O)OCC(CC)CCCC	Training	0
+439	n.a.	CC12CCC3C4=CC=C(O)C=C4CC(CCCCCCCCCS(=O)CCCC(F)(F)C(F)(F)F)C3C1CCC2O	Training	0
+440	n.a.	CCCCCCCCCCCCC1=CC=CC=C1	Training	0
+441	n.a.	CCCCCCCCC1=CC=C(NC2=CC=C(CCCCCCCC)C=C2)C=C1	Training	0
+442	n.a.	CC1=C(C)C(O)=C(C)C=C1	Training	0
+443	n.a.	CC1=CC=CC(C)=C1O	Training	0
+444	n.a.	CC1=CC(C)=C(O)C(C)=C1	Training	0
+445	n.a.	CC1=C(C)C([N+](=O)[O-])=CC=C1	Training	0
+446	n.a.	CC1=CC=C([N+](=O)[O-])C=C1C	Training	0
+447	n.a.	CC1=CC=CC=C1[N+](=O)[O-]	Training	0
+448	n.a.	CC1=C(Cl)C(=O)N(C(C)(C)C)C(=O)N1	Training	0
+449	n.a.	CC1=CC(=O)NC(=O)N1	Training	0
+450	n.a.	O=C1NC=C(F)C(=O)N1	Training	0
+451	n.a.	CC1=C(O)C(=O)C=CO1	Training	0
+452	n.a.	CC1=CCC(=O)O1	Training	0
+453	n.a.	CCOC=C(C(=O)OCC)C(=O)OCC	Training	0
+454	n.a.	CC1=C(O)C(CO)=C(CO)C=N1	Training	0
+455	n.a.	O=C(O)C1=CN=CC=C1	Training	0
+456	n.a.	CCCOC(=O)C1=CN=C(C(=O)OCCC)C=C1	Training	0
+457	n.a.	CC1=C([N+](=O)[O-])C=C2C(=C1[N+](=O)[O-])C(C)(C)CC2(C)C	Training	0
+458	n.a.	CCC(C)C1=C(O)C([N+](=O)[O-])=CC([N+](=O)[O-])=C1	Training	0
+459	n.a.	CC=CC(=O)OC1=C(C(C)CCCCCC)C=C([N+](=O)[O-])C=C1[N+](=O)[O-]	Training	0
+460	n.a.	CC1=C2SC3=C(C)C=CC=C3C2=CC=C1	Training	0
+461	n.a.	CC1=CC=CC=C1O	Training	0
+462	n.a.	O=CC1=CC=CC=C1C=O	Training	0
+463	n.a.	CC1=CC(=O)NS(=O)(=O)O1	Training	0
+464	n.a.	O=C1C=CC(=O)NN1	Training	0
+465	n.a.	CC=CC=CC(=O)O	Training	0
+466	n.a.	CC1=CC(C)=C(C=O)C(C)=C1	Training	0
+467	n.a.	CC1=CC=C(C(=O)Cl)C=C1	Training	0
+468	n.a.	CC1=CC=C(CCl)C=C1	Training	0
+469	n.a.	CC1=CC(C)=C(N=CN(C)C=NC2=C(C)C=C(C)C=C2)C=C1	Training	0
+470	n.a.	CC1=CC(C)=C([N+](=O)[O-])C=C1	Training	0
+471	n.a.	O=C=NCC1=CC=CC(CN=C=O)=C1	Training	0
+472	n.a.	CC1=CC([N+](=O)[O-])=CC([N+](=O)[O-])=C1O	Training	0
+473	n.a.	O=[N+]([O-])C1=C(C(F)(F)F)C=C(O)C=C1	Training	0
+474	n.a.	CN(C)CC1=CC=CC=C1O	Training	0
+475	n.a.	CC1=CC(C)=C(S(=O)(=O)O)C=C1	Training	0
+476	n.a.	CC1=CC=C(S(=O)(=O)O)C=C1C	Training	0
+477	n.a.	O=S(=O)(O)C1=CC2=CC=CC=C2C=C1	Training	0
+478	n.a.	CC1=CC(C)=NC(NC2=CC=CC=C2)=N1	Training	0
+479	n.a.	O=[N+]([O-])C1=C(NC2=C(Cl)C=C(C(F)(F)F)C=N2)C([N+](=O)[O-])=C(Cl)C(C(F)(F)F)=C1	Training	0
+480	n.a.	CCOC(=O)NC(=S)NC1=CC=CC=C1NC(=S)NC(=O)OCC	Training	0
+481	n.a.	CC1=CC(C)=NN1CO	Training	0
+482	n.a.	CCCCC(O)(CN1C=NC=N1)C1=C(Cl)C=C(Cl)C=C1	Training	0
+483	n.a.	CCC1=CC=CC(C)=C1N(C(=O)C(=O)O)C(C)COC	Training	0
+484	n.a.	CC1=CC(F)=CC=C1C1=CC(N2CCC(O)C2CO)=NC=C1N(C)C(=O)C(C)(C)C1=CC(C(F)(F)F)=CC(C(F)(F)F)=C1	Training	0
+485	n.a.	CS(=O)(=O)C1=C(Cl)C=C(C(CC2CCC(=O)C2)C(=O)NC2=CN=CC=N2)C=C1	Training	0
+486	n.a.	CCC1=C(C2=CC=C(Br)C=C2)N(C2=C(Cl)C=C(Cl)C=C2)N=C1C(=O)NN1CCCCC1	Training	0
+487	n.a.	CC1=CC(OP(=O)(OC2=CC=CC(C)=C2)OC2=CC=CC(C)=C2)=CC=C1	Training	0
+488	n.a.	O=[PH](OC1=CC=CC=C1)OC1=CC=CC=C1	Training	0
+489	n.a.	CCCCC(CC)COP(=O)(OC1=CC=CC=C1)OC1=CC=CC=C1	Training	0
+490	n.a.	CC1=CC(SC2=C(O)CC(CCC3=CC=C(N)C=C3)(C(C)C)OC2=O)=C(C(C)(C)C)C=C1CO	Training	0
+491	n.a.	COC(=O)CSC1=C(Cl)C=C(F)C(N=C2SC(=O)N3CCCCN23)=C1	Training	0
+492	n.a.	CCN(CC)CCNC1=C2C(=O)C3=C(C=CC(OC)=C3)SC2=C(CNC=O)C=C1	Training	0
+493	n.a.	CCCCCCCCCCOC1OC(CO)C(O)C(O)C1O	Training	0
+494	n.a.	CCCCCCOC(=O)C1=CC=CC=C1O	Training	0
+495	n.a.	CCCCCCCCOC(=O)C1=CC(C(=O)OCCCCCCCC)=C(C(=O)OCCCCCCCC)C=C1	Training	0
+496	n.a.	O=S(=O)(C1=CC=C(Cl)C=C1)C1=CC=C(Cl)C=C1	Training	0
+497	n.a.	O=S(=O)(O)C1=CC=CC2=CC=CC=C21	Training	0
+498	n.a.	N#CCC1=CC=C(Cl)C=C1	Training	0
+499	n.a.	CC1=CC=C([N+](=O)[O-])C=C1	Training	0
+500	n.a.	O=[N+]([O-])C1=CC=CC=C1[N+](=O)[O-]	Training	0
+501	n.a.	O=[N+]([O-])C1=CC=CC([N+](=O)[O-])=C1	Training	0
+502	n.a.	CC1=CN(C2C=CC(CO)O2)C(=O)NC1=O	Training	0
+503	n.a.	CC1=CN(C2CC(N=[N+]=[N-])C(CO)O2)C(=O)NC1=O	Training	0
+504	n.a.	CCCC1=CC(=O)NC(=S)N1	Training	0
+505	n.a.	CC1=NN(C2=C(Cl)C=CC(S(=O)(=O)O)=C2)C(=O)C1N=NC1=CC=CC=C1	Training	0
+506	n.a.	CC1=NN(C2=CC(Cl)=C(S(=O)(=O)O)C=C2Cl)C(=O)C1N=NC1=CC=C(S(=O)(=O)O)C=C1	Training	0
+507	n.a.	O=C(O)C1=NN(C2=CC=C(S(=O)(=O)O)C=C2)C(=O)C1N=NC1=CC=C(S(=O)(=O)O)C=C1	Training	0
+508	n.a.	CCC(=NOCC=CCl)C1=C(O)CC(C2CCOCC2)CC1=O	Training	0
+509	n.a.	CCSC(C)CC1CC(=O)C(C(CC)=NOCC=CCl)=C(O)C1	Training	0
+510	n.a.	ClC1=C(Cl)C2(Cl)C3C4OC4C(Cl)C3C1(Cl)C2(Cl)Cl	Training	0
+511	n.a.	ClC1=CC=C(C(C2=CC=CC=C2Cl)C(Cl)Cl)C=C1	Training	0
+512	n.a.	CCOC(=O)C1=NOC(C2=CC=CC=C2)(C2=CC=CC=C2)C1	Training	0
+513	n.a.	CN(C)C1=CC=C(C(=O)C2=CC=C(N(C)C)C=C2)C=C1	Training	0
+514	n.a.	CCC(C)(NC(=O)C1=CC(Cl)=C(C)C(Cl)=C1)C(=O)CCl	Training	0
+515	n.a.	NC(=O)C1=CC=CC=C1Cl	Training	0
+516	n.a.	CC[N+](CC)(CC)CC1=CC=CC=C1	Training	0
+517	n.a.	CCC(C)=NO	Training	0
+518	n.a.	CSC(C)(C)C=NO	Training	0
+519	n.a.	CCCCCCCC=O	Training	0
+520	n.a.	CCC(C)C(C(=O)O)N1SC2=CC=CC=C2C1=O	Training	0
+521	n.a.	NC1=NC2=C(N=C(CNC3=CC=C(C(=O)NC(CCC(=O)O)C(=O)O)C=C3)C=N2)C(=O)N1	Training	0
+522	n.a.	O=C(NO)C1(NS(=O)(=O)C2=CC=C(OC3=CC=C(F)C=C3)C=C2)CCOCC1	Training	0
+523	n.a.	CCCC(=O)OCCC(C)C	Training	0
+524	n.a.	CCCCCCCOC(=O)CCC	Training	0
+525	n.a.	CCCCOC(=O)C(C)O	Training	0
+526	n.a.	CCC(C)OC(=O)N1CCCCC1CCO	Training	0
+527	n.a.	CCCOC(=O)NCCCN(C)C	Training	0
+528	n.a.	CCCCCCCCCCCCN1CCCCCC1=O	Training	0
+529	n.a.	CCCCOCN(C(=O)CCl)C1=C(CC)C=CC=C1CC	Training	0
+530	n.a.	CCCCCCCC(OC)OC	Training	0
+531	n.a.	CCCCOCCO	Training	0
+532	n.a.	COC1=CC(C(C)(C)C)=C(O)C(C(C)(C)C)=C1	Training	0
+533	n.a.	FC1=CC=C(Br)C=C1	Training	0
+534	n.a.	OCC1=CC=CC=C1	Training	0
+535	n.a.	CCC1=CC=CC(C)=C1N(C(=O)CS(=O)(=O)O)C(C)COC	Training	0
+536	n.a.	CCOCN(C(=O)CCl)C1=C(C)C=CC=C1CC	Training	0
+537	n.a.	CCC1=CC=CC(CC)=C1N(COC)C(=O)CCl	Training	0
+538	n.a.	CCC1CCC(=O)O1	Training	0
+539	n.a.	CCCCCCC1(C)CCC(=O)O1	Training	0
+540	n.a.	CCCCCCCCCCCCCCCCCC(=O)OCC(O)CO	Training	0
+541	n.a.	CCC=CCC=CCC=CCCCCCCCC(=O)O	Training	0
+542	n.a.	CCCCCCC(=O)O	Training	0
+543	n.a.	ClC1=C(Cl)C2(Cl)C3C4C=CC(C4)C3C1(Cl)C2(Cl)Cl	Training	0
+544	n.a.	CCCCC(CC)C(=O)O	Training	0
+545	n.a.	O=CC(O)C(O)C(O)CO	Training	0
+546	n.a.	CCCCCCCCC=O	Training	0
+547	n.a.	CCCCC(CC)CCC(CC(C)C)OS(=O)(=O)O	Training	0
+548	n.a.	CCCCCCCCCCCCCCOS(=O)(=O)O	Training	0
+549	n.a.	CCCCCCCCCCCCCOS(=O)(=O)O	Training	0
+550	n.a.	CCCCC(CC)COC(=O)C=CC1=CC=C(OC)C=C1	Training	0
+551	n.a.	COC(=O)C=CC1=CC=CC=C1	Training	0
+552	n.a.	CCCCC(CC)COC(=O)CS	Training	0
+553	n.a.	CCCCC(CC)COCCO	Training	0
+554	n.a.	CCCCOCC(C)O	Training	0
+555	n.a.	CCCCCCCCCCCCOCCOS(=O)(=O)O	Training	0
+556	n.a.	CCCCC(CC)COP(=O)(OCC(CC)CCCC)OCC(CC)CCCC	Training	0
+557	n.a.	CCCCOP(OCCCC)OCCCC	Training	0
+558	n.a.	CCCCOP(=O)(CCCC)OCCCC	Training	0
+559	n.a.	CCCCCCCCCCCCOS(=O)(=O)O	Training	0
+560	n.a.	CCCCCCCCCCOS(=O)(=O)O	Training	0
+561	n.a.	CCCCCCCCCOS(=O)(=O)O	Training	0
+562	n.a.	CCCCCCC(C)OC(=O)COC1=C(Cl)C(N)=C(Cl)C(F)=N1	Training	0
+563	n.a.	CCCCOCCOC(=O)COC1=C(Cl)C=C(Cl)C(Cl)=N1	Training	0
+564	n.a.	O=C(O)COC1=C(Cl)C=C(Cl)C(Cl)=N1	Training	0
+565	n.a.	CCCCCCCCC(C)=O	Training	0
+566	n.a.	CCCCCCCCCC=O	Training	0
+567	n.a.	CCCCCCCCCCCCCCCCCC[N+](C)(C)C	Training	0
+568	n.a.	O=C(O)CN(CCCN(CC(=O)O)CC(=O)O)CC(=O)O	Training	0
+569	n.a.	CCCCCCCCCC[N+](C)(CCCCCCCCCC)CCC[Si](OC)(OC)OC	Training	0
+570	n.a.	CCCCCCCCN1SC=CC1=O	Training	0
+571	n.a.	CCCCCCCCSCC1=CC(CSCCCCCCCC)=C(O)C(C)=C1	Training	0
+572	n.a.	O=C(O)CCCCC1SCC2NC(=O)NC21	Training	0
+573	n.a.	COC(=O)C1=CC=CC=C1O	Training	0
+574	n.a.	CCCC[N+](C)(CCCC)CCCC	Training	0
+575	n.a.	CN(C)CCCN(C)CCCN(C)C	Training	0
+576	n.a.	CCN(CC)CCO	Training	0
+577	n.a.	CCCCNC(=S)NCCCC	Training	0
+578	n.a.	CN(C)C1=NC(=O)N(C2CCCCC2)C(=O)N1C	Training	0
+579	n.a.	CCO[Si](CCCNC(N)=O)(OCC)OCC	Training	0
+580	n.a.	CCCCOC(=O)CC(CC(=O)OCCCC)(OC(C)=O)C(=O)OCCCC	Training	0
+581	n.a.	CCOC(=O)CC(O)(CC(=O)OCC)C(=O)OCC	Training	0
+582	n.a.	O=C(O)C1C2CCC(O2)C1C(=O)O	Training	0
+583	n.a.	CCCCOCCOCCOCCO	Training	0
+584	n.a.	CCCCOCCOCCOCCOCCO	Training	0
+585	n.a.	COCCOCCOCCO	Training	0
+586	n.a.	CCCCSP(=O)(SCCCC)SCCCC	Training	0
+587	n.a.	COP(N)(=O)SC	Training	0
+588	n.a.	FC(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)CCI	Training	0
+589	n.a.	CCCN(CCC)C1=C([N+](=O)[O-])C=C(S(N)(=O)=O)C=C1[N+](=O)[O-]	Training	0
+590	n.a.	CN(C)CCCN1C2=CC=CC=C2SC2=C1C=C(Cl)C=C2	Training	0
+591	n.a.	NS(=O)(=O)C1=C(Cl)C=C(NCC2=CC=CO2)C(C(=O)O)=C1	Training	0
+592	n.a.	O=C(OCCOCCOCCOC(=O)C1=CC=CC=C1)C1=CC=CC=C1	Training	0
+593	n.a.	CCN(CC)CCOC(=O)C1=CC=C(N)C=C1	Training	0
+594	n.a.	COC(=O)C1=CC=C([N+](=O)[O-])C=C1	Training	0
+595	n.a.	N#CCCOCCC#N	Training	0
+596	n.a.	COC(=O)CCC(=O)OC	Training	0
+597	n.a.	O=[N+]([O-])C(Br)(CO)CO	Training	0
+598	n.a.	CN(C)N	Training	0
+599	n.a.	O=P(OC(CCl)CCl)(OC(CCl)CCl)OC(CCl)CCl	Training	0
+600	n.a.	O=C1N(CCO)C(=O)N(CCO)C(=O)N1CCO	Training	0
+601	n.a.	CN(C)C1=CC=C(C(C2=CC=CC=C2)=C2C=CC(=[N+](C)C)C=C2)C=C1	Training	0
+602	n.a.	CCN=C1C=CC(=C(C2=CC=C(N(CC)CC)C=C2)C2=CC=C(N(CC)CC)C=C2)C2=CC=CC=C21	Training	0
+603	n.a.	O=C(O)C1=CN(C2CC2)C2=CC(N3CCNCC3)=C(F)C=C2C1=O	Training	0
+604	n.a.	CCNC1=NC(NC(C)(C)C)=NC(OC)=N1	Training	0
+605	n.a.	COC(=O)C1=C(S(=O)(=O)NC(=O)NC2=NC(OC)=NC(C)=N2)C=CS1	Training	0
+606	n.a.	COC1=CC(OC)=NC(NC(=O)NS(=O)(=O)C2=C(C(=O)N(C)C)C=CC=N2)=N1	Training	0
+607	n.a.	O=S(=O)(O)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)F	Training	0
+608	n.a.	O=S(=O)(O)C(F)(F)C(F)(F)C(F)(F)C(F)(F)F	Training	0
+609	n.a.	OCCC(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)F	Training	0
+610	n.a.	CCOB(OCC)OCC	Training	0
+611	n.a.	CCOCCOCCO	Training	0
+612	n.a.	OCCOCCOCCO	Training	0
+613	n.a.	CCOC(=O)C(O)(C1=CC=C(Cl)C=C1)C1=CC=C(Cl)C=C1	Training	0
+614	n.a.	OC(C1=CC=C(Cl)C=C1)(C1=CC=C(Cl)C=C1)C(Cl)(Cl)Cl	Training	0
+615	n.a.	ClC1=CC=C(C(C2=CC=C(Cl)C=C2)=C(Cl)Cl)C=C1	Training	0
+616	n.a.	O=C(O)C1=C(O)C=CC(N=NC2=CC=C(S(=O)(=O)NC3=CC=CC=N3)C=C2)=C1	Training	0
+617	n.a.	COC1=CN=C(OC)N2N=C(NS(=O)(=O)C3=C(C(F)(F)F)C=CC=C3OCC(F)F)N=C12	Training	0
+618	n.a.	COC1=CC(OC)=NC(SC2=CC=CC(Cl)=C2C(=O)O)=N1	Training	0
+619	n.a.	COC(=O)CC(=O)OC	Training	0
+620	n.a.	O=C(O)CC(O)(CC(=O)O)C(=O)O	Training	0
+621	n.a.	CCOC(=O)OC(=O)OCC	Training	0
+622	n.a.	CCOC(=O)NCCOC1=CC=C(OC2=CC=CC=C2)C=C1	Training	0
+623	n.a.	CCOC1OC2=C(C=C(OS(C)(=O)=O)C=C2)C1(C)C	Training	0
+624	n.a.	CNCC1=CC(F)=CC=C1OC1=CC(Cl)=C(Cl)C=C1	Training	0
+625	n.a.	OCC(CO)N1C=NC(C2=CC=C(F)C=C2)=C1C1=NC(OC2=CC=CC=C2)=NC=C1	Training	0
+626	n.a.	COC=C(C(=O)OC)C1=CC=CC=C1OC1=NC=NC(OC2=CC=CC=C2C#N)=C1	Training	0
+627	n.a.	CNCC1=CC=C(NC(=O)C2=CNC3=C2C(=O)CCC3)C=C1	Training	0
+628	n.a.	CCOP(=O)(OCC)OC1=C(Cl)C=C(Cl)C(Cl)=N1	Training	0
+629	n.a.	CCOP(=O)(OCC)OC1=NC(C(C)C)=NC(C)=C1	Training	0
+630	n.a.	ClC1=NC(Cl)=C(Cl)C(Cl)=C1Cl	Training	0
+631	n.a.	CCOP(=O)(SC(C)CC)N1CCSC1=O	Training	0
+632	n.a.	O=P1(N(CCCl)CCCl)NCCCO1	Training	0
+633	n.a.	CCOP(=S)(OCC)SCCSCC	Training	0
+634	n.a.	CCOP(=S)(OCC)OC(Cl)C(Cl)(Cl)Cl	Training	0
+635	n.a.	ClCCOP(OCCCl)OCCCl	Training	0
+636	n.a.	O=P(OCC(Br)CBr)(OCC(Br)CBr)OCC(Br)CBr	Training	0
+637	n.a.	CCOP(=S)(OCC)SCS(=O)(=O)C(C)(C)C	Training	0
+638	n.a.	CNC(=O)ON=CC(C)(C)S(C)(=O)=O	Training	0
+639	n.a.	CNC(=O)ON=CC(C)(C)S(C)=O	Training	0
+640	n.a.	CN(C)C(=S)SC(=S)N(C)C	Training	0
+641	n.a.	CN1CSC(=S)N(C)C1	Training	0
+642	n.a.	CN1C=CNC1=S	Training	0
+643	n.a.	O=[N+]([O-])C1=CC(Cl)=C(Cl)C=C1	Training	0
+644	n.a.	NC1=CC=C([N+](=O)[O-])C=C1	Training	0
+645	n.a.	O=[N+]([O-])C1=CC=C([N+](=O)[O-])C=C1	Training	0
+646	n.a.	CN1C(=O)C2=CC=CC=C2C1=O	Training	0
+647	n.a.	O=C(Cl)C1=CC=CC(C(=O)Cl)=C1	Training	0
+648	n.a.	O=C(Cl)C1=CC=C(Cl)C=C1	Training	0
+649	n.a.	CN1COCN(CC2=CN=C(Cl)S2)C1=N[N+](=O)[O-]	Training	0
+650	n.a.	OC(CN1C=NC=N1)(CN1C=NC=N1)C1=C(F)C=C(F)C=C1	Training	0
+651	n.a.	NC1=CC=C(S(=O)(=O)NC2=NC3=CC=CC=C3N=C2)C=C1	Training	0
+652	n.a.	NC(=O)N=NC(N)=O	Training	0
+653	n.a.	O=C(NCO)NCO	Training	0
+654	n.a.	NC(=O)NC1NC(=O)NC1=O	Training	0
+655	n.a.	SCC1=CC=CO1	Training	0
+656	n.a.	CSC1=CC=C(OC2=CC=C(S(N)(=O)=O)C=C2CN(C)C)C=C1C	Training	0
+657	n.a.	NC(=O)NN=CC1=CC=C([N+](=O)[O-])O1	Training	0
+658	n.a.	NC(=O)N1C2=CC=CC=C2C=CC2=CC=CC=C21	Training	0
+659	n.a.	CSC1=NN=C(C(C)(C)C)C(=O)N1	Training	0
+660	n.a.	NS(=O)(=O)C1=CC2=C(C=C1Cl)NCNS2(=O)=O	Training	0
+661	n.a.	COP(=O)(OC)OC=C(Cl)Cl	Training	0
+662	n.a.	O=C(O)C=CC(=O)O	Training	0
+663	n.a.	CO[PH](=O)OC	Training	0
+664	n.a.	COC(=O)NS(=O)(=O)C1=CC=C(N)C=C1	Training	0
+665	n.a.	NC1=CC=C(S(=O)(=O)NC2=NC=CS2)C=C1	Training	0
+666	n.a.	O=S(=O)(O)C1=CC=CC=C1O	Training	0
+667	n.a.	COC1=C(CC(C)C)N=CC=N1	Training	0
+668	n.a.	O=C(NC1=CC=CC=C1)NC1=CC(Cl)=NC=C1	Training	0
+669	n.a.	COCC(C)N(C(=O)CCl)C1=C(C)SC=C1C	Training	0
+670	n.a.	COC1=C(S(=O)(=O)O)C=C(C(=O)C2=CC=CC=C2)C(O)=C1	Training	0
+671	n.a.	O=C1C2=C(C(=O)C3=C(O)C=CC(O)=C13)C(O)=C(O)C=C2	Training	0
+672	n.a.	O=C1OC2(C3=CC(Br)=C(O)C(Br)=C3OC3=C(Br)C(O)=C(Br)C=C32)C2=C1C(Cl)=C(Cl)C(Cl)=C2Cl	Training	0
+673	n.a.	COC1=CC=C(C#N)C=C1	Training	0
+674	n.a.	N#CC1=CC=C(O)C=C1	Training	0
+675	n.a.	OC1=CC=CC2=C1C=CC=C2O	Training	0
+676	n.a.	COP(=O)(CCC(=O)NCO)OC	Training	0
+677	n.a.	COP(=O)(OC)C(O)C(Cl)(Cl)Cl	Training	0
+678	n.a.	O=C1C(N(CO)C(=O)NCO)N(CO)C(=O)N1CO	Training	0
+679	n.a.	COS(=O)(=O)OC	Training	0
+680	n.a.	C[As](C)(=O)O	Training	0
+681	n.a.	C[Si](C)(C)N[Si](C)(C)C	Training	0
+682	n.a.	CO[Si](OC)(C1=CC=CC=C1)C1=CC=CC=C1	Training	0
+683	n.a.	O[Si](C1=CC=CC=C1)(C1=CC=CC=C1)C1=CC=CC=C1	Training	0
+684	n.a.	ClC1=CC=C(C(Cl)(Cl)Cl)C=C1	Training	0
+685	n.a.	CS(=O)(=O)C1=C(C(=O)C2=C(C3CC3)ON=C2)C=CC(C(F)(F)F)=C1	Training	0
+686	n.a.	O=C(O)C1=CC2=C(C=C1)C(=O)OC2=O	Training	0
+687	n.a.	O=C(O)C1=C(Cl)C=CC2=CC(Cl)=CN=C21	Training	0
+688	n.a.	O=C(Cl)C1=CC(C(=O)Cl)=CC(C(=O)Cl)=C1	Training	0
+689	n.a.	ClC1=CC=CC=C1Cl	Training	0
+690	n.a.	ClP(Cl)C1=CC=CC=C1	Training	0
+691	n.a.	ClC1=C(Cl)C2(Cl)C3C(Cl)C(Cl)CC3C1(Cl)C2(Cl)Cl	Training	0
+692	n.a.	ClC1=C(Cl)C(Cl)(Cl)C(Cl)=C1Cl	Training	0
+693	n.a.	OCCC(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)F	Training	0
+694	n.a.	O=C(O)C1C(C(=O)O)C2(Cl)C(Cl)=C(Cl)C1(Cl)C2(Cl)Cl	Training	0
+695	n.a.	N#CC1=C(C#N)C(=O)C(Cl)=C(Cl)C1=O	Training	0
+696	n.a.	O=C1C(Cl)=C(Cl)C(=O)C(Cl)=C1Cl	Training	0
+697	n.a.	ClC1=CC(Cl)=C(Cl)C=C1C1=C(Cl)C(Cl)=CC(Cl)=C1Cl	Training	0
+698	n.a.	OC1=C(Cl)C=C(Cl)C(Cl)=C1	Training	0
+699	n.a.	O=C1OC(=O)C2=C1C(Cl)=C(Cl)C(Cl)=C2Cl	Training	0
+700	n.a.	O=[N+]([O-])C1=CC=C(Cl)C=C1	Training	0
+701	n.a.	O=[N+]([O-])C1=CC([N+](=O)[O-])=C(Cl)C=C1	Training	0
+702	n.a.	O=[N+]([O-])C1=C(Cl)C=CC(Cl)=C1	Training	0
+703	n.a.	O=C1NC(=O)NC(=O)N1	Training	0
+704	n.a.	O=C1NC(=O)N(Cl)C(=O)N1Cl	Training	0
+705	n.a.	NCCOCCOCCN	Training	0
+706	n.a.	O=CC1=CC=CO1	Training	0
+707	n.a.	O=C1C2=CC=CC=C2C(=O)C(Cl)=C1Cl	Training	0
+708	n.a.	O=P(O)(O)CCCl	Training	0
+709	n.a.	O=C1N=C(O)N(Cl)C(=O)N1Cl	Training	0
+710	n.a.	O=[N+]([O-])C=CC1=CC=CC=C1	Training	0
+711	n.a.	OCC1=CC=CO1	Training	0
+712	n.a.	O=C1OC(=O)C2=C3C1=CC=C1C(=O)OC(=O)C(=C13)C=C2	Training	0
+713	n.a.	OC1=C(I)C=C(I)C=C1I	Training	0
+714	n.a.	ON(N=[OH+])C1=CC=CC=C1	Training	0
+715	n.a.	CC(C)N(C(=O)COC1=NN=C(C(F)(F)F)S1)C1=CC=C(F)C=C1	Training	1
+716	n.a.	COCC(=O)N(C1=C(C)C=CC=C1C)C(C)C(=O)OC	Training	1
+717	n.a.	CC1COC2=CC=CC=C2N1C(=O)C(Cl)Cl	Training	1
+718	n.a.	CCOC1=C(C2COC(C3=C(F)C=CC=C3F)=N2)C=CC(C(C)(C)C)=C1	Training	1
+719	n.a.	CCOC(=O)C1(C2=CC=CC=C2)OC2=CC=CC=C2C1N	Training	1
+720	n.a.	CC(C)C(C(=O)OC(C#N)C1=CC(OC2=CC=CC=C2)=CC=C1)C1=CC=C(Cl)C=C1	Training	1
+721	n.a.	NC1=CC2=C3C(=C1)CCN3C(=O)C(NC(=O)C1=CN=CC=C1)N=C2C1=CC=CC=C1	Training	1
+722	n.a.	CCCOC1=C(C2=NC3=C(CC)N(CC4=CC=CC=N4)N=C3C(=O)N2)C=C(S(=O)(=O)N2CCN(CC)CC2)C=C1	Training	1
+723	n.a.	COC1=CC(OC)=C(S(=O)(=O)N2C(=O)C(C3=CC=CC=C3OC)(N3CC(O)CC3C(=O)N(C)C)C3=C2C=CC(Cl)=C3)C=C1	Training	1
+724	n.a.	NC1=NC(N)=NC(NC2CC2)=N1	Training	1
+725	n.a.	CC(C)NC1=NC(Cl)=NC(N)=N1	Training	1
+726	n.a.	CC(C)NC1=NC(Cl)=NC(NC(C)C)=N1	Training	1
+727	n.a.	ClC1=CC=C(C(C2=CC=CC=C2Cl)=C(Cl)Cl)C=C1	Training	1
+728	n.a.	O=C(C1=CC=CC=C1)C1=CC=C(Cl)C=C1	Training	1
+729	n.a.	OC1=CC=C(C(C2=CC=C(O)C=C2)C(Cl)(Cl)Cl)C=C1	Training	1
+730	n.a.	CCOCN1C(C2=CC=C(Cl)C=C2)=C(C#N)C(Br)=C1C(F)(F)F	Training	1
+731	n.a.	COCC1=C(C(C)C)N=C(C(C)C)C(C=CC(O)CC(O)CC(=O)O)=C1C1=CC=C(F)C=C1	Training	1
+732	n.a.	CC1=C(C2=CN=CC=C2)C2=CC=CC=C2N1CCCCC(=O)O	Training	1
+733	n.a.	CNC(=N[N+](=O)[O-])NCC1=CN=C(Cl)S1	Training	1
+734	n.a.	N#CN=C1SCCN1CC1=CN=C(Cl)C=C1	Training	1
+735	n.a.	O=C(O)CN1C(=O)N(CC2=C(F)C=C(Br)C=C2)C(=O)C2=C1C=C(Cl)C=C2	Training	1
+736	n.a.	CNC(=O)ON=C(C)SC	Training	1
+737	n.a.	CNC(=O)CSP(=S)(OC)OC	Training	1
+738	n.a.	CCCN(CCC)C(=O)SCC	Training	1
+739	n.a.	CCCCCCCOC(=O)C1=CC=CC=C1C(=O)OCCCCCCC	Training	1
+740	n.a.	CCCCCCCCOC(=O)C1=CC=CC=C1C(=O)OCCCCCCCC	Training	1
+741	n.a.	CCCCC(CC)COC(=O)C1=CC=CC=C1C(=O)OCC(CC)CCCC	Training	1
+742	n.a.	O=P(OCCCl)(OCCCl)OCCCl	Training	1
+743	n.a.	CCOP(=S)(OCC)SCSP(=S)(OCC)OCC	Training	1
+744	n.a.	CCCCCCCCCCCCCOP(=O)(O)O	Training	1
+745	n.a.	CC1(C)C(C=C(Cl)Cl)C1C(=O)OC(C#N)C1=CC(OC2=CC=CC=C2)=C(F)C=C1	Training	1
+746	n.a.	CC1(C)C(C=C(Cl)Cl)C1C(=O)OCC1=CC(OC2=CC=CC=C2)=CC=C1	Training	1
+747	n.a.	CC(C)=CC1C(C(=O)OCC2=CC(OC3=CC=CC=C3)=CC=C2)C1(C)C	Training	1
+748	n.a.	CC(CN=CC1=CC=CC=C1O)N=CC1=CC=CC=C1O	Training	1
+749	n.a.	CC1=C(O)C=C(N)C=C1	Training	1
+750	n.a.	CC(C)C1=CC(C(C)C)=C(O)C=C1	Training	1
+751	n.a.	O=C(O)C1=CC=CC=C1C(=O)O	Training	1
+752	n.a.	COC(=O)C1=CC=CC=C1C(=O)OC	Training	1
+753	n.a.	O=C(O)C1=CC=CC=C1C(=O)OCC1=CC=CC=C1	Training	1
+754	n.a.	OC[PH](CO)(CO)CO	Training	1
+755	n.a.	OCCC(O)CO	Training	1
+756	n.a.	CCCCCCCCCCCCCCCO	Training	1
+757	n.a.	CC=CC(=O)C1=C(C)C=CCC1(C)C	Training	1
+758	n.a.	CC(C=CC1=C(C)CCCC1(C)C)=CC=CC(C)=CC(=O)O	Training	1
+759	n.a.	CC(=O)C1CCC2C3CCC4=CC(=O)CCC4(C)C3CCC12C	Training	1
+760	n.a.	CCCN(CCOC1=C(Cl)C=C(Cl)C=C1Cl)C(=O)N1C=CN=C1	Training	1
+761	n.a.	CNS(=O)(=O)C1=C(F)C=C(Cl)C(C(=O)N2CCC(CCN3C4CCC3CC(N3C5=CC=CC=C5N=C3C)C4)(C3=CC(F)=CC=C3)CC2)=C1	Training	1
+762	n.a.	CC1=NC=C(C(CCCCCCC2=NC3=C(C=C2)CCCN3)CC(=O)O)C=N1	Training	1
+763	n.a.	CN(C)C1=CC=C(CC2=CC=C(N(C)C)C=C2)C=C1	Training	1
+764	n.a.	CC(C)(C1=CC=CC=C1)C1=CC=C(NC2=CC=C(C(C)(C)C3=CC=CC=C3)C=C2)C=C1	Training	1
+765	n.a.	O=C=NC1=CC=C(CC2=CC=C(N=C=O)C=C2)C=C1	Training	1
+766	n.a.	CC1=CC(C)=CC(C)=C1	Training	1
+767	n.a.	CC1=CC=CC(C)=C1N	Training	1
+768	n.a.	CC1=C2C=CC3=CC=CC=C3C2=C(C)C2=CC=CC=C21	Training	1
+769	n.a.	CC(=O)C1=C(C)C2CC3(C1)C(C)CCC3C2(C)C	Training	1
+770	n.a.	CC(C)=CCCC(C)=CC=O	Training	1
+771	n.a.	CCCCCC=CCCC=O	Training	1
+772	n.a.	CC1=CC=CC(C)=N1	Training	1
+773	n.a.	C1=CC(C2=CC=NC=C2)=CC=N1	Training	1
+774	n.a.	C1=CNC=C1	Training	1
+775	n.a.	CCCCOC(=O)COC1=C(Cl)C=C(Cl)C=C1	Training	1
+776	n.a.	CC1=CC(Cl)=CC=C1O	Training	1
+777	n.a.	C1=CC=C(OCCOC2=CC=CC=C2)C=C1	Training	1
+778	n.a.	CC(C)OC1=CC=CC(NC(=O)C2=CC=CC=C2C(F)(F)F)=C1	Training	1
+779	n.a.	O=C(NC1=CC=CC=C1)C1=CC=CC=C1I	Training	1
+780	n.a.	O=C(NC1=CC=CC=C1SSC1=CC=CC=C1NC(=O)C1=CC=CC=C1)C1=CC=CC=C1	Training	1
+781	n.a.	CNC(=O)OC1=C2OC(C)(C)OC2=CC=C1	Training	1
+782	n.a.	CNC(=O)OC1=CC=CC2=CC=CC=C21	Training	1
+783	n.a.	CNC(=O)OC1=CC=CC2=C1OC(C)(C)C2	Training	1
+784	n.a.	OC1=CC2=C(C=C1)CC1=CC=CC=C12	Training	1
+785	n.a.	O=C(O)C1=CC=CC=C1C(C1=CC=C(O)C=C1)C1=CC=C(O)C=C1	Training	1
+786	n.a.	C1=CC=C2C(=C1)C1=CC=CC3=C1C2=CC=C3	Training	1
+787	n.a.	CC1=C(O)C(C)=C2CCC(C)(COC3=CC=C(CC4SC(=O)NC4=O)C=C3)OC2=C1C	Training	1
+788	n.a.	CC1=CC(C(C)(C)CC(C)(C)C)=CC=C1OCCOCC[N+](C)(C)CC1=CC=CC=C1	Training	1
+789	n.a.	CCC1CCC(NCC2=C(OC)C=C3C(=C2)N(C)C(=O)C2CC32)C(C2=CC=CC=C2)N1	Training	1
+790	n.a.	CCCCCCCCCCCCN(C)C	Training	1
+791	n.a.	CCCCCCCCCCCC[N+](C)(C)C	Training	1
+792	n.a.	CCCCCCCCCC[N+](C)(C)[O-]	Training	1
+793	n.a.	CCCCC(CC)C(=O)OCCOCCOCCOC(=O)C(CC)CCCC	Training	1
+794	n.a.	CCCCCCCC1CCC(=O)O1	Training	1
+795	n.a.	COC(=O)C1CCC(C(=O)OC)CC1	Training	1
+796	n.a.	ClC(Cl)=C(Cl)C(Cl)=C(Cl)Cl	Training	1
+797	n.a.	CN1SC(Cl)=CC1=O	Training	1
+798	n.a.	OC1=C(Cl)C(Cl)=C(Cl)C(Cl)=C1Cl	Training	1
+799	n.a.	O=[N+]([O-])C1=CC=C(OC2=C(Cl)C=C(Cl)C=C2)C=C1	Training	1
+800	n.a.	OC1=C(Cl)C=CC(Cl)=C1	Training	1
+801	n.a.	NC1=CC=C(OC2=CC=C(N)C=C2)C=C1	Training	1
+802	n.a.	O=C(NC(=O)C1=C(F)C=CC=C1F)NC1=CC(Cl)=C(OC(F)(F)C(F)OC(F)(F)F)C=C1	Training	1
+803	n.a.	O=C(NC(=O)C1=C(F)C=CC=C1F)NC1=C(F)C=C(OC2=C(Cl)C=C(C(F)(F)F)C=C2)C=C1	Training	1
+804	n.a.	O=C(NC1=CC=C(Cl)C=C1)NC1=CC(Cl)=C(Cl)C=C1	Training	1
+805	n.a.	CC1(C)C(=O)N(Cl)C(=O)N1Br	Training	1
+806	n.a.	O=CNC(N1CCN(C(NC=O)C(Cl)(Cl)Cl)CC1)C(Cl)(Cl)Cl	Training	1
+807	n.a.	CC1CC(C)C(=O)C(C(O)CC2CC(=O)NC(=O)C2)C1	Training	1
+808	n.a.	COC1C=COC2(C)OC3=C(C2=O)C2=C(C(O)=C3C)C(O)=C(NC(=O)C(C)=CC=CC(C)C(O)C(C)C(O)C(C)C(OC(C)=O)C1C)C(C=NN1CCN(C)CC1)=C2O	Training	1
+809	n.a.	CN(C)C1C(=O)C(C(N)=O)=C(O)C2(O)C(=O)C3=C(O)C4=C(C=CC=C4O)C(C)(O)C3C(O)C12	Training	1
+810	n.a.	CCC(C)C1OC2(C=CC1C)CC1CC(CC=C(C)C(OC3CC(OC)C(OC4CC(OC)C(O)C(C)O4)C(C)O3)C(C)C=CC=C3COC4C(O)C(C)=CC(C(=O)O1)C34O)O2	Training	1
+811	n.a.	CC(C)CCOCCC(C)C	Training	1
+812	n.a.	CCC(=O)OC1CCC2C3CCC4=CC(=O)CCC4(C)C3CCC12C	Training	1
+813	n.a.	CCCN(CC)CC1COC2(CCC(C(C)(C)C)CC2)O1	Training	1
+814	n.a.	CCCN(CCC)C1=C([N+](=O)[O-])C=C(C(F)(F)F)C=C1[N+](=O)[O-]	Training	1
+815	n.a.	CCC(C)NC1=C([N+](=O)[O-])C=C(C(C)(C)C)C=C1[N+](=O)[O-]	Training	1
+816	n.a.	CC1=C([N+](=O)[O-])C([N+](=O)[O-])=CC=C1	Training	1
+817	n.a.	COC(=O)C1=CC=CC(C(=O)OC)=C1	Training	1
+818	n.a.	COC(=O)C1=CC=C(O)C=C1	Training	1
+819	n.a.	CCOC(=O)C1=CC=C(O)C=C1	Training	1
+820	n.a.	CC1=C(N)C=C(N)C=C1	Training	1
+821	n.a.	CC1=C(N)C(N)=CC=C1	Training	1
+822	n.a.	CC1=CC(Cl)=CC=C1N	Training	1
+823	n.a.	O=C(O)CN(CC(=O)O)CC(=O)O	Training	1
+824	n.a.	CCN1CN(CC)CN(CC)C1	Training	1
+825	n.a.	O=C1NC=CC=C1O	Training	1
+826	n.a.	CCO[Si](CCCN)(OCC)OCC	Training	1
+827	n.a.	CC(=N[Si](C)(C)C)O[Si](C)(C)C	Training	1
+828	n.a.	CN(C)NC(=O)CCC(=O)O	Training	1
+829	n.a.	O=C(NS(=O)(=O)C=CC1=CC=CC=C1)C1=C(Cl)C=C(F)C=C1	Training	1
+830	n.a.	COC1=C(OC)C=C(C(=CC(=O)N2CCOCC2)C2=CC=C(Cl)C=C2)C=C1	Training	1
+831	n.a.	COC1=CC=C(C2=COC3=CC(O)=CC(O)=C3C2=O)C=C1	Training	1
+832	n.a.	NC1=CC=C(N=NC2=CC=CC=C2)C=C1	Training	1
+833	n.a.	OC1=C(N=NC2=CC=CC=C2)C2=CC=CC=C2C=C1	Training	1
+834	n.a.	CC1=CC(N=NC2=CC=CC=C2C)=CC=C1N	Training	1
+835	n.a.	CC1=CC=C(OP(=O)(OC2=CC=C(C)C=C2)OC2=CC=C(C)C=C2)C=C1	Training	1
+836	n.a.	CC1=CC=CC=C1OP(=O)(OC1=CC=CC=C1C)OC1=CC=CC=C1C	Training	1
+837	n.a.	O=P(OC1=CC=CC=C1)(OC1=CC=CC=C1)OC1=CC=CC=C1	Training	1
+838	n.a.	C=CC(=O)OCCO	Training	1
+839	n.a.	C=CC1(C)CC(=O)C2(O)C(C)(O1)C(OC(C)=O)C(O)C1C(C)(C)CCC(O)C12C	Training	1
+840	n.a.	CC(C)(COCC1CO1)COCC1CO1	Training	1
+841	n.a.	CCOC(=O)C1=CC=CC=C1N	Training	1
+842	n.a.	CC(C)COC(=O)C1=CC=CC=C1C(=O)OCC(C)C	Training	1
+843	n.a.	CC(COCC(C)OC(=O)C1=CC=CC=C1)OC(=O)C1=CC=CC=C1	Training	1
+844	n.a.	O=C1C=C(C2=CC=CC=C2)OC2=CC(O)=CC(O)=C12	Training	1
+845	n.a.	O=C1C=C(C2=CC=C(O)C=C2)OC2=CC(O)=CC(O)=C12	Training	1
+846	n.a.	COCCC1=CC=C(OCC(O)CNC(C)C)C=C1	Training	1
+847	n.a.	CC1=C(C)C(OC(=O)N(C)C)=NC(N(C)C)=N1	Training	1
+848	n.a.	CC#CC1=NC(NC2=CC=CC=C2)=NC(C)=C1	Training	1
+849	n.a.	CNC(=O)OC1=CC(C)=C(SC)C(C)=C1	Training	1
+850	n.a.	COC1=CC(Cl)=C(OC)C=C1Cl	Training	1
+851	n.a.	COC1=C(N)C=C(C)C=C1	Training	1
+852	n.a.	OC1=C(Cl)C=C(Cl)C=C1Cl	Training	1
+853	n.a.	CC(C)(C)C1=CC(O)=CC=C1	Training	1
+854	n.a.	CC(C)C1=CC(O)=CC=C1	Training	1
+855	n.a.	CCC(C)(C)C1=CC=C(O)C=C1	Training	1
+856	n.a.	NC1=C(N)N=CC=C1	Training	1
+857	n.a.	NC1=CC=CC=C1N	Training	1
+858	n.a.	NC1=C(N)C=C(Cl)C=C1	Training	1
+859	n.a.	CN1C(=O)C=C(OC2=C(F)C=C(F)C=C2)C2=CN=C(NCC(C)(C)O)N=C21	Training	1
+860	n.a.	CCOC1=CC=CC(C2(N3CCN(C4=CC=CC=C4)CC3)CCC(C)CC2)=C1	Training	1
+861	n.a.	C1=CC=C(CNC2=C3NC=NC3=NC=N2)C=C1	Training	1
+862	n.a.	CCOP(=S)(OCC)SCN1N=NC2=CC=CC=C2C1=O	Training	1
+863	n.a.	COP(=S)(OC)SCN1C(=O)C2=CC=CC=C2C1=O	Training	1
+864	n.a.	O=C1C2=CC=CC=C2C(=O)N1CCC1=NOC(C2=CC=C(CN3CCCCCC3)S2)=N1	Training	1
+865	n.a.	CC1CC(OC(=O)C2=CC=CC=C2O)CC(C)(C)C1	Training	1
+866	n.a.	CCCCCCCCOC(=O)C1=CC(O)=C(O)C(O)=C1	Training	1
+867	n.a.	CCCCCOC(=O)C1=CC=CC=C1C(=O)OCCCCC	Training	1
+868	n.a.	CCCCC1C(=O)N(C2=CC=CC=C2)N(C2=CC=CC=C2)C1=O	Training	1
+869	n.a.	CC1(C(=O)NC2=C(Cl)C(Cl)=C(O)C=C2)CCCCC1	Training	1
+870	n.a.	CCC(=O)NC1=CC(Cl)=C(Cl)C=C1	Training	1
+871	n.a.	CNC(=S)S	Training	1
+872	n.a.	CN(C)C(=S)S	Training	1
+873	n.a.	CCN(CC)C(=S)SSC(=S)N(CC)CC	Training	1
+874	n.a.	NC1=CC=C(Cl)C=C1	Training	1
+875	n.a.	NC1=CC(Cl)=C(Cl)C=C1	Training	1
+876	n.a.	C1=CC=C(NC2=CC=CC=C2)C=C1	Training	1
+877	n.a.	CC#CC1(O)CCC2C3CCC4=CC(=O)CCC4=C3C(C3=CC=C(N(C)C)C=C3)CC21C	Training	1
+878	n.a.	CC12CCC3C4=CC=C(O)C=C4CC=C3C1CCC2=O	Training	1
+879	n.a.	CC12C=CC3=C4CCC(=O)C=C4CCC3C1CCC2O	Training	1
+880	n.a.	COC1=C(N)C=C([N+](=O)[O-])C=C1	Training	1
+881	n.a.	OC1=CC=C(O)C=C1	Training	1
+882	n.a.	CC1=C([N+](=O)[O-])C=CC=C1[N+](=O)[O-]	Training	1
+883	n.a.	NC1=C(Cl)C=C([N+](=O)[O-])C=C1	Training	1
+884	n.a.	NC1=C(Cl)C=CC([N+](=O)[O-])=C1	Training	1
+885	n.a.	NC1=CC([N+](=O)[O-])=C(F)C=C1	Training	1
+886	n.a.	CC12CCC3C4=CC=C(O)C=C4CCC3C1CCC2=O	Training	1
+887	n.a.	CCCCCC1=CC=C(N)C=C1	Training	1
+888	n.a.	CC12CCC3C4=CC=C(O)C=C4CCC3C1CCC2O	Training	1
+889	n.a.	CC1=CC(O)=CC(C)=C1Cl	Training	1
+890	n.a.	CSC1=CC=C(O)C=C1C	Training	1
+891	n.a.	N#CC1=CC=CC=C1O	Training	1
+892	n.a.	CC(C)OC(=O)NC1=CC=CC(Cl)=C1	Training	1
+893	n.a.	COC(=O)NC1=CC(OC(=O)NC2=CC=CC(C)=C2)=CC=C1	Training	1
+894	n.a.	CCOC(=O)C(Cl)CC1=CC(N2N=C(C)N(C(F)F)C2=O)=C(F)C=C1Cl	Training	1
+895	n.a.	ClC1=CC=C(NC2=NN=C(CC3=CC=NC=C3)C3=CC=CC=C32)C=C1	Training	1
+896	n.a.	ClC1=CC=CC=C1NC1=NC(Cl)=NC(Cl)=N1	Training	1
+897	n.a.	CN1C(=O)N(C2=CC=CC=C2Br)CC2=CN=C(NC3=CC4=C(C=C3)OC(CO)CO4)N=C21	Training	1
+898	n.a.	CC(C)C1=NN=C2C=CC(C3=C(C4=C(F)C=CC(F)=C4)N=CO3)=CN21	Training	1
+899	n.a.	O=C(O)CC(O)CC(O)C=CC1=C(C2=CC=C(F)C=C2)C2=CC=CC=C2N=C1C1CC1	Training	1
+900	n.a.	CC(C)(O)C1=NC2=NC=C(C3=CC(C4=C(C#N)C=CC=C4F)=C(F)C=C3)N2N=C1	Training	1
+901	n.a.	CCC1=CC=C(C(=O)NN(C(=O)C2=CC(C)=CC(C)=C2)C(C)(C)C)C=C1	Training	1
+902	n.a.	COC1=CC=CC(C(=O)NN(C(=O)C2=CC(C)=CC(C)=C2)C(C)(C)C)=C1C	Training	1
+903	n.a.	CCCCCCCCCCCC[N+](C)(C)CC1=CC=CC=C1	Training	1
+904	n.a.	NC1=C(Cl)C(=O)N(C2=CC=CC=C2)N=C1	Training	1
+905	n.a.	CC1=C(C(=O)NC2=CC=CC=C2)SCCO1	Training	1
+906	n.a.	O=C(NC1=CC=C2NC=CC2=C1)C1=CC2=CC(F)=CC=C2N1CC1=CC(F)=CC=C1	Training	1
+907	n.a.	C1=COC(CNC2=C3NC=NC3=NC=N2)=C1	Training	1
+908	n.a.	NC1=C2N=CN(C3CC(O)C(CO)O3)C2=NC(Cl)=N1	Training	1
+909	n.a.	CC1=CC2=C(C=C1)OC(CN(CC1=CC=CC=C1)C(=O)NC1=C(F)C=C(F)C=C1F)=C2C1=CC=C(Cl)C=C1	Training	1
+910	n.a.	CCOC(=O)C(C)OC(=O)C1=C([N+](=O)[O-])C=CC(OC2=C(Cl)C=C(C(F)(F)F)C=C2)=C1	Training	1
+911	n.a.	CCOC1=C([N+](=O)[O-])C=CC(OC2=C(Cl)C=C(C(F)(F)F)C=C2)=C1	Training	1
+912	n.a.	CC1COC(CN2C=NC=N2)(C2=C(Cl)C=C(OC3=CC=C(Cl)C=C3)C=C2)O1	Training	1
+913	n.a.	CC1(C)CC(N=C=O)CC(C)(CN=C=O)C1	Training	1
+914	n.a.	O=C1CCC(C2CCCCC2)CC1	Training	1
+915	n.a.	CCCCCCCCCCCCCN1CC(C)OC(C)C1	Training	1
+916	n.a.	CCC1(C2=CC=C(N)C=C2)CCC(=O)NC1=O	Training	1
+917	n.a.	CN(C)C(=O)NC1(C2=CC=CC=C2)CCN(CCCC2(C3=CC(Cl)=C(Cl)C=C3)CCCN(C(=O)C3=CC=CC=C3)C2)CC1	Training	1
+918	n.a.	COC1=CC=CC(C(O)C2CCN(CCC3=CC=C(F)C=C3)CC2)=C1OC	Training	1
+919	n.a.	O=C(O)C1=C(O)C2=CC=CC=C2C(O)=C1	Training	1
+920	n.a.	O=C(OCC1=CC=CC=C1)C1=CC=CC=C1O	Training	1
+921	n.a.	OC1=CC2=CC=CC=C2C=C1O	Training	1
+922	n.a.	CC1=CC(CC2=CC=C(N)C(C)=C2)=CC=C1N	Training	1
+923	n.a.	COC1=C(N)C=CC([N+](=O)[O-])=C1	Training	1
+924	n.a.	COP(=S)(OC)OC1=CC=C([N+](=O)[O-])C(C)=C1	Training	1
+925	n.a.	CCS(=O)(=O)C1=C(S(=O)(=O)NC(=O)NC2=NC(OC)=CC(OC)=N2)N=CC=C1	Training	1
+926	n.a.	CC1=CC2=C3C(=C1)C(C1=CC=CC=C1)=NC(NC(=O)C1=CC=NC=C1)C(=O)N3CC2	Training	1
+927	n.a.	CCOC1=CC=CC(N2C=C(C(=O)N3CCN(C4=CC5=CC=CC=C5C(C(=O)O)=C4)CC3)N=C2C2=CC=C(C)C=C2)=C1	Training	1
+928	n.a.	O=C=NC1=CC=CC=C1	Training	1
+929	n.a.	CC1=CC(N(C)C)=CC=C1	Training	1
+930	n.a.	NC1=CC=C(C2=CC=C(N)C=C2)C=C1	Training	1
+931	n.a.	CC1(C)CCC(CC2=CC=C(Cl)C=C2)C1(O)CN1C=NC=N1	Training	1
+932	n.a.	CC(C)(C)C(O)(CCC1=CC=C(Cl)C=C1)CN1C=NC=N1	Training	1
+933	n.a.	CC(C1CC1)C(O)(CN1C=NC=N1)C1=CC=C(Cl)C=C1	Training	1
+934	n.a.	CC1=CC(=O)OC2=C1C=CC(N(C)C)=C2	Training	1
+935	n.a.	CCC(C1=CC=CC=C1)=C(C1=CC=CC=C1)C1=CC=C(OCCN(C)C)C=C1	Training	1
+936	n.a.	CCOC1=CC2=C(C=C1)NC(C)(C)C=C2C	Training	1
+937	n.a.	CCCCCCOC(=O)C1=CC=CC=C1C(=O)OCCCCCC	Training	1
+938	n.a.	CCCCC(CC)COC(=O)C1=CC=CC=C1C(=O)O	Training	1
+939	n.a.	CCCCOC(=O)C1=CC=CC=C1C(=O)OCC1=CC=CC=C1	Training	1
+940	n.a.	CC1=CC(C)=C(C2=C(OC(=O)CC(C)(C)C)C3(CCCC3)OC2=O)C(C)=C1	Training	1
+941	n.a.	CCC(C)C(=O)OC1CC(O)C=C2C=CC(C)C(CCC(O)CC(O)CC(=O)O)C21	Training	1
+942	n.a.	CC1CCCC(=O)CCCC=CC2=CC(O)=CC(O)=C2C(=O)O1	Training	1
+943	n.a.	C1=CC=C2NC(C3=CSC=N3)=NC2=C1	Training	1
+944	n.a.	CCCCC1=NC2=C(N=CC=C2)N1CC1=CC=C(C2=CC=CC=C2C2=NN=NN2)C=C1	Training	1
+945	n.a.	SC1=NC2=CC=CC=C2S1	Training	1
+946	n.a.	CC(=O)C1=CC2=CC=CC=C2C=C1	Training	1
+947	n.a.	CCCC1=CC=C(O)C=C1	Training	1
+948	n.a.	CCC(C)C1=CC=C(O)C=C1	Training	1
+949	n.a.	NC(=O)NC1=CC=C(Cl)C=C1	Training	1
+950	n.a.	CN(C)C(=O)NC1=CC(Cl)=C(Cl)C=C1	Training	1
+951	n.a.	COP(=S)(OC)OC1=CC=C([N+](=O)[O-])C=C1	Training	1
+952	n.a.	CC(CC1=CC(O)=C(O)C=C1)C(C)CC1=CC(O)=C(O)C=C1	Training	1
+953	n.a.	OC1=CC=C2CCCC2=C1	Training	1
+954	n.a.	CCCCC1=CC=C(O)C=C1	Training	1
+955	n.a.	COP(=O)(OC)OC(=CCl)C1=CC(Cl)=C(Cl)C=C1Cl	Training	1
+956	n.a.	CCOP(=O)(OCC)OC(=CCl)C1=C(Cl)C=C(Cl)C=C1	Training	1
+957	n.a.	CCOP(=S)(OCC)ON=C(C#N)C1=CC=CC=C1	Training	1
+958	n.a.	C=C[Si]1(C)O[Si](C)(C=C)O[Si](C)(C=C)O[Si](C)(C=C)O1	Training	1
+959	n.a.	C=CCCCCCCCCC(=O)O	Training	1
+960	n.a.	CCNP(=S)(OC)OC(C)=CC(=O)OC(C)C	Training	1
+961	n.a.	CC1=CC2=NNN=C2C=C1	Training	1
+962	n.a.	OCC1=CNC2=CC=CC=C12	Training	1
+963	n.a.	BrCC1=CC(OC2=CC=CC=C2)=CC=C1	Training	1
+964	n.a.	CCOC(=O)CC(SP(=S)(OC)OC)C(=O)OCC	Training	1
+965	n.a.	CCOP(=S)(OCC)SCCS(=O)(=O)CC	Training	1
+966	n.a.	CCCSP(=O)(OCC)SCCC	Training	1
+967	n.a.	CC(C)(C1=CC(Br)=C(O)C(Br)=C1)C1=CC(Br)=C(O)C(Br)=C1	Training	1
+968	n.a.	CC(C)(C1=CC=C(O)C=C1)C1=CC=C(O)C=C1	Training	1
+969	n.a.	OC1=C(Br)C=C(Br)C=C1Br	Training	1
+970	n.a.	ClC1=CC(Cl)=C2CN3CCCCCC3=NC2=C1	Training	1
+971	n.a.	CC1=NC(C2=CC=C3CCN(CCC4CCC(NC(=O)C=CC5=CC=C(F)C=C5)CC4)CCC3=C2)=NO1	Training	1
+972	n.a.	CN1CCCC1C1=CN=CC=C1	Training	1
+973	n.a.	CCCCCCCCCC1=CC=C(OCCOCCO)C=C1	Training	1
+974	n.a.	C#CC1(O)CCC2C3CCC4=CC(OC)=CC=C4C3CCC21C	Training	1
+975	n.a.	CCC(C1=CC=CC=C1)=C(C1=CC=C(O)C=C1)C1=CC=C(OCCN(C)C)C=C1	Training	1
+976	n.a.	CCOP(=S)(OCC)SCS(=O)(=O)CC	Training	1
+977	n.a.	COP(=S)(OC)OC1=CC=C(SC)C(C)=C1	Training	1
+978	n.a.	CCOP(=S)(OCC)OC1=C(Cl)C=C(Cl)C(Cl)=N1	Training	1
+979	n.a.	CCCCCCCCC(=O)O	Training	1
+980	n.a.	CC12CCC3C(CCC4CC(=O)CCC43C)C1CCC2O	Training	1
+981	n.a.	CC12CCC(=O)C=C1CCC1C2CCC2(C)C1CCC2(C)O	Training	1
+982	n.a.	CCC(C1=CC=C(O)C=C1)=C(CC)C1=CC=C(O)C=C1	Training	1
+983	n.a.	CC=CC1=CC(OC)=C(O)C=C1	Training	1
+984	n.a.	CCN(CC)CCOC1=CC=C(C(C2=CC=CC=C2)=C(Cl)C2=CC=CC=C2)C=C1	Training	1
+985	n.a.	CC(OC1=CC(F)=C(CNC(=O)C2=C(OC3=CC4=C(C=C3)OCO4)N=CC=C2)C=C1)C(=O)O	Training	1
+986	n.a.	CC(=O)N1CCN(C2=CC=C(OCC3COC(CN4C=CN=C4)(C4=C(Cl)C=C(Cl)C=C4)O3)C=C2)CC1	Training	1
+987	n.a.	CC(C)(C)C(O)C(OC1=CC=C(C2=CC=CC=C2)C=C1)N1C=NC=N1	Training	1
+988	n.a.	CCSC(=O)N(CC)C1CCCCC1	Training	1
+989	n.a.	CCSC(=O)N1CCCCCC1	Training	1
+990	n.a.	CC(C)(C)NC(=O)C1CCC2C3CCC4NC(=O)C=CC4(C)C3CCC12C	Training	1
+991	n.a.	COC1=C(N)C=CC(C2=CC(OC)=C(N)C=C2)=C1	Training	1
+992	n.a.	CCN(CC)C(=O)C(C)OC1=CC=CC2=CC=CC=C21	Training	1
+993	n.a.	COC1=CC(O)=C(C(=O)C2=CC=CC=C2)C=C1	Training	1
+994	n.a.	CCCSP(=O)(OCC)OC1=C(Cl)C=C(Br)C=C1	Training	1
+995	n.a.	CCOP(=S)(OC1=CC=C([N+](=O)[O-])C=C1)C1=CC=CC=C1	Training	1
+996	n.a.	CCOP(=S)(NC(C)C)OC1=CC=CC=C1C(=O)OC(C)C	Training	1
+997	n.a.	C1=CC=C2C=C3C=CC=CC3=CC2=C1	Training	1
+998	n.a.	C1=CC=C2C=C3C(=CC2=C1)C=CC1=CC=CC=C13	Training	1
+999	n.a.	C1=CC2=C3C(=C1)C=CC1=CC=CC(=C13)C=C2	Training	1
+1000	n.a.	CSC1=NC(NC2CC2)=NC(NC(C)(C)C)=N1	Training	1
+1001	n.a.	CCNC1=NC(NC(C)C)=NC(SC)=N1	Training	1
+1002	n.a.	CCNC1=NC(Cl)=NC(NCC)=N1	Training	1
+1003	n.a.	C1=CC=C(NC2=CC3=CC=CC=C3C=C2)C=C1	Training	1
+1004	n.a.	C1=CC=C2SC3=CC=CC=C3NC2=C1	Training	1
+1005	n.a.	CC(C)OC(=O)NC1=CC=CC=C1	Training	1
+1006	n.a.	CCCCC(C#N)(CN1C=NC=N1)C1=CC=C(Cl)C=C1	Training	1
+1007	n.a.	CCN1N=C(C)C2=C1C(=O)NCC(C1=CC=C(O)C=C1)=N2	Training	1
+1008	n.a.	CC1=CC(CCN2CCN(C3=NSC4=CC=CC=C43)CC2)=CC2=C1NC(=O)CC2(C)C	Training	1
+1009	n.a.	CCOP(=S)(OCC)OC1=NN(C(C)C)C(Cl)=N1	Training	1
+1010	n.a.	CC(C)(C)C(O)C(=CC1=C(Cl)C=C(Cl)C=C1)N1C=NC=N1	Training	1
+1011	n.a.	FC(F)C(F)(F)OCC(CN1C=NC=N1)C1=C(Cl)C=C(Cl)C=C1	Training	1
+1012	n.a.	OC(CC1=CC=CC=C1Cl)(CN1NC=NC1=S)C1(Cl)CC1	Training	1
+1013	n.a.	O=C1C(C2=CC=C(O)C=C2)=COC2=CC(O)=CC(O)=C12	Training	1
+1014	n.a.	O=C1C(C2=CC=C(O)C=C2)=COC2=C1C=CC(O)=C2	Training	1
+1015	n.a.	OC1=CC=CC(O)=C1	Training	1
+1016	n.a.	OC1=CC=C(C2=CC=CC=C2)C=C1	Training	1
+1017	n.a.	OC1=CC=CC(C2=CC=CC=C2)=C1	Training	1
+1018	n.a.	NC1=CC=C(S(=O)(=O)C2=CC=C(N)C=C2)C=C1	Training	1
+1019	n.a.	S=C1NC2=CC=CC=C2S1	Training	1
+1020	n.a.	NC1=C(Cl)C=C(C2=CC(Cl)=C(N)C=C2)C=C1	Training	1
+1021	n.a.	CSC1=NN=C(C(C)(C)C)C(=O)N1N	Training	1
+1022	n.a.	CC1C(C2=CC=C(Cl)C=C2)SC(=O)N1C(=O)NC1CCCCC1	Training	1
+1023	n.a.	NC1=NC(=O)N(C2OC(CO)C(O)C2O)C=C1	Training	1
+1024	n.a.	CCCCCC(=O)OC1(C(C)=O)CCC2C3CCC4=CC(=O)CCC4(C)C3CCC21C	Training	1
+1025	n.a.	CC12CCC(=O)C=C1CCC1C2C(O)CC2(C)C(C(=O)CO)CCC12	Training	1
+1026	n.a.	C#CC1(O)CCC2C3CCC4=CC(=O)CCC4C3CCC21CC	Training	1
+1027	n.a.	CC(C)=CCCC(C)=CCCC(C)=CCO	Training	1
+1028	n.a.	CC(C)=CCCC(C)=CCO	Training	1
+1029	n.a.	CC12CCC3C(CC=C4CC(O)CCC43C)C1CCC2=O	Training	1
+1030	n.a.	CC12C=CC(=O)C=C1CCC1C2C(=O)CC2(C)C1CCC2(O)C(=O)CO	Training	1
+1031	n.a.	CC1CC2C3CCC4=CC(=O)C=CC4(C)C3(F)C(O)CC2(C)C1(O)C(=O)COP(=O)(O)O	Training	1
+1032	n.a.	CCC(C)C(=O)OC1CC(C)C=C2C=CC(C)C(CCC3CC(O)CC(=O)O3)C21	Training	1
+1033	n.a.	CC(=O)OCC=C(C)C=CC=C(C)C=CC1=C(C)CCCC1(C)C	Training	1
+1034	n.a.	C#CCC1=C(C)C(OC(=O)C2C(C=C(C)C)C2(C)C)CC1=O	Training	1
+1035	n.a.	CC1=C(F)C(F)=C(COC(=O)C2C(C=C(Cl)C(F)(F)F)C2(C)C)C(F)=C1F	Training	1
+1036	n.a.	FC1=CC=C(C2(CN3C=NC=N3)OC2C2=CC=CC=C2Cl)C=C1	Training	1
+1037	n.a.	CC(C)(C)C(=O)C(OC1=CC=C(Cl)C=C1)N1C=NC=N1	Training	1
+1038	n.a.	C=CCOC(CN1C=CN=C1)C1=C(Cl)C=C(Cl)C=C1	Training	1
+1039	n.a.	COC1=CC2=C(C=C1)N(C(=O)C1=CC=C(Cl)C=C1)C(C)=C2CC(=O)O	Training	1
+1040	n.a.	C1=CC=C(C[N+]2=CC=CC3=CC=CC=C32)C=C1	Training	1
+1041	n.a.	CC1=CC2=C(C=C1C(F)(F)F)N(C(=O)NC1=CN=C(OC3=C(C)N=CC=C3)C=C1)CC2	Training	1
+1042	n.a.	COC(=O)NC(=S)NC1=CC=CC=C1NC(=S)NC(=O)OC	Training	1
+1043	n.a.	CON(C)C(=O)NC1=CC(Cl)=C(Cl)C=C1	Training	1
+1044	n.a.	O=C(NC1=CC=CC=C1)NC1=CN=NS1	Training	1
+1045	n.a.	CC(C)(C1=CC=C(OC2=CC=C(N)C=C2)C=C1)C1=CC=C(OC2=CC=C(N)C=C2)C=C1	Training	1
+1046	n.a.	O=C1OC(C2=CC=C(O)C=C2)(C2=CC=C(O)C=C2)C2=CC=CC=C12	Training	1
+1047	n.a.	O=C(C1=CC=C(OCCN2CCCCC2)C=C1)C1=C(C2=CC=C(O)C=C2)SC2=C1C=CC(O)=C2	Training	1
+1048	n.a.	CN1CN(C)CN(C)C1	Training	1
+1049	n.a.	CC(C)NC(=O)N1CC(=O)N(C2=CC(Cl)=CC(Cl)=C2)C1=O	Training	1
+1050	n.a.	COC1=NC(NC(C)C)=NC(NC(C)C)=N1	Training	1
+1051	n.a.	CCOC(=O)COC1=C(Cl)C=C(F)C(C2=NN(C)C(OC(F)F)=C2Cl)=C1	Training	1
+1052	n.a.	OC(C1=CC=C(Cl)C=C1)(C1=CN=CN=C1)C1=CC=CC=C1Cl	Training	1
+1053	n.a.	O=C(NC1=CC=CC=C1C1=CC=C(Cl)C=C1)C1=C(Cl)N=CC=C1	Training	1
+1054	n.a.	CN(CCCC(=O)C1=CN=CC=C1)N=O	Training	1
+1055	n.a.	CC(C)(C(=O)C1=CN=CC=C1)C1=CN=CC=C1	Training	1
+1056	n.a.	CC(C)(O)C1=CC=C(CNC(=O)C2=C(OC3=CC=C(F)C=C3)N=CC=C2)C=C1	Training	1
+1057	n.a.	CCCOCC(=NC1=C(C(F)(F)F)C=C(Cl)C=C1)N1C=CN=C1	Training	1
+1058	n.a.	OC12N=C(C3=CC=CC=C3)SC1CC1=CC(Cl)=CC=C12	Training	1
+1059	n.a.	COC(=O)C(C)OC1=CC=C(OC2=C(Cl)C=C(C(F)(F)F)C=N2)C=C1	Training	1
+1060	n.a.	CCCCCCCCCCCCCCCS(=O)(=O)OC1=CC=CC=C1	Training	1
+1061	n.a.	CC1=C(C)S(=O)(=O)CCS1(=O)=O	Training	1
+1062	n.a.	COC1=CC=C(N2N=C(C(F)F)C=C2C2=CC=C(S(C)=O)C=C2)C=C1	Training	1
+1063	n.a.	CCON=C(CC)C1=C(O)CC(C2=C(C)C=C(C)C=C2C)CC1=O	Training	1
+1064	n.a.	CC1=CC(NC(=O)C(=O)O)=CC(C)=C1OC1=CC=C(O)C2=C1CCC2	Training	1
+1065	n.a.	[2H]C([2H])([2H])C1=CC=CC=C1C([2H])([2H])OC1CC2(C(C)C)CCC1(C)O2	Training	1
+1066	n.a.	O=C1C2=CC=CC=C2C(=O)N1SC(Cl)(Cl)Cl	Training	1
+1067	n.a.	O=C1C2=CC=CC=C2C(=O)C2=C1C=CC=C2Cl	Training	1
+1068	n.a.	NC1=CC2=C(C=C1)C(=O)C1=CC=CC=C1C2=O	Training	1
+1069	n.a.	CCCCNC1=C2C(=O)C3=CC=CC=C3C(=O)C2=C(NCCCC)C=C1	Training	1
+1070	n.a.	O=C1NC(=O)C(C2=CC=CC=C2)(C2=CC=CC=C2)N1	Training	1
+1071	n.a.	CCOP(=S)(OCC)SCN1C(=O)OC2=C1C=CC(Cl)=C2	Training	1
+1072	n.a.	CCC(C)C1=C(OC(=O)OC(C)C)C([N+](=O)[O-])=CC([N+](=O)[O-])=C1	Training	1
+1073	n.a.	COC(=O)C1=C(O)C(C)=C(O)C=C1C	Training	1
+1074	n.a.	O=C(OCC1=CC=CC=C1)C1=CC=C(O)C=C1	Training	1
+1075	n.a.	CN(C)C1=CC2=[S+]C3=C(C=CC(N(C)C)=C3)N=C2C=C1	Training	1
+1076	n.a.	CCCCCC(C)OC(=O)COC1=C2N=CC=CC2=C(Cl)C=C1	Training	1
+1077	n.a.	CCOC(=O)C(C)OC1=CC=C(OC2=NC3=C(C=C(Cl)C=C3)O2)C=C1	Training	1
+1078	n.a.	COC(=O)C1=C(Cl)C(Cl)=C(C(=O)OC)C(Cl)=C1Cl	Training	1
+1079	n.a.	O=S1OCC2C(CO1)C1(Cl)C(Cl)=C(Cl)C2(Cl)C1(Cl)Cl	Training	1
+1080	n.a.	OCC1=CC(OC2=CC=CC=C2)=CC=C1	Training	1
+1081	n.a.	CC1(C)CON(CC2=CC=CC=C2Cl)C1=O	Training	1
+1082	n.a.	O=C(OC1=CC=C(Br)C=C1)N1CCN2CCC1CC2	Training	1
+1083	n.a.	CN1C=NC2=C1C(=O)N(C)C(=O)N2	Test	0
+1084	n.a.	COC1=C(N=NC2=C(O)C=CC3=CC(S(=O)(=O)O)=CC=C32)C=C(C)C(S(=O)(=O)O)=C1	Test	0
+1085	n.a.	C=CCC1=CC2=C(C=C1)OCO2	Test	0
+1086	n.a.	O=C(O)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)F	Test	0
+1087	n.a.	COS(C)(=O)=O	Test	0
+1088	n.a.	CCCCCCCC(=O)OC	Test	0
+1089	n.a.	CCCCOC(=O)C1=CC=CC=C1C(=O)O	Test	0
+1090	n.a.	COCC1=NN=C(C2=C[N+]([O-])=CC=C2)N1C1=C(Cl)C(Cl)=CC2=C1NC(=O)C(=O)N2	Test	0
+1091	n.a.	CCC1=CC(C(C)(C)C)=C(O)C=C1	Test	0
+1092	n.a.	CC(C)C(=O)NC1=CC(C(F)(F)F)=C([N+](=O)[O-])C=C1	Test	0
+1093	n.a.	CCCCC(CC)COC(=O)C1=CC=C(C(=O)OCC(CC)CCCC)C=C1	Test	0
+1094	n.a.	CCCCCCCCCCCCOC(=O)C1=CC=CC=C1C(=O)OCC(CCC)C(CC)CCC	Test	0
+1095	n.a.	CCCCCCCCCCCCCO	Test	0
+1096	n.a.	C=CCC1=C(C)C(OC(=O)C2C(C=C(C)C)C2(C)C)CC1=O	Test	0
+1097	n.a.	CC1CCC2CC1C2(C)C	Test	0
+1098	n.a.	O=C1NC(=O)C2CC=CCC12	Test	0
+1099	n.a.	CCC(CC)NC1=C([N+](=O)[O-])C=C(C)C(C)=C1[N+](=O)[O-]	Test	0
+1100	n.a.	COC(C)(C)CC(C)=O	Test	0
+1101	n.a.	CC1=CC=CC=C1Cl	Test	0
+1102	n.a.	OC1=CC=CC=C1Br	Test	0
+1103	n.a.	CCOCCOC(C)=O	Test	0
+1104	n.a.	CC(C)C1=CC=CC=C1O	Test	0
+1105	n.a.	C=C(C)CCO	Test	0
+1106	n.a.	ClC1=CC(Cl)=C(Cl)C=C1	Test	0
+1107	n.a.	C1=CCCC1	Test	0
+1108	n.a.	O=C(O)C1(C2=CC3=C(C=C2)C(O)C(CC2=CC=C(C4=CC=CC=C4)C=C2)CO3)CCCC1	Test	0
+1109	n.a.	CCCCCCCCCCCO	Test	0
+1110	n.a.	O=C(CCl)NC1=CC=CC=C1	Test	0
+1111	n.a.	COC(=O)C1C2CC3C4=C(CCN3CC2CC(OC(=O)C2=CC(OC)=C(OC)C(OC)=C2)C1OC)C1=C(C=C(OC)C=C1)N4	Test	0
+1112	n.a.	O=C(NC1=CC=CC=C1)C1=C(O)C=CC(Cl)=C1	Test	0
+1113	n.a.	COC1=C(Cl)C(Cl)=C(Cl)C(Cl)=C1Cl	Test	0
+1114	n.a.	ClC1=CN=CC=C1	Test	0
+1115	n.a.	CCCCCCCCCCCCCCC	Test	0
+1116	n.a.	CC1=CC=C(C(C)C)C=C1	Test	0
+1117	n.a.	CC(C)CC(C)O	Test	0
+1118	n.a.	CC1=CC2=C(C=C1)N=CC=C2	Test	0
+1119	n.a.	C1=CC2=C3C(=C1)C=CC3=CC=C2	Test	0
+1120	n.a.	CC(C)C1=CC=CC(C(C)C)=C1	Test	0
+1121	n.a.	NC1=CC=CC=C1	Test	0
+1122	n.a.	CC(CC1=CC=C(OCC(=O)O)C=C1)NCC(O)C1=CSC(C(F)(F)F)=N1	Test	0
+1123	n.a.	ClC1=CC=C(C2=CC=CC=C2)C=C1	Test	0
+1124	n.a.	C1=CC=[N+]2CC[N+]3=CC=CC=C3C2=C1	Test	0
+1125	n.a.	C1=CC=C(C2CO2)C=C1	Test	0
+1126	n.a.	ClC1=CC=C(C(C2=CC=C(Cl)C=C2)C(Cl)(Cl)Cl)C=C1	Test	0
+1127	n.a.	CC1=CC(C)=C(C(=O)P(=O)(C2=CC=CC=C2)C2=CC=CC=C2)C(C)=C1	Test	0
+1128	n.a.	O=NN(C1=CC=CC=C1)C1=CC=CC=C1	Test	0
+1129	n.a.	C1=CC=C2C=CC=CC2=C1	Test	0
+1130	n.a.	C1=CC=C2CCCC2=C1	Test	0
+1131	n.a.	CC1=C(CC2CCC3=C(C)C4=CC=CC=C4N3C2=O)N=CN1	Test	0
+1132	n.a.	CCC=C(C)C=O	Test	0
+1133	n.a.	CC(C)=CCCC(C)=CC#N	Test	0
+1134	n.a.	CN1C=CN=C1	Test	0
+1135	n.a.	CC(C)CCCCCCOC(=O)CCCCC(=O)OCCCCCCC(C)C	Test	0
+1136	n.a.	CCCCCCCCCCCCS	Test	0
+1137	n.a.	CCCCCCCC[N+](C)(CCCCCCCC)CCCCCCCC	Test	0
+1138	n.a.	CN1CCOCC1	Test	0
+1139	n.a.	C1CNCCN1	Test	0
+1140	n.a.	C1COCO1	Test	0
+1141	n.a.	CN(C)C	Test	0
+1142	n.a.	N#CCCCCC#N	Test	0
+1143	n.a.	C=CC(=O)OCCCC	Test	0
+1144	n.a.	C=CC(=O)OC1CC2CCC1(C)C2(C)C	Test	0
+1145	n.a.	C=C(C)C1CC=C(C)C(=O)C1	Test	0
+1146	n.a.	C=C(CC)CCCC(C)(C)O	Test	0
+1147	n.a.	CC1=CCC(=C(C)C)CC1	Test	0
+1148	n.a.	CCCCOC(=O)CCCCCCCCC(=O)OCCCC	Test	0
+1149	n.a.	C=CCN(CC=C)C(=O)C(Cl)Cl	Test	0
+1150	n.a.	C=CC(=O)OCC(CC)(COC(=O)C=C)COC(=O)C=C	Test	0
+1151	n.a.	C=CC(=O)OCCN(CC)CC	Test	0
+1152	n.a.	C=CC(C)(O)CCC=C(C)C	Test	0
+1153	n.a.	COC1=C(O)C=CC(C=O)=C1	Test	0
+1154	n.a.	CN1C=CC=C1	Test	0
+1155	n.a.	CC(C)C1=CC2=CCC3C(C)(C(=O)O)CCCC3(C)C2CC1	Test	0
+1156	n.a.	CCCCCC=CC=CC(=O)OCC	Test	0
+1157	n.a.	CCCCN(C)C	Test	0
+1158	n.a.	COC(=O)N(C(=O)N1COC2(C(=O)OC)CC3=CC(Cl)=CC=C3C2=N1)C1=CC=C(OC(F)(F)F)C=C1	Test	0
+1159	n.a.	CCCCCCCC(=O)OCC	Test	0
+1160	n.a.	C=CN1CCCC1=O	Test	0
+1161	n.a.	CO[Si](C)(C)OC	Test	0
+1162	n.a.	CCCCC[Si](OCC)(OCC)OCC	Test	0
+1163	n.a.	CN1C(=O)CCC1C1=CN=CC=C1	Test	0
+1164	n.a.	N#CC1=CC=C(CC(=NNC(=O)NC2=CC=C(OC(F)(F)F)C=C2)C2=CC(C(F)(F)F)=CC=C2)C=C1	Test	0
+1165	n.a.	CC(=O)C(C)O	Test	0
+1166	n.a.	CCCCCCCCC=CCCCCCCCC(=O)O	Test	0
+1167	n.a.	CCCC(CC)C1=CC=CC=C1	Test	0
+1168	n.a.	O=C(NC(C1=CC=CC=C1)C1CCCCN1)C1=C(Cl)C(C(F)(F)F)=CC=C1	Test	0
+1169	n.a.	CC(C)(C)C1=CC=CC=C1	Test	0
+1170	n.a.	CC(=O)C=O	Test	0
+1171	n.a.	CCCCCC(=O)O	Test	0
+1172	n.a.	O=C1C=CC2=CC=CC=C2O1	Test	0
+1173	n.a.	NC(=O)CCl	Test	0
+1174	n.a.	CN(C)C=O	Test	0
+1175	n.a.	CC(C)C1=CC=CC=C1N	Test	0
+1176	n.a.	O=C(O)CCl	Test	0
+1177	n.a.	CCOC(OCC)C(=O)C1=CC=CC=C1	Test	0
+1178	n.a.	O=C(O)C1=CC=CC(C(=O)O)=C1	Test	0
+1179	n.a.	CCC1COC(=O)O1	Test	0
+1180	n.a.	CC(=O)OC1CCCCC1C(C)(C)C	Test	0
+1181	n.a.	CC(=O)OCC(COC(C)=O)OC(C)=O	Test	0
+1182	n.a.	O=C(CBr)OCC1=CC=CC=C1	Test	0
+1183	n.a.	CCC1OC(=O)C(C)C(OC2CC(C)(OC)C(O)C(C)O2)C(C)C(OC2OC(C)CC(N(C)C)C2O)C(C)(O)CC(C)C(=O)C(C)C(O)C1(C)O	Test	0
+1184	n.a.	CCCCCC=CCC=CCCCCCCCC(=O)OC	Test	0
+1185	n.a.	CCC(C)(CCCC(C)C)OC(C)=O	Test	0
+1186	n.a.	CC(=O)SC(C(=O)NC1CC2=CC=CC=C2C2CCCC(C(=O)O)N2C1=O)C(C)C	Test	0
+1187	n.a.	CC(C)(C1=CC=CC=C1)C1=CC(C(C)(C)C2=CC=CC=C2)=C(O)C=C1	Test	0
+1188	n.a.	CCC(C)(C)C1=CC(C(C)(C)CC)=C(O)C=C1	Test	0
+1189	n.a.	CCC1=CC(O)=CC=C1	Test	0
+1190	n.a.	CC(O)COC1=CC=CC=C1	Test	0
+1191	n.a.	CCCCC1=C(C(=O)C2=CC(I)=C(OCCN(CC)CC)C(I)=C2)C2=CC=CC=C2O1	Test	0
+1192	n.a.	CC(C)(C)C1=NNC(=O)N(N)C1=O	Test	0
+1193	n.a.	CC12CCC(CC1=O)C2(C)C	Test	0
+1194	n.a.	CCCCCCCC1=CC=C(O)C=C1	Test	0
+1195	n.a.	CCCCCCCCCC(=O)O	Test	0
+1196	n.a.	CC(C)(OOC(C)(C)C1=CC=CC=C1)C1=CC=CC=C1	Test	0
+1197	n.a.	OCC(CO)(CO)CO	Test	0
+1198	n.a.	CC(C)(C1=CC=CC=C1)C1=CC=C(O)C=C1	Test	0
+1199	n.a.	CC1(C)C(C=C(Cl)C(F)(F)F)C1C(=O)OC(C#N)C1=CC(OC2=CC=CC=C2)=CC=C1	Test	0
+1200	n.a.	CC1=CCC(C(C)(C)O)CC1	Test	0
+1201	n.a.	NC(CO)(CO)CO	Test	0
+1202	n.a.	CC1=CC(C)=C(C)C=C1	Test	0
+1203	n.a.	CC1=CC=CC=C1S(=O)(=O)O	Test	0
+1204	n.a.	CC(C)CBr	Test	0
+1205	n.a.	CCCCC(C=O)CC	Test	0
+1206	n.a.	CCCCC(CC)CO	Test	0
+1207	n.a.	CC(C)CCCC(C)(C)O	Test	0
+1208	n.a.	CC(C)CCCCCCOC(=O)C1CCCCC1C(=O)OCCCCCCC(C)C	Test	0
+1209	n.a.	O=C(CC(C(=O)OC1CCCCC1)S(=O)(=O)O)OC1CCCCC1	Test	0
+1210	n.a.	CCCCCCOC(=O)CCCCC(=O)OCCCCCC	Test	0
+1211	n.a.	CCSC(=O)N(CC(C)C)CC(C)C	Test	0
+1212	n.a.	CN(C)C1=CC=CC=C1	Test	0
+1213	n.a.	COC1=CC(OC)=NC(NC(=O)NS(=O)(=O)NC2=CC=CC=C2C(=O)N(C)C)=N1	Test	0
+1214	n.a.	CN(C)C(=O)NC1=CC=CC=C1	Test	0
+1215	n.a.	CC(C)NCC(O)COC1=CC=C(CC(N)=O)C=C1	Test	0
+1216	n.a.	CCOC(=O)COC1=C(Cl)C=C(Cl)C=C1	Test	0
+1217	n.a.	O=C1NS(=O)(=O)C2=CC=CC=C12	Test	0
+1218	n.a.	CC(C)OP(C)(=O)OC(C)C	Test	0
+1219	n.a.	O=C(O)CCCCCCCC(=O)O	Test	0
+1220	n.a.	O=C(O)C(Cl)(Cl)Cl	Test	0
+1221	n.a.	OCC(O)CO	Test	0
+1222	n.a.	CC(O)CN(CC(C)O)CC(C)O	Test	0
+1223	n.a.	CC1=CC(Cl)=CC=C1OC(C)C(=O)O	Test	0
+1224	n.a.	CC1(C)C(=O)N(Cl)C(=O)N1Cl	Test	0
+1225	n.a.	CCCCN(CCCC)CCCC	Test	0
+1226	n.a.	CCCCCCC1=C(O)C=C(O)C=C1	Test	0
+1227	n.a.	CCC1=CC(C)=CC(CC)=C1C1=C(OC(=O)C(C)(C)C)N2CCOCCN2C1=O	Test	0
+1228	n.a.	CCCCCCCCC=CCCCCCCCC(=O)OCC(O)CO	Test	0
+1229	n.a.	CCCCCCCCCCCCCC1=CC=CC=C1	Test	0
+1230	n.a.	CC1=C(O)C(C)=C(C)C(O)=C1	Test	0
+1231	n.a.	CC1=CC([N+](=O)[O-])=CC=C1	Test	0
+1232	n.a.	CC1=CC(=O)NC(=S)N1	Test	0
+1233	n.a.	CCOC(=O)C1CC(=O)C(=C(O)C2CC2)C(=O)C1	Test	0
+1234	n.a.	CSC(=O)C1=C(CC(C)C)C(C(=O)SC)=C(C(F)(F)F)N=C1C(F)F	Test	0
+1235	n.a.	CS(=O)(=O)C1=CC([N+](=O)[O-])=C(C(=O)C2C(=O)CCCC2=O)C=C1	Test	0
+1236	n.a.	CC1=CC=C(C)C2=CC=CC=C12	Test	0
+1237	n.a.	O=C1C=CC=CN1	Test	0
+1238	n.a.	CC1=CC=C(C=O)C=C1	Test	0
+1239	n.a.	CC1=CC=CC=C1N	Test	0
+1240	n.a.	CC1=CC(C)=C(N=NC2=C(O)C=CC3=CC=CC=C32)C=C1	Test	0
+1241	n.a.	CC1=CC=C(S(=O)(=O)O)C=C1	Test	0
+1242	n.a.	CCC1=C(C2=CC=C(Cl)C=C2)C(N)=NC(N)=N1	Test	0
+1243	n.a.	CC1=CC=C(C2=CC(C(F)(F)F)=NN2C2=CC=C(S(N)(=O)=O)C=C2)C=C1	Test	0
+1244	n.a.	COC1=C(NC2=NC=C3C(=N2)N(C2CCCC2)CC(F)(F)C(=O)N3C)C=CC(C(=O)NC2CCN(C)CC2)=C1	Test	0
+1245	n.a.	COC1=CC=C(C=O)C=C1	Test	0
+1246	n.a.	O=C(O)C1=CN(C2=CC=CC=C2C(=O)O)C2=C(C=C(NC3=C(Cl)C=C(F)C=C3F)C(Cl)=C2)C1=O	Test	0
+1247	n.a.	CC1=CC=C(C2OC3COC(C4=CC=C(C)C=C4)OC3C(C(O)CO)O2)C=C1	Test	0
+1248	n.a.	CC1=CC=C(S(=O)(=O)C(I)I)C=C1	Test	0
+1249	n.a.	O=[N+]([O-])C1=CC=CC=C1	Test	0
+1250	n.a.	O=C1NC=NC2=C1N=CN2C1CCC(CO)O1	Test	0
+1251	n.a.	CC1=NN(C2=CC=C(S(=O)(=O)O)C=C2)C(=O)C1N=NC1=CC=CC=C1	Test	0
+1252	n.a.	CCC=CCC=CCC=CCCCCCCCC(=O)OC	Test	0
+1253	n.a.	ClC1=CC=C(C(C2=CC=C(Cl)C=C2)C(Cl)Cl)C=C1	Test	0
+1254	n.a.	CCCCCCCCCCCCCCCCCC[N+](C)(C)CC1=CC=CC=C1	Test	0
+1255	n.a.	O=CCCCC=O	Test	0
+1256	n.a.	NC1=NC(N)=C2N=C(CNC3=CC=C(C(=O)NC(CCC(=O)O)C(=O)O)C=C3)C=NC2=N1	Test	0
+1257	n.a.	CCC(C)COC(=O)CC(C)C	Test	0
+1258	n.a.	CCCCCCCCCCCCCCN(CCO)CCO	Test	0
+1259	n.a.	O=C1N(CC2CO2)C(=O)N(CC2CO2)C(=O)N1CC1CO1	Test	0
+1260	n.a.	O=C(CBr)C1=CC=C(O)C=C1	Test	0
+1261	n.a.	CCC1=CC=CC(CC)=C1N(COC)C(=O)CS(=O)(=O)O	Test	0
+1262	n.a.	CCCCCCCCCCCC(=O)OCC(O)CO	Test	0
+1263	n.a.	CCCCCCC(C)(C)C(=O)O	Test	0
+1264	n.a.	O=C(O)C1CCC(C(=O)O)CC1	Test	0
+1265	n.a.	CCCCCCCCCCCCCCCCCCOS(=O)(=O)O	Test	0
+1266	n.a.	COC1=CC=C(C(C2=CC=C(OC)C=C2)C(Cl)(Cl)Cl)C=C1	Test	0
+1267	n.a.	CCCCCCOCCO	Test	0
+1268	n.a.	CCCCC(CC)COP(=O)(O)OCC(CC)CCCC	Test	0
+1269	n.a.	CCCCC(CC)COS(=O)(=O)O	Test	0
+1270	n.a.	CCOC(=O)C(C)OC1=CC=C(OC2=NC3=C(C=C(Cl)C=C3)N=C2)C=C1	Test	0
+1271	n.a.	CCCCCCCCCCCCCCCC[N+](C)(C)C	Test	0
+1272	n.a.	CCCCCCCCCCCCCC[N+](C)(C)C	Test	0
+1273	n.a.	CN(C)CC1=CC(CN(C)C)=C(O)C(CN(C)C)=C1	Test	0
+1274	n.a.	CCCCN(CCCC)N=O	Test	0
+1275	n.a.	CCNC(=O)NC(=O)C(C#N)=NOC	Test	0
+1276	n.a.	CCOC(=O)C(O)C(O)C(=O)OCC	Test	0
+1277	n.a.	CCOCCOCCOCCO	Test	0
+1278	n.a.	CCOP(=O)(OCC)SCCSCC	Test	0
+1279	n.a.	CCN(CCC#N)C1=CC=C(N=NC2=C(Cl)C=C([N+](=O)[O-])C=C2Cl)C=C1	Test	0
+1280	n.a.	O=C(OCCOCCOC(=O)C1=CC=CC=C1)C1=CC=CC=C1	Test	0
+1281	n.a.	O=[N+]([O-])C(CO)(CO)CO	Test	0
+1282	n.a.	CCC[N+](=O)[O-]	Test	0
+1283	n.a.	CCN(CC)C1=CC=C(C(=C2C=CC(=[N+](CC)CC)C=C2)C2=C(S(=O)(=O)O)C=C(S(=O)(=O)O)C=C2)C=C1	Test	0
+1284	n.a.	O=C(O)C1(C(=O)NC2=C(Cl)C=C(Cl)C=C2)CC1	Test	0
+1285	n.a.	CCNS(=O)(=O)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)F	Test	0
+1286	n.a.	CCOC(N)=O	Test	0
+1287	n.a.	NC1=C(C(=O)C2=CC=CC=C2)C=C(Cl)C=C1	Test	0
+1288	n.a.	CCOC1=NC(F)=CC2=NC(S(=O)(=O)NC3=C(C(=O)OC)C=CC=C3Cl)=NN21	Test	0
+1289	n.a.	CCOC(=O)CC(=O)CCl	Test	0
+1290	n.a.	O=C(O)CCCOC1=C(Cl)C=C(Cl)C=C1	Test	0
+1291	n.a.	CCOC1=NC(F)=CC2=NC(S(=O)(=O)NC3=C(Cl)C=CC=C3Cl)=NN21	Test	0
+1292	n.a.	CCOP(=S)(OC1=CN=C(C(C)(C)C)N=C1)OC(C)C	Test	0
+1293	n.a.	COP(=O)(OC)SCN1C(=O)OC2=C1N=CC(Cl)=C2	Test	0
+1294	n.a.	CCOP(=S)(OCC)SCSCC	Test	0
+1295	n.a.	CNC(=O)ON=CC(C)(C)SC	Test	0
+1296	n.a.	CS(C)(=O)=O	Test	0
+1297	n.a.	O=C=NC1=CC=CC2=C1C=CC=C2N=C=O	Test	0
+1298	n.a.	O=C(Cl)C1=C(Cl)C=C(Cl)C=C1	Test	0
+1299	n.a.	CN1C=NC([N+](=O)[O-])=C1SC1=NC=NC2=C1NC=N2	Test	0
+1300	n.a.	O=C1C=CNC=C1	Test	0
+1301	n.a.	NCC1=CC=CO1	Test	0
+1302	n.a.	CNC(=O)N(C)C1=NN=C(C(C)(C)C)S1	Test	0
+1303	n.a.	COC(=O)C=C(C)OP(=O)(OC)OC	Test	0
+1304	n.a.	NC1=CC=CC=C1[N+](=O)[O-]	Test	0
+1305	n.a.	COC1C(OC(=O)NC(=O)CCl)CCC2(CO2)C1C1(C)OC1CC=C(C)C	Test	0
+1306	n.a.	O=C(C1=C(O)C=C(O)C=C1)C1=C(O)C=C(O)C=C1	Test	0
+1307	n.a.	OC1=CC=CC=C1Cl	Test	0
+1308	n.a.	O=C(NCNC(=O)NC1C(=O)NC(=O)N1CO)NC1C(=O)NC(=O)N1CO	Test	0
+1309	n.a.	N#CSCSC#N	Test	0
+1310	n.a.	ClC1=CC=C(Cl)C=C1	Test	0
+1311	n.a.	O=C(O)CC1=CC(I)=C(OC2=CC(I)=C(O)C(I)=C2)C(I)=C1	Test	0
+1312	n.a.	ClC1=CC=CC(C(Cl)(Cl)Cl)=N1	Test	0
+1313	n.a.	ClC1(Cl)C2(Cl)C3(Cl)C4(Cl)C(Cl)(Cl)C5(Cl)C3(Cl)C1(Cl)C5(Cl)C24Cl	Test	0
+1314	n.a.	ClC1=C(Cl)C2(Cl)C3C(Cl)C=CC3C1(Cl)C2(Cl)Cl	Test	0
+1315	n.a.	NC1=CC(Cl)=CC(C(=O)O)=C1Cl	Test	0
+1316	n.a.	ClC1=CC=CC(Cl)=N1	Test	0
+1317	n.a.	N#CN=C(N)N	Test	0
+1318	n.a.	O=C(O)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)F	Test	0
+1319	n.a.	ON1C=CC=CC1=S	Test	0
+1320	n.a.	C#CCN1C(=O)COC2=C1C=C(N1C(=O)C3=C(CCCC3)C1=O)C(F)=C2	Test	1
+1321	n.a.	CCC1=CN=C(CCOC2=CC=C(CC3SC(=O)NC3=O)C=C2)C=C1	Test	1
+1322	n.a.	COCC1=CC(C(=O)O)=C(C2=NC(C)(C(C)C)C(=O)N2)N=C1	Test	1
+1323	n.a.	CCNC1=NC(NC(C)(C)C)=NC(Cl)=N1	Test	1
+1324	n.a.	ClC1=CC=C(C(C2=CC=CC=C2Cl)C(Cl)(Cl)Cl)C=C1	Test	1
+1325	n.a.	N#CC1=C(C2=CC=C(Cl)C=C2)NC(C(F)(F)F)=C1Br	Test	1
+1326	n.a.	O=[N+]([O-])N=C1NCCN1CC1=CN=C(Cl)C=C1	Test	1
+1327	n.a.	COP(=O)(NC(C)=O)SC	Test	1
+1328	n.a.	CCCCCCCCCCOC(=O)C1=CC=CC=C1C(=O)OCCCCCCCC	Test	1
+1329	n.a.	CCOP(=S)(OCC)SCSC(C)(C)C	Test	1
+1330	n.a.	CC1(C)C(C=C(Cl)Cl)C1C(=O)OC(C#N)C1=CC(OC2=CC=CC=C2)=CC=C1	Test	1
+1331	n.a.	CC1=CC(C)=C(O)C=C1	Test	1
+1332	n.a.	CCOC(=O)C1=CC=CC=C1C(=O)OCC	Test	1
+1333	n.a.	OCCCO	Test	1
+1334	n.a.	CC12CCC3C(CCC4=CC(=O)CCC43C)C1CCC2=O	Test	1
+1335	n.a.	CCCCNC(=O)N1C2=CC=CC=C2N=C1NC(=O)OC	Test	1
+1336	n.a.	NC1=CC=C(CC2=CC=C(N)C=C2)C=C1	Test	1
+1337	n.a.	CC1=CC=CC(C)=C1C	Test	1
+1338	n.a.	CC1=CC(=O)CC(C)(C)C1	Test	1
+1339	n.a.	C1=CC=C(CCCC2=CC=CC=N2)C=C1	Test	1
+1340	n.a.	CC1=CC(Cl)=CC=C1OCC(=O)O	Test	1
+1341	n.a.	CC(C)C1=CC=CC(C(C)C)=C1N1C(=O)C2=C(C=C(O)C=C2)C1=O	Test	1
+1342	n.a.	CNC(=O)OC1=CC=CC=C1OC(C)C	Test	1
+1343	n.a.	C1=CC=C2C(=C1)C=C1C3=CC=CC=C3C3=CC=CC2=C31	Test	1
+1344	n.a.	OC1=CC2=C(C=C1)C(O)C(N1CCC(O)(C3=CC=C(F)C=C3)CC1)CO2	Test	1
+1345	n.a.	CCCCCCCCN(C)CCCCCCCC	Test	1
+1346	n.a.	C=CC(=O)OCCCCCCOC(=O)C=C	Test	1
+1347	n.a.	ClC1C(Cl)C(Cl)C(Cl)C(Cl)C1Cl	Test	1
+1348	n.a.	OC1=C(Cl)C=C(Cl)C=C1	Test	1
+1349	n.a.	CC(C)(C)CC(C)(C)C1=CC=C(OCCOCC[N+](C)(C)CC2=CC=CC=C2)C=C1	Test	1
+1350	n.a.	CCCCCCCCN1CCCC1=O	Test	1
+1351	n.a.	CCOC1=NC2=C(C=C1)NC=C(C(=O)NCC1=CC=CC=C1)C2=O	Test	1
+1352	n.a.	CO[Si](CCC1CCC2OC2C1)(OC)OC	Test	1
+1353	n.a.	CCN(CC1=C(Cl)C=CC=C1F)C1=C([N+](=O)[O-])C=C(C(F)(F)F)C=C1[N+](=O)[O-]	Test	1
+1354	n.a.	COC(=O)C1=CC=C(C(=O)OC)C=C1	Test	1
+1355	n.a.	CC1=CC(N)=C(N)C=C1	Test	1
+1356	n.a.	CNC(=O)C=C(C)OP(=O)(OC)OC	Test	1
+1357	n.a.	CC(C)CC(C)(O)C#CC(C)(O)CC(C)C	Test	1
+1358	n.a.	CC=CC1=CC(O)=C(OCC)C=C1	Test	1
+1359	n.a.	C1=CC=C(N=NC2=CC=CC=C2)C=C1	Test	1
+1360	n.a.	CC1=CC=C(O)C=C1	Test	1
+1361	n.a.	CCOCOCC	Test	1
+1362	n.a.	CCCOC(=O)C1=CC=C(O)C=C1	Test	1
+1363	n.a.	O=C(OC1=CC=CC=C1)C1=CC=CC(C(=O)OC2=CC=CC=C2)=C1	Test	1
+1364	n.a.	CCOP(=S)(OCC)OC1=NC(C(C)C)=NC(C)=C1	Test	1
+1365	n.a.	COC1=CC=CC(O)=C1	Test	1
+1366	n.a.	CC(C)(C)C1=CC=C(O)C=C1	Test	1
+1367	n.a.	NC1=CC2=CC=CC=C2C=C1	Test	1
+1368	n.a.	FC1=CC=CC=C1C(F)COC1CCC(NC2=C3C=NN=C3N=CN2)CC1	Test	1
+1369	n.a.	O=C(NC1=CC2=CC(S(=O)(=O)O)=C(N=NC3=CC=C(N=NC4=CC=C(S(=O)(=O)O)C=C4)C=C3)C(O)=C2C=C1)C1=CC=CC=C1	Test	1
+1370	n.a.	CCCCOC(=O)C1=CC=CC=C1C(=O)OCCCC	Test	1
+1371	n.a.	CCOC(=O)C1=NN(C2=C(Cl)C=C(Cl)C=C2)C(C)(C(=O)OCC)C1	Test	1
+1372	n.a.	S=C(S)NCCNC(=S)S	Test	1
+1373	n.a.	NC1=CC=CC2=C1C=CC=C2N	Test	1
+1374	n.a.	C#CC1(O)CCC2C3CCC4=CC(O)=CC=C4C3CCC21C	Test	1
+1375	n.a.	O=[N+]([O-])C1=CC=C(O)C=C1	Test	1
+1376	n.a.	NC1=C(Br)C=C([N+](=O)[O-])C=C1Br	Test	1
+1377	n.a.	CC(=O)C1=CC2=C(C=C1C)C(C)(C)C(C)CC2(C)C	Test	1
+1378	n.a.	CC1=CC=C(O)C=C1C	Test	1
+1379	n.a.	CC(C)OC1=C(Cl)C=C(Cl)C(N2N=C(C(C)(C)C)OC2=O)=C1	Test	1
+1380	n.a.	CC1=C(C)C(NC2=NC(SCC(=O)O)=NC(Cl)=C2)=CC=C1	Test	1
+1381	n.a.	CC1=C(CCOC2=CC=CC3=C2C=CN3CCC(=O)O)N=C(C2=CC=CC=C2)O1	Test	1
+1382	n.a.	CC(C)N(CC1=CC=CC=C1)C(=O)C(C)(C)C	Test	1
+1383	n.a.	CNC1=C(Cl)C(=O)N(C2=CC=CC(C(F)(F)F)=C2)N=C1	Test	1
+1384	n.a.	CC1=C(C(C)(C)O)C2=C(O1)C(NC(=O)C1=C(Cl)C=CC=C1Cl)=CC=C2	Test	1
+1385	n.a.	O=C(O)C1=C([N+](=O)[O-])C=CC(OC2=C(Cl)C=C(C(F)(F)F)C=C2)=C1	Test	1
+1386	n.a.	CCCCCCCCCCCCN1CCOCC1	Test	1
+1387	n.a.	CC(C)(C)C1=CC(CCC(=O)NCCCCCCNC(=O)CCC2=CC(C(C)(C)C)=C(O)C(C(C)(C)C)=C2)=CC(C(C)(C)C)=C1O	Test	1
+1388	n.a.	OC1=C2C=CC3=CC=CC4=C3C2=C(C=C1)C=C4	Test	1
+1389	n.a.	CC1=C(N)C=C([N+](=O)[O-])C=C1	Test	1
+1390	n.a.	CC(C)(O)C1=COC(S(=O)(=O)NC(=O)NC2=C3CCCC3=CC3=C2CCC3)=C1	Test	1
+1391	n.a.	CCN(CC)C1=CC=C(C=O)C=C1	Test	1
+1392	n.a.	OC(CC1=CC=CC=C1Cl)(CN1C=NC=N1)C1(Cl)CC1	Test	1
+1393	n.a.	COC1=CC(OC)=C2C=CC(=O)OC2=C1	Test	1
+1394	n.a.	O=C(OC1CCCCC1)C1=CC=CC=C1C(=O)OC1CCCCC1	Test	1
+1395	n.a.	CCC(C)(C)C(=O)OC1=C(C2=C(Cl)C=C(Cl)C=C2)C(=O)OC12CCCCC2	Test	1
+1396	n.a.	CC1=NC2=NC(S(=O)(=O)NC3=C(F)C=CC=C3F)=NN2C=C1	Test	1
+1397	n.a.	CC(=O)C1=CC=C(C2=CC=CC=C2)C=C1	Test	1
+1398	n.a.	CCOP(=S)(OCC)OC1=CC=C([N+](=O)[O-])C=C1	Test	1
+1399	n.a.	CC12CCC3C4=CC=C(O)C=C4CCC3C1CC(O)C2O	Test	1
+1400	n.a.	CC=CC1=CC(OC)=C(OC)C=C1	Test	1
+1401	n.a.	C=CCOC1=NC(OCC=C)=NC(OCC=C)=N1	Test	1
+1402	n.a.	N#CC1=CC=C(C(C2=CC=C(C#N)C=C2)N2C=NC=N2)C=C1	Test	1
+1403	n.a.	CCCCOC(=O)C(C)OC1=CC=C(OC2=NC=C(C(F)(F)F)C=C2)C=C1	Test	1
+1404	n.a.	CC1=CC(O)=C(C(C)(C)C)C=C1C(C)(C)C	Test	1
+1405	n.a.	CCCCCCCCC(=O)NCC1=CC(OC)=C(O)C=C1	Test	1
+1406	n.a.	C=CCC1=CC(OC)=C(OC)C=C1	Test	1
+1407	n.a.	COP(=S)(OC)OC1=C(Cl)C=C(Cl)C(Cl)=N1	Test	1
+1408	n.a.	CC(=O)C1(O)CCC2C3CCC4=CC(=O)CCC4(C)C3CCC21C	Test	1
+1409	n.a.	C=CCC1=CC(OC)=C(O)C=C1	Test	1
+1410	n.a.	CC(COC1=CC=C(OC2=CC=CC=C2)C=C1)OC1=CC=CC=N1	Test	1
+1411	n.a.	O=C1C2CC=CCC2C(=O)N1SC(Cl)(Cl)C(Cl)Cl	Test	1
+1412	n.a.	COC1=CC(N=NC2=C(O)C=CC3=CC=CC=C32)=C(OC)C=C1	Test	1
+1413	n.a.	CCOP(=O)(NC(C)C)OC1=CC=C(SC)C(C)=C1	Test	1
+1414	n.a.	C1=CC=C2C(=C1)C=CC1=CC=CC=C12	Test	1
+1415	n.a.	CSC1=NC(NC(C)C)=NC(NC(C)C)=N1	Test	1
+1416	n.a.	NC1=CC=C(NC2=CC=CC=C2)C=C1	Test	1
+1417	n.a.	CCC1=NN(C2CCCCC2)C2=C1C=CC(C1(C#N)CCC(C(=O)O)CC1)=C2	Test	1
+1418	n.a.	CC1(C)CCC(=CC2=CC=C(Cl)C=C2)C1(O)CN1C=NC=N1	Test	1
+1419	n.a.	CCOC(=O)CC1=CC=CC2=CC=CC=C21	Test	1
+1420	n.a.	OC1=CC=CC=C1C1=CC=CC=C1	Test	1
+1421	n.a.	O=S(=O)(C1=CC=C(O)C=C1)C1=CC=C(O)C=C1	Test	1
+1422	n.a.	CC(C)(C)C1=CC(C=C2SC(=N)NC2=O)=CC(C(C)(C)C)=C1O	Test	1
+1423	n.a.	CC(=O)SC1CC2=CC(=O)CCC2(C)C2CCC3(C)C(CCC34CCC(=O)O4)C12	Test	1
+1424	n.a.	C#CC1(O)CCC2C3CCC4=CCCCC4C3CCC21C	Test	1
+1425	n.a.	CC12C=CC(=O)C=C1CCC1C3CC(O)C(O)(C(=O)CO)C3(C)CC(O)C12F	Test	1
+1426	n.a.	ClC1=C(Cl)C2(Cl)C3C4CC(C5OC45)C3C1(Cl)C2(Cl)Cl	Test	1
+1427	n.a.	N#CC(CCC1=CC=C(Cl)C=C1)(CN1C=NC=N1)C1=CC=CC=C1	Test	1
+1428	n.a.	COC1=CC2=C(C=C1)NC=C2CCNC(C)=O	Test	1
+1429	n.a.	NC(=NC1=CC=CC=C1)NC1=CC=CC=C1	Test	1
+1430	n.a.	CCCCCCCCOC1=CC(O)=C(C(=O)C2=CC=CC=C2)C=C1	Test	1
+1431	n.a.	CCNC1=NC(NC(C)(C)C#N)=NC(Cl)=N1	Test	1
+1432	n.a.	C[Si](CN1C=NC=N1)(C1=CC=C(F)C=C1)C1=CC=C(F)C=C1	Test	1
+1433	n.a.	CC(CC1=CC=C(C(C)(C)C)C=C1)CN1CC(C)OC(C)C1	Test	1
+1434	n.a.	COC(=O)C1=C(CC(C)C)C(C2=NCCS2)=C(C(F)(F)F)N=C1C(F)F	Test	1
+1435	n.a.	NS(=O)(=O)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)F	Test	1
+1436	n.a.	CC1=CC=CC=C1COC1CC2(C(C)C)CCC1(C)O2	Test	1
+1437	n.a.	ClC1=CC=CC=C1C1=NN=C(C2=CC=CC=C2Cl)N=N1	Test	1
+1438	n.a.	O=C1C2=C(C=CC=C2O)CC2=C1C(O)=CC=C2	Test	1
+1439	n.a.	CC(C)(C)C1=CC(C=C2SC(N)=NC2=O)=CC(C(C)(C)C)=C1O	Test	1
+1440	n.a.	CSC(=O)C1=C2SN=NC2=CC=C1	Test	1
+1441	n.a.	O=S1(=O)OCC2C(CO1)C1(Cl)C(Cl)=C(Cl)C2(Cl)C1(Cl)Cl	Test	1
+1442	n.a.	CN1C=NC2=C1C(=O)N(C)C(=O)N2C	Test	0
+1443	n.a.	CC1=CC(S(=O)(=O)O)=CC=C1N=NC1=C(O)C=CC2=CC=CC=C21	Test	0
+1444	n.a.	COC1=C(OC)C=C(C=O)C=C1	Test	0
+1445	n.a.	O=C(O)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)F	Test	0
+1446	n.a.	CS(=O)(=O)OCCCCOS(C)(=O)=O	Test	0
+1447	n.a.	CCCCCCCCCC(=O)OC	Test	0
+1448	n.a.	O=C1OCC2=CC=CC=C12	Test	0
+1449	n.a.	COC1=CC2=C(C=C1)SC(C(=O)NC1=NN=NN1)=C2OC(C)C	Test	0
+1450	n.a.	CC1=CC(C)=C(O)C(C(C)(C)C)=C1	Test	0
+1451	n.a.	N#CC1=C(C(F)(F)F)C=C(N(CC(N)=O)CC(F)(F)F)C=C1	Test	0
+1452	n.a.	CCCCCCOC(=O)C1=CC=CC=C1	Test	0
+1453	n.a.	C=CCOC(=O)C1=CC=CC=C1C(=O)OCC=C	Test	0
+1454	n.a.	CCCCCCCCCCCCCCO	Test	0
+1455	n.a.	C=C1CC23CC1(O)CCC2C12C=CC(O)C(C)(C(=O)O1)C2C3C(=O)O	Test	0
+1456	n.a.	CCC1CCCCC1	Test	0
+1457	n.a.	CCCCCCCCC=CCCCCCCCC(=O)N(C)CC(=O)O	Test	0
+1458	n.a.	CCCN(CCC)C1=C([N+](=O)[O-])C=C(C(C)C)C=C1[N+](=O)[O-]	Test	0
+1459	n.a.	CCCC(=O)OCC	Test	0
+1460	n.a.	ClC1=CC=CC(Cl)=C1	Test	0
+1461	n.a.	O=C(O)C1=CC(OC2=CC=CC=C2)=CC=C1	Test	0
+1462	n.a.	COCCOCCOC	Test	0
+1463	n.a.	CC(C)(C)C1=CC=CC(C(C)(C)C)=C1O	Test	0
+1464	n.a.	C=CC(C)(C)O	Test	0
+1465	n.a.	CC1=CC=C(Cl)C=C1	Test	0
+1466	n.a.	C=C(C)CCC	Test	0
+1467	n.a.	COC1=CC=CC(C2=C(Cl)C=C(C=CCN3CCCCCC3)C=C2)=C1	Test	0
+1468	n.a.	CC1(C)C2CCC1(C)C(O)C2	Test	0
+1469	n.a.	O=C1C=CC(=O)N1C1=CC=CC(N2C(=O)C=CC2=O)=C1	Test	0
+1470	n.a.	CC1=C2C(=O)C3=C(C(=O)C2=CC(O)=C1C(=O)O)C(O)=C(O)C(C1OC(CO)C(O)C(O)C1O)=C3O	Test	0
+1471	n.a.	O=C(NC(=O)C1=C(F)C=CC=C1F)NC1=CC(Cl)=C(OC(F)(F)C(F)C(F)(F)F)C=C1Cl	Test	0
+1472	n.a.	N#CC1=CC(Br)=C(O)C(Br)=C1	Test	0
+1473	n.a.	CC1=CC=NC=C1	Test	0
+1474	n.a.	BrC1CCC(Br)C(Br)CCC(Br)C(Br)CCC1Br	Test	0
+1475	n.a.	CCC1=CC=CC=C1C	Test	0
+1476	n.a.	C#CC(O)CCC	Test	0
+1477	n.a.	C1=CC2=C(N=C1)C1=C(C=CC=N1)C=C2	Test	0
+1478	n.a.	O=CC=CC1=CC=CC=C1	Test	0
+1479	n.a.	CCC(C)C1=CC=CC=C1	Test	0
+1480	n.a.	N#CC1=CC=CC=C1N	Test	0
+1481	n.a.	C1=CC=C(C(OC2CCCN(CCC3=CC4=C(C=C3)OCO4)C2)C2=CC=CC=C2)C=C1	Test	0
+1482	n.a.	C1=CC=C2C(=C1)C1=CC3=CC=CC4=C3C3=C(C=C4)C=CC2=C13	Test	0
+1483	n.a.	C1=CC=C(C2=NC3=CC=CC=C3N2)C=C1	Test	0
+1484	n.a.	O=C(OCCC1=CC=CC=C1)C1=CC=CC=C1	Test	0
+1485	n.a.	O=C(C1=CC=CC=C1)C1=CC=CC=C1	Test	0
+1486	n.a.	ClC(Cl)C1=CC=CC=C1	Test	0
+1487	n.a.	C1=CC=C(NC2=CC=CC3=CC=CC=C32)C=C1	Test	0
+1488	n.a.	C1=CC=C2C(=C1)OC1=CC=CC=C12	Test	0
+1489	n.a.	O=C1C=CC(=O)C2=CC=CC=C12	Test	0
+1490	n.a.	CCN1N=C(CC2=CC=CC=C2)C=C1C1CCN(CC2CC(N(C)C(C(=O)O)C(C)C)CC2C2=CC(F)=CC=C2)CC1	Test	0
+1491	n.a.	CCC=CCCO	Test	0
+1492	n.a.	C=CC(=C)CCC=C(C)CCC=C(C)C	Test	0
+1493	n.a.	C1=NC=NN1	Test	0
+1494	n.a.	CCC(=O)OC1CC2CCC1(C)C2(C)C	Test	0
+1495	n.a.	C1CCC(SSC2CCCCC2)CC1	Test	0
+1496	n.a.	C1CCCNCC1	Test	0
+1497	n.a.	C1COCCN1	Test	0
+1498	n.a.	CN(C)CCCN	Test	0
+1499	n.a.	COCCOCCO	Test	0
+1500	n.a.	C1N2CN3CN1CN(C2)C3	Test	0
+1501	n.a.	CC(C#N)CCC#N	Test	0
+1502	n.a.	CC=CC(=O)OCC(C)C	Test	0
+1503	n.a.	C=CC(=O)OCCCCCC(C)C	Test	0
+1504	n.a.	C=C(C)C1CC=C(C)CC1	Test	0
+1505	n.a.	CCCCCCC(C)O	Test	0
+1506	n.a.	C=C1CCC2CC1C2(C)C	Test	0
+1507	n.a.	CCCCOC(=O)CCCCCCCC(=O)OCCCC	Test	0
+1508	n.a.	C=CC(=O)NC(C)(C)CS(=O)(=O)O	Test	0
+1509	n.a.	C=CC(=O)OCC(CO)(COC(=O)C=C)COC(=O)C=C	Test	0
+1510	n.a.	O=C1C=CC(=O)O1	Test	0
+1511	n.a.	CC(C)=CCCC(C)CCOC(=O)C(C)C	Test	0
+1512	n.a.	C=CC1=CC(OC)=C(O)C=C1	Test	0
+1513	n.a.	NNC(=O)C1=CC=NC=C1	Test	0
+1514	n.a.	C=CC=C(C)C1(CC)C(=O)N=C(O)NC1=O	Test	0
+1515	n.a.	C=CC=CC=CCCCCC	Test	0
+1516	n.a.	CC[N+](=O)[O-]	Test	0
+1517	n.a.	C=CCOC(=O)C(C)(C)OC(=O)C1=C(Cl)C=CC(N2C(=O)C=C(C(F)(F)F)N(C)C2=O)=C1	Test	0
+1518	n.a.	CCCCCCC(=O)OCC	Test	0
+1519	n.a.	O=C1CCCN1	Test	0
+1520	n.a.	C[Si](C)(C)O[Si](C)(C)C	Test	0
+1521	n.a.	CCO[Si](CC)(OCC)OCC	Test	0
+1522	n.a.	CN(CCCC(O)C1=CN=CC=C1)N=O	Test	0
+1523	n.a.	CC(C)C1(C)N=C(C2=NC3=CC=CC=C3C=C2C(=O)O)NC1=O	Test	0
+1524	n.a.	CCC(=O)O	Test	0
+1525	n.a.	CC(C)=CCCC(C)CC=O	Test	0
+1526	n.a.	O=C(C1=CC=CC=C1)C1CCCCC1	Test	0
+1527	n.a.	CCC1CC(N(CC2=CC(C(F)(F)F)=CC(C(F)(F)F)=C2)C(C)=O)C2=C(C=CC(C(F)(F)F)=C2)N1C(=O)OC(C)C	Test	0
+1528	n.a.	O=C(C1=CC=CC=C1)C(Cl)Cl	Test	0
+1529	n.a.	CC(C)C(=O)C(C)C	Test	0
+1530	n.a.	CCCC(=O)O	Test	0
+1531	n.a.	CC1=C(Cl)C(=O)OC2=C1C=CC(O)=C2	Test	0
+1532	n.a.	NC1CCCCC1	Test	0
+1533	n.a.	CC(=O)N(C)C	Test	0
+1534	n.a.	CCC1=CC=CC(CC)=C1NC(=O)C(=O)O	Test	0
+1535	n.a.	O=C(O)CO	Test	0
+1536	n.a.	CC(=O)OC(C)(C)CC1=CC=CC=C1	Test	0
+1537	n.a.	COC1=CC=CC=C1C=O	Test	0
+1538	n.a.	CC(=O)OCCC(C)C	Test	0
+1539	n.a.	CC(=O)OC1CC2CCC1(C)C2(C)C	Test	0
+1540	n.a.	CCOC(=O)C(C)O	Test	0
+1541	n.a.	CC(C)C(=O)OCC1=CC=CC=C1	Test	0
+1542	n.a.	OCC1OC(OC2(CO)OC(CO)C(O)C2O)C(O)C(O)C1O	Test	0
+1543	n.a.	CC(=O)OCC=C(C)CCC=C(C)CCC=C(C)C	Test	0
+1544	n.a.	CCCCCCOC(C)=O	Test	0
+1545	n.a.	O=C(NC1CN2CCC1CC2)C1=NC=C2OC=CC2=C1	Test	0
+1546	n.a.	CC(C1=C(O)C(C(C)(C)C)=CC(C(C)(C)C)=C1)C1=C(O)C(C(C)(C)C)=CC(C(C)(C)C)=C1	Test	0
+1547	n.a.	CCOC(=O)C1OC1(C)C1=CC=CC=C1	Test	0
+1548	n.a.	CCC1=CC=C(O)C=C1	Test	0
+1549	n.a.	CC(C)(C)C1=CC=C(OC2CCCCC2O)C=C1	Test	0
+1550	n.a.	CCCCC1=NC2=C(C=C1)C(C1=CC3=C(C=C1)OCO3)C(C(=O)O)C2C1=CC=C(OC)C=C1CC(C)C(=O)O	Test	0
+1551	n.a.	CC1=NNC(=O)N(N=CC2=CN=CC=C2)C1	Test	0
+1552	n.a.	CCC(C)(C)C1CCC(=O)CC1	Test	0
+1553	n.a.	CCC(C1=CC=C(O)C=C1)C(CC)C1=CC=C(O)C=C1	Test	0
+1554	n.a.	CCCCCCCCCCCC(=O)O	Test	0
+1555	n.a.	CC(C)(OO)C1=CC=CC=C1	Test	0
+1556	n.a.	CC(C)(CO)CO	Test	0
+1557	n.a.	OC1=CC=C(C(C2=CC=C(O)C=C2)(C(F)(F)F)C(F)(F)F)C=C1	Test	0
+1558	n.a.	CC1(C)C(C(=O)OC(C#N)C2=CC(OC3=CC=CC=C3)=CC=C2)C1(C)C	Test	0
+1559	n.a.	CC1CC(O)CC(C)(C)C1	Test	0
+1560	n.a.	CNC(=S)NN	Test	0
+1561	n.a.	CCC1=CC=CC(CC)=C1N	Test	0
+1562	n.a.	CC(C)C1=CC2=CC(C(C)C)=C(C(C)C)C=C2C=C1S(=O)(=O)O	Test	0
+1563	n.a.	OC(CCl)CCl	Test	0
+1564	n.a.	O=C1CCCCC1	Test	0
+1565	n.a.	CCC(C)(O)CCCC(C)C	Test	0
+1566	n.a.	CCCCC(CC)(CO)CO	Test	0
+1567	n.a.	CCCCCCCCOC(=O)CCCCCCCCC(=O)OCCCCCCCC	Test	0
+1568	n.a.	CCOC(=O)CC(SP(=O)(OC)OC)C(=O)OCC	Test	0
+1569	n.a.	CCCCOC(=O)CCCCC(=O)OCCCC	Test	0
+1570	n.a.	O=NN1CCCC1	Test	0
+1571	n.a.	CC1=CC=C(N(C)C)C=C1	Test	0
+1572	n.a.	O=C1CCC(N2C(=O)C3=CC=CC=C3C2=O)C(=O)N1	Test	0
+1573	n.a.	CC1=NN(C2=C(Cl)C=C(Cl)C(NS(C)(=O)=O)=C2)C(=O)N1C(F)F	Test	0
+1574	n.a.	CCC(C)C1=CC=CC=C1O	Test	0
+1575	n.a.	CCCCOC(=O)C(C)OC1=CC=C(OC2=C(F)C=C(C#N)C=C2)C=C1	Test	0
+1576	n.a.	O=C1NSC2=CC=CC=C12	Test	0
+1577	n.a.	COP(C)(=O)OC	Test	0
+1578	n.a.	CCCCCCCCCCCCCCCCCC(=O)O	Test	0
+1579	n.a.	O=C(O)CCC(=O)O	Test	0
+1580	n.a.	CC(O)CCO	Test	0
+1581	n.a.	CC(O)CN(CCN(CC(C)O)CC(C)O)CC(C)O	Test	0
+1582	n.a.	CC(OC1=C(Cl)C=C(Cl)C=C1)C(=O)O	Test	0
+1583	n.a.	CC1(C)C(=O)N(Br)C(=O)N1Cl	Test	0
+1584	n.a.	CCCCCCCCCC[N+](C)(C)CCCCCCCCCC	Test	0
+1585	n.a.	CC1=CC(O)=CC=C1	Test	0
+1586	n.a.	CC1(C2=CC=C(OC3=CC=CC=C3)C=C2)OC(=O)N(NC2=CC=CC=C2)C1=O	Test	0
+1587	n.a.	CC12CCC(O)CC1CCC1C2CC(O)C2(C)C(C3=CC(=O)OC3)CCC12O	Test	0
+1588	n.a.	CCCCCCC1=CC=C(N)C=C1	Test	0
+1589	n.a.	CC1=CC(C)=CC(O)=C1	Test	0
+1590	n.a.	CC1=C([N+](=O)[O-])C=C([N+](=O)[O-])C=C1	Test	0
+1591	n.a.	CC1=CNC(=O)NC1=O	Test	0
+1592	n.a.	O=C1OC(C(O)CO)C(O)=C1O	Test	0
+1593	n.a.	CC1=CC(C(=O)O)=C(C2=NC(C)(C(C)C)C(=O)N2)N=C1	Test	0
+1594	n.a.	CCC(C)C1=C(OC(=O)C=C(C)C)C([N+](=O)[O-])=CC([N+](=O)[O-])=C1	Test	0
+1595	n.a.	CC1=CC=CC2=CC=CC=C12	Test	0
+1596	n.a.	COP(=O)(OC)OC(C)=CC(=O)N(C)C	Test	0
+1597	n.a.	ClCC1=CC=CC=C1CCl	Test	0
+1598	n.a.	CC1=CC=C(N)C=C1	Test	0
+1599	n.a.	CN(C)C1=CC=C(N=NC2=CC=CC=C2C(=O)O)C=C1	Test	0
+1600	n.a.	COS(=O)(=O)C1=CC=C(C)C=C1	Test	0
+1601	n.a.	CC1=CC(C2CC2)=NC(NC2=CC=CC=C2)=N1	Test	0
+1602	n.a.	N#CC1=NN(C2=C(Cl)C=C(C(F)(F)F)C=C2Cl)C(N)=C1S(=O)C(F)(F)F	Test	0
+1603	n.a.	CS(=O)(=O)C1=C(Cl)C=C(C(CC2CCCC2)C(=O)NC2=CN=CC=N2)C=C1	Test	0
+1604	n.a.	COP(=S)(OC)OC1=C(Cl)C=C(C)C=C1Cl	Test	0
+1605	n.a.	O=C1C(C2=C(O)C3=C(C=CC(S(=O)(=O)O)=C3)N2)=NC2=C1C=C(S(=O)(=O)O)C=C2	Test	0
+1606	n.a.	CCCCC(CC)COC(=O)C1=CC(C(=O)OCC(CC)CCCC)=C(C(=O)OCC(CC)CCCC)C=C1	Test	0
+1607	n.a.	O=S(=O)(C1=CC=C(Cl)C=C1)C1=C(Cl)C=C(Cl)C(Cl)=C1	Test	0
+1608	n.a.	O=[N+]([O-])C1=CC=C(CO)C=C1	Test	0
+1609	n.a.	CCCOC1=NN(C(=O)NS(=O)(=O)C2=CC=CC=C2C(=O)OC)C(=O)N1C	Test	0
+1610	n.a.	O=C(O)C1=NN(C2=CC=C(S(=O)(=O)O)C=C2)C(=O)C1	Test	0
+1611	n.a.	CCCCCCCCCCCCCCCC(=O)OCC(O)C1OC(=O)C(O)=C1O	Test	0
+1612	n.a.	CCC(=O)C(CC(C)N(C)C)(C1=CC=CC=C1)C1=CC=CC=C1	Test	0
+1613	n.a.	CCCCCCCCCCCCCCCC[N+](C)(C)CC1=CC=CC=C1	Test	0
+1614	n.a.	CCCCCCCCCl	Test	0
+1615	n.a.	NCC1=CC(C2CCN(C(=O)C3=CC=C(C#CC4=CC=CC=C4F)O3)CC2)=CC=C1	Test	0
+1616	n.a.	CCCC1CCC(=O)O1	Test	0
+1617	n.a.	CCCCNC(=O)OCC#CI	Test	0
+1618	n.a.	CCC12COCN1COC2	Test	0
+1619	n.a.	CCC1=C(Br)C(Br)=C(Br)C(Br)=C1Br	Test	0
+1620	n.a.	CCOCN(C(=O)CS(=O)(=O)O)C1=C(C)C=CC=C1CC	Test	0
+1621	n.a.	CCCCCCCC(=O)OCC(O)CO	Test	0
+1622	n.a.	O=C(O)CCCCCCCCC(=O)O	Test	0
+1623	n.a.	O=C(O)CCCCC(=O)O	Test	0
+1624	n.a.	CCCCCCCCCCCCCCCCOS(=O)(=O)O	Test	0
+1625	n.a.	COC(=O)C(C)OC1=CC=C(OC2=C(Cl)C=C(Cl)C=C2)C=C1	Test	0
+1626	n.a.	CCCCOCCOCCO	Test	0
+1627	n.a.	CCCCOP(=O)(OCCCC)OCCCC	Test	0
+1628	n.a.	CCCCCCCCOS(=O)(=O)O	Test	0
+1629	n.a.	NC1=C(Cl)C(F)=NC(OCC(=O)O)=C1Cl	Test	0
+1630	n.a.	CCCCCCCCCC(C)=O	Test	0
+1631	n.a.	CCCCCCCCCCCC(=O)N(C)CC(=O)O	Test	0
+1632	n.a.	O=C(O)CC1=CC(I)=C(OC2=CC(I)=C(O)C=C2)C(I)=C1	Test	0
+1633	n.a.	CCCN(CCC)N=O	Test	0
+1634	n.a.	O=C1NC2NC(=O)NC2N1	Test	0
+1635	n.a.	CCOC(=O)CC(CC(=O)OCC)(OC(C)=O)C(=O)OCC	Test	0
+1636	n.a.	OCCOCCOCCOCCO	Test	0
+1637	n.a.	O=S1(=O)CC(Cl)(Cl)C(Cl)(Cl)C1	Test	0
+1638	n.a.	CCN(CCC#N)C1=CC=C(N=NC2=CC=C([N+](=O)[O-])C=C2)C=C1	Test	0
+1639	n.a.	CCCOC(=O)C1=CC(O)=C(O)C(O)=C1	Test	0
+1640	n.a.	CCCO[Si](OCCC)(OCCC)OCCC	Test	0
+1641	n.a.	NC(=O)C1CO1	Test	0
+1642	n.a.	CN(C)C1=CC=C(C(C2=CC=C(N(C)C)C=C2)=C2C=CC(=[N+](C)C)C=C2)C=C1	Test	0
+1643	n.a.	COC1=CC(OC)=NC(NC(=O)NS(=O)(=O)C2=C(OCC(F)(F)F)C=CC=N2)=N1	Test	0
+1644	n.a.	O=S(=O)(O)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)F	Test	0
+1645	n.a.	O=C(Cl)OCCOC(=O)Cl	Test	0
+1646	n.a.	O=C(O)CC1=CC=CC=C1NC1=C(Cl)C=CC=C1Cl	Test	0
+1647	n.a.	CCOC(=O)C1=CC=CC=C1S(=O)(=O)NC(=O)NC1=NC(Cl)=CC(OC)=N1	Test	0
+1648	n.a.	COCCOCCC[Si](C)(O[Si](C)(C)C)O[Si](C)(C)C	Test	0
+1649	n.a.	COC1=CC=CC=C1N	Test	0
+1650	n.a.	O=C(O)C1=CN(C2=CC=C(F)C=C2)C2=CC(N3CCNCC3)=C(F)C=C2C1=O	Test	0
+1651	n.a.	O=C(O)C1=C(Cl)C=CC(Cl)=N1	Test	0
+1652	n.a.	CN(C(=O)CC1=C2C=COC2=CC=C1)C1CCC2(CCCO2)CC1N1CCCC1	Test	0
+1653	n.a.	COP(=O)(OC)OC(Br)C(Cl)(Cl)Br	Test	0
+1654	n.a.	COP(=S)(OC)OC1=CC=C(SC2=CC=C(OP(=S)(OC)OC)C=C2)C=C1	Test	0
+1655	n.a.	CN(C)C(=S)SSC(=S)N(C)C	Test	0
+1656	n.a.	CN(C)C1=CC=C(N=NS(=O)(=O)O)C=C1	Test	0
+1657	n.a.	O=C(NO)C1=CC=CC=C1	Test	0
+1658	n.a.	O=C1CN(N=CC2=CC=C([N+](=O)[O-])O2)C(=O)N1	Test	0
+1659	n.a.	CN1NN=NC1=S	Test	0
+1660	n.a.	CNC(=C[N+](=O)[O-])NCCSCC1=CC=C(CN(C)C)O1	Test	0
+1661	n.a.	CSC(C)=NOC(=O)N(C)SN(C)C(=O)ON=C(C)SC	Test	0
+1662	n.a.	COP(=O)(OC)OC	Test	0
+1663	n.a.	N#CC1=CC([N+](=O)[O-])=CC=C1N	Test	0
+1664	n.a.	N#CC1=CNC=C1C1=C2OC(F)(F)OC2=CC=C1	Test	0
+1665	n.a.	O=C1OC2(C3=CC=CC=C13)C1=C(OC3=C2C=CC(O)=C3Br)C(Br)=C(O)C=C1	Test	0
+1666	n.a.	OC1=CC=CC=C1	Test	0
+1667	n.a.	CO[Si](CCCNCCN)(OC)OC	Test	0
+1668	n.a.	O=C(O)CS	Test	0
+1669	n.a.	CO[Si](OC)(OC)C1=CC=CC=C1	Test	0
+1670	n.a.	O=C1C(O)=C(C2=CC(O)=C(O)C=C2)OC2=CC(O)=CC(O)=C12	Test	0
+1671	n.a.	ClC(Cl)(Cl)C1=CC=CC=C1	Test	0
+1672	n.a.	O=C1C2(Cl)C3(Cl)C4(Cl)C(Cl)(Cl)C5(Cl)C3(Cl)C1(Cl)C5(Cl)C24Cl	Test	0
+1673	n.a.	NC(=NCCCCCCN=C(N)N=C(N)NC1=CC=C(Cl)C=C1)N=C(N)NC1=CC=C(Cl)C=C1	Test	0
+1674	n.a.	OC1=C(Cl)C=C(Cl)C(Cl)=C1CC1=C(Cl)C(Cl)=CC(Cl)=C1O	Test	0
+1675	n.a.	NC1=CC([N+](=O)[O-])=C(Cl)C=C1	Test	0
+1676	n.a.	O=C1N(Cl)C(=O)N(Cl)C(=O)N1Cl	Test	0
+1677	n.a.	O=C(O)CN(CCN(CC(=O)O)CC(=O)O)CC(=O)O	Test	0
+1678	n.a.	O=[N+]([O-])C1=CC([N+](=O)[O-])=C(O)C=C1	Test	0
+1679	n.a.	CCC1=CC=CC(C)=C1N(C(=O)CCl)C(C)COC	Test	1
+1680	n.a.	CCOC1=CC=C(C(C)(C)COCC2=CC(OC3=CC=CC=C3)=CC=C2)C=C1	Test	1
+1681	n.a.	CC(C)(O)C1=CC=C(CNC(=O)C2=C(OC3=CC4=NON=C4C=C3)N=CC=C2)C=C1	Test	1
+1682	n.a.	CCNC1=NC(Cl)=NC(N)=N1	Test	1
+1683	n.a.	OC1=CC=C(Cl)C=C1CC1=CC=CC=C1	Test	1
+1684	n.a.	CCC(C)N(C)C(=O)C1=CC2=CC=CC=C2C(C2=CC=CC=C2Cl)=N1	Test	1
+1685	n.a.	[2H]C([2H])([2H])NC(=N[N+](=O)[O-])NCC1=CN=C(Cl)S1	Test	1
+1686	n.a.	CNC(=O)ON=C(SC)C(=O)N(C)C	Test	1
+1687	n.a.	CC(C)CCCCCCOC(=O)C1=CC=CC=C1C(=O)OCCCCCCC(C)C	Test	1
+1688	n.a.	CCCCOCCOP(=O)(OCCOCCCC)OCCOCCCC	Test	1
+1689	n.a.	CC1=C(COC(=O)C2C(C=C(Cl)C(F)(F)F)C2(C)C)C=CC=C1C1=CC=CC=C1	Test	1
+1690	n.a.	CC1=C(O)C=C(C(C)C)C=C1	Test	1
+1691	n.a.	O=C(O)C1=CC=C([N+](=O)[O-])C=C1	Test	1
+1692	n.a.	OC1CCC(C2CCCCC2)CC1	Test	1
+1693	n.a.	CC=CC(=O)C1=C(C)CCCC1(C)C	Test	1
+1694	n.a.	COC1=CC=C(CCN2CCC(NC3=NC4=CC=CC=C4N3CC3=CC=C(F)C=C3)CC2)C=C1	Test	1
+1695	n.a.	CN(C)C1=CC=C(C(=N)C2=CC=C(N(C)C)C=C2)C=C1	Test	1
+1696	n.a.	CC1=C2C=CC3=CC=CC=C3C2=CC=C1	Test	1
+1697	n.a.	CCCC=C(C=O)CC	Test	1
+1698	n.a.	CCN1C2=CC=CC=C2C2=CC=CC=C21	Test	1
+1699	n.a.	O=C(O)COC1=C(Cl)C=C(Cl)C=C1	Test	1
+1700	n.a.	COC1=CC=C(C(=O)NC2=NC3=CC=CC=C3C(NCC3=CC=CC=C3)=C2C#N)C=C1	Test	1
+1701	n.a.	CNC(=O)OC1=CC=CC(N=CN(C)C)=C1	Test	1
+1702	n.a.	C1=CC=C2C(=C1)CC1=CC=CC=C12	Test	1
+1703	n.a.	CCOC(=O)C1=CC=C(C2CCC(NCC(O)COC3=CC(NS(C)(=O)=O)=C(O)C=C3)CC2)C=C1	Test	1
+1704	n.a.	CCCCCCCCN(C)C	Test	1
+1705	n.a.	CCCCCC1C(=O)CCC1CC(=O)OC	Test	1
+1706	n.a.	C=CC(N)=O	Test	1
+1707	n.a.	OC1=C(OC2=C(Cl)C=C(Cl)C=C2)C=CC(Cl)=C1	Test	1
+1708	n.a.	O=C(NC(=O)C1=C(F)C=CC=C1F)NC1=CC(Cl)=C(OC(F)(F)C(F)F)C(Cl)=C1	Test	1
+1709	n.a.	CCC(C)N1C(=O)NC(C)=C(Br)C1=O	Test	1
+1710	n.a.	NC(=O)CN1C(=O)C=C(CCN2CCN(C3=NC=CC4=C3C=CS4)CC2)C2=C1C=C(F)C=C2	Test	1
+1711	n.a.	CCCCCCCC[Si](OCC)(OCC)OCC	Test	1
+1712	n.a.	CC1=CC([N+](=O)[O-])=C([N+](=O)[O-])C=C1	Test	1
+1713	n.a.	CC(C)OC(=O)C1=CC=CC=C1C(=O)OC(C)C	Test	1
+1714	n.a.	CC1=CC(N)=CC=C1	Test	1
+1715	n.a.	C=CC(=O)N(C)C	Test	1
+1716	n.a.	C1CCC(NC2CCCCC2)CC1	Test	1
+1717	n.a.	COC1=CC=C(C=CS(=O)(=O)NC(=O)C2=C(Cl)C=C(C)C=C2)C=C1	Test	1
+1718	n.a.	CCN(CC)C1=CC=C(N=NC2=CC=CC=C2)C=C1	Test	1
+1719	n.a.	C1=CC=C(OP(OC2=CC=CC=C2)OC2=CC=CC=C2)C=C1	Test	1
+1720	n.a.	O=C(C=CC1=CC=CC=C1)OCC1=CC=CC=C1	Test	1
+1721	n.a.	O=C(OCCCCCOC(=O)C1=CC=CC=C1)C1=CC=CC=C1	Test	1
+1722	n.a.	CON=C(C(=O)OC)C1=CC=CC=C1COC1=CC=CC=C1C	Test	1
+1723	n.a.	CCN(CC)C1=NC(C)=CC(OP(=S)(OC)OC)=N1	Test	1
+1724	n.a.	COC1=CC=C(N)C=C1	Test	1
+1725	n.a.	CC(C)(C)C1=CC(O)=C(O)C=C1	Test	1
+1726	n.a.	NC1=CC=C(N)C=C1	Test	1
+1727	n.a.	CC1=NC(C)=NC(N2CC(C)N(C3=NC(C(C)O)=NC=C3)C(C)C2)=N1	Test	1
+1728	n.a.	COP(=S)(OC)SCN1N=NC2=CC=CC=C2C1=O	Test	1
+1729	n.a.	CCCCOC(=O)C1=CC=C(O)C=C1	Test	1
+1730	n.a.	CC12CC1(C)C(=O)N(C1=CC(Cl)=CC(Cl)=C1)C2=O	Test	1
+1731	n.a.	S=C(NC1CCCCC1)NC1CCCCC1	Test	1
+1732	n.a.	C1=CC=C(NNC2=CC=CC=C2)C=C1	Test	1
+1733	n.a.	CC(=O)OC1(C(C)=O)CCC2C3C=C(Cl)C4=CC(=O)C5CC5C4(C)C3CCC21C	Test	1
+1734	n.a.	CC(C)(C)C1=CC([N+](=O)[O-])=CC(C(C)(C)C)=C1O	Test	1
+1735	n.a.	O=[N+]([O-])C1=CC=C(NC2=CC=CC=C2)C=C1	Test	1
+1736	n.a.	CCCCCC1=CC=C(O)C=C1	Test	1
+1737	n.a.	CC1=CC(O)=CC=C1Cl	Test	1
+1738	n.a.	CCCCCOC(=O)COC1=C(Cl)C=C(F)C(N2C(=O)C3=C(CCCC3)C2=O)=C1	Test	1
+1739	n.a.	COC1=C(OC)C=C2C(=C1)N=CN=C2NC1=CC=CC(Cl)=C1	Test	1
+1740	n.a.	CC1=CN(NC(=O)C2=CN=C(C3=CC=CC=N3)N=C2C)C2=C1C=C(F)C=C2	Test	1
+1741	n.a.	C#CC(C)(C)NC(=O)C1=CC(Cl)=CC(Cl)=C1	Test	1
+1742	n.a.	CC(=O)NC1=CC=C(N=NC2=C(O)C=CC(C)=C2)C=C1	Test	1
+1743	n.a.	CN1CCN(CC2=CC(C3=CC4=C(C=C3)N=C(O)O4)=CO2)C(C2=CC=C(F)C=C2)C1	Test	1
+1744	n.a.	CCCCOCCOCCOCC1=CC2=C(C=C1CCC)OCO2	Test	1
+1745	n.a.	C(=NC1CCCCC1)=NC1CCCCC1	Test	1
+1746	n.a.	O=C(CCCN1CCC(O)(C2=CC=C(Cl)C=C2)CC1)C1=CC=C(F)C=C1	Test	1
+1747	n.a.	OC1=CC2=CC=CC=C2C=C1	Test	1
+1748	n.a.	CC1=CC(C2=CC=C(N)C(C)=C2)=CC=C1N	Test	1
+1749	n.a.	O=C1NC2=C(C=C(S(=O)CCN3CCC(CC4=CC=C(F)C=C4)CC3)C=C2)O1	Test	1
+1750	n.a.	CC1=C(N=C=O)C=C(N=C=O)C=C1	Test	1
+1751	n.a.	CC(C)(C)C(O)C(CC1=CC=C(Cl)C=C1)N1C=NC=N1	Test	1
+1752	n.a.	CCOP(=S)(OCC)OC1=CC2=C(C=C1)C(C)=C(Cl)C(=O)O2	Test	1
+1753	n.a.	CCCCC(CC)COC(=O)C1=CC=C(N(C)C)C=C1	Test	1
+1754	n.a.	CCC(C)(C)C(=O)OC1CC(C)C=C2C=CC(C)C(CCC3CC(O)CC(=O)O3)C21	Test	1
+1755	n.a.	COC1=CC2=C(C=C1)N=C(N)S2	Test	1
+1756	n.a.	O=C(CC1=CC=CC=C1)C1=CC=CC=C1	Test	1
+1757	n.a.	O=[N+]([O-])C1=C(Cl)C(Cl)=C(Cl)C(Cl)=C1Cl	Test	1
+1758	n.a.	CC(N)(CC1=CC(O)=C(O)C=C1)C(=O)O	Test	1
+1759	n.a.	OCC=CC1=CC=CC=C1	Test	1
+1760	n.a.	COC1=NN(CSP(=S)(OC)OC)C(=O)S1	Test	1
+1761	n.a.	CC1=CC=C(C(C)C2=CC=C(C)C(C)=C2)C=C1C	Test	1
+1762	n.a.	CCCSP(=S)(OCC)OC1=CC=C(SC)C=C1	Test	1
+1763	n.a.	CC1=CC(C(C)(C)C2=CC=C(O)C(C)=C2)=CC=C1O	Test	1
+1764	n.a.	O=C(NCC1=C(Cl)C=C(C(F)(F)F)C=N1)C1=C(Cl)C=CC=C1Cl	Test	1
+1765	n.a.	CCCCCCCCCC1=CC=C(OCCO)C=C1	Test	1
+1766	n.a.	COP(N)(=S)OC	Test	1
+1767	n.a.	CC12CCC3C(CCC4CC(O)CCC43C)C1CCC2=O	Test	1
+1768	n.a.	C=CCC1=CC(S(=O)(=O)C2=CC=C(O)C(CC=C)=C2)=CC=C1O	Test	1
+1769	n.a.	NC(=O)N(O)C1C=CC(OC2=CC=CC(OC3=CC=C(F)C=C3)=C2)C1	Test	1
+1770	n.a.	CCN(CC)C(=O)SCC1=CC=C(Cl)C=C1	Test	1
+1771	n.a.	COC1=CC=C(N=NC2=C(OC)C=C(N=NC3=CC=C(S(=O)(=O)O)C=C3)C(C)=C2)C=C1	Test	1
+1772	n.a.	CCOP(=O)(OCC)OC1=CC=C([N+](=O)[O-])C=C1	Test	1
+1773	n.a.	OC1=CC=CC=C1O	Test	1
+1774	n.a.	CCNC1=NC(NC(C)C)=NC(Cl)=N1	Test	1
+1775	n.a.	CC(C)NC1=CC=C(NC2=CC=CC=C2)C=C1	Test	1
+1776	n.a.	N#CC1=CC=C(C2CCCC3=CN=CN32)C=C1	Test	1
+1777	n.a.	CCCC1COC(CN2C=NC=N2)(C2=C(Cl)C=C(Cl)C=C2)O1	Test	1
+1778	n.a.	CN1C=C(C2=CC=CC=C2)C(=O)C(C2=CC(C(F)(F)F)=CC=C2)=C1	Test	1
+1779	n.a.	OC1=CC=C(I)C=C1	Test	1
+1780	n.a.	NC1=CC=C(OC2=CC=CC(OC3=CC=C(N)C=C3)=C2)C=C1	Test	1
+1781	n.a.	COC(O)C(=N)CC1=CNC=N1	Test	1
+1782	n.a.	C#CC1(O)CCC2C3CCC4=CC(=O)CCC4C3CCC21C	Test	1
+1783	n.a.	C=C1CCC(O)CC1=CC=C1CCCC2(C)C1CCC2C(C)C=CC(C)C(C)C	Test	1
+1784	n.a.	CCCC(=NOCC)C1=C(O)CC(CC(C)SCC)CC1=O	Test	1
+1785	n.a.	CC1=C2CC3C(CC=C4CC(O)CCC43C)C2CCC12OC1CC(C)CNC1C2C	Test	1
+1786	n.a.	CC(C)(C)C(O)C(OC1=CC=C(Cl)C=C1)N1C=NC=N1	Test	1
+1787	n.a.	O=C(O)C1=CC(N(CC2=CN=CC=C2)C2=CC(OC(F)F)=C(OC(F)F)C=C2)=CC=C1	Test	1
+1788	n.a.	CN(C)C(=O)NC1=CC=CC(C(F)(F)F)=C1	Test	1
+1789	n.a.	COC1=CC=C(C(=O)C(Br)=CC(=O)O)C=C1	Test	1
+1790	n.a.	N#CC(Br)(Br)C(N)=O	Test	1
+1791	n.a.	ClC1=CC=CC=C1C(C1=CC=CC=C1)(C1=CC=CC=C1)N1C=CN=C1	Test	1
+1792	n.a.	CCC(C)(CC)C1=NOC(NC(=O)C2=C(OC)C=CC=C2OC)=C1	Test	1
+1793	n.a.	C#CCOC(=O)C(C)OC1=CC=C(OC2=C(F)C=C(Cl)C=N2)C=C1	Test	1
+1794	n.a.	CCCCCCS	Test	1
+1795	n.a.	C#CC1(O)CCC2C3CCC4=CC5=C(C=NO5)CC4(C)C3CCC21C	Test	1
+1796	n.a.	C1=CC=C(B(C2=CC=CC=C2)C2=CC=CC=C2)C=C1	Test	1
+1797	n.a.	NC1=C2C(=O)C3=CC=CC=C3C(=O)C2=C(N)C=C1	Test	1
+1798	n.a.	OC1=CC=C(Cl)C=C1CC1=CC(Cl)=CC=C1O	Test	1
+1799	n.a.	C=CC1(C)OC(=O)N(C2=CC(Cl)=CC(Cl)=C2)C1=O	Test	1
+1800	n.a.	CCOC1=NC(C(Cl)(Cl)Cl)=NS1	Test	1
