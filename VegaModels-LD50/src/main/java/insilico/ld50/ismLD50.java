@@ -82,7 +82,7 @@ public class ismLD50 extends InsilicoModel {
     @Override
     protected short CalculateModel() {
         try {
-            KnnPrediction = KNN.Calculate(CurMolecule, TS);
+            KnnPrediction = KNN.Calculate(CurMolecule, TS, this.KnnSkipExperimental);
         } catch (GenericFailureException ex) {
             return MODEL_ERROR;
         }

@@ -1,0 +1,16 @@
+<xml>
+   
+    <Version>
+        <Name>Drug-Induced Liver Injury (Bayer/ONTOX)</Name>
+        <Key>DILI_ONTOX</Key>
+        <Summary>Qualitative model for DILI based on a series of in-vitro essays</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_dili_bayer.dat</TS>
+        <Units></Units>
+    </Vega>
+
+    
+</xml>
