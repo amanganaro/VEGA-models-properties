@@ -6,14 +6,25 @@ import insilico.core.descriptor.DescriptorsEngine;
 import insilico.core.exception.InitFailureException;
 import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
+import insilico.core.model.InsilicoModelPython;
+import insilico.core.tools.utils.FileUtilities;
 import insilico.core.tools.utils.ModelUtilities;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class ismDiliBayer extends InsilicoModel {
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.Map;
+
+public class ismDiliBayer extends InsilicoModelPython {
 
     private static final Logger log = LogManager.getLogger(ismDiliBayer.class);
-
 
     private static final long serialVersionUID = 1L;
 
@@ -22,11 +33,39 @@ public class ismDiliBayer extends InsilicoModel {
     public ismDiliBayer() throws InitFailureException {
         super(ModelData);
 
-        this.ResultsSize = 2;
+        this.ResultsSize = 31;
         this.ResultsName = new String[ResultsSize];
-        this.ResultsName[0] = "Ahr";
-        this.ResultsName[1] = "PPARg";
-        // da completare con tutti gli output aggiuntivi
+        this.ResultsName[0] = "DILI_secure";
+        this.ResultsName[1] = "DILI_sensitive";
+        this.ResultsName[2] = "DILI_majority";
+        this.ResultsName[3] = "BSEPi";
+        this.ResultsName[4] = "BSEPs";
+        this.ResultsName[5] = "PGPi";
+        this.ResultsName[6] = "PGPs";
+        this.ResultsName[7] = "MRP4i";
+        this.ResultsName[8] = "MRP3i";
+        this.ResultsName[9] = "MRP3s";
+        this.ResultsName[10] = "MRP2i";
+        this.ResultsName[11] = "MRP2s";
+        this.ResultsName[12] = "BCRPi";
+        this.ResultsName[13] = "BCRPs";
+        this.ResultsName[14] = "OATP1B1i";
+        this.ResultsName[15] = "OATP1B3i";
+        this.ResultsName[16] = "NRF2";
+        this.ResultsName[17] = "LXR";
+        this.ResultsName[18] = "AHR";
+        this.ResultsName[19] = "PPARa";
+        this.ResultsName[20] = "PPARg";
+        this.ResultsName[21] = "PXR";
+        this.ResultsName[22] = "FXR";
+        this.ResultsName[23] = "MTX_MP";
+        this.ResultsName[24] = "MTX_RC";
+        this.ResultsName[25] = "MTX_FOM";
+        this.ResultsName[26] = "PLD";
+        this.ResultsName[27] = "PLD_HTS";
+        this.ResultsName[28] = "HTX";
+        this.ResultsName[29] = "ERS";
+        this.ResultsName[30] = "ARE";
 
         this.DescriptorsSize = 0;
         this.DescriptorsNames = new String[DescriptorsSize];
@@ -36,6 +75,18 @@ public class ismDiliBayer extends InsilicoModel {
     @Override
     protected short CalculateDescriptors(DescriptorsEngine descriptorsEngine) {
         try {
+            //TEMPPPP to put into pythonSilicoModel
+            //save into input.csv the smiles to be processed
+            FileWriter myWriter = new FileWriter("input.csv");
+            myWriter.write("smiles\r\n"+CurMolecule.GetSMILES());
+            myWriter.close();
+
+            Descriptors cdddDescriptors = new Descriptors(CurMolecule.GetSMILES());
+            boolean result=cdddDescriptors.calculateDescriptors();
+
+            if(!result){
+                return DESCRIPTORS_ERROR;
+            }
 
             Descriptors = new double[DescriptorsSize];
 
@@ -49,24 +100,33 @@ public class ismDiliBayer extends InsilicoModel {
     @Override
     protected short CalculateModel() {
 
-        // qui ci vuole il python
-        double Prediction = 0;
-
+        Map<String, String> Prediction;
         try {
 
-            //Prediction = qualcosa che viene da python
+            boolean isEnvSet = configureCondaEnv();
+            if(isEnvSet){
+                Prediction = super.calculatePythonModel("DILI_secure_mean");
+            }
+            else{
+                Prediction = null;
+            }
 
-            // il risultato principale e' settato con prediction
-            CurOutput.setMainResultValue(Prediction);
 
-            // qui si settano tutti gli altri risultati addizionali
-            String[] Res = new String[ResultsSize];
-            Res[0] = String.valueOf(Format_3D.format(Prediction));
-            Res[1] = String.valueOf(Format_3D.format(Math.pow(10,-Prediction)));
-            // Res [2] etc
-            CurOutput.setResults(Res);
+            if(Prediction != null) {
 
-            return MODEL_CALCULATED;
+                CurOutput.setMainResultValue(Double.parseDouble(Prediction.get(ResultsName[0])));
+
+                String[] Res = new String[ResultsSize];
+                for(int i=0; i<ResultsSize; i++){
+                    Res[i] = Prediction.get(ResultsName[i]+"_class");
+                }
+
+                CurOutput.setResults(Res);
+                return MODEL_CALCULATED;
+            }
+            else{
+                return MODEL_ERROR;
+            }
 
         } catch (Exception ex){
             return MODEL_ERROR;
@@ -127,5 +187,30 @@ public class ismDiliBayer extends InsilicoModel {
 
         // Sets assessment status
         CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_GRAY);
+    }
+
+    @Override
+    public String getCondaEnv() {
+        return "liver-mtnn";
+    }
+
+    public boolean configureCondaEnv() throws IOException, InterruptedException {
+        boolean isSet=false;
+
+        try {
+            URL resource = ismDiliBayer.class.getResource("python" + File.separator + getCondaEnv()+".yml");
+            if(resource != null){
+                Path pathToEnvFile= Paths.get(resource.toURI()).toAbsolutePath();
+                isSet = super.configureCondaEnv(pathToEnvFile);
+            }
+            else{
+                log.error("Cannot find file {}", getCondaEnv()+".yml");
+                return false;
+            }
+        } catch (URISyntaxException e) {
+            throw new RuntimeException(e);
+        }
+
+        return isSet;
     }
 }
