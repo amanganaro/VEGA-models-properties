@@ -8,6 +8,7 @@ import org.apache.logging.log4j.Logger;
 import utils.ModelsDeployment;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class mainScriptDili {
     private static final Logger log = LogManager.getLogger(mainScriptDili.class);
 
 
-    public static void main(String[] args) throws GenericFailureException, InitFailureException {
+    public static void main(String[] args) throws GenericFailureException, InitFailureException, IOException {
         InsilicoModel model = new ismDiliBayer();
 
 //        ModelsDeployment.BuildDataset(model, "out_ts");

@@ -1,46 +1,44 @@
 import insilico.core.exception.GenericFailureException;
 import insilico.core.python.Communication;
 import insilico.core.tools.utils.FileUtilities;
-import insilico.core.tools.utils.GeneralUtilities;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Descriptors {
 
     Communication communication;
-
     private static final Logger log = LogManager.getLogger(Descriptors.class);
+    private final boolean CHECK_SETUP;
+    private final ismDiliBayer ismDiliBayer;
 
-    public Descriptors(String smiles) throws GenericFailureException {
+    public Descriptors(ismDiliBayer model) {
+        ismDiliBayer = model;
+        CHECK_SETUP = ismDiliBayer.CHECK_SETUP;
+
         String uh=System.getProperty("user.home");
         communication = new Communication();
         communication.setAdditionalEnvVariables(Map.of(
                 "PATH", uh+"\\miniconda3\\Scripts\\;"+uh+"\\miniconda3\\;"+
                 "C:\\Program Files\\Python313\\Scripts\\;C:\\Program Files\\Python313\\;"));
-        FileUtilities.WriteByteArrayToFile("input.csv", smiles.getBytes());
     }
 
     public boolean calculateDescriptors() throws GenericFailureException, IOException, InterruptedException, URISyntaxException {
-
-        boolean isEnvSet = configureCondaEnv();
+        boolean isEnvSet = CHECK_SETUP ? configureCondaEnv() : true;
         boolean result = false;
         if (isEnvSet) {
             result = communication.executeCommandInCondaEnv("cddd", "cddd",
-                    "--input input.csv", "--output descriptors.csv", "--smiles_header smiles");
-            File file = new File("input.csv");
-            file.delete();
+                    "--input "+ismDiliBayer.getInputTempFile(), " --output "+ ismDiliBayer.getDescriptorsTempFile(),
+                    " --smiles_header smiles");
+            File f = new File(ismDiliBayer.getInputTempFile());
+            f.delete();
         }
-
         return result;
     }
 
@@ -78,7 +76,7 @@ public class Descriptors {
             if(isSet){
                 isSet = FileUtilities.copyExternalData(source, destination);
             }else{
-                //TODO gestire con un eccezione?
+                log.error("Error in set up conda environment {}",getCondaEnv());
             }
         }
 

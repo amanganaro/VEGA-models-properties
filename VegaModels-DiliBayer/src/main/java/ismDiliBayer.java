@@ -3,10 +3,12 @@ import insilico.core.ad.ADCheckDescriptorRange;
 import insilico.core.ad.ADCheckIndicesQuantitative;
 import insilico.core.ad.item.*;
 import insilico.core.descriptor.DescriptorsEngine;
+import insilico.core.exception.GenericFailureException;
 import insilico.core.exception.InitFailureException;
 import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
 import insilico.core.model.InsilicoModelPython;
+import insilico.core.molecule.InsilicoMolecule;
 import insilico.core.tools.utils.FileUtilities;
 import insilico.core.tools.utils.ModelUtilities;
 import org.apache.logging.log4j.LogManager;
@@ -30,7 +32,11 @@ public class ismDiliBayer extends InsilicoModelPython {
 
     private static final String ModelData = "/data/model_dili_bayer.xml";
 
-    public ismDiliBayer() throws InitFailureException {
+    protected final boolean CHECK_SETUP = false;
+
+    protected String descriptorsTempFile = "";
+
+    public ismDiliBayer() throws InitFailureException, GenericFailureException, IOException {
         super(ModelData);
 
         this.ResultsSize = 31;
@@ -70,18 +76,19 @@ public class ismDiliBayer extends InsilicoModelPython {
         this.DescriptorsSize = 0;
         this.DescriptorsNames = new String[DescriptorsSize];
 
+        File f = File.createTempFile("input-dili-bayer", ".csv");
+        inputTempFile = f.getAbsolutePath();
+        f=File.createTempFile("output-dili-bayer", ".csv");
+        outputTempFile = f.getAbsolutePath();
+        f=File.createTempFile("descriptors-dili-bayer", ".csv");
+        descriptorsTempFile = f.getAbsolutePath();
     }
 
     @Override
     protected short CalculateDescriptors(DescriptorsEngine descriptorsEngine) {
         try {
-            //TEMPPPP to put into pythonSilicoModel
-            //save into input.csv the smiles to be processed
-            FileWriter myWriter = new FileWriter("input.csv");
-            myWriter.write("smiles\r\n"+CurMolecule.GetSMILES());
-            myWriter.close();
-
-            Descriptors cdddDescriptors = new Descriptors(CurMolecule.GetSMILES());
+            prepareInputData();
+            Descriptors cdddDescriptors = new Descriptors(this);
             boolean result=cdddDescriptors.calculateDescriptors();
 
             if(!result){
@@ -102,19 +109,25 @@ public class ismDiliBayer extends InsilicoModelPython {
 
         Map<String, String> Prediction;
         try {
-
-            boolean isEnvSet = configureCondaEnv();
+            boolean isEnvSet = CHECK_SETUP ? configureCondaEnv() : true;
             if(isEnvSet){
-                Prediction = super.calculatePythonModel("DILI_secure_mean");
+                URL resource = Descriptors.class.getResource("python" + File.separator + "app.py");
+                if(resource != null){
+                    Path pathToScriptFile = Paths.get(resource.toURI()).toAbsolutePath();
+                    Prediction=super.calculatePythonModel(pathToScriptFile, descriptorsTempFile, outputTempFile);
+                }
+                else{
+                    log.error("Cannot find file app.py");
+                    Prediction = null;
+                }
             }
             else{
                 Prediction = null;
             }
 
-
             if(Prediction != null) {
 
-                CurOutput.setMainResultValue(Double.parseDouble(Prediction.get(ResultsName[0])));
+                CurOutput.setMainResultValue(Double.parseDouble(Prediction.get(ResultsName[0]+"_class")));
 
                 String[] Res = new String[ResultsSize];
                 for(int i=0; i<ResultsSize; i++){
@@ -122,6 +135,10 @@ public class ismDiliBayer extends InsilicoModelPython {
                 }
 
                 CurOutput.setResults(Res);
+
+                File file = new File(descriptorsTempFile);
+                file.delete();
+
                 return MODEL_CALCULATED;
             }
             else{
@@ -212,5 +229,13 @@ public class ismDiliBayer extends InsilicoModelPython {
         }
 
         return isSet;
+    }
+
+    public String getInputTempFile() {
+        return inputTempFile;
+    }
+
+    public String getDescriptorsTempFile() {
+        return descriptorsTempFile;
     }
 }
