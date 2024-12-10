@@ -46,7 +46,7 @@
             Data for the dependent variable for the external validation set: Yes
             Other information about the training set: The initial dataset was divided five times into sets (training, calibration, and validation) using a random distribution.
             Other information about the external validation set: Non-available</Dataset>
-        <Descriptors>Type of model: One-variable model based on SMILES-derived descriptors.
+        <insilico.dilibayer.Descriptors>Type of model: One-variable model based on SMILES-derived descriptors.
             Explicit algorithm: CORAL (http://www.insilico.eu/coral/), which is based on the Monte Carlo method.
 
             Chromosomal aberrations = -0.604 (± 0.002) +    0.0614 (± 0.0001) * DCW(1,13)
@@ -58,7 +58,7 @@
             CORAL 2017, Istituto di Ricerche Farmacologiche Mario Negri IRCCS, 20156 Milano, Italy
             http://www.insilico.eu/coral/
             The model uses optimal 2D descriptors.
-            Descriptors in the model: SMILES-derived optimal descriptor DCW(T*,N*)
+            insilico.dilibayer.Descriptors in the model: SMILES-derived optimal descriptor DCW(T*,N*)
             Descriptor selection: SMILES-derived optimal descriptor, according to the equation:
 
 
@@ -67,7 +67,7 @@
             Algorithm and descriptor generation: The Monte Carlo Method
             Software name and version for descriptor generation:
             CORAL 2017, Istituto di Ricerche Farmacologiche Mario Negri IRCCS, 20156 Milano, Italy
-            http://www.insilico.eu/coral/</Descriptors>
+            http://www.insilico.eu/coral/</insilico.dilibayer.Descriptors>
         <Applicability_domain>
             <AD>
                 <Name>Similar_Molecules</Name>

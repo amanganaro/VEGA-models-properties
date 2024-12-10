@@ -23,9 +23,9 @@
             Data for the dependent variable for the external validation set: NA
             Other information about the training set: Training set: n = 63
             Other information about the external validation set: Training set: n = 38</Dataset>
-        <Descriptors>The model is based on Random Forest (RF) approach. In particular Machine Learning Algorithm for Regression has been used. The number of trees selected for the RF were finely tuned by identifying the onset of the plateau of the curve describing the Q2LOO as a function of the number of trees.
+        <insilico.dilibayer.Descriptors>The model is based on Random Forest (RF) approach. In particular Machine Learning Algorithm for Regression has been used. The number of trees selected for the RF were finely tuned by identifying the onset of the plateau of the curve describing the Q2LOO as a function of the number of trees.
             The "randomForest" v. 4.6.14 in R v. 3.4.3 have been used. The "randomForest" package provides an R interface to the Fortran programs by Breiman and Cutlert (http://www.stat.berkeley.edu/users/breiman/).
-            The model uses PaDEL-Descriptors v. 2.21 PaDEL computes the 2D descriptors. "VSURF" v. 1.0.4 package was used.</Descriptors>
+            The model uses PaDEL-insilico.dilibayer.Descriptors v. 2.21 PaDEL computes the 2D descriptors. "VSURF" v. 1.0.4 package was used.</insilico.dilibayer.Descriptors>
         <Applicability_Domain>
             <AD>
                 <Name>Similar_Molecules</Name>

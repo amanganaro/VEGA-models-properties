@@ -113,7 +113,7 @@ An integrated model, Model C, was arranged by cascading the two models: Model A,
 Data mining with SVM coupled with knowledge based SAs for the correction of FNs.
 The model consists of a complex architecture based on support vector machines model revised by structural alerts. First, the SVM identifies mutagens. The predicted non-mutagens are then processed with the second model, Model B, based on two sets of structural alerts. If an alert of the first set is found (see 4.3 descriptors from #26 to #37), the chemical is labelled "mutagen"; if an alert of the second set is found (see 4.3 descriptors from #38 to #41), the chemical is labelled "suspicious mutagen". Unaffected chemicals are finally labelled "non-mutagens".. An integrated model, Model C, was arranged by cascading the two models: Model A, a trained SVM classifier with an additional Model B for false negative (FN) removal based on SAs.
 </algorithm_explicit>
-<algorithms_descriptors chapter="4.3"  help="" name="Descriptors in the model">
+<algorithms_descriptors chapter="4.3"  help="" name="insilico.dilibayer.Descriptors in the model">
 [1]SsCH3_acnt Count of all ( – CH3 ) groups in molecule 
 [2]SdCH2_acnt Count of all ( = CH2 ) groups in molecule 
 [3]SssCH2_acnt Count of all ( – CH2 – ) groups in molecule 
@@ -174,7 +174,7 @@ http://www.talete.mi.it
 [5] VEGA 
 https://www.vegahub.eu
 </descriptors_generation_software>
-<descriptors_chemicals_ratio chapter="4.7"  help="" name="Chemicals/Descriptors ratio">
+<descriptors_chemicals_ratio chapter="4.7"  help="" name="Chemicals/insilico.dilibayer.Descriptors ratio">
 3367 chemicals (training) / 1 descriptors = 82.1
 </descriptors_chemicals_ratio>
 </QSAR_Algorithm>
@@ -210,7 +210,7 @@ where: rare is calculated on the number of fragments found in the molecule and f
 
 missing is calculated on the number of fragments found in the molecule and never found in the training set as following: if the number is 0, missing is set to 1.0; if the number is 1, missing is set to 0.6; otherwise missing is set to 0.4
 
-Descriptors Range (IdxDescRange) index is calculated as 1.0 if all molecular descriptors used in the prediction fall within the range of descriptors used in the whole training set, 0.0 otherwise.
+insilico.dilibayer.Descriptors Range (IdxDescRange) index is calculated as 1.0 if all molecular descriptors used in the prediction fall within the range of descriptors used in the whole training set, 0.0 otherwise.
 
 AD final index is calculated as following:
 

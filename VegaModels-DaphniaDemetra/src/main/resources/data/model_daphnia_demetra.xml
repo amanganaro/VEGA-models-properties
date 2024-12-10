@@ -16,7 +16,7 @@
         <Description>The model provides a quantitative prediction for Daphnia Magna LC50 (48 hour), given in -log(mol/l) and its conversion in mg/L. It is implemented inside the VEGA online platform, accessible at: http://www.vega-qsar.eu/
             The model is a re-implementation of the original model developed inside the Demetra EU-funded project: http://www.demetra-tox.net/</Description>
         <Model>The model is a QSAR model for acute toxicity for Water Flea (Daphnia Magna), as implemented in the Demetra project and documented in: E. Benfenati (Editor) “Quantitative Structure-Activity Relationship (QSAR) for Pesticide Regulatory Purposes” Elsevier, 2007. The model is a hybrid model base on multiple linear regressions, using on 16 molecular descriptors. </Model>
-        <Descriptors>The descriptors used are the following:
+        <insilico.dilibayer.Descriptors>The descriptors used are the following:
             - BEHm1: highest eigenvalue n. 1 of Burden matrix / weighted by atomic masses
             - Eig1p: Leading eigenvalue from polarizability weighted distance matrix
             - IC2: information content index (neighborhood symmetry of 2-order)
@@ -32,7 +32,7 @@
             - S-107: R2S / RS-SR; Class: atom-centred fragments
             - SRW05: self-returning walk count of order 05
             - T(F..Cl): sum of topological distances between F..Cl
-            - WA: mean Wiener index</Descriptors>
+            - WA: mean Wiener index</insilico.dilibayer.Descriptors>
         <Applicability_Domain>
             <AD>
                 <Name>Similar_Molecules</Name>

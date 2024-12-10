@@ -77,7 +77,7 @@
             - F07[O-F]: Frequency of O - F at topological distance 7
             The descriptors were calculated, in the original model, by means of Dragon software and are now
             entirely calculated by an in-house software module in which they are implemented as described in: R.
-            Todeschini and V. Consonni, Molecular Descriptors for Chemoinformatics, Wiley-VCH, 2009.
+            Todeschini and V. Consonni, Molecular insilico.dilibayer.Descriptors for Chemoinformatics, Wiley-VCH, 2009.
             The model provides, as an additional information, the value of the Euclidean distance of the molecular
             descriptors of the input molecule from the weights of the neuron in which the molecule is classified.
             The weights represent the center of the neuron (in the space of molecular descriptors), so the calculated

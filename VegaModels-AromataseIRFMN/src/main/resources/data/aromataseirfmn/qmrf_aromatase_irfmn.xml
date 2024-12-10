@@ -89,7 +89,7 @@ The Aromatase activity model (IRFMN) - v 1.0.1 model is a random Forest develope
 Weighted Random Forest
 Data sampling for each tree was done with replacement, and the default number of randomly chosen descriptors at each split was the square root, these attributes being different for each tree. A weighted importance has given to the errors related to conazoles.
 </algorithm_explicit>
-<algorithms_descriptors chapter="4.3"  help="" name="Descriptors in the model">
+<algorithms_descriptors chapter="4.3"  help="" name="insilico.dilibayer.Descriptors in the model">
 [1]SpMax2_Bh(m)
 [2]SpMax2_Bh(p)
 [3]SpMaxA_AEA(dm)
@@ -113,7 +113,7 @@ Data sampling for each tree was done with replacement, and the default number of
 From 3850 2D descriptors has been applied: Variance filter, Correlation filter, VSURF. Feature selection has then applied only on the training set. After discarding all the descriptors that correlated over 0.95 (Pearson) with at least another, a Feature Selection has been performed with R package VSURF [3]. VSURF is a three-steps variable selection based the RF algorithm. The first step is based on evaluating variable importance of descriptors selecting a certain threshold. The second step finds important descriptors highly closely related to the response variable (interpretation step) and the third step (prediction step) evaluates the number of descriptors that are sufficient to have good performance. In order to treat unbalancing of dataset, the parameter strata (vector for stratified sampling) is added to assure that all the classes of the dataset are passed in every tree grown.
 </descriptors_selection>
 <descriptors_generation chapter="4.5"  help="" name="Algorithm and descriptor generation">
-Descriptors are generated starting with SMILES with Dragon 7.0 
+insilico.dilibayer.Descriptors are generated starting with SMILES with Dragon 7.0
 </descriptors_generation>
 <descriptors_generation_software chapter="4.6"  help="" name="Software name and version for descriptor generation">
 Dragon 7.0
@@ -121,7 +121,7 @@ Calculation of several sets of molecular descriptors from molecular geometries (
 Kode srl. Via Nino Pisano, 14 56122 Pisa (PI) - Italy, info@kode-solutions.net www.kode-solutions.net
 https://chm.kode-solutions.net/products_dragon.php
 </descriptors_generation_software>
-<descriptors_chemicals_ratio chapter="4.7"  help="" name="Chemicals/Descriptors ratio">
+<descriptors_chemicals_ratio chapter="4.7"  help="" name="Chemicals/insilico.dilibayer.Descriptors ratio">
  3254/18
 </descriptors_chemicals_ratio>
 </QSAR_Algorithm>
@@ -196,7 +196,7 @@ All
 Dataset n = 2602
 </other_info>
 <preprocessing chapter="6.6"  help="" name="Pre-processing of data before modelling">
-Descriptors are centered and autoscaled before modeling
+insilico.dilibayer.Descriptors are centered and autoscaled before modeling
 </preprocessing>
 <goodness_of_fit chapter="6.7"  help="" name="Statistics for goodness-of-fit">
 Accuracy 0.94, MCC 0.74, n 2602

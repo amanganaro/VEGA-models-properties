@@ -103,7 +103,7 @@ The rCLB is the correlation coefficient for the experimental and calculated valu
 calibration set. MAE is the mean absolute error. The +MAE CLB is calculated for positive Δk; the −MAE CLB is calculated for negative Δk.
 For this model, the target function TF2 gives better models in comparison with the Monte Carlo optimisation based on theTF1.
 </algorithm_explicit>
-<algorithms_descriptors chapter="4.3"  help="" name="Descriptors in the model">
+<algorithms_descriptors chapter="4.3"  help="" name="insilico.dilibayer.Descriptors in the model">
 Applied the correlation weights for standard SMILES-attributes S, SS, and SSS together with the correlation weights of HARD codes. 
 </algorithms_descriptors>
 <descriptors_selection chapter="4.4"  help="" name="Descriptor selection">
@@ -129,7 +129,7 @@ CORAL 2019 (modified)
 Istituto di Ricerche Farmacologiche Mario Negri IRCCS - 20124 Milano, Italy 
 http://www.insilico.eu/coral/
 </descriptors_generation_software>
-<descriptors_chemicals_ratio chapter="4.7"  help="" name="Chemicals/Descriptors ratio">
+<descriptors_chemicals_ratio chapter="4.7"  help="" name="Chemicals/insilico.dilibayer.Descriptors ratio">
 NA
 </descriptors_chemicals_ratio>
 </QSAR_Algorithm>
@@ -176,7 +176,7 @@ where: rare is calculated on the number of fragments found in the molecule and f
 
 missing is calculated on the number of fragments found in the molecule and never found in the training set as following: if the number is 0, missing is set to 1.0; if the number is 1, missing is set to 0.6; otherwise missing is set to 0.4
 
-Descriptors Range (IdxDescRange) index is calculated as 1.0 if all molecular descriptors used in the prediction fall within the range of descriptors used in the whole training set, 0.0 otherwise.
+insilico.dilibayer.Descriptors Range (IdxDescRange) index is calculated as 1.0 if all molecular descriptors used in the prediction fall within the range of descriptors used in the whole training set, 0.0 otherwise.
 
 AD final index is calculated as following:
 

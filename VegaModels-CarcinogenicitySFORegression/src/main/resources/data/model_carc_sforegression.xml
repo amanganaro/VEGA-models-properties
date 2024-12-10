@@ -16,7 +16,7 @@
     <Guide>
         <Description>The model is a Multi-layer perceptron – artificial neural networks (MLP-ANNs) that provides prediction for the oral slope factor (OSF) (Expert assessment based on presence of carcinogenic effects in rodents).</Description>
         <Dataset>The model is based on a dataset of including 315 compounds with OSF data from the Risk Assessment Information System (RAIS) Toxicity values database (https://rais.ornl.gov). Data cover different pollutants categories including organic and inorganic compounds such as dioxins, polycyclic aromatic hydrocarbons (PAHs, pesticides and metals frequently found in contaminated sites.1110 values were retrieved for oral slope factor (OSF, mg/kg-day)-1). Only compounds with continuous data were used for modelling. OSF values were converted in logarithmic units for modelling purposes. Canonical SMILES were retrieved for each chemical from two sources (JChem for Office and ChemID plus) then chemicals showing incongruences between the various sources were rejected. Most of the QSAR models cannot handle inorganic compounds, metals and metal complexes, organic salts and data related to mixtures and these compounds have been also rejected. Ionized structures were neutralized and counterions eliminated. The datasets were further checked for the presence of duplicates. The entire data set was randomly split into a training set (TrS) and a test set (TS) containing the 80% and 20% of the modeling set respectively.</Dataset>
-        <Descriptors>The model is based on a Multi-layer perceptron – artificial neural network (MLP-ANN) implementation in KNIME.
+        <insilico.dilibayer.Descriptors>The model is based on a Multi-layer perceptron – artificial neural network (MLP-ANN) implementation in KNIME.
 
             The model uses the following descriptors:
 
@@ -33,7 +33,7 @@
             [11]B08[Cl-Cl] Presence/absence of Cl - Cl at topological distance 8
             [12]F04[O-Cl] Frequency of O - Cl at topological distance 4
 
-            The descriptors have been generated with VEGA software using CDK libraries, while feature selection was performed with the “gaselect” R package that implements partial least square - genetic algorithm (PLS-GA) and repeated double cross-validation for statistical evaluation of subset of descriptors. The following settings were applied for the PLS-GA: initial population 2000; number of iterations 5000; minimum number of variable 5; maximum number of variable 12. Optimal subsets of descriptors returned by the final iteration of the run were used for model derivation, using R2 as fitness function.</Descriptors>
+            The descriptors have been generated with VEGA software using CDK libraries, while feature selection was performed with the “gaselect” R package that implements partial least square - genetic algorithm (PLS-GA) and repeated double cross-validation for statistical evaluation of subset of descriptors. The following settings were applied for the PLS-GA: initial population 2000; number of iterations 5000; minimum number of variable 5; maximum number of variable 12. Optimal subsets of descriptors returned by the final iteration of the run were used for model derivation, using R2 as fitness function.</insilico.dilibayer.Descriptors>
         <Applicability_Domain>
             <AD>
                 <Name>Similar_Molecules</Name>

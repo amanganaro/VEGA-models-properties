@@ -22,7 +22,7 @@
             The buffer solution at a pH of 7.4
             The permeation coefficients were measured under comparable circumstances.
             The model is an application of the ten Berge equation to the entire dataset. For this reason, a splitting into training and test set is not provided.</Dataset>
-        <Descriptors>It is a PBK/D model based on the following equation:
+        <insilico.dilibayer.Descriptors>It is a PBK/D model based on the following equation:
             log[𝐾𝑝𝑠𝑘−𝑤𝑎𝑡𝑒𝑟] =log[1/(1/𝑘𝑙𝑖𝑝+𝑘𝑝𝑜𝑙) +1/𝑘𝑎𝑞]
             Where:
             ▪𝐾𝑝𝑜𝑙 = 𝑏4/𝑀𝑊𝑏5
@@ -43,7 +43,7 @@
             ➢b7= 1,9
             The model is based on the following descriptors:
             [1] Molecular weight (MW). MW was calculated using KNIME platform.
-            [2] Octanol water partition coefficient (log(Ko/w)). For the calculation of this descriptor, the AlogP VEGA model has been used.</Descriptors>
+            [2] Octanol water partition coefficient (log(Ko/w)). For the calculation of this descriptor, the AlogP VEGA model has been used.</insilico.dilibayer.Descriptors>
         <Applicability_Domain>
             <AD>
                 <Name>Similar_Molecules</Name>

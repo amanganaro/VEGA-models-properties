@@ -33,7 +33,7 @@
             Data for the dependent variable for the external validation set: All
             Other information about the training set: The initial dataset was divided into three sets (training, calibration, and validation) using a random distribution.
             Other information about the external validation set: NA</Dataset>
-        <Descriptors>Type of model: One variable model based on 2D descriptor
+        <insilico.dilibayer.Descriptors>Type of model: One variable model based on 2D descriptor
             Explicit algorithm: The Monte Carlo method
             LogNOAEL = 2.1680835 + 0.0 737528 * DCW( 1,30) , where T*=1 and N*=30.
             Algorithm and descriptor generation: The Monte Carlo Method
@@ -41,14 +41,14 @@
             CORAL 2016, Istituto di Ricerche Farmacologiche Mario Negri IRCCS, 20156 Milano, Italy
             http://www.insilico.eu/coral/
             The model uses optimal 2D descriptors.
-            Descriptors in the model: NA
+            insilico.dilibayer.Descriptors in the model: NA
             Descriptor selection: 2D optimal descriptor
 
             DCW(T,N) = CW(NOSP) + CW(HALO) + CW(BOND) + ∑ CW(EC0k ) + ∑CW(SAk)
             Algorithm and descriptor generation: The Monte Carlo Method
             Software name and version for descriptor generation:
             CORAL 2016, Istituto di Ricerche Farmacologiche Mario Negri IRCCS, 20156 Milano, Italy
-            http://www.insilico.eu/coral/</Descriptors>
+            http://www.insilico.eu/coral/</insilico.dilibayer.Descriptors>
         <Applicability_domain>
             <AD>
                 <Name>Similar_Molecules</Name>

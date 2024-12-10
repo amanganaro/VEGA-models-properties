@@ -86,7 +86,7 @@ The model provides a qualitative prediction for Androgen Receptor (AR) effects m
 Structural fragment features 
 It is a two steps model developed with SARpy. In the first step SARpy was used to model the two classes, identifying a set of 127 rules (17 for active and 110 for inactive). Then, a second set of 22rules identifying active compounds is applied to unpredicted compounds only. Compounds are labelled as inactive if matched ether by an inactive SA in the first step or not matched by the latter step. More precisely: If a compound matches active class when applying the first ruleset the output is Active; If a compound matches inactive class when applying the first ruleset the output is Inactive; If a compound matches active class when applying the second ruleset the output is Probably Active; If a compound does not match any class when applying the first ruleset nor the second one the output is Probably Inactive
 </algorithm_explicit>
-<algorithms_descriptors chapter="4.3"  help="" name="Descriptors in the model">
+<algorithms_descriptors chapter="4.3"  help="" name="insilico.dilibayer.Descriptors in the model">
  The model is a structure-based model and does not make use of descriptors.
 </algorithms_descriptors>
 <descriptors_selection chapter="4.4"  help="" name="Descriptor selection">
@@ -98,7 +98,7 @@ The first set of structural alerts was extracted relative only for the active cl
 <descriptors_generation_software chapter="4.6"  help="" name="Software name and version for descriptor generation">
 NA
 </descriptors_generation_software>
-<descriptors_chemicals_ratio chapter="4.7"  help="" name="Chemicals/Descriptors ratio">
+<descriptors_chemicals_ratio chapter="4.7"  help="" name="Chemicals/insilico.dilibayer.Descriptors ratio">
 1667 chemicals/ 149 structural alerts
 </descriptors_chemicals_ratio>
 </QSAR_Algorithm>

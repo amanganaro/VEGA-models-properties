@@ -99,7 +99,7 @@ Classification model.
 The algorithm generates molecular substructures of arbitrary complexity, and the fragment candidates to become SAs are automatically selected on the basis of their prediction performance in a learning set.
 The output of SARpy consists in a set of rules in the form: IF contains THEN the script is described in the publication: Ferrari T, Gini G, Bakhtyari NG, Benfenati E. Mining toxicity structural alerts from SMILES: A new way to derive Structure Activity Relationships. In: Computational Intelligence and Data Mining (CIDM), IEEE Symposium on: 11–15 April 2011: 120–127 
 </algorithm_explicit>
-<algorithms_descriptors chapter="4.3"  help="" name="Descriptors in the model">
+<algorithms_descriptors chapter="4.3"  help="" name="insilico.dilibayer.Descriptors in the model">
 Here the list of the 127 new SA found:
 SA 1: CN[N+]=O 
 SA 2: NNC=O 
@@ -244,7 +244,7 @@ VEGA
 https://www.vegahub.eu
 https://www.vegahub.eu/portfolio-item/sarpy/
 </descriptors_generation_software>
-<descriptors_chemicals_ratio chapter="4.7"  help="" name="Chemicals/Descriptors ratio">
+<descriptors_chemicals_ratio chapter="4.7"  help="" name="Chemicals/insilico.dilibayer.Descriptors ratio">
 NA
 </descriptors_chemicals_ratio>
 </QSAR_Algorithm>
@@ -290,7 +290,7 @@ AD final index is calculated as following:
 </app_domain_description>
 <app_domain_method chapter="5.2"  help="" name="Method used to assess the applicability domain">
 The Applicability Domain and chemical similarity is measured with the algorithm developed for VEGA. Full details are in the VEGA website (www.vegahub.eu), including the open access paper describing it [5]. The AD also evaluates the correctness of the prediction on similar compounds (accuracy), the consistency between the predicted value for the target compound and the experimental values of the similar compounds, the range of the descriptors, and the presence of unusual fragments, using atom centred fragments.
-This description briefly mentions the different types of indices (Similarity index, Accuracy index, Concordance index, Descriptors range check, ACF (Atom Centered Fragments) index, Pos/Non-Pos difference and Neurons concordance) that are embedded in the global AD index, as fully explained in the guide of the model
+This description briefly mentions the different types of indices (Similarity index, Accuracy index, Concordance index, insilico.dilibayer.Descriptors range check, ACF (Atom Centered Fragments) index, Pos/Non-Pos difference and Neurons concordance) that are embedded in the global AD index, as fully explained in the guide of the model
 </app_domain_method>
 <app_domain_software chapter="5.3"  help="" name="Software name and version for applicability domain assessment">
 VEGA

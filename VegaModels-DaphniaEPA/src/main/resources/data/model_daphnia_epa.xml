@@ -18,7 +18,7 @@
             The model is a re-implementation of the original model developed by Todd Martin inside T.E.S.T. software for US EPA. The T.E.S.T. software is freely available at:
             http://www.epa.gov/nrmrl/std/cppb/qsar/.</Description>
         <Model>The model is a linear regression made on 17 molecular descriptors. The regression coefficients have been calculated on the T.E.S.T. original dataset, that contains 337 compounds extracted from the ECOTOX aquatic toxicity database (http://cfpub.epa.gov/ecotox/), splitted in 269 compounds for the training set and 68 for the test set. More details on the model can be found in the T.E.S.T. documentation: http://www.epa.gov/nrmrl/std/cppb/qsar/testuserguide.pdf</Model>
-        <Descriptors>The descriptors used are the following:
+        <insilico.dilibayer.Descriptors>The descriptors used are the following:
             - xc4: Simple 4th order cluster chi index
             - StN: Sum of ( tN ) E-States (StN)
             - SsSH: Sum of ( -SH ) E-States (SsSH)
@@ -36,7 +36,7 @@
             - AN: AN fragment count
             - N&lt; [attached to P]: -N&lt; [attached to P] fragment count
             - S(=O)(=O)- [aromatic attach]: -S(=O)(=O)- [aromatic attach] fragment count
-            The descriptors are entirely calculated by an in-house software module in which they are implemented as described in: R. Todeschini and V. Consonni, Molecular Descriptors for Chemoinformatics, Wiley-VCH, 2009. The original code for descriptors calculation has been kindly provided by Todd Martin.</Descriptors>
+            The descriptors are entirely calculated by an in-house software module in which they are implemented as described in: R. Todeschini and V. Consonni, Molecular insilico.dilibayer.Descriptors for Chemoinformatics, Wiley-VCH, 2009. The original code for descriptors calculation has been kindly provided by Todd Martin.</insilico.dilibayer.Descriptors>
         <Applicability_Domain>
             <AD>
                 <Name>Similar_Molecules</Name>

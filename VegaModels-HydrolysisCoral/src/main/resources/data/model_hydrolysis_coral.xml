@@ -34,7 +34,7 @@
             Data for the dependent variable for the external validation set: All
             Other information about the training set: The initial dataset was divided into three sets (training, calibration, and validation) using a random distribution.
             Other information about the external validation set: NA</Dataset>
-        <Descriptors>Type of model: One variable model based on 2D descriptor
+        <insilico.dilibayer.Descriptors>Type of model: One variable model based on 2D descriptor
             Explicit algorithm: The Monte Carlo method
             Endpoint = -1.2867 (± 0.0419) + 0.2545 (± 0.0033) * DCW(1,35)
             Algorithm and descriptor generation: The Monte Carlo Method
@@ -44,14 +44,14 @@
 
             The model uses optimal 2D descriptors.
 
-            Descriptors in the model: NA
+            insilico.dilibayer.Descriptors in the model: NA
             Descriptor selection: 2D optimal descriptor
             DCWT,N=CW(APPN,O,S)+CWC5+CW(C6)
             +CW(Sk)+CW(SSk)+CW(SSSk)
             Algorithm and descriptor generation: The Monte Carlo Method
             Software name and version for descriptor generation:
             CORAL 2019 (modified), Istituto di Ricerche Farmacologiche Mario Negri IRCCS, 20156 Milano, Italy
-            http://www.insilico.eu/coral/</Descriptors>
+            http://www.insilico.eu/coral/</insilico.dilibayer.Descriptors>
         <Applicability_Domain>
             <AD>
                 <Name>Similar_Molecules</Name>

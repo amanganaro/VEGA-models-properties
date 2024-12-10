@@ -41,7 +41,7 @@
             - GGI4: topological charge index of order 4
             - Seigv: spectral moment of order 1 from Brysz matrix weighted by van der Waals volume
 
-            The descriptors were calculated, in the original model, by means of Dragon software and are now entirely calculated by an in-house software module in which they are implemented as described in: R. Todeschini and V. Consonni, Molecular Descriptors for Chemoinformatics, Wiley-VCH, 2009.</Model>
+            The descriptors were calculated, in the original model, by means of Dragon software and are now entirely calculated by an in-house software module in which they are implemented as described in: R. Todeschini and V. Consonni, Molecular insilico.dilibayer.Descriptors for Chemoinformatics, Wiley-VCH, 2009.</Model>
         <Applicability_Domain>
             <AD>
                 <Name>Similar_Molecules</Name>

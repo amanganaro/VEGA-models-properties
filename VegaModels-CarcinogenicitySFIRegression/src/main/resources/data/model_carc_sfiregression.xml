@@ -16,7 +16,7 @@
     <Guide>
         <Description>The model is a Multi-layer perceptron – artificial neural networks (MLP-ANNs) that provide prediction for the inhalation slope factor (ISF) (Expert assessment based on presence of carcinogenic effects in rodents)</Description>
         <Dataset>The model is based on a dataset of including 263 compounds with ISF data from the Risk Assessment Information System (RAIS) Toxicity values database (https://rais.ornl.gov). Data cover different pollutants categories including organic and inorganic compounds such as dioxins, polycyclic aromatic hydrocarbons (PAHs, pesticides and metals frequently found in contaminated sites). 990 values were retrieved for Inhalation Unit Risk (IUR, μg/m3). Only compounds with continuous data were used for modelling. IUR values were first converted in inhalation slope factor according with this formula: ISF=(IUR*BW*CF)/IR where IUR= inhalation unit risk [(μg/m3)-1]; BW =average body weight [70 kg]; IR= inhalation rate [20 m3/day]; CF= conversion factor [ 1000 μg/mg]. ISF values were converted in logarithmic units for modelling. Canonical SMILES were retrieved for each chemical from two sources (JChem for Office and ChemID plus) then chemicals showing incongruences between the various sources were rejected. Most of the QSAR models cannot handle inorganic compounds, metals and metal complexes, organic salts and data related to mixtures and these compounds have been also rejected. Ionized structures were neutralized and counterions eliminated. The datasets were further checked for the presence of duplicates. The 10% of the entire data set was randomly extracted to form the evaluation set (ES) for external validation while the modeling set consisting of the remaining chemicals was split into a training set (TrS) and a test set (TS) (45) containing the 80% and 20% of the modeling set respectively.</Dataset>
-        <Descriptors>The model is based on a Multi-layer perceptron – artificial neural network (MLP-ANN) implementation in KNIME.
+        <insilico.dilibayer.Descriptors>The model is based on a Multi-layer perceptron – artificial neural network (MLP-ANN) implementation in KNIME.
 
             The model uses the following descriptors:
 
@@ -31,9 +31,9 @@
             [9]B04[O-Cl] Presence/absence of O - Cl at topological distance 4
             [10]B07[Cl-Cl] Presence/absence of Cl - Cl at topological distance 7
             [11]B08[Cl-Cl] Presence/absence of Cl - Cl at topological distance 8
-            [12]SRW7 Walk and Path Descriptors
+            [12]SRW7 Walk and Path insilico.dilibayer.Descriptors
 
-            The descriptors have been generated with VEGA software using CDK libraries, while feature selection was performed with the “gaselect” R package that implements partial least square - genetic algorithm (PLS-GA) and repeated double cross-validation for statistical evaluation of subset of descriptors. The following settings were applied for the PLS-GA: initial population 2000; number of iterations 5000; minimum number of variable 5; maximum number of variable 12. Optimal subsets of descriptors returned by the final iteration of the run were used for model derivation, using R2 as fitness function.</Descriptors>
+            The descriptors have been generated with VEGA software using CDK libraries, while feature selection was performed with the “gaselect” R package that implements partial least square - genetic algorithm (PLS-GA) and repeated double cross-validation for statistical evaluation of subset of descriptors. The following settings were applied for the PLS-GA: initial population 2000; number of iterations 5000; minimum number of variable 5; maximum number of variable 12. Optimal subsets of descriptors returned by the final iteration of the run were used for model derivation, using R2 as fitness function.</insilico.dilibayer.Descriptors>
         <Applicability_Domain>
             <AD>
                 <Name>Similar_Molecules</Name>

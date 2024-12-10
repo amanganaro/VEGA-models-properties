@@ -29,7 +29,7 @@
             Data for the dependent variable for the training set: All
             Availability of external validation set: Yes
             Data for each dependent variable for the external validation set: All</Dataset>
-        <Descriptors>The Artificial Neural Network (ANN) has been trained with the 'nnet' package in the software platform R and exported as a PMML, using DRAGON descriptors.
+        <insilico.dilibayer.Descriptors>The Artificial Neural Network (ANN) has been trained with the 'nnet' package in the software platform R and exported as a PMML, using DRAGON descriptors.
             Software name and version for the descriptor generation:
             DRAGON (v. 7.0).
             Calculation of several sets of molecular descriptors from molecular geometries (topological, geometrical, WHIM, 3D MoRSE, molecular profiles, etc.)
@@ -57,7 +57,7 @@
             CATS2D_7_DL
             An in-house tool developed in the R statistical platform has been used to select the best descriptors set and size to be employed for the final model. The approach was based on a forward selection technique: starting from the descriptor most correlated with the experimental data, at each iteration the descriptor leading to the best model (among all the available descriptors) was added, until the size of 25 descriptors. Models have been built, with a linear regression modelling, applied with a bootstrap cross-validation approach (n =
             100). For each model, the fitness function has been calculated as the R squared coefficient obtained from the models built in each bootstrap iteration.
-            This fitness function has been used to select the best descriptor to be added to proceed to the next iteration. From this procedure, the set of descriptors with the best cross-validation values has been chosen as the set to be used for the final model. The "best" values have been considered taking into account their trend: by progressively adding descriptors to the model, the cross-validation performances increase until a plateau (and, following, a decrease), which means that the optimal number of descriptors have been reached, and adding further descriptors would lead to over-fitting.</Descriptors>
+            This fitness function has been used to select the best descriptor to be added to proceed to the next iteration. From this procedure, the set of descriptors with the best cross-validation values has been chosen as the set to be used for the final model. The "best" values have been considered taking into account their trend: by progressively adding descriptors to the model, the cross-validation performances increase until a plateau (and, following, a decrease), which means that the optimal number of descriptors have been reached, and adding further descriptors would lead to over-fitting.</insilico.dilibayer.Descriptors>
         <Applicability_Domain>
             <AD>
                 <Name>Similar_Molecules</Name>

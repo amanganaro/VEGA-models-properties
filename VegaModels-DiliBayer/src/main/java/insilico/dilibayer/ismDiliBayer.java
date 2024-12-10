@@ -1,32 +1,27 @@
-import insilico.core.ad.ADCheckACF;
-import insilico.core.ad.ADCheckDescriptorRange;
-import insilico.core.ad.ADCheckIndicesQuantitative;
-import insilico.core.ad.item.*;
+package insilico.dilibayer;
+
 import insilico.core.descriptor.DescriptorsEngine;
 import insilico.core.exception.GenericFailureException;
 import insilico.core.exception.InitFailureException;
 import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
 import insilico.core.model.InsilicoModelPython;
-import insilico.core.molecule.InsilicoMolecule;
 import insilico.core.tools.utils.FileUtilities;
 import insilico.core.tools.utils.ModelUtilities;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.HashMap;
 import java.util.Map;
 
 public class ismDiliBayer extends InsilicoModelPython {
 
-    private static final Logger log = LogManager.getLogger(ismDiliBayer.class);
+    private static final Logger log = LoggerFactory.getLogger(ismDiliBayer.class);
 
     private static final long serialVersionUID = 1L;
 
@@ -82,19 +77,29 @@ public class ismDiliBayer extends InsilicoModelPython {
         outputTempFile = f.getAbsolutePath();
         f=File.createTempFile("descriptors-dili-bayer", ".csv");
         descriptorsTempFile = f.getAbsolutePath();
+
+        if (System.getProperty("os.name").startsWith("Windows")) {
+            pathToExternalFolder = Paths.get(System.getProperty("user.home"),"\\AppData\\Local\\vega-models\\dili-bayer\\python").resolve("");
+        }
+        else {
+            pathToExternalFolder = Paths.get(System.getProperty("user.home") ,"/.local/share/vega-models/dili-bayer/python").resolve("");
+        }
     }
 
     @Override
     protected short CalculateDescriptors(DescriptorsEngine descriptorsEngine) {
+        log.info("enter in the calculate descriptors method");
         try {
             prepareInputData();
             Descriptors cdddDescriptors = new Descriptors(this);
             boolean result=cdddDescriptors.calculateDescriptors();
 
             if(!result){
+                log.info("Descriptors calculation failed");
                 return DESCRIPTORS_ERROR;
             }
 
+            log.info("Descriptors calculated correctly");
             Descriptors = new double[DescriptorsSize];
 
         } catch (Throwable e) {
@@ -106,26 +111,23 @@ public class ismDiliBayer extends InsilicoModelPython {
 
     @Override
     protected short CalculateModel() {
-
+        log.info("enter in the calculate model method");
         Map<String, String> Prediction;
         try {
             boolean isEnvSet = CHECK_SETUP ? configureCondaEnv() : true;
             if(isEnvSet){
-                URL resource = Descriptors.class.getResource("python" + File.separator + "app.py");
-                if(resource != null){
-                    Path pathToScriptFile = Paths.get(resource.toURI()).toAbsolutePath();
-                    Prediction=super.calculatePythonModel(pathToScriptFile, descriptorsTempFile, outputTempFile);
-                }
-                else{
-                    log.error("Cannot find file app.py");
-                    Prediction = null;
-                }
+                log.info("Start to execute the model");
+                Path pathToScriptFile = Paths.get(pathToExternalFolder.toString(), "app.py");
+                System.out.println(pathToScriptFile.toString());
+                Prediction=super.calculatePythonModel(pathToScriptFile, descriptorsTempFile, outputTempFile);
+                log.info("Finish to execute the model");
             }
             else{
                 Prediction = null;
             }
 
             if(Prediction != null) {
+                log.info("Prediction calculated");
 
                 CurOutput.setMainResultValue(Double.parseDouble(Prediction.get(ResultsName[0]+"_class")));
 
@@ -175,7 +177,7 @@ public class ismDiliBayer extends InsilicoModelPython {
 //
 //        // Sets Range check
 //        ADCheckDescriptorRange adrc = new ADCheckDescriptorRange();
-//        if (!adrc.Calculate(TS, Descriptors, CurOutput))
+//        if (!adrc.Calculate(TS, insilico.dilibayer.Descriptors, CurOutput))
 //            return InsilicoModel.AD_ERROR;
 //
 //        // Sets ACF check
@@ -211,22 +213,33 @@ public class ismDiliBayer extends InsilicoModelPython {
         return "liver-mtnn";
     }
 
-    public boolean configureCondaEnv() throws IOException, InterruptedException {
-        boolean isSet=false;
+    /**
+     * Add the models folder to the external path
+     * @return
+     * @throws IOException
+     * @throws InterruptedException
+     */
+    public boolean configureCondaEnv() throws IOException, InterruptedException, URISyntaxException {
 
-        try {
-            URL resource = ismDiliBayer.class.getResource("python" + File.separator + getCondaEnv()+".yml");
-            if(resource != null){
-                Path pathToEnvFile= Paths.get(resource.toURI()).toAbsolutePath();
-                isSet = super.configureCondaEnv(pathToEnvFile);
-            }
-            else{
-                log.error("Cannot find file {}", getCondaEnv()+".yml");
-                return false;
-            }
-        } catch (URISyntaxException e) {
-            throw new RuntimeException(e);
+        log.info("enter in the configure conda env method");
+
+        boolean isSet=false;
+        URL urlSourceEnv = getClass().getResource("/python/"+getCondaEnv()+".yml");
+        URL urlSourceAppFile = getClass().getResource("/python/app.py");
+        URL urlSourceModel = getClass().getResource("/python/models/");
+
+        if(urlSourceModel!=null && urlSourceEnv != null && urlSourceAppFile != null){
+            FileUtilities.copyExternalData(Paths.get(urlSourceModel.toURI()).toString(),
+                    (pathToExternalFolder.toString()+File.separator+"models"));
+            log.info("Models folder copied successfully");
+
+            isSet = super.configureCondaEnv(urlSourceEnv, urlSourceAppFile);
         }
+        else{
+            log.error("Missing some files in setup conda {} environment", getCondaEnv());
+        }
+
+        log.info("Conda environment {} set up {}", getCondaEnv(), isSet ? "correctly": "failed");
 
         return isSet;
     }

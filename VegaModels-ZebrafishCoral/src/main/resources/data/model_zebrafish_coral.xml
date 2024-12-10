@@ -20,7 +20,7 @@
             S. Padilla, D. Corum, B. Padnos, D. L. Hunter, A. Beam, K. A. Houck,N. Sipes, N.Kleinstreuer, T. Knudsen, D. J. Dix, and D. M. Reif. Zebrafish developmental screening of the ToxCastTM Phase I chemical library. Reproductive Toxicology, 33(2):174{187, Apr. 2012.
             The simplified molecular input line entry system (SMILES) in the data set have been cleaned and standardized with software istMolBase (https://chm.kode-solutions.net/products_istmolbase.php). After a meticulous check of each chemical structure, 10 compounds were removed because they were mixtures or had disconnected molecular structures. To build the model 16 compounds with low frequency distribution of AC50 have been removed because considered noise. The final data set contained 170 compounds.
             The data set was split into four groups: training (37%), invisible training (39%), calibration (12%) and validation (12%) sets.</Dataset>
-        <Descriptors>The software CORAL v. 2017 was used to develop the regression QSAR model from SMILES based optimal descriptors. A CORAL model describes the relationship between an endpoint (dependent variable) and relevant SMILES attributes (independent variables), as explained in:
+        <insilico.dilibayer.Descriptors>The software CORAL v. 2017 was used to develop the regression QSAR model from SMILES based optimal descriptors. A CORAL model describes the relationship between an endpoint (dependent variable) and relevant SMILES attributes (independent variables), as explained in:
             Development of Monte Carlo Approaches in Support of Environmental Research. Toropova A.P., Toropov A.A., Benfenati E., Rallo R., Leszczynska D., Leszczynski J. (2017). In: Roy K. (eds) Advances in QSAR Modeling. Challenges and Advances in Computational Chemistry and Physics, vol 24. Springer, Cham.
             The model obtained in CORAL is given below:
             logAC50=1.1053641+0.0272434*DCW1,15
@@ -28,7 +28,7 @@
             where DCW is represented by the following formula:
             DCWT,N=CWSk+CWSSk+CWSSSk
             The SMILES attributes Sk, SSk and SSSk are defined by a sequence of atoms and bonds present in the SMILES string. The attribute Sk represents single elements, SSk two combined elements and SSSk three combined elements. The complete list of structural attributes (SAk) used in the model and their correlation weights (CW) can be found in Supporting Material (Table S7):
-            Lavado, G., Gadaleta, D., Toma, C., Golbamaki, A., Toropov, A., Toropova, A., Marzo, M., Baderna, D., Arning, J., and Benfenati, E. (2020). Zebrafish AC50 modelling: (Q)SAR models to predict developmental toxicity in zebrafish embryo. Ecotoxicology and environmental safety, 202, 110936 .</Descriptors>
+            Lavado, G., Gadaleta, D., Toma, C., Golbamaki, A., Toropov, A., Toropova, A., Marzo, M., Baderna, D., Arning, J., and Benfenati, E. (2020). Zebrafish AC50 modelling: (Q)SAR models to predict developmental toxicity in zebrafish embryo. Ecotoxicology and environmental safety, 202, 110936 .</insilico.dilibayer.Descriptors>
         <Applicability_domain>
             <AD>
                 <Name>Similar_Molecules</Name>

@@ -111,7 +111,7 @@ Performance of derived models were evaluated both in internal and external valid
 Then, the best model (nr. 135) in terms of balance between R2 and coverage was selected and evaluated also on the VS.
 Finally, once the favorite setting was selected (K = 3; Min Similarity = 0.8; Min Similarity for single molecule = 0.85; Enhance factor =3; Exper. Range = 2), the model was re-trained on the entire dataset (TS+VS)
 </algorithm_explicit>
-<algorithms_descriptors chapter="4.3"  help="" name="Descriptors in the model">
+<algorithms_descriptors chapter="4.3"  help="" name="insilico.dilibayer.Descriptors in the model">
 NA
 </algorithms_descriptors>
 <descriptors_selection chapter="4.4"  help="" name="Descriptor selection">
@@ -123,7 +123,7 @@ NA
 <descriptors_generation_software chapter="4.6"  help="" name="Software name and version for descriptor generation">
 istKnn v.0.9.3 software was used (https://chm.kode-solutions.net/)d
 </descriptors_generation_software>
-<descriptors_chemicals_ratio chapter="4.7"  help="" name="Chemicals/Descriptors ratio">
+<descriptors_chemicals_ratio chapter="4.7"  help="" name="Chemicals/insilico.dilibayer.Descriptors ratio">
 NA
 </descriptors_chemicals_ratio>
 </QSAR_Algorithm>

@@ -89,8 +89,8 @@ Machine Learning Algorithim for Regression
 The number of trees selected for the RF were finely tuned by identifying the onset of the plateau of
 the curve describing the Q2LOO as a function of the number of trees.
 </algorithm_explicit>
-<algorithms_descriptors chapter="4.3"  help="" name="Descriptors in the model">
-Six PaDEL-Descriptors v. 2.21 PaDEL compute all the 2D descriptors:
+<algorithms_descriptors chapter="4.3"  help="" name="insilico.dilibayer.Descriptors in the model">
+Six PaDEL-insilico.dilibayer.Descriptors v. 2.21 PaDEL compute all the 2D descriptors:
 ALogp2 
 ATSC1s
 BCUTp-1l
@@ -113,7 +113,7 @@ Random Forest (RF)
 The "randomForest" v. 4.6.14 in R v. 3.4.3
 The "randomForest" package provides an R interface to the Fortran programs by Breiman and Cutlert (http://www.stat.berkeley.edu/users/breiman/).
 </descriptors_generation_software>
-<descriptors_chemicals_ratio chapter="4.7"  help="" name="Chemicals/Descriptors ratio">
+<descriptors_chemicals_ratio chapter="4.7"  help="" name="Chemicals/insilico.dilibayer.Descriptors ratio">
 63/6 = 10
 </descriptors_chemicals_ratio>
 </QSAR_Algorithm>
@@ -161,7 +161,7 @@ where: rare is calculated on the number of fragments found in the molecule and f
 
 missing is calculated on the number of fragments found in the molecule and never found in the training set as following: if the number is 0, missing is set to 1.0; if the number is 1, missing is set to 0.6; otherwise missing is set to 0.4
 
-Descriptors Range (IdxDescRange) index is calculated as 1.0 if all molecular descriptors used in the prediction fall within the range of descriptors used in the whole training set, 0.0 otherwise.
+insilico.dilibayer.Descriptors Range (IdxDescRange) index is calculated as 1.0 if all molecular descriptors used in the prediction fall within the range of descriptors used in the whole training set, 0.0 otherwise.
 
 AD final index is calculated as following:
 

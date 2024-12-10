@@ -19,7 +19,7 @@
         <Model>Two models, Model A and Model B, have been used to build hybrid model, Model C. In the proposed approach, the outputs of the individual models (Model A and B) were used as inputs of the hybrid model. Model A was developed by Radial Basis Function Neural Networks (RBFNN) using an heuristic method to select the optimal descriptors; Model B was developed by RBFNN using genetic algorithm for the descriptors selection. RBFNN was used with a Matlab function for building the models. An in-house software made as a PC-Windows Excel macro was used to combine Models A and B within the Model C. Model A used an heuristic method to select the optimal descriptors and Model B used genetic algorithm for the descriptors selection. Full reference and details of the used formulas can be found in:
             Zhao, C., Boriani, E., Chana, A., Roncaglioni,A., Benfenati, E. A new hybrid system of QSAR models for predicting bioconcentration factors (BCF). Chemosphere (2008), 73, 1701-1707.
             Lombardo A, Roncaglioni A, Boriani E, Milan C, Benfenati E. Assessment and validation of the CAESAR predictive model for bioconcentration factor (BCF) in fish. Chemistry Central Journal (2010), 4 (Suppl 1).</Model>
-        <Descriptors>The descriptors used are the following:
+        <insilico.dilibayer.Descriptors>The descriptors used are the following:
             - Moriguchi octanol-water partition coefficient (MlogP).
             - Moran autocorrelation of lag 5, weighted by atomic van der Waals volumes (MATS5V): molecular
             descriptor calculated from the molecular graph by summing the products of atom weights of the
@@ -33,7 +33,7 @@
             entropy and describing dispersion interactions in solution.
             - Sum of all -Cl groups E-state values in molecule (SsCl).
             - Absolute eigenvalues sum from electronegativity weighted distance matrix (Aeige).
-            The descriptors were calculated, in the original CAESAR version, by means of dragonX software and are now entirely calculated by an in-house software module in which they are implemented as described in: R. Todeschini and V. Consonni, Molecular Descriptors for Chemoinformatics, WileyVCH, 2009.</Descriptors>
+            The descriptors were calculated, in the original CAESAR version, by means of dragonX software and are now entirely calculated by an in-house software module in which they are implemented as described in: R. Todeschini and V. Consonni, Molecular insilico.dilibayer.Descriptors for Chemoinformatics, WileyVCH, 2009.</insilico.dilibayer.Descriptors>
         <Applicability_Domain>
             <AD>
                 <Name>Similar_Molecules</Name>

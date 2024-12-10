@@ -29,19 +29,19 @@
             MLogP	MLogP Descriptor	Moriguchi LogP
             C-008	Atom Centered Fragments	CHR2X
             O-060	Atom Centered Fragments	Al-O-Ar / Ar-O-Ar / R..O..R / R-O-C=X
-            MATS8m	AutoCorrelation Descriptors
-            MATS6p	AutoCorrelation Descriptors
-            MATS1e	AutoCorrelation Descriptors
-            ATSC6e	AutoCorrelation Descriptors
-            GATS6v	AutoCorrelation Descriptors
-            MATS8v	AutoCorrelation Descriptors
-            CATS2D_3_DL	CATS 2D Descriptors	CATS 2D D-L at topological distance 3
-            nR9	Rings Descriptors
-            F1(C..C)	Topological Distances Descriptors	Frequency of C-C at topological distance 1
-            F3(N..Cl)	Topological Distances Descriptors	Frequency of N-Cl at topological distance 3
-            F4(C..C)	Topological Distances Descriptors	Frequency of C-C at topological distance 4
-            F8(C..Cl)	Topological Distances Descriptors	Frequency of C-Cl at topological distance 8
-            MAXDP	Topological E-State Descriptors</Model>
+            MATS8m	AutoCorrelation insilico.dilibayer.Descriptors
+            MATS6p	AutoCorrelation insilico.dilibayer.Descriptors
+            MATS1e	AutoCorrelation insilico.dilibayer.Descriptors
+            ATSC6e	AutoCorrelation insilico.dilibayer.Descriptors
+            GATS6v	AutoCorrelation insilico.dilibayer.Descriptors
+            MATS8v	AutoCorrelation insilico.dilibayer.Descriptors
+            CATS2D_3_DL	CATS 2D insilico.dilibayer.Descriptors	CATS 2D D-L at topological distance 3
+            nR9	Rings insilico.dilibayer.Descriptors
+            F1(C..C)	Topological Distances insilico.dilibayer.Descriptors	Frequency of C-C at topological distance 1
+            F3(N..Cl)	Topological Distances insilico.dilibayer.Descriptors	Frequency of N-Cl at topological distance 3
+            F4(C..C)	Topological Distances insilico.dilibayer.Descriptors	Frequency of C-C at topological distance 4
+            F8(C..Cl)	Topological Distances insilico.dilibayer.Descriptors	Frequency of C-Cl at topological distance 8
+            MAXDP	Topological E-State insilico.dilibayer.Descriptors</Model>
         <Applicability_Domain>
             <AD>
                 <Name>Similar_Molecules</Name>

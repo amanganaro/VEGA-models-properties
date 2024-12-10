@@ -31,7 +31,7 @@
             The model extends the original CAESAR model, freely available at: http://www.caesar-project.eu/software/ </Description>
         <Model>The model is a QSAR classification model based on a Random Forest method, implemented using WEKA open-source libraries. Full reference and details of the used formulas can be found in:
             Cassano, A., Manganaro, A., Martin, T., Young, D., Piclin, N., Pintore, M., Bigoni, D. and Benfenati, E. (2010). CAESAR models for developmental toxicity., Chem Cent J 4 Suppl 1, S4</Model>
-        <Descriptors>The descriptors used by the Random Forest model are the following:
+        <insilico.dilibayer.Descriptors>The descriptors used by the Random Forest model are the following:
             - SdssC: sum of all ( ≡ C – ) E-State values in molecule
             - SHssNH: sum of all [ – NH – ] E-State values in molecule
             - icycem: mean information on the vertex cycle matrix equality
@@ -45,7 +45,7 @@
             - GATS2m: Geary autocorrelation - lag 2/ weighted by atomic polarizabilities
             - GATS3v: Geary autocorrelation - lag 3 / weighted by atomic van der Waals volumes
             - GATS1p: Geary autocorrelation - lag1 / weighted by atomic polarizabilities
-            The descriptors are calculated by an in-house JAVA software, developed by Todd Martin (EPA), based on the CDK open-source libraries , as developed for the original CAESAR model.</Descriptors>
+            The descriptors are calculated by an in-house JAVA software, developed by Todd Martin (EPA), based on the CDK open-source libraries , as developed for the original CAESAR model.</insilico.dilibayer.Descriptors>
         <Applicability_Domain>
             <AD>
                 <Name>Similar_Molecules</Name>

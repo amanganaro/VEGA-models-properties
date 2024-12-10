@@ -29,9 +29,9 @@
             Data for the dependent variable for the external validation set: All
             Other information about the training set: NA
             Other information about the external validation set: NA</Dataset>
-        <Descriptors>
+        <insilico.dilibayer.Descriptors>
             The VEGA implementation of Cramer classification is a structure-based model based on the Cramer classification scheme. Ad hoc decision tree has been implemented within Toxtree, and the same tree is implemented in VEGA.
-            The model is a structure-based model and does not make use of descriptors</Descriptors>
+            The model is a structure-based model and does not make use of descriptors</insilico.dilibayer.Descriptors>
     </Guide>
 
     <Reference>

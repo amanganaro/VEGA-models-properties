@@ -23,11 +23,11 @@
             The buffer solution at a pH of 7.4
             The permeation coefficients were measured under comparable circumstances.
             The model is an application of the Potts and Guy equation to the entire dataset. For this reason, a splitting into training and test set is not provided.</Dataset>
-        <Descriptors>It is a PBK/D model based on the following equation:
+        <insilico.dilibayer.Descriptors>It is a PBK/D model based on the following equation:
             logKp = 0.71 log(K o/w) – 0.0061 MW – 2.3    (cm/h)
             The model is based on two simple descriptors:
             [1] Molecular weight (MW). MW was calculated using KNIME platform.
-            [2] Octanol water partition coefficient (log(Ko/w)). For the calculation of this descriptor, the AlogP VEGA model has been used.</Descriptors>
+            [2] Octanol water partition coefficient (log(Ko/w)). For the calculation of this descriptor, the AlogP VEGA model has been used.</insilico.dilibayer.Descriptors>
         <Applicability_Domain>
             <AD>
                 <Name>Similar_Molecules</Name>

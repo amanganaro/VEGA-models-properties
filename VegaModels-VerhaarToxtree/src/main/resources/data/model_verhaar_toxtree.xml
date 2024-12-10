@@ -23,9 +23,9 @@
             Class 4 (compounds and groups of compounds acting by a specific mechanism)
             Class 5 (Not possible to classify according to these rules)
             Data for the dependent variable for the external validation set: All</Dataset>
-        <Descriptors>The Verhaar classification is based on the same scheme as implemented in ToxTree, which is an open-source application. The scheme is expert-based and the model is structure-based.
+        <insilico.dilibayer.Descriptors>The Verhaar classification is based on the same scheme as implemented in ToxTree, which is an open-source application. The scheme is expert-based and the model is structure-based.
             Ad hoc decision tree has been implemented within Toxtree and the same tree is implemented in VEGA.
-            The model is a structure-based model and does not make use of descriptors.</Descriptors>
+            The model is a structure-based model and does not make use of descriptors.</insilico.dilibayer.Descriptors>
     </Guide>
 
     <Reference>The Toxtree model has been implemented in VEGA by Alberto Manganaro; IRCCS-Istituto di Ricerche Farmacologiche Mario Negri, Via La Masa 19, 20156 Milano, Italy; alberto.manganaro@marionegri.it in 2020.

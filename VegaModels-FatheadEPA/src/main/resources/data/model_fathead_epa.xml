@@ -18,7 +18,7 @@
             The model is a re-implementation of the original model developed by Todd Martin inside T.E.S.T. software for US EPA. The T.E.S.T. software is freely available at:
             http://www.epa.gov/nrmrl/std/cppb/qsar/.</Description>
         <Model>The model is a linear regression made on 21 molecular descriptors. The regression coefficients have been calculated on the T.E.S.T. original dataset, that contains 816 compounds extracted from the ECOTOX aquatic toxicity database (http://cfpub.epa.gov/ecotox/), splitted in 652 compounds for the training set and 164 for the test set. More details on the model can be found in the T.E.S.T. documentation: http://www.epa.gov/nrmrl/std/cppb/qsar/testuserguide.pdf</Model>
-        <Descriptors>The descriptors used are the following:
+        <insilico.dilibayer.Descriptors>The descriptors used are the following:
             - SsssN: Sum of >N- E-States
             - SdssS_acnt: Count of =S&lt;
             - MDEC33: Molecular distance edge between all tertiary carbons
@@ -41,7 +41,7 @@
             - C#N [aliphatic attach]: -C#N [aliphatic attach] fragment count
             - Cl [olefinic attach]: -Cl [olefinic attach] fragment count
             - CHO [aromatic attach]: -CHO [aromatic attach] fragment count
-            The descriptors are entirely calculated by an in-house software module in which they are implemented as described in: R. Todeschini and V. Consonni, Molecular Descriptors for Chemoinformatics, Wiley-VCH, 2009. The original code for descriptors calculation has been kindly provided by Todd Martin.</Descriptors>
+            The descriptors are entirely calculated by an in-house software module in which they are implemented as described in: R. Todeschini and V. Consonni, Molecular insilico.dilibayer.Descriptors for Chemoinformatics, Wiley-VCH, 2009. The original code for descriptors calculation has been kindly provided by Todd Martin.</insilico.dilibayer.Descriptors>
         <Applicability_Domain>
             <AD>
                 <Name>Similar_Molecules</Name>

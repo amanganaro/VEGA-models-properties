@@ -22,13 +22,13 @@
 
             Below, the list of descriptors used to derive the model:
             MLogP	MLogP Descriptor	Moriguchi LogP
-            SpPosA_p	Burden Eigenvalue Descriptors	Normalized spectral positive sum
-            CATS2D_3_DL	CATS 2D Descriptors	CATS 2D D-L at topological distance 3
-            EEig7ri	Edge Adjacency Descriptors
-            P_VSA_i_3	PVSA Descriptors
-            B1(C..O)	Topological Distances Descriptors	Presence/absence of C-O at topological distance 1
-            B1(C..Cl)	Topological Distances Descriptors	Presence/absence of C-Cl at topological distance 1
-            B3(O..O)	Topological Distances Descriptors	Presence/absence of O-O at topological distance 3</Model>
+            SpPosA_p	Burden Eigenvalue insilico.dilibayer.Descriptors	Normalized spectral positive sum
+            CATS2D_3_DL	CATS 2D insilico.dilibayer.Descriptors	CATS 2D D-L at topological distance 3
+            EEig7ri	Edge Adjacency insilico.dilibayer.Descriptors
+            P_VSA_i_3	PVSA insilico.dilibayer.Descriptors
+            B1(C..O)	Topological Distances insilico.dilibayer.Descriptors	Presence/absence of C-O at topological distance 1
+            B1(C..Cl)	Topological Distances insilico.dilibayer.Descriptors	Presence/absence of C-Cl at topological distance 1
+            B3(O..O)	Topological Distances insilico.dilibayer.Descriptors	Presence/absence of O-O at topological distance 3</Model>
         <Applicability_Domain>
             <AD>
                 <Name>Similar_Molecules</Name>

@@ -82,7 +82,7 @@ A quantitative model using support vector machine (SVM) analysis and theLogEC50 
 <algorithm_explicit chapter="4.2"  help="" name="Explicit algorithm">
 Support Vector Machine 
 </algorithm_explicit>
-<algorithms_descriptors chapter="4.3"  help="" name="Descriptors in the model">
+<algorithms_descriptors chapter="4.3"  help="" name="insilico.dilibayer.Descriptors in the model">
 [1]ATS5m Broto-Moreau autocorrelation of a topological structure - lag 5 / weighted by atomicmasses
 [2]B01[O-S] Presence/absence of O - S at topological distance 01
 [3]B02[N-Cl] Presence/absence of N - Cl at topological distance 02
@@ -108,7 +108,7 @@ NA
 <descriptors_generation_software chapter="4.6"  help="" name="Software name and version for descriptor generation">
 NA
 </descriptors_generation_software>
-<descriptors_chemicals_ratio chapter="4.7"  help="" name="Chemicals/Descriptors ratio">
+<descriptors_chemicals_ratio chapter="4.7"  help="" name="Chemicals/insilico.dilibayer.Descriptors ratio">
 15 descriptors for 252 chemicals 252/15 = 17 
 </descriptors_chemicals_ratio>
 </QSAR_Algorithm>
@@ -155,7 +155,7 @@ where: rare is calculated on the number of fragments found in the molecule and f
 
 missing is calculated on the number of fragments found in the molecule and never found in the training set as following: if the number is 0, missing is set to 1.0; if the number is 1, missing is set to 0.6; otherwise missing is set to 0.4
 
-Descriptors Range (IdxDescRange) index is calculated as 1.0 if all molecular descriptors used in the prediction fall within the range of descriptors used in the whole training set, 0.0 otherwise.
+insilico.dilibayer.Descriptors Range (IdxDescRange) index is calculated as 1.0 if all molecular descriptors used in the prediction fall within the range of descriptors used in the whole training set, 0.0 otherwise.
 
 AD final index is calculated as following:
 

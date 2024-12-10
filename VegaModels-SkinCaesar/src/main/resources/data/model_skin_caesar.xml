@@ -31,7 +31,7 @@
             The model extends the original CAESAR model, freely available at: http://www.caesar-project.eu/software/</Description>
         <Model>The model consists in an Adaptive Fuzzy Partition (AFP) based on 8 descriptors. The AFP produces as output two values O(positive) and O(negative) that represent the belonging degree respectively to the sensitizer and non-sensitizer classes. The input compound is assigned to the class having this degree value higher than 0.5, unless the difference between the values of the two degrees is lower than the threshold 0.001; in this case, the belonging to one class or the other is not sure, thus no prediction is made. Full reference and details of the used formulas can be found in:
             Chaudhry, Q., Piclin, N., Cotterill, J., Pintore, M., Price, N. R., Chrétien, J. R. and Roncaglioni, A. (2010). Global QSAR models of skin sensitisers for regulatory purposes., Chem Cent J 4 Suppl 1, S5.</Model>
-        <Descriptors>The descriptors used by the AFP model are the following:
+        <insilico.dilibayer.Descriptors>The descriptors used by the AFP model are the following:
             - nN: Number of nitrogen atoms
             - GNar: Narumi geometrc topological index
             - MDDD: Mean Distance Degree Deviation
@@ -40,7 +40,7 @@
             - GGI8: Topological charge index of order 8
             - nCconj: Number of non aromatic conjugated C(sp2)
             - O-058: Atom-centred fragment =O
-            The descriptors were calculated, in the original model, by means of MDL and dragonX software and are now entirely calculated by an in-house software module in which they are implemented as described in: R. Todeschini and V. Consonni, Molecular Descriptors for Chemoinformatics, Wiley-VCH, 2009.</Descriptors>
+            The descriptors were calculated, in the original model, by means of MDL and dragonX software and are now entirely calculated by an in-house software module in which they are implemented as described in: R. Todeschini and V. Consonni, Molecular insilico.dilibayer.Descriptors for Chemoinformatics, Wiley-VCH, 2009.</insilico.dilibayer.Descriptors>
         <Applicability_Domain>
             <AD>
                 <Name>Similar_Molecules</Name>
