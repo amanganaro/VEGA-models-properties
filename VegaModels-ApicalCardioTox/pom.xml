@@ -11,6 +11,12 @@
 
     <artifactId>VegaModels-ApicalCardioTox</artifactId>
 
+    <name>Apical Cardio Tox (IRMN)</name>
+    <version>1.0.0</version>
+    <description>
+        -
+    </description>
+
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
@@ -18,11 +24,7 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.13.3</version>
-        </dependency>
+
     </dependencies>
 
     <build>
