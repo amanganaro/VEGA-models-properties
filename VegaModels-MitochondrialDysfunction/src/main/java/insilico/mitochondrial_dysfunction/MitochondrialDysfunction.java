@@ -1,4 +1,4 @@
-package insilico.dilibayer;
+package insilico.mitochondrial_dysfunction;
 
 import insilico.core.descriptor.DescriptorsEngine;
 import insilico.core.exception.GenericFailureException;
@@ -19,70 +19,41 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Map;
 
-public class ismDiliBayer extends InsilicoModelPython {
+public class MitochondrialDysfunction extends InsilicoModelPython {
 
-    private static final Logger log = LoggerFactory.getLogger(ismDiliBayer.class);
+    private static final Logger log = LoggerFactory.getLogger(MitochondrialDysfunction.class);
 
     private static final long serialVersionUID = 1L;
 
-    private static final String ModelData = "/data/model_dili_bayer.xml";
+    private static final String ModelData = "/data/model_mitochondrial_dysfunction.xml";
 
-    protected final boolean CHECK_SETUP = false;
+    protected final boolean CHECK_SETUP = true;
 
     protected String descriptorsTempFile = "";
 
-    public ismDiliBayer() throws InitFailureException, GenericFailureException, IOException {
+    public MitochondrialDysfunction() throws InitFailureException, GenericFailureException, IOException {
         super(ModelData);
 
-        this.ResultsSize = 31;
+        this.ResultsSize = 2;
         this.ResultsName = new String[ResultsSize];
-        this.ResultsName[0] = "DILI_secure";
-        this.ResultsName[1] = "DILI_sensitive";
-        this.ResultsName[2] = "DILI_majority";
-        this.ResultsName[3] = "BSEPi";
-        this.ResultsName[4] = "BSEPs";
-        this.ResultsName[5] = "PGPi";
-        this.ResultsName[6] = "PGPs";
-        this.ResultsName[7] = "MRP4i";
-        this.ResultsName[8] = "MRP3i";
-        this.ResultsName[9] = "MRP3s";
-        this.ResultsName[10] = "MRP2i";
-        this.ResultsName[11] = "MRP2s";
-        this.ResultsName[12] = "BCRPi";
-        this.ResultsName[13] = "BCRPs";
-        this.ResultsName[14] = "OATP1B1i";
-        this.ResultsName[15] = "OATP1B3i";
-        this.ResultsName[16] = "NRF2";
-        this.ResultsName[17] = "LXR";
-        this.ResultsName[18] = "AHR";
-        this.ResultsName[19] = "PPARa";
-        this.ResultsName[20] = "PPARg";
-        this.ResultsName[21] = "PXR";
-        this.ResultsName[22] = "FXR";
-        this.ResultsName[23] = "MTX_MP";
-        this.ResultsName[24] = "MTX_RC";
-        this.ResultsName[25] = "MTX_FOM";
-        this.ResultsName[26] = "PLD";
-        this.ResultsName[27] = "PLD_HTS";
-        this.ResultsName[28] = "HTX";
-        this.ResultsName[29] = "ERS";
-        this.ResultsName[30] = "ARE";
+        this.ResultsName[0] = "KE2";
+        this.ResultsName[1] = "AD_KE2";
 
         this.DescriptorsSize = 0;
         this.DescriptorsNames = new String[DescriptorsSize];
 
-        File f = File.createTempFile("input-dili-bayer", ".csv");
+        File f = File.createTempFile("input-mitochondrial-dysfunction", ".csv");
         inputTempFile = f.getAbsolutePath();
-        f=File.createTempFile("output-dili-bayer", ".csv");
+        f=File.createTempFile("output-mitochondrial-dysfunction", ".csv");
         outputTempFile = f.getAbsolutePath();
-        f=File.createTempFile("descriptors-dili-bayer", ".csv");
+        f=File.createTempFile("descriptors-mitochondrial-dysfunction", ".csv");
         descriptorsTempFile = f.getAbsolutePath();
 
         if (System.getProperty("os.name").startsWith("Windows")) {
-            pathToExternalFolder = Paths.get(System.getProperty("user.home"),"\\AppData\\Local\\vega-models\\dili-bayer\\python").resolve("");
+            pathToExternalFolder = Paths.get(System.getProperty("user.home"),"\\AppData\\Local\\vega-models\\mitochondrial-dysfunction\\python").resolve("");
         }
         else {
-            pathToExternalFolder = Paths.get(System.getProperty("user.home") ,"/.local/share/vega-models/dili-bayer/python").resolve("");
+            pathToExternalFolder = Paths.get(System.getProperty("user.home") ,"/.local/share/vega-models/mitochondrial-dysfunction/python").resolve("");
         }
     }
 
@@ -118,7 +89,8 @@ public class ismDiliBayer extends InsilicoModelPython {
             if(isEnvSet){
                 log.info("Start to execute the model");
                 Path pathToScriptFile = Paths.get(pathToExternalFolder.toString(), "app.py");
-                Prediction=super.calculatePythonModel(pathToScriptFile, descriptorsTempFile, outputTempFile);
+                Prediction=super.calculatePythonModel(pathToScriptFile, "--input "+descriptorsTempFile,
+                        "--output "+outputTempFile);
                 log.info("Finish to execute the model");
             }
             else{
@@ -128,11 +100,11 @@ public class ismDiliBayer extends InsilicoModelPython {
             if(Prediction != null) {
                 log.info("Prediction calculated");
 
-                CurOutput.setMainResultValue(Double.parseDouble(Prediction.get(ResultsName[0]+"_class")));
+                CurOutput.setMainResultValue(Double.parseDouble(Prediction.get(ResultsName[0])));
 
                 String[] Res = new String[ResultsSize];
                 for(int i=0; i<ResultsSize; i++){
-                    Res[i] = Prediction.get(ResultsName[i]+"_class");
+                    Res[i] = Prediction.get(ResultsName[i]);
                 }
 
                 CurOutput.setResults(Res);
@@ -209,7 +181,7 @@ public class ismDiliBayer extends InsilicoModelPython {
 
     @Override
     public String getCondaEnv() {
-        return "liver-mtnn";
+        return "alternative";
     }
 
     /**
@@ -226,11 +198,17 @@ public class ismDiliBayer extends InsilicoModelPython {
         URL urlSourceEnv = getClass().getResource("/python/"+getCondaEnv()+".yml");
         URL urlSourceAppFile = getClass().getResource("/python/app.py");
         URL urlSourceModel = getClass().getResource("/python/models/");
+        URL urlSourceDataModel = getClass().getResource("/python/data/");
 
-        if(urlSourceModel!=null && urlSourceEnv != null && urlSourceAppFile != null){
+        if(urlSourceModel!=null && urlSourceEnv != null && urlSourceAppFile != null
+                && urlSourceDataModel != null) {
             FileUtilities.copyExternalData(Paths.get(urlSourceModel.toURI()).toString(),
                     (pathToExternalFolder.toString()+File.separator+"models"));
             log.info("Models folder copied successfully");
+
+            FileUtilities.copyExternalData(Paths.get(urlSourceDataModel.toURI()).toString(),
+                    (pathToExternalFolder.toString()+File.separator+"data"));
+            log.info("Model data folder copied successfully");
 
             isSet = super.configureCondaEnv(urlSourceEnv, urlSourceAppFile);
         }

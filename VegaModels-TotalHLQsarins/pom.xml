@@ -21,13 +21,13 @@
 
 
 <!--        <dependency>-->
-<!--            <groupId>InSilico</groupId>-->
+<!--            <groupId>insilico</groupId>-->
 <!--            <artifactId>ProtoQSAR</artifactId>-->
 <!--            <version>0.2</version>-->
 <!--        </dependency>-->
 
 <!--        <dependency>-->
-<!--            <groupId>InSilico</groupId>-->
+<!--            <groupId>insilico</groupId>-->
 <!--            <artifactId>OperaAdapter</artifactId>-->
 <!--            <version>1.0</version>-->
 <!--        </dependency>-->

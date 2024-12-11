@@ -129,11 +129,13 @@
         <module>VegaModels-EyeIrritationKnn</module>
         <module>VegaModels-SteroidogenesisOberon</module>
         <module>VegaModels-DiliBayer</module>
+        <module>VegaModels-ApicalCardioTox</module>
+        <module>VegaModels-MitochondrialDysfunction</module>
     </modules>
 
     <name>VegaModels</name>
     <description>
-        Vega Models parent project for InSilico project (VEGA etc) - Updated to CDK 2.3, OpenJDK 11
+        Vega Models parent project for insilico project (VEGA etc) - Updated to CDK 2.3, OpenJDK 11
     </description>
 
     <properties>

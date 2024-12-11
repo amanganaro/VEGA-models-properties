@@ -1,0 +1,16 @@
+<xml>
+   
+    <Version>
+        <Name>Lorem Ipsum</Name>
+        <Key>LOREM_IPSUM</Key>
+        <Summary>Lorem ipsum dolor sit amet</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_apical_cardio_tox.dat</TS>
+        <Units></Units>
+    </Vega>
+
+    
+</xml>
