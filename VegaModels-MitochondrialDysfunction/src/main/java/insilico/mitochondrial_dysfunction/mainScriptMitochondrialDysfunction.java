@@ -4,11 +4,15 @@ import insilico.core.exception.GenericFailureException;
 import insilico.core.exception.InitFailureException;
 import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
+import insilico.core.model.InsilicoModelPython;
 import insilico.core.molecule.conversion.SmilesMolecule;
+import insilico.core.python.CdddDescriptors;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +21,7 @@ public class mainScriptMitochondrialDysfunction {
     private static final Logger log = LogManager.getLogger(mainScriptMitochondrialDysfunction.class);
 
 
-    public static void main(String[] args) throws GenericFailureException, InitFailureException, IOException {
+    public static void main(String[] args) throws GenericFailureException, InitFailureException, IOException, URISyntaxException, InterruptedException {
         InsilicoModel model = new MitochondrialDysfunction();
 
 //        ModelsDeployment.BuildDataset(model, "out_ts");
@@ -36,6 +40,15 @@ public class mainScriptMitochondrialDysfunction {
         smilesList.add("O=S(=O)(N)c1cc2c(cc1C(F)(F)F)NC(NS2(=O)(=O))Cc3ccccc3");
         smilesList.add("O=[N+]([O-])c1cc(c(O)c(c1)C(C)(C)C)[N+](=O)[O-]");
         smilesList.add("O=S(=O)(C(C)(C)C)C(C)(C)C");
+
+        if(InsilicoModelPython.class.isAssignableFrom(model.getClass())){
+
+            CdddDescriptors cdddDescriptors = new CdddDescriptors(smilesList);
+            ((MitochondrialDysfunction) model).setDescriptorGenerator(cdddDescriptors);
+            boolean descriptorOK = cdddDescriptors.calculateDescriptors(
+                    ((MitochondrialDysfunction) model).getInputTempFile(),
+                    ((MitochondrialDysfunction) model).getDescriptorsTempDirectory());
+        }
 
         for (String smiles : smilesList) {
             InsilicoModelOutput out = model.Execute(SmilesMolecule.Convert(smiles));

@@ -6,6 +6,7 @@ import insilico.core.exception.InitFailureException;
 import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
 import insilico.core.model.InsilicoModelPython;
+import insilico.core.python.CdddDescriptors;
 import insilico.core.tools.utils.FileUtilities;
 import insilico.core.tools.utils.ModelUtilities;
 import org.slf4j.Logger;
@@ -15,6 +16,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Map;
@@ -29,7 +31,10 @@ public class ismDiliBayer extends InsilicoModelPython {
 
     protected final boolean CHECK_SETUP = false;
 
-    protected String descriptorsTempFile = "";
+    protected String descriptorsTempDirectory = "";
+
+    private CdddDescriptors cdddDescriptors;
+
 
     public ismDiliBayer() throws InitFailureException, GenericFailureException, IOException {
         super(ModelData);
@@ -75,8 +80,8 @@ public class ismDiliBayer extends InsilicoModelPython {
         inputTempFile = f.getAbsolutePath();
         f=File.createTempFile("output-dili-bayer", ".csv");
         outputTempFile = f.getAbsolutePath();
-        f=File.createTempFile("descriptors-dili-bayer", ".csv");
-        descriptorsTempFile = f.getAbsolutePath();
+        f = Files.createTempDirectory("descriptors-dili-bayer").toFile();
+        descriptorsTempDirectory = f.getAbsolutePath();
 
         if (System.getProperty("os.name").startsWith("Windows")) {
             pathToExternalFolder = Paths.get(System.getProperty("user.home"),"\\AppData\\Local\\vega-models\\dili-bayer\\python").resolve("");
@@ -86,26 +91,28 @@ public class ismDiliBayer extends InsilicoModelPython {
         }
     }
 
+    public boolean CalculateDescriptors(CdddDescriptors cdddDescriptors) {
+        log.info("enter in the calculate descriptors method");
+        boolean result=false;
+        try {
+            this.cdddDescriptors = cdddDescriptors;
+            result=cdddDescriptors.calculateDescriptors(inputTempFile, descriptorsTempDirectory);
+        } catch (Throwable e) {
+            log.info("Descriptors calculation failed");
+            return false;
+        }
+
+        log.info("Descriptors calculated {}", result ? "correctly": "failed");
+        return result;
+    }
+
     @Override
     protected short CalculateDescriptors(DescriptorsEngine descriptorsEngine) {
-        log.info("enter in the calculate descriptors method");
         try {
-            prepareInputData();
-            Descriptors cdddDescriptors = new Descriptors(this);
-            boolean result=cdddDescriptors.calculateDescriptors();
-
-            if(!result){
-                log.info("Descriptors calculation failed");
-                return DESCRIPTORS_ERROR;
-            }
-
-            log.info("Descriptors calculated correctly");
             Descriptors = new double[DescriptorsSize];
-
         } catch (Throwable e) {
             return DESCRIPTORS_ERROR;
         }
-
         return DESCRIPTORS_CALCULATED;
     }
 
@@ -118,7 +125,11 @@ public class ismDiliBayer extends InsilicoModelPython {
             if(isEnvSet){
                 log.info("Start to execute the model");
                 Path pathToScriptFile = Paths.get(pathToExternalFolder.toString(), "app.py");
-                Prediction=super.calculatePythonModel(pathToScriptFile, descriptorsTempFile, outputTempFile);
+
+                //take the correspondent file from descriptors directory
+                String descriptorFile = cdddDescriptors.getFilePathOf(CurMolecule.GetSMILES());
+
+                Prediction=super.calculatePythonModel(pathToScriptFile, descriptorFile, outputTempFile);
                 log.info("Finish to execute the model");
             }
             else{
@@ -136,10 +147,6 @@ public class ismDiliBayer extends InsilicoModelPython {
                 }
 
                 CurOutput.setResults(Res);
-
-                File file = new File(descriptorsTempFile);
-                file.delete();
-
                 return MODEL_CALCULATED;
             }
             else{
@@ -245,9 +252,5 @@ public class ismDiliBayer extends InsilicoModelPython {
 
     public String getInputTempFile() {
         return inputTempFile;
-    }
-
-    public String getDescriptorsTempFile() {
-        return descriptorsTempFile;
     }
 }
