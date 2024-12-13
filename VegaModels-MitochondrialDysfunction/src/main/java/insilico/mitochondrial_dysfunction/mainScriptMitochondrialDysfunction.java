@@ -7,14 +7,18 @@ import insilico.core.model.InsilicoModelOutput;
 import insilico.core.model.InsilicoModelPython;
 import insilico.core.molecule.conversion.SmilesMolecule;
 import insilico.core.python.CdddDescriptors;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.nio.file.Files;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.*;
+import java.net.*;
+import java.nio.file.*;
+import java.nio.file.attribute.BasicFileAttributes;
+import java.util.*;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
 
 public class mainScriptMitochondrialDysfunction {
 
@@ -22,7 +26,7 @@ public class mainScriptMitochondrialDysfunction {
 
 
     public static void main(String[] args) throws GenericFailureException, InitFailureException, IOException, URISyntaxException, InterruptedException {
-        InsilicoModel model = new MitochondrialDysfunction();
+        InsilicoModel model = new MitochondrialDysfunction(false);
 
 //        ModelsDeployment.BuildDataset(model, "out_ts");
 //        File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
@@ -32,6 +36,7 @@ public class mainScriptMitochondrialDysfunction {
 //        } catch (Exception ex) {
 //            log.warn(ex.getMessage());
 //        }
+
 
         model.setSkipADandTSLoading(true);
 
@@ -43,7 +48,7 @@ public class mainScriptMitochondrialDysfunction {
 
         if(InsilicoModelPython.class.isAssignableFrom(model.getClass())){
 
-            CdddDescriptors cdddDescriptors = new CdddDescriptors(smilesList);
+            CdddDescriptors cdddDescriptors = new CdddDescriptors(smilesList, false);
             ((MitochondrialDysfunction) model).setDescriptorGenerator(cdddDescriptors);
             boolean descriptorOK = cdddDescriptors.calculateDescriptors(
                     ((MitochondrialDysfunction) model).getInputTempFile(),
@@ -57,4 +62,5 @@ public class mainScriptMitochondrialDysfunction {
                 System.out.println(model.GetResultsName()[i] + " | " + out.getResults()[i]);
         }
     }
+
 }

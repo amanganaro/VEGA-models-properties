@@ -36,8 +36,18 @@ public class ismDiliBayer extends InsilicoModelPython {
     private CdddDescriptors cdddDescriptors;
 
 
-    public ismDiliBayer() throws InitFailureException, GenericFailureException, IOException {
+    public ismDiliBayer(boolean bypassCheckCondaEnv) throws InitFailureException, GenericFailureException, IOException, URISyntaxException, InterruptedException {
         super(ModelData);
+
+        if(!bypassCheckCondaEnv) {
+            URL urlSourceEnv = ismDiliBayer.class.getResource("/python/"+getCondaEnv()+".yml");
+            URL urlSourceAppFile = ismDiliBayer.class.getResource("/python/"+getScriptName()+".py");
+            boolean isEnvSet = configureCondaEnv(urlSourceEnv, urlSourceAppFile);
+            if(!isEnvSet) {
+                throw new InitFailureException("Conda environment "+getCondaEnv()+" not set");
+            }
+        }
+
 
         this.ResultsSize = 31;
         this.ResultsName = new String[ResultsSize];
@@ -91,19 +101,8 @@ public class ismDiliBayer extends InsilicoModelPython {
         }
     }
 
-    public boolean CalculateDescriptors(CdddDescriptors cdddDescriptors) {
-        log.info("enter in the calculate descriptors method");
-        boolean result=false;
-        try {
-            this.cdddDescriptors = cdddDescriptors;
-            result=cdddDescriptors.calculateDescriptors(inputTempFile, descriptorsTempDirectory);
-        } catch (Throwable e) {
-            log.info("Descriptors calculation failed");
-            return false;
-        }
-
-        log.info("Descriptors calculated {}", result ? "correctly": "failed");
-        return result;
+    public void setDescriptorGenerator(CdddDescriptors cdddDescriptors) {
+        this.cdddDescriptors = cdddDescriptors;
     }
 
     @Override
@@ -119,22 +118,16 @@ public class ismDiliBayer extends InsilicoModelPython {
     @Override
     protected short CalculateModel() {
         log.info("enter in the calculate model method");
-        Map<String, String> Prediction;
+        Map<String, String> Prediction = null;
         try {
-            boolean isEnvSet = CHECK_SETUP ? configureCondaEnv() : true;
-            if(isEnvSet){
-                log.info("Start to execute the model");
-                Path pathToScriptFile = Paths.get(pathToExternalFolder.toString(), "app.py");
+            log.info("Start to execute the model");
+            Path pathToScriptFile = Paths.get(pathToExternalFolder.toString(), getScriptName()+".py");
 
-                //take the correspondent file from descriptors directory
-                String descriptorFile = cdddDescriptors.getFilePathOf(CurMolecule.GetSMILES());
+            //take the correspondent file from descriptors directory
+            String descriptorFile = cdddDescriptors.getFilePathOf(CurMolecule.GetSMILES());
 
-                Prediction=super.calculatePythonModel(pathToScriptFile, descriptorFile, outputTempFile);
-                log.info("Finish to execute the model");
-            }
-            else{
-                Prediction = null;
-            }
+            Prediction=super.calculatePythonModel(pathToScriptFile, descriptorFile, outputTempFile);
+            log.info("Finish to execute the model");
 
             if(Prediction != null) {
                 log.info("Prediction calculated");
@@ -219,24 +212,25 @@ public class ismDiliBayer extends InsilicoModelPython {
         return "liver-mtnn";
     }
 
+    @Override
+    public String getScriptName() {
+        return "app-dili-bayer";
+    }
+
     /**
      * Add the models folder to the external path
      * @return
      * @throws IOException
      * @throws InterruptedException
      */
-    public boolean configureCondaEnv() throws IOException, InterruptedException, URISyntaxException {
-
-        log.info("enter in the configure conda env method");
-
+    @Override
+    public boolean configureCondaEnv(URL urlSourceEnv, URL urlSourceAppFile) throws InterruptedException, IOException, URISyntaxException {
         boolean isSet=false;
-        URL urlSourceEnv = getClass().getResource("/python/"+getCondaEnv()+".yml");
-        URL urlSourceAppFile = getClass().getResource("/python/app.py");
-        URL urlSourceModel = getClass().getResource("/python/models/");
+        URL urlSourceModel = getClass().getResource("/python/models-dili-bayer/");
 
         if(urlSourceModel!=null && urlSourceEnv != null && urlSourceAppFile != null){
-            FileUtilities.copyExternalData(Paths.get(urlSourceModel.toURI()).toString(),
-                    (pathToExternalFolder.toString()+File.separator+"models"));
+            FileUtilities.copyResourcesRecursively(urlSourceModel,
+                    new File(pathToExternalFolder.toString()+File.separator+"models-dili-bayer"));
             log.info("Models folder copied successfully");
 
             isSet = super.configureCondaEnv(urlSourceEnv, urlSourceAppFile);
@@ -252,5 +246,9 @@ public class ismDiliBayer extends InsilicoModelPython {
 
     public String getInputTempFile() {
         return inputTempFile;
+    }
+
+    public String getDescriptorsTempDirectory(){
+        return descriptorsTempDirectory;
     }
 }

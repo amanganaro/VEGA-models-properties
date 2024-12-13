@@ -9,7 +9,7 @@ from torch.autograd import Variable
 from rdkit.Chem import PandasTools
 from rdkit import Chem
 from rdkit.Chem.MolStandardize.standardize import Standardizer
-from models.model_mtnn import MultiTaskNN
+from models-dili-bayer.model_mtnn import MultiTaskNN
 
 
 # Endpoint list
@@ -79,7 +79,7 @@ def make_predictions_with_ensemble(Xtest):
     tasks = DILI_TASKS + ASSAYS_TASKS
     # read HPs from json file
     script_dir = os.path.dirname(os.path.realpath(__file__))
-    hp_path = os.path.join(script_dir, './models/hyperparameters.json')
+    hp_path = os.path.join(script_dir, './models-dili-bayer/hyperparameters.json')
     with open(hp_path, 'r') as openfile:
         hparam_dict = json.load(openfile)
 
@@ -89,7 +89,7 @@ def make_predictions_with_ensemble(Xtest):
         print(f'Split: {split_id}')
         # load models and make predictions
         script_dir = os.path.dirname(os.path.realpath(__file__))
-        model_file = f'models/model_mtnn_all_tasks_cddd_{split_id}.pth'
+        model_file = f'models-dili-bayer/model_mtnn_all_tasks_cddd_{split_id}.pth'
         model_file_path = os.path.join(script_dir, model_file)
         hparam = hparam_dict[str(split_id)]
 

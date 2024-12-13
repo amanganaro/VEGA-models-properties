@@ -24,7 +24,7 @@ def ad_evaluation(smiles:str, radius=3, num_bits=1024, singlesmiles=False):
     """
     fp1 = AllChem.GetMorganFingerprintAsBitVect(Chem.MolFromSmiles(smiles), radius, nBits=num_bits)
     ad_results = {}
-    path_folder = os.path.join(file_dir, "data")
+    path_folder = os.path.join(file_dir, "data-apical-cardiotox")
     path_folder_endpoint = os.path.join(path_folder, f'train_apical.csv')
     # name = folder.split("_")[0]
     data = pd.read_csv(path_folder_endpoint)
@@ -51,7 +51,7 @@ def ad_evaluation(smiles:str, radius=3, num_bits=1024, singlesmiles=False):
 
 def import_models():
     "import models find in models_apical folder"
-    path = os.path.join(file_dir, "models_apical")
+    path = os.path.join(file_dir, "models-apical-cardiotox")
 
     models_path = [path]
 

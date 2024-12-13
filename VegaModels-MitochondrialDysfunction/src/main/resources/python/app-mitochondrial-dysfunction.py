@@ -24,7 +24,7 @@ def ad_evaluation(smiles:str, radius=3, num_bits=1024, singlesmiles=False):
     """
     fp1 = AllChem.GetMorganFingerprintAsBitVect(Chem.MolFromSmiles(smiles), radius, nBits=num_bits)
     ad_results = {}
-    path_folder = os.path.join(file_dir, "data")
+    path_folder = os.path.join(file_dir, "data-mitochondrial-dysfunction")
     for file in os.listdir(path_folder):
         print(file)
         path_folder_endpoint = os.path.join(path_folder, file)
@@ -51,7 +51,7 @@ def ad_evaluation(smiles:str, radius=3, num_bits=1024, singlesmiles=False):
 def import_models():
     "import models find in BestModels_ML_90_10 folder"
 
-    path = os.path.join(file_dir, "models")
+    path = os.path.join(file_dir, "models-mitochondrial-dysfunction")
     models_path = {file.split("_")[0]:os.path.join(path, file) for file in os.listdir(path)}
 
     # import ML models
