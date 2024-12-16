@@ -60,15 +60,15 @@ public class MitochondrialDysfunction extends InsilicoModelPython {
         descriptorsTempDirectory = f.getAbsolutePath();
 
         if (System.getProperty("os.name").startsWith("Windows")) {
-            pathToExternalFolder = Paths.get(System.getProperty("user.home"),"\\AppData\\Local\\vega-models\\mitochondrial-dysfunction\\python").resolve("");
+            pathToExternalFolder = Paths.get(System.getProperty("user.home"),"\\AppData\\Local\\vega-models\\mitochondrial-dysfunction").resolve("");
         }
         else {
-            pathToExternalFolder = Paths.get(System.getProperty("user.home") ,"/.local/share/vega-models/mitochondrial-dysfunction/python").resolve("");
+            pathToExternalFolder = Paths.get(System.getProperty("user.home") ,"/.local/share/vega-models/mitochondrial-dysfunction").resolve("");
         }
 
         if(!bypassCheckCondaEnv) {
             URL urlSourceEnv = MitochondrialDysfunction.class.getResource("/python/"+getCondaEnv()+".yml");
-            URL urlSourceAppFile = MitochondrialDysfunction.class.getResource("/python/"+getScriptName()+".py");
+            URL urlSourceAppFile = MitochondrialDysfunction.class.getResource("/python/"+getScriptName());
             boolean isEnvSet = configureCondaEnv(urlSourceEnv, urlSourceAppFile);
             if(!isEnvSet) {
                 throw new InitFailureException("Conda environment "+getCondaEnv()+" not set");
@@ -92,11 +92,10 @@ public class MitochondrialDysfunction extends InsilicoModelPython {
 
     @Override
     protected short CalculateModel() {
-        log.info("enter in the calculate model method");
         Map<String, String> Prediction = null;
         try {
             log.info("Start to execute the model");
-            Path pathToScriptFile = Paths.get(pathToExternalFolder.toString(), getScriptName()+".py");
+            Path pathToScriptFile = Paths.get(pathToExternalFolder.toString(), getScriptName());
 
             //take the correspondent file from descriptors directory
             String descriptorFile = cdddDescriptors.getFilePathOf(CurMolecule.GetSMILES());
@@ -187,7 +186,7 @@ public class MitochondrialDysfunction extends InsilicoModelPython {
 
     @Override
     public String getScriptName() {
-        return "app-mitochondrial-dysfunction";
+        return "app-mitochondrial-dysfunction.py";
     }
 
     /**
@@ -217,7 +216,6 @@ public class MitochondrialDysfunction extends InsilicoModelPython {
             log.error("Missing some files in setup conda {} environment", getCondaEnv());
         }
         log.info("Conda environment {} set up {}", getCondaEnv(), isSet ? "correctly": "failed");
-
         return isSet;
     }
 

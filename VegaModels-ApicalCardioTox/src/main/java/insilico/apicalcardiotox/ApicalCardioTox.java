@@ -38,15 +38,6 @@ public class ApicalCardioTox extends InsilicoModelPython {
     public ApicalCardioTox(boolean bypassCheckCondaEnv) throws InitFailureException, GenericFailureException, IOException, URISyntaxException, InterruptedException {
         super(ModelData);
 
-        if(!bypassCheckCondaEnv) {
-            URL urlSourceEnv = ApicalCardioTox.class.getResource("/python/"+getCondaEnv()+".yml");
-            URL urlSourceAppFile = ApicalCardioTox.class.getResource("/python/"+getScriptName()+".py");
-            boolean isEnvSet = configureCondaEnv(urlSourceEnv, urlSourceAppFile);
-            if(!isEnvSet) {
-                throw new InitFailureException("Conda environment "+getCondaEnv()+" not set");
-            }
-        }
-
         this.ResultsSize = 2;
         this.ResultsName = new String[ResultsSize];
         this.ResultsName[0] = "ApicalModel";
@@ -63,10 +54,19 @@ public class ApicalCardioTox extends InsilicoModelPython {
         descriptorsTempDirectory = f.getAbsolutePath();
 
         if (System.getProperty("os.name").startsWith("Windows")) {
-            pathToExternalFolder = Paths.get(System.getProperty("user.home"),"\\AppData\\Local\\vega-models\\apical-cardio-tox\\python").resolve("");
+            pathToExternalFolder = Paths.get(System.getProperty("user.home"),"\\AppData\\Local\\vega-models\\apical-cardio-tox").resolve("");
         }
         else {
-            pathToExternalFolder = Paths.get(System.getProperty("user.home") ,"/.local/share/vega-models/apical-cardio-tox/python").resolve("");
+            pathToExternalFolder = Paths.get(System.getProperty("user.home") ,"/.local/share/vega-models/apical-cardio-tox").resolve("");
+        }
+
+        if(!bypassCheckCondaEnv) {
+            URL urlSourceEnv = ApicalCardioTox.class.getResource("/python/"+getCondaEnv()+".yml");
+            URL urlSourceAppFile = ApicalCardioTox.class.getResource("/python/"+getScriptName());
+            boolean isEnvSet = configureCondaEnv(urlSourceEnv, urlSourceAppFile);
+            if(!isEnvSet) {
+                throw new InitFailureException("Conda environment "+getCondaEnv()+" not set");
+            }
         }
     }
 
@@ -85,16 +85,14 @@ public class ApicalCardioTox extends InsilicoModelPython {
 
     @Override
     protected short CalculateModel() {
-        log.info("enter in the calculate model method");
         Map<String, String> Prediction = null;
         try {
 
             log.info("Start to execute the model");
-            Path pathToScriptFile = Paths.get(pathToExternalFolder.toString(), getScriptName()+".py");
+            Path pathToScriptFile = Paths.get(pathToExternalFolder.toString(), getScriptName());
 
             //take the correspondent file from descriptors directory
             String descriptorFile = cdddDescriptors.getFilePathOf(CurMolecule.GetSMILES());
-
             Prediction=super.calculatePythonModel(pathToScriptFile, "--input "+descriptorFile,
                     "--output "+outputTempFile);
             log.info("Finish to execute the model");

@@ -39,16 +39,6 @@ public class ismDiliBayer extends InsilicoModelPython {
     public ismDiliBayer(boolean bypassCheckCondaEnv) throws InitFailureException, GenericFailureException, IOException, URISyntaxException, InterruptedException {
         super(ModelData);
 
-        if(!bypassCheckCondaEnv) {
-            URL urlSourceEnv = ismDiliBayer.class.getResource("/python/"+getCondaEnv()+".yml");
-            URL urlSourceAppFile = ismDiliBayer.class.getResource("/python/"+getScriptName()+".py");
-            boolean isEnvSet = configureCondaEnv(urlSourceEnv, urlSourceAppFile);
-            if(!isEnvSet) {
-                throw new InitFailureException("Conda environment "+getCondaEnv()+" not set");
-            }
-        }
-
-
         this.ResultsSize = 31;
         this.ResultsName = new String[ResultsSize];
         this.ResultsName[0] = "DILI_secure";
@@ -94,10 +84,19 @@ public class ismDiliBayer extends InsilicoModelPython {
         descriptorsTempDirectory = f.getAbsolutePath();
 
         if (System.getProperty("os.name").startsWith("Windows")) {
-            pathToExternalFolder = Paths.get(System.getProperty("user.home"),"\\AppData\\Local\\vega-models\\dili-bayer\\python").resolve("");
+            pathToExternalFolder = Paths.get(System.getProperty("user.home"),"\\AppData\\Local\\vega-models\\dili-bayer").resolve("");
         }
         else {
-            pathToExternalFolder = Paths.get(System.getProperty("user.home") ,"/.local/share/vega-models/dili-bayer/python").resolve("");
+            pathToExternalFolder = Paths.get(System.getProperty("user.home") ,"/.local/share/vega-models/dili-bayer").resolve("");
+        }
+
+        if(!bypassCheckCondaEnv) {
+            URL urlSourceEnv = ismDiliBayer.class.getResource("/python/"+getCondaEnv()+".yml");
+            URL urlSourceAppFile = ismDiliBayer.class.getResource("/python/"+getScriptName());
+            boolean isEnvSet = configureCondaEnv(urlSourceEnv, urlSourceAppFile);
+            if(!isEnvSet) {
+                throw new InitFailureException("Conda environment "+getCondaEnv()+" not set");
+            }
         }
     }
 
@@ -117,11 +116,10 @@ public class ismDiliBayer extends InsilicoModelPython {
 
     @Override
     protected short CalculateModel() {
-        log.info("enter in the calculate model method");
         Map<String, String> Prediction = null;
         try {
             log.info("Start to execute the model");
-            Path pathToScriptFile = Paths.get(pathToExternalFolder.toString(), getScriptName()+".py");
+            Path pathToScriptFile = Paths.get(pathToExternalFolder.toString(), getScriptName());
 
             //take the correspondent file from descriptors directory
             String descriptorFile = cdddDescriptors.getFilePathOf(CurMolecule.GetSMILES());
@@ -214,7 +212,7 @@ public class ismDiliBayer extends InsilicoModelPython {
 
     @Override
     public String getScriptName() {
-        return "app-dili-bayer";
+        return "app-dili-bayer.py";
     }
 
     /**
