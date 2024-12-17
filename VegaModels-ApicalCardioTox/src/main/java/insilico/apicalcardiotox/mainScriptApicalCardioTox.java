@@ -37,7 +37,6 @@ public class mainScriptApicalCardioTox {
 //        }
 //        if(1==1)
 //            return;
-
 //        model.setSkipADandTSLoading(true);
 
         List<String> smilesList = new ArrayList<>();

@@ -120,12 +120,16 @@ public class ismDiliBayer extends InsilicoModelPython {
 
             if(Prediction != null) {
                 log.info("Prediction calculated");
-
                 CurOutput.setMainResultValue(Double.parseDouble(Prediction.get(ResultsName[0]+"_class")));
-
                 String[] Res = new String[ResultsSize];
+
                 for(int i=0; i<ResultsSize; i++){
-                    Res[i] = Prediction.get(ResultsName[i]+"_class");
+                    try {
+                        Res[i] = this.GetTrainingSet().getClassLabel(Double.parseDouble(Prediction.get(ResultsName[i]+"_class")));
+                    } catch (Throwable ex) {
+                        log.warn("Unable to find label for carcinogenicity value " + Prediction.get(ResultsName[i]+"_class"));
+                        Res[i] = Prediction.get(ResultsName[i]+"_class");
+                    }
                 }
 
                 CurOutput.setResults(Res);

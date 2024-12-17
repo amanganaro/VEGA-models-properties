@@ -98,7 +98,13 @@ public class ApicalCardioTox extends InsilicoModelPython {
                 CurOutput.setMainResultValue(Double.parseDouble(Prediction.get(ResultsName[0])));
 
                 String[] Res = new String[ResultsSize];
-                for(int i=0; i<ResultsSize; i++){
+                try {
+                    Res[0] = this.GetTrainingSet().getClassLabel(Double.parseDouble(Prediction.get(ResultsName[0])));
+                } catch (Throwable ex) {
+                    log.warn("Unable to find label for apical cardio tox value " + Prediction.get(ResultsName[0]));
+                    Res[0] = Prediction.get(ResultsName[0]);
+                }
+                for(int i=1; i<ResultsSize; i++){
                     Res[i] = Prediction.get(ResultsName[i]);
                 }
 

@@ -9,7 +9,6 @@
     
     <Vega>
         <TS>/data/ts_dili_bayer.dat</TS>
-        <Units></Units>
         <ClassValues>
             <Class>
                 <Value>0</Value>

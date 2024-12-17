@@ -9,7 +9,7 @@
     
     <Vega>
         <TS>/data/ts_apical_cardio_tox.dat</TS>
-        <Units></Units>
+        <HasAlerts>False</HasAlerts>
         <ClassValues>
             <Class>
                 <Value>0</Value>
