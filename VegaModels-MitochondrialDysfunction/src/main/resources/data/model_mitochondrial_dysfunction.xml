@@ -1,15 +1,25 @@
 <xml>
    
     <Version>
-        <Name>Lorem Ipsum</Name>
-        <Key>LOREM_IPSUM</Key>
-        <Summary>Lorem ipsum dolor sit amet</Summary>
+        <Name>Mitochondrial Dysfunction</Name>
+        <Key>MITO_DYSF</Key>
+        <Summary>Classification model for mitochondrial dysfunction (alternative project)</Summary>
         <Version>1.0.0</Version>
     </Version>
     
     <Vega>
         <TS>/data/ts_mitochondrial_dysfunction.dat</TS>
         <Units></Units>
+        <ClassValues>
+            <Class>
+                <Value>0</Value>
+                <Label>Negative</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Positive</Label>
+            </Class>
+        </ClassValues>
     </Vega>
 
     

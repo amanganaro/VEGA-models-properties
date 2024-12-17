@@ -1,15 +1,25 @@
 <xml>
    
     <Version>
-        <Name>Lorem Ipsum</Name>
-        <Key>LOREM_IPSUM</Key>
-        <Summary>Lorem ipsum dolor sit amet</Summary>
+        <Name>Apical Cardio Tox</Name>
+        <Key>API_CARDIO</Key>
+        <Summary>Classification model for apical cardio tox (alternative project)</Summary>
         <Version>1.0.0</Version>
     </Version>
     
     <Vega>
         <TS>/data/ts_apical_cardio_tox.dat</TS>
         <Units></Units>
+        <ClassValues>
+            <Class>
+                <Value>0</Value>
+                <Label>Negative</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Positive</Label>
+            </Class>
+        </ClassValues>
     </Vega>
 
     

@@ -11,6 +11,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import utils.ModelsDeployment;
 
 import java.io.*;
 import java.net.*;
@@ -30,15 +31,16 @@ public class mainScriptMitochondrialDysfunction {
 
 //        ModelsDeployment.BuildDataset(model, "out_ts");
 //        File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
-//        File destinationFile = new File("VegaModels-DiliBayer\\src\\main\\resources\\data\\ts_dili_bayer.dat");
+//        File destinationFile = new File("VegaModels-MitochondrialDysfunction\\src\\main\\resources\\data\\ts_mitochondrial_dysfunction.dat");
 //        try {
 //            Files.move(sourceFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
 //        } catch (Exception ex) {
 //            log.warn(ex.getMessage());
 //        }
-
-
-        model.setSkipADandTSLoading(true);
+//        if(1==1){
+//            return;
+//        }
+//        model.setSkipADandTSLoading(true);
 
         List<String> smilesList = new ArrayList<>();
         smilesList.add("O=[N+]([O-])c1cc(cc(c1N(CCC)CCC)[N+](=O)[O-])S(=O)(=O)C");
@@ -47,12 +49,9 @@ public class mainScriptMitochondrialDysfunction {
         smilesList.add("O=S(=O)(C(C)(C)C)C(C)(C)C");
 
         if(InsilicoModelPython.class.isAssignableFrom(model.getClass())){
-
             CdddDescriptors cdddDescriptors = new CdddDescriptors(smilesList, false);
             ((MitochondrialDysfunction) model).setDescriptorGenerator(cdddDescriptors);
-            boolean descriptorOK = cdddDescriptors.calculateDescriptors(
-                    ((MitochondrialDysfunction) model).getInputTempFile(),
-                    ((MitochondrialDysfunction) model).getDescriptorsTempDirectory());
+            boolean descriptorOK = cdddDescriptors.calculateDescriptors();
         }
 
         for (String smiles : smilesList) {

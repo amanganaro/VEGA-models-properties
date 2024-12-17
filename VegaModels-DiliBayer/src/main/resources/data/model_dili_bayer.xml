@@ -10,6 +10,16 @@
     <Vega>
         <TS>/data/ts_dili_bayer.dat</TS>
         <Units></Units>
+        <ClassValues>
+            <Class>
+                <Value>0</Value>
+                <Label>Negative</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Positive</Label>
+            </Class>
+        </ClassValues>
     </Vega>
 
     

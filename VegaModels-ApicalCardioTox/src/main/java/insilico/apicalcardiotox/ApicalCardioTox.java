@@ -29,11 +29,8 @@ public class ApicalCardioTox extends InsilicoModelPython {
 
     private static final String ModelData = "/data/model_apical_cardio_tox.xml";
 
-    protected final boolean CHECK_SETUP = false;
-
-    protected String descriptorsTempDirectory = "";
-
     private CdddDescriptors cdddDescriptors;
+
 
     public ApicalCardioTox(boolean bypassCheckCondaEnv) throws InitFailureException, GenericFailureException, IOException, URISyntaxException, InterruptedException {
         super(ModelData);
@@ -46,12 +43,9 @@ public class ApicalCardioTox extends InsilicoModelPython {
         this.DescriptorsSize = 0;
         this.DescriptorsNames = new String[DescriptorsSize];
 
-        File f = File.createTempFile("input-apical-cardio-tox", ".csv");
-        inputTempFile = f.getAbsolutePath();
-        f=File.createTempFile("output-apical-cardio-tox", ".csv");
+        File f = File.createTempFile("output-apical-cardio-tox", ".csv");
         outputTempFile = f.getAbsolutePath();
-        f = Files.createTempDirectory("descriptors-apical-cardio-tox").toFile();
-        descriptorsTempDirectory = f.getAbsolutePath();
+
 
         if (System.getProperty("os.name").startsWith("Windows")) {
             pathToExternalFolder = Paths.get(System.getProperty("user.home"),"\\AppData\\Local\\vega-models\\apical-cardio-tox").resolve("");
@@ -70,8 +64,9 @@ public class ApicalCardioTox extends InsilicoModelPython {
         }
     }
 
-    public void setDescriptorGenerator(CdddDescriptors cdddDescriptors) {
-        this.cdddDescriptors = cdddDescriptors;
+    @Override
+    public void setDescriptorGenerator(Object descriptorGenerator) {
+        cdddDescriptors = (CdddDescriptors) descriptorGenerator;
     }
 
     @Override
@@ -182,7 +177,7 @@ public class ApicalCardioTox extends InsilicoModelPython {
 
     @Override
     public String getScriptName() {
-        return "app-apical-cardio-tox.py";
+        return "app-apical-cardiotox.py";
     }
 
     /**
@@ -194,8 +189,8 @@ public class ApicalCardioTox extends InsilicoModelPython {
     @Override
     public boolean configureCondaEnv(URL urlSourceEnv, URL urlSourceAppFile) throws InterruptedException, IOException, URISyntaxException {
         boolean isSet=false;
-        URL urlSourceModel = getClass().getResource("/python/models-apical-cardiotox/");
-        URL urlSourceDataModel = getClass().getResource("/python/data-apical-cardiotox/");
+        URL urlSourceModel = ApicalCardioTox.class.getResource("/python/models-apical-cardiotox/");
+        URL urlSourceDataModel = ApicalCardioTox.class.getResource("/python/data-apical-cardiotox/");
 
         if(urlSourceModel!=null && urlSourceEnv != null && urlSourceAppFile != null
                 && urlSourceDataModel != null) {
@@ -220,7 +215,8 @@ public class ApicalCardioTox extends InsilicoModelPython {
         return inputTempFile;
     }
 
-    public String getDescriptorsTempDirectory(){
-        return descriptorsTempDirectory;
+    @Override
+    public boolean isUsingCdddDescriptor(){
+        return true;
     }
 }

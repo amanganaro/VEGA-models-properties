@@ -16,7 +16,6 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Map;
@@ -29,12 +28,7 @@ public class ismDiliBayer extends InsilicoModelPython {
 
     private static final String ModelData = "/data/model_dili_bayer.xml";
 
-    protected final boolean CHECK_SETUP = false;
-
-    protected String descriptorsTempDirectory = "";
-
     private CdddDescriptors cdddDescriptors;
-
 
     public ismDiliBayer(boolean bypassCheckCondaEnv) throws InitFailureException, GenericFailureException, IOException, URISyntaxException, InterruptedException {
         super(ModelData);
@@ -76,12 +70,8 @@ public class ismDiliBayer extends InsilicoModelPython {
         this.DescriptorsSize = 0;
         this.DescriptorsNames = new String[DescriptorsSize];
 
-        File f = File.createTempFile("input-dili-bayer", ".csv");
-        inputTempFile = f.getAbsolutePath();
-        f=File.createTempFile("output-dili-bayer", ".csv");
+        File f = File.createTempFile("output-dili-bayer", ".csv");
         outputTempFile = f.getAbsolutePath();
-        f = Files.createTempDirectory("descriptors-dili-bayer").toFile();
-        descriptorsTempDirectory = f.getAbsolutePath();
 
         if (System.getProperty("os.name").startsWith("Windows")) {
             pathToExternalFolder = Paths.get(System.getProperty("user.home"),"\\AppData\\Local\\vega-models\\dili-bayer").resolve("");
@@ -100,8 +90,9 @@ public class ismDiliBayer extends InsilicoModelPython {
         }
     }
 
-    public void setDescriptorGenerator(CdddDescriptors cdddDescriptors) {
-        this.cdddDescriptors = cdddDescriptors;
+    @Override
+    public void setDescriptorGenerator(Object descriptorGenerator) {
+        cdddDescriptors = (CdddDescriptors) descriptorGenerator;
     }
 
     @Override
@@ -224,11 +215,11 @@ public class ismDiliBayer extends InsilicoModelPython {
     @Override
     public boolean configureCondaEnv(URL urlSourceEnv, URL urlSourceAppFile) throws InterruptedException, IOException, URISyntaxException {
         boolean isSet=false;
-        URL urlSourceModel = getClass().getResource("/python/models-dili-bayer/");
+        URL urlSourceModel = getClass().getResource("/python/models_dili_bayer/");
 
         if(urlSourceModel!=null && urlSourceEnv != null && urlSourceAppFile != null){
             FileUtilities.copyResourcesRecursively(urlSourceModel,
-                    new File(pathToExternalFolder.toString()+File.separator+"models-dili-bayer"));
+                    new File(pathToExternalFolder.toString()+File.separator+"models_dili_bayer"));
             log.info("Models folder copied successfully");
 
             isSet = super.configureCondaEnv(urlSourceEnv, urlSourceAppFile);
@@ -246,7 +237,8 @@ public class ismDiliBayer extends InsilicoModelPython {
         return inputTempFile;
     }
 
-    public String getDescriptorsTempDirectory(){
-        return descriptorsTempDirectory;
+    @Override
+    public boolean isUsingCdddDescriptor(){
+        return true;
     }
 }

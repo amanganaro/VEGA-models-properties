@@ -35,11 +35,7 @@ public class MitochondrialDysfunction extends InsilicoModelPython {
 
     private static final String ModelData = "/data/model_mitochondrial_dysfunction.xml";
 
-    protected String descriptorsTempDirectory = "";
-
     private CdddDescriptors cdddDescriptors;
-
-    public boolean isUsingCdddDescriptor=true;
 
     public MitochondrialDysfunction(boolean bypassCheckCondaEnv) throws InitFailureException, GenericFailureException, IOException, URISyntaxException, InterruptedException {
         super(ModelData);
@@ -52,12 +48,8 @@ public class MitochondrialDysfunction extends InsilicoModelPython {
         this.DescriptorsSize = 0;
         this.DescriptorsNames = new String[DescriptorsSize];
 
-        File f = File.createTempFile("input-mitochondrial-dysfunction", ".csv");
-        inputTempFile = f.getAbsolutePath();
-        f=File.createTempFile("output-mitochondrial-dysfunction", ".csv");
+        File f=File.createTempFile("output-mitochondrial-dysfunction", ".csv");
         outputTempFile = f.getAbsolutePath();
-        f = Files.createTempDirectory("descriptors-mitochondrial-dysfunction").toFile();
-        descriptorsTempDirectory = f.getAbsolutePath();
 
         if (System.getProperty("os.name").startsWith("Windows")) {
             pathToExternalFolder = Paths.get(System.getProperty("user.home"),"\\AppData\\Local\\vega-models\\mitochondrial-dysfunction").resolve("");
@@ -76,8 +68,9 @@ public class MitochondrialDysfunction extends InsilicoModelPython {
         }
     }
 
-    public void setDescriptorGenerator(CdddDescriptors cdddDescriptors) {
-        this.cdddDescriptors = cdddDescriptors;
+    @Override
+    public void setDescriptorGenerator(Object descriptorGenerator) {
+        cdddDescriptors = (CdddDescriptors) descriptorGenerator;
     }
 
     @Override
@@ -223,7 +216,8 @@ public class MitochondrialDysfunction extends InsilicoModelPython {
         return inputTempFile;
     }
 
-    public String getDescriptorsTempDirectory(){
-        return descriptorsTempDirectory;
+    @Override
+    public boolean isUsingCdddDescriptor(){
+        return true;
     }
 }
