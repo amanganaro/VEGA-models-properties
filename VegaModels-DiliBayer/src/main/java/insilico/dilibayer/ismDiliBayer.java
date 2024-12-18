@@ -33,6 +33,7 @@ public class ismDiliBayer extends InsilicoModelPython {
     private static final String ModelData = "/data/model_dili_bayer.xml";
 
     private CdddDescriptors cdddDescriptors;
+    private final String[] PythonResultsName;
 
     public ismDiliBayer(boolean bypassCheckCondaEnv) throws InitFailureException, GenericFailureException, IOException, URISyntaxException, InterruptedException {
         super(ModelData);
@@ -70,6 +71,40 @@ public class ismDiliBayer extends InsilicoModelPython {
         this.ResultsName[28] = "Prediction for essay HTX";
         this.ResultsName[29] = "Prediction for essay ERS";
         this.ResultsName[30] = "Prediction for essay ARE";
+
+        PythonResultsName = new String[this.ResultsSize];
+        PythonResultsName[0] = "DILI_secure";
+        PythonResultsName[1] = "DILI_sensitive";
+        PythonResultsName[2] = "DILI_majority";
+        PythonResultsName[3] = "BSEPi";
+        PythonResultsName[4] = "BSEPs";
+        PythonResultsName[5] = "PGPi";
+        PythonResultsName[6] = "PGPs";
+        PythonResultsName[7] = "MRP4i";
+        PythonResultsName[8] = "MRP3i";
+        PythonResultsName[9] = "MRP3s";
+        PythonResultsName[10] = "MRP2i";
+        PythonResultsName[11] = "MRP2s";
+        PythonResultsName[12] = "BCRPi";
+        PythonResultsName[13] = "BCRPs";
+        PythonResultsName[14] = "OATP1B1i";
+        PythonResultsName[15] = "OATP1B3i";
+        PythonResultsName[16] = "NRF2";
+        PythonResultsName[17] = "LXR";
+        PythonResultsName[18] = "AHR";
+        PythonResultsName[19] = "PPARa";
+        PythonResultsName[20] = "PPARg";
+        PythonResultsName[21] = "PXR";
+        PythonResultsName[22] = "FXR";
+        PythonResultsName[23] = "MTX_MP";
+        PythonResultsName[24] = "MTX_RC";
+        PythonResultsName[25] = "MTX_FOM";
+        PythonResultsName[26] = "PLD";
+        PythonResultsName[27] = "PLD_HTS";
+        PythonResultsName[28] = "HTX";
+        PythonResultsName[29] = "ERS";
+        PythonResultsName[30] = "ARE";
+
 
         this.DescriptorsSize = 0;
         this.DescriptorsNames = new String[DescriptorsSize];
@@ -129,10 +164,10 @@ public class ismDiliBayer extends InsilicoModelPython {
 
                 for(int i=0; i<ResultsSize; i++){
                     try {
-                        Res[i] = this.GetTrainingSet().getClassLabel(Double.parseDouble(Prediction.get(ResultsName[i]+"_class")));
+                        Res[i] = this.GetTrainingSet().getClassLabel(Double.parseDouble(Prediction.get(PythonResultsName[i]+"_class")));
                     } catch (Throwable ex) {
-                        log.warn("Unable to find label for carcinogenicity value " + Prediction.get(ResultsName[i]+"_class"));
-                        Res[i] = Prediction.get(ResultsName[i]+"_class");
+                        log.warn("Unable to find label for value " + Prediction.get(PythonResultsName[i]+"_class"));
+                        Res[i] = Prediction.get(PythonResultsName[i]+"_class");
                     }
                 }
 
