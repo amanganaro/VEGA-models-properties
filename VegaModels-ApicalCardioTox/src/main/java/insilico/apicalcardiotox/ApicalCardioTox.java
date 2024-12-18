@@ -1,5 +1,8 @@
 package insilico.apicalcardiotox;
 
+import insilico.core.ad.ADCheckACF;
+import insilico.core.ad.ADCheckIndicesQualitative;
+import insilico.core.ad.item.*;
 import insilico.core.descriptor.DescriptorsEngine;
 import insilico.core.exception.GenericFailureException;
 import insilico.core.exception.InitFailureException;
@@ -30,15 +33,19 @@ public class ApicalCardioTox extends InsilicoModelPython {
     private static final String ModelData = "/data/model_apical_cardio_tox.xml";
 
     private CdddDescriptors cdddDescriptors;
-
+    private final String[] PythonResultsName;
 
     public ApicalCardioTox(boolean bypassCheckCondaEnv) throws InitFailureException, GenericFailureException, IOException, URISyntaxException, InterruptedException {
         super(ModelData);
 
         this.ResultsSize = 2;
         this.ResultsName = new String[ResultsSize];
-        this.ResultsName[0] = "ApicalModel";
-        this.ResultsName[1] = "apical_data";
+        this.ResultsName[0] = "Cardiotoxicity prediction";
+        this.ResultsName[1] = "Python model AD assessment";
+
+        PythonResultsName = new String[this.ResultsSize];
+        PythonResultsName[0] = "ApicalModel";
+        PythonResultsName[1] = "apical_data";
 
         this.DescriptorsSize = 0;
         this.DescriptorsNames = new String[DescriptorsSize];
@@ -92,17 +99,17 @@ public class ApicalCardioTox extends InsilicoModelPython {
             if(Prediction != null) {
                 log.info("Prediction calculated");
 
-                CurOutput.setMainResultValue(Double.parseDouble(Prediction.get(ResultsName[0])));
+                CurOutput.setMainResultValue(Double.parseDouble(Prediction.get(PythonResultsName[0])));
 
                 String[] Res = new String[ResultsSize];
                 try {
-                    Res[0] = this.GetTrainingSet().getClassLabel(Double.parseDouble(Prediction.get(ResultsName[0])));
+                    Res[0] = this.GetTrainingSet().getClassLabel(Double.parseDouble(Prediction.get(PythonResultsName[0])));
                 } catch (Throwable ex) {
-                    log.warn("Unable to find label for apical cardio tox value " + Prediction.get(ResultsName[0]));
-                    Res[0] = Prediction.get(ResultsName[0]);
+                    log.warn("Unable to find label for apical cardio tox value " + Prediction.get(PythonResultsName[0]));
+                    Res[0] = Prediction.get(PythonResultsName[0]);
                 }
                 for(int i=1; i<ResultsSize; i++){
-                    Res[i] = Prediction.get(ResultsName[i]);
+                    Res[i] = Prediction.get(PythonResultsName[i]);
                 }
 
                 CurOutput.setResults(Res);
@@ -121,47 +128,38 @@ public class ApicalCardioTox extends InsilicoModelPython {
     @Override
     protected short CalculateAD() {
 
-        // questo lo vediamo quando troviamo il dataset da inserire
-        return InsilicoModel.AD_ERROR;
+        // Calculates various AD indices
+        ADCheckIndicesQualitative adq = new ADCheckIndicesQualitative(TS);
+        adq.AddMappingToPositiveValue(1);
+        adq.AddMappingToNegativeValue(0);
+        adq.setMoleculesForIndexSize(2);
+        if (!adq.Calculate(CurMolecule, CurOutput))
+            return InsilicoModel.AD_ERROR;
 
-//        // Calculates various AD indices
-//        ADCheckIndicesQuantitative adq = new ADCheckIndicesQuantitative(TS);
-//        adq.setMoleculesForIndexSize(2);
-//        if (!adq.Calculate(CurMolecule, CurOutput))
-//            return InsilicoModel.AD_ERROR;
-//
-//        // Sets threshold for AD indices
-//        try {
-//            ((ADIndexSimilarity)CurOutput.getADIndex(ADIndexSimilarity.class)).SetThresholds(0.85, 0.7);
-//            ((ADIndexAccuracy)CurOutput.getADIndex(ADIndexAccuracy.class)).SetThresholds(1.0, 0.6);
-//            ((ADIndexConcordance)CurOutput.getADIndex(ADIndexConcordance.class)).SetThresholds(1.0, 0.6);
-//            ((ADIndexMaxError)CurOutput.getADIndex(ADIndexMaxError.class)).SetThresholds(1.0, 0.6);
-//        } catch (Throwable e) {
-//            return InsilicoModel.AD_ERROR;
-//        }
-//
-//        // Sets Range check
-//        ADCheckDescriptorRange adrc = new ADCheckDescriptorRange();
-//        if (!adrc.Calculate(TS, insilico.dilibayer.Descriptors, CurOutput))
-//            return InsilicoModel.AD_ERROR;
-//
-//        // Sets ACF check
-//        ADCheckACF adacf = new ADCheckACF(TS);
-//        if (!adacf.Calculate(CurMolecule, CurOutput))
-//            return InsilicoModel.AD_ERROR;
-//
-//        // Sets final AD index
-//        double acfContribution = CurOutput.getADIndex(ADIndexACF.class).GetIndexValue();
-//        double rcContribution = CurOutput.getADIndex(ADIndexRange.class).GetIndexValue();
-//        double ADIValue = adq.getIndexADI() * acfContribution * rcContribution;
-//
-//        ADIndexADIAggregate ADI = new ADIndexADIAggregate(0.85, 0.7, 1, 0.85, 0.7);
-//        ADI.SetValue(ADIValue, CurOutput.getADIndex(ADIndexAccuracy.class),
-//                CurOutput.getADIndex(ADIndexConcordance.class),
-//                CurOutput.getADIndex(ADIndexMaxError.class));
-//        CurOutput.setADI(ADI);
-//
-//        return InsilicoModel.AD_CALCULATED;
+        // Sets threshold for AD indices
+        try {
+            ((ADIndexSimilarity)CurOutput.getADIndex(ADIndexSimilarity.class)).SetThresholds(0.75, 0.6);
+            ((ADIndexAccuracy)CurOutput.getADIndex(ADIndexAccuracy.class)).SetThresholds(0.75, 0.6);
+            ((ADIndexConcordance)CurOutput.getADIndex(ADIndexConcordance.class)).SetThresholds(0.75, 0.6);
+        } catch (Throwable e) {
+            return InsilicoModel.AD_ERROR;
+        }
+
+        // Sets ACF check
+        ADCheckACF adacf = new ADCheckACF(TS);
+        if (!adacf.Calculate(CurMolecule, CurOutput))
+            return InsilicoModel.AD_ERROR;
+
+        // Sets final AD index
+        double acfContribution = CurOutput.getADIndex(ADIndexACF.class).GetIndexValue();
+        double ADIValue = adq.getIndexADI() * acfContribution;
+
+        ADIndexADI ADI = new ADIndexADI();
+        ADI.SetIndexValue(ADIValue);
+        ADI.SetThresholds(0.75, 0.6);
+        CurOutput.setADI(ADI);
+
+        return InsilicoModel.AD_CALCULATED;
     }
 
     @Override
@@ -170,7 +168,13 @@ public class ApicalCardioTox extends InsilicoModelPython {
         ModelUtilities.SetDefaultAssessment(CurOutput, CurOutput.getResults()[0]);
 
         // Sets assessment status
-        CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_GRAY);
+        double Val = CurOutput.HasExperimental() ? CurOutput.getExperimental() : CurOutput.getMainResultValue();
+        if (Val == -1)
+            CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_GRAY);
+        else if (Val == 0)
+            CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_GREEN);
+        else if (Val == 1)
+            CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_RED);
     }
 
     @Override
