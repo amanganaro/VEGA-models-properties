@@ -109,9 +109,6 @@ public class ismDiliBayer extends InsilicoModelPython {
         this.DescriptorsSize = 0;
         this.DescriptorsNames = new String[DescriptorsSize];
 
-        File f = File.createTempFile("output-dili-bayer", ".csv");
-        outputTempFile = f.getAbsolutePath();
-
         if (System.getProperty("os.name").startsWith("Windows")) {
             pathToExternalFolder = Paths.get(System.getProperty("user.home"),"\\AppData\\Local\\vega-models\\dili-bayer").resolve("");
         }
@@ -149,9 +146,9 @@ public class ismDiliBayer extends InsilicoModelPython {
         Map<String, String> Prediction = null;
         try {
             log.info("Start to execute the model");
+            File f = File.createTempFile("output-dili-bayer", ".csv");
+            outputTempFile = f.getAbsolutePath();
             Path pathToScriptFile = Paths.get(pathToExternalFolder.toString(), getScriptName());
-
-            //take the correspondent file from descriptors directory
             String descriptorFile = cdddDescriptors.getFilePathOf(CurMolecule.GetSMILES());
 
             Prediction=super.calculatePythonModel(pathToScriptFile, descriptorFile, outputTempFile);
@@ -159,7 +156,7 @@ public class ismDiliBayer extends InsilicoModelPython {
 
             if(Prediction != null) {
                 log.info("Prediction calculated");
-                CurOutput.setMainResultValue(Double.parseDouble(Prediction.get(ResultsName[0]+"_class")));
+                CurOutput.setMainResultValue(Double.parseDouble(Prediction.get(PythonResultsName[0]+"_class")));
                 String[] Res = new String[ResultsSize];
 
                 for(int i=0; i<ResultsSize; i++){

@@ -51,6 +51,9 @@ public class mainScriptDili {
             CdddDescriptors cdddDescriptors = new CdddDescriptors(smilesList, false);
             ((ismDiliBayer) model).setDescriptorGenerator(cdddDescriptors);
             boolean descriptorOK = cdddDescriptors.calculateDescriptors();
+            if(descriptorOK){
+                cdddDescriptors.dispose();
+            }
         }
 
         for (String smiles : smilesList) {

@@ -48,9 +48,6 @@ public class MitochondrialDysfunction extends InsilicoModelPython {
         this.DescriptorsSize = 0;
         this.DescriptorsNames = new String[DescriptorsSize];
 
-        File f=File.createTempFile("output-mitochondrial-dysfunction", ".csv");
-        outputTempFile = f.getAbsolutePath();
-
         if (System.getProperty("os.name").startsWith("Windows")) {
             pathToExternalFolder = Paths.get(System.getProperty("user.home"),"\\AppData\\Local\\vega-models\\mitochondrial-dysfunction").resolve("");
         }
@@ -89,7 +86,8 @@ public class MitochondrialDysfunction extends InsilicoModelPython {
         try {
             log.info("Start to execute the model");
             Path pathToScriptFile = Paths.get(pathToExternalFolder.toString(), getScriptName());
-
+            File f=File.createTempFile("output-mitochondrial-dysfunction", ".csv");
+            outputTempFile = f.getAbsolutePath();
             //take the correspondent file from descriptors directory
             String descriptorFile = cdddDescriptors.getFilePathOf(CurMolecule.GetSMILES());
             Prediction=super.calculatePythonModel(pathToScriptFile, "--input "+descriptorFile,
