@@ -45,8 +45,10 @@ public class mainScriptApicalCardioTox {
         smilesList.add("O=[N+]([O-])c1cc(c(O)c(c1)C(C)(C)C)[N+](=O)[O-]");
         smilesList.add("O=S(=O)(C(C)(C)C)C(C)(C)C");
 
+        CdddDescriptors cdddDescriptors=null;
+
         if(InsilicoModelPython.class.isAssignableFrom(model.getClass())){
-            CdddDescriptors cdddDescriptors = new CdddDescriptors(smilesList, true);
+            cdddDescriptors = new CdddDescriptors(smilesList, true);
             ((ApicalCardioTox) model).setDescriptorGenerator(cdddDescriptors);
             boolean descriptorOK = cdddDescriptors.calculateDescriptors();
         }
@@ -57,5 +59,7 @@ public class mainScriptApicalCardioTox {
             for (int i = 0; i < model.GetResultsName().length; i++)
                 System.out.println(model.GetResultsName()[i] + " | " + out.getResults()[i]);
         }
+
+        cdddDescriptors.dispose();
     }
 }
