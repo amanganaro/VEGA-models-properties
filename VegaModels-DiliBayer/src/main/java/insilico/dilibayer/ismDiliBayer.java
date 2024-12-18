@@ -1,5 +1,9 @@
 package insilico.dilibayer;
 
+import insilico.core.ad.ADCheckACF;
+import insilico.core.ad.ADCheckIndicesQualitative;
+import insilico.core.ad.ADCheckSA;
+import insilico.core.ad.item.*;
 import insilico.core.descriptor.DescriptorsEngine;
 import insilico.core.exception.GenericFailureException;
 import insilico.core.exception.InitFailureException;
@@ -35,37 +39,37 @@ public class ismDiliBayer extends InsilicoModelPython {
 
         this.ResultsSize = 31;
         this.ResultsName = new String[ResultsSize];
-        this.ResultsName[0] = "DILI_secure";
-        this.ResultsName[1] = "DILI_sensitive";
-        this.ResultsName[2] = "DILI_majority";
-        this.ResultsName[3] = "BSEPi";
-        this.ResultsName[4] = "BSEPs";
-        this.ResultsName[5] = "PGPi";
-        this.ResultsName[6] = "PGPs";
-        this.ResultsName[7] = "MRP4i";
-        this.ResultsName[8] = "MRP3i";
-        this.ResultsName[9] = "MRP3s";
-        this.ResultsName[10] = "MRP2i";
-        this.ResultsName[11] = "MRP2s";
-        this.ResultsName[12] = "BCRPi";
-        this.ResultsName[13] = "BCRPs";
-        this.ResultsName[14] = "OATP1B1i";
-        this.ResultsName[15] = "OATP1B3i";
-        this.ResultsName[16] = "NRF2";
-        this.ResultsName[17] = "LXR";
-        this.ResultsName[18] = "AHR";
-        this.ResultsName[19] = "PPARa";
-        this.ResultsName[20] = "PPARg";
-        this.ResultsName[21] = "PXR";
-        this.ResultsName[22] = "FXR";
-        this.ResultsName[23] = "MTX_MP";
-        this.ResultsName[24] = "MTX_RC";
-        this.ResultsName[25] = "MTX_FOM";
-        this.ResultsName[26] = "PLD";
-        this.ResultsName[27] = "PLD_HTS";
-        this.ResultsName[28] = "HTX";
-        this.ResultsName[29] = "ERS";
-        this.ResultsName[30] = "ARE";
+        this.ResultsName[0] = "DILI (secure) prediction";
+        this.ResultsName[1] = "DILI (sensitive) prediction";
+        this.ResultsName[2] = "DILI (majority) prediction";
+        this.ResultsName[3] = "Prediction for essay BSEPi";
+        this.ResultsName[4] = "Prediction for essay BSEPs";
+        this.ResultsName[5] = "Prediction for essay PGPi";
+        this.ResultsName[6] = "Prediction for essay PGPs";
+        this.ResultsName[7] = "Prediction for essay MRP4i";
+        this.ResultsName[8] = "Prediction for essay MRP3i";
+        this.ResultsName[9] = "Prediction for essay MRP3s";
+        this.ResultsName[10] = "Prediction for essay MRP2i";
+        this.ResultsName[11] = "Prediction for essay MRP2s";
+        this.ResultsName[12] = "Prediction for essay BCRPi";
+        this.ResultsName[13] = "Prediction for essay BCRPs";
+        this.ResultsName[14] = "Prediction for essay OATP1B1i";
+        this.ResultsName[15] = "Prediction for essay OATP1B3i";
+        this.ResultsName[16] = "Prediction for essay NRF2";
+        this.ResultsName[17] = "Prediction for essay LXR";
+        this.ResultsName[18] = "Prediction for essay AHR";
+        this.ResultsName[19] = "Prediction for essay PPARa";
+        this.ResultsName[20] = "Prediction for essay PPARg";
+        this.ResultsName[21] = "Prediction for essay PXR";
+        this.ResultsName[22] = "Prediction for essay FXR";
+        this.ResultsName[23] = "Prediction for essay MTX_MP";
+        this.ResultsName[24] = "Prediction for essay MTX_RC";
+        this.ResultsName[25] = "Prediction for essay MTX_FOM";
+        this.ResultsName[26] = "Prediction for essay PLD";
+        this.ResultsName[27] = "Prediction for essay PLD_HTS";
+        this.ResultsName[28] = "Prediction for essay HTX";
+        this.ResultsName[29] = "Prediction for essay ERS";
+        this.ResultsName[30] = "Prediction for essay ARE";
 
         this.DescriptorsSize = 0;
         this.DescriptorsNames = new String[DescriptorsSize];
@@ -148,47 +152,38 @@ public class ismDiliBayer extends InsilicoModelPython {
     @Override
     protected short CalculateAD() {
 
-        // questo lo vediamo quando troviamo il dataset da inserire
-        return InsilicoModel.AD_ERROR;
+        // Calculates various AD indices
+        ADCheckIndicesQualitative adq = new ADCheckIndicesQualitative(TS);
+        adq.AddMappingToPositiveValue(1);
+        adq.AddMappingToNegativeValue(0);
+        adq.setMoleculesForIndexSize(2);
+        if (!adq.Calculate(CurMolecule, CurOutput))
+            return InsilicoModel.AD_ERROR;
 
-//        // Calculates various AD indices
-//        ADCheckIndicesQuantitative adq = new ADCheckIndicesQuantitative(TS);
-//        adq.setMoleculesForIndexSize(2);
-//        if (!adq.Calculate(CurMolecule, CurOutput))
-//            return InsilicoModel.AD_ERROR;
-//
-//        // Sets threshold for AD indices
-//        try {
-//            ((ADIndexSimilarity)CurOutput.getADIndex(ADIndexSimilarity.class)).SetThresholds(0.85, 0.7);
-//            ((ADIndexAccuracy)CurOutput.getADIndex(ADIndexAccuracy.class)).SetThresholds(1.0, 0.6);
-//            ((ADIndexConcordance)CurOutput.getADIndex(ADIndexConcordance.class)).SetThresholds(1.0, 0.6);
-//            ((ADIndexMaxError)CurOutput.getADIndex(ADIndexMaxError.class)).SetThresholds(1.0, 0.6);
-//        } catch (Throwable e) {
-//            return InsilicoModel.AD_ERROR;
-//        }
-//
-//        // Sets Range check
-//        ADCheckDescriptorRange adrc = new ADCheckDescriptorRange();
-//        if (!adrc.Calculate(TS, insilico.dilibayer.Descriptors, CurOutput))
-//            return InsilicoModel.AD_ERROR;
-//
-//        // Sets ACF check
-//        ADCheckACF adacf = new ADCheckACF(TS);
-//        if (!adacf.Calculate(CurMolecule, CurOutput))
-//            return InsilicoModel.AD_ERROR;
-//
-//        // Sets final AD index
-//        double acfContribution = CurOutput.getADIndex(ADIndexACF.class).GetIndexValue();
-//        double rcContribution = CurOutput.getADIndex(ADIndexRange.class).GetIndexValue();
-//        double ADIValue = adq.getIndexADI() * acfContribution * rcContribution;
-//
-//        ADIndexADIAggregate ADI = new ADIndexADIAggregate(0.85, 0.7, 1, 0.85, 0.7);
-//        ADI.SetValue(ADIValue, CurOutput.getADIndex(ADIndexAccuracy.class),
-//                CurOutput.getADIndex(ADIndexConcordance.class),
-//                CurOutput.getADIndex(ADIndexMaxError.class));
-//        CurOutput.setADI(ADI);
-//
-//        return InsilicoModel.AD_CALCULATED;
+        // Sets threshold for AD indices
+        try {
+            ((ADIndexSimilarity)CurOutput.getADIndex(ADIndexSimilarity.class)).SetThresholds(0.75, 0.6);
+            ((ADIndexAccuracy)CurOutput.getADIndex(ADIndexAccuracy.class)).SetThresholds(0.75, 0.6);
+            ((ADIndexConcordance)CurOutput.getADIndex(ADIndexConcordance.class)).SetThresholds(0.75, 0.6);
+        } catch (Throwable e) {
+            return InsilicoModel.AD_ERROR;
+        }
+
+        // Sets ACF check
+        ADCheckACF adacf = new ADCheckACF(TS);
+        if (!adacf.Calculate(CurMolecule, CurOutput))
+            return InsilicoModel.AD_ERROR;
+
+        // Sets final AD index
+        double acfContribution = CurOutput.getADIndex(ADIndexACF.class).GetIndexValue();
+        double ADIValue = adq.getIndexADI() * acfContribution;
+
+        ADIndexADI ADI = new ADIndexADI();
+        ADI.SetIndexValue(ADIValue);
+        ADI.SetThresholds(0.75, 0.6);
+        CurOutput.setADI(ADI);
+
+        return InsilicoModel.AD_CALCULATED;
     }
 
     @Override
@@ -197,7 +192,13 @@ public class ismDiliBayer extends InsilicoModelPython {
         ModelUtilities.SetDefaultAssessment(CurOutput, CurOutput.getResults()[0]);
 
         // Sets assessment status
-        CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_GRAY);
+        double Val = CurOutput.HasExperimental() ? CurOutput.getExperimental() : CurOutput.getMainResultValue();
+        if (Val == -1)
+            CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_GRAY);
+        else if (Val == 0)
+            CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_GREEN);
+        else if (Val == 1)
+            CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_RED);
     }
 
     @Override
