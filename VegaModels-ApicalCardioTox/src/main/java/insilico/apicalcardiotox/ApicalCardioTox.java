@@ -9,6 +9,7 @@ import insilico.core.exception.InitFailureException;
 import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
 import insilico.core.model.InsilicoModelPython;
+import insilico.core.model.runner.iInsilicoModelRunnerMessenger;
 import insilico.core.python.CdddDescriptors;
 import insilico.core.tools.utils.FileUtilities;
 import insilico.core.tools.utils.ModelUtilities;
@@ -37,6 +38,38 @@ public class ApicalCardioTox extends InsilicoModelPython {
 
     public ApicalCardioTox(boolean bypassCheckCondaEnv) throws InitFailureException, GenericFailureException, IOException, URISyntaxException, InterruptedException {
         super(ModelData);
+
+        this.ResultsSize = 2;
+        this.ResultsName = new String[ResultsSize];
+        this.ResultsName[0] = "Cardiotoxicity prediction";
+        this.ResultsName[1] = "Python model AD assessment";
+
+        PythonResultsName = new String[this.ResultsSize];
+        PythonResultsName[0] = "ApicalModel";
+        PythonResultsName[1] = "apical_data";
+
+        this.DescriptorsSize = 0;
+        this.DescriptorsNames = new String[DescriptorsSize];
+
+        if (System.getProperty("os.name").startsWith("Windows")) {
+            pathToExternalFolder = Paths.get(System.getProperty("user.home"),"\\AppData\\Local\\vega-models\\apical-cardio-tox").resolve("");
+        }
+        else {
+            pathToExternalFolder = Paths.get(System.getProperty("user.home") ,"/.local/share/vega-models/apical-cardio-tox").resolve("");
+        }
+
+        if(!bypassCheckCondaEnv) {
+            URL urlSourceEnv = ApicalCardioTox.class.getResource("/python/"+getCondaEnv()+".yml");
+            URL urlSourceAppFile = ApicalCardioTox.class.getResource("/python/"+getScriptName());
+            boolean isEnvSet = configureCondaEnv(urlSourceEnv, urlSourceAppFile);
+            if(!isEnvSet) {
+                throw new InitFailureException("Conda environment "+getCondaEnv()+" not set");
+            }
+        }
+    }
+
+    public ApicalCardioTox(boolean bypassCheckCondaEnv, iInsilicoModelRunnerMessenger messenger) throws InitFailureException, GenericFailureException, IOException, URISyntaxException, InterruptedException {
+        super(ModelData, messenger);
 
         this.ResultsSize = 2;
         this.ResultsName = new String[ResultsSize];
