@@ -234,13 +234,13 @@ public class ApicalCardioTox extends InsilicoModelPython {
 
         if(urlSourceModel!=null && urlSourceEnv != null && urlSourceAppFile != null
                 && urlSourceDataModel != null) {
-            FileUtilities.copyResourcesRecursively(urlSourceModel,
+            boolean copied = FileUtilities.copyResourcesRecursively(urlSourceModel,
                     new File(pathToExternalFolder.toString()+File.separator+"models-apical-cardiotox"));
-            log.info("Models folder copied successfully");
+            log.info("{} models folder.", copied ? "Copied" : "Already existing and not copied");
 
-            FileUtilities.copyResourcesRecursively(urlSourceDataModel,
+            copied = FileUtilities.copyResourcesRecursively(urlSourceDataModel,
                     new File(pathToExternalFolder.toString()+File.separator+"data-apical-cardiotox"));
-            log.info("Model data folder copied successfully");
+            log.info("{} model data folder.", copied ? "Copied" : "Already existing and not copied");
 
             isSet = super.configureCondaEnv(urlSourceEnv, urlSourceAppFile);
         }

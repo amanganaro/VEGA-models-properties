@@ -347,9 +347,9 @@ public class ismDiliBayer extends InsilicoModelPython {
         URL urlSourceModel = getClass().getResource("/python/models_dili_bayer/");
 
         if(urlSourceModel!=null && urlSourceEnv != null && urlSourceAppFile != null){
-            FileUtilities.copyResourcesRecursively(urlSourceModel,
+            boolean copied = FileUtilities.copyResourcesRecursively(urlSourceModel,
                     new File(pathToExternalFolder.toString()+File.separator+"models_dili_bayer"));
-            log.info("Models folder copied successfully");
+            log.info("{} models folder.", copied ? "Copied" : "Already existing and not copied");
 
             isSet = super.configureCondaEnv(urlSourceEnv, urlSourceAppFile);
         }

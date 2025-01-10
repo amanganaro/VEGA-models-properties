@@ -238,13 +238,13 @@ public class MitochondrialDysfunction extends InsilicoModelPython {
         URL urlSourceDataModel = getClass().getResource("/python/data-mitochondrial-dysfunction/");
 
         if(urlSourceModel!=null && urlSourceEnv != null && urlSourceAppFile != null && urlSourceDataModel != null) {
-            FileUtilities.copyResourcesRecursively(urlSourceModel,
+            boolean copied = FileUtilities.copyResourcesRecursively(urlSourceModel,
                     new File(pathToExternalFolder.toString()+File.separator+"models-mitochondrial-dysfunction"));
-            log.info("Models folder copied successfully");
+            log.info("{} model folder.", copied ? "Copied" : "Already existing and not copied");
 
-            FileUtilities.copyResourcesRecursively(urlSourceDataModel,
+            copied = FileUtilities.copyResourcesRecursively(urlSourceDataModel,
                     new File(pathToExternalFolder.toString()+File.separator+"data-mitochondrial-dysfunction"));
-            log.info("Model data folder copied successfully");
+            log.info("{} model data folder.", copied ? "Copied" : "Already existing and not copied");
 
             isSet = super.configureCondaEnv(urlSourceEnv, urlSourceAppFile);
         }
