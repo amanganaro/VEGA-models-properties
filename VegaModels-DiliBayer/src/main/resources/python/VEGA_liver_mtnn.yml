@@ -1,4 +1,4 @@
-name: liver-mtnn
+name: VEGA_liver_mtnn
 
 channels:
   - conda-forge

@@ -327,7 +327,7 @@ public class ismDiliBayer extends InsilicoModelPython {
 
     @Override
     public String getCondaEnv() {
-        return "liver-mtnn";
+        return "VEGA_liver_mtnn";
     }
 
     @Override

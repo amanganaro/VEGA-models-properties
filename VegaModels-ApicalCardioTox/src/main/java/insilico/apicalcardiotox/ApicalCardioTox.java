@@ -212,7 +212,7 @@ public class ApicalCardioTox extends InsilicoModelPython {
 
     @Override
     public String getCondaEnv() {
-        return "alternative";
+        return "VEGA_alternative";
     }
 
     @Override

@@ -1,4 +1,4 @@
-name: alternative
+name: VEGA_alternative
 channels:
   - conda-forge
   - rdkit
