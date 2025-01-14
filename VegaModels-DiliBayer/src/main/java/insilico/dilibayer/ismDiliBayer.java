@@ -135,34 +135,34 @@ public class ismDiliBayer extends InsilicoModelPython {
         this.ResultsName[0] = "DILI (secure) prediction";
         this.ResultsName[1] = "DILI (sensitive) prediction";
         this.ResultsName[2] = "DILI (majority) prediction";
-        this.ResultsName[3] = "Prediction for essay BSEPi";
-        this.ResultsName[4] = "Prediction for essay BSEPs";
-        this.ResultsName[5] = "Prediction for essay PGPi";
-        this.ResultsName[6] = "Prediction for essay PGPs";
-        this.ResultsName[7] = "Prediction for essay MRP4i";
-        this.ResultsName[8] = "Prediction for essay MRP3i";
-        this.ResultsName[9] = "Prediction for essay MRP3s";
-        this.ResultsName[10] = "Prediction for essay MRP2i";
-        this.ResultsName[11] = "Prediction for essay MRP2s";
-        this.ResultsName[12] = "Prediction for essay BCRPi";
-        this.ResultsName[13] = "Prediction for essay BCRPs";
-        this.ResultsName[14] = "Prediction for essay OATP1B1i";
-        this.ResultsName[15] = "Prediction for essay OATP1B3i";
-        this.ResultsName[16] = "Prediction for essay NRF2";
-        this.ResultsName[17] = "Prediction for essay LXR";
-        this.ResultsName[18] = "Prediction for essay AHR";
-        this.ResultsName[19] = "Prediction for essay PPARa";
-        this.ResultsName[20] = "Prediction for essay PPARg";
-        this.ResultsName[21] = "Prediction for essay PXR";
-        this.ResultsName[22] = "Prediction for essay FXR";
-        this.ResultsName[23] = "Prediction for essay MTX_MP";
-        this.ResultsName[24] = "Prediction for essay MTX_RC";
-        this.ResultsName[25] = "Prediction for essay MTX_FOM";
-        this.ResultsName[26] = "Prediction for essay PLD";
-        this.ResultsName[27] = "Prediction for essay PLD_HTS";
-        this.ResultsName[28] = "Prediction for essay HTX";
-        this.ResultsName[29] = "Prediction for essay ERS";
-        this.ResultsName[30] = "Prediction for essay ARE";
+        this.ResultsName[3] = "Prediction for assay BSEPi";
+        this.ResultsName[4] = "Prediction for assay BSEPs";
+        this.ResultsName[5] = "Prediction for assay PGPi";
+        this.ResultsName[6] = "Prediction for assay PGPs";
+        this.ResultsName[7] = "Prediction for assay MRP4i";
+        this.ResultsName[8] = "Prediction for assay MRP3i";
+        this.ResultsName[9] = "Prediction for assay MRP3s";
+        this.ResultsName[10] = "Prediction for assay MRP2i";
+        this.ResultsName[11] = "Prediction for assay MRP2s";
+        this.ResultsName[12] = "Prediction for assay BCRPi";
+        this.ResultsName[13] = "Prediction for assay BCRPs";
+        this.ResultsName[14] = "Prediction for assay OATP1B1i";
+        this.ResultsName[15] = "Prediction for assay OATP1B3i";
+        this.ResultsName[16] = "Prediction for assay NRF2";
+        this.ResultsName[17] = "Prediction for assay LXR";
+        this.ResultsName[18] = "Prediction for assay AHR";
+        this.ResultsName[19] = "Prediction for assay PPARa";
+        this.ResultsName[20] = "Prediction for assay PPARg";
+        this.ResultsName[21] = "Prediction for assay PXR";
+        this.ResultsName[22] = "Prediction for assay FXR";
+        this.ResultsName[23] = "Prediction for assay MTX_MP";
+        this.ResultsName[24] = "Prediction for assay MTX_RC";
+        this.ResultsName[25] = "Prediction for assay MTX_FOM";
+        this.ResultsName[26] = "Prediction for assay PLD";
+        this.ResultsName[27] = "Prediction for assay PLD_HTS";
+        this.ResultsName[28] = "Prediction for assay HTX";
+        this.ResultsName[29] = "Prediction for assay ERS";
+        this.ResultsName[30] = "Prediction for assay ARE";
 
         PythonResultsName = new String[this.ResultsSize];
         PythonResultsName[0] = "DILI_secure";
@@ -253,10 +253,21 @@ public class ismDiliBayer extends InsilicoModelPython {
 
                 for(int i=0; i<ResultsSize; i++){
                     try {
+                        double std= Double.parseDouble(Prediction.get(PythonResultsName[i]+"_std"));
                         Res[i] = this.GetTrainingSet().getClassLabel(Double.parseDouble(Prediction.get(PythonResultsName[i]+"_class")));
+                        if(i>=3){
+                            Res[i] += " stdev="+ Format_4D.format(std)
+                                    +" ("+(std > 0.2 ? "OUT": "IN")+" AD)";
+                        }
                     } catch (Throwable ex) {
                         log.warn("Unable to find label for value " + Prediction.get(PythonResultsName[i]+"_class"));
+                        double std= Double.parseDouble(Prediction.get(PythonResultsName[i]+"_std"));
                         Res[i] = Prediction.get(PythonResultsName[i]+"_class");
+                        if(i>=3){
+                            Res[i] += " stdev="+ Format_4D.format(std)
+                                    +" ("+(std > 0.2 ? "OUT": "IN")+" AD)";
+                        }
+
                     }
                 }
 
