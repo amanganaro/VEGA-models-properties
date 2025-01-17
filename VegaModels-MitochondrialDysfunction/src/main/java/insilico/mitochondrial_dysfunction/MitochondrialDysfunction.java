@@ -57,6 +57,13 @@ public class MitochondrialDysfunction extends InsilicoModelPython {
         this.DescriptorsSize = 0;
         this.DescriptorsNames = new String[DescriptorsSize];
 
+        //Define AD items
+        this.ADItemsName = new String[4];
+        this.ADItemsName[0] = new ADIndexSimilarity().GetIndexName();
+        this.ADItemsName[1] = new ADIndexAccuracy().GetIndexName();
+        this.ADItemsName[2] = new ADIndexConcordance().GetIndexName();
+        this.ADItemsName[3] = new ADIndexACF().GetIndexName();
+
         if (System.getProperty("os.name").startsWith("Windows")) {
             pathToExternalFolder = Paths.get(System.getProperty("user.home"),"\\AppData\\Local\\vega-models\\mitochondrial-dysfunction").resolve("");
         }
@@ -88,6 +95,13 @@ public class MitochondrialDysfunction extends InsilicoModelPython {
 
         this.DescriptorsSize = 0;
         this.DescriptorsNames = new String[DescriptorsSize];
+
+        //Define AD items
+        this.ADItemsName = new String[4];
+        this.ADItemsName[0] = new ADIndexSimilarity().GetIndexName();
+        this.ADItemsName[1] = new ADIndexAccuracy().GetIndexName();
+        this.ADItemsName[2] = new ADIndexConcordance().GetIndexName();
+        this.ADItemsName[3] = new ADIndexACF().GetIndexName();
 
         if (System.getProperty("os.name").startsWith("Windows")) {
             pathToExternalFolder = Paths.get(System.getProperty("user.home"),"\\AppData\\Local\\vega-models\\mitochondrial-dysfunction").resolve("");

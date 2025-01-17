@@ -106,6 +106,13 @@ public class ismDiliBayer extends InsilicoModelPython {
         PythonResultsName[29] = "ERS";
         PythonResultsName[30] = "ARE";
 
+        //Define AD items
+        this.ADItemsName = new String[4];
+        this.ADItemsName[0] = new ADIndexSimilarity().GetIndexName();
+        this.ADItemsName[1] = new ADIndexAccuracy().GetIndexName();
+        this.ADItemsName[2] = new ADIndexConcordance().GetIndexName();
+        this.ADItemsName[3] = new ADIndexACF().GetIndexName();
+
 
         this.DescriptorsSize = 0;
         this.DescriptorsNames = new String[DescriptorsSize];
@@ -132,9 +139,9 @@ public class ismDiliBayer extends InsilicoModelPython {
 
         this.ResultsSize = 31;
         this.ResultsName = new String[ResultsSize];
-        this.ResultsName[0] = "DILI (secure) prediction";
+        this.ResultsName[0] = "DILI (majority) prediction";
         this.ResultsName[1] = "DILI (sensitive) prediction";
-        this.ResultsName[2] = "DILI (majority) prediction";
+        this.ResultsName[2] = "DILI (secure) prediction";
         this.ResultsName[3] = "Prediction for assay BSEPi";
         this.ResultsName[4] = "Prediction for assay BSEPs";
         this.ResultsName[5] = "Prediction for assay PGPi";
@@ -165,9 +172,9 @@ public class ismDiliBayer extends InsilicoModelPython {
         this.ResultsName[30] = "Prediction for assay ARE";
 
         PythonResultsName = new String[this.ResultsSize];
-        PythonResultsName[0] = "DILI_secure";
+        PythonResultsName[0] = "DILI_majority";
         PythonResultsName[1] = "DILI_sensitive";
-        PythonResultsName[2] = "DILI_majority";
+        PythonResultsName[2] = "DILI_secure";
         PythonResultsName[3] = "BSEPi";
         PythonResultsName[4] = "BSEPs";
         PythonResultsName[5] = "PGPi";
@@ -196,6 +203,13 @@ public class ismDiliBayer extends InsilicoModelPython {
         PythonResultsName[28] = "HTX";
         PythonResultsName[29] = "ERS";
         PythonResultsName[30] = "ARE";
+
+        //Define AD items
+        this.ADItemsName = new String[4];
+        this.ADItemsName[0] = new ADIndexSimilarity().GetIndexName();
+        this.ADItemsName[1] = new ADIndexAccuracy().GetIndexName();
+        this.ADItemsName[2] = new ADIndexConcordance().GetIndexName();
+        this.ADItemsName[3] = new ADIndexACF().GetIndexName();
 
 
         this.DescriptorsSize = 0;
@@ -255,18 +269,15 @@ public class ismDiliBayer extends InsilicoModelPython {
                     try {
                         double std= Double.parseDouble(Prediction.get(PythonResultsName[i]+"_std"));
                         Res[i] = this.GetTrainingSet().getClassLabel(Double.parseDouble(Prediction.get(PythonResultsName[i]+"_class")));
-                        if(i>=3){
-                            Res[i] += " stdev="+ Format_4D.format(std)
-                                    +" ("+(std > 0.2 ? "OUT": "IN")+" AD)";
-                        }
+                        Res[i] += " - "+(std > 0.2 ? "OUT": "IN")+" AD"
+                                +"; (stdev="+ Format_4D.format(std)+")";
                     } catch (Throwable ex) {
                         log.warn("Unable to find label for value " + Prediction.get(PythonResultsName[i]+"_class"));
                         double std= Double.parseDouble(Prediction.get(PythonResultsName[i]+"_std"));
                         Res[i] = Prediction.get(PythonResultsName[i]+"_class");
-                        if(i>=3){
-                            Res[i] += " stdev="+ Format_4D.format(std)
-                                    +" ("+(std > 0.2 ? "OUT": "IN")+" AD)";
-                        }
+                            Res[i] += " - "+(std > 0.2 ? "OUT": "IN")+" AD"
+                                    +"; (stdev="+ Format_4D.format(std)+")";
+
 
                     }
                 }
