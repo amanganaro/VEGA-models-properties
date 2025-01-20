@@ -46,13 +46,15 @@ def ad_evaluation(smiles:str, radius=3, num_bits=1024, singlesmiles=False):
         else:
             ad_results["apical_data"] = 'in AD'
 
-    if singlesmiles: return pd.DataFrame([ad_results], index=[smiles])
-    else: return pd.DataFrame([ad_results])
+    if singlesmiles: 
+        return pd.DataFrame([ad_results], index=[smiles])
+    else: 
+        return pd.DataFrame([ad_results])
 
 def import_models():
     "import models find in models_apical folder"
-    path = os.path.join(file_dir, "models-apical-cardiotox")
 
+    path = os.path.join(file_dir, "models-apical-cardiotox")
     models_path = [path]
 
     # import ML models
@@ -136,7 +138,7 @@ if __name__ == "__main__":
     files = main()
     target_CDDD = pd.read_csv(files['input_file'])
 
-    for smi in target_CDDD['smiles']:
+    for smi in target_CDDD['smiles_preprocessed']:
         check_smiles(smi)
 
     # import models pipeline

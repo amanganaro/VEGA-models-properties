@@ -26,7 +26,6 @@ def ad_evaluation(smiles:str, radius=3, num_bits=1024, singlesmiles=False):
     ad_results = {}
     path_folder = os.path.join(file_dir, "data-mitochondrial-dysfunction")
     for file in os.listdir(path_folder):
-        print(file)
         path_folder_endpoint = os.path.join(path_folder, file)
         name = file.split("_")[0]
         data = pd.read_csv(path_folder_endpoint)
@@ -106,8 +105,10 @@ def inference(models:dict, smiles, target_dict:dict, singlemol=True):
     for key, model in models.items():
         results_final[key] = model.predict(target_dict[key])
 
-    if singlemol: return pd.DataFrame(pd.DataFrame(results_final, index=[smiles]))
-    else: return pd.DataFrame(pd.DataFrame([results_final]))#, index=smiles)
+    if singlemol: 
+        return pd.DataFrame(pd.DataFrame(results_final, index=[smiles]))
+    else: 
+        return pd.DataFrame(pd.DataFrame([results_final]))#, index=smiles)
 
 if __name__ == "__main__":
 
@@ -118,7 +119,7 @@ if __name__ == "__main__":
     target_CDDD = pd.read_csv(files['input_file'])
 
     print("file to manage:")
-    for smi in target_CDDD['smiles']:
+    for smi in target_CDDD['smiles_preprocessed']:
         check_smiles(smi)
 
     # import models pipeline and descriptors
