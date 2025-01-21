@@ -11,7 +11,7 @@ public class ADIDiliBayerModel extends ADIndex {
     }
 
     public void SetStdev(double value) {
-        this.Stdev = Stdev;
+        this.Stdev = value;
         SetAssessment();
     }
 
