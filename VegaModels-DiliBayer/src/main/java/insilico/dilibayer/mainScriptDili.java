@@ -25,7 +25,7 @@ public class mainScriptDili {
 
 
     public static void main(String[] args) throws GenericFailureException, InitFailureException, IOException, URISyntaxException, InterruptedException {
-        InsilicoModel model = new ismDiliBayer(false);
+        InsilicoModel model = new ismDiliBayer(true);
 
 //        ModelsDeployment.BuildDataset(model, "out_ts");
 //        File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
@@ -57,8 +57,12 @@ public class mainScriptDili {
         for (String smiles : smilesList) {
             InsilicoModelOutput out = model.Execute(SmilesMolecule.Convert(smiles));
             System.out.println("\n"+smiles);
+            System.out.println("\n"+out.getAssessment() + "\n");
+            System.out.println("\n"+out.getAssessmentVerbose() + "\n");
             for (int i = 0; i < model.GetResultsName().length; i++)
                 System.out.println(model.GetResultsName()[i] + " | " + out.getResults()[i]);
+            for (int i = 0; i < model.GetADItemsName().length; i++)
+                System.out.println(model.GetADItemsName()[i] + " | " + out.getADIndex().get(i).GetIndexValueFormatted() );
         }
 
         cdddDescriptors.dispose();
