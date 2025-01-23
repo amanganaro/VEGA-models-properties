@@ -36,116 +36,23 @@ public class ismDiliBayer extends InsilicoModelPython {
     private double MainStdDev = 0;
 
     private CdddDescriptors cdddDescriptors;
-    private final String[] PythonResultsName;
+    private String[] PythonResultsName;
 
     public ismDiliBayer(boolean bypassCheckCondaEnv) throws InitFailureException, GenericFailureException, IOException, URISyntaxException, InterruptedException {
         super(ModelData);
-
-        this.ResultsSize = 32;
-        this.ResultsName = new String[ResultsSize];
-        this.ResultsName[0] = "DILI main prediction (majority approach)";
-        this.ResultsName[1] = "DILI main prediction (majority approach) stdev";
-        this.ResultsName[2] = "DILI (sensitive) prediction";
-        this.ResultsName[3] = "DILI (secure) prediction";
-        this.ResultsName[4] = "Prediction for assay BSEPi";
-        this.ResultsName[5] = "Prediction for assay BSEPs";
-        this.ResultsName[6] = "Prediction for assay PGPi";
-        this.ResultsName[7] = "Prediction for assay PGPs";
-        this.ResultsName[8] = "Prediction for assay MRP4i";
-        this.ResultsName[9] = "Prediction for assay MRP3i";
-        this.ResultsName[10] = "Prediction for assay MRP3s";
-        this.ResultsName[11] = "Prediction for assay MRP2i";
-        this.ResultsName[12] = "Prediction for assay MRP2s";
-        this.ResultsName[13] = "Prediction for assay BCRPi";
-        this.ResultsName[14] = "Prediction for assay BCRPs";
-        this.ResultsName[15] = "Prediction for assay OATP1B1i";
-        this.ResultsName[16] = "Prediction for assay OATP1B3i";
-        this.ResultsName[17] = "Prediction for assay NRF2";
-        this.ResultsName[18] = "Prediction for assay LXR";
-        this.ResultsName[19] = "Prediction for assay AHR";
-        this.ResultsName[20] = "Prediction for assay PPARa";
-        this.ResultsName[21] = "Prediction for assay PPARg";
-        this.ResultsName[22] = "Prediction for assay PXR";
-        this.ResultsName[23] = "Prediction for assay FXR";
-        this.ResultsName[24] = "Prediction for assay MTX_MP";
-        this.ResultsName[25] = "Prediction for assay MTX_RC";
-        this.ResultsName[26] = "Prediction for assay MTX_FOM";
-        this.ResultsName[27] = "Prediction for assay PLD";
-        this.ResultsName[28] = "Prediction for assay PLD_HTS";
-        this.ResultsName[29] = "Prediction for assay HTX";
-        this.ResultsName[30] = "Prediction for assay ERS";
-        this.ResultsName[31] = "Prediction for assay ARE";
-
-        PythonResultsName = new String[this.ResultsSize-1];
-        PythonResultsName[0] = "DILI_majority";
-        PythonResultsName[1] = "DILI_sensitive";
-        PythonResultsName[2] = "DILI_secure";
-        PythonResultsName[3] = "BSEPi";
-        PythonResultsName[4] = "BSEPs";
-        PythonResultsName[5] = "PGPi";
-        PythonResultsName[6] = "PGPs";
-        PythonResultsName[7] = "MRP4i";
-        PythonResultsName[8] = "MRP3i";
-        PythonResultsName[9] = "MRP3s";
-        PythonResultsName[10] = "MRP2i";
-        PythonResultsName[11] = "MRP2s";
-        PythonResultsName[12] = "BCRPi";
-        PythonResultsName[13] = "BCRPs";
-        PythonResultsName[14] = "OATP1B1i";
-        PythonResultsName[15] = "OATP1B3i";
-        PythonResultsName[16] = "NRF2";
-        PythonResultsName[17] = "LXR";
-        PythonResultsName[18] = "AHR";
-        PythonResultsName[19] = "PPARa";
-        PythonResultsName[20] = "PPARg";
-        PythonResultsName[21] = "PXR";
-        PythonResultsName[22] = "FXR";
-        PythonResultsName[23] = "MTX_MP";
-        PythonResultsName[24] = "MTX_RC";
-        PythonResultsName[25] = "MTX_FOM";
-        PythonResultsName[26] = "PLD";
-        PythonResultsName[27] = "PLD_HTS";
-        PythonResultsName[28] = "HTX";
-        PythonResultsName[29] = "ERS";
-        PythonResultsName[30] = "ARE";
-
-
-        //Define AD items
-        this.ADItemsName = new String[5];
-        this.ADItemsName[0] = new ADIndexSimilarity().GetIndexName();
-        this.ADItemsName[1] = new ADIndexAccuracy().GetIndexName();
-        this.ADItemsName[2] = new ADIndexConcordance().GetIndexName();
-        this.ADItemsName[3] = new ADIndexACF().GetIndexName();
-        this.ADItemsName[4] = new ADIDiliBayerModel().GetIndexName();
-
-
-        this.DescriptorsSize = 0;
-        this.DescriptorsNames = new String[DescriptorsSize];
-
-        if (System.getProperty("os.name").startsWith("Windows")) {
-            pathToExternalFolder = Paths.get(System.getProperty("user.home"),"\\AppData\\Local\\vega-models\\dili-bayer").resolve("");
-        }
-        else {
-            pathToExternalFolder = Paths.get(System.getProperty("user.home") ,"/.local/share/vega-models/dili-bayer").resolve("");
-        }
-
-        if(!bypassCheckCondaEnv) {
-            URL urlSourceEnv = ismDiliBayer.class.getResource("/python/"+getCondaEnv()+".yml");
-            URL urlSourceAppFile = ismDiliBayer.class.getResource("/python/"+getScriptName());
-            boolean isEnvSet = configureCondaEnv(urlSourceEnv, urlSourceAppFile);
-            if(!isEnvSet) {
-                throw new InitFailureException("Conda environment "+getCondaEnv()+" not set");
-            }
-        }
+        Initialize(bypassCheckCondaEnv);
     }
 
     public ismDiliBayer(boolean bypassCheckCondaEnv, iInsilicoModelRunnerMessenger messenger) throws InitFailureException, GenericFailureException, IOException, URISyntaxException, InterruptedException {
         super(ModelData, messenger);
+        Initialize(bypassCheckCondaEnv);
+    }
 
+    private void Initialize(boolean bypassCheckCondaEnv) throws InitFailureException, GenericFailureException, IOException, URISyntaxException, InterruptedException {
         this.ResultsSize = 32;
         this.ResultsName = new String[ResultsSize];
         this.ResultsName[0] = "DILI main prediction (majority approach)";
-        this.ResultsName[1] = "DILI main prediction (majority approach) stdev";
+        this.ResultsName[1] = "DILI main prediction (majority approach) st.dev";
         this.ResultsName[2] = "DILI (sensitive) prediction";
         this.ResultsName[3] = "DILI (secure) prediction";
         this.ResultsName[4] = "Prediction for assay BSEPi";
@@ -237,6 +144,7 @@ public class ismDiliBayer extends InsilicoModelPython {
             }
         }
     }
+
 
     @Override
     public void setDescriptorGenerator(Object descriptorGenerator) {
@@ -279,13 +187,13 @@ public class ismDiliBayer extends InsilicoModelPython {
                         double std= Double.parseDouble(Prediction.get(PythonResultsName[i]+"_std"));
                         Res[i+1] = this.GetTrainingSet().getClassLabel(Double.parseDouble(Prediction.get(PythonResultsName[i]+"_class")));
                         Res[i+1] += " - "+(std > 0.2 ? "OUT": "IN")+" AD"
-                                +"; (stdev="+ Format_4D.format(std)+")";
+                                +" (st.dev = "+ Format_4D.format(std)+")";
                     } catch (Throwable ex) {
                         log.warn("Unable to find label for value " + Prediction.get(PythonResultsName[i]+"_class"));
                         double std= Double.parseDouble(Prediction.get(PythonResultsName[i]+"_std"));
                         Res[i+1] = Prediction.get(PythonResultsName[i]+"_class");
                         Res[i+1] += " - "+(std > 0.2 ? "OUT": "IN")+" AD"
-                                +"; (stdev="+ Format_4D.format(std)+")";
+                                +" (st.dev = "+ Format_4D.format(std)+")";
 
 
                     }
