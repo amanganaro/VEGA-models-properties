@@ -42,47 +42,9 @@ public class MitochondrialDysfunction extends InsilicoModelPython {
     private CdddDescriptors cdddDescriptors;
     private final String[] PythonResultsName;
 
-    public MitochondrialDysfunction(boolean bypassCheckCondaEnv) throws InitFailureException, GenericFailureException, IOException, URISyntaxException, InterruptedException {
-        super(ModelData);
-
-        this.ResultsSize = 2;
-        this.ResultsName = new String[ResultsSize];
-        this.ResultsName[0] = "KE2 prediction";
-        this.ResultsName[1] = "Python model AD assessment";
-
-        PythonResultsName = new String[this.ResultsSize];
-        PythonResultsName[0] = "KE2";
-        PythonResultsName[1] = "AD_KE2";
-
-        this.DescriptorsSize = 0;
-        this.DescriptorsNames = new String[DescriptorsSize];
-
-        //Define AD items
-        this.ADItemsName = new String[4];
-        this.ADItemsName[0] = new ADIndexSimilarity().GetIndexName();
-        this.ADItemsName[1] = new ADIndexAccuracy().GetIndexName();
-        this.ADItemsName[2] = new ADIndexConcordance().GetIndexName();
-        this.ADItemsName[3] = new ADIndexACF().GetIndexName();
-
-        if (System.getProperty("os.name").startsWith("Windows")) {
-            pathToExternalFolder = Paths.get(System.getProperty("user.home"),"\\AppData\\Local\\vega-models\\mitochondrial-dysfunction").resolve("");
-        }
-        else {
-            pathToExternalFolder = Paths.get(System.getProperty("user.home") ,"/.local/share/vega-models/mitochondrial-dysfunction").resolve("");
-        }
-
-        if(!bypassCheckCondaEnv) {
-            URL urlSourceEnv = MitochondrialDysfunction.class.getResource("/python/"+getCondaEnv()+".yml");
-            URL urlSourceAppFile = MitochondrialDysfunction.class.getResource("/python/"+getScriptName());
-            boolean isEnvSet = configureCondaEnv(urlSourceEnv, urlSourceAppFile);
-            if(!isEnvSet) {
-                throw new InitFailureException("Conda environment "+getCondaEnv()+" not set");
-            }
-        }
-    }
-
     public MitochondrialDysfunction(boolean bypassCheckCondaEnv, iInsilicoModelRunnerMessenger messenger) throws InitFailureException, GenericFailureException, IOException, URISyntaxException, InterruptedException {
         super(ModelData, messenger);
+        isUsingCdddDescriptor=true;
 
         this.ResultsSize = 2;
         this.ResultsName = new String[ResultsSize];
@@ -111,9 +73,7 @@ public class MitochondrialDysfunction extends InsilicoModelPython {
         }
 
         if(!bypassCheckCondaEnv) {
-            URL urlSourceEnv = MitochondrialDysfunction.class.getResource("/python/"+getCondaEnv()+".yml");
-            URL urlSourceAppFile = MitochondrialDysfunction.class.getResource("/python/"+getScriptName());
-            boolean isEnvSet = configureCondaEnv(urlSourceEnv, urlSourceAppFile);
+            boolean isEnvSet = configureCondaEnv("https://amcc.it/vega/mitochondrial-dysfunction.zip");
             if(!isEnvSet) {
                 throw new InitFailureException("Conda environment "+getCondaEnv()+" not set");
             }
@@ -132,6 +92,9 @@ public class MitochondrialDysfunction extends InsilicoModelPython {
         } catch (Throwable e) {
             return DESCRIPTORS_ERROR;
         }
+        if(!cdddDescriptors.checkIfCdddFileIsValid(CurMolecule.getInputSMILES())) {
+            return DESCRIPTORS_ERROR;
+        }
         return DESCRIPTORS_CALCULATED;
     }
 
@@ -144,7 +107,7 @@ public class MitochondrialDysfunction extends InsilicoModelPython {
             File f=File.createTempFile("output-mitochondrial-dysfunction", ".csv");
             outputTempFile = f.getAbsolutePath();
             //take the correspondent file from descriptors directory
-            String descriptorFile = cdddDescriptors.getFilePathOf(CurMolecule.GetSMILES());
+            String descriptorFile = cdddDescriptors.getFilePathOf(CurMolecule.getInputSMILES());
             Prediction=super.calculatePythonModel(pathToScriptFile, "--input "+descriptorFile,
                     " --output "+outputTempFile);
             log.info("Finish to execute the model");
@@ -237,36 +200,6 @@ public class MitochondrialDysfunction extends InsilicoModelPython {
     @Override
     public String getScriptName() {
         return "app-mitochondrial-dysfunction.py";
-    }
-
-    /**
-     * Add the models folder to the external path
-     * @return
-     * @throws IOException
-     * @throws InterruptedException
-     */
-    @Override
-    public boolean configureCondaEnv(URL urlSourceEnv, URL urlSourceAppFile) throws InterruptedException, IOException, URISyntaxException {
-        boolean isSet=false;
-        URL urlSourceModel = getClass().getResource("/python/models-mitochondrial-dysfunction/");
-        URL urlSourceDataModel = getClass().getResource("/python/data-mitochondrial-dysfunction/");
-
-        if(urlSourceModel!=null && urlSourceEnv != null && urlSourceAppFile != null && urlSourceDataModel != null) {
-            boolean copied = FileUtilities.copyResourcesRecursively(urlSourceModel,
-                    new File(pathToExternalFolder.toString()+File.separator+"models-mitochondrial-dysfunction"));
-            log.info("{} model folder.", copied ? "Copied" : "Already existing and not copied");
-
-            copied = FileUtilities.copyResourcesRecursively(urlSourceDataModel,
-                    new File(pathToExternalFolder.toString()+File.separator+"data-mitochondrial-dysfunction"));
-            log.info("{} model data folder.", copied ? "Copied" : "Already existing and not copied");
-
-            isSet = super.configureCondaEnv(urlSourceEnv, urlSourceAppFile);
-        }
-        else{
-            log.error("Missing some files in setup conda {} environment", getCondaEnv());
-        }
-        log.info("Conda environment {} set up {}", getCondaEnv(), isSet ? "correctly": "failed");
-        return isSet;
     }
 
     public String getInputTempFile() {

@@ -5,6 +5,7 @@ import insilico.core.exception.InitFailureException;
 import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
 import insilico.core.model.InsilicoModelPython;
+import insilico.core.model.trainingset.iTrainingSet;
 import insilico.core.molecule.conversion.SmilesMolecule;
 import insilico.core.python.CdddDescriptors;
 import org.apache.logging.log4j.LogManager;
@@ -25,7 +26,15 @@ public class mainScriptApicalCardioTox {
 
 
     public static void main(String[] args) throws GenericFailureException, InitFailureException, IOException, URISyntaxException, InterruptedException {
-        InsilicoModel model = new ApicalCardioTox(true);
+        InsilicoModel model = new ApicalCardioTox(true, null);
+
+//        iTrainingSet ist = model.GetTrainingSet();
+//        for(int i=0; i < ist.getMoleculesSize(); i++){
+//            System.out.println(ist.getSMILES(i)+" "+ist.getPredictedValueFormatted(i));
+//        }
+//
+//        if(1==1)
+//            return;
 
 //        ModelsDeployment.BuildDataset(model, "out_ts");
 //        File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);

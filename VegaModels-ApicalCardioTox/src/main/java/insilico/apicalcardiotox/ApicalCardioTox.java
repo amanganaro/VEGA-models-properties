@@ -36,47 +36,9 @@ public class ApicalCardioTox extends InsilicoModelPython {
     private CdddDescriptors cdddDescriptors;
     private final String[] PythonResultsName;
 
-    public ApicalCardioTox(boolean bypassCheckCondaEnv) throws InitFailureException, GenericFailureException, IOException, URISyntaxException, InterruptedException {
-        super(ModelData);
-
-        this.ResultsSize = 2;
-        this.ResultsName = new String[ResultsSize];
-        this.ResultsName[0] = "Cardiotoxicity prediction";
-        this.ResultsName[1] = "Python model AD assessment";
-
-        PythonResultsName = new String[this.ResultsSize];
-        PythonResultsName[0] = "ApicalModel";
-        PythonResultsName[1] = "apical_data";
-
-        this.DescriptorsSize = 0;
-        this.DescriptorsNames = new String[DescriptorsSize];
-
-        //Define AD items
-        this.ADItemsName = new String[4];
-        this.ADItemsName[0] = new ADIndexSimilarity().GetIndexName();
-        this.ADItemsName[1] = new ADIndexAccuracy().GetIndexName();
-        this.ADItemsName[2] = new ADIndexConcordance().GetIndexName();
-        this.ADItemsName[3] = new ADIndexACF().GetIndexName();
-
-        if (System.getProperty("os.name").startsWith("Windows")) {
-            pathToExternalFolder = Paths.get(System.getProperty("user.home"),"\\AppData\\Local\\vega-models\\apical-cardio-tox").resolve("");
-        }
-        else {
-            pathToExternalFolder = Paths.get(System.getProperty("user.home") ,"/.local/share/vega-models/apical-cardio-tox").resolve("");
-        }
-
-        if(!bypassCheckCondaEnv) {
-            URL urlSourceEnv = ApicalCardioTox.class.getResource("/python/"+getCondaEnv()+".yml");
-            URL urlSourceAppFile = ApicalCardioTox.class.getResource("/python/"+getScriptName());
-            boolean isEnvSet = configureCondaEnv(urlSourceEnv, urlSourceAppFile);
-            if(!isEnvSet) {
-                throw new InitFailureException("Conda environment "+getCondaEnv()+" not set");
-            }
-        }
-    }
-
     public ApicalCardioTox(boolean bypassCheckCondaEnv, iInsilicoModelRunnerMessenger messenger) throws InitFailureException, GenericFailureException, IOException, URISyntaxException, InterruptedException {
         super(ModelData, messenger);
+        isUsingCdddDescriptor=true;
 
         this.ResultsSize = 2;
         this.ResultsName = new String[ResultsSize];
@@ -105,9 +67,7 @@ public class ApicalCardioTox extends InsilicoModelPython {
         }
 
         if(!bypassCheckCondaEnv) {
-            URL urlSourceEnv = ApicalCardioTox.class.getResource("/python/"+getCondaEnv()+".yml");
-            URL urlSourceAppFile = ApicalCardioTox.class.getResource("/python/"+getScriptName());
-            boolean isEnvSet = configureCondaEnv(urlSourceEnv, urlSourceAppFile);
+            boolean isEnvSet = configureCondaEnv("https://amcc.it/vega/apical-cardio-tox.zip");
             if(!isEnvSet) {
                 throw new InitFailureException("Conda environment "+getCondaEnv()+" not set");
             }
@@ -126,7 +86,11 @@ public class ApicalCardioTox extends InsilicoModelPython {
         } catch (Throwable e) {
             return DESCRIPTORS_ERROR;
         }
-        return DESCRIPTORS_CALCULATED;    }
+        if(!cdddDescriptors.checkIfCdddFileIsValid(CurMolecule.getInputSMILES())) {
+            return DESCRIPTORS_ERROR;
+        }
+        return DESCRIPTORS_CALCULATED;
+    }
 
     @Override
     protected short CalculateModel() {
@@ -138,7 +102,7 @@ public class ApicalCardioTox extends InsilicoModelPython {
             File f = File.createTempFile("output-apical-cardio-tox", ".csv");
             outputTempFile = f.getAbsolutePath();
             //take the correspondent file from descriptors directory
-            String descriptorFile = cdddDescriptors.getFilePathOf(CurMolecule.GetSMILES());
+            String descriptorFile = cdddDescriptors.getFilePathOf(CurMolecule.getInputSMILES());
             Prediction=super.calculatePythonModel(pathToScriptFile, "--input "+descriptorFile,
                     "--output "+outputTempFile);
             log.info("Finish to execute the model");
@@ -232,37 +196,6 @@ public class ApicalCardioTox extends InsilicoModelPython {
     @Override
     public String getScriptName() {
         return "app-apical-cardiotox.py";
-    }
-
-    /**
-     * Add the models folder to the external path
-     * @return
-     * @throws IOException
-     * @throws InterruptedException
-     */
-    @Override
-    public boolean configureCondaEnv(URL urlSourceEnv, URL urlSourceAppFile) throws InterruptedException, IOException, URISyntaxException {
-        boolean isSet=false;
-        URL urlSourceModel = ApicalCardioTox.class.getResource("/python/models-apical-cardiotox/");
-        URL urlSourceDataModel = ApicalCardioTox.class.getResource("/python/data-apical-cardiotox/");
-
-        if(urlSourceModel!=null && urlSourceEnv != null && urlSourceAppFile != null
-                && urlSourceDataModel != null) {
-            boolean copied = FileUtilities.copyResourcesRecursively(urlSourceModel,
-                    new File(pathToExternalFolder.toString()+File.separator+"models-apical-cardiotox"));
-            log.info("{} models folder.", copied ? "Copied" : "Already existing and not copied");
-
-            copied = FileUtilities.copyResourcesRecursively(urlSourceDataModel,
-                    new File(pathToExternalFolder.toString()+File.separator+"data-apical-cardiotox"));
-            log.info("{} model data folder.", copied ? "Copied" : "Already existing and not copied");
-
-            isSet = super.configureCondaEnv(urlSourceEnv, urlSourceAppFile);
-        }
-        else{
-            log.error("Missing some files in setup conda {} environment", getCondaEnv());
-        }
-        log.info("Conda environment {} set up {}", getCondaEnv(), isSet ? "correctly": "failed");
-        return isSet;
     }
 
     public String getInputTempFile() {
