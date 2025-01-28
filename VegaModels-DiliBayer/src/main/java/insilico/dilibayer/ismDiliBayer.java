@@ -129,7 +129,7 @@ public class ismDiliBayer extends InsilicoModelPython {
         }
 
         if(!bypassCheckCondaEnv) {
-            boolean isEnvSet = configureCondaEnv("https://amcc.it/vega/dili-bayer.zip.zip");
+            boolean isEnvSet = configureCondaEnv("https://amcc.it/vega/dili-bayer.zip");
             if(!isEnvSet) {
                 throw new InitFailureException("Conda environment "+getCondaEnv()+" not set");
             }
