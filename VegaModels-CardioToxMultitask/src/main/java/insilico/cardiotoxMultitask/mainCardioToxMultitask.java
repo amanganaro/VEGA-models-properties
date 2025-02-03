@@ -47,7 +47,7 @@ public class mainCardioToxMultitask {
 //        if(1==1){
 //            return;
 //        }
-        model.setSkipADandTSLoading(true);
+        //model.setSkipADandTSLoading(true);
 
         List<String> smilesList = new ArrayList<>();
         smilesList.add("O=[N+]([O-])c1cc(cc(c1N(CCC)CCC)[N+](=O)[O-])S(=O)(=O)C");

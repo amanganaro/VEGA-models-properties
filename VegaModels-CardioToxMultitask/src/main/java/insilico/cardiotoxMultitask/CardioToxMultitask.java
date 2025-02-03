@@ -130,14 +130,13 @@ public class CardioToxMultitask extends InsilicoModelPython {
                 CurOutput.setMainResultValue(Double.parseDouble(Prediction.get(PythonResultsName[0])));
 
                 String[] Res = new String[ResultsSize];
-                try {
-                    Res[0] = this.GetTrainingSet().getClassLabel(Double.parseDouble(Prediction.get(PythonResultsName[0])));
-                } catch (Throwable ex) {
-                    log.warn("Unable to find label for cardio tox multitask value " + Prediction.get(PythonResultsName[0]));
-                    Res[0] = Prediction.get(PythonResultsName[0]);
-                }
-                for(int i=1; i<ResultsSize; i++){
-                    Res[i] = Prediction.get(PythonResultsName[i]);
+                for(int i=0; i<ResultsSize; i++){
+                    try {
+                        Res[i] = this.GetTrainingSet().getClassLabel(Double.parseDouble(Prediction.get(PythonResultsName[i])));
+                    } catch (Throwable ex) {
+                        log.warn("Unable to find label for cardio tox multitask value " + Prediction.get(PythonResultsName[i]));
+                        Res[i] = Prediction.get(PythonResultsName[i]);
+                    };
                 }
 
                 CurOutput.setResults(Res);
