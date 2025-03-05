@@ -36,7 +36,7 @@ public class ApicalCardioTox extends InsilicoModelPython {
     private CdddDescriptors cdddDescriptors;
     private final String[] PythonResultsName;
 
-    public ApicalCardioTox(boolean bypassCheckCondaEnv, iInsilicoModelRunnerMessenger messenger) throws InitFailureException, GenericFailureException, IOException, URISyntaxException, InterruptedException {
+    public ApicalCardioTox(boolean bypassCheckCondaEnv, iInsilicoModelRunnerMessenger messenger) throws InitFailureException, GenericFailureException{
         super(ModelData, messenger);
         isUsingCdddDescriptor=true;
 

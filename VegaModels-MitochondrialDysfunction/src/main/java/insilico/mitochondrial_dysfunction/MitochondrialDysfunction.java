@@ -42,7 +42,7 @@ public class MitochondrialDysfunction extends InsilicoModelPython {
     private CdddDescriptors cdddDescriptors;
     private final String[] PythonResultsName;
 
-    public MitochondrialDysfunction(boolean bypassCheckCondaEnv, iInsilicoModelRunnerMessenger messenger) throws InitFailureException, GenericFailureException, IOException, URISyntaxException, InterruptedException {
+    public MitochondrialDysfunction(boolean bypassCheckCondaEnv, iInsilicoModelRunnerMessenger messenger) throws InitFailureException, GenericFailureException{
         super(ModelData, messenger);
         isUsingCdddDescriptor=true;
 
