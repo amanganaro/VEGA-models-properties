@@ -59,7 +59,7 @@ public class mainScriptMitochondrialDysfunction {
         CdddDescriptors cdddDescriptors = null;
 
         if(InsilicoModelPython.class.isAssignableFrom(model.getClass())){
-             cdddDescriptors = new CdddDescriptors(smilesList, false);
+             cdddDescriptors = new CdddDescriptors(smilesList, false, null);
             ((MitochondrialDysfunction) model).setDescriptorGenerator(cdddDescriptors);
             boolean descriptorOK = cdddDescriptors.calculateDescriptors();
 

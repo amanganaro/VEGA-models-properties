@@ -57,7 +57,7 @@ public class mainCardioToxMultitask {
         CdddDescriptors cdddDescriptors = null;
 
         if(InsilicoModelPython.class.isAssignableFrom(model.getClass())){
-            cdddDescriptors = new CdddDescriptors(smilesList, false);
+            cdddDescriptors = new CdddDescriptors(smilesList, false, null);
             ((CardioToxMultitask) model).setDescriptorGenerator(cdddDescriptors);
             boolean descriptorOK = cdddDescriptors.calculateDescriptors();
 

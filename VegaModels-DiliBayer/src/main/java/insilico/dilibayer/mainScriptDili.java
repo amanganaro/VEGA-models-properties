@@ -61,7 +61,7 @@ public class mainScriptDili {
         CdddDescriptors cdddDescriptors=null;
 
         if(InsilicoModelPython.class.isAssignableFrom(model.getClass())){
-             cdddDescriptors = new CdddDescriptors(smilesList, false);
+             cdddDescriptors = new CdddDescriptors(smilesList, false, null);
             ((ismDiliBayer) model).setDescriptorGenerator(cdddDescriptors);
             boolean descriptorOK = cdddDescriptors.calculateDescriptors();
         }
