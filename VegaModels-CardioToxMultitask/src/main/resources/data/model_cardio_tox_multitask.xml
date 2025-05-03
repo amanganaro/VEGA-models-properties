@@ -1,0 +1,26 @@
+<xml>
+   
+    <Version>
+        <Name>Cardio Tox Multitask</Name>
+        <Key>CARDIO_MULTITASK</Key>
+        <Summary>Classification model for multitask cardio tox (alternative project)</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_cardio_tox_multitask.dat</TS>
+        <HasAlerts>False</HasAlerts>
+        <ClassValues>
+            <Class>
+                <Value>0</Value>
+                <Label>Negative</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Positive</Label>
+            </Class>
+        </ClassValues>
+    </Vega>
+
+    
+</xml>
