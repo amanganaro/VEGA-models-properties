@@ -1,0 +1,33 @@
+<xml>
+   
+    <Version>
+        <Name>LD50 in quail model (IRFMN)</Name>
+        <Key>LD50_QUAIL</Key>
+        <Summary>Classification model for LD50 in quail</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_ld50quail.dat</TS>
+        <HasAlerts>True</HasAlerts>
+        <ClassValues>
+            <Class>
+                <Value>-1</Value>
+                <Label>Not predicted</Label>
+            </Class>
+            <Class>
+                <Value>0</Value>
+                <Label>Low</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Medium</Label>
+            </Class>
+            <Class>
+                <Value>2</Value>
+                <Label>High</Label>
+            </Class>
+        </ClassValues>
+    </Vega>
+    
+</xml>
