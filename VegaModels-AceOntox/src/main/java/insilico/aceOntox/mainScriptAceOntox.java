@@ -1,41 +1,27 @@
-package insilico.apicalcardiotox;
+package insilico.aceOntox;
 
 import insilico.core.exception.GenericFailureException;
 import insilico.core.exception.InitFailureException;
 import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
 import insilico.core.model.InsilicoModelPython;
-import insilico.core.model.trainingset.iTrainingSet;
 import insilico.core.molecule.conversion.SmilesMolecule;
 import insilico.core.python.CdddDescriptors;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import utils.ModelsDeployment;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 
-public class mainScriptApicalCardioTox {
+public class mainScriptAceOntox {
 
-    private static final Logger log = LogManager.getLogger(mainScriptApicalCardioTox.class);
+    public static void main(String[] args) throws InitFailureException, GenericFailureException, IOException {
+        InsilicoModel model = new ismAceOntox(true, null);
 
-
-    public static void main(String[] args) throws GenericFailureException, InitFailureException, IOException, URISyntaxException, InterruptedException {
-        InsilicoModel model = new ApicalCardioTox(true, null);
-
-//        iTrainingSet ist = model.GetTrainingSet();
-//        for(int i=0; i < ist.getMoleculesSize(); i++){
-//            System.out.println(ist.getSMILES(i)+" "+ist.getPredictedValueFormatted(i));
-//        }
 //
-//        if(1==1)
-//            return;
-
 //        ModelsDeployment.BuildDataset(model, "out_ts");
 //        File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
 //        File destinationFile = new File("VegaModels-ApicalCardioTox\\src\\main\\resources\\data\\ts_apical_cardio_tox.dat");
@@ -58,7 +44,7 @@ public class mainScriptApicalCardioTox {
 
         if(InsilicoModelPython.class.isAssignableFrom(model.getClass())){
             cdddDescriptors = new CdddDescriptors(smilesList, true, null);
-            ((ApicalCardioTox) model).setDescriptorGenerator(cdddDescriptors);
+            ((ismAceOntox) model).setDescriptorGenerator(cdddDescriptors);
             boolean descriptorOK = cdddDescriptors.calculateDescriptors();
         }
 
@@ -67,6 +53,8 @@ public class mainScriptApicalCardioTox {
             System.out.println("\n"+smiles);
             for (int i = 0; i < model.GetResultsName().length; i++)
                 System.out.println(model.GetResultsName()[i] + " | " + out.getResults()[i]);
+            for (int i = 0; i < model.GetADItemsName().length; i++)
+                System.out.println(model.GetADItemsName()[i] + " | " + out.getADIndex().get(i).GetIndexValueFormatted() );
         }
 
         cdddDescriptors.dispose();
