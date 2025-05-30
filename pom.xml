@@ -133,6 +133,7 @@
         <module>VegaModels-MitochondrialDysfunction</module>
         <module>VegaModels-CardioToxMultitask</module>
         <module>VegaModels-AceOntox</module>
+        <module>VegaModels-PxrOntox</module>
     </modules>
 
     <name>VegaModels</name>

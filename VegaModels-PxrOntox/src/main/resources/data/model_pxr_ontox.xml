@@ -1,14 +1,14 @@
 <xml>
    
     <Version>
-        <Name>Ace-Ontox</Name>
-        <Key>ACE_ONTOX</Key>
+        <Name>Pxr-Ontox</Name>
+        <Key>PXR_ONTOX</Key>
         <Summary>Lorem ipsum</Summary>
         <Version>1.0.0</Version>
     </Version>
     
     <Vega>
-        <TS>/data/ts_ace_ontox.dat</TS>
+        <TS>/data/ts_pxr_ontox.dat</TS>
         <ClassValues>
             <Class>
                 <Value>0</Value>
