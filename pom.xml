@@ -134,6 +134,7 @@
         <module>VegaModels-CardioToxMultitask</module>
         <module>VegaModels-AceOntox</module>
         <module>VegaModels-PxrOntox</module>
+        <module>VegaModels-NdmaOntox</module>
     </modules>
 
     <name>VegaModels</name>
