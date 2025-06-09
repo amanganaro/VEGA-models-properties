@@ -135,6 +135,7 @@
         <module>VegaModels-AceOntox</module>
         <module>VegaModels-PxrOntox</module>
         <module>VegaModels-NdmaOntox</module>
+        <module>VegaModels-PMML</module>
     </modules>
 
     <name>VegaModels</name>

@@ -1,4 +1,4 @@
-package insilico.aceOntox;
+package insilico.pmml_ontox;
 
 import insilico.core.descriptor.DescriptorsEngine;
 import insilico.core.exception.GenericFailureException;
@@ -12,28 +12,41 @@ import org.slf4j.LoggerFactory;
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Arrays;
 import java.util.Map;
 
-public class ismAceOntox extends InsilicoModelPython {
+public class ismPmmlOntox extends InsilicoModelPython {
 
     private static final long serialVersionUID = 1L;
-    private static final String ModelData = "/data/model_ace_ontox.xml";
+    //private static String ModelData = "/data/model_ace_ontox.xml";
     private CdddDescriptors cdddDescriptors;
     private String[] PythonResultsName;
-    private static final Logger log = LoggerFactory.getLogger(ismAceOntox.class);
+    private static final Logger log = LoggerFactory.getLogger(ismPmmlOntox.class);
+    private String PythonModelTag = "";
 
 
-    public ismAceOntox(boolean bypassCheckCondaEnv, iInsilicoModelRunnerMessenger messenger) throws InitFailureException, GenericFailureException {
-        super(ModelData, messenger);
+    private static String ModelData(String pythonModelTag) {
+        switch (pythonModelTag) {
+            case "ACE_ONTOX":
+                return "/data/model_ace_ontox.xml";
+            case "TEST_ONTOX":
+                return "/data/model_test_ontox.xml";
+            default:
+                return "/data/model_ace_ontox.xml";
+        }
+    }
+
+    public ismPmmlOntox(boolean bypassCheckCondaEnv, iInsilicoModelRunnerMessenger messenger, String pythonModelTag) throws InitFailureException, GenericFailureException {
+        super(ModelData(pythonModelTag), messenger);
+
+        PythonModelTag = pythonModelTag;
         isUsingCdddDescriptor=true;
 
         this.ResultsSize = 4;
         this.ResultsName = new String[ResultsSize];
-        this.ResultsName[0] = "ACE prediction";
-        this.ResultsName[1] = "ACE probability";
-        this.ResultsName[2] = "ACE probability active";
-        this.ResultsName[3] = "ACE probability non active";
+        this.ResultsName[0] = getReadableModelName()+" prediction";
+        this.ResultsName[1] = getReadableModelName()+" probability";
+        this.ResultsName[2] = getReadableModelName()+" probability active";
+        this.ResultsName[3] = getReadableModelName()+" probability non active";
 
         PythonResultsName = new String[this.ResultsSize];
         PythonResultsName[0] = "predicted_Category";
@@ -42,14 +55,14 @@ public class ismAceOntox extends InsilicoModelPython {
         PythonResultsName[3] = "probability_not active";
 
         if (System.getProperty("os.name").startsWith("Windows")) {
-            pathToExternalFolder = Paths.get(System.getProperty("user.home"),"\\AppData\\Local\\vega-models\\ace-ontox").resolve("");
+            pathToExternalFolder = Paths.get(System.getProperty("user.home"),"\\AppData\\Local\\vega-models\\pmml-ontox").resolve("");
         }
         else {
-            pathToExternalFolder = Paths.get(System.getProperty("user.home") ,"/.local/share/vega-models/ace-ontox").resolve("");
+            pathToExternalFolder = Paths.get(System.getProperty("user.home") ,"/.local/share/vega-models/pmml-ontox").resolve("");
         }
 
         if(!bypassCheckCondaEnv) {
-            boolean isEnvSet = configureCondaEnv("https://amcc.it/vega/ace-ontox.zip");
+            boolean isEnvSet = configureCondaEnv("https://amcc.it/vega/pmml-ontox.zip");
             if(!isEnvSet) {
                 throw new InitFailureException("Conda environment "+getCondaEnv()+" not set");
             }
@@ -64,7 +77,25 @@ public class ismAceOntox extends InsilicoModelPython {
 
     @Override
     public String getScriptName() {
-        return "app-ace-ontox.py";
+        switch(PythonModelTag){
+            case "ACE_ONTOX":
+                return "app-ace-ontox.py";
+            case "TEST_ONTOX":
+                return "app-test-ontox.py";
+            default:
+                return "app-ace-ontox.py";
+        }
+    }
+
+    private String getReadableModelName(){
+        switch(PythonModelTag){
+            case "ACE_ONTOX":
+                return "ACE";
+            case "TEST_ONTOX":
+                return "Test";
+            default:
+                return "Ace";
+        }
     }
 
     @Override
@@ -90,7 +121,7 @@ public class ismAceOntox extends InsilicoModelPython {
         Map<String, String> Prediction = null;
         try {
             log.info("Start to execute the model");
-            File f = File.createTempFile("output-ace-ontox", ".csv");
+            File f = File.createTempFile("output-pmml-ontox", ".csv");
             outputTempFile = f.getAbsolutePath();
             Path pathToScriptFile = Paths.get(pathToExternalFolder.toString(), getScriptName());
             String descriptorFile = cdddDescriptors.getFilePathOf(CurMolecule.getInputSMILES());
