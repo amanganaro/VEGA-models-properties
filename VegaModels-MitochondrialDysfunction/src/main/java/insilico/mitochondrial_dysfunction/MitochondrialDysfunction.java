@@ -193,11 +193,6 @@ public class MitochondrialDysfunction extends InsilicoModelPython {
     }
 
     @Override
-    public String getCondaEnv() {
-        return "VEGA_global_V1";
-    }
-
-    @Override
     public String getScriptName() {
         return "app-mitochondrial-dysfunction.py";
     }

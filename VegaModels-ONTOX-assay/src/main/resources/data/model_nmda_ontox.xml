@@ -1,14 +1,14 @@
 <xml>
    
     <Version>
-        <Name>Ace-Ontox</Name>
-        <Key>ACE_ONTOX</Key>
+        <Name>N-Methyl-D-Aspartate receptor (ONTOX)</Name>
+        <Key>NMDA_ONTOX</Key>
         <Summary>Lorem ipsum</Summary>
         <Version>1.0.0</Version>
     </Version>
     
     <Vega>
-        <TS>/data/ts_ace_ontox.dat</TS>
+        <TS>/data/ts_nmda_ontox.dat</TS>
         <ClassValues>
             <Class>
                 <Value>0</Value>

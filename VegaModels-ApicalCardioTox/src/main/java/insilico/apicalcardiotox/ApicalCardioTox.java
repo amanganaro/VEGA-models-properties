@@ -69,7 +69,7 @@ public class ApicalCardioTox extends InsilicoModelPython {
         if(!bypassCheckCondaEnv) {
             boolean isEnvSet = configureCondaEnv("https://amcc.it/vega/apical-cardio-tox.zip");
             if(!isEnvSet) {
-                throw new InitFailureException("Conda environment "+getCondaEnv()+" not set");
+                throw new InitFailureException("Conda environment "+ getCondaEnv() +" not set");
             }
         }
     }
@@ -186,11 +186,6 @@ public class ApicalCardioTox extends InsilicoModelPython {
             CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_GREEN);
         else if (Val == 1)
             CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_RED);
-    }
-
-    @Override
-    public String getCondaEnv() {
-        return "VEGA_global_V1";
     }
 
     @Override

@@ -1,25 +1,18 @@
-package insilico.aceOntox;
+package insilico.ontox_assay;
 
-import insilico.core.exception.GenericFailureException;
-import insilico.core.exception.InitFailureException;
 import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
 import insilico.core.model.InsilicoModelPython;
 import insilico.core.molecule.conversion.SmilesMolecule;
 import insilico.core.python.CdddDescriptors;
-import utils.ModelsDeployment;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 
-public class mainScriptAceOntox {
+public class mainScriptOntoxAssay {
 
-    public static void main(String[] args) throws InitFailureException, GenericFailureException, IOException {
-        InsilicoModel model = new ismAceOntox(true, null);
+    public static void main(String[] args) throws Exception {
+        InsilicoModel model = new ismOntoxAssay(true, null, "ACE_ONTOX");
 
 //
 //        ModelsDeployment.BuildDataset(model, "out_ts");
@@ -32,6 +25,8 @@ public class mainScriptAceOntox {
 //        }
 //        if(1==1)
 //            return;
+
+
         model.setSkipADandTSLoading(true);
 
         List<String> smilesList = new ArrayList<>();
@@ -44,7 +39,7 @@ public class mainScriptAceOntox {
 
         if(InsilicoModelPython.class.isAssignableFrom(model.getClass())){
             cdddDescriptors = new CdddDescriptors(smilesList, true, null);
-            ((ismAceOntox) model).setDescriptorGenerator(cdddDescriptors);
+            ((ismOntoxAssay) model).setDescriptorGenerator(cdddDescriptors);
             boolean descriptorOK = cdddDescriptors.calculateDescriptors();
         }
 
@@ -58,5 +53,7 @@ public class mainScriptAceOntox {
         }
 
         cdddDescriptors.dispose();
+
     }
+
 }

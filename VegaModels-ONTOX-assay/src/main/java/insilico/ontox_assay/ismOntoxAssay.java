@@ -1,4 +1,4 @@
-package insilico.pmml_ontox;
+package insilico.ontox_assay;
 
 import insilico.core.descriptor.DescriptorsEngine;
 import insilico.core.exception.GenericFailureException;
@@ -14,13 +14,12 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Map;
 
-public class ismPmmlOntox extends InsilicoModelPython {
+public class ismOntoxAssay extends InsilicoModelPython {
 
     private static final long serialVersionUID = 1L;
-    //private static String ModelData = "/data/model_ace_ontox.xml";
     private CdddDescriptors cdddDescriptors;
     private String[] PythonResultsName;
-    private static final Logger log = LoggerFactory.getLogger(ismPmmlOntox.class);
+    private static final Logger log = LoggerFactory.getLogger(ismOntoxAssay.class);
     private String PythonModelTag = "";
 
 
@@ -28,51 +27,45 @@ public class ismPmmlOntox extends InsilicoModelPython {
         switch (pythonModelTag) {
             case "ACE_ONTOX":
                 return "/data/model_ace_ontox.xml";
-            case "TEST_ONTOX":
-                return "/data/model_test_ontox.xml";
+            case "PXR_ONTOX":
+                return "/data/model_pxr_ontox.xml";
+            case "NDMA_ONTOX":
+                return "/data/model_ndma_ontox.xml";
             default:
-                return "/data/model_ace_ontox.xml";
+                return "";
         }
     }
 
-    public ismPmmlOntox(boolean bypassCheckCondaEnv, iInsilicoModelRunnerMessenger messenger, String pythonModelTag) throws InitFailureException, GenericFailureException {
+    public ismOntoxAssay(boolean bypassCheckCondaEnv, iInsilicoModelRunnerMessenger messenger, String pythonModelTag) throws InitFailureException, GenericFailureException {
         super(ModelData(pythonModelTag), messenger);
 
         PythonModelTag = pythonModelTag;
         isUsingCdddDescriptor=true;
 
-        this.ResultsSize = 4;
+        this.ResultsSize = 3;
         this.ResultsName = new String[ResultsSize];
         this.ResultsName[0] = getReadableModelName()+" prediction";
-        this.ResultsName[1] = getReadableModelName()+" probability";
-        this.ResultsName[2] = getReadableModelName()+" probability active";
-        this.ResultsName[3] = getReadableModelName()+" probability non active";
+        this.ResultsName[1] = getReadableModelName()+" probability active";
+        this.ResultsName[2] = getReadableModelName()+" probability non active";
 
         PythonResultsName = new String[this.ResultsSize];
-        PythonResultsName[0] = "predicted_Category";
-        PythonResultsName[1] = "probability";
-        PythonResultsName[2] = "probability_active";
-        PythonResultsName[3] = "probability_not active";
+        PythonResultsName[0] = "Predicted_Class";
+        PythonResultsName[1] = "Probability_Active";
+        PythonResultsName[2] = "Probability_NotActive";
 
         if (System.getProperty("os.name").startsWith("Windows")) {
-            pathToExternalFolder = Paths.get(System.getProperty("user.home"),"\\AppData\\Local\\vega-models\\pmml-ontox").resolve("");
+            pathToExternalFolder = Paths.get(System.getProperty("user.home"),"\\AppData\\Local\\vega-models\\ontox-assay").resolve("");
         }
         else {
-            pathToExternalFolder = Paths.get(System.getProperty("user.home") ,"/.local/share/vega-models/pmml-ontox").resolve("");
+            pathToExternalFolder = Paths.get(System.getProperty("user.home") ,"/.local/share/vega-models/ontox-assay").resolve("");
         }
 
         if(!bypassCheckCondaEnv) {
-            boolean isEnvSet = configureCondaEnv("https://amcc.it/vega/pmml-ontox.zip");
+            boolean isEnvSet = configureCondaEnv("https://amcc.it/vega/ontox-assay.zip");
             if(!isEnvSet) {
                 throw new InitFailureException("Conda environment "+getCondaEnv()+" not set");
             }
         }
-    }
-
-
-    @Override
-    public String getCondaEnv() {
-        return "VEGA_global_V2";
     }
 
     @Override
@@ -80,10 +73,12 @@ public class ismPmmlOntox extends InsilicoModelPython {
         switch(PythonModelTag){
             case "ACE_ONTOX":
                 return "app-ace-ontox.py";
-            case "TEST_ONTOX":
-                return "app-test-ontox.py";
+            case "PXR_ONTOX":
+                return "app-pxr-ontox.xml";
+            case "NDMA_ONTOX":
+                return "app-ndma-ontox.xml";
             default:
-                return "app-ace-ontox.py";
+                return "";
         }
     }
 
@@ -91,10 +86,12 @@ public class ismPmmlOntox extends InsilicoModelPython {
         switch(PythonModelTag){
             case "ACE_ONTOX":
                 return "ACE";
-            case "TEST_ONTOX":
-                return "Test";
+            case "PXR_ONTOX":
+                return "PXR";
+            case "NDMA_ONTOX":
+                return "NDMA";
             default:
-                return "Ace";
+                return "";
         }
     }
 
@@ -121,7 +118,7 @@ public class ismPmmlOntox extends InsilicoModelPython {
         Map<String, String> Prediction = null;
         try {
             log.info("Start to execute the model");
-            File f = File.createTempFile("output-pmml-ontox", ".csv");
+            File f = File.createTempFile("output-ontox-assay", ".csv");
             outputTempFile = f.getAbsolutePath();
             Path pathToScriptFile = Paths.get(pathToExternalFolder.toString(), getScriptName());
             String descriptorFile = cdddDescriptors.getFilePathOf(CurMolecule.getInputSMILES());
