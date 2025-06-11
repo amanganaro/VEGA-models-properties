@@ -29,8 +29,8 @@ public class ismOntoxAssay extends InsilicoModelPython {
                 return "/data/model_ace_ontox.xml";
             case "PXR_ONTOX":
                 return "/data/model_pxr_ontox.xml";
-            case "NDMA_ONTOX":
-                return "/data/model_ndma_ontox.xml";
+            case "NMDA_ONTOX":
+                return "/data/model_nmda_ontox.xml";
             default:
                 return "";
         }
@@ -74,9 +74,9 @@ public class ismOntoxAssay extends InsilicoModelPython {
             case "ACE_ONTOX":
                 return "app-ace-ontox.py";
             case "PXR_ONTOX":
-                return "app-pxr-ontox.xml";
-            case "NDMA_ONTOX":
-                return "app-ndma-ontox.xml";
+                return "app-pxr-ontox.py";
+            case "NMDA_ONTOX":
+                return "app-nmda-ontox.py";
             default:
                 return "";
         }
@@ -88,7 +88,7 @@ public class ismOntoxAssay extends InsilicoModelPython {
                 return "ACE";
             case "PXR_ONTOX":
                 return "PXR";
-            case "NDMA_ONTOX":
+            case "NMDA_ONTOX":
                 return "NDMA";
             default:
                 return "";

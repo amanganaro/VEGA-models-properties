@@ -5,19 +5,29 @@ import insilico.core.model.InsilicoModelOutput;
 import insilico.core.model.InsilicoModelPython;
 import insilico.core.molecule.conversion.SmilesMolecule;
 import insilico.core.python.CdddDescriptors;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import utils.ModelsDeployment;
 
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 
 public class mainScriptOntoxAssay {
 
+    private static final Logger log = LogManager.getLogger(mainScriptOntoxAssay.class);
+
     public static void main(String[] args) throws Exception {
         InsilicoModel model = new ismOntoxAssay(true, null, "ACE_ONTOX");
 
-//
 //        ModelsDeployment.BuildDataset(model, "out_ts");
 //        File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
-//        File destinationFile = new File("VegaModels-ApicalCardioTox\\src\\main\\resources\\data\\ts_apical_cardio_tox.dat");
+//        Path p = Paths.get("VegaModels-ONTOX-assay\\src\\main\\resources", model.getInfo().getTrainingSetURL());
+//        File destinationFile = new File(p.toString());
 //        try {
 //            Files.move(sourceFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
 //        } catch (Exception ex) {
