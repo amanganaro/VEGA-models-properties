@@ -39,7 +39,8 @@ public class ismDiliBayer extends InsilicoModelPython {
     private String[] PythonResultsName;
 
     public ismDiliBayer(boolean bypassCheckCondaEnv, iInsilicoModelRunnerMessenger messenger) throws InitFailureException, GenericFailureException {
-        super(ModelData, messenger);
+        super(ModelData, messenger, "dili-bayer", "GLOBAL", bypassCheckCondaEnv);
+
         isUsingCdddDescriptor=true;
 
         this.ResultsSize = 32;
@@ -120,20 +121,6 @@ public class ismDiliBayer extends InsilicoModelPython {
 
         this.DescriptorsSize = 0;
         this.DescriptorsNames = new String[DescriptorsSize];
-
-        if (System.getProperty("os.name").startsWith("Windows")) {
-            pathToExternalFolder = Paths.get(System.getProperty("user.home"),"\\AppData\\Local\\vega-models\\dili-bayer").resolve("");
-        }
-        else {
-            pathToExternalFolder = Paths.get(System.getProperty("user.home") ,"/.local/share/vega-models/dili-bayer").resolve("");
-        }
-
-        if(!bypassCheckCondaEnv) {
-            boolean isEnvSet = configureCondaEnv("https://amcc.it/vega/dili-bayer.zip");
-            if(!isEnvSet) {
-                throw new InitFailureException("Conda environment "+getCondaEnv()+" not set");
-            }
-        }
     }
 
     @Override

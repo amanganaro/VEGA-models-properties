@@ -22,7 +22,7 @@ public class mainScriptOntoxAssay {
     private static final Logger log = LogManager.getLogger(mainScriptOntoxAssay.class);
 
     public static void main(String[] args) throws Exception {
-        InsilicoModel model = new ismOntoxAssay(true, null, "ACE_ONTOX");
+        InsilicoModel model = new ismOntoxAssay(false, null, "ACE_ONTOX");
 
 //        ModelsDeployment.BuildDataset(model, "out_ts");
 //        File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
@@ -37,7 +37,7 @@ public class mainScriptOntoxAssay {
 //            return;
 
 
-        model.setSkipADandTSLoading(true);
+//        model.setSkipADandTSLoading(true);
 
         List<String> smilesList = new ArrayList<>();
         smilesList.add("O=[N+]([O-])c1cc(cc(c1N(CCC)CCC)[N+](=O)[O-])S(=O)(=O)C");

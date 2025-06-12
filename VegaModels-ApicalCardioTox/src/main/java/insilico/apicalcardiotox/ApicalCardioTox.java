@@ -37,7 +37,7 @@ public class ApicalCardioTox extends InsilicoModelPython {
     private final String[] PythonResultsName;
 
     public ApicalCardioTox(boolean bypassCheckCondaEnv, iInsilicoModelRunnerMessenger messenger) throws InitFailureException, GenericFailureException{
-        super(ModelData, messenger);
+        super(ModelData, messenger, "apical-cardio-tox", "GLOBAL", bypassCheckCondaEnv);
         isUsingCdddDescriptor=true;
 
         this.ResultsSize = 2;
@@ -58,20 +58,6 @@ public class ApicalCardioTox extends InsilicoModelPython {
         this.ADItemsName[1] = new ADIndexAccuracy().GetIndexName();
         this.ADItemsName[2] = new ADIndexConcordance().GetIndexName();
         this.ADItemsName[3] = new ADIndexACF().GetIndexName();
-
-        if (System.getProperty("os.name").startsWith("Windows")) {
-            pathToExternalFolder = Paths.get(System.getProperty("user.home"),"\\AppData\\Local\\vega-models\\apical-cardio-tox").resolve("");
-        }
-        else {
-            pathToExternalFolder = Paths.get(System.getProperty("user.home") ,"/.local/share/vega-models/apical-cardio-tox").resolve("");
-        }
-
-        if(!bypassCheckCondaEnv) {
-            boolean isEnvSet = configureCondaEnv("https://amcc.it/vega/apical-cardio-tox.zip");
-            if(!isEnvSet) {
-                throw new InitFailureException("Conda environment "+ getCondaEnv() +" not set");
-            }
-        }
     }
 
     @Override

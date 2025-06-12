@@ -1,11 +1,18 @@
 package insilico.ontox_assay;
 
+import insilico.core.ad.ADCheckACF;
+import insilico.core.ad.ADCheckIndicesQualitative;
+import insilico.core.ad.item.*;
 import insilico.core.descriptor.DescriptorsEngine;
 import insilico.core.exception.GenericFailureException;
 import insilico.core.exception.InitFailureException;
+import insilico.core.model.InsilicoModel;
+import insilico.core.model.InsilicoModelOutput;
 import insilico.core.model.InsilicoModelPython;
 import insilico.core.model.runner.iInsilicoModelRunnerMessenger;
 import insilico.core.python.CdddDescriptors;
+import insilico.core.tools.utils.ModelUtilities;
+import org.apache.commons.lang3.math.NumberUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,7 +29,6 @@ public class ismOntoxAssay extends InsilicoModelPython {
     private static final Logger log = LoggerFactory.getLogger(ismOntoxAssay.class);
     private String PythonModelTag = "";
 
-
     private static String ModelData(String pythonModelTag) {
         switch (pythonModelTag) {
             case "ACE_ONTOX":
@@ -37,7 +43,7 @@ public class ismOntoxAssay extends InsilicoModelPython {
     }
 
     public ismOntoxAssay(boolean bypassCheckCondaEnv, iInsilicoModelRunnerMessenger messenger, String pythonModelTag) throws InitFailureException, GenericFailureException {
-        super(ModelData(pythonModelTag), messenger);
+        super(ModelData(pythonModelTag), messenger, "ontox-assay", "GLOBAL", bypassCheckCondaEnv);
 
         PythonModelTag = pythonModelTag;
         isUsingCdddDescriptor=true;
@@ -53,19 +59,6 @@ public class ismOntoxAssay extends InsilicoModelPython {
         PythonResultsName[1] = "Probability_Active";
         PythonResultsName[2] = "Probability_NotActive";
 
-        if (System.getProperty("os.name").startsWith("Windows")) {
-            pathToExternalFolder = Paths.get(System.getProperty("user.home"),"\\AppData\\Local\\vega-models\\ontox-assay").resolve("");
-        }
-        else {
-            pathToExternalFolder = Paths.get(System.getProperty("user.home") ,"/.local/share/vega-models/ontox-assay").resolve("");
-        }
-
-        if(!bypassCheckCondaEnv) {
-            boolean isEnvSet = configureCondaEnv("https://amcc.it/vega/ontox-assay.zip");
-            if(!isEnvSet) {
-                throw new InitFailureException("Conda environment "+getCondaEnv()+" not set");
-            }
-        }
     }
 
     @Override
@@ -89,7 +82,7 @@ public class ismOntoxAssay extends InsilicoModelPython {
             case "PXR_ONTOX":
                 return "PXR";
             case "NMDA_ONTOX":
-                return "NDMA";
+                return "NMDA";
             default:
                 return "";
         }
@@ -135,9 +128,16 @@ public class ismOntoxAssay extends InsilicoModelPython {
 
                 for(int i=0; i<PythonResultsName.length; i++){
                     try {
-                        Res[i] = Format_4D.format(Prediction.get(PythonResultsName[i]));
+                        if(NumberUtils.isCreatable(Prediction.get(PythonResultsName[i]))){
+                            Res[i] = Format_4D.format(Double.parseDouble(Prediction.get(PythonResultsName[i])));
+                        }
+                        else{
+                            double pred_number =  Prediction.get(PythonResultsName[i]).equals("active") ? 1.0 : 0.0;
+                            Res[i] = this.GetTrainingSet().getClassLabel(pred_number);
+                        }
+
                     } catch (Throwable ex) {
-                        log.warn("Unable to find label for value " + Prediction.get(PythonResultsName[i]));
+                        log.warn("Unable to find label for value {}", Prediction.get(PythonResultsName[i]));
                         Res[i] = Prediction.get(PythonResultsName[i]);
                     }
                 }
@@ -156,12 +156,53 @@ public class ismOntoxAssay extends InsilicoModelPython {
 
     @Override
     protected short CalculateAD() {
-        return 0;
+        // Calculates various AD indices
+        ADCheckIndicesQualitative adq = new ADCheckIndicesQualitative(TS);
+        adq.AddMappingToPositiveValue(1);
+        adq.AddMappingToNegativeValue(0);
+        adq.setMoleculesForIndexSize(2);
+        if (!adq.Calculate(CurMolecule, CurOutput))
+            return InsilicoModel.AD_ERROR;
+
+        // Sets threshold for AD indices
+        try {
+            ((ADIndexSimilarity)CurOutput.getADIndex(ADIndexSimilarity.class)).SetThresholds(0.75, 0.6);
+            ((ADIndexAccuracy)CurOutput.getADIndex(ADIndexAccuracy.class)).SetThresholds(0.75, 0.6);
+            ((ADIndexConcordance)CurOutput.getADIndex(ADIndexConcordance.class)).SetThresholds(0.75, 0.6);
+        } catch (Throwable e) {
+            return InsilicoModel.AD_ERROR;
+        }
+
+        // Sets ACF check
+        ADCheckACF adacf = new ADCheckACF(TS);
+        if (!adacf.Calculate(CurMolecule, CurOutput))
+            return InsilicoModel.AD_ERROR;
+
+        // Sets final AD index
+        double acfContribution = CurOutput.getADIndex(ADIndexACF.class).GetIndexValue();
+        double ADIValue = adq.getIndexADI() * acfContribution;
+
+        ADIndexADI ADI = new ADIndexADI();
+        ADI.SetIndexValue(ADIValue);
+        ADI.SetThresholds(0.75, 0.6);
+        CurOutput.setADI(ADI);
+
+        return InsilicoModel.AD_CALCULATED;
     }
 
     @Override
     protected void CalculateAssessment() {
+        // Sets assessment message
+        ModelUtilities.SetDefaultAssessment(CurOutput, CurOutput.getResults()[0]);
 
+        // Sets assessment status
+        double Val = CurOutput.HasExperimental() ? CurOutput.getExperimental() : CurOutput.getMainResultValue();
+        if (Val == -1)
+            CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_GRAY);
+        else if (Val == 0)
+            CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_GREEN);
+        else if (Val == 1)
+            CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_RED);
     }
 
     @Override
