@@ -1,7 +1,7 @@
 <xml>
    
     <Version>
-        <Name>N-Methyl-D-Aspartate receptor (ONTOX)</Name>
+        <Name>NMDA - N-Methyl-D-Aspartate receptor (ONTOX)</Name>
         <Key>NMDA_ONTOX</Key>
         <Summary>Lorem ipsum</Summary>
         <Version>1.0.0</Version>

@@ -1,7 +1,7 @@
 <xml>
    
     <Version>
-        <Name>pregnane X receptor model (ONTOX)</Name>
+        <Name>PXR - pregnane X receptor model (ONTOX)</Name>
         <Key>PXR_ONTOX</Key>
         <Summary>Lorem ipsum</Summary>
         <Version>1.0.0</Version>
