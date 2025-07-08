@@ -1,7 +1,7 @@
 <xml>
    
     <Version>
-        <Name>ACE - Angiotensin Converting Enzyme inhibitor model (ONTOX)</Name>
+        <Name>ACE - Angiotensin Converting Enzyme model (ONTOX)</Name>
         <Key>ACE_ONTOX</Key>
         <Summary>Lorem ipsum</Summary>
         <Version>1.0.0</Version>

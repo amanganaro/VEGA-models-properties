@@ -22,7 +22,7 @@ public class mainScriptOntoxAssay {
     private static final Logger log = LogManager.getLogger(mainScriptOntoxAssay.class);
 
     public static void main(String[] args) throws Exception {
-        InsilicoModel model = new ismOntoxAssay(false, null, "ACE_ONTOX");
+        InsilicoModel model = new ismOntoxAssay(false, null, "PXR_ONTOX");
 
 //        ModelsDeployment.BuildDataset(model, "out_ts");
 //        File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
