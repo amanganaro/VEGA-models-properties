@@ -34,7 +34,7 @@ public class CardioToxMultitask extends InsilicoModelPython {
     private final String[] PythonResultsName;
 
     public CardioToxMultitask(boolean bypassCheckCondaEnv, iInsilicoModelRunnerMessenger messenger) throws InitFailureException, GenericFailureException{
-        super(ModelData, messenger, "cardio-tox-multitask", "GLOBAL", bypassCheckCondaEnv);
+        super(ModelData, messenger, "cardio-tox-multitask_1_0_0", "GLOBAL", bypassCheckCondaEnv);
         isUsingCdddDescriptor=true;
 
         this.ResultsSize = 12;

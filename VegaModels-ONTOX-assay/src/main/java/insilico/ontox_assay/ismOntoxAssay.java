@@ -42,8 +42,21 @@ public class ismOntoxAssay extends InsilicoModelPython {
         }
     }
 
+    private static String ModelFolder(String pythonModelTag) {
+        switch (pythonModelTag) {
+            case "ACE_ONTOX":
+                return "ace-ontox_1_0_0";
+            case "PXR_ONTOX":
+                return "pxr-ontox_1_0_0";
+            case "NMDA_ONTOX":
+                return "nmda-ontox_1_0_0";
+            default:
+                return "";
+        }
+    }
+
     public ismOntoxAssay(boolean bypassCheckCondaEnv, iInsilicoModelRunnerMessenger messenger, String pythonModelTag) throws InitFailureException, GenericFailureException {
-        super(ModelData(pythonModelTag), messenger, "ontox-assay", "GLOBAL", bypassCheckCondaEnv);
+        super(ModelData(pythonModelTag), messenger, ModelFolder(pythonModelTag), "GLOBAL", bypassCheckCondaEnv);
 
         PythonModelTag = pythonModelTag;
         isUsingCdddDescriptor=true;

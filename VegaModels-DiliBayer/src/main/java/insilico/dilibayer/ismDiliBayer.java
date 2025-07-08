@@ -39,7 +39,7 @@ public class ismDiliBayer extends InsilicoModelPython {
     private String[] PythonResultsName;
 
     public ismDiliBayer(boolean bypassCheckCondaEnv, iInsilicoModelRunnerMessenger messenger) throws InitFailureException, GenericFailureException {
-        super(ModelData, messenger, "dili-bayer", "GLOBAL", bypassCheckCondaEnv);
+        super(ModelData, messenger, "dili-bayer_1_0_0", "GLOBAL", bypassCheckCondaEnv);
 
         isUsingCdddDescriptor=true;
 

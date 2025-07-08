@@ -43,7 +43,7 @@ public class MitochondrialDysfunction extends InsilicoModelPython {
     private final String[] PythonResultsName;
 
     public MitochondrialDysfunction(boolean bypassCheckCondaEnv, iInsilicoModelRunnerMessenger messenger) throws InitFailureException, GenericFailureException{
-        super(ModelData, messenger, "mitochondrial-dysfunction", "GLOBAL", bypassCheckCondaEnv);
+        super(ModelData, messenger, "mitochondrial-dysfunction_1_0_0", "GLOBAL", bypassCheckCondaEnv);
 
         isUsingCdddDescriptor=true;
 
