@@ -1,0 +1,23 @@
+<xml>
+   
+    <Version>
+        <Name>FGFR3 - Fibroblast Growth Factor Receptor isoform 3 model (ONTOX)</Name>
+        <Key>FGFR3_ONTOX</Key>
+        <Summary>Lorem ipsum</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_fgfr3_ontox.dat</TS>
+        <ClassValues>
+            <Class>
+                <Value>0</Value>
+                <Label>Not Active</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Active</Label>
+            </Class>
+        </ClassValues>
+    </Vega>
+</xml>

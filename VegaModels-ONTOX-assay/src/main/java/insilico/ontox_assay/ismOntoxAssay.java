@@ -33,10 +33,54 @@ public class ismOntoxAssay extends InsilicoModelPython {
         switch (pythonModelTag) {
             case "ACE_ONTOX":
                 return "/data/model_ace_ontox.xml";
+            case "ACHE_ONTOX":
+                return "/data/model_ache_ontox.xml";
+            case "AHR_ONTOX":
+                return "/data/model_ahr_ontox.xml";
+            case "AT1R_ONTOX":
+                return "/data/model_at1r_ontox.xml";
+            case "BMP_ONTOX":
+                return "/data/model_bmp_ontox.xml";
+            case "BSEP_ONTOX":
+                return "/data/model_bsep_ontox.xml";
+            case "COX1_ONTOX":
+                return "/data/model_cox1_ontox.xml";
+            case "CYP26_ONTOX":
+                return "/data/model_cyp26_ontox.xml";
+            case "FGFR1_ONTOX":
+                return "/data/model_fgfr1_ontox.xml";
+            case "FGFR2_ONTOX":
+                return "/data/model_fgfr2_ontox.xml";
+            case "FGFR3_ONTOX":
+                return "/data/model_fgfr3_ontox.xml";
+            case "FGFR4_ONTOX":
+                return "/data/model_fgfr4_ontox.xml";
+            case "GR_ONTOX":
+                return "/data/model_gr_ontox.xml";
+            case "HDEAC_ONTOX":
+                return "/data/model_hdeac_ontox.xml";
             case "PXR_ONTOX":
                 return "/data/model_pxr_ontox.xml";
             case "NMDA_ONTOX":
                 return "/data/model_nmda_ontox.xml";
+            case "OAT1_ONTOX":
+                return "/data/model_oat1_ontox.xml";
+            case "PPARA_ONTOX":
+                return "/data/model_ppara_ontox.xml";
+            case "PPARD_ONTOX":
+                return "/data/model_ppard_ontox.xml";
+            case "PPARG_ONTOX":
+                return "/data/model_pparg_ontox.xml";
+            case "THRA_ONTOX":
+                return "/data/model_thra_ontox.xml";
+            case "THRB_ONTOX":
+                return "/data/model_thrb_ontox.xml";
+            case "TTR_ONTOX":
+                return "/data/model_ttr_ontox.xml";
+            case "VGSC_ONTOX":
+                return "/data/model_vgsc_ontox.xml";
+            case "WNT_ONTOX":
+                return "/data/model_wnt_ontox.xml";
             default:
                 return "";
         }
@@ -46,10 +90,54 @@ public class ismOntoxAssay extends InsilicoModelPython {
         switch (pythonModelTag) {
             case "ACE_ONTOX":
                 return "ace-ontox_1_0_0";
+            case "ACHE_ONTOX":
+                return "ache-ontox_1_0_0";
+            case "AHR_ONTOX":
+                return "ahr-ontox_1_0_0";
+            case "AT1R_ONTOX":
+                return "at1r-ontox_1_0_0";
+            case "BMP_ONTOX":
+                return "bmp-ontox_1_0_0";
+            case "BSEP_ONTOX":
+                return "bsep-ontox_1_0_0";
+            case "COX1_ONTOX":
+                return "cox1-ontox_1_0_0";
+            case "CYP26_ONTOX":
+                return "cyp26-ontox_1_0_0";
+            case "FGFR1_ONTOX":
+                return "fgfr1-ontox_1_0_0";
+            case "FGFR2_ONTOX":
+                return "fgfr2-ontox_1_0_0";
+            case "FGFR3_ONTOX":
+                return "fgfr3-ontox_1_0_0";
+            case "FGFR4_ONTOX":
+                return "fgfr4-ontox_1_0_0";
+            case "GR_ONTOX":
+                return "gr-ontox_1_0_0";
+            case "HDEAC_ONTOX":
+                return "hdeac-ontox_1_0_0";
             case "PXR_ONTOX":
                 return "pxr-ontox_1_0_0";
             case "NMDA_ONTOX":
                 return "nmda-ontox_1_0_0";
+            case "OAT1_ONTOX":
+                return "nmda-oat1_1_0_0";
+            case "PPARA_ONTOX":
+                return "nmda-ppara_1_0_0";
+            case "PPARD_ONTOX":
+                return "nmda-ppard_1_0_0";
+            case "PPARG_ONTOX":
+                return "nmda-pparg_1_0_0";
+            case "THRA_ONTOX":
+                return "nmda-thra_1_0_0";
+            case "THRB_ONTOX":
+                return "nmda-thrb_1_0_0";
+            case "TTR_ONTOX":
+                return "nmda-ttr_1_0_0";
+            case "VGSC_ONTOX":
+                return "nmda-vgsc_1_0_0";
+            case "WNT_ONTOX":
+                return "nmda-wnt_1_0_0";
             default:
                 return "";
         }
@@ -72,6 +160,13 @@ public class ismOntoxAssay extends InsilicoModelPython {
         PythonResultsName[1] = "Probability_Active";
         PythonResultsName[2] = "Probability_NotActive";
 
+        //Define AD items
+        this.ADItemsName = new String[4];
+        this.ADItemsName[0] = new ADIndexSimilarity().GetIndexName();
+        this.ADItemsName[1] = new ADIndexAccuracy().GetIndexName();
+        this.ADItemsName[2] = new ADIndexConcordance().GetIndexName();
+        this.ADItemsName[3] = new ADIndexACF().GetIndexName();
+
     }
 
     @Override
@@ -79,10 +174,54 @@ public class ismOntoxAssay extends InsilicoModelPython {
         switch(PythonModelTag){
             case "ACE_ONTOX":
                 return "app-ace-ontox.py";
+            case "ACHE_ONTOX":
+                return "app-ache-ontox.py";
+            case "AHR_ONTOX":
+                return "app-ahr-ontox.py";
+            case "AT1R_ONTOX":
+                return "app-at1r-ontox.py";
+            case "BMP_ONTOX":
+                return "app-bmp-ontox.py";
+            case "BSEP_ONTOX":
+                return "app-bsep-ontox.py";
+            case "COX1_ONTOX":
+                return "app-cox1-ontox.py";
+            case "CYP26_ONTOX":
+                return "app-cyp26-ontox.py";
+            case "FGFR1_ONTOX":
+                return "app-fgfr1-ontox.py";
+            case "FGFR2_ONTOX":
+                return "app-fgfr2-ontox.py";
+            case "FGFR3_ONTOX":
+                return "app-fgfr3-ontox.py";
+            case "FGFR4_ONTOX":
+                return "app-fgfr4-ontox.py";
+            case "GR_ONTOX":
+                return "app-gr-ontox.py";
+            case "HDEAC_ONTOX":
+                return "app-hdeac-ontox.py";
             case "PXR_ONTOX":
                 return "app-pxr-ontox.py";
             case "NMDA_ONTOX":
                 return "app-nmda-ontox.py";
+            case "OAT1_ONTOX":
+                return "app-oat1-ontox.py";
+            case "PPARA_ONTOX":
+                return "app-ppara-ontox.py";
+            case "PPARD_ONTOX":
+                return "app-ppard-ontox.py";
+            case "PPARG_ONTOX":
+                return "app-pparg-ontox.py";
+            case "THRA_ONTOX":
+                return "app-thra-ontox.py";
+            case "THRB_ONTOX":
+                return "app-thrb-ontox.py";
+            case "TTR_ONTOX":
+                return "app-ttr-ontox.py";
+            case "VGSC_ONTOX":
+                return "app-vgsc-ontox.py";
+            case "WNT_ONTOX":
+                return "app-wnt-ontox.py";
             default:
                 return "";
         }
@@ -92,10 +231,52 @@ public class ismOntoxAssay extends InsilicoModelPython {
         switch(PythonModelTag){
             case "ACE_ONTOX":
                 return "ACE";
+            case "ACHE_ONTOX":
+                return "ACHE";
+            case "AHR_ONTOX":
+                return "AHR";
+            case "AT1R_ONTOX":
+                return "AT1R";
+            case "BMP_ONTOX":
+                return "BMP";
+            case "BSEP_ONTOX":
+                return "BSEP";
+            case "COX1_ONTOX":
+                return "COX1";
+            case "CYP26_ONTOX":
+                return "CYP26";
+            case "FGFR1_ONTOX":
+                return "FGFR1";
+            case "FGFR2_ONTOX":
+                return "FGFR2";
+            case "FGFR3_ONTOX":
+                return "FGFR3";
+            case "FGFR4_ONTOX":
+                return "FGFR4";
+            case "GR_ONTOX":
+                return "GR";
+            case "HDEAC_ONTOX":
+                return "HDEAC";
             case "PXR_ONTOX":
                 return "PXR";
             case "NMDA_ONTOX":
                 return "NMDA";
+            case "PPARA_ONTOX":
+                return "PPARA";
+            case "PPARD_ONTOX":
+                return "PPARD";
+            case "PPARG_ONTOX":
+                return "PPARG";
+            case "THRA_ONTOX":
+                return "THRA";
+            case "THRB_ONTOX":
+                return "THRB";
+            case "TTR_ONTOX":
+                return "TTR";
+            case "VGSC_ONTOX":
+                return "VGSC";
+            case "WNT_ONTOX":
+                return "WNT";
             default:
                 return "";
         }
