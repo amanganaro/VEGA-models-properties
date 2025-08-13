@@ -121,23 +121,23 @@ public class ismOntoxAssay extends InsilicoModelPython {
             case "NMDA_ONTOX":
                 return "nmda-ontox_1_0_0";
             case "OAT1_ONTOX":
-                return "nmda-oat1_1_0_0";
+                return "oat1-ontox_1_0_0";
             case "PPARA_ONTOX":
-                return "nmda-ppara_1_0_0";
+                return "ppara-ontox_1_0_0";
             case "PPARD_ONTOX":
-                return "nmda-ppard_1_0_0";
+                return "ppard-ontox_1_0_0";
             case "PPARG_ONTOX":
-                return "nmda-pparg_1_0_0";
+                return "pparg-ontox_1_0_0";
             case "THRA_ONTOX":
-                return "nmda-thra_1_0_0";
+                return "thra-ontox_1_0_0";
             case "THRB_ONTOX":
-                return "nmda-thrb_1_0_0";
+                return "thrb-ontox_1_0_0";
             case "TTR_ONTOX":
-                return "nmda-ttr_1_0_0";
+                return "ttr-ontox_1_0_0";
             case "VGSC_ONTOX":
-                return "nmda-vgsc_1_0_0";
+                return "vgsc-ontox_1_0_0";
             case "WNT_ONTOX":
-                return "nmda-wnt_1_0_0";
+                return "wnt-ontox_1_0_0";
             default:
                 return "";
         }
