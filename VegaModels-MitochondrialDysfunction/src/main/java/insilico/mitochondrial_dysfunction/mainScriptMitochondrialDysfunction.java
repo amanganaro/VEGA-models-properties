@@ -38,17 +38,17 @@ public class mainScriptMitochondrialDysfunction {
 //        if(1==1)
 //            return;
 
-//        ModelsDeployment.BuildDataset(model, "out_ts");
-//        File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
-//        File destinationFile = new File("VegaModels-MitochondrialDysfunction\\src\\main\\resources\\data\\ts_mitochondrial_dysfunction.dat");
-//        try {
-//            Files.move(sourceFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-//        } catch (Exception ex) {
-//            log.warn(ex.getMessage());
-//        }
-//        if(1==1){
-//            return;
-//        }
+        ModelsDeployment.BuildDataset(model, "out_ts");
+        File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
+        File destinationFile = new File("VegaModels-MitochondrialDysfunction\\src\\main\\resources\\data\\ts_mitochondrial_dysfunction.dat");
+        try {
+            Files.move(sourceFile.toPath(), destinationFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+        } catch (Exception ex) {
+            log.warn(ex.getMessage());
+        }
+        if(1==1){
+            return;
+        }
 //        model.setSkipADandTSLoading(true);
 
         List<String> smilesList = new ArrayList<>();
