@@ -1,7 +1,7 @@
 <xml>
    
     <Version>
-        <Name>PPARd - Peroxisome Proliferator-Activated Receptor model (ONTOX)</Name>
+        <Name>PPARd - Peroxisome Proliferator-Activated Receptor delta model (ONTOX)</Name>
         <Key>PPARD_ONTOX</Key>
         <Summary>Lorem ipsum</Summary>
         <Version>1.0.0</Version>
