@@ -25,6 +25,12 @@
             <artifactId>Coral</artifactId>
             <version>2.2</version>
         </dependency>
+        <dependency>
+            <groupId>InSilico</groupId>
+            <artifactId>ModelsUtils</artifactId>
+            <version>1.0</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <build>

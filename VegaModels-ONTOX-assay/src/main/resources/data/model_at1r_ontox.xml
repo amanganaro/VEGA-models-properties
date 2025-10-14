@@ -3,7 +3,7 @@
     <Version>
         <Name>AT1R - Angiotensin II Receptor type 1 model (ONTOX)</Name>
         <Key>AT1R_ONTOX</Key>
-        <Summary>Lorem ipsum</Summary>
+        <Summary>Classification model (active/inactive) or interaction with AT1R (ChEMBL)</Summary>
         <Version>1.0.0</Version>
     </Version>
     

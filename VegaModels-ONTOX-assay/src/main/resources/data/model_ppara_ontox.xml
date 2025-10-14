@@ -3,7 +3,7 @@
     <Version>
         <Name>PPARa - Peroxisome Proliferator-Activated Receptor alpha model (ONTOX)</Name>
         <Key>PPARA_ONTOX</Key>
-        <Summary>Lorem ipsum</Summary>
+        <Summary>Classification model (active/inactive) or interaction with PPARa (ChEMBL)</Summary>
         <Version>1.0.0</Version>
     </Version>
     

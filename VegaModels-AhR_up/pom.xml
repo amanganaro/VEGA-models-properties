@@ -15,6 +15,9 @@
     <properties>
         <maven.compiler.source>15</maven.compiler.source>
         <maven.compiler.target>15</maven.compiler.target>
+        <model.name.arg>insilico.ahr_up.ismAhrUp</model.name.arg>
+        <model.make.trainingset>true</model.make.trainingset>
+        <model.artificatId>${project.artifactId}</model.artificatId>
     </properties>
 
     <name>Ahr_up - 1.0.0</name>

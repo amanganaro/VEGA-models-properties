@@ -1,9 +1,9 @@
 <xml>
    
     <Version>
-        <Name>ACE - Acetylcholinesterase  model (ONTOX)</Name>
+        <Name>ACHE - Acetylcholinesterase  model (ONTOX)</Name>
         <Key>ACHE_ONTOX</Key>
-        <Summary>Lorem ipsum</Summary>
+        <Summary>Classification model (active/inactive) or interaction with ACHE (ChEMBL)</Summary>
         <Version>1.0.0</Version>
     </Version>
     

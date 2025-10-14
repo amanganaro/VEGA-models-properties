@@ -21,11 +21,11 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <model.name.arg>insilico.apicalcardiotox.ApicalCardioTox</model.name.arg>
+        <model.make.trainingset>true</model.make.trainingset>
+        <model.artificatId>${project.artifactId}</model.artificatId>
     </properties>
 
-    <dependencies>
-
-    </dependencies>
 
     <build>
         <plugins>
@@ -36,29 +36,8 @@
                 <configuration>
                     <source>11</source>
                     <target>11</target>
-
                 </configuration>
             </plugin>
-
-            <!--            <plugin>-->
-            <!--                <groupId>org.codehaus.mojo</groupId>-->
-            <!--                <artifactId>exec-maven-plugin</artifactId>-->
-            <!--                <version>3.0.0</version>-->
-            <!--                <executions>-->
-            <!--                    <execution>-->
-            <!--                        <phase>-->
-            <!--                            prepare-package-->
-            <!--                        </phase>-->
-            <!--                        <goals>-->
-            <!--                            <goal>java</goal>-->
-            <!--                        </goals>-->
-            <!--                    </execution>-->
-            <!--                </executions>-->
-            <!--                <configuration>-->
-            <!--                    <mainClass>mainScriptAlgaeCombase</mainClass>-->
-            <!--                </configuration>-->
-            <!--            </plugin>-->
-
         </plugins>
     </build>
 

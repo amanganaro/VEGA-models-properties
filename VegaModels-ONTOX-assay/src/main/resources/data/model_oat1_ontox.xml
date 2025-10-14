@@ -3,7 +3,7 @@
     <Version>
         <Name>OAT1 - Organic Anion Transporter model (ONTOX)</Name>
         <Key>OAT1_ONTOX</Key>
-        <Summary>Lorem ipsum</Summary>
+        <Summary>Classification model (active/inactive) or interaction with OAT1 (ChEMBL)</Summary>
         <Version>1.0.0</Version>
     </Version>
     
