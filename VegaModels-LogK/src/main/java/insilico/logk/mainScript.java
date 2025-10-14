@@ -10,7 +10,6 @@ import insilico.logk.descriptors.EmbeddedDescriptors;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import utils.ModelsDeployment;
 
 import java.io.File;
 import java.io.FileNotFoundException;

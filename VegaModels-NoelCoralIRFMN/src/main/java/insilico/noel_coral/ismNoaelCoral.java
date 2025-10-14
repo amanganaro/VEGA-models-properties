@@ -14,7 +14,6 @@ import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
 import insilico.core.molecule.conversion.SmilesMolecule;
 import insilico.core.tools.utils.ModelUtilities;
-import utils.ModelsDeployment;
 
 import java.io.File;
 import java.nio.file.Files;
