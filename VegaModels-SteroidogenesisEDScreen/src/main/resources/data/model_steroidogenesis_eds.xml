@@ -1,0 +1,29 @@
+<xml>
+   
+    <Version>
+        <Name>Steroidogenesis (ED-Screen)</Name>
+        <Key>STERO_EDSCREEN</Key>
+        <Summary>Qualitative KNN model for Steroidogenesis (IRFMN/ED-Screen)</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+
+    <Vega>
+        <TS>/data/ts_steroidogenesis_eds.dat</TS>
+        <HasAlerts>False</HasAlerts>
+        <ClassValues>
+            <Class>
+                <Value>1</Value>
+                <Label>Active</Label>
+            </Class>
+            <Class>
+                <Value>0</Value>
+                <Label>Inactive</Label>
+            </Class>
+            <Class>
+                <Value>-1</Value>
+                <Label>N.A.</Label>
+            </Class>
+        </ClassValues>
+    </Vega>
+    
+</xml>
