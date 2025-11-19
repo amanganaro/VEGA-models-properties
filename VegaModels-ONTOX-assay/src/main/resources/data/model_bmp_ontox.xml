@@ -1,0 +1,23 @@
+<xml>
+   
+    <Version>
+        <Name>BMP - Bone Morphogenetic Proteins model (ONTOX)</Name>
+        <Key>BMP_ONTOX</Key>
+        <Summary>Classification model (active/inactive) or interaction with BMP (ChEMBL)</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_bmp_ontox.dat</TS>
+        <ClassValues>
+            <Class>
+                <Value>0</Value>
+                <Label>Not Active</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Active</Label>
+            </Class>
+        </ClassValues>
+    </Vega>
+</xml>

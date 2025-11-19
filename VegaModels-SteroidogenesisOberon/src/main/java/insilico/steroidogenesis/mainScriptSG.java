@@ -7,7 +7,6 @@ import insilico.core.model.trainingset.iTrainingSet;
 import insilico.core.molecule.conversion.SmilesMolecule;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import utils.ModelsDeployment;
 
 import java.io.BufferedReader;
 import java.io.File;

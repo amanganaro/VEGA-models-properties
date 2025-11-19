@@ -54,7 +54,7 @@
         <module>VegaModels-HydrolysisCoral</module>
         <module>VegaModels-KoaOpera</module>
         <module>VegaModels-KocOpera</module>
-        <module>VegaModels-LoaelIRFMN</module>
+        <module>VegaModels-LoelIRFMN</module>
         <module>VegaModels-MicronucleusVitro</module>
         <module>VegaModels-MicronuclueusVivo</module>
         <module>VegaModels-MoaEpa</module>
@@ -62,7 +62,7 @@
         <module>VegaModels-MutagenicityConsensus</module>
         <module>VegaModels-MutagenicityKNN</module>
         <module>VegaModels-MutagenicitySarpy</module>
-        <module>VegaModels-NoaelCoral</module>
+        <module>VegaModels-NoelCoralIRFMN</module>
         <module>VegaModels-PersistenceAirCoral</module>
         <module>VegaModels-PersistenceSedimentIRFMN</module>
         <module>VegaModels-PersistenceSedimentQuantitativeIRFMN</module>
@@ -92,7 +92,7 @@
         <module>VegaModels-PGPNic</module>
         <module>VegaModels-MoaIRFMN</module>
         <module>VegaModels-SQfu</module>
-        <module>VegaModels-PPBLogK</module>
+        <module>VegaModels-LogK</module>
         <module>VegaModels-PXR_up</module>
         <module>VegaModels-PPARg_up</module>
 <!--        <module>VegaModels-PPARAup</module>-->
@@ -132,6 +132,7 @@
         <module>VegaModels-ApicalCardioTox</module>
         <module>VegaModels-MitochondrialDysfunction</module>
         <module>VegaModels-CardioToxMultitask</module>
+        <module>VegaModels-ONTOX-assay</module>
         <module>VegaModels-SteroidogenesisEDScreen</module>
     </modules>
 
@@ -143,6 +144,10 @@
     <properties>
         <java.version>11</java.version>
         <skipTests>true</skipTests>
+        <model.name.arg>default-value</model.name.arg>
+        <model.make.trainingset>false</model.make.trainingset>
+        <model.additional.tag>VOID</model.additional.tag>
+        <model.artifactId>${project.artifactId}</model.artifactId>
     </properties>
 
 
@@ -169,13 +174,6 @@
 
         <dependency>
             <groupId>InSilico</groupId>
-            <artifactId>ModelsUtils</artifactId>
-            <version>1.0</version>
-        </dependency>
-
-
-        <dependency>
-            <groupId>InSilico</groupId>
             <artifactId>Core</artifactId>
             <version>1.3.19</version>
         </dependency>
@@ -188,6 +186,13 @@
             <scope>provided</scope>
         </dependency>
 
+        <!--activate when want to display the log in the models main script. Do not put when deploying-->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>2.0.17</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -198,6 +203,12 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-deploy-plugin</artifactId>
                     <version>2.8.2</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>exec-maven-plugin</artifactId>
+                    <version>3.6.0</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -282,6 +293,29 @@
                 </dependencies>
             </plugin>
 
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>run-java-before-build</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                        <configuration>
+                            <mainClass>insilico.core.devops.DeployConfiguration</mainClass>
+                            <classpathScope>test</classpathScope>
+                            <arguments>
+                                <argument>${model.name.arg}</argument>
+                                <argument>${model.make.trainingset}</argument>
+                                <argument>${model.additional.tag}</argument>
+                                <argument>${model.artifactId}</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
 
 
         </plugins>

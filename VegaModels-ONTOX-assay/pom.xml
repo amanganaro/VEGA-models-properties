@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>InSilico</groupId>
+        <artifactId>VegaModels</artifactId>
+        <version>0.1</version>
+    </parent>
+
+    <name>Assay (ONTOX)</name>
+    <dependencies>
+        <dependency>
+            <groupId>InSilico</groupId>
+            <artifactId>ModelsUtils</artifactId>
+            <version>1.0</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+    <version>1.0.0</version>
+    <description>
+        -
+    </description>
+
+    <artifactId>VegaModels-ONTOX-assay</artifactId>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <model.name.arg>insilico.ontox_assay.ismOntoxAssay</model.name.arg>
+        <model.make.trainingset>false</model.make.trainingset>
+        <model.additional.tag>WNT</model.additional.tag>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>11</source>
+                    <target>11</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

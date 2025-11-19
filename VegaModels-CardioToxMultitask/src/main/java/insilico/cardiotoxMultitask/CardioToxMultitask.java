@@ -34,7 +34,7 @@ public class CardioToxMultitask extends InsilicoModelPython {
     private final String[] PythonResultsName;
 
     public CardioToxMultitask(boolean bypassCheckCondaEnv, iInsilicoModelRunnerMessenger messenger) throws InitFailureException, GenericFailureException{
-        super(ModelData, messenger);
+        super(ModelData, messenger, "cardio-tox-multitask_1_0_0", "GLOBAL", bypassCheckCondaEnv);
         isUsingCdddDescriptor=true;
 
         this.ResultsSize = 12;
@@ -76,19 +76,6 @@ public class CardioToxMultitask extends InsilicoModelPython {
         this.ADItemsName[2] = new ADIndexConcordance().GetIndexName();
         this.ADItemsName[3] = new ADIndexACF().GetIndexName();
 
-        if (System.getProperty("os.name").startsWith("Windows")) {
-            pathToExternalFolder = Paths.get(System.getProperty("user.home"),"\\AppData\\Local\\vega-models\\cardio-tox-multitask").resolve("");
-        }
-        else {
-            pathToExternalFolder = Paths.get(System.getProperty("user.home") ,"/.local/share/vega-models/cardio-tox-multitask").resolve("");
-        }
-
-        if(!bypassCheckCondaEnv) {
-            boolean isEnvSet = configureCondaEnv("https://amcc.it/vega/cardio-tox-multitask.zip");
-            if(!isEnvSet) {
-                throw new InitFailureException("Conda environment "+getCondaEnv()+" not set");
-            }
-        }
     }
 
     @Override
@@ -202,11 +189,6 @@ public class CardioToxMultitask extends InsilicoModelPython {
             CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_GREEN);
         else if (Val == 1)
             CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_RED);
-    }
-
-    @Override
-    public String getCondaEnv() {
-        return "VEGA_global_V1";
     }
 
     @Override

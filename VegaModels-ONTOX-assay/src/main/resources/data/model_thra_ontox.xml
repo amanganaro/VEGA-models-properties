@@ -1,0 +1,25 @@
+<xml>
+   
+    <Version>
+        <Name>THRa - Thyroid Hormone Receptor alpha model (ONTOX)</Name>
+        <Key>THRA_ONTOX</Key>
+        <Summary>Classification model (active/inactive) or interaction with THRa (ChEMBL)</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_thra_ontox.dat</TS>
+        <ClassValues>
+            <Class>
+                <Value>0</Value>
+                <Label>Not Active</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Active</Label>
+            </Class>
+        </ClassValues>
+    </Vega>
+
+    
+</xml>

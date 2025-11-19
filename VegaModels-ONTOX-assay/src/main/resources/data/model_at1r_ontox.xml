@@ -1,0 +1,23 @@
+<xml>
+   
+    <Version>
+        <Name>AT1R - Angiotensin II Receptor type 1 model (ONTOX)</Name>
+        <Key>AT1R_ONTOX</Key>
+        <Summary>Classification model (active/inactive) or interaction with AT1R (ChEMBL)</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_at1r_ontox.dat</TS>
+        <ClassValues>
+            <Class>
+                <Value>0</Value>
+                <Label>Not Active</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Active</Label>
+            </Class>
+        </ClassValues>
+    </Vega>
+</xml>

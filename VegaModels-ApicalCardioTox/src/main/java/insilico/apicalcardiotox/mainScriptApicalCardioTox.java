@@ -28,13 +28,13 @@ public class mainScriptApicalCardioTox {
     public static void main(String[] args) throws GenericFailureException, InitFailureException, IOException, URISyntaxException, InterruptedException {
         InsilicoModel model = new ApicalCardioTox(true, null);
 
-//        iTrainingSet ist = model.GetTrainingSet();
-//        for(int i=0; i < ist.getMoleculesSize(); i++){
-//            System.out.println(ist.getSMILES(i)+" "+ist.getPredictedValueFormatted(i));
-//        }
-//
-//        if(1==1)
-//            return;
+        iTrainingSet ist = model.GetTrainingSet();
+        for(int i=0; i < ist.getMoleculesSize(); i++){
+            System.out.println(ist.getSMILES(i)+" "+ist.getPredictedValueFormatted(i));
+        }
+
+        if(1==1)
+            return;
 
         ModelsDeployment.BuildDataset(model, "out_ts");
         File sourceFile = new File("out_ts/" + model.getInfo().getTrainingSetURL() + "/" + model.getInfo().getTrainingSetURL().split("/data/")[1]);
@@ -46,6 +46,7 @@ public class mainScriptApicalCardioTox {
         }
         if(1==1)
             return;
+
         model.setSkipADandTSLoading(true);
 
         List<String> smilesList = new ArrayList<>();

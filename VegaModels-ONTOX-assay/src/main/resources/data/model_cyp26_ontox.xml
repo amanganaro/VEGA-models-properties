@@ -1,0 +1,23 @@
+<xml>
+   
+    <Version>
+        <Name>CYP26 - Cytochrome P450 26A1 model (ONTOX)</Name>
+        <Key>CYP26_ONTOX</Key>
+        <Summary>Classification model (active/inactive) or interaction with CYP26 (ChEMBL)</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_cyp26_ontox.dat</TS>
+        <ClassValues>
+            <Class>
+                <Value>0</Value>
+                <Label>Not Active</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Active</Label>
+            </Class>
+        </ClassValues>
+    </Vega>
+</xml>

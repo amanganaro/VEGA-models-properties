@@ -43,7 +43,8 @@ public class MitochondrialDysfunction extends InsilicoModelPython {
     private final String[] PythonResultsName;
 
     public MitochondrialDysfunction(boolean bypassCheckCondaEnv, iInsilicoModelRunnerMessenger messenger) throws InitFailureException, GenericFailureException{
-        super(ModelData, messenger);
+        super(ModelData, messenger, "mitochondrial-dysfunction_1_0_0", "GLOBAL", bypassCheckCondaEnv);
+
         isUsingCdddDescriptor=true;
 
         this.ResultsSize = 2;
@@ -65,19 +66,6 @@ public class MitochondrialDysfunction extends InsilicoModelPython {
         this.ADItemsName[2] = new ADIndexConcordance().GetIndexName();
         this.ADItemsName[3] = new ADIndexACF().GetIndexName();
 
-        if (System.getProperty("os.name").startsWith("Windows")) {
-            pathToExternalFolder = Paths.get(System.getProperty("user.home"),"\\AppData\\Local\\vega-models\\mitochondrial-dysfunction").resolve("");
-        }
-        else {
-            pathToExternalFolder = Paths.get(System.getProperty("user.home") ,"/.local/share/vega-models/mitochondrial-dysfunction").resolve("");
-        }
-
-        if(!bypassCheckCondaEnv) {
-            boolean isEnvSet = configureCondaEnv("https://amcc.it/vega/mitochondrial-dysfunction.zip");
-            if(!isEnvSet) {
-                throw new InitFailureException("Conda environment "+getCondaEnv()+" not set");
-            }
-        }
     }
 
     @Override
@@ -190,11 +178,6 @@ public class MitochondrialDysfunction extends InsilicoModelPython {
             CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_GREEN);
         else if (Val == 1)
             CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_RED);
-    }
-
-    @Override
-    public String getCondaEnv() {
-        return "VEGA_global_V1";
     }
 
     @Override

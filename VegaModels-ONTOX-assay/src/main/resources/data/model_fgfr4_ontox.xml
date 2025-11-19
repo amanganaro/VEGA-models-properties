@@ -1,0 +1,23 @@
+<xml>
+   
+    <Version>
+        <Name>FGFR4 - Fibroblast Growth Factor Receptor isoform 4 model (ONTOX)</Name>
+        <Key>FGFR4_ONTOX</Key>
+        <Summary>Classification model (active/inactive) or interaction with FGFR4 (ChEMBL)</Summary>
+        <Version>1.0.0</Version>
+    </Version>
+    
+    <Vega>
+        <TS>/data/ts_fgfr4_ontox.dat</TS>
+        <ClassValues>
+            <Class>
+                <Value>0</Value>
+                <Label>Not Active</Label>
+            </Class>
+            <Class>
+                <Value>1</Value>
+                <Label>Active</Label>
+            </Class>
+        </ClassValues>
+    </Vega>
+</xml>
