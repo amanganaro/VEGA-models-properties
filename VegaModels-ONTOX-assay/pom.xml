@@ -10,6 +10,14 @@
     </parent>
 
     <name>Assay (ONTOX)</name>
+    <dependencies>
+        <dependency>
+            <groupId>InSilico</groupId>
+            <artifactId>ModelsUtils</artifactId>
+            <version>1.0</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
     <version>1.0.0</version>
     <description>
         -
@@ -22,7 +30,7 @@
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <model.name.arg>insilico.ontox_assay.ismOntoxAssay</model.name.arg>
-        <model.make.trainingset>true</model.make.trainingset>
+        <model.make.trainingset>false</model.make.trainingset>
         <model.additional.tag>WNT</model.additional.tag>
     </properties>
 
@@ -35,7 +43,6 @@
                 <configuration>
                     <source>11</source>
                     <target>11</target>
-
                 </configuration>
             </plugin>
         </plugins>

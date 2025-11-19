@@ -10,7 +10,6 @@ import insilico.core.molecule.conversion.SmilesMolecule;
 import insilico.core.python.CdddDescriptors;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import utils.ModelsDeployment;
 
 import java.io.File;
 import java.io.IOException;
