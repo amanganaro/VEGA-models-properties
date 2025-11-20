@@ -134,6 +134,7 @@
         <module>VegaModels-CardioToxMultitask</module>
         <module>VegaModels-ONTOX-assay</module>
         <module>VegaModels-SteroidogenesisEDScreen</module>
+        <module>VegaModels-Dio1</module>
     </modules>
 
     <name>VegaModels</name>

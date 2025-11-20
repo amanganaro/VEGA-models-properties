@@ -1,14 +1,14 @@
 <xml>
    
     <Version>
-        <Name>Steroidogenesis (ED-Screen)</Name>
-        <Key>STERO_EDSCREEN</Key>
-        <Summary>Qualitative model for Steroidogenesis (IRFMN/ED-Screen)</Summary>
+        <Name>DIO1 inhibition (ED-Screen)</Name>
+        <Key>DIO1_EDSCREEN</Key>
+        <Summary>Qualitative model for Deiodinase 1 (DIO1) inhibition (IRFMN/ED-Screen)</Summary>
         <Version>1.0.0</Version>
     </Version>
 
     <Vega>
-        <TS>/data/ts_steroidogenesis_eds.dat</TS>
+        <TS>/data/ts_dio1.dat</TS>
         <HasAlerts>False</HasAlerts>
         <ClassValues>
             <Class>
