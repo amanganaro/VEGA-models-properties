@@ -3,6 +3,7 @@ package insilico.ttr;
 import insilico.core.devops.ModelsDeployment;
 import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
+import insilico.core.model.trainingset.TrainingSet;
 import insilico.core.molecule.conversion.SmilesMolecule;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -34,6 +35,13 @@ public class mainScriptTTR {
 //        }
 //        if (1==1) return;
 
+
+        TrainingSet ts = (TrainingSet) model.GetTrainingSet();
+        System.out.println("id\tsmiles\tset\texperimental\tpredicted");
+        for (int i=0; i<ts.MoleculesSize; i++)
+            System.out.println(ts.getId(i) + "\t" + ts.getSMILES(i) + "\t" + ts.getMoleculeSet(i) + "\t"
+                    + ts.getExperimentalValue(i) + "\t" + ts.getPredictedValue(i));
+        if (1==1) return;
 
         List<String> smilesList = new ArrayList<>();
         smilesList.add("O=C(O)COc1ccc(cc1)Cl");
