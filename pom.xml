@@ -135,6 +135,7 @@
         <module>VegaModels-ONTOX-assay</module>
         <module>VegaModels-SteroidogenesisEDScreen</module>
         <module>VegaModels-Dio1</module>
+        <module>VegaModels-TTR</module>
     </modules>
 
     <name>VegaModels</name>

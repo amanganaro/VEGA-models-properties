@@ -1,14 +1,14 @@
 <xml>
    
     <Version>
-        <Name>Steroidogenesis perturbation (IRFMN/ED-Screen)</Name>
-        <Key>STERO_EDSCREEN</Key>
-        <Summary>Qualitative model for Steroidogenesis perturbation (IRFMN/ED-Screen)</Summary>
+        <Name>TTR binder (IRFMN/ED-Screen)</Name>
+        <Key>TTR_EDSCREEN</Key>
+        <Summary>Qualitative model for Transthyretin (TTR) binder IC50 (IRFMN/ED-Screen)</Summary>
         <Version>1.0.0</Version>
     </Version>
 
     <Vega>
-        <TS>/data/ts_steroidogenesis_eds.dat</TS>
+        <TS>/data/ts_ttr.dat</TS>
         <HasAlerts>False</HasAlerts>
         <ClassValues>
             <Class>
