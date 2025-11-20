@@ -8,6 +8,7 @@ import insilico.core.exception.GenericFailureException;
 import insilico.core.exception.InitFailureException;
 import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
+import insilico.core.model.trainingset.TrainingSet;
 import insilico.core.tools.utils.ModelUtilities;
 import insilico.steroidogenesisedscreen.model.SteroidogenesisConsModel;
 import insilico.steroidogenesisedscreen.model.SteroidogenesisConsResult;
@@ -167,15 +168,15 @@ public class ismSteroidogenesisEDScreen extends InsilicoModel {
             CurOutput.setAssessmentStatus(InsilicoModelOutput.ASSESS_GRAY);
     }
 
-//    @Override
-//    public void ProcessTrainingSet() throws Exception {
-//        this.setSkipADandTSLoading(false);
-//        TrainingSet TSK = new TrainingSet();
-//        String TSPath = this.getInfo().getTrainingSetURL();
-//        String[] buf = TSPath.split("/");
-//        String DatName = buf[buf.length-1];
-//        TSPath = TSPath.substring(0, TSPath.length()-3) + "txt";
-//        TSK.Build(TSPath, this);
-//        TSK.SerializeToFile(DatName);
-//    }
+    @Override
+    public void ProcessTrainingSet() throws Exception {
+        this.setSkipADandTSLoading(true);
+        TrainingSet TSK = new TrainingSet();
+        String TSPath = this.getInfo().getTrainingSetURL();
+        String[] buf = TSPath.split("/");
+        String DatName = buf[buf.length-1];
+        TSPath = TSPath.substring(0, TSPath.length()-3) + "txt";
+        TSK.Build(TSPath, this);
+        TSK.SerializeToFile(DatName);
+    }
 }
