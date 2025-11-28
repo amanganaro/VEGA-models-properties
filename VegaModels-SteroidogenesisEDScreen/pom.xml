@@ -18,9 +18,9 @@
     </properties>
 
 
-    <name>Steroidogenesis (IRFMN/ED-Screen) - 1.0.0</name>
+    <name>Steroidogenesis perturbation (OBERON/ED-Screen) - 2.0.0</name>
     <description>
-        Steroidogenesis consensus model from ED-Screen project
+        Qualitative model for Steroidogenesis perturbation (OBERON/ED-Screen)
     </description>
 
     <dependencies>
