@@ -21,6 +21,9 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <model.name.arg>insilico.cardiotoxMultitask.CardioToxMultitask</model.name.arg>
+        <model.make.trainingset>false</model.make.trainingset>
+        <model.artificatId>${project.artifactId}</model.artificatId>
     </properties>
 
     <build>

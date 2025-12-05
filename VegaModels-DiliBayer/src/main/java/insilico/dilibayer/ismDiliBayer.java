@@ -147,9 +147,9 @@ public class ismDiliBayer extends InsilicoModelPython {
         try {
             log.info("Start to execute the model");
             File f = File.createTempFile("output-dili-bayer", ".csv");
-            outputTempFile = f.getAbsolutePath();
             Path pathToScriptFile = Paths.get(pathToExternalFolder.toString(), getScriptName());
-            String descriptorFile = cdddDescriptors.getFilePathOf(CurMolecule.getInputSMILES());
+            String descriptorFile = "\""+cdddDescriptors.getFilePathOf(CurMolecule.getInputSMILES())+"\"";
+            outputTempFile = "\""+f.getAbsolutePath()+"\"";
 
             Prediction=super.calculatePythonModel(pathToScriptFile, descriptorFile, outputTempFile);
             log.info("Finish to execute the model");

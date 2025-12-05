@@ -1,5 +1,6 @@
 package insilico.apicalcardiotox;
 
+import insilico.core.devops.ModelsDeployment;
 import insilico.core.exception.GenericFailureException;
 import insilico.core.exception.InitFailureException;
 import insilico.core.model.InsilicoModel;
@@ -10,7 +11,6 @@ import insilico.core.molecule.conversion.SmilesMolecule;
 import insilico.core.python.CdddDescriptors;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import utils.ModelsDeployment;
 
 import java.io.File;
 import java.io.IOException;

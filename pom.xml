@@ -127,7 +127,6 @@
         <module>VegaModels-SkinSensitizationConcert</module>
         <module>VegaModels-EyeIrritationSarpy</module>
         <module>VegaModels-EyeIrritationKnn</module>
-        <module>VegaModels-SteroidogenesisOberon</module>
         <module>VegaModels-DiliBayer</module>
         <module>VegaModels-ApicalCardioTox</module>
         <module>VegaModels-MitochondrialDysfunction</module>

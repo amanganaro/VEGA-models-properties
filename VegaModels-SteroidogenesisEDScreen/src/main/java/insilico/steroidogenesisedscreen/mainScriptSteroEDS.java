@@ -40,12 +40,12 @@ public class mainScriptSteroEDS {
 //        if (1==1) return;
 
 
-        TrainingSet ts = (TrainingSet) model.GetTrainingSet();
-        System.out.println("id\tsmiles\tset\texperimental\tpredicted");
-        for (int i=0; i<ts.MoleculesSize; i++)
-            System.out.println(ts.getId(i) + "\t" + ts.getSMILES(i) + "\t" + ts.getMoleculeSet(i) + "\t"
-                    + ts.getExperimentalValue(i) + "\t" + ts.getPredictedValue(i));
-        if (1==1) return;
+//        TrainingSet ts = (TrainingSet) model.GetTrainingSet();
+//        System.out.println("id\tsmiles\tset\texperimental\tpredicted");
+//        for (int i=0; i<ts.MoleculesSize; i++)
+//            System.out.println(ts.getId(i) + "\t" + ts.getSMILES(i) + "\t" + ts.getMoleculeSet(i) + "\t"
+//                    + ts.getExperimentalValue(i) + "\t" + ts.getPredictedValue(i));
+//        if (1==1) return;
 
 
         List<String> smilesList = new ArrayList<>();

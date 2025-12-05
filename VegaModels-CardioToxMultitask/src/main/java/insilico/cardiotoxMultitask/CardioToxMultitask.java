@@ -107,8 +107,8 @@ public class CardioToxMultitask extends InsilicoModelPython {
             outputTempFile = f.getAbsolutePath();
             //take the correspondent file from descriptors directory
             String descriptorFile = cdddDescriptors.getFilePathOf(CurMolecule.getInputSMILES());
-            Prediction=super.calculatePythonModel(pathToScriptFile, "--input "+descriptorFile,
-                    "--output " + outputTempFile);
+            Prediction=super.calculatePythonModel(pathToScriptFile, "--input \""+descriptorFile+"\"",
+                    "--output \"" + outputTempFile+"\"");
             log.info("Finish to execute the model");
 
             if(Prediction != null) {

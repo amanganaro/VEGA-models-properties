@@ -310,8 +310,8 @@ public class ismOntoxAssay extends InsilicoModelPython {
             Path pathToScriptFile = Paths.get(pathToExternalFolder.toString(), getScriptName());
             String descriptorFile = cdddDescriptors.getFilePathOf(CurMolecule.getInputSMILES());
 
-            Prediction=super.calculatePythonModel(pathToScriptFile, "--input "+descriptorFile,
-                    "--output "+outputTempFile);
+            Prediction=super.calculatePythonModel(pathToScriptFile, "--input \""+descriptorFile+"\"",
+                    "--output \""+outputTempFile+"\"");
             log.info("Finish to execute the model");
 
             if(Prediction != null) {
