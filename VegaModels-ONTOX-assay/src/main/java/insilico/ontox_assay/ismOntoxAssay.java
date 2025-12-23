@@ -143,6 +143,10 @@ public class ismOntoxAssay extends InsilicoModelPython {
         }
     }
 
+    public ismOntoxAssay(String pythonModelTag) throws InitFailureException {
+        super(ModelData(pythonModelTag));
+    }
+
     public ismOntoxAssay(boolean bypassCheckCondaEnv, iInsilicoModelRunnerMessenger messenger, String pythonModelTag) throws InitFailureException, GenericFailureException {
         super(ModelData(pythonModelTag), messenger, ModelFolder(pythonModelTag), "GLOBAL", bypassCheckCondaEnv);
 

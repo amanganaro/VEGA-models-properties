@@ -34,7 +34,11 @@ public class ApicalCardioTox extends InsilicoModelPython {
     private static final String ModelData = "/data/model_apical_cardio_tox.xml";
 
     private CdddDescriptors cdddDescriptors;
-    private final String[] PythonResultsName;
+    private String[] PythonResultsName;
+
+    public ApicalCardioTox() throws InitFailureException {
+        super(ModelData);
+    }
 
     public ApicalCardioTox(boolean bypassCheckCondaEnv, iInsilicoModelRunnerMessenger messenger) throws InitFailureException, GenericFailureException{
         super(ModelData, messenger, "apical-cardio-tox_1_0_0", "GLOBAL", bypassCheckCondaEnv);

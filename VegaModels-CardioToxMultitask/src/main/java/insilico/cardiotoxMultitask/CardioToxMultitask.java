@@ -31,7 +31,11 @@ public class CardioToxMultitask extends InsilicoModelPython {
     private static final String ModelData = "/data/model_cardio_tox_multitask.xml";
 
     private CdddDescriptors cdddDescriptors;
-    private final String[] PythonResultsName;
+    private String[] PythonResultsName;
+
+    public CardioToxMultitask() throws InitFailureException {
+        super(ModelData);
+    }
 
     public CardioToxMultitask(boolean bypassCheckCondaEnv, iInsilicoModelRunnerMessenger messenger) throws InitFailureException, GenericFailureException{
         super(ModelData, messenger, "cardio-tox-multitask_1_0_0", "GLOBAL", bypassCheckCondaEnv);

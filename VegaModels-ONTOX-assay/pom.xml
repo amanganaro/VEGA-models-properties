@@ -30,7 +30,7 @@
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <model.name.arg>insilico.ontox_assay.ismOntoxAssay</model.name.arg>
-        <model.make.trainingset>true</model.make.trainingset>
+        <model.make.trainingset>false</model.make.trainingset>
         <model.additional.tag>WNT_ONTOX</model.additional.tag>
         <model.artificatId>${project.artifactId}</model.artificatId>
     </properties>
