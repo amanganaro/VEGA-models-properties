@@ -9,40 +9,77 @@
     <packaging>pom</packaging>
     <version>0.1</version>
     <modules>
-        <module>VegaModels-FatHeadKNN</module>
+
+        <!-- HUMAN        -->
+        <module>VegaModels-ApicalCardioTox</module>
         <module>VegaModels-CarcinogenicityAntares</module>
-        <module>VegaModels-WaterSolubility</module>
-        <module>VegaModels-CarcinogenicityCaesar</module>
-        <module>VegaModels-LogPMeylan</module>
-        <module>VegaModels-CoralChromosomal</module>
-        <module>VegaModels-AlgaeCombaseClass</module>
-        <module>VegaModels-HenrysLawOpera</module>
-        <module>VegaModels-LogPMLogP</module>
-        <module>VegaModels-AlgaeCombaseEC50</module>
-        <module>VegaModels-AlgaeEC50</module>
-        <module>VegaModels-AlgaeNoec</module>
-        <module>VegaModels-AromataseIRFMN</module>
-        <module>VegaModels-BCFArnotGobas</module>
-        <module>VegaModels-KmArnot</module>
-        <module>VegaModels-BCFCaesar</module>
-        <module>VegaModels-BCFKNN</module>
-        <module>VegaModels-BCFMeylan</module>
-        <module>VegaModels-BeeKNN</module>
         <module>VegaModels-CarcinogenicityBB</module>
-        <module>VegaModels-MutagenicityBB</module>
+        <module>VegaModels-CarcinogenicityCaesar</module>
         <module>VegaModels-CarcinogenicityISSCANGX</module>
+        <module>VegaModels-CarcinogenicityRatFemale</module>
+        <module>VegaModels-CarcinogenicityRatMale</module>
         <module>VegaModels-CarcinogenicitySFIClassification</module>
         <module>VegaModels-CarcinogenicitySFIRegression</module>
         <module>VegaModels-CarcinogenicitySFOClassification</module>
         <module>VegaModels-CarcinogenicitySFORegression</module>
+        <module>VegaModels-CardioToxMultitask</module>
+        <module>VegaModels-CoralChromosomal</module>
+        <module>VegaModels-CramerToxTree</module>
+        <module>VegaModels-DevtoxCaesar</module>
+        <module>VegaModels-DevtoxPG</module>
+        <module>VegaModels-DiliBayer</module>
+        <module>VegaModels-EndocrineDisruptorsIRFMN</module>
+        <module>VegaModels-EyeIrritation</module>
+        <module>VegaModels-EyeIrritationKnn</module>
+        <module>VegaModels-EyeIrritationSarpy</module>
+        <module>VegaModels-HepatoxicityIRFMN</module>
+        <module>VegaModels-LD50</module>
+        <module>VegaModels-LoaelGeneralCoral</module>
+        <module>VegaModels-LoaelLiver</module>
+        <module>VegaModels-LoelIRFMN</module>
+        <module>VegaModels-MicronucleusVitro</module>
+        <module>VegaModels-MicronuclueusVivo</module>
+        <module>VegaModels-MitochondrialDysfunction</module>
+        <module>VegaModels-MutagenicityAmines</module>
+        <module>VegaModels-MutagenicityBB</module>
+        <module>VegaModels-MutagenicityCaesar</module>
+        <module>VegaModels-MutagenicityConsensus</module>
+        <module>VegaModels-MutagenicityKNN</module>
+        <module>VegaModels-MutagenicitySarpy</module>
+        <module>VegaModels-NoaelGeneralCoral</module>
+        <module>VegaModels-NoaelLiver</module>
+        <module>VegaModels-NoelCoralIRFMN</module>
+        <module>VegaModels-SkinCaesar</module>
+        <module>VegaModels-SkinCosmetics</module>
+        <module>VegaModels-SkinIRFMN</module>
+        <module>VegaModels-SkinIrritation</module>
+        <module>VegaModels-SkinIrritationCoral</module>
+        <module>VegaModels-SkinIrritationSarpy</module>
+        <module>VegaModels-SkinPermeationPotts</module>
+        <module>VegaModels-SkinPermeationTenberge</module>
+        <module>VegaModels-SkinSensitizationConcert</module>
+        <module>VegaModels-SkinSensitizationSarpy</module>
+        <module>VegaModels-SkinSensitizationToxTree</module>
+
+
+        <!-- ECOTOX        -->
+        <module>VegaModels-AlgaeCombaseClass</module>
+        <module>VegaModels-AlgaeCombaseEC50</module>
+        <module>VegaModels-AlgaeEC50</module>
+        <module>VegaModels-AlgaeNoec</module>
+        <module>VegaModels-BCFArnotGobas</module>
+        <module>VegaModels-BCFCaesar</module>
+        <module>VegaModels-BCFKNN</module>
+        <module>VegaModels-BCFMeylan</module>
+        <module>VegaModels-BeeKNN</module>
         <module>VegaModels-DaphniaCombase</module>
+        <module>VegaModels-DaphniaDemetra</module>
         <module>VegaModels-DaphniaEC50</module>
         <module>VegaModels-DaphniaEPA</module>
         <module>VegaModels-DaphniaNOEC</module>
-        <module>VegaModels-DevtoxCaesar</module>
-        <module>VegaModels-DaphniaDemetra</module>
-        <module>VegaModels-DevtoxPG</module>
+        <module>VegaModels-EarthwormToxicity</module>
         <module>VegaModels-FatheadEPA</module>
+        <module>VegaModels-FatHeadKNN</module>
         <module>VegaModels-FishCombase</module>
         <module>VegaModels-FishIRFMN</module>
         <module>VegaModels-FishKNN</module>
@@ -50,91 +87,66 @@
         <module>VegaModels-FishNIC</module>
         <module>VegaModels-FishNOEC</module>
         <module>VegaModels-GuppyKnn</module>
-        <module>VegaModels-HepatoxicityIRFMN</module>
-        <module>VegaModels-HydrolysisCoral</module>
-        <module>VegaModels-KoaOpera</module>
-        <module>VegaModels-KocOpera</module>
-        <module>VegaModels-LoelIRFMN</module>
-        <module>VegaModels-MicronucleusVitro</module>
-        <module>VegaModels-MicronuclueusVivo</module>
+        <module>VegaModels-KmArnot</module>
         <module>VegaModels-MoaEpa</module>
-        <module>VegaModels-MutagenicityCaesar</module>
-        <module>VegaModels-MutagenicityConsensus</module>
-        <module>VegaModels-MutagenicityKNN</module>
-        <module>VegaModels-MutagenicitySarpy</module>
-        <module>VegaModels-NoelCoralIRFMN</module>
+        <module>VegaModels-MoaIRFMN</module>
+        <module>VegaModels-SludgeCombaseClass</module>
+        <module>VegaModels-SludgeCombaseEC50</module>
+        <module>VegaModels-VerhaarToxtree</module>
+        <module>VegaModels-ZebrafishCoral</module>
+
+
+        <!-- FATE        -->
+        <module>VegaModels-HydrolysisCoral</module>
         <module>VegaModels-PersistenceAirCoral</module>
         <module>VegaModels-PersistenceSedimentIRFMN</module>
         <module>VegaModels-PersistenceSedimentQuantitativeIRFMN</module>
         <module>VegaModels-PersistenceSoilIRFMN</module>
-        <module>VegaModels-PersistenceWaterIRFMN</module>
         <module>VegaModels-PersistenceSoilQuantitativeIRFMN</module>
+        <module>VegaModels-PersistenceWaterIRFMN</module>
         <module>VegaModels-PersistenceWaterQuantatitativeIRFMN</module>
+        <module>VegaModels-ReadyBioIRFMN</module>
+
+
+        <!-- PROPERTIES        -->
+        <module>VegaModels-HenrysLawOpera</module>
+        <module>VegaModels-KoaOpera</module>
+        <module>VegaModels-KocOpera</module>
+        <module>VegaModels-LogPALogP</module>
+        <module>VegaModels-LogPMeylan</module>
+        <module>VegaModels-LogPMLogP</module>
+        <module>VegaModels-MeltingPoint</module>
+        <module>VegaModels-MeltingPointKNN</module>
+        <module>VegaModels-VapourPressure</module>
+        <module>VegaModels-WaterSolubility</module>
+
+
+        <!-- OTHER        -->
+        <module>VegaModels-AromataseIRFMN</module>
+        <module>VegaModels-Ahr_up</module>
+        <module>VegaModels-AromataseTox21</module>
+        <module>VegaModels-Dio1</module>
+        <module>VegaModels-GlucocorticoidReceptor</module>
+        <module>VegaModels-LogK</module>
+        <module>VegaModels-NRF2Up</module>
+        <module>VegaModels-ONTOX-assay</module>
+        <module>VegaModels-PGPNic</module>
+        <module>VegaModels-PPARa_up</module>
+        <module>VegaModels-PPARg_up</module>
+        <module>VegaModels-PPBCoral</module>
+        <module>VegaModels-PXR_up</module>
         <module>VegaModels-RBACerapp</module>
         <module>VegaModels-RBACompareIRFMN</module>
         <module>VegaModels-RBAIrfmn</module>
-        <module>VegaModels-ReadyBioIRFMN</module>
-        <module>VegaModels-SkinCaesar</module>
-        <module>VegaModels-SkinIRFMN</module>
-        <module>VegaModels-SkinPermeationPotts</module>
-        <module>VegaModels-SkinPermeationTenberge</module>
-        <module>VegaModels-SludgeCombaseClass</module>
-        <module>VegaModels-SludgeCombaseEC50</module>
+        <module>VegaModels-SQfu</module>
+        <module>VegaModels-SteroidogenesisEDScreen</module>
         <module>VegaModels-ThyroidTRAlphaNRMEA</module>
         <module>VegaModels-ThyroidTRBetaNRMEA</module>
         <module>VegaModels-TissueBloodIneris</module>
         <module>VegaModels-TotalHLQsarins</module>
-        <module>VegaModels-ZebrafishCoral</module>
-        <module>VegaModels-SkinCosmetics</module>
-        <module>VegaModels-VerhaarToxtree</module>
-        <module>VegaModels-LogPALogP</module>
-        <module>VegaModels-CramerToxTree</module>
-        <module>VegaModels-PGPNic</module>
-        <module>VegaModels-MoaIRFMN</module>
-        <module>VegaModels-SQfu</module>
-        <module>VegaModels-LogK</module>
-        <module>VegaModels-PXR_up</module>
-        <module>VegaModels-PPARg_up</module>
-<!--        <module>VegaModels-PPARAup</module>-->
-        <module>VegaModels-PPARa_up</module>
-        <module>VegaModels-Ahr_up</module>
-<!--        <module>NRF2Up</module>-->
-        <module>VegaModels-NRF2Up</module>
-        <module>VegaModels-AromataseTox21</module>
-        <module>VegaModels-CarcinogenicityRatFemale</module>
-        <module>VegaModels-CarcinogenicityRatMale</module>
-        <module>VegaModels-SkinSensitizationToxTree</module>
-        <module>VegaModels-LD50</module>
-        <module>VegaModels-EndocrineDisruptorsIRFMN</module>
-        <module>VegaModels-PPBCoral</module>
-        <module>VegaModels-NoaelLiver</module>
-        <module>VegaModels-LoaelLiver</module>
-        <module>VegaModels-GlucocorticoidReceptor</module>
         <module>VegaModels-TPOOberon</module>
-        <module>VegaModels-MutagenicityAmines</module>
-        <module>VegaModels-MeltingPoint</module>
-        <module>VegaModels-EarthwormToxicity</module>
-        <module>VegaModels-MeltingPointKNN</module>
-        <module>VegaModels-SkinSensitizationSarpy</module>
-        <module>VegaModels-SkinIrritation</module>
-        <module>VegaModels-EyeIrritation</module>
-        <module>VegaModels-VapourPressure</module>
-        <module>VegaModels-NoaelGeneralCoral</module>
-<!--        <module>LoaelGeneralCoral</module>-->
-        <module>VegaModels-LoaelGeneralCoral</module>
-        <module>VegaModels-SkinIrritationCoral</module>
-        <module>VegaModels-SkinIrritationSarpy</module>
-        <module>VegaModels-SkinSensitizationConcert</module>
-        <module>VegaModels-EyeIrritationSarpy</module>
-        <module>VegaModels-EyeIrritationKnn</module>
-        <module>VegaModels-DiliBayer</module>
-        <module>VegaModels-ApicalCardioTox</module>
-        <module>VegaModels-MitochondrialDysfunction</module>
-        <module>VegaModels-CardioToxMultitask</module>
-        <module>VegaModels-ONTOX-assay</module>
-        <module>VegaModels-SteroidogenesisEDScreen</module>
-        <module>VegaModels-Dio1</module>
         <module>VegaModels-TTR</module>
+
     </modules>
 
     <name>VegaModels</name>
