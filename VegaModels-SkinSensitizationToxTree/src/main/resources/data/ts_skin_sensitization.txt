@@ -1,1 +1,0 @@
-ID	CAS	SMILES	Status	Exp_Class
