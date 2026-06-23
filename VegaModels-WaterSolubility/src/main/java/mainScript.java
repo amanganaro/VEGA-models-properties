@@ -1,5 +1,5 @@
 import insilico.core.model.InsilicoModel;
-//import utils.ModelsDeployment;
+//import insilico.core.devops.ModelsDeployment;
 import insilico.watersolubility.ismWaterSolubilityIRFMN;
 
 import org.apache.logging.log4j.LogManager;

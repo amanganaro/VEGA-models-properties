@@ -3,6 +3,8 @@ package insilico.koa_opera;
 import insilico.core.ad.ADCheckACF;
 import insilico.core.ad.ADCheckIndicesQuantitative;
 import insilico.core.ad.item.*;
+import insilico.core.auxiliary.opera.OperaDistance;
+import insilico.core.auxiliary.opera.OperaModel;
 import insilico.core.constant.MessagesAD;
 import insilico.core.descriptor.Descriptor;
 import insilico.core.descriptor.DescriptorBlock;
@@ -15,8 +17,6 @@ import insilico.core.model.trainingset.TrainingSet;
 import insilico.core.tools.utils.ModelUtilities;
 import libpadeldescriptor.MLFERDescriptor;
 import libpadeldescriptor.PaDELHBondDonorCountDescriptor;
-import opera_adapter.OperaDistance;
-import opera_adapter.OperaModel;
 import org.openscience.cdk1.qsar.IMolecularDescriptor;
 import padeladapter.PadelInterface;
 

@@ -9,6 +9,8 @@ import insilico.core.ad.item.ADIndexAccuracy;
 import insilico.core.ad.item.ADIndexConcordance;
 import insilico.core.ad.item.ADIndexMaxError;
 import insilico.core.ad.item.ADIndexSimilarity;
+import insilico.core.auxiliary.opera.OperaDistance;
+import insilico.core.auxiliary.opera.OperaModel;
 import insilico.core.constant.MessagesAD;
 import insilico.core.descriptor.Descriptor;
 import insilico.core.descriptor.DescriptorBlock;
@@ -28,11 +30,8 @@ import libpadeldescriptor.EStateAtomTypeDescriptor;
 import libpadeldescriptor.MLFERDescriptor;
 import libpadeldescriptor.PaDELHBondAcceptorCountDescriptor;
 import libpadeldescriptor.PaDELHBondDonorCountDescriptor;
-import opera_adapter.OperaDistance;
-import opera_adapter.OperaModel;
 import org.openscience.cdk1.qsar.IMolecularDescriptor;
 import padeladapter.PadelInterface;
-//import padeladapter;
 
 
 /**
