@@ -156,7 +156,7 @@
 
     <properties>
         <java.version>11</java.version>
-        <skipTests>true</skipTests>
+<!--        <skipTests>true</skipTests>-->
         <model.name.arg>default-value</model.name.arg>
         <model.make.trainingset>false</model.make.trainingset>
         <model.additional.tag>VOID</model.additional.tag>
@@ -192,6 +192,16 @@
             <version>1.3.21</version>
         </dependency>
 
+        <dependency>
+            <groupId>InSilico</groupId>
+            <artifactId>Core</artifactId>
+            <version>1.3.21</version>
+            <type>test-jar</type>
+            <scope>test</scope>
+        </dependency>
+
+
+
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -200,6 +210,20 @@
             <scope>provided</scope>
         </dependency>
 
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>6.1.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>3.27.7</version>
+            <scope>test</scope>
+        </dependency>
 
     </dependencies>
 
@@ -325,6 +349,15 @@
                 </executions>
             </plugin>
 
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.5.6</version>
+                <configuration>
+                    <!--                    <skipTests>true</skipTests>-->
+                    <testFailureIgnore>true</testFailureIgnore>
+                </configuration>
+            </plugin>
 
         </plugins>
     </build>
