@@ -1,0 +1,11 @@
+<xml>
+    <Version>
+        <Name>Henry's Law model (CORAL)</Name>
+        <Key>HENRY_CORAL</Key>
+        <Version>1.0.0</Version>
+    </Version>
+
+    <Vega>
+        <TS>/data/ts_henryslaw_coral.dat</TS>
+    </Vega>
+</xml>

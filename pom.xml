@@ -109,6 +109,7 @@
 
 
         <!-- PROPERTIES        -->
+        <module>VegaModels-HenrysLawCoral</module>
         <module>VegaModels-HenrysLawOpera</module>
         <module>VegaModels-KoaOpera</module>
         <module>VegaModels-KocOpera</module>

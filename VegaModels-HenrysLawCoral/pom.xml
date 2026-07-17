@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>VegaModels-Fate</artifactId>
+        <groupId>InSilico</groupId>
+        <version>1.0</version>
+    </parent>
+
+    <artifactId>VegaModels-HenrysLawCoral</artifactId>
+    <version>1.0.0</version>
+
+    <properties>
+        <java.version>17</java.version>
+        <skipTests>true</skipTests>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <model.make.trainingset>true</model.make.trainingset>
+        <model.name.arg>insilico.henryslawcoral.ismHenrysLawCoral</model.name.arg>
+        <model.artifactId>${project.artifactId}</model.artifactId>
+    </properties>
+
+    <name>Henry's Law constant (CORAL)</name>
+    <description>
+    </description>
+
+    <dependencies>
+        <dependency>
+            <groupId>InSilico</groupId>
+            <artifactId>Coral</artifactId>
+            <version>2.2</version>
+        </dependency>
+    </dependencies>
+</project>
