@@ -15,7 +15,6 @@
 
     <properties>
         <java.version>17</java.version>
-        <skipTests>true</skipTests>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <model.make.trainingset>true</model.make.trainingset>
         <model.name.arg>insilico.henryslawcoral.ismHenrysLawCoral</model.name.arg>

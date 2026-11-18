@@ -158,6 +158,12 @@
     <properties>
         <java.version>11</java.version>
 <!--        <skipTests>true</skipTests>-->
+        <!-- Core version, overridable from the command line: -Dvega.core.version=1.3.x -->
+        <vega.core.version>1.3.21</vega.core.version>
+        <!-- Model regression tests (tag model-regression) run only with the "regression" profile -->
+        <surefire.groups></surefire.groups>
+        <surefire.excludedGroups>model-regression</surefire.excludedGroups>
+        <surefire.testFailureIgnore>true</surefire.testFailureIgnore>
         <model.name.arg>default-value</model.name.arg>
         <model.make.trainingset>false</model.make.trainingset>
         <model.additional.tag>VOID</model.additional.tag>
@@ -190,13 +196,13 @@
         <dependency>
             <groupId>InSilico</groupId>
             <artifactId>Core</artifactId>
-            <version>1.3.21</version>
+            <version>${vega.core.version}</version>
         </dependency>
 
         <dependency>
             <groupId>InSilico</groupId>
             <artifactId>Core</artifactId>
-            <version>1.3.21</version>
+            <version>${vega.core.version}</version>
             <type>test-jar</type>
             <scope>test</scope>
         </dependency>
@@ -355,13 +361,33 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.5.6</version>
                 <configuration>
-                    <!--                    <skipTests>true</skipTests>-->
-                    <testFailureIgnore>true</testFailureIgnore>
+                    <testFailureIgnore>${surefire.testFailureIgnore}</testFailureIgnore>
+                    <groups>${surefire.groups}</groups>
+                    <excludedGroups>${surefire.excludedGroups}</excludedGroups>
                 </configuration>
             </plugin>
 
         </plugins>
     </build>
+
+    <profiles>
+        <!--
+            Model regression tests: mvn test -Pregression [-fae] [-pl VegaModels-XYZ]
+              -Dregression.dataset=ts|core   only one dataset (default: both)
+              -Dregression.adi=false         do not compare the ADI on the core dataset
+              -Dvega.core.version=1.3.x      run with another Core version
+            Regenerate the reference files: add -Dgolden.update=true
+        -->
+        <profile>
+            <id>regression</id>
+            <properties>
+                <skipTests>false</skipTests>
+                <surefire.groups>model-regression</surefire.groups>
+                <surefire.excludedGroups></surefire.excludedGroups>
+                <surefire.testFailureIgnore>false</surefire.testFailureIgnore>
+            </properties>
+        </profile>
+    </profiles>
 
 
 </project>
