@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>InSilico</groupId>
-    <artifactId>VegaModels-Fate</artifactId>
+    <artifactId>VegaModels-Properties</artifactId>
     <packaging>pom</packaging>
     <version>1.1</version>
     <modules>
@@ -150,7 +150,7 @@
 
     </modules>
 
-    <name>VegaModels-Fate</name>
+    <name>VegaModels-Properties</name>
     <description>
         Vega Models parent project for insilico project (VEGA etc) - Updated to CDK 2.3, OpenJDK 11
     </description>
