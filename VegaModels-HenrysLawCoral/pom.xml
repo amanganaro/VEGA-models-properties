@@ -16,7 +16,11 @@
     <properties>
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <model.make.trainingset>true</model.make.trainingset>
+        <!--
+            False as in every other module: with true the build regenerates ts_henryslaw_coral.dat on every run,
+            rewriting a 54 MB file tracked by Git LFS and leaving the sources different from what was published.
+        -->
+        <model.make.trainingset>false</model.make.trainingset>
         <model.name.arg>insilico.henryslawcoral.ismHenrysLawCoral</model.name.arg>
         <model.artifactId>${project.artifactId}</model.artifactId>
     </properties>
