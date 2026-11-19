@@ -7,7 +7,7 @@
     <parent>
         <artifactId>VegaModels-Fate</artifactId>
         <groupId>InSilico</groupId>
-        <version>1.0</version>
+        <version>1.1</version>
     </parent>
 
     <artifactId>VegaModels-HenrysLawCoral</artifactId>
