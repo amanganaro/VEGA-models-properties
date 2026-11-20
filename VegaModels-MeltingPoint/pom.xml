@@ -5,7 +5,7 @@
     <parent>
         <artifactId>VegaModels-Properties</artifactId>
         <groupId>InSilico</groupId>
-        <version>1.1</version>
+        <version>1.2</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -17,7 +17,7 @@
     </properties>
 
     <name>Melting Point (CONCERT/Kode)</name>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <description>
         -
     </description>

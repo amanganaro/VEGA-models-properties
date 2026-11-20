@@ -16,12 +16,10 @@ import insilico.core.model.InsilicoModelOutput;
 
 import insilico.core.model.trainingset.TrainingSet;
 import insilico.core.tools.utils.ModelUtilities;
-import libpadeldescriptor.*;
-import org.openscience.cdk1.qsar.IMolecularDescriptor;
-import org.openscience.cdk1.qsar.descriptors.molecular.VABCDescriptor;
 import padeladapter.PadelInterface;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -120,91 +118,34 @@ public class ismKocOpera extends InsilicoModel {
         try {
             
             Descriptors = new double[DescriptorsSize];
-            
-            IMolecularDescriptor MD;
-            ArrayList<String> DescNames;
 
-            Padel.SetSMILES(CurMolecule.GetSMILES());
+            // All the PaDEL blocks in one request to the PaDEL service (the molecule is parsed only once)
+            double[][] res = Padel.newRequest(CurMolecule.GetSMILES())
+                    .add("CrippenDescriptor", List.of("CrippenLogP"))
+                    .add("PaDELHBondAcceptorCountDescriptor", List.of("nHBAcc"))
+                    .add("BaryszMatrixDescriptor", List.of("SpDiam_Dzi"))
+                    .add("PaDELChiPathDescriptor", List.of("VP-1"))
+                    .add("PathCountDescriptor", List.of("MPC3", "TPC"))
+                    .add("VABCDescriptor", List.of("VABC"))
+                    .add("EStateAtomTypeDescriptor", List.of("SsssN"))
+                    .add("TopologicalDescriptor", List.of("topoDiameter"))
+                    .add("AutocorrelationDescriptor", List.of("AATS1m"))
+                    .add("PathCountDescriptor", List.of("MPC6"))
+                    .add("AutocorrelationDescriptor", List.of("ATS1v"))
+                    .calculate();
 
-            //CrippenLogP
-            MD = new CrippenDescriptor();
-            DescNames = new ArrayList<>();
-            DescNames.add("CrippenLogP");
-            double[] res = Padel.CalculateDescriptors(MD, DescNames);
-            Descriptors[0] = res[0];
-            
-            //nHBAcc
-            MD = new PaDELHBondAcceptorCountDescriptor();
-            DescNames = new ArrayList<>();
-            DescNames.add("nHBAcc");
-            res = Padel.CalculateDescriptors(MD, DescNames);
-            Descriptors[1] = res[0];
-
-            //SpDiam_Dzi
-            MD = new BaryszMatrixDescriptor();
-            DescNames = new ArrayList<>();
-            DescNames.add("SpDiam_Dzi");
-            res = Padel.CalculateDescriptors(MD, DescNames);
-            Descriptors[2] = res[0];
-
-            //VP_1
-            MD = new PaDELChiPathDescriptor();
-            DescNames = new ArrayList<>();
-            DescNames.add("VP-1");
-            res = Padel.CalculateDescriptors(MD, DescNames);
-            Descriptors[3] = res[0];
-
-            //MPC3
-            //TPC
-            MD = new PathCountDescriptor();
-            DescNames = new ArrayList<>();
-            DescNames.add("MPC3");
-            DescNames.add("TPC");
-            res = Padel.CalculateDescriptors(MD, DescNames);
-            Descriptors[4] = res[0];
-            Descriptors[5] = res[1];
-
-            //VABC
-            MD = new VABCDescriptor();
-            DescNames = new ArrayList<>();
-            DescNames.add("VABC");
-            res = Padel.CalculateDescriptors(MD, DescNames);
-            Descriptors[6] = res[0];
-
-            //SsssN
-            MD = new EStateAtomTypeDescriptor();
-            DescNames = new ArrayList<>();
-            DescNames.add("SsssN");
-            res = Padel.CalculateDescriptors(MD, DescNames);
-            Descriptors[7] = res[0];
-
-            //topoDiameter
-            MD = new TopologicalDescriptor();
-            DescNames = new ArrayList<>();
-            DescNames.add("topoDiameter");
-            res = Padel.CalculateDescriptors(MD, DescNames);
-            Descriptors[8] = res[0];
-
-            //AATS1m
-            MD = new AutocorrelationDescriptor();
-            DescNames = new ArrayList<>();
-            DescNames.add("AATS1m");
-            res = Padel.CalculateDescriptors(MD, DescNames);
-            Descriptors[9] = res[0];
-
-            //MPC6
-            MD = new PathCountDescriptor();
-            DescNames = new ArrayList<>();
-            DescNames.add("MPC6");
-            res = Padel.CalculateDescriptors(MD, DescNames);
-            Descriptors[10] = res[0];
-
-            //ATS1v 
-            MD = new AutocorrelationDescriptor();
-            DescNames = new ArrayList<>();
-            DescNames.add("ATS1v");
-            res = Padel.CalculateDescriptors(MD, DescNames);
-            Descriptors[11] = res[0];
+            Descriptors[0] = res[0][0];     // CrippenLogP
+            Descriptors[1] = res[1][0];     // nHBAcc
+            Descriptors[2] = res[2][0];     // SpDiam_Dzi
+            Descriptors[3] = res[3][0];     // VP-1
+            Descriptors[4] = res[4][0];     // MPC3
+            Descriptors[5] = res[4][1];     // TPC
+            Descriptors[6] = res[5][0];     // VABC
+            Descriptors[7] = res[6][0];     // SsssN
+            Descriptors[8] = res[7][0];     // topoDiameter
+            Descriptors[9] = res[8][0];     // AATS1m
+            Descriptors[10] = res[9][0];    // MPC6
+            Descriptors[11] = res[10][0];   // ATS1v
 
             
             // Autoscaling of descriptors

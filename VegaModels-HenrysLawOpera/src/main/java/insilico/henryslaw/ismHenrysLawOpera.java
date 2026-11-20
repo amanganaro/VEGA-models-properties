@@ -22,15 +22,9 @@ import insilico.core.model.InsilicoModelOutput;
 import insilico.core.model.trainingset.TrainingSet;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import insilico.core.tools.utils.ModelUtilities;
-import libpadeldescriptor.AutocorrelationDescriptor;
-import libpadeldescriptor.BaryszMatrixDescriptor;
-import libpadeldescriptor.EStateAtomTypeDescriptor;
-import libpadeldescriptor.MLFERDescriptor;
-import libpadeldescriptor.PaDELHBondAcceptorCountDescriptor;
-import libpadeldescriptor.PaDELHBondDonorCountDescriptor;
-import org.openscience.cdk1.qsar.IMolecularDescriptor;
 import padeladapter.PadelInterface;
 
 
@@ -122,74 +116,19 @@ public class ismHenrysLawOpera extends InsilicoModel {
 
             Descriptors = new double[DescriptorsSize];
 
-            IMolecularDescriptor MD;
-            ArrayList<String> DescNames;
-
-            Padel.SetSMILES(CurMolecule.GetSMILES());
-
-            //nHBDon
-            MD = new PaDELHBondDonorCountDescriptor();
-            DescNames = new ArrayList<>();
-            DescNames.add("nHBDon");
-            double[] res = Padel.CalculateDescriptors(MD, DescNames);
-            Descriptors[0] = res[0];
-
-            //MLFER_S
-            MD = new MLFERDescriptor();
-            DescNames = new ArrayList<>();
-            DescNames.add("MLFER_S");
-            res = Padel.CalculateDescriptors(MD, DescNames);
-            Descriptors[1] = res[0];
-
-            //GATS1e
-            MD = new AutocorrelationDescriptor();
-            DescNames = new ArrayList<>();
-            DescNames.add("GATS1e");
-            res = Padel.CalculateDescriptors(MD, DescNames);
-            Descriptors[2] = res[0];
-
-            //ndssC
-            MD = new EStateAtomTypeDescriptor();
-            DescNames = new ArrayList<>();
-            DescNames.add("ndssC");
-            res = Padel.CalculateDescriptors(MD, DescNames);
-            Descriptors[3] = res[0];
-
-            //ATS3m
-            MD = new AutocorrelationDescriptor();
-            DescNames = new ArrayList<>();
-            DescNames.add("ATS3m");
-            res = Padel.CalculateDescriptors(MD, DescNames);
-            Descriptors[4] = res[0];
-
-            //nHBint6
-            MD = new EStateAtomTypeDescriptor();
-            DescNames = new ArrayList<>();
-            DescNames.add("nHBint6");
-            res = Padel.CalculateDescriptors(MD, DescNames);
-            Descriptors[5] = res[0];
-
-            //nHBAcc2
-            MD = new PaDELHBondAcceptorCountDescriptor();
-            DescNames = new ArrayList<>();
-            DescNames.add("nHBAcc2");
-            res = Padel.CalculateDescriptors(MD, DescNames);
-            Descriptors[6] = res[0];
-
-            //AATSC0i
-            MD = new AutocorrelationDescriptor();
-            DescNames = new ArrayList<>();
-            DescNames.add("AATSC0i");
-            res = Padel.CalculateDescriptors(MD, DescNames);
-            Descriptors[7] = res[0];
-
-            //SpAD_Dzm
-            MD = new BaryszMatrixDescriptor();
-            DescNames = new ArrayList<>();
-            DescNames.add("SpAD_Dzm");
-            res = Padel.CalculateDescriptors(MD, DescNames);
-            Descriptors[8] = res[0];
-
+            double[][] res = Padel.newRequest(CurMolecule.GetSMILES())
+                    .add("PaDELHBondDonorCountDescriptor", List.of("nHBDon"))
+                    .add("MLFERDescriptor", List.of("MLFER_S"))
+                    .add("AutocorrelationDescriptor", List.of("GATS1e"))
+                    .add("EStateAtomTypeDescriptor", List.of("ndssC"))
+                    .add("AutocorrelationDescriptor", List.of("ATS3m"))
+                    .add("EStateAtomTypeDescriptor", List.of("nHBint6"))
+                    .add("PaDELHBondAcceptorCountDescriptor", List.of("nHBAcc2"))
+                    .add("AutocorrelationDescriptor", List.of("AATSC0i"))
+                    .add("BaryszMatrixDescriptor", List.of("SpAD_Dzm"))
+                    .calculate();
+            for (int i = 0; i < res.length; i++)
+                Descriptors[i] = res[i][0];
 
             // Autoscaling of descriptors
             for (int i=0; i<DescriptorsSize; i++)

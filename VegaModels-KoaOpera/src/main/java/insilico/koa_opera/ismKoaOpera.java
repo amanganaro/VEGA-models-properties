@@ -15,12 +15,10 @@ import insilico.core.model.InsilicoModel;
 import insilico.core.model.InsilicoModelOutput;
 import insilico.core.model.trainingset.TrainingSet;
 import insilico.core.tools.utils.ModelUtilities;
-import libpadeldescriptor.MLFERDescriptor;
-import libpadeldescriptor.PaDELHBondDonorCountDescriptor;
-import org.openscience.cdk1.qsar.IMolecularDescriptor;
 import padeladapter.PadelInterface;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -91,26 +89,13 @@ public class ismKoaOpera extends InsilicoModel {
             
             Descriptors = new double[DescriptorsSize];
             
-            IMolecularDescriptor MD;
-            ArrayList<String> DescNames;
+            double[][] res = Padel.newRequest(CurMolecule.GetSMILES())
+                    .add("PaDELHBondDonorCountDescriptor", List.of("nHBDon"))
+                    .add("MLFERDescriptor", List.of("MLFER_L"))
+                    .calculate();
+            Descriptors[0] = res[0][0];
+            Descriptors[1] = res[1][0];
 
-            Padel.SetSMILES(CurMolecule.GetSMILES());
-
-            //nHBDon
-            MD = (IMolecularDescriptor) new PaDELHBondDonorCountDescriptor();
-            DescNames = new ArrayList<>();
-            DescNames.add("nHBDon");
-            double[] res = Padel.CalculateDescriptors(MD, DescNames);
-            Descriptors[0] = res[0];
-            
-            //nHBAcc
-            MD = (IMolecularDescriptor) new MLFERDescriptor();
-            DescNames = new ArrayList<>();
-            DescNames.add("MLFER_L");
-            res = Padel.CalculateDescriptors(MD, DescNames);
-            Descriptors[1] = res[0];
-
-            
             // Autoscaling of descriptors
             for (int i=0; i<DescriptorsSize; i++)
                 Descriptors[i] = (Descriptors[i] - Scaling_a[i]) / Scaling_s[i];

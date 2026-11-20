@@ -11,7 +11,6 @@ import insilico.core.model.InsilicoModelOutput;
 import insilico.core.tools.utils.ModelUtilities;
 import insilico.melting_point.descriptors.EmbeddedDescriptors;
 import insilico.melting_point.runner.nrNetwork;
-import javassist.runtime.Desc;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
